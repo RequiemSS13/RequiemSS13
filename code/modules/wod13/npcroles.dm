@@ -1,14 +1,5 @@
 
 /datum/socialrole/bandit
-	s_tones = list("caucasian3",
-								"latino",
-								"mediterranean",
-								"asian1",
-								"asian2",
-								"arab",
-								"indian",
-								"african1",
-								"african2")
 
 	min_age = 18
 	max_age = 45
@@ -133,12 +124,6 @@
 	)
 
 /datum/socialrole/usualmale
-	s_tones = list(
-		"albino",
-		"caucasian1",
-		"caucasian2",
-		"caucasian3"
-	)
 
 	min_age = 18
 	max_age = 85
@@ -269,10 +254,6 @@
 	)
 
 /datum/socialrole/usualfemale
-	s_tones = list("albino",
-								"caucasian1",
-								"caucasian2",
-								"caucasian3")
 
 	min_age = 18
 	max_age = 85
@@ -398,12 +379,6 @@
 	)
 
 /datum/socialrole/poormale
-	s_tones = list(
-		"albino",
-		"caucasian1",
-		"caucasian2",
-		"caucasian3"
-	)
 
 	min_age = 45
 	max_age = 85
@@ -496,10 +471,6 @@
 											"Dick!")
 
 /datum/socialrole/poorfemale
-	s_tones = list("albino",
-								"caucasian1",
-								"caucasian2",
-								"caucasian3")
 
 	min_age = 45
 	max_age = 85
@@ -599,7 +570,6 @@
 											"Dick!")
 
 /datum/socialrole/richmale
-	s_tones = list("albino")
 
 	min_age = 18
 	max_age = 85
@@ -670,7 +640,6 @@
 											"Someone, call the cops!")
 
 /datum/socialrole/richfemale
-	s_tones = list("albino")
 
 	min_age = 18
 	max_age = 85
@@ -900,10 +869,6 @@
 				beastmaster.bloodpool = min(beastmaster.maxbloodpool, beastmaster.bloodpool+1)
 
 /datum/socialrole/shop
-	s_tones = list("albino",
-								"caucasian1",
-								"caucasian2",
-								"caucasian3")
 
 	min_age = 18
 	max_age = 45
@@ -1032,10 +997,6 @@
 	AssignSocialRole(/datum/socialrole/shop/gummaguts)
 
 /datum/socialrole/police
-	s_tones = list("albino",
-								"caucasian1",
-								"caucasian2",
-								"caucasian3")
 
 	min_age = 18
 	max_age = 45
@@ -1143,12 +1104,6 @@
 						Aggro(H, FALSE)
 
 /datum/socialrole/guard
-	s_tones = list(
-		"albino",
-		"caucasian1",
-		"caucasian2",
-		"caucasian3"
-	)
 
 	min_age = 18
 	max_age = 85
@@ -1274,10 +1229,6 @@
 	staying = TRUE
 
 /datum/socialrole/stripfemale
-	s_tones = list("albino",
-								"caucasian1",
-								"caucasian2",
-								"caucasian3")
 
 	min_age = 18
 	max_age = 30
