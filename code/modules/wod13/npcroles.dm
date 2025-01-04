@@ -718,8 +718,6 @@
 /mob/living/carbon/human/npc/bandit/Initialize()
 	..()
 	if(prob(33))
-		base_body_mod = "f"
-	if(prob(33))
 		my_weapon = new /obj/item/gun/ballistic/automatic/vampire/deagle(src)
 	else
 		if(prob(50))
@@ -735,8 +733,6 @@
 
 /mob/living/carbon/human/npc/walkby/Initialize()
 	..()
-	if(prob(50))
-		base_body_mod = pick("s", "f")
 	AssignSocialRole(pick(/datum/socialrole/usualmale, /datum/socialrole/usualfemale))
 
 /mob/living/carbon/human/npc/hobo
@@ -746,8 +742,6 @@
 
 /mob/living/carbon/human/npc/hobo/Initialize()
 	..()
-	if(prob(33))
-		base_body_mod = "s"
 	AssignSocialRole(pick(/datum/socialrole/poormale, /datum/socialrole/poorfemale))
 
 /mob/living/carbon/human/npc/business
@@ -756,8 +750,6 @@
 
 /mob/living/carbon/human/npc/business/Initialize()
 	..()
-	if(prob(66))
-		base_body_mod = "s"
 	AssignSocialRole(pick(/datum/socialrole/richmale, /datum/socialrole/richfemale))
 
 /mob/living/simple_animal/pet/rat
@@ -953,8 +945,6 @@
 
 /mob/living/carbon/human/npc/shop/Initialize()
 	..()
-	if(prob(66))
-		base_body_mod = "f"
 	AssignSocialRole(/datum/socialrole/shop)
 
 /datum/socialrole/shop/bacotell
@@ -966,8 +956,6 @@
 
 /mob/living/carbon/human/npc/bacotell/Initialize()
 	..()
-	if(prob(66))
-		base_body_mod = "f"
 	AssignSocialRole(/datum/socialrole/shop/bacotell)
 
 /datum/socialrole/shop/bubway
@@ -979,8 +967,6 @@
 
 /mob/living/carbon/human/npc/bubway/Initialize()
 	..()
-	if(prob(66))
-		base_body_mod = "f"
 	AssignSocialRole(/datum/socialrole/shop/bubway)
 
 /datum/socialrole/shop/gummaguts
@@ -992,15 +978,12 @@
 
 /mob/living/carbon/human/npc/gummaguts/Initialize()
 	..()
-	if(prob(66))
-		base_body_mod = "f"
 	AssignSocialRole(/datum/socialrole/shop/gummaguts)
 
 /datum/socialrole/police
 
 	min_age = 18
 	max_age = 45
-	preferedgender = MALE
 	male_names = null
 	surnames = null
 
@@ -1036,6 +1019,51 @@
 										"Keanu Hair",
 										"Oxton",
 										"Volaju")
+	female_hair = list("Ahoge",
+						"Long Bedhead",
+						"Beehive",
+						"Beehive 2",
+						"Bob Hair",
+						"Bob Hair 2",
+						"Bob Hair 3",
+						"Bob Hair 4",
+						"Bobcurl",
+						"Braided",
+						"Braided Front",
+						"Braid (Short)",
+						"Braid (Low)",
+						"Bun Head",
+						"Bun Head 2",
+						"Bun Head 3",
+						"Bun (Large)",
+						"Bun (Tight)",
+						"Double Bun",
+						"Emo",
+						"Emo Fringe",
+						"Feather",
+						"Gentle",
+						"Long Hair 1",
+						"Long Hair 2",
+						"Long Hair 3",
+						"Long Over Eye",
+						"Long Emo",
+						"Long Fringe",
+						"Ponytail",
+						"Ponytail 2",
+						"Ponytail 3",
+						"Ponytail 4",
+						"Ponytail 5",
+						"Ponytail 6",
+						"Ponytail 7",
+						"Ponytail (High)",
+						"Ponytail (Short)",
+						"Ponytail (Long)",
+						"Ponytail (Country)",
+						"Ponytail (Fringe)",
+						"Poofy",
+						"Short Hair Rosa",
+						"Shoulder-length Hair",
+						"Volaju")
 	male_facial = list("Beard (Abraham Lincoln)",
 											"Beard (Chinstrap)",
 											"Beard (Full)",
@@ -1086,8 +1114,6 @@
 
 /mob/living/carbon/human/npc/police/Initialize()
 	..()
-	if(prob(66))
-		base_body_mod = "f"
 	if(prob(66))
 		my_weapon = new /obj/item/gun/ballistic/vampire/revolver(src)
 	else
@@ -1203,8 +1229,6 @@
 
 /mob/living/carbon/human/npc/guard/Initialize()
 	..()
-	if(prob(66))
-		base_body_mod = "f"
 	my_weapon = new /obj/item/gun/ballistic/automatic/vampire/m1911(src)
 	AssignSocialRole(/datum/socialrole/guard)
 
@@ -1250,50 +1274,50 @@
 										"14350e",	//Punk Green
 										"080918")	//Punk Blue
 	female_hair = list("Ahoge",
-										"Long Bedhead",
-										"Beehive",
-										"Beehive 2",
-										"Bob Hair",
-										"Bob Hair 2",
-										"Bob Hair 3",
-										"Bob Hair 4",
-										"Bobcurl",
-										"Braided",
-										"Braided Front",
-										"Braid (Short)",
-										"Braid (Low)",
-										"Bun Head",
-										"Bun Head 2",
-										"Bun Head 3",
-										"Bun (Large)",
-										"Bun (Tight)",
-										"Double Bun",
-										"Emo",
-										"Emo Fringe",
-										"Feather",
-										"Gentle",
-										"Long Hair 1",
-										"Long Hair 2",
-										"Long Hair 3",
-										"Long Over Eye",
-										"Long Emo",
-										"Long Fringe",
-										"Ponytail",
-										"Ponytail 2",
-										"Ponytail 3",
-										"Ponytail 4",
-										"Ponytail 5",
-										"Ponytail 6",
-										"Ponytail 7",
-										"Ponytail (High)",
-										"Ponytail (Short)",
-										"Ponytail (Long)",
-										"Ponytail (Country)",
-										"Ponytail (Fringe)",
-										"Poofy",
-										"Short Hair Rosa",
-										"Shoulder-length Hair",
-										"Volaju")
+						"Long Bedhead",
+						"Beehive",
+						"Beehive 2",
+						"Bob Hair",
+						"Bob Hair 2",
+						"Bob Hair 3",
+						"Bob Hair 4",
+						"Bobcurl",
+						"Braided",
+						"Braided Front",
+						"Braid (Short)",
+						"Braid (Low)",
+						"Bun Head",
+						"Bun Head 2",
+						"Bun Head 3",
+						"Bun (Large)",
+						"Bun (Tight)",
+						"Double Bun",
+						"Emo",
+						"Emo Fringe",
+						"Feather",
+						"Gentle",
+						"Long Hair 1",
+						"Long Hair 2",
+						"Long Hair 3",
+						"Long Over Eye",
+						"Long Emo",
+						"Long Fringe",
+						"Ponytail",
+						"Ponytail 2",
+						"Ponytail 3",
+						"Ponytail 4",
+						"Ponytail 5",
+						"Ponytail 6",
+						"Ponytail 7",
+						"Ponytail (High)",
+						"Ponytail (Short)",
+						"Ponytail (Long)",
+						"Ponytail (Country)",
+						"Ponytail (Fringe)",
+						"Poofy",
+						"Short Hair Rosa",
+						"Shoulder-length Hair",
+						"Volaju")
 
 	shoes = list(/obj/item/clothing/shoes/vampire/heels)
 	uniforms = list(/obj/item/clothing/under/vampire/burlesque)
@@ -1340,7 +1364,6 @@
 
 /mob/living/carbon/human/npc/stripper/Initialize()
 	..()
-	base_body_mod = "s"
 	AssignSocialRole(/datum/socialrole/stripfemale)
 	underwear = "Nude"
 	undershirt = "Nude"
@@ -1356,14 +1379,12 @@
 					drop_all_held_items()
 					ClickOn(P)
 
-/mob/living/carbon/human/npc/incel
+/mob/living/carbon/human/npc/usualmale/incel
 	vampire_faction = "City"
 	staying = TRUE
 
 /mob/living/carbon/human/npc/incel/Initialize()
 	..()
-	if(prob(50))
-		base_body_mod = "f"
 	AssignSocialRole(/datum/socialrole/usualmale)
 
 /datum/socialrole/shop/illegal

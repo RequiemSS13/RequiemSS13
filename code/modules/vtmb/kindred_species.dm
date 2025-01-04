@@ -565,12 +565,9 @@
 	if (!H.clane)
 		return ..()
 
-	//deflate people if they're super rotten
-	if ((H.clane.alt_sprite == "rotten4") && (H.base_body_mod == "f"))
-		H.base_body_mod = ""
 
 	if(H.clane.alt_sprite)
-		H.dna.species.limbs_id = "[H.base_body_mod][H.clane.alt_sprite]"
+		H.dna.species.limbs_id = "[H.clane.alt_sprite]"
 
 	if (H.clane.no_hair)
 		H.hairstyle = "Bald"

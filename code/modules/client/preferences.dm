@@ -403,17 +403,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(gender == PLURAL || gender == NEUTER)
 					dat += "<BR><b>Body Type:</b> <a href='?_src_=prefs;preference=body_type'>[body_type == MALE ? "Male" : "Female"]</a>"
 
-			var/body_m = "Normal"
-			switch(body_model)
-				if(1)
-					body_m = "Slim"
-				if(2)
-					body_m = "Normal"
-				if(3)
-					body_m = "Fat"
-
-			dat += "<BR><b>Shape:</b> <a href='?_src_=prefs;preference=body_model'>[body_m]</a>"
-
 			dat += "<br><b>Biological Age:</b> <a href='?_src_=prefs;preference=age;task=input'>[age]</a>"
 			dat += "<br><b>Actual Age:</b> <a href='?_src_=prefs;preference=total_age;task=input'>[max(age, total_age)]</a>"
 
@@ -2507,16 +2496,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						body_type = FEMALE
 					else
 						body_type = MALE
-				if("body_model")
-					if(slotlocked)
-						return
 
-					if(body_model == 1)
-						body_model = 2
-					else if(body_model == 2)
-						body_model = 3
-					else if(body_model == 3)
-						body_model = 1
 				if("hotkeys")
 					hotkeys = !hotkeys
 					if(hotkeys)
@@ -2920,14 +2900,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		character.body_type = gender
 	else
 		character.body_type = body_type
-
-	switch(body_model)
-		if(1)
-			character.base_body_mod = "s"
-		if(2)
-			character.base_body_mod = ""
-		if(3)
-			character.base_body_mod = "f"
 
 	character.eye_color = eye_color
 	var/obj/item/organ/eyes/organ_eyes = character.getorgan(/obj/item/organ/eyes)

@@ -32,8 +32,6 @@
 		H.istower = TRUE
 	var/obj/item/organ/eyes/night_vision/kiasyd/NV = new()
 	NV.Insert(H, TRUE, FALSE)
-	if(H.base_body_mod == "f")
-		H.base_body_mod = ""
 	H.update_body()
 
 /datum/vampireclane/kiasyd/post_gain(mob/living/carbon/human/H)

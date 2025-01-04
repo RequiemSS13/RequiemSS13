@@ -118,13 +118,6 @@
 				H.hair_color = P.hair_color
 				H.facial_hair_color = P.facial_hair_color
 				H.skin_tone = P.skin_tone
-				switch(P.body_model)
-					if(1)
-						H.base_body_mod = "s"
-					if(2)
-						H.base_body_mod = ""
-					if(3)
-						H.base_body_mod = "f"
 				H.update_hair()
 				H.update_body()
 

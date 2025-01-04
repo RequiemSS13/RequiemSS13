@@ -127,7 +127,6 @@
 				H.unique_body_sprite = "tziarmor"
 				H.skin_tone = ALBINO
 				H.hairstyle = "Bald"
-				H.base_body_mod = ""
 				H.physiology.armor.melee = H.physiology.armor.melee+20
 				H.physiology.armor.bullet = H.physiology.armor.bullet+20
 				H.update_body()
@@ -420,7 +419,6 @@
 				original_eyecolor = H.eye_color
 				original_realname = H.real_name
 				original_age = H.age
-				original_body_mode = H.base_body_mod
 				playsound(get_turf(H), 'code/modules/wod13/sounds/vicissitude.ogg', 100, TRUE, -6)
 				H.Stun(10)
 				H.do_jitter_animation(10)
@@ -436,7 +434,6 @@
 				H.real_name = last_realname
 				H.name = H.real_name
 				H.age = last_age
-				H.base_body_mod = last_body_mode
 				H.update_body()
 				H.update_hair()
 				H.update_body_parts()
@@ -457,7 +454,6 @@
 				original_eyecolor = H.eye_color
 				original_realname = H.real_name
 				original_age = H.age
-				original_body_mode = H.base_body_mod
 				playsound(get_turf(H), 'code/modules/wod13/sounds/vicissitude.ogg', 100, TRUE, -6)
 				H.Stun(10)
 				H.do_jitter_animation(10)
@@ -474,7 +470,6 @@
 				H.real_name = ZV.real_name
 				H.name = H.real_name
 				H.age = ZV.age
-				H.base_body_mod = ZV.base_body_mod
 				H.update_body()
 				H.update_hair()
 				H.update_body_parts()
@@ -489,7 +484,6 @@
 				last_eyecolor = H.eye_color
 				last_realname = H.real_name
 				last_age = H.age
-				last_body_mode = H.base_body_mod
 				furry_changed = TRUE
 			else
 				return
@@ -516,7 +510,6 @@
 		H.real_name = original_realname
 		H.name = H.real_name
 		H.age = original_age
-		H.base_body_mod = original_body_mode
 		H.update_body()
 		H.update_hair()
 		H.update_body_parts()
