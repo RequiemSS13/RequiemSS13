@@ -116,7 +116,6 @@
 	var/last_raid = 0
 	var/killed_count = 0
 
-	var/base_body_mod = ""
 	var/icon/body_sprite
 
 	bloodquality = 2

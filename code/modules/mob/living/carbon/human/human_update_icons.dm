@@ -58,23 +58,13 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_body()
 	if(dna.species.id == "mannequin")
-		base_body_mod = ""
-		dna.species.limbs_id = "[base_body_mod]mannequin"
+		dna.species.limbs_id = "mannequin"
 	else
-		dna.species.limbs_id = "[base_body_mod]human"
+		dna.species.limbs_id = "human"
 
 	if(unique_body_sprite)
-		dna.species.limbs_id = "[base_body_mod][unique_body_sprite]"
-
-	if(base_body_mod == "s")
-		if(gender == FEMALE)
-			body_sprite = 'code/modules/wod13/worn_slim_f.dmi'
-		else
-			body_sprite = 'code/modules/wod13/worn_slim_m.dmi'
-	if(base_body_mod == "f")
-		body_sprite = 'code/modules/wod13/worn_fat.dmi'
-	if(base_body_mod == "")
-		body_sprite = null
+		dna.species.limbs_id = "[unique_body_sprite]"
+	body_sprite = null
 	for(var/obj/item/I in GetAllContents())
 		if(I)
 			I.update_bodyfied(src)
@@ -673,8 +663,6 @@ generate/load female uniform sprites matching all previously decided variables
 		// lipstick
 		if(lip_style && (LIPS in dna.species.species_traits))
 			var/mutable_appearance/lip_overlay = mutable_appearance('icons/mob/human_face.dmi', "lips_[lip_style]", -BODY_LAYER)
-			if(base_body_mod == "s")
-				lip_overlay = mutable_appearance('icons/mob/human_face_f.dmi', "lips_[lip_style]", -BODY_LAYER)
 			lip_overlay.color = lip_color
 			if(OFFSET_FACE in dna.species.offset_features)
 				lip_overlay.pixel_x += dna.species.offset_features[OFFSET_FACE][1]
@@ -687,12 +675,8 @@ generate/load female uniform sprites matching all previously decided variables
 			var/mutable_appearance/eye_overlay
 			if(!E)
 				eye_overlay = mutable_appearance('icons/mob/human_face.dmi', "eyes_missing", -BODY_LAYER)
-				if(base_body_mod == "s")
-					eye_overlay = mutable_appearance('icons/mob/human_face_f.dmi', "eyes_missing", -BODY_LAYER)
 			else
 				eye_overlay = mutable_appearance('icons/mob/human_face.dmi', E.eye_icon_state, -BODY_LAYER)
-				if(base_body_mod == "s")
-					eye_overlay = mutable_appearance('icons/mob/human_face_f.dmi', E.eye_icon_state, -BODY_LAYER)
 			if((EYECOLOR in dna.species.species_traits) && E)
 				eye_overlay.color = "#" + eye_color
 			if(OFFSET_FACE in dna.species.offset_features)
