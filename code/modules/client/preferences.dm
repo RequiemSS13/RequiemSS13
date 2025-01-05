@@ -213,7 +213,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/lockpicking = 0
 	var/athletics = 0
 
-	info_known = INFO_KNOWN_UNKNOWN
+	var/info_known = INFO_KNOWN_UNKNOWN
 
 	var/friend = FALSE
 	var/enemy = FALSE
