@@ -3465,6 +3465,8 @@
 #include "code\modules\wod13\structures\decor.dm"
 #include "code\modules\wod13\structures\doorcode.dm"
 #include "code\modules\wod13\structures\elevator.dm"
+#include "code\modules\wod13\structures\equipment_vendor.dm"
+#include "code\modules\wod13\structures\food_cart.dm"
 #include "code\modules\wod13\structures\fusebox.dm"
 #include "code\modules\wod13\structures\generator.dm"
 #include "code\modules\wod13\structures\letters.dm"

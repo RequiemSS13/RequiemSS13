@@ -11,6 +11,9 @@
 	var/weeded = 0
 	var/health = 3
 
+/obj/structure/weedshit/buyable
+	anchored = FALSE
+
 /obj/structure/weedshit/examine(mob/user)
 	. = ..()
 	if(!wet)
@@ -27,9 +30,22 @@
 	if(weeded == 5)
 		weeded = 0
 		health = 3
+		to_chat(user, "<span class='notice'>You rip the rotten weed out of [src].</span>")
 	if(weeded == 4)
 		weeded = 1
+		to_chat(user, "<span class='notice'>You pull the grown weed out of [src].</span>")
 		new /obj/item/food/vampire/weed(get_turf(user))
+
+/obj/structure/weedshit/AltClick(mob/user)
+	if(do_after(user, 15))
+		if(anchored)
+			to_chat(user, "<span class='notice'>You unsecure the [src] from the ground.</span>")
+			anchored = FALSE
+			return
+		else
+			to_chat(user, "<span class='notice'>You secure the [src] to the ground.</span>")
+			anchored = TRUE
+			return
 
 /obj/structure/weedshit/attackby(obj/item/W, mob/living/user, params)
 	if(istype(W, /obj/item/bailer))
