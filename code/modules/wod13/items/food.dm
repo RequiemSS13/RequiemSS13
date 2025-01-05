@@ -200,7 +200,6 @@
 	isGlass = FALSE
 	list_reagents = list(/datum/reagent/consumable/space_cola = 100)
 	foodtype = SUGAR
-	age_restricted = FALSE
 
 /obj/item/reagent_containers/food/drinks/bottle/vampirecola/blue
 	desc = "Pep Cola. Put some pep in your step"
@@ -228,7 +227,6 @@
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	isGlass = FALSE
 	list_reagents = list(/datum/reagent/water = 100)
-	age_restricted = FALSE
 
 /obj/item/reagent_containers/food/drinks/soda_cans/vampirecola
 	name = "cola"

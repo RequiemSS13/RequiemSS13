@@ -181,7 +181,6 @@
 	icon_type = "cigarette"
 	spawn_type = /obj/item/clothing/mask/cigarette/space_cigarette
 	custom_price = PAYCHECK_MEDIUM
-	age_restricted = TRUE
 	///for cigarette overlay
 	var/candy = FALSE
 	/// Does this cigarette packet come with a coupon attached?
@@ -322,7 +321,6 @@
 	icon_type = "candy cigarette"
 	spawn_type = /obj/item/clothing/mask/cigarette/candy
 	candy = TRUE
-	age_restricted = FALSE
 
 /obj/item/storage/fancy/cigarettes/cigpack_candy/Initialize()
 	. = ..()
