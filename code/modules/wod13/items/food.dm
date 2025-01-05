@@ -541,7 +541,6 @@
 		new /datum/data/mining_equipment("LSD pill",		/obj/item/reagent_containers/pill/lsd,	10),
 		new /datum/data/mining_equipment("cannabis puff",		/obj/item/clothing/mask/cigarette/rollie/cannabis,	40),
 		new /datum/data/mining_equipment("cannabis package",		/obj/item/weedpack,	175),
-		new /datum/data/mining_equipment("cannabis leaf",	/obj/item/food/vampire/weed,	60),
 		new /datum/data/mining_equipment("cannabis seed",	/obj/item/weedseed,		10),
 		new /datum/data/mining_equipment("bong",	/obj/item/bong,		50),
 		new /datum/data/mining_equipment("snub-nose revolver",	/obj/item/gun/ballistic/vampire/revolver/snub,	100),
