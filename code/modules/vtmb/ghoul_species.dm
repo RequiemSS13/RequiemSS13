@@ -78,7 +78,7 @@
 			if(1)
 				masquerade_level = " have almost ruined the Masquerade."
 			if(0)
-				masquerade_level = "am a walking violation of the Masquerade, and a danger to our society."
+				masquerade_level = " am a walking violation of the Masquerade, and a danger to our society."
 		dat += "The Invictus thinks I[masquerade_level]<BR>"
 //		var/humanity = "I'm out of my mind."
 //		switch(host.humanity)
