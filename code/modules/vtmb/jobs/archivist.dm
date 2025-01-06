@@ -1,7 +1,7 @@
 
 /datum/job/vamp/archivist
 	title = "Chantry Archivist"
-	department_head = list("Prince")
+	department_head = list("Seneschal")
 	faction = "Vampire"
 	total_positions = 4
 	spawn_positions = 4

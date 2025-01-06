@@ -1,12 +1,12 @@
 /datum/job/vamp/sheriff
 	title = "Sheriff"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
-	department_head = list("Prince")
+	department_head = list("Seneschal")
 	head_announce = list(RADIO_CHANNEL_SECURITY)
 	faction = "Vampire"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the prince"
+	supervisors = "the Seneschal"
 	selection_color = "#bd3327"
 	req_admin_notify = 1
 	minimal_player_age = 14
@@ -39,9 +39,9 @@
 	allowed_bloodlines = list("True Brujah", "Brujah", "Tremere", "Ventrue", "Nosferatu", "Gangrel", "Toreador", "Malkavian", "Banu Haqim", "Giovanni", "Ministry", "Lasombra")
 
 	my_contact_is_important = TRUE
-	known_contacts = list("Prince","Seneschal","Dealer")
+	known_contacts = list("Seneschal","Page","Dealer")
 
-	v_duty = "Protect the Prince and the Masquerade. You are their sword."
+	v_duty = "Enforce the Traditions and keep the covenants in line. Obey the Seneschal, right hand of the Prince."
 	experience_addition = 20
 
 /datum/outfit/job/sheriff

@@ -24,7 +24,7 @@
 	experience_addition = 20
 	minimal_masquerade = 2
 	my_contact_is_important = TRUE
-	known_contacts = list("Prince", "Baron", "Sheriff")
+	known_contacts = list("Seneschal", "Baron", "Sheriff")
 
 
 

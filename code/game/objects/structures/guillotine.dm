@@ -153,7 +153,7 @@
 						else if(M.vampire_faction)
 							loved = FALSE
 							to_chat(M, "<span class='userdanger'><b>You feel your interests being ignored</b></span>")
-					if("[H.mind.assigned_role]" == "Prince" || "[H.mind.assigned_role]" == "Sheriff" || "[H.mind.assigned_role]" == "Seneschal" || "[H.mind.assigned_role]" == "Chantry Regent" || "[H.mind.assigned_role]" == "Baron" || "[H.mind.assigned_role]" == "Dealer")
+					if("[H.mind.assigned_role]" == "Seneschal" || "[H.mind.assigned_role]" == "Sheriff" || "[H.mind.assigned_role]" == "Page" || "[H.mind.assigned_role]" == "Chantry Regent" || "[H.mind.assigned_role]" == "Baron" || "[H.mind.assigned_role]" == "Dealer")
 						if(M.vampire_faction == "Sabbat")
 							to_chat(M, "<span class='userhelp'><b>Authority increased</b></span>")
 							loved = TRUE

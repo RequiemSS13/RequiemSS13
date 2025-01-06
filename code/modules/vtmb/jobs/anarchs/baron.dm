@@ -21,7 +21,7 @@
 
 	my_contact_is_important = TRUE
 	known_contacts = list(
-		"Prince",
+		"Seneschal",
 		"Dealer"
 	)
 

@@ -24,7 +24,7 @@
 	experience_addition = 20
 	minimal_masquerade = 5
 	my_contact_is_important = TRUE
-	known_contacts = list("Prince")
+	known_contacts = list("Seneschal")
 
 /datum/outfit/job/malkav
 	name = "Primogen Malkavian"
@@ -74,7 +74,7 @@
 	experience_addition = 20
 	minimal_masquerade = 5
 	my_contact_is_important = TRUE
-	known_contacts = list("Prince")
+	known_contacts = list("Seneschal")
 
 /datum/outfit/job/nosferatu
 	name = "Primogen Nosferatu"
@@ -121,7 +121,7 @@
 	experience_addition = 20
 	minimal_masquerade = 5
 	my_contact_is_important = TRUE
-	known_contacts = list("Prince")
+	known_contacts = list("Seneschal")
 
 /datum/outfit/job/ventrue
 	name = "Primogen Ventrue"
@@ -167,7 +167,7 @@
 	experience_addition = 20
 	minimal_masquerade = 5
 	my_contact_is_important = TRUE
-	known_contacts = list("Prince")
+	known_contacts = list("Seneschal")
 
 /datum/outfit/job/toreador
 	name = "Primogen Toreador"
@@ -215,7 +215,7 @@
 	experience_addition = 20
 	minimal_masquerade = 5
 	my_contact_is_important = TRUE
-	known_contacts = list("Prince")
+	known_contacts = list("Seneschal")
 
 /datum/outfit/job/brujah
 	name = "Primogen Brujah"

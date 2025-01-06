@@ -171,7 +171,7 @@ GLOBAL_LIST_EMPTY(vampire_computers)
 					news.text = message
 					message_admins("[key_name(usr)] sent an announcement:\"- [message]\"")
 					if(!C.main)
-						C.say("New announcement from Prince!")
+						C.say("New announcement!")
 						C.icon_state = "computermessage"
 					else
 						C.say("Announcement sent.")

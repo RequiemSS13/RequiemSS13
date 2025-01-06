@@ -21,7 +21,7 @@
 	color = "#bd3327"
 
 /obj/item/vamp/keys/prince
-	name = "Prince's keys"
+	name = "Seneschal's keys"
 	accesslocks = list(
 		"camarilla",
 		"prince",

@@ -84,19 +84,19 @@
 			for(var/datum/antagonist/A in host.mind.antag_datums)
 				if(A.objectives)
 					dat += "[printobjectives(A.objectives)]<BR>"
-		var/masquerade_level = " followed the Masquerade Tradition perfectly."
+		var/masquerade_level = " follow the First Tradition perfectly."
 		switch(host.masquerade)
 			if(4)
-				masquerade_level = " broke the Masquerade rule once."
+				masquerade_level = " broke the First Tradition only once."
 			if(3)
-				masquerade_level = " made a couple of Masquerade breaches."
+				masquerade_level = " have breached the Masquerade a few times."
 			if(2)
-				masquerade_level = " provoked a moderate Masquerade breach."
+				masquerade_level = " seriously jeopardize the Masquerade."
 			if(1)
-				masquerade_level = " almost ruined the Masquerade."
+				masquerade_level = " have almost ruined the Masquerade."
 			if(0)
-				masquerade_level = "'m danger to the Masquerade and my own kind."
-		dat += "Camarilla thinks I[masquerade_level]<BR>"
+				masquerade_level = " am a walking violation of the Masquerade, and a danger to our society."
+		dat += "The Invictus thinks I[masquerade_level]<BR>"
 		var/humanity = "I'm out of my mind."
 		var/enlight = FALSE
 		if(host.clane)
@@ -190,7 +190,7 @@
 					if(host.Myself.Lover.lover_text)
 						dat += "[host.Myself.Lover.lover_text]<BR>"
 		var/obj/keypad/armory/K = find_keypad(/obj/keypad/armory)
-		if(K && (host.mind.assigned_role == "Prince" || host.mind.assigned_role == "Sheriff"))
+		if(K && (host.mind.assigned_role == "Seneschal" || host.mind.assigned_role == "Sheriff"))
 			dat += "<b>The pincode for the armory keypad is: [K.pincode]</b><BR>"
 		var/obj/keypad/bankvault/V = find_keypad(/obj/keypad/bankvault)
 		if(V && (host.mind.assigned_role == "Capo"))

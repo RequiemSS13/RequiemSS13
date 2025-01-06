@@ -1,13 +1,13 @@
 
 /datum/job/vamp/clerk
-	title = "Seneschal"
+	title = "Page"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
-	department_head = list("Prince")
+	department_head = list("Seneschal")
 	head_announce = list(RADIO_CHANNEL_SUPPLY, RADIO_CHANNEL_SERVICE)
 	faction = "Vampire"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the prince"
+	supervisors = "the Seneschal"
 	selection_color = "#bd3327"
 	req_admin_notify = 1
 	minimal_player_age = 10
@@ -43,15 +43,15 @@
 	minimal_masquerade = 5
 
 	my_contact_is_important = TRUE
-	known_contacts = list("Prince","Sheriff","Tremere Regent","Dealer","Primogens")
+	known_contacts = list("Seneschal","Sheriff","Tremere Regent","Dealer","Primogens")
 
-	v_duty = "You are the right hand man or woman of the most powerful vampire in the city. The Camarilla trusts you to run the city, even in their stead."
+	v_duty = "You are the right hand man or woman of the most powerful vampire in the city. The Camarilla trusts you to run the city, even in their stead." //this is no longer accurate
 	duty = "You are the right hand man or woman of the most powerful vampire in the city. The Camarilla trusts you to run the city, even in their stead."
 	experience_addition = 15
 	allowed_bloodlines = list("Daughters of Cacophony", "True Brujah", "Brujah", "Tremere", "Ventrue", "Nosferatu", "Gangrel", "Toreador", "Malkavian", "Banu Haqim", "Giovanni", "Ministry", "Lasombra", "Gargoyle", "Kiasyd")
 
 /datum/outfit/job/clerk
-	name = "Seneschal"
+	name = "Page"
 	jobtype = /datum/job/vamp/clerk
 
 	id = /obj/item/card/id/clerk
@@ -70,5 +70,5 @@
 		shoes = /obj/item/clothing/shoes/vampire/heels
 
 /obj/effect/landmark/start/clerk
-	name = "Seneschal"
+	name = "Page"
 	icon_state = "Clerk"
