@@ -16,6 +16,8 @@
 	name = "movable chemical lab"
 	desc = "Not an RV, but it moves..."
 	anchored = FALSE
+	var/health = 13
+
 /obj/structure/methlab/movable/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>Alt-click to secure the [src] to the ground.</span>"
