@@ -1000,6 +1000,23 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 			stol += I.amount
 	return stol >= amount
 
+/datum/objective/artefact
+	name = "Gather an artefact"
+
+/datum/objective/artefact/update_explanation_text()
+	..()
+	explanation_text = "Become the owner of an artefact."
+
+/datum/objective/artefact/check_completion()
+	var/list/datum/mind/owners = get_owners()
+	for(var/datum/mind/M in owners)
+		if(!isliving(M.current))
+			continue
+		var/list/all_items = M.current.GetAllContents()
+		for(var/obj/item/vtm_artifact/I in all_items)
+			return TRUE
+	return FALSE
+
 /datum/objective/blood
 	name = "get blood of"
 	var/target_name
@@ -1020,15 +1037,15 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 				tru = TRUE
 	return tru
 
-/datum/objective/protect_niga
+/datum/objective/protect_person
 	name = "protect the"
 	var/mob/living/carbon/human/mine_target
 
-/datum/objective/protect_niga/update_explanation_text()
+/datum/objective/protect_person/update_explanation_text()
 	..()
 	explanation_text = "Prevent [mine_target] from dying."
 
-/datum/objective/protect_niga/check_completion()
+/datum/objective/protect_person/check_completion()
 	return !target || !considered_alive(target)
 
 /datum/objective/become_member
