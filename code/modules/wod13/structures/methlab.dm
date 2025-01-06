@@ -16,9 +16,22 @@
 	name = "movable chemical lab"
 	desc = "Not an RV, but it moves..."
 	anchored = FALSE
+	var/health = 13
+
 /obj/structure/methlab/movable/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>Alt-click to secure the [src] to the ground.</span>"
+	if(health == 13)
+		. += "<span class='notice'>[src] is in good condition.</span>"
+	else if(health > 10)
+		. += "<span class='notice'>[src] is lightly damaged.</span>"
+	else if(health > 6)
+		. += "<span class='warning'>[src] has sustained some damage.</span>"
+	else if(health > 3)
+		. += "<span class='warning'>[src] is close to breaking!</span>"
+	else
+		. += "<span class='warning'>[src] is about to fall apart!</span>"
+
 /obj/structure/methlab/AltClick(mob/user)
 	if(do_after(user, 15))
 		if(anchored)
@@ -29,6 +42,32 @@
 			to_chat(user, "<span class='notice'>You secure the [src] to the ground.</span>")
 			anchored = TRUE
 			return
+
+
+/obj/structure/methlab/movable/attackby(obj/item/used_item, mob/user, params)
+	if(..(used_item, user, params))
+		if(health <= 0)
+			to_chat(user, "<span class='warning'>The [src] is too damaged to use!</span>")
+			return
+		return TRUE
+	if(added_ephed == 3 && added_iod == 2 && added_gas == TRUE)
+		playsound(src, 'code/modules/wod13/sounds/methcook.ogg', 50, TRUE)
+		spawn(3 SECONDS)
+			health -= 1
+			if(health <= 10)
+				if(health > 6)
+					if(prob(10))
+						explosion(loc,0,1,3,4)
+				else if(health > 3)
+					if(prob(20))
+						explosion(loc,0,1,3,4)
+				else if(health > 1)
+					if(prob(30))
+						explosion(loc,0,1,3,4)
+				else
+					explosion(loc,0,1,3,4)
+	return
+
 
 /obj/structure/methlab/attackby(obj/item/used_item, mob/user, params)
 	if(istype(used_item, /obj/item/reagent_containers/pill/ephedrine))
@@ -74,7 +113,7 @@
 				to_chat(user, "Something may be going wrong, or may not...")
 	if(added_ephed == 3 && added_iod == 2 && added_gas == TRUE)
 		playsound(src, 'code/modules/wod13/sounds/methcook.ogg', 50, TRUE)
-		spawn(30)
+		spawn(3 SECONDS)
 			playsound(src, 'code/modules/wod13/sounds/methcook.ogg', 100, TRUE)
 			if(troll_explode)
 				explosion(loc,0,1,3,4)
