@@ -515,6 +515,11 @@ GLOBAL_LIST_EMPTY(p25_radios)
 	if(!ismob(speaker))
 		return NONE
 
+	var/mob/living/living_mob = speaker
+	if(istype(living_mob))
+		if(living_mob.stat > CONSCIOUS)
+			return NONE
+
 	if(!can_transmit(speaker))
 		return NONE
 
@@ -526,9 +531,8 @@ GLOBAL_LIST_EMPTY(p25_radios)
 		return ITALICS | REDUCE_RANGE
 
 	if(isliving(speaker))
-		var/mob/living/L = speaker
-		if(L.get_item_by_slot(ITEM_SLOT_BELT) == src || L.get_item_by_slot(ITEM_SLOT_EARS) == src || L.get_active_held_item() == src || L.get_inactive_held_item() == src)
-			L.visible_message("<span class='notice'>[L] talks into the [src].</span>", "<span class='notice'>You talk into the [src].</span>")
+		if(living_mob.get_item_by_slot(ITEM_SLOT_BELT) == src || living_mob.get_item_by_slot(ITEM_SLOT_EARS) == src || living_mob.get_active_held_item() == src || living_mob.get_inactive_held_item() == src)
+			living_mob.visible_message("<span class='notice'>[living_mob] talks into the [src].</span>", "<span class='notice'>You talk into the [src].</span>")
 		else
 			return FALSE
 
