@@ -5,7 +5,7 @@
 	faction = "Vampire"
 	total_positions = 4
 	spawn_positions = 4
-	supervisors = "the Camarilla or the Anarchs"
+	supervisors = "your sense of medical ethics."
 	selection_color = "#e3e3e3"
 	exp_type_department = EXP_TYPE_SERVICES
 

@@ -2,7 +2,7 @@
 /datum/job/vamp/agent
 	title = "Scourge"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
-	department_head = list("Prince")
+	department_head = list("Seneschal")
 	faction = "Vampire"
 	total_positions = 7
 	spawn_positions = 7
@@ -24,7 +24,7 @@
 
 	display_order = JOB_DISPLAY_ORDER_AGENT
 	bounty_types = CIV_JOB_SEC
-	known_contacts = list("Prince")
+	known_contacts = list("Seneschal")
 
 	v_duty = "You are the Prince's enforcer. You report to the sheriff and uphold the Traditions."
 	minimal_masquerade = 4

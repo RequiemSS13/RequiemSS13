@@ -634,7 +634,7 @@ Dancer
 	if(iswerewolf(quirk_holder) || isgarou(quirk_holder))
 		return
 	if(isturf(quirk_holder.loc))
-		SSbloodhunt.announce_hunted(quirk_holder, "Camarilla Wanted List")
+		SSbloodhunt.announce_hunted(quirk_holder, "Per the Prince's orders.")
 /*
 /datum/quirk/diablerist
 	name = "Black Secret"

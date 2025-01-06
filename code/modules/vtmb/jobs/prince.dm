@@ -1,11 +1,11 @@
 /datum/job/vamp/prince
-	title = "Prince"
+	title = "Seneschal"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
 	department_head = list("Justicar")
 	faction = "Vampire"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Camarilla and the Traditions"
+	supervisors = "the Prince of the city."
 	selection_color = "#bd3327"
 	req_admin_notify = 1
 	minimal_player_age = 14
@@ -32,22 +32,22 @@
 	my_contact_is_important = TRUE
 	known_contacts = list(
 		"Sheriff",
-		"Seneschal",
+		"Page",
 		"Dealer",
 		"Tremere Regent",
 		"Primogens",
 		"Baron"
 	)
 
-	v_duty = "You are the top dog of this city. You hold Praxis over San Francisco, and your word is law. Make sure the Masquerade is upheld, and your status is respected."
+	v_duty = "You are the Seneschal, the right hand of the Prince. Long Beach is your duty and sacred charge. Make sure the Traditions are upheld, and your status is respected."
 	experience_addition = 25
 
 /datum/job/vamp/prince/announce(mob/living/carbon/human/H)
 	..()
-	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, PROC_REF(minor_announce), "Prince [H.real_name] is in the city!"))
+	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, PROC_REF(minor_announce), "Seneschal [H.real_name] is in the city!"))
 
 /datum/outfit/job/prince
-	name = "Prince"
+	name = "Seneschal"
 	jobtype = /datum/job/vamp/prince
 
 	ears = /obj/item/p25radio
@@ -77,5 +77,5 @@
 		shoes = /obj/item/clothing/shoes/vampire/heels
 
 /obj/effect/landmark/start/prince
-	name = "Prince"
-	icon_state = "Prince"
+	name = "Seneschal"
+	icon_state = "Seneschal"

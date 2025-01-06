@@ -65,7 +65,7 @@
 	..()
 
 /datum/phonecontact/prince
-	name = "Prince"
+	name = "Seneschal"
 
 /datum/phonecontact/prince/check_global_contacts()
 	if(number != GLOB.princenumber && name_check != GLOB.princename)
@@ -85,7 +85,7 @@
 	..()
 
 /datum/phonecontact/clerk
-	name = "Seneschal"
+	name = "Page"
 
 /datum/phonecontact/clerk/check_global_contacts()
 	if(number != GLOB.clerknumber && name_check != GLOB.clerkname)

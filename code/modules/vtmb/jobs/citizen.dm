@@ -20,7 +20,7 @@
 
 	allowed_species = list("Vampire", "Ghoul", "Human", "Werewolf")
 
-	v_duty = "Follow the traditions of the Camarilla. Obey the Prince and their authority. The city belongs to him. Aligning yourself with your clan members would be of benefit."
+	v_duty = "Follow the traditions of the All-Night Society. Obey the Prince, his Seneschal, and their authority. Aligning yourself with a covenant might benefit you."
 	duty = "Obey the authorities... Or don't. You are up late tonight for one reason or another."
 	minimal_masquerade = 0
 	allowed_bloodlines = list("True Brujah", "Daughters of Cacophony", "Salubri", "Baali", "Brujah", "Tremere", "Ventrue", "Nosferatu", "Gangrel", "Toreador", "Malkavian", "Banu Haqim", "Giovanni", "Ministry", "Tzimisce", "Lasombra", "Caitiff", "Old Clan Tzimisce", "Kiasyd", "Cappadocian")

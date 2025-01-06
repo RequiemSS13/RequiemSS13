@@ -1,7 +1,7 @@
 
 /datum/job/vamp/regent
 	title = "Chantry Regent"
-	department_head = list("Prince")
+	department_head = list("Seneschal")
 	faction = "Vampire"
 	total_positions = 1
 	spawn_positions = 1
@@ -24,7 +24,7 @@
 	allowed_species = list("Vampire")
 	allowed_bloodlines = list("Tremere")
 	experience_addition = 20
-	known_contacts = list("Prince")
+	known_contacts = list("Seneschal")
 
 /datum/outfit/job/regent
 	name = "Chantry Regent"
