@@ -8,7 +8,7 @@
 	anchored = TRUE
 	density = TRUE
 	var/wet = FALSE
-	var/weeded = 0
+	var/growth_stage = 0
 	var/health = 3
 
 /obj/structure/weedshit/buyable
@@ -18,7 +18,7 @@
 	. = ..()
 	if(!wet)
 		. += "<span class='warning'>[src] is dry!</span>"
-	if(weeded == 5)
+	if(growth_stage == 5)
 		. += "<span class='warning'>The crop is dead!</span>"
 	else
 		if(health <= 2)
@@ -27,14 +27,27 @@
 
 /obj/structure/weedshit/attack_hand(mob/user)
 	. = ..()
-	if(weeded == 5)
-		weeded = 0
+	if(growth_stage == 5)
+		growth_stage = 0
 		health = 3
 		to_chat(user, "<span class='notice'>You rip the rotten weed out of [src].</span>")
-	if(weeded == 4)
-		weeded = 1
+	if(growth_stage == 4)
+		growth_stage = 1
 		to_chat(user, "<span class='notice'>You pull the grown weed out of [src].</span>")
-		new /obj/item/food/vampire/weed(get_turf(user))
+				var/mob/living/carbon/human/H = user
+		var/amount
+		switch(storyteller_roll(H.get_total_mentality(), 6, TRUE))
+			if(3 to INFINITY)
+				amount = 4
+			if(2)
+				amount = 3
+			if(1)
+				amount = 2
+			else
+				amount = 1
+		for(var/i = 1 to amount)
+			new /obj/item/food/vampire/weed(get_turf(user))
+	update_weed_icon()
 
 /obj/structure/weedshit/AltClick(mob/user)
 	if(do_after(user, 15))
@@ -58,9 +71,9 @@
 		else
 			to_chat(user, "<span class='warning'>[W] is empty!</span>")
 	if(istype(W, /obj/item/weedseed))
-		if(weeded == 0)
+		if(growth_stage == 0)
 			health = 3
-			weeded = 1
+			growth_stage = 1
 			qdel(W)
 	update_weed_icon()
 	return
@@ -74,7 +87,7 @@
 	GLOB.weed_list -= src
 
 /obj/structure/weedshit/proc/update_weed_icon()
-	icon_state = "soil[wet ? "" : "_dry"][weeded]"
+	icon_state = "soil[wet ? "" : "_dry"][growth_stage]"
 
 
 /obj/item/weedseed
