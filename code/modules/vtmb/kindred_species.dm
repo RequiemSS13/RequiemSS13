@@ -371,7 +371,7 @@
 						to_chat(H, "<span class='notice'>[BLOODBONDED.name] doesn't respond to your Vitae.</span>")
 						return
 
-					if((BLOODBONDED.timeofdeath + 5 MINUTES) > world.time)
+					if((BLOODBONDED.timeofdeath + 20 MINUTES) > world.time)
 						if (BLOODBONDED.auspice?.level) //here be Abominations
 							if (BLOODBONDED.auspice.force_abomination)
 								to_chat(H, "<span class='danger'>Something terrible is happening.</span>")
@@ -399,31 +399,58 @@
 						log_game("[key_name(H)] has Embraced [key_name(BLOODBONDED)].")
 						message_admins("[ADMIN_LOOKUPFLW(H)] has Embraced [ADMIN_LOOKUPFLW(BLOODBONDED)].")
 						giving = FALSE
+						var/save_data_v = FALSE
 						if(BLOODBONDED.revive(full_heal = TRUE, admin_revive = TRUE))
 							BLOODBONDED.grab_ghost(force = TRUE)
 							to_chat(BLOODBONDED, "<span class='userdanger'>You rise with a start, you're alive! Or not... You feel your soul going somewhere, as you realize you are embraced by a vampire...</span>")
+							var/response_v = input(BLOODBONDED, "Do you wish to keep being a vampire on your save slot?(Yes will be a permanent choice and you can't go back!)") in list("Yes", "No")
+							if(response_v == "Yes")
+								save_data_v = TRUE
+							else
+								save_data_v = FALSE
 						BLOODBONDED.roundstart_vampire = FALSE
 						BLOODBONDED.set_species(/datum/species/kindred)
-						BLOODBONDED.generation = H.generation+1
-						if(H.generation < 13)
+						BLOODBONDED.clane = null
+						BLOODBONDED.generation = 13
+						BLOODBONDED.update_body()
+						BLOODBONDED.clane = new H.clane.type()
+						BLOODBONDED.clane.on_gain(BLOODBONDED)
+						BLOODBONDED.clane.post_gain(BLOODBONDED)
+						if(BLOODBONDED.clane.alt_sprite && !BLOODBONDED.clane.alt_sprite_greyscale)
+							BLOODBONDED.skin_tone = ALBINO
 							BLOODBONDED.update_body()
-							BLOODBONDED.clane = new H.clane.type()
-							BLOODBONDED.clane.on_gain(BLOODBONDED)
-							if(BLOODBONDED.clane.alt_sprite && !BLOODBONDED.clane.alt_sprite_greyscale)
-								BLOODBONDED.skin_tone = ALBINO
-								BLOODBONDED.update_body()
-							//Gives the Childe the Sire's first three Disciplines
-							var/list/disciplines_to_give = list()
-							for (var/i in 1 to min(3, H.client.prefs.discipline_types.len))
-								disciplines_to_give += H.client.prefs.discipline_types[i]
-							BLOODBONDED.create_disciplines(FALSE, disciplines_to_give)
-							BLOODBONDED.maxbloodpool = 10+((13-min(13, BLOODBONDED.generation))*3)
-							BLOODBONDED.clane.enlightenment = H.clane.enlightenment
-							if(BLOODBONDED.generation < 13)
-								BLOODBONDED.maxHealth = round((initial(BLOODBONDED.maxHealth)-initial(BLOODBONDED.maxHealth)/4)+(initial(BLOODBONDED.maxHealth)/4)*(BLOODBONDED.physique+13-BLOODBONDED.generation))
-								BLOODBONDED.health = round((initial(BLOODBONDED.maxHealth)-initial(BLOODBONDED.maxHealth)/4)+(initial(BLOODBONDED.maxHealth)/4)*(BLOODBONDED.physique+13-BLOODBONDED.generation))
-						else
-							BLOODBONDED.clane = new /datum/vampireclane/caitiff()
+						//Gives the Childe the Sire's first three Disciplines
+						var/list/disciplines_to_give = list()
+						for (var/i in 1 to min(3, H.client.prefs.discipline_types.len))
+							disciplines_to_give += H.client.prefs.discipline_types[i]
+						BLOODBONDED.create_disciplines(FALSE, disciplines_to_give)
+						BLOODBONDED.maxbloodpool = 10
+						BLOODBONDED.clane.enlightenment = H.clane.enlightenment
+						if (iskindred(BLOODBONDED) && save_data_v)
+							var/datum/preferences/BLOODBONDED_prefs_v = BLOODBONDED.client.prefs
+							BLOODBONDED_prefs_v.pref_species.id = "kindred"
+							BLOODBONDED_prefs_v.pref_species.name = "Vampire"
+							BLOODBONDED_prefs_v.clane = BLOODBONDED.clane
+							BLOODBONDED_prefs_v.generation = 13
+							BLOODBONDED_prefs_v.clane.enlightenment = H.clane.enlightenment
+
+
+							//Rarely the new mid round vampires get the 3 brujah skil(it is default)
+							//This will remove if it happens
+							if(BLOODBONDED_prefs_v.discipline_types.len == 3)
+								for (var/i in 1 to 3)
+									var/removing_discipline = BLOODBONDED_prefs_v.discipline_types[1]
+									if (removing_discipline)
+										var/index = BLOODBONDED_prefs_v.discipline_types.Find(removing_discipline)
+										BLOODBONDED_prefs_v.discipline_types.Cut(index, index + 1)
+										BLOODBONDED_prefs_v.discipline_levels.Cut(index, index + 1)
+
+							if(BLOODBONDED_prefs_v.discipline_types.len == 0)
+								for (var/i in 1 to 3)
+									BLOODBONDED_prefs_v.discipline_types += BLOODBONDED_prefs_v.clane.clane_disciplines[i]
+									BLOODBONDED_prefs_v.discipline_levels += 1
+							BLOODBONDED_prefs_v.save_character()
+
 					else
 						to_chat(owner, "<span class='notice'>[BLOODBONDED] is totally <b>DEAD</b>!</span>")
 						giving = FALSE
@@ -474,7 +501,10 @@
 						if(new_master)
 							G.changed_master = TRUE
 					else if(!iskindred(BLOODBONDED) && !isnpc(BLOODBONDED))
+
 						BLOODBONDED.set_species(/datum/species/ghoul)
+						BLOODBONDED.clane = null
+
 //						if(BLOODBONDED.hud_used)
 //							var/datum/hud/human/HU = BLOODBONDED.hud_used
 //							HU.create_ghoulic()
@@ -484,6 +514,24 @@
 						G.last_vitae = world.time
 						if(new_master)
 							G.changed_master = TRUE
+						var/save_data_g = FALSE
+						var/response_g = input(BLOODBONDED, "Do you wish to keep being a ghoul on your save slot?(Yes will be a permanent choice and you can't go back)") in list("Yes", "No")
+						if(response_g == "Yes")
+							save_data_g = TRUE
+						else
+							save_data_g = FALSE
+						if(save_data_g)
+							var/datum/preferences/BLOODBONDED_prefs_g = BLOODBONDED.client.prefs
+							if(BLOODBONDED_prefs_g.discipline_types.len == 3)
+								for (var/i in 1 to 3)
+									var/removing_discipline = BLOODBONDED_prefs_g.discipline_types[1]
+									if (removing_discipline)
+										var/index = BLOODBONDED_prefs_g.discipline_types.Find(removing_discipline)
+										BLOODBONDED_prefs_g.discipline_types.Cut(index, index + 1)
+										BLOODBONDED_prefs_g.discipline_levels.Cut(index, index + 1)
+							BLOODBONDED_prefs_g.pref_species.name = "Ghoul"
+							BLOODBONDED_prefs_g.pref_species.id = "ghoul"
+							BLOODBONDED_prefs_g.save_character()
 			else
 				giving = FALSE
 
