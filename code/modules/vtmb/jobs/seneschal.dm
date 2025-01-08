@@ -39,7 +39,7 @@
 
 	display_order = JOB_DISPLAY_ORDER_CLERK
 
-//	minimal_generation = 12	//Uncomment when players get exp enough
+	min_vamp_age_rank = AGE_GHOUL	//Uncomment when players get exp enough
 	minimal_masquerade = 5
 
 	my_contact_is_important = TRUE

@@ -104,6 +104,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				"Vampiric 9" = VAMP_9,
 				"Vampiric 10" = VAMP_10,
 				"Vampiric 11" = VAMP_11)
+	var/list/vamp_age_rank_list = list(
+		"Neonate" = AGE_NEONATE,
+		"Ancilla" = AGE_ANCILLA
+	)
+	var/list/vamp_age_rank_list_whitelist = list(
+		"Neonate" = AGE_NEONATE,
+		"Ancilla" = AGE_ANCILLA,
+		"Elder" = AGE_ANCILLA
+	)
 	var/eye_color = "000"				//Eye color
 	var/datum/species/pref_species = new /datum/species/human()	//Mutant race
 	var/list/features = list("mcolor" = "FFF", "ethcolor" = "9c3030", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain", "moth_antennae" = "Plain", "moth_markings" = "None")
@@ -169,9 +178,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///If we want to broadcast deadchat connect/disconnect messages
 	var/broadcast_login_logout = TRUE
 
-	//Generation
-	var/generation = 13
-	var/generation_bonus = 0
+	//Vampire Age Rank
+	var/vamp_age_rank = AGE_NEONATE
 
 	//Masquerade
 	var/masquerade = 5
@@ -250,11 +258,32 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /datum/preferences/proc/add_experience(amount)
 	true_experience = clamp(true_experience + amount, 0, 1000)
 
+/datum/preferences/proc/reset_vamp_age_change()
+	slotlocked = 0
+	diablerist = 0
+	torpor_count = 0
+	archetype = pick(subtypesof(/datum/archetype))
+	var/datum/archetype/A = new archetype()
+	physique = A.start_physique
+	dexterity = A.start_dexterity
+	social = A.start_social
+	mentality = A.start_mentality
+	blood = A.start_blood
+	lockpicking = A.start_lockpicking
+	athletics = A.start_athletics
+	discipline_types = list()
+	discipline_levels = list()
+	for (var/i in 1 to clane.clane_disciplines.len)
+		discipline_types += clane.clane_disciplines[i]
+		discipline_levels += 1
+	humanity = clane.start_humanity
+	true_experience = GLOB.vamp_base_xp_list[vamp_age_rank]
+	save_character()
+
 /datum/preferences/proc/reset_character()
 	slotlocked = 0
 	diablerist = 0
 	torpor_count = 0
-	generation_bonus = 0
 	physique = 1
 	dexterity = 1
 	mentality = 1
@@ -264,7 +293,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	athletics = 0
 	info_known = INFO_KNOWN_UNKNOWN
 	masquerade = initial(masquerade)
-	generation = initial(generation)
+	vamp_age_rank = initial(vamp_age_rank)
 	archetype = pick(subtypesof(/datum/archetype))
 	var/datum/archetype/A = new archetype()
 	physique = A.start_physique
@@ -282,11 +311,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		discipline_types += clane.clane_disciplines[i]
 		discipline_levels += 1
 	humanity = clane.start_humanity
-	enlightenment = clane.enlightenment
 	random_species()
 	random_character()
 	body_model = rand(1, 3)
-	true_experience = 50
+	true_experience = BASE_XP_NEONATE
 	real_name = random_unique_name(gender)
 	save_character()
 
@@ -412,69 +440,30 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "</tr></table>"
 
 			dat += "<h2>[make_font_cool("BODY")]</h2>"
-			/*
-			dat += "<BR>"
-			var/max_death = 6
-			if(pref_species.name == "Vampire")
-				switch(generation)
-					if(13)
-						max_death = 6
-					if(12)
-						max_death = 6
-					if(11)
-						max_death = 5
-					if(10)
-						max_death = 4
-					if(9)
-						max_death = 3
-					if(8)
-						max_death = 2
-					if(7)
-						max_death = 2
-					if(6)
-						max_death = 1
-					if(5)
-						max_death = 1
-					if(4)
-						max_death = 1
-					if(3)
-						max_death = 1
 
-			dat += "<b>[pref_species.name == "Vampire" ? "Torpor" : "Clinical Death"] Count:</b> [torpor_count]/[max_death]"
-			if(true_experience >= 3*(14-generation) && torpor_count > 0)
-				dat += " <a href='?_src_=prefs;preference=torpor_restore;task=input'>Restore ([5*(14-generation)])</a><BR>"
-			dat += "<BR>"
-			*/
 			dat += "<a href='?_src_=prefs;preference=all;task=random'>Random Body</A> "
 
 			dat += "<table width='100%'><tr><td width='24%' valign='top'>"
 
 			dat += "<b>Species:</b><BR><a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a><BR>"
 			if(pref_species.name == "Vampire")
-				dat += "<b>Path of [enlightenment ? "Enlightenment" : "Humanity"]:</b> [humanity]/10"
+				dat += "<b>Path of Humanity:</b> [humanity]/10"
 				//if(SSwhitelists.is_whitelisted(parent.ckey, "enlightenment") && !slotlocked)
 				if ((true_experience >= (humanity * 2)) && (humanity < 10))
-					dat += " <a href='?_src_=prefs;preference=path;task=input'>Increase [enlightenment ? "Enlightenment" : "Humanity"] ([humanity * 2])</a>"
+					dat += " <a href='?_src_=prefs;preference=path;task=input'>Increase Humanity ([humanity * 2])</a>"
 				dat += "<br>"
-				if(!slotlocked)
-					dat += "<a href='?_src_=prefs;preference=pathof;task=input'>Switch Path</a><BR>"
 			if(pref_species.name == "Werewolf")
 				dat += "<b>Veil:</b> [masquerade]/5<BR>"
 			if(pref_species.name == "Vampire" || pref_species.name == "Ghoul")
 				dat += "<b>Masquerade:</b> [masquerade]/5<BR>"
 			if(pref_species.name == "Vampire")
-				dat += "<b>Generation:</b> [generation]"
+				dat += "<b>Vampire Rank:</b> [GLOB.vamp_age_rank_name_list[vamp_age_rank]]"
 				var/generation_allowed = TRUE
 				if(clane)
-					if(clane.name == "Caitiff")
+					if(clane.name == "Revanent")
 						generation_allowed = FALSE
 				if(generation_allowed)
-					if(generation_bonus)
-						dat += " (+[generation_bonus]/[min(6, generation-7)])"
-					if(true_experience >= 20 && generation_bonus < max(0, generation-7))
-						dat += " <a href='?_src_=prefs;preference=generation;task=input'>Claim generation bonus (20)</a><BR>"
-					else
-						dat += "<BR>"
+					dat += " <a href='?_src_=prefs;preference=vamp_age_rank;task=input'>Choose Rank</a><BR>"
 				else
 					dat += "<BR>"
 			dat += "<h2>[make_font_cool("ATTRIBUTES")]</h2>"
@@ -643,10 +632,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			if(true_experience >= 3 && slotlocked)
 				dat += "<a href='?_src_=prefs;preference=change_appearance;task=input'>Change Appearance (3)</a><BR>"
-			if(clane)
-				if(clane.name != "Caitiff")
-					if(generation_bonus)
-						dat += "<a href='?_src_=prefs;preference=reset_with_bonus;task=input'>Create new character with generation bonus ([generation]-[generation_bonus])</a><BR>"
 
 			dat += "<BR><b>Flavor Text:</b> [flavor_text] <a href='?_src_=prefs;preference=flavor_text;task=input'>Change</a><BR>"
 
@@ -1299,8 +1284,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				var/available_in_days = job.available_in_days(user.client)
 				HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[IN [(available_in_days)] DAYS\]</font></td></tr>"
 				continue
-			if((generation > job.minimal_generation) && !bypass)
-				HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[FROM [job.minimal_generation] GENERATION AND OLDER\]</font></td></tr>"
+			if((vamp_age_rank < job.min_vamp_age_rank) && !bypass)
+				HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[FROM [job.min_vamp_age_rank] RANK AND OLDER\]</font></td></tr>"
 				continue
 			if((masquerade < job.minimal_masquerade) && !bypass)
 				HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[job.minimal_masquerade] MASQUERADE POINTS REQUIRED\]</font></td></tr>"
@@ -2045,8 +2030,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						clane = new newtype()
 						discipline_types = list()
 						discipline_levels = list()
-						if(result == "Caitiff")
-							generation = 13
+						if(result == "Revanent")
+							vamp_age_rank = AGE_NEONATE
 							for (var/i = clane.clane_disciplines.len; i < 3; i++)
 								if (slotlocked)
 									break
@@ -2172,13 +2157,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 					true_experience -= cost
 					humanity = max(1, humanity + 1)
-
-				if("pathof")
-					if (slotlocked || !(pref_species.id == "kindred"))
-						return
-
-					enlightenment = !enlightenment
-
 				/*
 				if("torpor_restore")
 					if(torpor_count != 0 && true_experience >= 3*(14-generation))
@@ -2186,12 +2164,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						true_experience = true_experience-(3*(14-generation))
 				*/
 
-				if("generation")
-					if((clane?.name == "Caitiff") || (true_experience < 20))
-						return
-
-					true_experience -= 20
-					generation_bonus = min(generation_bonus + 1, max(0, generation-7))
+				if("vamp_age_rank")
+					var/new_age_name = input(user, "Select an age", "Rank Selection") as null|anything in vamp_age_rank_list_whitelist
+					if(new_age_name)
+						vamp_age_rank = vamp_age_rank_list_whitelist[new_age_name]
+						reset_vamp_age_change()
 
 				if("friend_text")
 					var/new_text = input(user, "What a Friend knows about me:", "Character Preference") as text|null
@@ -2217,18 +2194,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 					slotlocked = FALSE
 					true_experience -= 3
-
-				if("reset_with_bonus")
-					if((clane?.name == "Caitiff") || !generation_bonus)
-						return
-
-					var/bonus = generation-generation_bonus
-					slotlocked = 0
-					torpor_count = 0
-					masquerade = initial(masquerade)
-					generation = bonus
-					generation_bonus = 0
-					save_character()
 
 				if("species")
 					if(slotlocked)
@@ -2377,9 +2342,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(slotlocked)
 						return
 					var/s_tone_choice = input(user, "Choose your character's skin-tone:", "Character Preference")  as null|anything in skin_tone_presets
-					var/new_s_tone_preset = skin_tone_presets[s_tone_choice]
-					if(new_s_tone_preset)
-						skin_tone = sanitize_hexcolor(new_s_tone_preset)
+					if(s_tone_choice)
+						skin_tone = sanitize_hexcolor(skin_tone_presets[s_tone_choice])
 
 				if("s_tone")
 					if(slotlocked)
@@ -2871,25 +2835,26 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		var/datum/vampireclane/CLN = new clane.type()
 		character.clane = CLN
 		character.clane.current_accessory = clane_accessory
-		character.maxbloodpool = 10+((13-generation)*3)
+		character.maxbloodpool = GLOB.vamp_max_bloodpool_list[vamp_age_rank]
 		character.bloodpool = rand(2, character.maxbloodpool)
-		character.generation = generation
+		character.vamp_age_rank = vamp_age_rank
 		character.clane.enlightenment = enlightenment
-//		if(generation < 13)
-//			character.maxHealth = initial(character.maxHealth)+50*(13-generation)
-//			character.health = initial(character.health)+50*(13-generation)
 	else
-//		character.clane.current_accessory = null
 		character.clane = null
-		character.generation = 13
+		character.vamp_age_rank = AGE_GHOUL
 		character.bloodpool = character.maxbloodpool
 
 	if(pref_species.name == "Werewolf")
 		character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique)))
 		character.health = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique )))
 	else
-		character.maxHealth = round((initial(character.maxHealth)-initial(character.maxHealth)/4)+(initial(character.maxHealth)/4)*((character.physique+character.additional_physique )+13-generation))
-		character.health = round((initial(character.health)-initial(character.health)/4)+(initial(character.health)/4)*((character.physique+character.additional_physique )+13-generation))
+
+		var/health_rank_bonus = 0
+		if(character.vamp_age_rank)
+			health_rank_bonus = GLOB.vamp_health_bonus_list[character.vamp_age_rank]
+
+		character.maxHealth = round((initial(character.maxHealth)-initial(character.maxHealth)/4)+(initial(character.maxHealth)/4)*((character.physique+character.additional_physique )+health_rank_bonus))
+		character.health = round((initial(character.health)-initial(character.health)/4)+(initial(character.health)/4)*((character.physique+character.additional_physique )+health_rank_bonus))
 	if(pref_species.name == "Vampire")
 		character.humanity = humanity
 	character.masquerade = masquerade

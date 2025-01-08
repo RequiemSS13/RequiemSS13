@@ -19,7 +19,7 @@
 
 	allowed_species = list("Vampire")
 	allowed_bloodlines = list("Old Clan Tzimisce")
-	minimal_generation = 13	//Uncomment when players get exp enough
+	min_vamp_age_rank = AGE_NEONATE	//Uncomment when players get exp enough
 
 	v_duty = "Whether you are of Voivode-in-Waiting's blood or if you've been honored, you are one of the Kin of the Voivode. Protect your Family, as your Family would protect you."
 	experience_addition = 15

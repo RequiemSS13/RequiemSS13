@@ -37,7 +37,7 @@
 
 /datum/action/vampireinfo
 	name = "About Me"
-	desc = "Check assigned role, clan, generation, humanity, masquerade, known disciplines, known contacts etc."
+	desc = "Check assigned role, clan, rank, humanity, masquerade, known disciplines, known contacts etc."
 	button_icon_state = "masquerade"
 	check_flags = NONE
 	var/mob/living/carbon/human/host
@@ -78,8 +78,20 @@
 				dat += "My Regnant is [host.mind.enslaved_to], I should obey their wants.<BR>"
 		if(host.vampire_faction == "Camarilla" || host.vampire_faction == "Anarchs" || host.vampire_faction == "Sabbat")
 			dat += "I belong to [host.vampire_faction] faction, I shouldn't disobey their rules.<BR>"
-		if(host.generation)
-			dat += "I'm from [host.generation] generation.<BR>"
+		if(host.vamp_age_rank)
+			var/rank_text = "Neonate"
+			switch(host.vamp_age_rank)
+				if(AGE_METHUSELAH)
+					rank_text = "a mighty Methuselah"
+				if(AGE_ELDER)
+					rank_text = "a venerable Elder"
+				if(AGE_ANCILLA)
+					rank_text = "a respectable Ancilla"
+				if(AGE_NEONATE)
+					rank_text = "only a Neonate"
+				if(AGE_GHOUL)
+					rank_text = "naught but a lowly ghoul."
+			dat += "In Vampire Society, I am [rank_text].<BR>"
 		if(host.mind.special_role)
 			for(var/datum/antagonist/A in host.mind.antag_datums)
 				if(A.objectives)
@@ -411,7 +423,7 @@
 						BLOODBONDED.roundstart_vampire = FALSE
 						BLOODBONDED.set_species(/datum/species/kindred)
 						BLOODBONDED.clane = null
-						BLOODBONDED.generation = 13
+						BLOODBONDED.vamp_age_rank = AGE_NEONATE
 						BLOODBONDED.update_body()
 						BLOODBONDED.clane = new H.clane.type()
 						BLOODBONDED.clane.on_gain(BLOODBONDED)
@@ -424,14 +436,14 @@
 						for (var/i in 1 to min(3, H.client.prefs.discipline_types.len))
 							disciplines_to_give += H.client.prefs.discipline_types[i]
 						BLOODBONDED.create_disciplines(FALSE, disciplines_to_give)
-						BLOODBONDED.maxbloodpool = 10
+						BLOODBONDED.maxbloodpool = MAX_BLOODPOOL_NEONATE
 						BLOODBONDED.clane.enlightenment = H.clane.enlightenment
 						if (iskindred(BLOODBONDED) && save_data_v)
 							var/datum/preferences/BLOODBONDED_prefs_v = BLOODBONDED.client.prefs
 							BLOODBONDED_prefs_v.pref_species.id = "kindred"
 							BLOODBONDED_prefs_v.pref_species.name = "Vampire"
 							BLOODBONDED_prefs_v.clane = BLOODBONDED.clane
-							BLOODBONDED_prefs_v.generation = 13
+							BLOODBONDED_prefs_v.vamp_age_rank = AGE_NEONATE
 							BLOODBONDED_prefs_v.clane.enlightenment = H.clane.enlightenment
 
 

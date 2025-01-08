@@ -562,7 +562,7 @@
 		if(H.clane)
 			if(H.clane.name == "Gargoyle")
 				dominate_me = TRUE
-	if(((theirpower >= mypower) || (caster.generation > target.generation)) && !dominate_me)
+	if(((theirpower >= mypower)) && !dominate_me)
 		to_chat(caster, "<span class='warning'>[target]'s mind is too powerful to dominate!</span>")
 		return
 	if(HAS_TRAIT(caster, TRAIT_MUTE))
@@ -900,7 +900,7 @@
 	. = ..()
 	var/mypower = caster.get_total_social()
 	var/theirpower = target.get_total_mentality()
-	if((theirpower >= mypower) || ((caster.generation - 3) >= target.generation))
+	if((theirpower >= mypower))
 		to_chat(caster, "<span class='warning'>[target]'s mind is too powerful to sway!</span>")
 		return
 	if(ishuman(target))

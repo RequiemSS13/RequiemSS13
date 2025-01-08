@@ -15,6 +15,7 @@
 		var/obj/effect/proc_holder/spell/voice_of_god/S = new(H)
 		H.mind.AddSpell(S)
 
+//why does this exist twice? v. cringe - Hex
 /datum/action/dominate
 	name = "Dominate"
 	desc = "Dominate over other living or un-living beings."
@@ -27,19 +28,19 @@
 	. = ..()
 	if((cool_down + 5 SECONDS) >= world.time)
 		return
-	var/mob/living/carbon/human/A = owner
-	if(HAS_TRAIT(A, TRAIT_MUTE))
-		to_chat(A, "<span class='warning'>You find yourself unable to speak!</span>")
+	var/mob/living/carbon/human/player = owner
+	if(HAS_TRAIT(player, TRAIT_MUTE))
+		to_chat(player, "<span class='warning'>You find yourself unable to speak!</span>")
 		return
 	var/new_say = input(owner, "Choose the phrase to dominate:") as text|null
 	if(new_say)
-		for(var/mob/living/carbon/human/H in ohearers(7, src))
+		for(var/mob/living/carbon/human/victim in ohearers(7, src))
 			if(H)
 				if(H.can_hear())
-					var/mypower = 13-A.generation+A.social
-					var/theirpower = 13-H.generation+H.mentality
+					var/mypower = player.vamp_age_rank-2+player.social
+					var/theirpower = victim.vamp_age_rank-2+victim.mentality
 					if(theirpower <= mypower)
-						H.cure_trauma_type(/datum/brain_trauma/severe/hypnotic_trigger, TRAUMA_RESILIENCE_BASIC)
-						H.gain_trauma(new /datum/brain_trauma/severe/hypnotic_trigger(new_say), TRAUMA_RESILIENCE_BASIC)
-						H.do_jitter_animation(30)
+						victim.cure_trauma_type(/datum/brain_trauma/severe/hypnotic_trigger, TRAUMA_RESILIENCE_BASIC)
+						victim.gain_trauma(new /datum/brain_trauma/severe/hypnotic_trigger(new_say), TRAUMA_RESILIENCE_BASIC)
+						victim.do_jitter_animation(30)
 		owner.say("[new_say]")

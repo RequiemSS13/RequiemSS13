@@ -144,11 +144,6 @@
 	if(wear_id && !(wear_id.item_flags & EXAMINE_SKIP))
 		. += "[t_He] [t_is] wearing [wear_id.get_examine_string(user)]."
 
-//	if(ishuman(user))
-//		var/mob/living/carbon/human/US = user
-//		if(US.dna.species.id == "kindred" && dna.species.id == "kindred")
-//			. += "[t_He] [t_is] at least from <b>[client.prefs.generation]</b> generation."
-
 	//Status effects
 	var/list/status_examines = status_effect_examines()
 	if (length(status_examines))

@@ -18,7 +18,7 @@
 
 	//ghoul_only = TRUE
 	//allowed_bloodlines = list("Old Clan Tzimisce", "Tzimisce")
-	//minimal_generation = 7	//Uncomment when players get exp enough
+	min_vamp_age_rank = AGE_ANCILLA	//Uncomment when players get exp enough
 
 	duty = "You were born in servitude to the Master of the Manor: your father served the Voivode, as did his father. Now, you carry their blood, and with it their responsibilities."
 	experience_addition = 20

@@ -101,7 +101,7 @@ SUBSYSTEM_DEF(job)
 			return FALSE
 		if(job.required_playtime_remaining(player.client) && !bypass)
 			return FALSE
-		if((player.client.prefs.generation > job.minimal_generation) && !bypass)
+		if((player.client.prefs.vamp_age_rank < job.min_vamp_age_rank) && !bypass)
 			return FALSE
 		if((player.client.prefs.masquerade < job.minimal_masquerade) && !bypass)
 			return FALSE
@@ -139,8 +139,8 @@ SUBSYSTEM_DEF(job)
 		if(job.required_playtime_remaining(player.client) && !bypass)
 			JobDebug("FOC player not enough xp, Player: [player]")
 			continue
-		if((player.client.prefs.generation > job.minimal_generation) && !bypass)
-			JobDebug("FOC player not enough generation, Player: [player]")
+		if((player.client.prefs.vamp_age_rank < job.min_vamp_age_rank) && !bypass)
+			JobDebug("FOC player not enough rank, Player: [player]")
 			continue
 		if((player.client.prefs.masquerade < job.minimal_masquerade) && !bypass)
 			JobDebug("FOC player not enough masquerade, Player: [player]")
@@ -199,8 +199,8 @@ SUBSYSTEM_DEF(job)
 			JobDebug("GRJ player not enough xp, Player: [player]")
 			continue
 
-		if(player.client.prefs.generation > job.minimal_generation)
-			JobDebug("GRJ player not enough generation, Player: [player]")
+		if(player.client.prefs.vamp_age_rank < job.min_vamp_age_rank)
+			JobDebug("GRJ player not enough rank, Player: [player]")
 			continue
 
 		if(player.client.prefs.masquerade < job.minimal_masquerade)
@@ -409,8 +409,8 @@ SUBSYSTEM_DEF(job)
 					JobDebug("DO player not enough xp, Player: [player], Job:[job.title]")
 					continue
 
-				if((player.client.prefs.generation > job.minimal_generation) && !bypass)
-					JobDebug("DO player not enough generation, Player: [player]")
+				if((player.client.prefs.vamp_age_rank < job.min_vamp_age_rank) && !bypass)
+					JobDebug("DO player not enough rank, Player: [player]")
 					continue
 
 				if((player.client.prefs.masquerade < job.minimal_masquerade) && !bypass)

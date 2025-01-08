@@ -16,7 +16,7 @@
 	display_order = JOB_DISPLAY_ORDER_GIOVANNI
 	exp_type_department = EXP_TYPE_GIOVANNI
 
-	minimal_generation = 11	//Uncomment when players get exp enough
+	min_vamp_age_rank = AGE_ANCILLA	//Uncomment when players get exp enough
 
 	v_duty = "Pure blood runs through your veins and, with it, old power. Throughout your long life you have learnt to hold onto two things and never let go: money, and family."
 	minimal_masquerade = 0
@@ -112,7 +112,7 @@
 	display_order = JOB_DISPLAY_ORDER_GIOVANNI
 	exp_type_department = EXP_TYPE_GIOVANNI
 
-//	minimal_generation = 11	//Uncomment when players get exp enough
+	min_vamp_age_rank = AGE_GHOUL	//Uncomment when players get exp enough
 
 	allowed_species = list("Ghoul", "Human")
 	duty = "Your family is a strange one. Maybe you are strange too, because sitting next to your great uncles as an equal is something you are greatly interested in."

@@ -366,6 +366,11 @@
 			return
 		BD.last_bloodheal_click = world.time
 		var/plus = 0
+
+		var/health_rank_bonus = 0
+		if(BD.vamp_age_rank)
+			health_rank_bonus = GLOB.vamp_health_bonus_list[BD.vamp_age_rank]
+
 		if(HAS_TRAIT(BD, TRAIT_HUNGRY))
 			plus = 1
 		if(HAS_TRAIT(BD, TRAIT_COFFIN_THERAPY))
@@ -380,7 +385,7 @@
 			to_chat(BD, "<span class='notice'>You use blood to heal your wounds.</span>")
 			if(BD.getBruteLoss() + BD.getBruteLoss() >= 25)
 				BD.visible_message("<span class='warning'>Some of [BD]'s visible injuries disappear!</span>", "<span class='warning'>Some of your injuries disappear!</span>")
-			BD.adjustBruteLoss(-15*min(4, 15-BD.generation), TRUE)
+			BD.adjustBruteLoss(-15*min(4, health_rank_bonus+2), TRUE)
 			if(length(BD.all_wounds))
 				var/datum/wound/W = pick(BD.all_wounds)
 				W.remove_wound()
@@ -396,7 +401,7 @@
 			if(length(BD.all_wounds))
 				var/datum/wound/W = pick(BD.all_wounds)
 				W.remove_wound()
-			BD.adjustFireLoss(-10*min(4, 15-BD.generation), TRUE)
+			BD.adjustFireLoss(-10*min(4, health_rank_bonus+2), TRUE)
 			BD.adjustCloneLoss(-5, TRUE)
 			var/obj/item/organ/eyes/eyes = BD.getorganslot(ORGAN_SLOT_EYES)
 			if(eyes)
@@ -739,7 +744,7 @@
 /mob/living/proc/update_blood_hud()
 	if(!client || !hud_used)
 		return
-	maxbloodpool = 10+((13-generation)*3)
+	maxbloodpool = GLOB.vamp_max_bloodpool_list[vamp_age_rank]
 	if(hud_used.blood_icon)
 		var/emm = round((bloodpool/maxbloodpool)*10)
 		if(emm > 10)

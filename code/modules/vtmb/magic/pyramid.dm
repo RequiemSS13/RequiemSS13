@@ -456,10 +456,10 @@
 					if(B.type == /datum/reagent/blood)
 						var/blood_data = B.data
 						if(blood_data)
-							var/generation = blood_data["generation"]
+							var/vamp_age_rank = blood_data["vamp_age_rank"]
 							var/clan = blood_data["clan"]
 
-							var/message = generate_message(generation, clan)
+							var/message = generate_message(vamp_age_rank, clan)
 							to_chat(user, "[message]")
 						else
 							to_chat(user, "The blood speaks not-it is empty of power!")
@@ -470,21 +470,19 @@
 		activated = TRUE
 		qdel(src)
 
-/obj/ritualrune/bloodwalk/proc/generate_message(generation, clan)
+/obj/ritualrune/bloodwalk/proc/generate_message(vamp_age_rank, clan)
 	var/message = ""
 
-	if(generation == 4)
+	if(vamp_age_rank == 5)
 		message += "The blood is incredibly ancient and powerful! It must be from an ancient Methuselah! "
-	else if(generation == 5)
-		message += "The blood is incredibly ancient and powerful! It must be from a Methuselah! "
-	else if(generation == 6)
-		message += "The blood is incredibly ancient and powerful! It must be from an Elder! "
-	else if(generation == 7 || generation == 8 || generation == 9)
-		message += "The blood is powerful. It must come from an Ancilla or Elder! "
-	else if(generation == 10 || generation == 11)
-		message += "The blood is of middling strength. It must come from someone young. "
-	else if(generation >=12)
-		message += "The blood is of waning strength. It must come from a neonate. "
+	else if(vamp_age_rank == 4)
+		message += "The blood is powerful. It must be from an Elder! "
+	else if(vamp_age_rank == 3)
+		message += "The blood is middling strength. It must come from an Ancilla! "
+	else if(vamp_age_rank == 2)
+		message += "The blood is of waning strength. It must come from a neonate."
+	else if(vamp_age_rank ==1)
+		message += "The blood is weak. It must come from either a ghoul or a kine. "
 
 	if(clan == "Toreador" || clan == "Daughters of Cacophony")
 		message += "The blood is sweet and rich. The owner must, too, be beautiful."

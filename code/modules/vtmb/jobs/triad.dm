@@ -17,8 +17,8 @@
 	display_order = JOB_DISPLAY_ORDER_TRIAD_GANGSTER
 	exp_type_department = EXP_TYPE_GANG
 
-	allowed_species = list("Human", "Werewolf")
-	minimal_generation = 13
+	allowed_species = list("Human", "Ghoul")
+	species_slots = list("Ghoul" = 1)
 
 	duty = "Make money, do drugs, fight law. Your hideout is the laundromat in Chinatown."
 	experience_addition = 10
