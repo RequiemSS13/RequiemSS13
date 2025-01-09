@@ -53,8 +53,7 @@
 			message = "Murder at [crime_location.name], to the [direction], [location.x]:[location.y]..."
 
 	if(message != "")
-		for(var/obj/item/police_radio/radio in GLOB.police_radios)
-			radio.say(message)
+		say(message)
 
 /obj/item/police_radio/Initialize()
 	. = ..()
