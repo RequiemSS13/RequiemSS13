@@ -40,6 +40,7 @@
 #include "code\__DEFINES\callbacks.dm"
 #include "code\__DEFINES\cargo.dm"
 #include "code\__DEFINES\chat.dm"
+#include "code\__DEFINES\chronicles_of_darkness_13.dm"
 #include "code\__DEFINES\cinematics.dm"
 #include "code\__DEFINES\cleaning.dm"
 #include "code\__DEFINES\colors.dm"

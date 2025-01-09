@@ -21,7 +21,7 @@
 	display_order = JOB_DISPLAY_ORDER_DEALER
 	bounty_types = CIV_JOB_RANDOM
 
-//	minimal_generation = 12	//Uncomment when players get exp enough
+	min_vamp_age_rank = AGE_GHOUL	//Uncomment when players get exp enough
 
 	my_contact_is_important = TRUE
 	known_contacts = list("Seneschal","Page", "Sheriff", "Baron")

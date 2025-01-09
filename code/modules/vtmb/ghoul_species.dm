@@ -141,9 +141,9 @@
 	infor.Grant(C)
 	var/datum/action/blood_heal/bloodheal = new()
 	bloodheal.Grant(C)
-	C.generation = 13
-	C.bloodpool = 10
-	C.maxbloodpool = 10
+	C.vamp_age_rank = AGE_GHOUL
+	C.bloodpool = MAX_BLOODPOOL_GHOUL
+	C.maxbloodpool = MAX_BLOODPOOL_GHOUL
 	C.maxHealth = 200
 	C.health = 200
 
@@ -225,7 +225,7 @@
 		if (HAS_TRAIT(owner, TRAIT_TORPOR))
 			return
 		var/mob/living/carbon/human/H = owner
-		level = max(1, 13-H.generation)
+		level = 1
 		if(HAS_TRAIT(H, TRAIT_COFFIN_THERAPY))
 			if(!istype(H.loc, /obj/structure/closet/crate/coffin))
 				to_chat(usr, "<span class='warning'>You need to be in a coffin to use that!</span>")

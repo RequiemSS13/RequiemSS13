@@ -71,8 +71,8 @@
 	///Should this job be allowed to be picked for the bureaucratic error event?
 	var/allow_bureaucratic_error = FALSE
 
-	///Minimum vampire Generation necessary to do this job.
-	var/minimal_generation = 13
+	///Minimum vampire rank necessary to do this job.
+	var/min_vamp_age_rank = AGE_GHOUL
 	///Minimum Masquerade level necessary to do this job.
 	var/minimal_masquerade = 1
 

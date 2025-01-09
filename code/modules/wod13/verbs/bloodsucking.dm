@@ -131,72 +131,57 @@
 		update_blood_hud()
 		if(mob.bloodpool <= 0)
 			if(ishuman(mob))
-				var/mob/living/carbon/human/K = mob
+				var/mob/living/carbon/human/victim = mob
 				if(iskindred(mob))
-					var/datum/preferences/P = GLOB.preferences_datums[ckey(key)]
-					var/datum/preferences/P2 = GLOB.preferences_datums[ckey(mob.key)]
+					var/datum/preferences/player_prefs = GLOB.preferences_datums[ckey(key)]
+					var/datum/preferences/victim_prefs = GLOB.preferences_datums[ckey(mob.key)]
 					AdjustHumanity(-1, 0)
 					AdjustMasquerade(-1)
-					if(K.generation >= generation)
+					if(victim.vamp_age_rank <= vamp_age_rank)
 						message_admins("[ADMIN_LOOKUPFLW(src)] successfully Diablerized [ADMIN_LOOKUPFLW(mob)]")
 						log_attack("[key_name(src)] successfully Diablerized [key_name(mob)].")
-						if(K.client)
-							K.generation = 13
-							P2.generation = 13
+						if(victim.client)
 							var/datum/brain_trauma/special/imaginary_friend/trauma = gain_trauma(/datum/brain_trauma/special/imaginary_friend)
-							trauma.friend.key = K.key
+							trauma.friend.key = victim.key
+						diablerist = 1
 						mob.death()
-						if(P2)
-							P2.reason_of_death =  "Diablerized by [true_real_name ? true_real_name : real_name] ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
-						adjustBruteLoss(-50, TRUE)
-						adjustFireLoss(-50, TRUE)
-						if(key)
-							if(P)
-								P.diablerist = 1
-							diablerist = 1
+						if(victim_prefs)
+							victim_prefs.reason_of_death =  "Diablerized by [true_real_name ? true_real_name : real_name] ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
 					else
 						var/start_prob = 10
 						if(HAS_TRAIT(src, TRAIT_DIABLERIE))
 							start_prob = 30
-						if(prob(min(99, start_prob+((generation-K.generation)*10))))
-							to_chat(src, "<span class='userdanger'><b>[K]'s SOUL OVERCOMES YOURS AND GAIN CONTROL OF YOUR BODY.</b></span>")
+						if(prob(min(99, start_prob+((vamp_age_rank-victim.vamp_age_rank)*20))))
+							to_chat(src, "<span class='userdanger'><b>[victim]'s SOUL OVERCOMES YOURS AND GAINS CONTROL OF YOUR BODY.</b></span>")
 							message_admins("[ADMIN_LOOKUPFLW(src)] tried to Diablerize [ADMIN_LOOKUPFLW(mob)] and was overtaken.")
 							log_attack("[key_name(src)] tried to Diablerize [key_name(mob)] and was overtaken.")
-							generation = 13
 							death()
-							if(P)
-								P.generation = 13
-								P.reason_of_death = "Failed the Diablerie ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
-//							ghostize(FALSE)
-//							key = K.key
-//							generation = K.generation
-//							maxHealth = initial(maxHealth)+100*(13-generation)
-//							health = initial(health)+100*(13-generation)
-//							mob.death()
+							if(player_prefs)
+								player_prefs.reason_of_death = "Failed the Diablerie ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
+							ghostize(FALSE)
+							key = victim.key
+							vamp_age_rank = victim.vamp_age_rank
+							mob.death()
 						else
+							to_chat(src, "<span class='userdanger'><b>AS YOU DEVOUR [victim]'s SOUL, YOU ARE FILLED WITH A BOOST OF VIGOUR.</b></span>")
 							message_admins("[ADMIN_LOOKUPFLW(src)] successfully Diablerized [ADMIN_LOOKUPFLW(mob)]")
 							log_attack("[key_name(src)] successfully Diablerized [key_name(mob)].")
-							if(P)
-								P.diablerist = 1
-								P.generation = K.generation
-								generation = P.generation
+							vamp_age_rank = vamp_age_rank+1
 							diablerist = 1
-							maxHealth = initial(maxHealth)+max(0, 50*(13-generation))
-							health = initial(health)+max(0, 50*(13-generation))
-							if(K.client)
-								K.generation = 13
-								P2.generation = 13
+							maxHealth = initial(maxHealth)+max(0, 50*(vamp_age_rank))
+							health = initial(health)+max(0, 50*(vamp_age_rank))
+							if(victim.client)
 								var/datum/brain_trauma/special/imaginary_friend/trauma = gain_trauma(/datum/brain_trauma/special/imaginary_friend)
-								trauma.friend.key = K.key
+								trauma.friend.key = victim.key
 							mob.death()
-							if(P2)
-								P2.reason_of_death = "Diablerized by [true_real_name ? true_real_name : real_name] ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
+							if(victim_prefs)
+								victim_prefs.reason_of_death = "Diablerized by [true_real_name ? true_real_name : real_name] ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
 					if(client)
 						client.images -= suckbar
 					qdel(suckbar)
 					return
 				else
-					K.blood_volume = 0
+					victim.blood_volume = 0
 			if(ishuman(mob) && !iskindred(mob))
 				if(mob.stat != DEAD)
 					if(isnpc(mob))

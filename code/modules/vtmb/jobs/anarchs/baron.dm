@@ -17,7 +17,7 @@
 	display_order = JOB_DISPLAY_ORDER_BARKEEPER
 	bounty_types = CIV_JOB_DRINK
 
-//	minimal_generation = 11	//Uncomment when players get exp enough
+	min_vamp_age_rank = AGE_ANCILLA	//Uncomment when players get exp enough
 
 	my_contact_is_important = TRUE
 	known_contacts = list(

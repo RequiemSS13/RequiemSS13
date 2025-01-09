@@ -19,7 +19,7 @@
 
 /datum/action/garouinfo
 	name = "About Me"
-	desc = "Check assigned role, auspice, generation, humanity, masquerade, known disciplines, known contacts etc."
+	desc = "Check assigned role, auspice, humanity, masquerade, known disciplines, known contacts etc."
 	button_icon_state = "masquerade"
 	check_flags = NONE
 	var/mob/living/carbon/host

@@ -17,8 +17,8 @@
 	display_order = JOB_DISPLAY_ORDER_PRIEST
 	exp_type_department = EXP_TYPE_CHURCH
 
-	allowed_species = list("Human")
-	minimal_generation = 13
+	allowed_species = list("Human", "Vampire")
+	min_vamp_age_rank = AGE_GHOUL
 
 	duty = "Be the shepherd of the flock in San Francisco, lead them to salvation, piety and righteousness."
 	v_duty = "The mortals believe you to be their savior. The kindred look at you with suspicion. Yours is the charge of this church."

@@ -18,7 +18,6 @@
 	exp_type_department = EXP_TYPE_NATIONAL_SECURITY
 
 	allowed_species = list("Human")
-	minimal_generation = 13
 
 	duty = "Enforce the Law."
 	minimal_masquerade = 0

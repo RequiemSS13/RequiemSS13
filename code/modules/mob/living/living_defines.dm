@@ -262,9 +262,9 @@
 	var/true_real_name
 	var/died_already = FALSE
 
-	var/bloodpool = 5
-	var/maxbloodpool = 5
-	var/generation = 13
+	var/bloodpool = MAX_BLOODPOOL_NEONATE
+	var/maxbloodpool = MAX_BLOODPOOL_NEONATE
+	var/vamp_age_rank = AGE_NEONATE
 	var/humanity = 7
 	var/masquerade = 5
 	var/last_masquerade_violation = 0

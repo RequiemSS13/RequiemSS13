@@ -18,9 +18,9 @@
 	if(H.clane)
 		qdel(H.clane)
 	H.set_species(/datum/species/human)
-	H.generation = 13
-	H.maxHealth = round((initial(H.maxHealth)-initial(H.maxHealth)/4)+(initial(H.maxHealth)/4)*(H.physique+13-H.generation))
-	H.health = round((initial(H.health)-initial(H.health)/4)+(initial(H.health)/4)*(H.physique+13-H.generation))
+	H.vamp_age_rank = AGE_GHOUL
+	H.maxHealth = round((initial(H.maxHealth)-initial(H.maxHealth)/4)+(initial(H.maxHealth)/4)*H.physique)
+	H.health = round((initial(H.health)-initial(H.health)/4)+(initial(H.health)/4)*H.physique)
 	var/my_name = "Tyler"
 	if(H.gender == MALE)
 		my_name = pick(GLOB.first_names_male)

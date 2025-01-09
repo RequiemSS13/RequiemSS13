@@ -297,7 +297,7 @@
 		if(JOB_UNAVAILABLE_SLOTFULL)
 			return "[jobtitle] is already filled to capacity."
 		if(JOB_UNAVAILABLE_GENERATION)
-			return "Your generation is too young for [jobtitle]."
+			return "Your rank is too low for [jobtitle]."
 		if(JOB_UNAVAILABLE_SPECIES)
 			return "Your species cannot be [jobtitle]."
 		if(JOB_UNAVAILABLE_SPECIES_LIMITED)
@@ -325,7 +325,7 @@
 		return JOB_UNAVAILABLE_PLAYTIME
 	if(latejoin && !job.special_check_latejoin(client))
 		return JOB_UNAVAILABLE_GENERIC
-	if((client.prefs.generation > job.minimal_generation) && !bypass)
+	if((client.prefs.vamp_age_rank < job.min_vamp_age_rank) && !bypass)
 		return JOB_UNAVAILABLE_GENERATION
 	if((client.prefs.masquerade < job.minimal_masquerade) && !bypass)
 		return JOB_UNAVAILABLE_MASQUERADE
