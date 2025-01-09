@@ -36,20 +36,25 @@
 	return direction
 
 /obj/item/police_radio/proc/announce_crime(var/crime, var/atom/location)
+	var/area/crime_location = get_area(location)
+	var/direction = get_cardinal_direction(location.x, location.y)
+	var/message = ""
+
 	switch(crime)
 		if("shooting")
-			if(last_shooting+50 < world.time)
+			if(last_shooting + 15 SECONDS < world.time)
 				last_shooting = world.time
-				var/area/A = get_area(location)
-				say("Citizens report hearing gunshots at [A.name], to the [get_cardinal_direction(location.x, location.y)]...")
+				message = "Citizens report hearing gunshots at [crime_location.name], to the [direction], [location.x]:[location.y]..."
 		if("victim")
-			if(last_shooting_victims+50 < world.time)
+			if(last_shooting_victims + 15 SECONDS < world.time)
 				last_shooting_victims = world.time
-				var/area/A = get_area(location)
-				say("Active firefight in progress at [A.name], wounded civilians, to the [get_cardinal_direction(location.x, location.y)]...")
+				message = "Active firefight in progress at [crime_location.name], wounded civilians, the [direction], [location.x]:[location.y]..."
 		if("murder")
-			var/area/A = get_area(location)
-			say("Murder at [A.name], to the [get_cardinal_direction(location.x, location.y)]...")
+			message = "Murder at [crime_location.name], to the [direction], [location.x]:[location.y]..."
+
+	if(message != "")
+		say(message)
+
 /obj/item/police_radio/Initialize()
 	. = ..()
 	GLOB.police_radios += src

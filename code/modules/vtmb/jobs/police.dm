@@ -40,6 +40,10 @@
 	r_pocket = /obj/item/vamp/keys/police
 	backpack_contents = list(/obj/item/passport=1, /obj/item/implant/radio=1, /obj/item/vamp/creditcard=1, /obj/item/ammo_box/vampire/c9mm = 1, /obj/item/restraints/handcuffs = 1,/obj/item/melee/classic_baton/vampire = 1, /obj/item/storage/firstaid/ifak = 1)
 
+/datum/outfit/job/police_officer/post_equip(mob/living/carbon/human/H)
+	..()
+	H.ignores_warrant = TRUE
+
 /datum/job/vamp/police_sergeant
 	title = "Police Sergeant"
 	department_head = list("Police Department")
@@ -80,6 +84,10 @@
 	r_pocket = /obj/item/vamp/keys/police/secure
 	backpack_contents = list(/obj/item/passport=1, /obj/item/implant/radio=1, /obj/item/vamp/creditcard=1, /obj/item/ammo_box/vampire/c9mm = 1, /obj/item/restraints/handcuffs = 1,/obj/item/melee/classic_baton/vampire = 1, /obj/item/storage/firstaid/ifak = 1)
 
+/datum/outfit/job/police_sergeant/post_equip(mob/living/carbon/human/H)
+	..()
+	H.ignores_warrant = TRUE
+
 /datum/job/vamp/police_chief
 	title = "Police Chief"
 	department_head = list("Police Department")
@@ -119,3 +127,9 @@
 	l_pocket = /obj/item/vamp/phone
 	r_pocket = /obj/item/vamp/keys/police/secure/chief
 	backpack_contents = list(/obj/item/passport=1, /obj/item/implant/radio=1, /obj/item/vamp/creditcard=1, /obj/item/ammo_box/vampire/c9mm = 1, /obj/item/restraints/handcuffs = 1,/obj/item/melee/classic_baton/vampire = 1, /obj/item/storage/firstaid/ifak = 1)
+
+/datum/outfit/job/police_chief/post_equip(mob/living/carbon/human/H)
+	..()
+	var/datum/martial_art/martial_art = new /datum/martial_art/cqc
+	H.ignores_warrant = TRUE
+	martial_art.teach(H)
