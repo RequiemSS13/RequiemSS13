@@ -204,12 +204,12 @@
 		var/obj/keypad/armory/K = find_keypad(/obj/keypad/armory)
 		if(K && (host.mind.assigned_role == "Seneschal" || host.mind.assigned_role == "Sheriff"))
 			dat += "<b>The pincode for the armory keypad is: [K.pincode]</b><BR>"
-		var/obj/keypad/bankvault/V = find_keypad(/obj/keypad/bankvault)
-		if(V && (host.mind.assigned_role == "Capo"))
-			dat += "<b>The pincode for the bank vault keypad is: [V.pincode]</b><BR>"
-		if(V && (host.mind.assigned_role == "La Squadra"))
+		var/obj/structure/vaultdoor/pincode/bank/bankdoor = find_door_pin(/obj/structure/vaultdoor/pincode/bank)
+		if(bankdoor && (host.mind.assigned_role == "Capo"))
+			dat += "<b>The pincode for the bank vault is: [bankdoor.pincode]</b><BR>"
+		if(bankdoor && (host.mind.assigned_role == "La Squadra"))
 			if(prob(50))
-				dat += "<b>The pincode for the bank vault keypad is: [V.pincode]</b><BR>"
+				dat += "<b>The pincode for the bank vault is: [bankdoor.pincode]</b><BR>"
 			else
 				dat += "<b>Unfortunately you don't know the vault code.</b><BR>"
 
