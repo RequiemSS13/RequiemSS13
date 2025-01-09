@@ -25,7 +25,7 @@
 
 /obj/item/gas_can/afterattack(atom/A, mob/user, proximity)
 	. = ..()
-	if(istype(get_turf(A), /turf/open/floor) && !istype(A, /obj/vampire_car) && !istype(A, /obj/structure/fuelstation) && !istype(A, /mob/living/carbon/human))
+	if(istype(get_turf(A), /turf/open/floor) && !istype(A, /obj/vampire_car) && !istype(A, /obj/structure/fuelstation) && !istype(A, /mob/living/carbon/human) && !istype(A, /obj/structure/drill))
 		var/obj/effect/decal/cleanable/gasoline/G = locate() in get_turf(A)
 		if(G)
 			return
