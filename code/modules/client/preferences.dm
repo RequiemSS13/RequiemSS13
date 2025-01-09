@@ -460,7 +460,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<b>Vampire Rank:</b> [GLOB.vamp_age_rank_name_list[vamp_age_rank]]"
 				var/generation_allowed = TRUE
 				if(clane)
-					if(clane.name == "Revanent")
+					if(clane.name == "Revenant")
 						generation_allowed = FALSE
 				if(generation_allowed)
 					dat += " <a href='?_src_=prefs;preference=vamp_age_rank;task=input'>Choose Rank</a><BR>"
@@ -2030,7 +2030,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						clane = new newtype()
 						discipline_types = list()
 						discipline_levels = list()
-						if(result == "Revanent")
+						if(result == "Revenant")
 							vamp_age_rank = AGE_NEONATE
 							for (var/i = clane.clane_disciplines.len; i < 3; i++)
 								if (slotlocked)
