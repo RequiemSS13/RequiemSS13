@@ -72,20 +72,9 @@
 				for(var/obj/item/p25radio/police/p_radio in GLOB.p25_radios)
 					if(p_radio.linked_network == "police")
 						p_radio.announce_crime("shooting", get_turf(user))
-		var/atom/firing_effect = new firing_effect_type(get_turf(src), firing_dir)
-		var/atom/movable/firing_effect_movable = new(firing_effect.loc)
+		new firing_effect_type(get_turf(src), firing_dir)
 		if(ishuman(user))
-			var/mob/living/carbon/human/user_human = user
-			user_human.remove_overlay(FIRING_EFFECT_LAYER)
-			var/mutable_appearance/firing_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "firing", -PROTEAN_LAYER)
-			user_human.overlays_standing[FIRING_EFFECT_LAYER] = firing_overlay
-			user_human.apply_overlay(FIRING_EFFECT_LAYER)
-			firing_effect_movable.set_light(3, 2, "#ffedbb")
-//			animate(firing_overlay, alpha = 0, time = 2)
-			spawn(2)
-				user_human.remove_overlay(FIRING_EFFECT_LAYER)
-				qdel(firing_effect_movable)
-
+			new /obj/effect/temp_visual/dir_setting/muzzle_flash_highlight(get_turf(src), firing_dir)
 	var/direct_target
 	if(targloc == curloc)
 		if(target) //if the target is right on our location we'll skip the travelling code in the proj's fire()
