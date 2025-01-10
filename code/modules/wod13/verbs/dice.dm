@@ -14,9 +14,13 @@
  * * difficulty - the number that a dice must come up as to count as a success.
  * * numerical - whether the proc returns number of successes or outcome (botch, failure, success)
  */
-/proc/storyteller_roll(dice = 1, difficulty = 6, numerical = FALSE)
-	if(usr.client.prefs.chat_toggles & CHAT_ROLL_INFO)
-		storyteller_roll_pretty(dice, difficulty, numerical)
+/proc/storyteller_roll(dice = 1, difficulty = 6, numerical = FALSE, roll_header="", show_player=TRUE)
+	#ifdef DEBUG
+	show_player = TRUE
+	#endif
+
+	else if(show_player && usr.client.prefs.chat_toggles & CHAT_ROLL_INFO)
+		storyteller_roll_pretty(dice, difficulty, numerical, roll_header)
 	else
 		storyteller_roll_basic(dice, difficulty, numerical)
 
@@ -52,13 +56,14 @@
 			return ROLL_SUCCESS
 
 //DO NOT CALL DIRECTLY
-/proc/storyteller_roll_pretty(dice, difficulty, numerical)
+/proc/storyteller_roll_pretty(dice, difficulty, numerical, roll_header)
 	var/successes = 0
 	var/had_one = FALSE
 	var/had_success = FALSE
 	var/list/success_list = new()
 	var/list/fail_list = new()
-
+	if(roll_header && roll_header != "")
+		to_chat(usr, "<h2>[roll_header]</h2>")
 	to_chat(usr, "<h2>Difficulty: [difficulty]</h2>")
 
 	if (dice < 1)
