@@ -3493,6 +3493,7 @@
 #include "code\modules\wod13\subsystems\zombiepool.dm"
 #include "code\modules\wod13\vehicle\car.dm"
 #include "code\modules\wod13\verbs\bloodsucking.dm"
+#include "code\modules\wod13\verbs\dice.dm"
 #include "code\modules\wod13\verbs\procs.dm"
 #include "code\modules\zombie\items.dm"
 #include "code\modules\zombie\organs.dm"
