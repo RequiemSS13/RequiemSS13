@@ -12,7 +12,7 @@
 	paycheck = PAYCHECK_EASY
 	paycheck_department = ACCOUNT_SRV
 	display_order = JOB_DISPLAY_ORDER_CLERGY
-	
+
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_LANCEA
 

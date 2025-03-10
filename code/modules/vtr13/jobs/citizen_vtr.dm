@@ -19,8 +19,8 @@
 
 	allowed_species = list("Vampire", "Ghoul", "Human")
 
-	v_duty = "uhhh, elgeon, say something vampiric"
-	duty = "elge put something uh CoD-ie in here thx"
+	v_duty = "You're just an ordinary vampire trying to keep it together. Keep the Masquerade and try and stay out of trouble... or not."
+	duty = "You're just an ordinary person, with something keeping you up through the night. Keep your head on a swivel and try to stay out of trouble... or not."
 	minimal_masquerade = 0
 	allowed_bloodlines = list("Ventrue", "Daeva", "Mekhet", "Nosferatu", "Gangrel")
 

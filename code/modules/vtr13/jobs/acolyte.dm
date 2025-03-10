@@ -4,7 +4,7 @@
 	faction = "Vampire"
 	total_positions = 20
 	spawn_positions = 20
-	supervisors = "your own beliefs"
+	supervisors = "the Hierophant"
 	selection_color = "#00ff15"
 
 	outfit = /datum/outfit/job/acolyte
@@ -17,7 +17,8 @@
 
 	display_order = JOB_DISPLAY_ORDER_ACOLYTE
 
-	v_duty = "feed bodies to the cursed queen lillith, elge think up more things for them to do"
+	duty = "You're a ghoul sworn to one of the Crones, or to the Circle itself. Help them with their rituals. Manage the Queen Lilith. Try not to get eaten."
+	v_duty = "You're a member of the Circle of the Crone. Assist the Hierophant in carrying out any rituals. Manage the Queen Lilith. Spread wonder and terror at the monster you have become."
 	minimal_masquerade = 3
 	allowed_species = list("Vampire", "Ghoul")
 	allowed_bloodlines = list("Ventrue", "Daeva", "Mekhet", "Nosferatu", "Gangrel")

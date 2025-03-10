@@ -5,7 +5,7 @@
 	faction = "Vampire"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "God"
+	supervisors = "the Testament of Longinus and your own guilty conscience."
 	selection_color = "#fff700"
 
 	outfit = /datum/outfit/job/bishop
@@ -20,11 +20,10 @@
 
 	allowed_species = list("Vampire")
 	allowed_bloodlines = list("Ventrue", "Daeva", "Mekhet", "Nosferatu", "Gangrel")
-	
+
 	minimal_generation = 13
 
-	duty = "Be the shepherd of the jerks, or something more poetic elge needs to come up with"
-	v_duty = "Something, something lance figure it out elge."
+	v_duty = "You are the Sanctified Bishop, leader of the local chapter of the Lancea et Sanctum. Bear up the Lance and keep the Chapel. Direct your Sanctified to scour the wicked and protect the good. Ensure the Kindred do not fall into monstrosity."
 	minimal_masquerade = 0
 	known_contacts = list("Seneschal", "Keeper of Elysium", "Sheriff")
 	my_contact_is_important = TRUE
@@ -42,11 +41,11 @@
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/passport=1, /obj/item/vamp/creditcard=1)
 
-/datum/outfit/job/bishop/pre_equip(mob/living/carbon/human/H)
-	..()
-	H.mind.holy_role = HOLY_ROLE_PRIEST
-	H.resistant_to_disciplines = TRUE
-	to_chat(H, "<span class='alertsyndie'>Your faith in God is made of iron. None could shake it, and even in the darkest moments it holds you up.</span>")
+///datum/outfit/job/bishop/pre_equip(mob/living/carbon/human/H)
+//	..()
+//	H.mind.holy_role = HOLY_ROLE_PRIEST
+//	H.resistant_to_disciplines = TRUE
+//	to_chat(H, "<span class='alertsyndie'>Your faith in God is made of iron. None could shake it, and even in the darkest moments it holds you up.</span>")
 
 /obj/effect/landmark/start/vtr/bishop
 	name = "Bishop"

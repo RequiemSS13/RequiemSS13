@@ -12,7 +12,7 @@
 	paycheck = PAYCHECK_EASY
 	paycheck_department = ACCOUNT_SRV
 	display_order = JOB_DISPLAY_ORDER_VOIVODE_VTR
-	
+
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_ORDO
 
@@ -20,7 +20,7 @@
 	allowed_bloodlines = list("Ventrue", "Daeva", "Mekhet", "Nosferatu", "Gangrel")
 	minimal_generation = 7
 
-	v_duty = "uhh, elge, say something"
+	v_duty = "You are the Voivode, leader of the local Ordo Dracul. Conduct research into the occult and arcane. Manage your research library, its librarian, and your Sworn. Ensure that the Seneschal does not interfere with your work."
 	experience_addition = 20
 	minimal_masquerade = 2
 	my_contact_is_important = TRUE

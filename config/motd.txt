@@ -4,4 +4,4 @@
 
 <div class="warning"><h3 style="color: red;">This server is in open alpha. Progression will not carry into the full release.</h3></div>
 
-<i>Remember, wherever we go, elgeon will find descriptions she has not done...</i>
+<i>You're not human tonight...</i>

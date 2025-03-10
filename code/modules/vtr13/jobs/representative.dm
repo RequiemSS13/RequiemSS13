@@ -21,9 +21,7 @@
 
 	my_contact_is_important = TRUE
 
-	allowed_bloodlines = list("True Brujah", "Brujah", "Nosferatu", "Gangrel", "Toreador", "Malkavian", "Banu Haqim", "Tzimisce", "Caitiff", "Ventrue", "Ministry", "Kiasyd", "Cappadocian")
-
-	v_duty = "Carthians are great, vote now (for elge to write something better)"
+	v_duty = "You're the (hopefully) duly elected representative of the local Carthian movement. Make sure the Invictus respect your interests and the will of the assembly. Keep the Carthian supply network flowing and money coming in. Push your vision of the future out onto the city."
 	minimal_masquerade = 3
 	allowed_species = list("Vampire")
 	allowed_bloodlines = list("Ventrue", "Daeva", "Mekhet", "Nosferatu", "Gangrel")

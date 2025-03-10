@@ -17,7 +17,7 @@
 
 	allowed_species = list("Human")
 	known_contacts = list("Hierophant")
-	duty = "wear glasses, be a nerd and get bit by sexy, sexy vampires. jinkies, elge needs to do a better desc"
+	duty = "You're a librarian at the local 24/7 research library. Help patrons with their queries. Keep the library tidy. Don't ask too many of your own questions."
 	minimal_masquerade = 0
 	experience_addition = 10
 

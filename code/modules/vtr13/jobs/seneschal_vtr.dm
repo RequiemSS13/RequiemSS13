@@ -40,7 +40,7 @@
 		"Voivode"
 	)
 
-	v_duty = "Uhh. Elge say somethin here"
+	v_duty = "You are the Seneschal, the right hand of the Prince. Rule over the Invictus in his name. Work with the Sheriff to keep the Traditions secure. Work with the leaders of the other covenants to keep the masses in line."
 	experience_addition = 25
 
 /datum/job/vamp/vtr/seneschal_vtr/announce(mob/living/carbon/human/H)

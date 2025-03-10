@@ -21,15 +21,15 @@
 	mind_traits = list(TRAIT_DONUT_LOVER)
 
 	display_order = JOB_DISPLAY_ORDER_HOUND_VTR
-	
+
 	bounty_types = CIV_JOB_SEC
 	known_contacts = list("Prince", "Keeper of Elysium", "Sheriff")
 
-	v_duty = "You got that dawg in you, Elge fixx pls"
+	v_duty = "You're a Hound, one of the Sheriff's attack dogs and a member of the Invictus. Help the Sheriff enforce the Seneschal's orders. Ensure that the Traditions are kept. Protect the Invictus and its leadership."
 	minimal_masquerade = 4
 	experience_addition = 10
 	allowed_bloodlines = list("Ventrue", "Daeva", "Mekhet", "Nosferatu", "Gangrel")
-	
+
 
 /datum/outfit/job/hound_vtr
 	name = "Hound"

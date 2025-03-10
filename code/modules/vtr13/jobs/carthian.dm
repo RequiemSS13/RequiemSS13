@@ -21,7 +21,9 @@
 	known_contacts = list("Carthian Representative")
 	allowed_species = list("Vampire", "Ghoul")
 	allowed_bloodlines = list("Ventrue", "Daeva", "Mekhet", "Nosferatu", "Gangrel")
-	v_duty = "you vote. elge write more on this"
+
+	duty = "You're a ghoul attached to a member of the Carthian Movement, or to the Movement itself. Protect the interests of the Carthian movement. Get peoples' cargo out of the van at the warehouse. Grumble about not being allowed to vote."
+	v_duty = "You're a card-carrying member of the Carthian Movement. Vote on legislation. Keep the contraband flowing. Protect your fellow Carthians from the abuses of their elders."
 	minimal_masquerade = 2
 	experience_addition = 15
 

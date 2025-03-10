@@ -1,8 +1,8 @@
 
 /obj/item/card/id/seneschal_vtr
-	name = "CEO ID card"
-	id_type_name = "CEO ID card"
-	desc = "A badge which shows that Elge needs to modify this."
+	name = "tower owner's ID card"
+	id_type_name = "tower owner ID card"
+	desc = "A nondescript ID issued to the reclusive owner of the Castille Building."
 	icon = 'code/modules/wod13/items.dmi'
 	icon_state = "id1"
 	inhand_icon_state = "card-id"
@@ -16,7 +16,7 @@
 /obj/item/card/id/sheriff_vtr
 	name = "head security badge"
 	id_type_name = "head security badge"
-	desc = "A badge which shows Elge needs to describe this."
+	desc = "An nondescript ID issued to the head of the Castille Building's security."
 	icon = 'code/modules/wod13/items.dmi'
 	icon_state = "id4"
 	inhand_icon_state = "card-id"
@@ -27,9 +27,9 @@
 	worn_icon_state = "id4"
 
 /obj/item/card/id/hierophant
-	name = "head tour guide"
-	id_type_name = "head tour guide"
-	desc = "Signifies that there are no leaders amongst the crones, because you will not allow it. Elge might want to make this better"
+	name = "captain's ID"
+	id_type_name = "captain ID"
+	desc = "An ID card issued to the (mostly symbolic) captain of the Queen Lilith, casino and resort."
 	icon = 'code/modules/wod13/items.dmi'
 	icon_state = "id7_regent"
 	inhand_icon_state = "card-id"
@@ -42,7 +42,7 @@
 /obj/item/card/id/keeper
 	name = "club owner badge"
 	id_type_name = "club owner badge"
-	desc = "A badge which shows that elge needs to write this."
+	desc = "A nametag and ID identifying the wearer as the owner of the nightclub 'The Kiss'."
 	icon = 'code/modules/wod13/items.dmi'
 	icon_state = "id2"
 	inhand_icon_state = "card-id"
@@ -55,7 +55,7 @@
 /obj/item/card/id/bartender_vtr
 	name = "bartender badge"
 	id_type_name = "bartender badge"
-	desc = "A bar for someone that Elge needs to describe, makes me want a drink."
+	desc = "A nametag and ID identifying the wearer as a bartender at the nightclub 'The Kiss'."
 	icon = 'code/modules/wod13/items.dmi'
 	icon_state = "id2"
 	inhand_icon_state = "card-id"
@@ -66,9 +66,9 @@
 	worn_icon_state = "id2"
 
 /obj/item/card/id/page
-	name = "exclusive runner badge"
-	id_type_name = "exclusive runner badge"
-	desc = "Shows that you are the best at doing things for important people.  Elge write more things"
+	name = "access pass"
+	id_type_name = "access pass"
+	desc = "A limited access pass to the Castille Building, for corporate cogs on various missions."
 	icon = 'code/modules/wod13/items.dmi'
 	icon_state = "id6"
 	inhand_icon_state = "card-id"
@@ -79,9 +79,9 @@
 	worn_icon_state = "id6"
 
 /obj/item/card/id/representative
-	name = "mayoral candidate badge"
-	id_type_name = "mayoral candidate badge"
-	desc = "A badge which shows you are into politics. Vampire politics! Elge write more things"
+	name = "party leader's badge"
+	id_type_name = "party leader badge"
+	desc = "A badge for some weird third-party political organization. It proclaims high rank to anyone well-versed in obscure socialist politics."
 	icon = 'code/modules/wod13/items.dmi'
 	icon_state = "id9"
 	inhand_icon_state = "card-id"
@@ -92,9 +92,9 @@
 	worn_icon_state = "id9"
 
 /obj/item/card/id/voivode_vtr
-	name = "Dean of Science Badge"
-	id_type_name = "Dean of Science Badge"
-	desc = "Sponsored by the Shadow Government. And Elge not having redid this desc yet"
+	name = "laboratory head's ID"
+	id_type_name = "laboratory head ID"
+	desc = "An ID issued to the head of a local UCLA research lab."
 	icon = 'code/modules/wod13/items.dmi'
 	icon_state = "id12"
 	inhand_icon_state = "card-id"
@@ -107,7 +107,7 @@
 /obj/item/card/id/invictus
 	name = "security badge"
 	id_type_name = "security badge"
-	desc = "A badge which shows fealty to the hierarchy. and elge not doing all the descs yet"
+	desc = "An nondescript ID issued to the Castille Building's security team."
 	icon = 'code/modules/wod13/items.dmi'
 	icon_state = "id3"
 	inhand_icon_state = "card-id"
@@ -118,9 +118,9 @@
 	worn_icon_state = "id3"
 
 /obj/item/card/id/carthian
-	name = "voter's registration"
-	id_type_name = "voter's registration"
-	desc = "Shows you are part of a Movement."
+	name = "party badge"
+	id_type_name = "party badge"
+	desc = "A badge for some weird third-party political organization."
 	icon = 'code/modules/wod13/items.dmi'
 	icon_state = "id10"
 	inhand_icon_state = "card-id"
@@ -133,7 +133,7 @@
 /obj/item/card/id/sanctified
 	name = "cross"
 	id_type_name = "cross"
-	desc = "A sign of the burden you bear, for elge has forsaken your description."
+	desc = "A small golden cross. Naked Jesus figure sold seperately."
 	icon = 'code/modules/wod13/items.dmi'
 	icon_state = "id11"
 	inhand_icon_state = "card-id"
@@ -144,9 +144,9 @@
 	worn_icon_state = "id11"
 
 /obj/item/card/id/acolyte
-	name = "tour guide badge"
-	id_type_name = "tour guide badge"
-	desc = "A badge which shows a love of cursed steam boats. Elge write more"
+	name = "crew badge"
+	id_type_name = "crew badge"
+	desc = "A badge denoting an employee of the Queen Lilith, casino and resort."
 	icon = 'code/modules/wod13/items.dmi'
 	icon_state = "id7"
 	inhand_icon_state = "card-id"

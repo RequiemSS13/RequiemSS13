@@ -1,10 +1,10 @@
 /datum/job/vamp/vtr/bartender_vtr
 	title = "Bartender"
-	department_head = list("Seneschal")
+	department_head = list("Keeper of Elysium")
 	faction = "Vampire"
 	total_positions = 4
 	spawn_positions = 4
-	supervisors = " the Seneschal"
+	supervisors = "the Keeper of Elysium"
 	selection_color = "#00ffff"
 
 	outfit = /datum/outfit/job/keeper
@@ -20,8 +20,8 @@
 	allowed_bloodlines = list("Ventrue", "Daeva", "Mekhet", "Nosferatu", "Gangrel")
 	minimal_generation = 7	//Uncomment when players get exp enough
 
-	v_duty = "An Elysuim is an important location in kindred society. Tonight, you're pouring drinks in one."
-	duty = "You are working in a VERY NORMAL NIGHT CLUB. There is VIP section upstairs - you are not allowed up there. Elge might be able to put this desc better"
+	v_duty = "You're a bartender at Elysium. Pour drinks for the Kine. Help the Keeper keep the blood flowing. Play something good on the jukebox."
+	duty = "You're a bartender at the local nightclub. Pour drinks for working stiffs. Help out your boss if they ask. Don't go into the VIP area upstairs. Don't ask too many questions. Play something good on the jukebox."
 	experience_addition = 20
 	minimal_masquerade = 5
 	my_contact_is_important = TRUE

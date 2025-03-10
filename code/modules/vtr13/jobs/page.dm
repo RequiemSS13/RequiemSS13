@@ -31,8 +31,8 @@
 	allowed_species = list("Vampire")
 	known_contacts = list("Seneschal","Keeper of Elysium", "Carthian Representative", "Bishop", "Hierophant", "Voivode")
 
-	v_duty = "uh, pages are blank, elge, fill them with something"
-	
+	v_duty = "You're a page for the Invictus leadership; a prestigious and important but also basically powerless position. Field phone calls for the Seneschal and the Sherrif. Try and parlay your access into actual political clout."
+
 	experience_addition = 15
 	allowed_bloodlines = list("Ventrue", "Daeva", "Mekhet", "Nosferatu", "Gangrel")
 
