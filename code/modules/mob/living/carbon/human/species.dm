@@ -1430,10 +1430,6 @@ GLOBAL_LIST_EMPTY(selectable_races)
 						"<span class='userdanger'>You're [atk_verb]ed by [user]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, "<span class='danger'>You [atk_verb] [target]!</span>")
 
-		if(user.potential >= 5)
-			var/atom/throw_target = get_edge_target_turf(target, user.dir)
-			target.throw_at(throw_target, rand(5, 7), 4, user, gentle = TRUE) //No stun nor impact damage from throwing people around
-
 		target.lastattacker = user.real_name
 		target.lastattackerckey = user.ckey
 		user.lastattacked = target
@@ -2219,6 +2215,9 @@ GLOBAL_LIST_EMPTY(selectable_races)
 	else
 		new /datum/forced_movement(H, get_ranged_target_turf(H, olddir, 4), 1, FALSE, CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon, spin), 1, 1))
 	return TRUE
+
+/datum/movespeed_modifier/wing
+	multiplicative_slowdown = -0.25
 
 //UNSAFE PROC, should only be called through the Activate or other sources that check for CanFly
 /datum/species/proc/ToggleFlight(mob/living/carbon/human/H)

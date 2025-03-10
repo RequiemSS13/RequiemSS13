@@ -661,10 +661,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					qdel(discipline)
 
 				if (clane.name == "Caitiff")
-					var/list/possible_new_disciplines = subtypesof(/datum/discipline) - discipline_types
+					var/list/possible_new_disciplines = subtypesof(/datum/discipline) - discipline_types - /datum/discipline/bloodheal
 					for (var/discipline_type in possible_new_disciplines)
 						var/datum/discipline/discipline = new discipline_type
-						if (discipline.clane_restricted)
+						if (discipline.clan_restricted)
 							possible_new_disciplines -= discipline_type
 						qdel(discipline)
 					if (possible_new_disciplines.len && (true_experience >= 10))
@@ -678,7 +678,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "-[discipline.desc]<BR>"
 					qdel(discipline)
 
-				var/list/possible_new_disciplines = subtypesof(/datum/discipline) - discipline_types
+				var/list/possible_new_disciplines = subtypesof(/datum/discipline) - discipline_types - /datum/discipline/bloodheal
 				if (possible_new_disciplines.len && (true_experience >= 10))
 					dat += "<a href='?_src_=prefs;preference=newghouldiscipline;task=input'>Learn a new Discipline (10)</a><BR>"
 
@@ -2028,10 +2028,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if((true_experience < 10) || !(pref_species.id == "kindred") || !(clane.name == "Caitiff"))
 						return
 
-					var/list/possible_new_disciplines = subtypesof(/datum/discipline) - discipline_types
+					var/list/possible_new_disciplines = subtypesof(/datum/discipline) - discipline_types - /datum/discipline/bloodheal
 					for (var/discipline_type in possible_new_disciplines)
 						var/datum/discipline/discipline = new discipline_type
-						if (discipline.clane_restricted)
+						if (discipline.clan_restricted)
 							possible_new_disciplines -= discipline_type
 						qdel(discipline)
 					var/new_discipline = tgui_input_list(user, "Select your new Discipline", "Discipline Selection", sortList(possible_new_disciplines))
@@ -2044,7 +2044,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if((true_experience < 10) || !(pref_species.id == "ghoul"))
 						return
 
-					var/list/possible_new_disciplines = subtypesof(/datum/discipline) - discipline_types
+					var/list/possible_new_disciplines = subtypesof(/datum/discipline) - discipline_types - /datum/discipline/bloodheal
 					var/new_discipline = tgui_input_list(user, "Select your new Discipline", "Discipline Selection", sortList(possible_new_disciplines))
 					if(new_discipline)
 						discipline_types += new_discipline
@@ -2190,10 +2190,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							for (var/i = clane.clane_disciplines.len; i < 3; i++)
 								if (slotlocked)
 									break
-								var/list/possible_new_disciplines = subtypesof(/datum/discipline) - clane.clane_disciplines
+								var/list/possible_new_disciplines = subtypesof(/datum/discipline) - clane.clane_disciplines - /datum/discipline/bloodheal
 								for (var/discipline_type in possible_new_disciplines)
 									var/datum/discipline/discipline = new discipline_type
-									if (discipline.clane_restricted)
+									if (discipline.clan_restricted)
 										possible_new_disciplines -= discipline_type
 									qdel(discipline)
 								var/new_discipline = tgui_input_list(user, "Select a Discipline", "Discipline Selection", sortList(possible_new_disciplines))

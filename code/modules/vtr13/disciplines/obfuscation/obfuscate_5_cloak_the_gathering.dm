@@ -1,0 +1,1 @@
+/datum/discipline_power/vtr/obfuscate/cloak_the_gathering
