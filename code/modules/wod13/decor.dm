@@ -987,7 +987,7 @@
 	icon_state = "billiard[rand(1, 3)]"
 
 /obj/police_department
-	name = "San Francisco Police Department"
+	name = "Long Beach Police Department"
 	desc = "Stop right there you criminal scum! Nobody can break the law on my watch!!"
 	icon = 'code/modules/wod13/props.dmi'
 	icon_state = "police"
@@ -1069,6 +1069,10 @@
 /obj/structure/strip_club/Initialize()
 	. = ..()
 	set_light(3, 2, "#8e509e")
+
+/obj/structure/strip_club/kiss
+	desc = "A pink neon sign reading \"THE KISS\" with a pair of lips."
+	icon_state = "the_kiss"
 
 /obj/structure/cabaret_sign
 	name = "cabaret"
