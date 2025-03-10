@@ -3502,6 +3502,7 @@
 #include "code\modules\vtr13\jobs\sworn.dm"
 #include "code\modules\vtr13\jobs\taxi_vtr.dm"
 #include "code\modules\vtr13\jobs\voivode_vtr.dm"
+#include "code\modules\vtr13\structure\vinylrack.dm"
 #include "code\modules\vtr13\subtle\subtle.dm"
 #include "code\modules\wod13\ambient.dm"
 #include "code\modules\wod13\ammostack.dm"
