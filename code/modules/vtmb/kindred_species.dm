@@ -502,6 +502,7 @@
 								BLOODBONDED_prefs_v.clane = new /datum/vampireclane/caitiff()
 								BLOODBONDED_prefs_v.save_character()
 							BLOODBONDED.create_embrace_connection(H)
+							BLOODBONDED.update_auspex_hud_vtr()
 					else
 
 						to_chat(owner, "<span class='notice'>[BLOODBONDED] is totally <b>DEAD</b>!</span>")
@@ -544,6 +545,7 @@
 					if(isghoul(BLOODBONDED) && blood_bond_result > 1)
 						var/datum/species/ghoul/G = BLOODBONDED.dna.species
 						G.last_vitae = world.time
+					BLOODBONDED.update_auspex_hud_vtr()
 			else
 				giving = FALSE
 

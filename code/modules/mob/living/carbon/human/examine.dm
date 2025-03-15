@@ -1,4 +1,11 @@
-/mob/living/carbon/human/examine(mob/user)
+/mob/living/carbon/human/examine(mob/user, for_disguise = FALSE)
+
+	//VTR EDIT BEGIN
+	if(disguise_description)
+		SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, disguise_description)
+		return disguise_description
+	//VTR EDIT END
+
 //this is very slightly better than it was because you can use it more places. still can't do \his[src] though.
 	var/t_He = p_they(TRUE)
 	var/t_His = p_their(TRUE)
@@ -148,24 +155,15 @@
 		if(100 to 200)
 			. += "<span class='warning'>[t_He] [t_is] twitching ever so slightly.</span>"
 
+	//VTR EDIT BEGIN
 	var/appears_dead = FALSE
-	var/just_sleeping = FALSE
-
-	if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
+	if((stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)) && !for_disguise))
 		appears_dead = TRUE
-
-		var/obj/item/clothing/glasses/G = get_item_by_slot(ITEM_SLOT_EYES)
-		var/are_we_in_weekend_at_bernies = G?.tint && buckled && istype(buckled, /obj/vehicle/ridden/wheelchair)
-
-		if(isliving(user) && (HAS_TRAIT(user, TRAIT_NAIVE) || are_we_in_weekend_at_bernies))
-			just_sleeping = TRUE
-
-		if(!just_sleeping)
-			if(suiciding)
-				. += "<span class='warning'>[t_He] appear[p_s()] to have committed suicide... there is no hope of recovery.</span>"
-
-			. += generate_death_examine_text()
-
+		if(suiciding)
+			. += "<span class='warning'>[t_He] appear[p_s()] to have committed suicide... there is no hope of recovery.</span>"
+		. += generate_death_examine_text()
+	//VTR EDIT END
+	
 	if(get_bodypart(BODY_ZONE_HEAD) && !getorgan(/obj/item/organ/brain) && surgeries.len)
 		. += "<span class='deadsay'>It appears that [t_his] brain is missing...</span>"
 
@@ -274,13 +272,26 @@
 		if(DISGUST_LEVEL_DISGUSTED to INFINITY)
 			msg += "[t_He] look[p_s()] extremely disgusted.\n"
 
-	var/apparent_blood_volume = bloodpool
-	if((apparent_blood_volume >= round(maxbloodpool * 0.5)) && (apparent_blood_volume < maxbloodpool))
-		msg += "[t_He] [t_has] pale skin.\n"
-	else if((apparent_blood_volume >= 1) && (apparent_blood_volume < round(maxbloodpool/2)))
-		msg += "[t_He] look[p_s()] like pale death.\n"
+	//VTR EDIT BEGIN
+	if(ishumanbasic(src) && (bloodpool >= 1) && (bloodpool < round(maxbloodpool/2)))
+		msg += "[t_He] look[p_s()] a little anemic.\n"
 	else if(bloodpool <= 0)
 		msg += "<span class='deadsay'><b>[t_He] resemble[p_s()] a crushed, empty juice pouch.</b></span>\n"
+
+
+	if(!for_disguise)
+		var/notify_beast = FALSE
+		if(iskindred(user))
+			notify_beast = TRUE
+		else if(isghoul(user))
+			var/mob/living/carbon/human/user_human = user
+			if(user_human?.using_auspex)
+				notify_beast = TRUE
+		
+		if(notify_beast && iskindred(src))
+			msg += span_danger("You sense the beast within [t_him] - [t_He] [t_is] a kindred.") + "\n"
+	//VTR EDIT END
+
 
 	if(is_bleeding())
 		var/list/obj/item/bodypart/bleeding_limbs = list()
@@ -331,9 +342,6 @@
 		for(var/i in stun_absorption)
 			if(stun_absorption[i]["end_time"] > world.time && stun_absorption[i]["examine_message"])
 				msg += "[t_He] [t_is][stun_absorption[i]["examine_message"]]\n"
-
-	if(just_sleeping)
-		msg += "[t_He] [t_is]n't responding to anything around [t_him] and seem[p_s()] to be asleep.\n"
 
 	if(!appears_dead)
 		if(drunkenness && !skipface) //Drunkenness

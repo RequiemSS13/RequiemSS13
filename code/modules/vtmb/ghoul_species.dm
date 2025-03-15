@@ -273,9 +273,7 @@
 
 /datum/species/ghoul/spec_life(mob/living/carbon/human/H)
 	. = ..()
-	if(HAS_TRAIT(H, TRAIT_UNMASQUERADE))
-		if(H.CheckEyewitness(H, H, 7, FALSE))
-			H.AdjustMasquerade(-1)
+	H.visible_masquerade_check()
 	if(istype(get_area(H), /area/vtm))
 		var/area/vtm/V = get_area(H)
 		if(V.zone_type == "masquerade" && V.upper)
@@ -336,9 +334,6 @@
 
 /datum/species/human/spec_life(mob/living/carbon/human/H)
 	. = ..()
-	if(HAS_TRAIT(H, TRAIT_UNMASQUERADE))
-		if(H.CheckEyewitness(H, H, 7, FALSE))
-			H.AdjustMasquerade(-1)
 	if(istype(get_area(H), /area/vtm))
 		var/area/vtm/V = get_area(H)
 		if(V.zone_type == "masquerade" && V.upper)

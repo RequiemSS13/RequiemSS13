@@ -84,17 +84,6 @@ SUBSYSTEM_DEF(carpool)
 		playsound(get_turf(H), 'code/modules/wod13/sounds/gas_splat.ogg', 50, TRUE)
 		user.visible_message("<span class='warning'>[user] covers [A] in something flammable!</span>")
 
-
-/obj/vampire_car/attack_hand(mob/user)
-	. = ..()
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.a_intent == INTENT_HARM && H.potential >= 4)
-			var/atom/throw_target = get_edge_target_turf(src, user.dir)
-			playsound(get_turf(src), 'code/modules/wod13/sounds/bump.ogg', 100, FALSE)
-			get_damage(10)
-			throw_at(throw_target, rand(4, 6), 4, user)
-
 /obj/vampire_car
 	name = "car"
 	desc = "Take me home, country roads..."

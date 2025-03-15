@@ -384,6 +384,9 @@
 	if(!..())
 		return FALSE
 	visible_message("<span class='name'>[src]</span> points at [A].", "<span class='notice'>You point at [A].</span>")
+
+	SEND_SIGNAL(A, COMSIG_MOB_LIVING_POINTED, src)
+
 	return TRUE
 
 /mob/living/verb/succumb(whispered as null)
