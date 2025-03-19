@@ -880,6 +880,8 @@
 /obj/item/toy/cards/cardhand/proc/update_sprite()
 	cut_overlays()
 	var/overlay_cards = currenthand.len
+	if(overlay_cards < 2) // a single card should become a singlecard item, so do nothing
+		return
 
 	var/k = overlay_cards == 2 ? 1 : overlay_cards - 2
 	for(var/i = k; i <= overlay_cards; i++)

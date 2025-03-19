@@ -10,29 +10,29 @@ export const NumberInputModal = (_, context) => {
   const { message, init_value, preferences, timeout, title } = data;
   const { large_buttons } = preferences;
   const [input, setInput] = useLocalState(context, "input", init_value);
-  const onChange = (value) => {
+  const onChange = value => {
     if (value === input) {
       return;
     }
     setInput(value);
   };
-  const onClick = (value) => {
+  const onClick = value => {
     if (value === input) {
       return;
     }
     setInput(value);
   };
   // Dynamically changes the window height based on the message.
-  const windowHeight =
-    125 +
-    Math.ceil(message.length / 3) +
-    (message.length && large_buttons ? 5 : 0);
+  const windowHeight
+    = 125
+    + Math.ceil(message.length / 3)
+    + (message.length && large_buttons ? 5 : 0);
 
   return (
     <Window title={title} width={270} height={windowHeight}>
       {timeout && <Loader value={timeout} />}
       <Window.Content
-        onKeyDown={(event) => {
+        onKeyDown={event => {
           const keyCode = window.event ? event.which : event.keyCode;
           if (keyCode === KEY_ENTER) {
             act("submit", { entry: input });

@@ -44,7 +44,7 @@
 	if(randomise[RANDOM_EYE_COLOR])
 		eye_color = random_eye_color()
 	if(!pref_species)
-		var/rando_race = pick(GLOB.roundstart_races)
+		var/rando_race = pick(get_roundstart_species())
 		pref_species = new rando_race()
 	features = random_features()
 	if(gender in list(MALE, FEMALE))
@@ -53,7 +53,7 @@
 		body_type = pick(MALE, FEMALE)
 
 /datum/preferences/proc/random_species()
-	var/random_species_type = GLOB.species_list[pick(GLOB.roundstart_races)]
+	var/random_species_type = GLOB.species_list[pick(get_roundstart_species())]
 	pref_species = new random_species_type
 	if(randomise[RANDOM_NAME])
 		real_name = pref_species.random_name(gender,1)
@@ -125,6 +125,8 @@
 		available_hardcore_quirks -= picked_quirk
 
 /datum/preferences/proc/update_preview_icon()
+	if(!parent) // If we don't have anyone to show, don't waste our time making a preview
+		return
 	// Determine what job is marked as 'High' priority, and dress them up as such.
 	var/datum/job/previewJob
 	var/highest_pref = 0

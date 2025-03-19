@@ -4,13 +4,13 @@
 	key = "c"
 	flags = TONGUELESS_SPEECH
 	space_chance = 50
-	syllables = list("de","yi","sì","bù","le","zài","rén","you", "wo", "ta","zhè", " gè","men","zhong","lái","sàng","guó","wèi","zi",
-					 "ni","dì","chu","dào", "ye","sí","nián","de", "jiù", "nà", "yào", "xià", "yi","seng", "huì","zì", "zhe",
-					"qù", "zhi", "guò","jia","xué","duì","ke","ta"," li","hòu","xiao", "me", "xin", "duo", "tian", "ér", "néng", "hao",
-					"dou", "rán","méi", "rì","yú","qi","hái","fa","chéng","sì","zhi","zuò","dang", "xiang","kàn", "wén", "wú", "kai",
-					"sou","sí", "yòng", "zhu", "xíng","fang","yòu","rú","qián", "suo","ben","jiàn","jing","tóu", "miàn", "gong", "tóng",
-					"san", "yi", "lao", "cóng", "dòng", "liang", "cháng","er","nei","xùn","bó","hài","hái","hún","pò", "xiàn","ma","ban", "pán",
-					"lián","gé","ér", "r", "ba","chi"
+	syllables = list("de","yi","sÃ¬","bÃ¹","le","zÃ i","rÃ©n","you", "wo", "ta","zhÃ¨", " gÃ¨","men","zhong","lÃ¡i","sÃ ng","guÃ³","wÃ¨i","zi",
+					 "ni","dÃ¬","chu","dÃ o", "ye","sÃ­","niÃ¡n","de", "jiÃ¹", "nÃ ", "yÃ o", "xiÃ ", "yi","seng", "huÃ¬","zÃ¬", "zhe",
+					"qÃ¹", "zhi", "guÃ²","jia","xuÃ©","duÃ¬","ke","ta"," li","hÃ²u","xiao", "me", "xin", "duo", "tian", "Ã©r", "nÃ©ng", "hao",
+					"dou", "rÃ¡n","mÃ©i", "rÃ¬","yÃº","qi","hÃ¡i","fa","chÃ©ng","sÃ¬","zhi","zuÃ²","dang", "xiang","kÃ n", "wÃ©n", "wÃº", "kai",
+					"sou","sÃ­", "yÃ²ng", "zhu", "xÃ­ng","fang","yÃ²u","rÃº","qiÃ¡n", "suo","ben","jiÃ n","jing","tÃ³u", "miÃ n", "gong", "tÃ³ng",
+					"san", "yi", "lao", "cÃ³ng", "dÃ²ng", "liang", "chÃ¡ng","er","nei","xÃ¹n","bÃ³","hÃ i","hÃ¡i","hÃºn","pÃ²", "xiÃ n","ma","ban", "pÃ¡n",
+					"liÃ¡n","gÃ©","Ã©r", "r", "ba","chi"
 					)
 	icon_state = "cantonese"
 	default_priority = 90

@@ -131,7 +131,7 @@
 	.["user"] = list()
 	.["user"]["points"] = points
 	.["user"]["name"] = "[user.name]"
-	.["user"]["job"] = "[user.mind.assigned_role]"
+	.["user"]["job"] = "[user.mind?.assigned_role]"
 
 
 /obj/machinery/mineral/equipment_vendor/ui_act(action, params)

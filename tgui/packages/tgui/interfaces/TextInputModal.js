@@ -5,11 +5,11 @@ import { KEY_ENTER, KEY_ESCAPE } from "../../common/keycodes";
 import { Box, Section, Stack, TextArea } from "../components";
 import { Window } from "../layouts";
 
-export const sanitizeMultiline = (toSanitize) => {
+export const sanitizeMultiline = toSanitize => {
   return toSanitize.replace(/(\n|\r\n){3,}/, "\n\n");
 };
 
-export const removeAllSkiplines = (toSanitize) => {
+export const removeAllSkiplines = toSanitize => {
   return toSanitize.replace(/[\r\n]+/, "");
 };
 
@@ -25,7 +25,7 @@ export const TextInputModal = (props, context) => {
     title,
   } = data;
   const [input, setInput] = useLocalState(context, "input", placeholder || "");
-  const onType = (value) => {
+  const onType = value => {
     if (value === input) {
       return;
     }
@@ -37,17 +37,17 @@ export const TextInputModal = (props, context) => {
 
   const visualMultiline = multiline || input.length >= 30;
   // Dynamically changes the window height based on the message.
-  const windowHeight =
-    135 +
-    (message.length > 30 ? Math.ceil(message.length / 4) : 0) +
-    (visualMultiline ? 75 : 0) +
-    (message.length && large_buttons ? 5 : 0);
+  const windowHeight
+    = 135
+    + (message.length > 30 ? Math.ceil(message.length / 4) : 0)
+    + (visualMultiline ? 75 : 0)
+    + (message.length && large_buttons ? 5 : 0);
 
   return (
     <Window title={title} width={325} height={windowHeight}>
       {timeout && <Loader value={timeout} />}
       <Window.Content
-        onKeyDown={(event) => {
+        onKeyDown={event => {
           const keyCode = window.event ? event.which : event.keyCode;
           if (keyCode === KEY_ENTER && (!visualMultiline || !event.shiftKey)) {
             act("submit", { entry: input });
@@ -93,7 +93,7 @@ const InputArea = (props, context) => {
       height={multiline || input.length >= 30 ? "100%" : "1.8rem"}
       maxLength={max_length}
       onEscape={() => act("cancel")}
-      onEnter={(event) => {
+      onEnter={event => {
         if (visualMultiline && event.shiftKey) {
           return;
         }

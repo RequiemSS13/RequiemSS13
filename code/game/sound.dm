@@ -189,6 +189,19 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 			var/mob/M = m
 			M.playsound_local(M, null, volume, vary, frequency, null, channel, pressure_affected, S)
 
+/// Play a sound to all players in an area.
+/proc/sound_to_players_in_area(area/area_source, soundin, volume = 100, vary = FALSE, frequency = 0, channel = 0, pressure_affected = FALSE, sound/S)
+	if(!S)
+		S = sound(get_sfx(soundin))
+	if(istype(area_source))
+		area_source = locate(area_source)
+	for(var/mob/M in GLOB.player_list)
+		if(isnewplayer(M))
+			continue
+		if(get_area(M) != area_source)
+			continue
+		M.playsound_local(M, null, volume, vary, frequency, null, channel, pressure_affected, S)
+
 /mob/proc/stop_sound_channel(chan)
 	SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = chan))
 

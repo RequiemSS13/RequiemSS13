@@ -1,10 +1,10 @@
-import { useBackend } from "../../backend"
-import { Box, Button, Stack } from "../../components"
+import { useBackend } from "../../backend";
+import { Box, Button, Stack } from "../../components";
 
 export const InputButtons = (props, context) => {
-  const { act, data } = useBackend(context)
-  const { large_buttons = false, swapped_buttons = true } = data.preferences
-  const { input, inputIsValid } = props
+  const { act, data } = useBackend(context);
+  const { large_buttons = false, swapped_buttons = true } = data.preferences;
+  const { input, inputIsValid } = props;
 
   const submitButton = (
     <Button
@@ -20,7 +20,7 @@ export const InputButtons = (props, context) => {
     >
       {large_buttons ? "SUBMIT" : "Submit"}
     </Button>
-  )
+  );
   const cancelButton = (
     <Button
       color="bad"
@@ -33,9 +33,9 @@ export const InputButtons = (props, context) => {
     >
       {large_buttons ? "CANCEL" : "Cancel"}
     </Button>
-  )
-  const leftButton = !swapped_buttons ? cancelButton : submitButton
-  const rightButton = !swapped_buttons ? submitButton : cancelButton
+  );
+  const leftButton = !swapped_buttons ? cancelButton : submitButton;
+  const rightButton = !swapped_buttons ? submitButton : cancelButton;
 
   return (
     <Stack>
@@ -59,5 +59,5 @@ export const InputButtons = (props, context) => {
         <Stack.Item>{rightButton}</Stack.Item>
       )}
     </Stack>
-  )
-}
+  );
+};

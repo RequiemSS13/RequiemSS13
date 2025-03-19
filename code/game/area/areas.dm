@@ -469,7 +469,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(fire_controling)
 		return
 	fire_controling = TRUE
-	playsound(src, 'sound/effects/alert.ogg', 100, FALSE)
+	sound_to_players_in_area(src, 'sound/effects/alert.ogg', 100, FALSE)
 	set_fire_alarm_effect()
 	for(var/turf/open/O in src)
 		new /obj/effect/decal/firecontrol(O)

@@ -166,7 +166,7 @@ GLOBAL_LIST_EMPTY(las_mirrors)
 	..()
 
 /obj/structure/mirror/magic/lesser/New()
-	choosable_races = GLOB.roundstart_races.Copy()
+	choosable_races = get_roundstart_species().Copy()
 	..()
 
 /obj/structure/mirror/magic/badmin/New()

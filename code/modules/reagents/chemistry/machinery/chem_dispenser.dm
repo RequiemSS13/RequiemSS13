@@ -230,7 +230,7 @@
 	. = ..()
 	if(.)
 		return
-	if(istype(src, /obj/machinery/chem_dispenser/drinks))
+	if(beaker && istype(src, /obj/machinery/chem_dispenser/drinks))
 		beaker.required_eject = TRUE
 	switch(action)
 		if("amount")

@@ -89,7 +89,7 @@
 //		current_target = A
 //
 //	!USE DEFAULT DM TABULATION AND FONT TO SEE CORRECT IMAGE!
-//	\ | /
+		\ | /
 		- . -
 		/ | \
 	Here is illustration of which pattern npc will be using while walking to the target
