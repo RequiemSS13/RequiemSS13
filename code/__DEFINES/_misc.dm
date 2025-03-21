@@ -13,19 +13,20 @@
 #define REVERSE_DIR(dir) ( ((dir & 85) << 1) | ((dir & 170) >> 1) )
 
 //Human Overlays Indexes/////////
-#define LUZHA_LAYER				40
-#define UNDERSHADOW_LAYER		39
-#define MUTATIONS_LAYER			38		//mutations. Tk headglows, cold resistance glow, etc
-#define BODY_BEHIND_LAYER		37		//certain mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODYPARTS_LAYER			36		//Initially "AUGMENTS", this was repurposed to be a catch-all bodyparts flag
-#define BODY_ADJ_LAYER			35		//certain mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_LAYER				34		//underwear, undershirts, socks, eyes, lips(makeup)
-#define FRONT_MUTATIONS_LAYER	33		//mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
-#define DAMAGE_LAYER			32		//damage indicators (cuts and burns)
-#define UNIFORM_LAYER			31
-#define ID_LAYER				30 //lmao at the idiot who put both ids and hands on the same layer
-#define HANDS_PART_LAYER		29
-#define GLOVES_LAYER			28
+#define LUZHA_LAYER				41
+#define UNDERSHADOW_LAYER		40
+#define MUTATIONS_LAYER			39		//mutations. Tk headglows, cold resistance glow, etc
+#define BODY_BEHIND_LAYER		38		//certain mutantrace features (tail when looking south) that must appear behind the body parts
+#define BODYPARTS_LAYER			37		//Initially "AUGMENTS", this was repurposed to be a catch-all bodyparts flag
+#define BODY_ADJ_LAYER			36		//certain mutantrace features (snout, body markings) that must appear above the body parts
+#define BODY_LAYER				35		//underwear, undershirts, socks, eyes, lips(makeup)
+#define FRONT_MUTATIONS_LAYER	34		//mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
+#define DAMAGE_LAYER			33		//damage indicators (cuts and burns)
+#define UNIFORM_LAYER			32
+#define ID_LAYER				31 //lmao at the idiot who put both ids and hands on the same layer
+#define HANDS_PART_LAYER		30
+#define GLOVES_LAYER			29
+#define MARKS_LAYER				28
 #define SHOES_LAYER				27
 #define EARS_LAYER				26
 #define SUIT_LAYER				25
@@ -53,7 +54,7 @@
 #define BITE_LAYER				3
 #define FIGHT_LAYER				2
 #define SAY_LAYER				1
-#define TOTAL_LAYERS			40		//KEEP THIS UP-TO-DATE OR SHIT WILL BREAK ;_;
+#define TOTAL_LAYERS			41		//KEEP THIS UP-TO-DATE OR SHIT WILL BREAK ;_;
 
 //Human Overlay Index Shortcuts for alternate_worn_layer, layers
 //Because I *KNOW* somebody will think layer+1 means "above"

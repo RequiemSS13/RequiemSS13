@@ -1177,45 +1177,46 @@
 	return buckle_mob(target, TRUE, TRUE, RIDER_NEEDS_ARMS)
 
 /mob/living/carbon/human/proc/climb_wall(turf/above_turf)
-	if(body_position != STANDING_UP)
+	if(body_position != STANDING_UP || HAS_TRAIT(src, TRAIT_LEANING))
 		return
 	if(above_turf && istype(above_turf, /turf/open/openspace))
 		var/total_dexterity = get_total_dexterity()
 		var/total_athletics = get_total_athletics()
-		to_chat(src, "<span class='notice'>You start climbing up...</span>")
+		var/has_gecko_grip = HAS_TRAIT(src, TRAIT_GECKO_GRIP) && !gloves
+		if(has_gecko_grip)
+			to_chat(src, span_notice("You scuttle up the wall unnaturally quick!"))
+		else
+			to_chat(src, span_notice("You start climbing up..."))
+			var/climb_time = 50 - (total_dexterity + total_athletics * 5)
+			animate(src, pixel_y = 32, time = climb_time)
+			var/result = do_after(src, climb_time, src)
+			if(!result)
+				to_chat(src, span_warning("You were interrupted and failed to climb up."))
+				animate(src, pixel_y = 0, time = 0)
+				return
+      
+			animate(src, pixel_y = 0, time = 0)
 
-		var/result = do_after(src, 50 - (total_dexterity + total_athletics * 5), src)
-		if(!result || HAS_TRAIT(src, TRAIT_LEANING))
-			to_chat(src, "<span class='warning'>You were interrupted and failed to climb up.</span>")
-			return
+		var/success = ROLL_FAILURE
+		if(has_gecko_grip)
+			success = ROLL_SUCCESS
+		else
+			success = src.storyteller_roll(total_athletics, 6)
 
-		var/initial_x = x
-		var/initial_y = y
-		var/initial_z = z
-
-		// Adjust pixel_x and pixel_y based on the direction
-		// spawn(20)
-		if(x != initial_x || y != initial_y || z != initial_z)
-			to_chat(src, "<span class='warning'>You moved and failed to climb up.</span>")
-			// Reset pixel offsets
-			return
-
-		//(< 5, slip and take damage), (5-14, fail to climb), (>= 15, climb up successfully)
-		var/roll = rand(1, 20)
-		// var/physique = physique
-		if((roll + total_dexterity + (total_athletics * 2)) >= 15)
+		if(success == ROLL_SUCCESS)
 			loc = above_turf
 			var/turf/forward_turf = get_step(loc, dir)
 			if(forward_turf && !forward_turf.density)
 				forceMove(forward_turf)
-				to_chat(src, "<span class='notice'>You climb up successfully.</span>")
-				// Reset pixel offsets after climbing up
-		else if((roll + total_dexterity + (total_athletics * 2)) < 5)
+				to_chat(src, span_notice("You climb up successfully."))
+			else if(has_gecko_grip)
+				forceMove(above_turf)
+				to_chat(src, span_notice("You climb up and cling to the wall!."))
+		else if(success == ROLL_BOTCH)
 			ZImpactDamage(loc, 1)
-			to_chat(src, "<span class='warning'>You slip while climbing!</span>")
-			// Reset pixel offsets if failed
+			to_chat(src, span_warning("You slip while climbing!"))
 		else
-			to_chat(src, "<span class='warning'>You fail to climb up.</span>")
+			to_chat(src, span_warning("You fail to climb up."))
 
 	return
 

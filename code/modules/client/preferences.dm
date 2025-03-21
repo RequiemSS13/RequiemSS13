@@ -200,7 +200,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/discipline4type
 
 	//Character sheet stats
-	var/true_experience = 50
+	var/true_experience = 500
 	var/torpor_count = 0
 
 	//linked lists determining known Disciplines and their known ranks
@@ -308,7 +308,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	random_species()
 	random_character()
 	body_model = rand(1, 3)
-	true_experience = 50
+	true_experience = 500
 	real_name = random_unique_name(gender)
 	headshot_link = null // TFN EDIT
 	save_character()

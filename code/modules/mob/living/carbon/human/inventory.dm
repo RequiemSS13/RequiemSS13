@@ -311,6 +311,10 @@
 /mob/living/carbon/human/proc/smart_equip_targeted(slot_type = ITEM_SLOT_BELT, slot_item_name = "belt")
 	if(incapacitated())
 		return
+	if(HAS_TRAIT(src, TRAIT_NO_QUICK_EQUIP))
+		to_chat(src, span_warning("Your hands fumble as you try to equip the item!"))
+		return
+	
 	var/obj/item/thing = get_active_held_item()
 	var/obj/item/equipped_item = get_item_by_slot(slot_type)
 	if(!equipped_item) // We also let you equip an item like this
