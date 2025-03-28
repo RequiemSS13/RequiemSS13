@@ -288,7 +288,8 @@
 		else
 			if(istype(W, /obj/item/melee))
 				var/atom/B = melee_swing()
-				W.melee_attack_chain(src, B, params)
+				if(B)
+					W.melee_attack_chain(src, B, params)
 			else if(CanReach(A,W))
 				W.melee_attack_chain(src, A, params)
 

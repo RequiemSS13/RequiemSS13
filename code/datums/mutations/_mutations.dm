@@ -116,7 +116,7 @@
 	return
 
 /mob/living/carbon/human/update_mutations_overlay()
-	for(var/datum/mutation/human/CM in dna.mutations)
+	for(var/datum/mutation/human/CM in dna?.mutations)
 		if(CM.species_allowed && !CM.species_allowed.Find(dna.species.id))
 			dna.force_lose(CM) //shouldn't have that mutation at all
 			continue

@@ -40,7 +40,7 @@ export const Gmail = props => {
                 'nav-link' + (app.screen === 2 ? ' active-nav-link' : '')
               }
               onClick={() => act('gmail_switch_screen', { screen: 2 })}>
-              Stared <Icon name="star" style={{ color: '#ff9f29' }} />
+              Starred <Icon name="star" style={{ color: '#ff9f29' }} />
             </div>
             <div className="nav-link">Chats</div>
             <div className="nav-link">Sent Mail</div>
@@ -51,7 +51,7 @@ export const Gmail = props => {
         <div className="gmail-body">
           {app.screen === 0 && <ComposeEmail act={act} />}
           {app.screen === 1 && <Emails emails={app.emails} act={act} />}
-          {app.screen === 2 && <Stared emails={app.emails} act={act} />}
+          {app.screen === 2 && <Starred emails={app.emails} act={act} />}
           {app.screen === 4 && (
             <EmailScreen email={app.current_email} act={act} />
           )}
@@ -77,7 +77,7 @@ const Emails = props => {
   );
 };
 
-const Stared = props => {
+const Starred = props => {
   const { emails, act } = props;
   return (
     <>
@@ -85,7 +85,7 @@ const Stared = props => {
       <EmailActions act={act} />
       <div className="messages">
         {emails.map(email => {
-          return email.stared === 1 && <Email email={email} act={act} />;
+          return email.starred === 1 && <Email email={email} act={act} />;
         })}
       </div>
       <EmailActions act={act} />
@@ -201,7 +201,7 @@ const Email = props => {
           onClick={() => {
             act('set_email_star', { ref: email.reference });
           }}
-          style={email.stared && { color: '#ff9f29' }}
+          style={email.starred && { color: '#ff9f29' }}
         />
       </div>
       <div className="text-block">

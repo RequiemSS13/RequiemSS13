@@ -313,12 +313,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	headshot_link = null // TFN EDIT
 	save_character()
 
-/proc/reset_shit(mob/M)
-	if(M.key)
-		var/datum/preferences/P = GLOB.preferences_datums[ckey(M.key)]
-		if(P)
-			P.reset_character()
-
 /datum/preferences/New(client/C)
 	parent = C
 
@@ -339,7 +333,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	//we couldn't load character data so just randomize the character appearance + name
 	random_species()
 	random_character()		//let's create a random character then - rather than a fat, bald and naked man.
-	reset_shit()
 	key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
 	C?.set_macros()
 //	pref_species = new /datum/species/kindred()
@@ -360,6 +353,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		return coolfont
 
 /datum/preferences/proc/ShowChoices(mob/user)
+	if(!SSatoms.initialized)
+		to_chat(user, span_warning("Please wait for the game to do a little more setup first...!"))
+		return
+	if(!user?.client) // Without a client in control, you can't do anything.
+		return
 	if(slot_randomized)
 		load_character(default_slot) // Reloads the character slot. Prevents random features from overwriting the slot if saved.
 		slot_randomized = FALSE
@@ -578,8 +576,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						gifts_text += "[ACT.name].<BR>"
 					qdel(ACT)
 				dat += "<b>Initial Gifts:</b> [gifts_text]"
-				var/mob/living/carbon/werewolf/crinos/DAWOF = new(get_turf(parent.mob))
-				var/mob/living/carbon/werewolf/lupus/DAWOF2 = new(get_turf(parent.mob))
+				// These mobs should be made in nullspace to avoid dumping them onto the map somewhere.
+				var/mob/living/carbon/werewolf/crinos/DAWOF = new
+				var/mob/living/carbon/werewolf/lupus/DAWOF2 = new
 
 				DAWOF.sprite_color = werewolf_color
 				DAWOF2.sprite_color = werewolf_color
@@ -2306,10 +2305,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 					var/list/archetypes = list()
 					for(var/i in subtypesof(/datum/archetype))
-						archetypes += i
+						var/datum/archetype/the_archetype = i
+						archetypes[initial(the_archetype.name)] = i
 					var/result = tgui_input_list(user, "Select an archetype", "Attributes Selection", sortList(archetypes))
 					if(result)
-						archetype = result
+						archetype = archetypes[result]
 						var/datum/archetype/archetip = new archetype()
 						physique = archetip.start_physique
 						dexterity = archetip.start_dexterity
@@ -2516,14 +2516,14 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						return
 
 					var/list/choose_species = list()
-					for (var/key in GLOB.selectable_races)
+					for (var/key in get_selectable_species())
 						var/newtype = GLOB.species_list[key]
 						var/datum/species/selecting_species = new newtype
 						if (!selecting_species.selectable)
 							qdel(selecting_species)
 							continue
 						if (selecting_species.whitelisted)
-							if (!SSwhitelists.is_whitelisted(parent.ckey, key))
+							if (parent && !SSwhitelists.is_whitelisted(parent.ckey, key))
 								qdel(selecting_species)
 								continue
 						choose_species += key
@@ -2730,12 +2730,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/desiredfps = input(user, "Choose your desired fps.\n-1 means recommended value (currently:[RECOMMENDED_FPS])\n0 means world fps (currently:[world.fps])", "Character Preference", clientfps)  as null|num
 					if (!isnull(desiredfps))
 						clientfps = sanitize_integer(desiredfps, -1, 1000, clientfps)
-						parent.fps = (clientfps < 0) ? RECOMMENDED_FPS : clientfps
+						if(parent)
+							parent.fps = (clientfps < 0) ? RECOMMENDED_FPS : clientfps
 				if("ui")
 					var/pickedui = input(user, "Choose your UI style.", "Character Preference", UI_style)  as null|anything in sortList(GLOB.available_ui_styles)
 					if(pickedui)
 						UI_style = pickedui
-						if (parent && parent.mob && parent.mob.hud_used)
+						if (parent?.mob.hud_used)
 							parent.mob.hud_used.update_ui_style(ui_style2icon(UI_style))
 				if("pda_style")
 					var/pickedPDAStyle = input(user, "Choose your PDA style.", "Character Preference", pda_style)  as null|anything in GLOB.pda_styles
@@ -3018,17 +3019,17 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("parallaxup")
 					parallax = WRAP(parallax + 1, PARALLAX_INSANE, PARALLAX_DISABLE + 1)
-					if (parent && parent.mob && parent.mob.hud_used)
+					if (parent?.mob.hud_used)
 						parent.mob.hud_used.update_parallax_pref(parent.mob)
 
 				if("parallaxdown")
 					parallax = WRAP(parallax - 1, PARALLAX_INSANE, PARALLAX_DISABLE + 1)
-					if (parent && parent.mob && parent.mob.hud_used)
+					if (parent?.mob.hud_used)
 						parent.mob.hud_used.update_parallax_pref(parent.mob)
 
 				if("ambientocclusion")
 					ambientocclusion = !ambientocclusion
-					if(parent?.screen && parent.screen.len)
+					if(length(parent?.screen))
 						var/atom/movable/screen/plane_master/game_world/PM = locate(/atom/movable/screen/plane_master/game_world) in parent.screen
 						PM.backdrop(parent.mob)
 
@@ -3124,7 +3125,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		slot_randomized = TRUE
 		real_name = pref_species.random_name(gender)
 
-	if(randomise[RANDOM_HARDCORE] && parent.mob.mind && !character_setup)
+	if(randomise[RANDOM_HARDCORE] && parent?.mob.mind && !character_setup)
 		if(can_be_random_hardcore())
 			hardcore_random_setup(character, antagonist, is_latejoiner)
 
@@ -3347,9 +3348,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		parent << browse(null, "window=preferences_browser")
 
 /datum/preferences/proc/can_be_random_hardcore()
-	if(parent.mob.mind.assigned_role in GLOB.command_positions) //No command staff
+	if(parent && (parent.mob.mind?.assigned_role in GLOB.command_positions)) //No command staff
 		return FALSE
-	for(var/A in parent.mob.mind.antag_datums)
+	for(var/A in parent?.mob.mind?.antag_datums)
 		var/datum/antagonist/antag
 		if(antag.get_team()) //No team antags
 			return FALSE

@@ -232,6 +232,18 @@ GLOBAL_LIST_EMPTY(selectable_races)
 		GLOB.roundstart_races += "kindred"
 	*/
 
+/proc/get_roundstart_species()
+	RETURN_TYPE(/list)
+	if(!length(GLOB.roundstart_races))
+		generate_selectable_species()
+	return GLOB.roundstart_races
+
+/proc/get_selectable_species()
+	RETURN_TYPE(/list)
+	if(!length(GLOB.selectable_races))
+		generate_selectable_species()
+	return GLOB.selectable_races
+
 /**
  * Checks if a species is eligible to be picked at roundstart.
  *

@@ -48,38 +48,38 @@ SUBSYSTEM_DEF(die_in_a_fire)
 		color = "#808080"
 
 /obj/effect/fire/proc/handle_automated_spread()
-	playsound(get_turf(src), 'code/modules/wod13/sounds/fire.ogg', 80, TRUE)
-	var/area/AR = get_area(src)
+	var/turf/our_turf = get_turf(src)
+	playsound(our_turf, 'code/modules/wod13/sounds/fire.ogg', 80, TRUE)
+	var/area/AR = our_turf.loc
 	if(AR.fire_controled)
 		AR.fire_extinguishment()
-	for(var/obj/effect/decal/cleanable/gasoline/G in loc)
+	for(var/obj/effect/decal/cleanable/gasoline/G in our_turf)
 		if(G)
 			qdel(G)
-	for(var/mob/living/L in loc)
+	for(var/mob/living/L in our_turf)
 		if(L)
 			L.fire_stacks += 5
 			L.IgniteMob()
 			L.apply_damage(10*stage, BURN, BODY_ZONE_CHEST)
-	for(var/obj/machinery/light/M in loc)
+	for(var/obj/machinery/light/M in our_turf)
 		if(M)
 			if(M.status != LIGHT_BROKEN && M.status != LIGHT_EMPTY)
 				M.break_light_tube()
-	for(var/obj/S in loc)
-		if(S)
-			var/breakable = TRUE
-			if(S.resistance_flags & INDESTRUCTIBLE)
-				breakable = FALSE
-			if(breakable)
-				S.fire_act(1000)
-			if(istype(S, /obj/structure/vamptree))
-				var/obj/structure/vamptree/T = S
-				T.burnshit()
-//				if(!isitem(S))
-//					S.take_damage(10*stage, BURN, MELEE, 1)
-	for(var/obj/effect/decal/cleanable/blood/B in loc)
+	for(var/obj/S in our_turf)
+		var/breakable = TRUE
+		if(S.resistance_flags & INDESTRUCTIBLE)
+			breakable = FALSE
+		if(breakable)
+			S.fire_act(1000)
+		if(istype(S, /obj/structure/vamptree))
+			var/obj/structure/vamptree/T = S
+			T.burnshit()
+//		if(!isitem(S))
+//			S.take_damage(10*stage, BURN, MELEE, 1)
+	for(var/obj/effect/decal/cleanable/blood/B in our_turf)
 		if(B)
 			B.dry()
-	for(var/obj/structure/vampdoor/V in loc)
+	for(var/obj/structure/vampdoor/V in our_turf)
 		if(V)
 			if(V.burnable)
 				V.color = "#808080"
@@ -92,8 +92,8 @@ SUBSYSTEM_DEF(die_in_a_fire)
 					V.opacity = FALSE
 					V.layer = OPEN_DOOR_LAYER
 	var/total_burn = 0
-	if(istype(get_turf(src), /turf/open/floor))
-		var/turf/open/floor/A = get_turf(src)
+	if(istype(our_turf, /turf/open/floor))
+		var/turf/open/floor/A = our_turf
 		A.burn_material = max(0, A.burn_material-(1*stage))
 		total_burn += A.burn_material
 		if(prob(A.spread_chance))
@@ -102,7 +102,7 @@ SUBSYSTEM_DEF(die_in_a_fire)
 			new /obj/effect/decal/cleanable/fire_ash(A)
 			A.spread_chance = initial(A.spread_chance)
 	if(total_burn)
-		for(var/turf/open/floor/A in range(1, src))
+		for(var/turf/open/floor/A in orange(1, src))
 			var/obj/structure/vampdoor/V = locate() in A
 			var/allowed_to_spread = FALSE
 

@@ -175,7 +175,7 @@ var/mob/living/carbon/human/H
 		return
 	switch(action)
 		if("login")
-			if(params["code"] == current_card.account.code)
+			if(current_card?.account && params["code"] == current_card.account.code)
 				logged_in = TRUE
 				return TRUE
 			else

@@ -1,7 +1,7 @@
 import { Box } from "../../components";
 import { clamp01 } from "common/math";
 
-export const Loader = (props) => {
+export const Loader = props => {
   const { value } = props;
 
   return (

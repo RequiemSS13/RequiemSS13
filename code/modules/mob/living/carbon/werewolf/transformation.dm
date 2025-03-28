@@ -1,3 +1,5 @@
+// this is evil
+// todo: use a datum or something instead lol
 /obj/werewolf_holder/transformation
 	var/mob/living/carbon/human/human_form
 	var/mob/living/carbon/werewolf/crinos/crinos_form
@@ -6,6 +8,10 @@
 	var/transformating = FALSE
 	var/given_quirks = FALSE
 
+// we should really initialize on creation always
+// if this were a datum we'd just use New()
+// but since it's an atom subtype we have to use INITIALIZE_IMMEDIATE
+INITIALIZE_IMMEDIATE(/obj/werewolf_holder/transformation)
 /obj/werewolf_holder/transformation/Initialize()
 	. = ..()
 	crinos_form = new()
@@ -23,13 +29,7 @@
 
 /obj/werewolf_holder/transformation/proc/trans_gender(mob/living/carbon/trans, form)
 	if(!given_quirks)
-		given_quirks = TRUE/*
-		if(HAS_TRAIT(trans, TRAIT_ACROBATIC))
-			var/datum/action/acrobate/DA = new()
-			DA.Grant(lupus_form)
-			var/datum/action/acrobate/NE = new()
-			NE.Grant(crinos_form)
-			*/
+		given_quirks = TRUE
 		if(HAS_TRAIT(trans, TRAIT_DANCER))
 			var/datum/action/dance/DA = new()
 			DA.Grant(lupus_form)
