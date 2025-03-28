@@ -1430,10 +1430,6 @@ GLOBAL_LIST_EMPTY(selectable_races)
 						"<span class='userdanger'>You're [atk_verb]ed by [user]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, "<span class='danger'>You [atk_verb] [target]!</span>")
 
-		if(user.potential >= 5)
-			var/atom/throw_target = get_edge_target_turf(target, user.dir)
-			target.throw_at(throw_target, rand(5, 7), 4, user, gentle = TRUE) //No stun nor impact damage from throwing people around
-
 		target.lastattacker = user.real_name
 		target.lastattackerckey = user.ckey
 		user.lastattacked = target
@@ -1453,12 +1449,12 @@ GLOBAL_LIST_EMPTY(selectable_races)
 		//Checks if the target is already knocked down to prevent stunlocking.
 		if((target.stat != DEAD) && (!target.IsKnockdown()))
 			//Compare puncher's physique to the greater between the target's physique (robust enough to tank it) or dexterity (rolls with the punches)
-			var/roll = SSroll.storyteller_roll(
-			dice = target.get_total_physique() + round(min(target.get_total_athletics(), target.get_total_dexterity()) / 2),
-			difficulty = clamp(user.get_total_physique(), 1, 4) + (user.melee_professional ? rand(1,4) : 0),
-			mobs_to_show_output = user)
-
-			if(roll == ROLL_FAILURE)
+			if(SSroll.opposed_roll(
+				user,
+				target,
+				dice_a = user.get_total_athletics() + user.get_total_physique(),
+				dice_b = target.get_total_physique() + target.get_total_dexterity(),
+				alert_atom = target))
 				target.visible_message("<span class='danger'>[user] knocks [target] down!</span>", "<span class='userdanger'>You're knocked down by [user]!</span>", "<span class='hear'>You hear aggressive shuffling followed by a loud thud!</span>", COMBAT_MESSAGE_RANGE, user)
 				to_chat(user, "<span class='danger'>You knock [target] down!</span>")
 				target.apply_effect(2 SECONDS, EFFECT_KNOCKDOWN, armor_block)
@@ -2133,10 +2129,17 @@ GLOBAL_LIST_EMPTY(selectable_races)
 		H.dna.features["wings"] = wings_icon
 		H.update_body()
 	var/datum/action/fly_upper/A = locate() in H.actions
-	if(A)
-		return
-	var/datum/action/fly_upper/DA = new()
-	DA.Grant(H)
+
+	//VTR EDIT BEGIN
+	if(!A)
+		var/datum/action/fly_upper/DA = new()
+		DA.Grant(H)
+	
+	var/datum/action/fly_downer/fly_down_existing = locate() in H.actions
+	if(!fly_down_existing)
+		var/datum/action/fly_downer/fly_down = new()
+		fly_down.Grant(H)
+	//VTR EDIT END
 
 /datum/species/proc/RemoveSpeciesFlight(mob/living/carbon/human/H)
 	if(flying_species)
@@ -2148,6 +2151,13 @@ GLOBAL_LIST_EMPTY(selectable_races)
 		var/datum/action/fly_upper/A = locate() in H.actions
 		if(A)
 			qdel(A)
+
+		//VTR EDIT BEGIN
+		var/datum/action/fly_downer/B = locate() in H.actions
+		if(B)
+			qdel(B)
+		//VTR EDIT END
+
 		if(H.dna && H.dna.species && (H.dna.features["wings"] == wings_icon))
 			H.dna.species.mutant_bodyparts -= "wings"
 			H.dna.features["wings"] = "None"

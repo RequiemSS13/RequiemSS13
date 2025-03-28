@@ -198,6 +198,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 			succumbed = TRUE
 	else
 		log_talk(message, LOG_SAY, forced_by=forced)
+		last_words = message
 
 	message = treat_message(message) // unfortunately we still need this
 	var/sigreturn = SEND_SIGNAL(src, COMSIG_MOB_SAY, args)

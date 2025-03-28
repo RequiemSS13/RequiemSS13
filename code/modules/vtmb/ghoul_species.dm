@@ -18,128 +18,14 @@
 	var/list/datum/discipline/disciplines = list()
 	selectable = TRUE
 
-/datum/action/ghoulinfo
-	name = "About Me"
-	desc = "Check assigned role, master, humanity, masquerade, known contacts etc."
-	button_icon_state = "masquerade"
-	check_flags = NONE
-	var/mob/living/carbon/human/host
-
-/datum/action/ghoulinfo/Trigger()
-	if(host)
-		var/dat = {"
-			<style type="text/css">
-
-			body {
-				background-color: #090909; color: white;
-			}
-
-			</style>
-			"}
-		dat += "<center><h2>Memories</h2><BR></center>"
-		dat += "[icon2html(getFlatIcon(host), host)]I am "
-		if(host.real_name)
-			dat += "[host.real_name],"
-		if(!host.real_name)
-			dat += "Unknown,"
-		dat += " the ghoul"
-		if(host.mind)
-			if(host.mind.assigned_role)
-				if(host.mind.special_role)
-					dat += ", carrying the [host.mind.assigned_role] (<font color=red>[host.mind.special_role]</font>) role."
-				else
-					dat += ", carrying the [host.mind.assigned_role] role."
-			if(!host.mind.assigned_role)
-				dat += "."
-			
-			dat += "<BR>"
-			
-			if(host.mind.special_role)
-				for(var/datum/antagonist/A in host.mind.antag_datums)
-					if(A.objectives)
-						dat += "[printobjectives(A.objectives)]<BR>"
-		var/masquerade_level = " followed the Masquerade Tradition perfectly."
-		switch(host.masquerade)
-			if(4)
-				masquerade_level = " broke the Masquerade rule once."
-			if(3)
-				masquerade_level = " made a couple of Masquerade breaches."
-			if(2)
-				masquerade_level = " provoked a moderate Masquerade breach."
-			if(1)
-				masquerade_level = " almost ruined the Masquerade."
-			if(0)
-				masquerade_level = "'m danger to the Masquerade and my own kind."
-		dat += "Camarilla thinks I[masquerade_level]<BR>"
-//		var/humanity = "I'm out of my mind."
-//		switch(host.humanity)
-//			if(8 to 10)
-//				humanity = "I'm the best example of mercy and kindness."
-//			if(7)
-//				humanity = "I have nothing to complain about my humanity."
-//			if(5 to 6)
-//				humanity = "I'm slightly above the humane."
-//			if(4)
-//				humanity = "I don't care about kine."
-//			if(2 to 3)
-//				humanity = "There's nothing bad in murdering for <b>BLOOD</b>."
-//			if(1)
-//				humanity = "I'm slowly falling into madness..."
-//		dat += "[humanity]<BR>"
-		dat += "<b>Physique</b>: [host.physique] + [host.additional_physique]<BR>"
-		dat += "<b>Dexterity</b>: [host.dexterity] + [host.additional_dexterity]<BR>"
-		dat += "<b>Social</b>: [host.social] + [host.additional_social]<BR>"
-		dat += "<b>Mentality</b>: [host.mentality] + [host.additional_mentality]<BR>"
-		dat += "<b>Cruelty</b>: [host.blood] + [host.additional_blood]<BR>"
-		dat += "<b>Lockpicking</b>: [host.lockpicking] + [host.additional_lockpicking]<BR>"
-		dat += "<b>Athletics</b>: [host.athletics] + [host.additional_athletics]<BR>"
-		if(host.Myself)
-			if(host.Myself.Friend)
-				if(host.Myself.Friend.owner)
-					dat += "<b>My friend's name is [host.Myself.Friend.owner.true_real_name].</b><BR>"
-					if(host.Myself.Friend.phone_number)
-						dat += "Their number is [host.Myself.Friend.phone_number].<BR>"
-					if(host.Myself.Friend.friend_text)
-						dat += "[host.Myself.Friend.friend_text]<BR>"
-			if(host.Myself.Enemy)
-				if(host.Myself.Enemy.owner)
-					dat += "<b>My nemesis is [host.Myself.Enemy.owner.true_real_name]!</b><BR>"
-					if(host.Myself.Enemy.enemy_text)
-						dat += "[host.Myself.Enemy.enemy_text]<BR>"
-			if(host.Myself.Lover)
-				if(host.Myself.Lover.owner)
-					dat += "<b>I'm in love with [host.Myself.Lover.owner.true_real_name].</b><BR>"
-					if(host.Myself.Lover.phone_number)
-						dat += "Their number is [host.Myself.Lover.phone_number].<BR>"
-					if(host.Myself.Lover.lover_text)
-						dat += "[host.Myself.Lover.lover_text]<BR>"
-		if(length(host.knowscontacts) > 0)
-			dat += "<b>I know some other of my kind in this city. Need to check my phone, there definetely should be:</b><BR>"
-			for(var/i in host.knowscontacts)
-				dat += "-[i] contact<BR>"
-		for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
-			if(host.bank_id == account.bank_id)
-				dat += "<b>My bank account code is: [account.code]</b><BR>"
-		if(host.mind)
-			dat += "<BR>"
-			for(var/datum/character_connection/connection in host.mind.character_connections)
-				dat += "<b>[connection.connection_desc]</b> <a style='white-space:nowrap;' href='?src=[REF(src)];delete_connection=[connection.group_id]'>Delete</a><BR>"
-			dat += "<BR>"
-		host << browse(dat, "window=vampire;size=500x450;border=1;can_resize=1;can_minimize=0")
-		onclose(host, "ghoul", src)
-
-/datum/action/ghoulinfo/Topic(href, href_list)
-	if(href_list["delete_connection"])
-		host.retire_connection(text2num(href_list["delete_connection"]))
-		Trigger()
-
 /datum/species/ghoul/on_species_gain(mob/living/carbon/human/C)
 	..()
 	C.update_body(0)
 	C.last_experience = world.time+3000
-	var/datum/action/ghoulinfo/infor = new()
-	infor.host = C
-	infor.Grant(C)
+	// TFN EDIT BEGIN - Memories should be components
+	if(C.mind)
+		C.mind.refresh_memory()
+	// TFN EDIT END
 
 	var/datum/discipline/bloodheal/giving_bloodheal = new(1)
 	C.give_discipline(giving_bloodheal)
@@ -156,9 +42,6 @@
 		if(A)
 			if(A.vampiric)
 				A.Remove(C)
-	for(var/datum/action/ghoulinfo/infor in C.actions)
-		if(infor)
-			infor.Remove(C)
 
 /datum/action/take_vitae
 	name = "Take Vitae"
@@ -273,9 +156,7 @@
 
 /datum/species/ghoul/spec_life(mob/living/carbon/human/H)
 	. = ..()
-	if(HAS_TRAIT(H, TRAIT_UNMASQUERADE))
-		if(H.CheckEyewitness(H, H, 7, FALSE))
-			H.AdjustMasquerade(-1)
+	H.visible_masquerade_check()
 	if(istype(get_area(H), /area/vtm))
 		var/area/vtm/V = get_area(H)
 		if(V.zone_type == "masquerade" && V.upper)
@@ -336,9 +217,6 @@
 
 /datum/species/human/spec_life(mob/living/carbon/human/H)
 	. = ..()
-	if(HAS_TRAIT(H, TRAIT_UNMASQUERADE))
-		if(H.CheckEyewitness(H, H, 7, FALSE))
-			H.AdjustMasquerade(-1)
 	if(istype(get_area(H), /area/vtm))
 		var/area/vtm/V = get_area(H)
 		if(V.zone_type == "masquerade" && V.upper)

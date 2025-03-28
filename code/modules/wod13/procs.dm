@@ -111,9 +111,13 @@
 				return TRUE
 	return FALSE
 
-/mob/living/proc/CheckEyewitness(var/mob/living/source, var/mob/attacker, var/range = 0, var/affects_source = FALSE, var/type_of_infraction = INFRACTION_TYPE_DEFAULT)
-	var/actual_range = max(1, round(range*(attacker.alpha/255)))
+/mob/living/proc/CheckEyewitness(var/mob/living/source, var/mob/attacker, var/range = 0, var/affects_source = FALSE, var/type_of_infraction = INFRACTION_TYPE_DEFAULT)	
+	if(attacker.invisibility)
+		return
+
+	var/actual_range = range
 	/*
+	 = max(1, round(range*(attacker.alpha/255)))
 	if(SScityweather.fogging)
 		actual_range = round(actual_range/2)
 	*/

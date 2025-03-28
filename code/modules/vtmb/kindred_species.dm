@@ -35,199 +35,14 @@
 	selectable = TRUE
 	COOLDOWN_DECLARE(torpor_timer)
 
-/datum/action/vampireinfo
-	name = "About Me"
-	desc = "Check assigned role, clan, generation, humanity, masquerade, known disciplines, known contacts etc."
-	button_icon_state = "masquerade"
-	check_flags = NONE
-	var/mob/living/carbon/human/host
-
-/datum/action/vampireinfo/Trigger()
-	if(host)
-		var/dat = {"
-			<style type="text/css">
-
-			body {
-				background-color: #090909; color: white;
-			}
-
-			</style>
-			"}
-		dat += "<center><h2>Memories</h2><BR></center>"
-		dat += "[icon2html(getFlatIcon(host), host)]I am "
-		if(host.real_name)
-			dat += "[host.real_name],"
-		if(!host.real_name)
-			dat += "Unknown,"
-		if(host.clane)
-			dat += " the [host.clane.name]"
-		if(!host.clane)
-			dat += " the caitiff"
-
-		if(host.mind)
-
-			if(host.mind.assigned_role)
-				if(host.mind.special_role)
-					dat += ", carrying the [host.mind.assigned_role] (<font color=red>[host.mind.special_role]</font>) role."
-				else
-					dat += ", carrying the [host.mind.assigned_role] role."
-			if(!host.mind.assigned_role)
-				dat += "."
-		if(host.generation)
-			dat += "I'm from the [host.generation] generation.<BR>"
-		if(host.mind.special_role)
-			for(var/datum/antagonist/A in host.mind.antag_datums)
-				if(A.objectives)
-					dat += "[printobjectives(A.objectives)]<BR>"
-		var/masquerade_level = " followed the Masquerade Tradition perfectly."
-		switch(host.masquerade)
-			if(4)
-				masquerade_level = " broke the Masquerade rule once."
-			if(3)
-				masquerade_level = " made a couple of Masquerade breaches."
-			if(2)
-				masquerade_level = " provoked a moderate Masquerade breach."
-			if(1)
-				masquerade_level = " almost ruined the Masquerade."
-			if(0)
-				masquerade_level = "'m danger to the Masquerade and my own kind."
-		dat += "Camarilla thinks I[masquerade_level]<BR>"
-		var/humanity = "I'm out of my mind."
-		var/enlight = FALSE
-		if(host.clane)
-			if(host.clane.enlightenment)
-				enlight = TRUE
-
-		if(!enlight)
-			switch(host.humanity)
-				if(8 to 10)
-					humanity = "I'm saintly."
-				if(7)
-					humanity = "I feel as human as when I lived."
-				if(5 to 6)
-					humanity = "I'm feeling distant from my humanity."
-				if(4)
-					humanity = "I don't feel any compassion for the Kine anymore."
-				if(2 to 3)
-					humanity = "I feel hunger for <b>BLOOD</b>. My humanity is slipping away."
-				if(1)
-					humanity = "Blood. Feed. Hunger. It gnaws. Must <b>FEED!</b>"
-
-		else
-			switch(host.humanity)
-				if(8 to 10)
-					humanity = "I'm <b>ENLIGHTENED</b>, my <b>BEAST</b> and I are in complete harmony."
-				if(7)
-					humanity = "I've made great strides in co-existing with my beast."
-				if(5 to 6)
-					humanity = "I'm starting to learn how to share this unlife with my beast."
-				if(4)
-					humanity = "I'm still new to my path, but I'm learning."
-				if(2 to 3)
-					humanity = "I'm a complete novice to my path."
-				if(1)
-					humanity = "I'm losing control over my beast!"
-
-		dat += "[humanity]<BR>"
-
-		if(host.clane.name == "Brujah")
-			if(GLOB.brujahname != "")
-				if(host.real_name != GLOB.brujahname)
-					dat += " My primogen is:  [GLOB.brujahname].<BR>"
-		if(host.clane.name == "Malkavian")
-			if(GLOB.malkavianname != "")
-				if(host.real_name != GLOB.malkavianname)
-					dat += " My primogen is:  [GLOB.malkavianname].<BR>"
-		if(host.clane.name == "Nosferatu")
-			if(GLOB.nosferatuname != "")
-				if(host.real_name != GLOB.nosferatuname)
-					dat += " My primogen is:  [GLOB.nosferatuname].<BR>"
-		if(host.clane.name == "Toreador")
-			if(GLOB.toreadorname != "")
-				if(host.real_name != GLOB.toreadorname)
-					dat += " My primogen is:  [GLOB.toreadorname].<BR>"
-		if(host.clane.name == "Ventrue")
-			if(GLOB.ventruename != "")
-				if(host.real_name != GLOB.ventruename)
-					dat += " My primogen is:  [GLOB.ventruename].<BR>"
-
-		dat += "<b>Physique</b>: [host.physique] + [host.additional_physique]<BR>"
-		dat += "<b>Dexterity</b>: [host.dexterity] + [host.additional_dexterity]<BR>"
-		dat += "<b>Social</b>: [host.social] + [host.additional_social]<BR>"
-		dat += "<b>Mentality</b>: [host.mentality] + [host.additional_mentality]<BR>"
-		dat += "<b>Cruelty</b>: [host.blood] + [host.additional_blood]<BR>"
-		dat += "<b>Lockpicking</b>: [host.lockpicking] + [host.additional_lockpicking]<BR>"
-		dat += "<b>Athletics</b>: [host.athletics] + [host.additional_athletics]<BR>"
-		if(host.hud_used)
-			dat += "<b>Known disciplines:</b><BR>"
-			for(var/datum/action/discipline/D in host.actions)
-				if(D)
-					if(D.discipline)
-						dat += "[D.discipline.name] [D.discipline.level] - [D.discipline.desc]<BR>"
-		if(host.Myself)
-			if(host.Myself.Friend)
-				if(host.Myself.Friend.owner)
-					dat += "<b>My friend's name is [host.Myself.Friend.owner.true_real_name].</b><BR>"
-					if(host.Myself.Friend.phone_number)
-						dat += "Their number is [host.Myself.Friend.phone_number].<BR>"
-					if(host.Myself.Friend.friend_text)
-						dat += "[host.Myself.Friend.friend_text]<BR>"
-			if(host.Myself.Enemy)
-				if(host.Myself.Enemy.owner)
-					dat += "<b>My nemesis is [host.Myself.Enemy.owner.true_real_name]!</b><BR>"
-					if(host.Myself.Enemy.enemy_text)
-						dat += "[host.Myself.Enemy.enemy_text]<BR>"
-			if(host.Myself.Lover)
-				if(host.Myself.Lover.owner)
-					dat += "<b>I'm in love with [host.Myself.Lover.owner.true_real_name].</b><BR>"
-					if(host.Myself.Lover.phone_number)
-						dat += "Their number is [host.Myself.Lover.phone_number].<BR>"
-					if(host.Myself.Lover.lover_text)
-						dat += "[host.Myself.Lover.lover_text]<BR>"
-		var/obj/keypad/armory/armory = find_keypad(/obj/keypad/armory)
-		if(armory && (host.mind.assigned_role == "Prince" || host.mind.assigned_role == "Sheriff" || host.mind.assigned_role == "Seneschal"))
-			dat += "The pincode for the armory keypad is<b>: [armory.pincode]</b><BR>"
-		var/obj/keypad/panic_room/panic = find_keypad(/obj/keypad/panic_room)
-		if(panic && (host.mind.assigned_role == "Prince" || host.mind.assigned_role == "Sheriff" || host.mind.assigned_role == "Seneschal"))
-			dat += "The pincode for the panic room keypad is<b>: [panic.pincode]</b><BR>"
-		var/obj/structure/vaultdoor/pincode/bank/bankdoor = find_door_pin(/obj/structure/vaultdoor/pincode/bank)
-		if(bankdoor && (host.mind.assigned_role == "Capo"))
-			dat += "The pincode for the bank vault is <b>: [bankdoor.pincode]</b><BR>"
-		if(bankdoor && (host.mind.assigned_role == "La Squadra"))
-			if(prob(50))
-				dat += "<b>The pincode for the bank vault is: [bankdoor.pincode]</b><BR>"
-			else
-				dat += "<b>Unfortunately you don't know the vault code.</b><BR>"
-
-		if(length(host.knowscontacts) > 0)
-			dat += "<b>I know some other of my kind in this city. Need to check my phone, there definetely should be:</b><BR>"
-			for(var/i in host.knowscontacts)
-				dat += "-[i] contact<BR>"
-		for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
-			if(host.bank_id == account.bank_id)
-				dat += "<b>My bank account code is: [account.code]</b><BR>"
-		if(host.mind)
-			dat += "<BR>"
-			for(var/datum/character_connection/connection in host.mind.character_connections)
-				dat += "<b>[connection.connection_desc]</b> <a style='white-space:nowrap;' href='?src=[REF(src)];delete_connection=[connection.group_id]'>Delete</a><BR>"
-			dat += "<BR>"
-		host << browse(dat, "window=vampire;size=500x450;border=1;can_resize=1;can_minimize=0")
-		onclose(host, "vampire", src)
-
-/datum/action/vampireinfo/Topic(href, href_list)
-	if(href_list["delete_connection"])
-		host.retire_connection(text2num(href_list["delete_connection"]))
-		Trigger()
-
 /datum/species/kindred/on_species_gain(mob/living/carbon/human/C)
 	. = ..()
 	C.update_body(0)
 	C.last_experience = world.time + 5 MINUTES
-
-	var/datum/action/vampireinfo/infor = new()
-	infor.host = C
-	infor.Grant(C)
-
+	// TFN EDIT BEGIN - Memories should be components
+	if(C.mind)
+		C.mind.refresh_memory()
+	// TFN EDIT END
 	var/datum/action/give_vitae/vitae = new()
 	vitae.Grant(C)
 
@@ -261,9 +76,6 @@
 /datum/species/kindred/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	. = ..()
 	UnregisterSignal(C, COMSIG_MOB_VAMPIRE_SUCKED)
-	for(var/datum/action/vampireinfo/VI in C.actions)
-		if(VI)
-			VI.Remove(C)
 	for(var/datum/action/A in C.actions)
 		if(A)
 			if(A.vampiric)
@@ -380,128 +192,86 @@
 				BLOODBONDED.drunked_of |= "[H.dna.real_name]"
 
 				if(BLOODBONDED.stat == DEAD && !iskindred(BLOODBONDED))
-					if (!BLOODBONDED.can_be_embraced)
+					if (!BLOODBONDED.can_be_embraced || (BLOODBONDED.timeofdeath + 5 MINUTES) < world.time)
 						to_chat(H, "<span class='notice'>[BLOODBONDED.name] doesn't respond to your Vitae.</span>")
 						return
-
-					if((BLOODBONDED.timeofdeath + 5 MINUTES) > world.time)
-						if (BLOODBONDED.auspice?.level) //here be Abominations
-							if (BLOODBONDED.auspice.force_abomination)
-								to_chat(H, "<span class='danger'>Something terrible is happening.</span>")
-								to_chat(BLOODBONDED, "<span class='userdanger'>Gaia has forsaken you.</span>")
-								message_admins("[ADMIN_LOOKUPFLW(H)] has turned [ADMIN_LOOKUPFLW(BLOODBONDED)] into an Abomination through an admin setting the force_abomination var.")
-								log_game("[key_name(H)] has turned [key_name(BLOODBONDED)] into an Abomination through an admin setting the force_abomination var.")
-							else
-								switch(SSroll.storyteller_roll(BLOODBONDED.auspice.level))
-									if (ROLL_BOTCH)
-										to_chat(H, "<span class='danger'>Something terrible is happening.</span>")
-										to_chat(BLOODBONDED, "<span class='userdanger'>Gaia has forsaken you.</span>")
-										message_admins("[ADMIN_LOOKUPFLW(H)] has turned [ADMIN_LOOKUPFLW(BLOODBONDED)] into an Abomination.")
-										log_game("[key_name(H)] has turned [key_name(BLOODBONDED)] into an Abomination.")
-									if (ROLL_FAILURE)
-										BLOODBONDED.visible_message("<span class='warning'>[BLOODBONDED.name] convulses in sheer agony!</span>")
-										BLOODBONDED.Shake(15, 15, 5 SECONDS)
-										playsound(BLOODBONDED.loc, 'code/modules/wod13/sounds/vicissitude.ogg', 100, TRUE)
-										BLOODBONDED.can_be_embraced = FALSE
-										return
-									if (ROLL_SUCCESS)
-										to_chat(H, "<span class='notice'>[BLOODBONDED.name] does not respond to your Vitae...</span>")
-										BLOODBONDED.can_be_embraced = FALSE
-										return
-
-						log_game("[key_name(H)] has Embraced [key_name(BLOODBONDED)].")
-						message_admins("[ADMIN_LOOKUPFLW(H)] has Embraced [ADMIN_LOOKUPFLW(BLOODBONDED)].")
-						giving = FALSE
-						var/save_data_v = FALSE
-						if(BLOODBONDED.revive(full_heal = TRUE, admin_revive = TRUE))
-							BLOODBONDED.grab_ghost(force = TRUE)
-							to_chat(BLOODBONDED, "<span class='userdanger'>You rise with a start, you're alive! Or not... You feel your soul going somewhere, as you realize you are embraced by a vampire...</span>")
-							var/response_v = input(BLOODBONDED, "Do you wish to keep being a vampire on your save slot?(Yes will be a permanent choice and you can't go back!)") in list("Yes", "No")
-							if(response_v == "Yes")
-								save_data_v = TRUE
-							else
-								save_data_v = FALSE
-						BLOODBONDED.roundstart_vampire = FALSE
-						BLOODBONDED.set_species(/datum/species/kindred)
-						BLOODBONDED.clane = null
-						if(H.generation < 13)
-							BLOODBONDED.generation = 13
-							//BLOODBONDED.skin_tone = get_vamp_skin_color(BLOODBONDED.skin_tone)
-							BLOODBONDED.update_body()
-							if (H.clane.whitelisted)
-								if (!SSwhitelists.is_whitelisted(BLOODBONDED.ckey, H.clane.name))
-									if(H.clane.name == "True Brujah")
-										BLOODBONDED.clane = new /datum/vampireclane/brujah()
-										to_chat(BLOODBONDED,"<span class='warning'> You don't got that whitelist! Changing to the non WL Brujah</span>")
-									else if(H.clane.name == "Tzimisce")
-										BLOODBONDED.clane = new /datum/vampireclane/old_clan_tzimisce()
-										to_chat(BLOODBONDED,"<span class='warning'> You don't got that whitelist! Changing to the non WL Old Tzmisce</span>")
-									else
-										to_chat(BLOODBONDED,"<span class='warning'> You don't got that whitelist! Changing to a random non WL clan.</span>")
-										var/list/non_whitelisted_clans = list(/datum/vampireclane/brujah,/datum/vampireclane/malkavian,/datum/vampireclane/nosferatu,/datum/vampireclane/gangrel,/datum/vampireclane/giovanni,/datum/vampireclane/ministry,/datum/vampireclane/salubri,/datum/vampireclane/toreador,/datum/vampireclane/tremere,/datum/vampireclane/ventrue)
-										var/random_clan = pick(non_whitelisted_clans)
-										BLOODBONDED.clane = new random_clan
-								else
-									BLOODBONDED.clane = new H.clane.type()
-							else
-								BLOODBONDED.clane = new H.clane.type()
-
-							BLOODBONDED.clane.on_gain(BLOODBONDED)
-							BLOODBONDED.clane.post_gain(BLOODBONDED)
-							if(BLOODBONDED.clane.alt_sprite && !BLOODBONDED.clane.alt_sprite_greyscale)
-								BLOODBONDED.skin_tone = ALBINO
-								BLOODBONDED.update_body()
-
-							//Gives the Childe the Sire's first three Disciplines
-
-							var/list/disciplines_to_give = list()
-							for (var/i in 1 to min(3, H.client.prefs.discipline_types.len))
-								disciplines_to_give += H.client.prefs.discipline_types[i]
-							BLOODBONDED.create_disciplines(FALSE, disciplines_to_give)
-
-							BLOODBONDED.maxbloodpool = 10+((13-min(13, BLOODBONDED.generation))*3)
-							BLOODBONDED.clane.enlightenment = H.clane.enlightenment
+					log_game("[key_name(H)] has Embraced [key_name(BLOODBONDED)].")
+					message_admins("[ADMIN_LOOKUPFLW(H)] has Embraced [ADMIN_LOOKUPFLW(BLOODBONDED)].")
+					giving = FALSE
+					var/save_data_v = FALSE
+					if(BLOODBONDED.revive(full_heal = TRUE, admin_revive = TRUE))
+						BLOODBONDED.grab_ghost(force = TRUE)
+						to_chat(BLOODBONDED, "<span class='userdanger'>You rise with a start, you're alive! Or not... You feel your soul going somewhere, as you realize you are embraced by a vampire...</span>")
+						var/response_v = input(BLOODBONDED, "Do you wish to keep being a vampire on your save slot?(Yes will be a permanent choice and you can't go back!)") in list("Yes", "No")
+						if(response_v == "Yes")
+							save_data_v = TRUE
 						else
-							BLOODBONDED.maxbloodpool = 10+((13-min(13, BLOODBONDED.generation))*3)
-							BLOODBONDED.generation = 14
-							BLOODBONDED.clane = new /datum/vampireclane/caitiff()
+							save_data_v = FALSE
+					BLOODBONDED.roundstart_vampire = FALSE
+					BLOODBONDED.set_species(/datum/species/kindred)
+					BLOODBONDED.clane = null
+					if(H.generation < 13)
+						BLOODBONDED.generation = 13
 
-						//Verify if they accepted to save being a vampire
-						if (iskindred(BLOODBONDED) && save_data_v)
-							var/datum/preferences/BLOODBONDED_prefs_v = BLOODBONDED.client.prefs
+						BLOODBONDED.clane = new H.clane.type()
 
-							BLOODBONDED_prefs_v.pref_species.id = "kindred"
-							BLOODBONDED_prefs_v.pref_species.name = "Vampire"
-							if(H.generation < 13)
+						BLOODBONDED.clane.on_gain(BLOODBONDED)
+						BLOODBONDED.clane.post_gain(BLOODBONDED)
+						if(BLOODBONDED.clane.alt_sprite && !BLOODBONDED.clane.alt_sprite_greyscale)
+							BLOODBONDED.skin_tone = ALBINO
+						BLOODBONDED.update_body()
+						
 
-								BLOODBONDED_prefs_v.clane = BLOODBONDED.clane
-								BLOODBONDED_prefs_v.generation = 13
-								BLOODBONDED_prefs_v.skin_tone = get_vamp_skin_color(BLOODBONDED.skin_tone)
-								BLOODBONDED_prefs_v.clane.enlightenment = H.clane.enlightenment
+						//Gives the Childe the Sire's first three Disciplines
+						var/list/disciplines_to_give = list()
+						for (var/i in 1 to min(3, H.client.prefs.discipline_types.len))
+							disciplines_to_give += H.client.prefs.discipline_types[i]
+						BLOODBONDED.create_disciplines(FALSE, disciplines_to_give)
+
+						BLOODBONDED.maxbloodpool = 10+((13-min(13, BLOODBONDED.generation))*3)
+						BLOODBONDED.clane.enlightenment = H.clane.enlightenment
+					else
+						BLOODBONDED.maxbloodpool = 10+((13-min(13, BLOODBONDED.generation))*3)
+						BLOODBONDED.generation = 14
+						BLOODBONDED.clane = new /datum/vampireclane/caitiff()
+
+					//Verify if they accepted to save being a vampire
+					if (iskindred(BLOODBONDED) && save_data_v)
+						var/datum/preferences/BLOODBONDED_prefs_v = BLOODBONDED.client.prefs
+
+						BLOODBONDED_prefs_v.pref_species.id = "kindred"
+						BLOODBONDED_prefs_v.pref_species.name = "Vampire"
+						if(H.generation < 13)
+
+							BLOODBONDED_prefs_v.clane = BLOODBONDED.clane
+							BLOODBONDED_prefs_v.generation = 13
+							BLOODBONDED_prefs_v.skin_tone = get_vamp_skin_color(BLOODBONDED.skin_tone)
+							BLOODBONDED_prefs_v.clane.enlightenment = H.clane.enlightenment
 
 
-								//Rarely the new mid round vampires get the 3 brujah skil(it is default)
-								//This will remove if it happens
-								// Or if they are a ghoul with abunch of disciplines
-								if(BLOODBONDED_prefs_v.discipline_types.len > 0)
-									for (var/i in 1 to BLOODBONDED_prefs_v.discipline_types.len)
-										var/removing_discipline = BLOODBONDED_prefs_v.discipline_types[1]
-										if (removing_discipline)
-											var/index = BLOODBONDED_prefs_v.discipline_types.Find(removing_discipline)
-											BLOODBONDED_prefs_v.discipline_types.Cut(index, index + 1)
-											BLOODBONDED_prefs_v.discipline_levels.Cut(index, index + 1)
+							//Rarely the new mid round vampires get the 3 brujah skil(it is default)
+							//This will remove if it happens
+							// Or if they are a ghoul with abunch of disciplines
+							if(BLOODBONDED_prefs_v.discipline_types.len > 0)
+								for (var/i in 1 to BLOODBONDED_prefs_v.discipline_types.len)
+									var/removing_discipline = BLOODBONDED_prefs_v.discipline_types[1]
+									if (removing_discipline)
+										var/index = BLOODBONDED_prefs_v.discipline_types.Find(removing_discipline)
+										BLOODBONDED_prefs_v.discipline_types.Cut(index, index + 1)
+										BLOODBONDED_prefs_v.discipline_levels.Cut(index, index + 1)
 
-								if(BLOODBONDED_prefs_v.discipline_types.len == 0)
-									for (var/i in 1 to 3)
-										BLOODBONDED_prefs_v.discipline_types += BLOODBONDED_prefs_v.clane.clane_disciplines[i]
-										BLOODBONDED_prefs_v.discipline_levels += 1
-								BLOODBONDED_prefs_v.save_character()
+							if(BLOODBONDED_prefs_v.discipline_types.len == 0)
+								for (var/i in 1 to 3)
+									BLOODBONDED_prefs_v.discipline_types += BLOODBONDED_prefs_v.clane.clane_disciplines[i]
+									BLOODBONDED_prefs_v.discipline_levels += 1
+							BLOODBONDED_prefs_v.save_character()
 
-							else
-								BLOODBONDED_prefs_v.generation = 13 // Game always set to 13 anyways, 14 is not possible.
-								BLOODBONDED_prefs_v.clane = new /datum/vampireclane/caitiff()
-								BLOODBONDED_prefs_v.save_character()
-							BLOODBONDED.create_embrace_connection(H)
+						else
+							BLOODBONDED_prefs_v.generation = 13 // Game always set to 13 anyways, 14 is not possible.
+							BLOODBONDED_prefs_v.clane = new /datum/vampireclane/caitiff()
+							BLOODBONDED_prefs_v.save_character()
+						BLOODBONDED.create_embrace_connection(H)
+						BLOODBONDED.update_auspex_hud_vtr()
 					else
 
 						to_chat(owner, "<span class='notice'>[BLOODBONDED] is totally <b>DEAD</b>!</span>")
@@ -544,6 +314,7 @@
 					if(isghoul(BLOODBONDED) && blood_bond_result > 1)
 						var/datum/species/ghoul/G = BLOODBONDED.dna.species
 						G.last_vitae = world.time
+					BLOODBONDED.update_auspex_hud_vtr()
 			else
 				giving = FALSE
 
