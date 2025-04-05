@@ -693,25 +693,6 @@
 /obj/item/melee/vampirearms/eguitar/update_icon_state()
 	icon_state = "rock0"
 
-/obj/item/shield/door
-	name = "\improper door"
-	desc = "It opens and closes."
-	icon_state = "door"
-	icon = 'code/modules/wod13/weapons.dmi'
-	lefthand_file = 'code/modules/wod13/righthand.dmi'
-	righthand_file = 'code/modules/wod13/lefthand.dmi'
-	force = 20
-	block_chance = 25
-	throwforce = 40
-	throw_speed = 2
-	throw_range = 3
-	masquerade_violating = FALSE
-	w_class = WEIGHT_CLASS_BULKY
-	attack_verb_continuous = list("shoves", "bashes")
-	attack_verb_simple = list("shove", "bash")
-	max_integrity = 999999
-	material_flags = MATERIAL_NO_EFFECTS
-	is_wood = TRUE
 
 /obj/item/melee/classic_baton/vampire
 	name = "police baton"

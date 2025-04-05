@@ -39,8 +39,10 @@
 	. = ..()
 	C.update_body(0)
 	C.last_experience = world.time + 5 MINUTES
-
-
+	// TFN EDIT BEGIN - Memories should be components
+	if(C.mind)
+		C.mind.refresh_memory()
+	// TFN EDIT END
 	var/datum/action/give_vitae/vitae = new()
 	vitae.Grant(C)
 
@@ -190,128 +192,86 @@
 				BLOODBONDED.drunked_of |= "[H.dna.real_name]"
 
 				if(BLOODBONDED.stat == DEAD && !iskindred(BLOODBONDED))
-					if (!BLOODBONDED.can_be_embraced)
+					if (!BLOODBONDED.can_be_embraced || (BLOODBONDED.timeofdeath + 5 MINUTES) < world.time)
 						to_chat(H, "<span class='notice'>[BLOODBONDED.name] doesn't respond to your Vitae.</span>")
 						return
-
-					if((BLOODBONDED.timeofdeath + 5 MINUTES) > world.time)
-						if (BLOODBONDED.auspice?.level) //here be Abominations
-							if (BLOODBONDED.auspice.force_abomination)
-								to_chat(H, "<span class='danger'>Something terrible is happening.</span>")
-								to_chat(BLOODBONDED, "<span class='userdanger'>Gaia has forsaken you.</span>")
-								message_admins("[ADMIN_LOOKUPFLW(H)] has turned [ADMIN_LOOKUPFLW(BLOODBONDED)] into an Abomination through an admin setting the force_abomination var.")
-								log_game("[key_name(H)] has turned [key_name(BLOODBONDED)] into an Abomination through an admin setting the force_abomination var.")
-							else
-								switch(SSroll.storyteller_roll(BLOODBONDED.auspice.level))
-									if (ROLL_BOTCH)
-										to_chat(H, "<span class='danger'>Something terrible is happening.</span>")
-										to_chat(BLOODBONDED, "<span class='userdanger'>Gaia has forsaken you.</span>")
-										message_admins("[ADMIN_LOOKUPFLW(H)] has turned [ADMIN_LOOKUPFLW(BLOODBONDED)] into an Abomination.")
-										log_game("[key_name(H)] has turned [key_name(BLOODBONDED)] into an Abomination.")
-									if (ROLL_FAILURE)
-										BLOODBONDED.visible_message("<span class='warning'>[BLOODBONDED.name] convulses in sheer agony!</span>")
-										BLOODBONDED.Shake(15, 15, 5 SECONDS)
-										playsound(BLOODBONDED.loc, 'code/modules/wod13/sounds/vicissitude.ogg', 100, TRUE)
-										BLOODBONDED.can_be_embraced = FALSE
-										return
-									if (ROLL_SUCCESS)
-										to_chat(H, "<span class='notice'>[BLOODBONDED.name] does not respond to your Vitae...</span>")
-										BLOODBONDED.can_be_embraced = FALSE
-										return
-
-						log_game("[key_name(H)] has Embraced [key_name(BLOODBONDED)].")
-						message_admins("[ADMIN_LOOKUPFLW(H)] has Embraced [ADMIN_LOOKUPFLW(BLOODBONDED)].")
-						giving = FALSE
-						var/save_data_v = FALSE
-						if(BLOODBONDED.revive(full_heal = TRUE, admin_revive = TRUE))
-							BLOODBONDED.grab_ghost(force = TRUE)
-							to_chat(BLOODBONDED, "<span class='userdanger'>You rise with a start, you're alive! Or not... You feel your soul going somewhere, as you realize you are embraced by a vampire...</span>")
-							var/response_v = input(BLOODBONDED, "Do you wish to keep being a vampire on your save slot?(Yes will be a permanent choice and you can't go back!)") in list("Yes", "No")
-							if(response_v == "Yes")
-								save_data_v = TRUE
-							else
-								save_data_v = FALSE
-						BLOODBONDED.roundstart_vampire = FALSE
-						BLOODBONDED.set_species(/datum/species/kindred)
-						BLOODBONDED.clane = null
-						if(H.generation < 13)
-							BLOODBONDED.generation = 13
-							//BLOODBONDED.skin_tone = get_vamp_skin_color(BLOODBONDED.skin_tone)
-							BLOODBONDED.update_body()
-							if (H.clane.whitelisted)
-								if (!SSwhitelists.is_whitelisted(BLOODBONDED.ckey, H.clane.name))
-									if(H.clane.name == "True Brujah")
-										BLOODBONDED.clane = new /datum/vampireclane/brujah()
-										to_chat(BLOODBONDED,"<span class='warning'> You don't got that whitelist! Changing to the non WL Brujah</span>")
-									else if(H.clane.name == "Tzimisce")
-										BLOODBONDED.clane = new /datum/vampireclane/old_clan_tzimisce()
-										to_chat(BLOODBONDED,"<span class='warning'> You don't got that whitelist! Changing to the non WL Old Tzmisce</span>")
-									else
-										to_chat(BLOODBONDED,"<span class='warning'> You don't got that whitelist! Changing to a random non WL clan.</span>")
-										var/list/non_whitelisted_clans = list(/datum/vampireclane/brujah,/datum/vampireclane/malkavian,/datum/vampireclane/nosferatu,/datum/vampireclane/gangrel,/datum/vampireclane/giovanni,/datum/vampireclane/ministry,/datum/vampireclane/salubri,/datum/vampireclane/toreador,/datum/vampireclane/tremere,/datum/vampireclane/ventrue)
-										var/random_clan = pick(non_whitelisted_clans)
-										BLOODBONDED.clane = new random_clan
-								else
-									BLOODBONDED.clane = new H.clane.type()
-							else
-								BLOODBONDED.clane = new H.clane.type()
-
-							BLOODBONDED.clane.on_gain(BLOODBONDED)
-							BLOODBONDED.clane.post_gain(BLOODBONDED)
-							if(BLOODBONDED.clane.alt_sprite && !BLOODBONDED.clane.alt_sprite_greyscale)
-								BLOODBONDED.skin_tone = ALBINO
-								BLOODBONDED.update_body()
-
-							//Gives the Childe the Sire's first three Disciplines
-
-							var/list/disciplines_to_give = list()
-							for (var/i in 1 to min(3, H.client.prefs.discipline_types.len))
-								disciplines_to_give += H.client.prefs.discipline_types[i]
-							BLOODBONDED.create_disciplines(FALSE, disciplines_to_give)
-
-							BLOODBONDED.maxbloodpool = 10+((13-min(13, BLOODBONDED.generation))*3)
-							BLOODBONDED.clane.enlightenment = H.clane.enlightenment
+					log_game("[key_name(H)] has Embraced [key_name(BLOODBONDED)].")
+					message_admins("[ADMIN_LOOKUPFLW(H)] has Embraced [ADMIN_LOOKUPFLW(BLOODBONDED)].")
+					giving = FALSE
+					var/save_data_v = FALSE
+					if(BLOODBONDED.revive(full_heal = TRUE, admin_revive = TRUE))
+						BLOODBONDED.grab_ghost(force = TRUE)
+						to_chat(BLOODBONDED, "<span class='userdanger'>You rise with a start, you're alive! Or not... You feel your soul going somewhere, as you realize you are embraced by a vampire...</span>")
+						var/response_v = input(BLOODBONDED, "Do you wish to keep being a vampire on your save slot?(Yes will be a permanent choice and you can't go back!)") in list("Yes", "No")
+						if(response_v == "Yes")
+							save_data_v = TRUE
 						else
-							BLOODBONDED.maxbloodpool = 10+((13-min(13, BLOODBONDED.generation))*3)
-							BLOODBONDED.generation = 14
-							BLOODBONDED.clane = new /datum/vampireclane/caitiff()
+							save_data_v = FALSE
+					BLOODBONDED.roundstart_vampire = FALSE
+					BLOODBONDED.set_species(/datum/species/kindred)
+					BLOODBONDED.clane = null
+					if(H.generation < 13)
+						BLOODBONDED.generation = 13
 
-						//Verify if they accepted to save being a vampire
-						if (iskindred(BLOODBONDED) && save_data_v)
-							var/datum/preferences/BLOODBONDED_prefs_v = BLOODBONDED.client.prefs
+						BLOODBONDED.clane = new H.clane.type()
 
-							BLOODBONDED_prefs_v.pref_species.id = "kindred"
-							BLOODBONDED_prefs_v.pref_species.name = "Vampire"
-							if(H.generation < 13)
+						BLOODBONDED.clane.on_gain(BLOODBONDED)
+						BLOODBONDED.clane.post_gain(BLOODBONDED)
+						if(BLOODBONDED.clane.alt_sprite && !BLOODBONDED.clane.alt_sprite_greyscale)
+							BLOODBONDED.skin_tone = ALBINO
+						BLOODBONDED.update_body()
+						
 
-								BLOODBONDED_prefs_v.clane = BLOODBONDED.clane
-								BLOODBONDED_prefs_v.generation = 13
-								BLOODBONDED_prefs_v.skin_tone = get_vamp_skin_color(BLOODBONDED.skin_tone)
-								BLOODBONDED_prefs_v.clane.enlightenment = H.clane.enlightenment
+						//Gives the Childe the Sire's first three Disciplines
+						var/list/disciplines_to_give = list()
+						for (var/i in 1 to min(3, H.client.prefs.discipline_types.len))
+							disciplines_to_give += H.client.prefs.discipline_types[i]
+						BLOODBONDED.create_disciplines(FALSE, disciplines_to_give)
+
+						BLOODBONDED.maxbloodpool = 10+((13-min(13, BLOODBONDED.generation))*3)
+						BLOODBONDED.clane.enlightenment = H.clane.enlightenment
+					else
+						BLOODBONDED.maxbloodpool = 10+((13-min(13, BLOODBONDED.generation))*3)
+						BLOODBONDED.generation = 14
+						BLOODBONDED.clane = new /datum/vampireclane/caitiff()
+
+					//Verify if they accepted to save being a vampire
+					if (iskindred(BLOODBONDED) && save_data_v)
+						var/datum/preferences/BLOODBONDED_prefs_v = BLOODBONDED.client.prefs
+
+						BLOODBONDED_prefs_v.pref_species.id = "kindred"
+						BLOODBONDED_prefs_v.pref_species.name = "Vampire"
+						if(H.generation < 13)
+
+							BLOODBONDED_prefs_v.clane = BLOODBONDED.clane
+							BLOODBONDED_prefs_v.generation = 13
+							BLOODBONDED_prefs_v.skin_tone = get_vamp_skin_color(BLOODBONDED.skin_tone)
+							BLOODBONDED_prefs_v.clane.enlightenment = H.clane.enlightenment
 
 
-								//Rarely the new mid round vampires get the 3 brujah skil(it is default)
-								//This will remove if it happens
-								// Or if they are a ghoul with abunch of disciplines
-								if(BLOODBONDED_prefs_v.discipline_types.len > 0)
-									for (var/i in 1 to BLOODBONDED_prefs_v.discipline_types.len)
-										var/removing_discipline = BLOODBONDED_prefs_v.discipline_types[1]
-										if (removing_discipline)
-											var/index = BLOODBONDED_prefs_v.discipline_types.Find(removing_discipline)
-											BLOODBONDED_prefs_v.discipline_types.Cut(index, index + 1)
-											BLOODBONDED_prefs_v.discipline_levels.Cut(index, index + 1)
+							//Rarely the new mid round vampires get the 3 brujah skil(it is default)
+							//This will remove if it happens
+							// Or if they are a ghoul with abunch of disciplines
+							if(BLOODBONDED_prefs_v.discipline_types.len > 0)
+								for (var/i in 1 to BLOODBONDED_prefs_v.discipline_types.len)
+									var/removing_discipline = BLOODBONDED_prefs_v.discipline_types[1]
+									if (removing_discipline)
+										var/index = BLOODBONDED_prefs_v.discipline_types.Find(removing_discipline)
+										BLOODBONDED_prefs_v.discipline_types.Cut(index, index + 1)
+										BLOODBONDED_prefs_v.discipline_levels.Cut(index, index + 1)
 
-								if(BLOODBONDED_prefs_v.discipline_types.len == 0)
-									for (var/i in 1 to 3)
-										BLOODBONDED_prefs_v.discipline_types += BLOODBONDED_prefs_v.clane.clane_disciplines[i]
-										BLOODBONDED_prefs_v.discipline_levels += 1
-								BLOODBONDED_prefs_v.save_character()
+							if(BLOODBONDED_prefs_v.discipline_types.len == 0)
+								for (var/i in 1 to 3)
+									BLOODBONDED_prefs_v.discipline_types += BLOODBONDED_prefs_v.clane.clane_disciplines[i]
+									BLOODBONDED_prefs_v.discipline_levels += 1
+							BLOODBONDED_prefs_v.save_character()
 
-							else
-								BLOODBONDED_prefs_v.generation = 13 // Game always set to 13 anyways, 14 is not possible.
-								BLOODBONDED_prefs_v.clane = new /datum/vampireclane/caitiff()
-								BLOODBONDED_prefs_v.save_character()
-							BLOODBONDED.create_embrace_connection(H)
+						else
+							BLOODBONDED_prefs_v.generation = 13 // Game always set to 13 anyways, 14 is not possible.
+							BLOODBONDED_prefs_v.clane = new /datum/vampireclane/caitiff()
+							BLOODBONDED_prefs_v.save_character()
+						BLOODBONDED.create_embrace_connection(H)
+						BLOODBONDED.update_auspex_hud_vtr()
 					else
 
 						to_chat(owner, "<span class='notice'>[BLOODBONDED] is totally <b>DEAD</b>!</span>")
@@ -354,6 +314,7 @@
 					if(isghoul(BLOODBONDED) && blood_bond_result > 1)
 						var/datum/species/ghoul/G = BLOODBONDED.dna.species
 						G.last_vitae = world.time
+					BLOODBONDED.update_auspex_hud_vtr()
 			else
 				giving = FALSE
 

@@ -14,8 +14,13 @@
 
 /datum/species/human/on_species_gain(mob/living/carbon/human/C)
 	. = ..()
-//	ADD_TRAIT(C, TRAIT_NOBLEED, HIGHLANDER)
 	C.update_body(0)
+
+	// TFN EDIT BEGIN - Memories should be components
+	if(C.mind)
+		C.mind.refresh_memory()
+	// TFN EDIT END
+
 
 /datum/species/human/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	. = ..()

@@ -46,30 +46,7 @@
 			message_admins("[ADMIN_LOOKUPFLW(src)] is attempting to Diablerize [ADMIN_LOOKUPFLW(mob)]")
 			log_attack("[key_name(src)] is attempting to Diablerize [key_name(mob)].")
 			if(mob.key)
-				var/vse_taki = FALSE
-				if(clane)
-					var/salubri_allowed = FALSE
-					var/mob/living/carbon/human/H = mob
-					if(H.clane)
-						if(H.clane.name == "Salubri")
-							salubri_allowed = TRUE
-					if(clane.name != "Banu Haqim" && clane.name != "Caitiff")
-						if(!salubri_allowed)
-							if(!mind.special_role)
-								to_chat(src, "<span class='warning'>You find the idea of drinking your own <b>KIND's</b> blood disgusting!</span>")
-								last_drinkblood_use = 0
-								if(client)
-									client.images -= suckbar
-								qdel(suckbar)
-								stop_sound_channel(CHANNEL_BLOOD)
-								return
-							else
-								vse_taki = TRUE
-						else
-							vse_taki = TRUE
-					else
-						vse_taki = TRUE
-
+				var/vse_taki = TRUE
 				if(!GLOB.canon_event)
 					to_chat(src, "<span class='warning'>It's not a canon event!</span>")
 					return
