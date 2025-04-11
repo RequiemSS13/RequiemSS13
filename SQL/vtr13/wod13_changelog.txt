@@ -23,3 +23,10 @@ CREATE TABLE `character_connection` (
 ```
 
 -----------------------------------------------------
+
+Version 5.18, February 2025, by Helihat aka Hex37
+```
+ALTER TABLE `character_connection` ADD COLUMN `hidden` BOOLEAN NOT NULL DEFAULT FALSE;
+```
+
+-----------------------------------------------------

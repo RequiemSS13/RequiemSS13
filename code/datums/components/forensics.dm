@@ -161,13 +161,15 @@
 		if(H.gloves)
 			hasgloves = "(gloves)"
 	var/current_time = time_stamp()
+//VTR EDIT BEGIN
 	if(!LAZYACCESS(hiddenprints, M.key))
-		LAZYSET(hiddenprints, M.key, "First: [M.real_name]\[[current_time]\][hasgloves]. Ckey: [M.ckey]")
+		LAZYSET(hiddenprints, M.key, "[M.real_name], First touched: \[[current_time]\][hasgloves].")
 	else
-		var/laststamppos = findtext(LAZYACCESS(hiddenprints, M.key), " Last: ")
+		var/laststamppos = findtext(LAZYACCESS(hiddenprints, M.key), " Last touched: ")
 		if(laststamppos)
 			LAZYSET(hiddenprints, M.key, copytext(hiddenprints[M.key], 1, laststamppos))
-		hiddenprints[M.key] += " Last: [M.real_name]\[[current_time]\][hasgloves]. Ckey: [M.ckey]"	//made sure to be existing by if(!LAZYACCESS);else
+		hiddenprints[M.key] += " Last touched: \[[current_time]\][hasgloves]."	//made sure to be existing by if(!LAZYACCESS);else
+//VTR EDIT END
 	var/atom/A = parent
 	A.fingerprintslast = M.ckey
 	return TRUE

@@ -14,7 +14,7 @@
 	burnmod = 1
 	dust_anim = "dust-h"
 	whitelisted = TRUE
-	selectable = TRUE
+	selectable = FALSE
 	var/glabro = FALSE
 
 /datum/action/garouinfo

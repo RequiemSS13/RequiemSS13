@@ -38,7 +38,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///Whether emotes will be displayed on runechat. Requires chat_on_map to have effect. Boolean.
 	var/see_rc_emotes = TRUE
 	//Клан вампиров
-	var/datum/vampireclane/clane = new /datum/vampireclane/brujah()
+	var/datum/vampireclane/clane = new /datum/vampireclane/vtr/daeva()
 	// Custom Keybindings
 	var/list/key_bindings = list()
 
@@ -201,7 +201,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/discipline4type
 
 	//Character sheet stats
-	var/true_experience = 50
+	var/true_experience = 500
 	var/torpor_count = 0
 
 	//linked lists determining known Disciplines and their known ranks
@@ -298,7 +298,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	lockpicking = A.start_lockpicking
 	athletics = A.start_athletics
 	qdel(clane)
-	clane = new /datum/vampireclane/brujah()
+	clane = new /datum/vampireclane/vtr/daeva()
 	discipline_types = list()
 	discipline_levels = list()
 	for (var/i in 1 to clane.clane_disciplines.len)
@@ -309,7 +309,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	random_species()
 	random_character()
 	body_model = rand(1, 3)
-	true_experience = 50
+	true_experience = 500
 	real_name = random_unique_name(gender)
 	headshot_link = null // TFN EDIT
 	save_character()
@@ -1899,7 +1899,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						update_preview_icon()
 
 				if("info_choose")
-					var/new_info_known = tgui_input_list(user, "Choose who knows your character:", "Fame", list(INFO_KNOWN_UNKNOWN, INFO_KNOWN_CLAN_ONLY, INFO_KNOWN_FACTION, INFO_KNOWN_PUBLIC))
+					var/new_info_known = tgui_input_list(user, "Choose who knows your character:", "Fame", list(INFO_KNOWN_UNKNOWN, INFO_KNOWN_FACTION, INFO_KNOWN_PUBLIC))
 					if(new_info_known)
 						info_known = new_info_known
 
@@ -2548,7 +2548,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 								discipline_levels.Cut()
 							if("kindred")
 								qdel(clane)
-								clane = new /datum/vampireclane/brujah()
+								clane = new /datum/vampireclane/vtr/daeva()
 								discipline_types.Cut()
 								discipline_levels.Cut()
 								for (var/i in 1 to clane.clane_disciplines.len)

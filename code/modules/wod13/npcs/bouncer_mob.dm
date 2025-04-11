@@ -22,7 +22,6 @@
 	var/repeat_delay = 8 SECONDS
 	var/resume_neutral_direction_delay = 4 SECONDS
 
-	var/is_dominated = FALSE //Whether or not the man is dominated
 	var/is_in_awe = FALSE //Whether or not the man is being hit by presence
 
 	var/turf/start_turf = null //Where the creature spawns so it can return from whence it came

@@ -139,3 +139,8 @@
 	var/datum/examine_panel/tgui = new() //create the datum
 	var/headshot_link = null
 	var/ooc_notes
+
+
+	//VTR EDIT BEGIN
+	var/datum/examine_panel_fake/examine_panel_fake = new()
+	//VTR EDIT END

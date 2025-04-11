@@ -9,7 +9,7 @@
 		return FALSE
 
 	return TRUE
-
+/* what the hell is this, I'm not letting this exist, goodbye bub
 /mob/living/Life()
 	. = ..()
 
@@ -41,7 +41,7 @@
 				yang_chi = min(yang_chi+1, max_yang_chi)
 			else if(yin_chi < max_yin_chi)
 				yin_chi = min(yin_chi+1, max_yin_chi)
-
+*/
 /datum/species/kuei_jin
 	name = "Kuei-Jin"
 	id = "kuei-jin"
@@ -60,7 +60,7 @@
 	burnmod = 3
 	dust_anim = "dust-k"
 	whitelisted = TRUE
-	selectable = TRUE
+	selectable = FALSE
 	var/turf/fool_turf
 	var/fool_fails = 0
 

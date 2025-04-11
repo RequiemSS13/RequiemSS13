@@ -725,6 +725,7 @@ CREATE TABLE `character_connection` (
   `round_id_established` int(11) NOT NULL, --the Round ID this connection was made.
   `date_established` datetime NOT NULL, --Date this part of the connection was made
   `date_ended` datetime, --Date that this participant had their end of the connection nullified
+  `hidden` BOOLEAN NOT NULL DEFAULT FALSE, --Whether or not the connection is major enough to show on the database
   PRIMARY KEY (`id`),
   INDEX `group_id_index` (`group_id`),
   INDEX `player_ckey_index` (`player_ckey`),

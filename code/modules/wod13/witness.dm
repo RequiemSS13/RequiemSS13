@@ -72,6 +72,7 @@
 	. = ..()
 	var/datum/atom_hud/abductor/hud = GLOB.huds[DATA_HUD_ABDUCTOR]
 	hud.add_to_hud(src)
+	update_auspex_hud_vtr()
 
 /mob/living/carbon/proc/update_auspex_hud()
 	var/image/holder = hud_list[GLAND_HUD]

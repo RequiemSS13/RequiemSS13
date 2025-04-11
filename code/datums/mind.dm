@@ -86,7 +86,11 @@
 	//Dharma path
 	var/datum/dharma/dharma
 
+	//permanent character connections stored in a database
 	var/list/character_connections
+
+	//round-only connections not stored on the db, don't mix your peas and carrots
+	var/list/fake_character_connections
 
 /datum/mind/New(_key)
 	key = _key
@@ -819,6 +823,7 @@
 /mob/living/carbon/mind_initialize()
 	..()
 	last_mind = mind
+	mind.refresh_memory()
 
 //HUMAN
 /mob/living/carbon/human/mind_initialize()
