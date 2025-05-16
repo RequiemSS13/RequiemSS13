@@ -5,6 +5,7 @@
 	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
 	var/max_save_slots = 20
 	var/current_tab = PREFS_CHARACTER_SETTINGS_TAB
+	var/merit_sub_tab = PREFS_MERITS_TAB
 	var/muted = 0
 	var/last_ip
 	var/last_id
@@ -66,6 +67,8 @@
 		RANDOM_EYE_COLOR = TRUE)
 	var/phobia = "spiders"				//Stuck around by merit of me not wanting to get rid of phobia code
 	var/hardcore_survival_score = 0		//Stores the amount of points for TG code stuff we need to get rid of eventually.
+
+	var/list/all_quirks					//replaced by merits system, kept around because it's referenced by base quirk code, which I don't want to remove yet
 
 	var/character_dots = 0				//Replacement for XP; calculated dynamically based on character choices
 	var/discipline_dots = 0
@@ -168,9 +171,12 @@
 
 	var/joblessrole = BERANDOMJOB		//defaults to BERANDOMJOB for fewer assistants
 	var/list/job_preferences = list()	//Job preferences 2.0 - indexed by job title , no key or value implies never
-	var/list/alt_titles_preferences = list() 
-	//Quirk list
-	var/list/all_quirks = list()
+	var/list/alt_titles_preferences = list()
+
+	
+
+	//Merits list
+	var/list/all_merits = list()
 
 	var/list/exp = list() //playtime tracker
 

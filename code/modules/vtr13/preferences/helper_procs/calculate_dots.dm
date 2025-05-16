@@ -28,6 +28,11 @@
 	character_dots -= clamp(wits-1, 5, 0)
 	character_dots -= clamp(resolve-1, 5, 0)
 	character_dots -= max(auspice_level - 1, 0)
+
+
+	for(var/merit_name in all_merits)
+		character_dots -= SSmerits.merit_points[merit_name]
+
 	if(character_dots < 0)
 		CRASH("Error - More character dots have been taken than there are dots to have!")
 

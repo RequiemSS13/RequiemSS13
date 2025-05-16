@@ -3,34 +3,60 @@
 		if("close")
 			user << browse(null, "window=mob_occupation")
 			ShowChoices(user)
-		if("update")
-			var/quirk = href_list["trait"]
-			if(!SSquirks.quirks[quirk])
+
+		if("remove")
+			var/merit_name = href_list["trait"]
+
+			if(!all_merits.Find(merit_name))
 				return
-			for(var/V in SSquirks.quirk_blacklist) //V is a list
-				var/list/L = V
-				if(!(quirk in L))
+
+			var/value = SSmerits.merit_points[merit_name]
+			if(character_dots + value < 0)
+				to_chat(user, "<span class='warning'>You don't have enough dots to remove this merit!</span>")
+				return
+
+			if(SSmerits.getMeritCategory(merit_name) == MERIT_BANE)
+				var/min_banes = GetRequiredBanes()
+				if(min_banes >= GetMeritCount(MERIT_BANE))
+					to_chat(user, "<span class='warning'>You must have at least [min_banes] bane[min_banes>1?"s":""]!</span>")
+					return
+
+			all_merits -= merit_name
+
+		if("add")
+			var/merit_name = href_list["trait"]
+			
+			if(all_merits.Find(merit_name) || !SSmerits.CanAddMerit(src, SSmerits.merits[merit_name]))
+				return
+
+			for(var/list/blacklist_list in SSmerits.merit_blacklist) //V is a list
+				if(!(merit_name in blacklist_list))
 					continue
-				for(var/Q in all_quirks)
-					if((Q in L) && !(Q == quirk)) //two quirks have lined up in the list of the list of quirks that conflict with each other, so return (see quirks.dm for more details)
-						to_chat(user, "<span class='danger'>[quirk] is incompatible with [Q].</span>")
+				for(var/selected_merit in (all_merits - merit_name))
+					if((selected_merit in blacklist_list))
+						to_chat(user, "<span class='danger'>[merit_name] is incompatible with [selected_merit].</span>")
 						return
-			var/value = SSquirks.quirk_points[quirk]
-			var/balance = GetQuirkBalance()
-			if(quirk in all_quirks)
-				if(balance + value < 0)
-					to_chat(user, "<span class='warning'>Refunding this would cause you to go below your balance!</span>")
-					return
-				all_quirks -= quirk
-			else
-				var/is_positive_quirk = SSquirks.quirk_points[quirk] > 0
-				if(is_positive_quirk && GetPositiveQuirkCount() >= MAX_QUIRKS)
-					to_chat(user, "<span class='warning'>You can't have more than [MAX_QUIRKS] positive quirks!</span>")
-					return
-				if(balance - value < 0)
-					to_chat(user, "<span class='warning'>You don't have enough balance to gain this quirk!</span>")
-					return
-				all_quirks += quirk
+
+			var/value = SSmerits.merit_points[merit_name]
+			if(character_dots - value < 0)
+				to_chat(user, "<span class='warning'>You don't have enough dots to add this merit!</span>")
+				return
+			switch(SSmerits.getMeritCategory(merit_name))
+				if(MERIT_MERIT)
+					if(GetMeritCount(MERIT_MERIT) >= MAX_MERITS)
+						to_chat(user, span_warning("You cannot have more than [MAX_MERITS] Merits!"))
+						return
+				if(MERIT_FLAW)
+					if(GetMeritCount(MERIT_FLAW) >= MAX_FLAWS)
+						to_chat(user, span_warning("You cannot have more than [MAX_FLAWS] Merits!"))
+						return
+				if(MERIT_BANE)
+					if(pref_species.name != "Vampire" )
+						to_chat(user, span_warning("Only vampires can have banes!"))
+						return
+
+			all_merits += merit_name
+
 		if("reset")
-			all_quirks = list()
+			all_merits = list()
 	return TRUE
