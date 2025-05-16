@@ -306,6 +306,8 @@
 				current_tab = text2num(href_list["tab"])
 				if(current_tab == PREFS_LOADOUT_TAB)
 					show_loadout = TRUE
+			else if (href_list["merit_tab"])
+				merit_sub_tab = text2num(href_list["merit_tab"])
 
 		if("clear_heart")
 			hearted = FALSE

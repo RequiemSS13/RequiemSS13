@@ -29,7 +29,7 @@
 	dat += "<td><b><center>Count</b><center></td>"
 	dat += "<td><b><center>Name</b><center></td>"
 	dat += "<td></td>"
-	dat += "<td><b><center>Description</b><center></td>"
+	dat += "<td><b><center>Description</b><center></td></tr>"
 	dat += "<tr><td colspan=5><hr></td></tr>"
 	var/i = 1
 	for(var/gear_name in loadout_category.gear)

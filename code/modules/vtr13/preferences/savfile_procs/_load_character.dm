@@ -109,12 +109,6 @@
 			if(alt_titles_preferences[job.title])
 				if(!(alt_titles_preferences[job.title] in job.alt_titles))
 					alt_titles_preferences.Remove(job.title)
-	
-	//QUIRKS
-	READ_FILE(S["all_quirks"], all_quirks)
-	all_quirks = SANITIZE_LIST(all_quirks)
-	validate_quirks()
-
 
 	//STATS
 	READ_FILE(S["physique"], physique)
