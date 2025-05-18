@@ -3813,6 +3813,7 @@
 #include "code\modules\vtr13\mobs\human\memories\elements\human_memory_modifier.dm"
 #include "code\modules\vtr13\mobs\human\memories\elements\kindred_memory_modifier.dm"
 #include "code\modules\vtr13\mobs\human\memories\elements\memories.dm"
+#include "code\modules\vtr13\mobs\living\attribute_procs.dm"
 #include "code\modules\vtr13\mobs\living\dance.dm"
 #include "code\modules\vtr13\mobs\living\merit_procs.dm"
 #include "code\modules\vtr13\mobs\living\setDir.dm"
