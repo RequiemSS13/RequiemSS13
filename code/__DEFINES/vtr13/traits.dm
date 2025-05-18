@@ -61,3 +61,5 @@
 #define TRAIT_EXPERTISE_STAMINA "ex_stamina"
 #define TRAIT_EXPERTISE_CHARISMA "ex_charisma"
 #define TRAIT_EXPERTISE_COMPOSURE "ex_composure"
+
+#define TRAIT_EXPEDIENT "expedient"

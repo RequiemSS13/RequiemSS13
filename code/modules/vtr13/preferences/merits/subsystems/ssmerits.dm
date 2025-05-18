@@ -28,13 +28,7 @@ PROCESSING_SUBSYSTEM_DEF(merits)
 	if(!all_merit_settings.len)
 		SetupMeritSettings()
 
-	merit_blacklist = list(list("Blind","Nearsighted"), \
-							list("Jolly","Depression","Apathetic","Hypersensitive"), \
-							list("Ageusia","Vegetarian","Deviant Tastes"), \
-							list("Ananas Affinity","Ananas Aversion"), \
-							list("Alcohol Tolerance","Light Drinker"), \
-							list("Clown Fan","Mime Fan"), \
-							list("Bad Touch", "Friendly"), \
+	merit_blacklist = list(list("Lazy","Expedient"), \
 							list("Extrovert", "Introvert"))
 	return ..()
 

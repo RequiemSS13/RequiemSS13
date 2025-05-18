@@ -192,6 +192,8 @@ GLOBAL_LIST_EMPTY(species_list)
 
 	if(HAS_TRAIT(user, TRAIT_LAZY))
 		time = time*2
+	else if (HAS_TRAIT(user, TRAIT_EXPEDIENT))
+		time = time*0.75
 
 	var/target_loc = target.loc
 
