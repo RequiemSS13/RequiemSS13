@@ -12,14 +12,21 @@ PROCESSING_SUBSYSTEM_DEF(merits)
 	var/list/merits_merits = list()
 	var/list/merits_flaws = list()
 	var/list/merits_banes = list()
+	var/list/merits_languages = list()
 
 	var/list/merit_points = list()	//Assoc. list of merit names and their "point cost"; positive numbers are good traits, and negative ones are bad
 	var/list/merit_objects = list()	//A list of all merit objects in the game, since some may process
 	var/list/merit_blacklist = list() //A list of merits that can not be used with each other. Format: list(merit1,merit2),list(merit3,merit4)
 
+	var/list/all_merit_settings = list() //list of all custom settings for all merits, crazy n scary
+	var/list/merit_setting_keys = list()
+
 /datum/controller/subsystem/processing/merits/Initialize(timeofday)
 	if(!merits.len)
 		SetupMerits()
+	
+	if(!all_merit_settings.len)
+		SetupMeritSettings()
 
 	merit_blacklist = list(list("Blind","Nearsighted"), \
 							list("Jolly","Depression","Apathetic","Hypersensitive"), \
@@ -33,10 +40,15 @@ PROCESSING_SUBSYSTEM_DEF(merits)
 
 /datum/controller/subsystem/processing/merits/proc/SetupMerits()
 	// Sort by Positive, Negative, Neutral; and then by name
-	var/list/merit_list = sortList(subtypesof(/datum/merit) - list(/datum/merit/flaw, /datum/merit/bane), GLOBAL_PROC_REF(cmp_merit_asc))
+	var/list/merit_list = sortList(subtypesof(/datum/merit), GLOBAL_PROC_REF(cmp_merit_asc))
 
 	for(var/a_merit_type in merit_list)
 		var/datum/merit/merit_type = a_merit_type
+		
+		//ignore the merit base types
+		if(initial(merit_type.abstract_type) == a_merit_type)
+			continue
+		
 		merits[initial(merit_type.name)] = merit_type
 		switch(initial(merit_type.category))
 			if(MERIT_BANE)
@@ -45,20 +57,43 @@ PROCESSING_SUBSYSTEM_DEF(merits)
 				merits_flaws[initial(merit_type.name)] = merit_type
 			if(MERIT_MERIT)
 				merits_merits[initial(merit_type.name)] = merit_type
+			if(MERIT_LANGUAGE)
+				merits_languages[initial(merit_type.name)] = merit_type
 		merit_points[initial(merit_type.name)] = initial(merit_type.dots)
 
+
+		var/list/setting_types = splittext(initial(merit_type.custom_setting_types), ",")
+		merit_setting_keys[initial(merit_type.name)] = setting_types
+
+
+/datum/controller/subsystem/processing/merits/proc/SetupMeritSettings()
+	for (var/datum/merit_setting/merit_setting_type as anything in typecacheof(path = /datum/merit_setting, ignore_root_path = TRUE))
+		if (initial(merit_setting_type.abstract_type) == merit_setting_type)
+			continue
+
+		if(all_merit_settings[initial(merit_setting_type.name)])
+			CRASH("Multiple instances of merit setting '[initial(merit_setting_type.name)]' exist! Not allowed!")
+
+		if(!ispath(initial(merit_setting_type.parent_merit)))
+			CRASH("Merit setting [initial(merit_setting_type.name)] has no valid parent type!")
+
+		var/datum/merit/parent_merit = initial(merit_setting_type.parent_merit)
+
+		if(!initial(initial(parent_merit.custom_setting_types)))
+			CRASH("Merit setting [initial(merit_setting_type.name)] has a parent ([initial(parent_merit.name)]) with no existing setting types!")
+
+		var/list/parent_setting_names = splittext(initial(parent_merit.custom_setting_types), ",")
+
+		if(!parent_setting_names || !parent_setting_names.Find(initial(merit_setting_type.name)))
+			CRASH("Merit setting [initial(merit_setting_type.name)] has a parent ([initial(parent_merit.name)]) who doesn't mention it in its custom setting types!")
+
+		all_merit_settings[initial(merit_setting_type.name)] = new merit_setting_type()
+
+
 /datum/controller/subsystem/processing/merits/proc/AssignMerits(mob/living/user, client/cli, spawn_effects)
-	var/badmerit = FALSE
-	for(var/V in cli.prefs.all_merits)
-		var/datum/merit/Q = merits[V]
-		if(!QDELETED(Q))
-			user.add_merit(Q, spawn_effects)
-		else
-			stack_trace("Invalid merit \"[V]\" in client [cli.ckey] preferences")
-			cli.prefs.all_merits -= V
-			badmerit = TRUE
-	if(badmerit)
-		cli.prefs.save_character()
+	for(var/merit_name in cli.prefs.all_merits)
+		var/datum/merit/merit_type = SSmerits.merits[merit_name]
+		user.add_merit(merit_type, spawn_effects)
 
 /datum/controller/subsystem/processing/merits/proc/getMeritCategory(merit_name)
 	var/datum/merit/merit = SSmerits.merits[merit_name]

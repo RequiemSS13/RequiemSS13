@@ -12,12 +12,20 @@
 	var/mob_trait
 	var/mob/living/merit_holder
 	var/category = MERIT_MERIT
+
+	var/abstract_type = /datum/merit
 	
 	var/processing_trait = FALSE 
+
+	var/categories_reset_on_remove //comma delimited string. Will cause the listed categories to be wiped clean if quirk is removed in preferences.
+	var/categories_reset_on_add //comma delimited string. Will cause the listed categories to be wiped clean if quirk is removed in preferences.
 	
 	var/splat_flags = 0
 	var/faction_flags = 0
 	var/clan_flags = 0
+	var/custom_setting_required = TRUE
+	var/custom_setting_types //comma delimited string of setting keys
+	var/list/custom_settings
 
 /datum/merit/New(mob/living/merit_mob, spawn_effects)
 	..()
@@ -36,6 +44,11 @@
 	if(processing_trait)
 		START_PROCESSING(SSmerits, src)
 	
+	if(merit_holder.client)
+		if(!populate_settings(merit_mob))
+			qdel(src)
+			return
+
 	add()
 	if(spawn_effects)
 		on_spawn()
@@ -53,10 +66,12 @@
  * Used when the merit has been gained and no client is attached to the mob.
  */
 /datum/merit/proc/on_merit_holder_first_login(mob/living/source)
-		SIGNAL_HANDLER
-
-		UnregisterSignal(source, COMSIG_MOB_LOGIN)
-		post_add()
+	SIGNAL_HANDLER
+	UnregisterSignal(source, COMSIG_MOB_LOGIN)
+	if(!populate_settings(source))
+		qdel(src)
+		return
+	post_add()
 
 /datum/merit/Destroy()
 	if(processing_trait)
@@ -78,6 +93,24 @@
 		ADD_TRAIT(to_mob, mob_trait, ROUNDSTART_TRAIT)
 	merit_holder = to_mob
 	on_transfer()
+
+
+/datum/merit/proc/populate_settings(mob/user)
+	if(!custom_setting_types)
+		return TRUE
+	var/datum/preferences/prefs = user?.client?.prefs
+	if(!prefs)
+		return TRUE
+
+	for(var/setting_name in SSmerits.merit_setting_keys[src.name])
+		var/datum/merit_setting/setting = SSmerits.all_merit_settings[setting_name]
+		setting.populate(user, prefs, src)
+	
+	if(custom_setting_required && (!custom_settings || !length(custom_settings)))
+		return FALSE
+	
+	return TRUE
+
 
 /datum/merit/proc/add() //special "on add" effects
 /datum/merit/proc/on_spawn() //these should only trigger when the character is being created for the first time, i.e. roundstart/latejoin

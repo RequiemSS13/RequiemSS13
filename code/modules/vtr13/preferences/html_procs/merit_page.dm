@@ -4,25 +4,40 @@
 		return
 	calculate_character_dots()
 	dat += "<center><b>Choose your setup</b></center><br>"
-	dat += "<div align='center'>Left-click to add or remove traits. You need to spend dots to earn merits and you gain dots by taking flaws.<br>\
-	Merits, Flaws and Banes are applied at round start, and cannot normally be removed.</div>"
+	switch(merit_sub_tab)
+		if(PREFS_MERITS_SUB_TAB)
+			dat += "<div align='center'>Left-click to add or remove merits. You spend character dots to take merits.<br>\
+			These traits are applied at round start, and cannot normally be removed.</div>"
+		if(PREFS_FLAWS_SUB_TAB)
+			dat += "<div align='center'>Left-click to add or remove flaws. You gain extra character dots by taking flaws.<br>\
+			These traits are applied at round start, and cannot normally be removed.</div>"
+		if(PREFS_BANES_SUB_TAB)
+			dat += "<div align='center'>Left-click to add or remove banes. Banes are part of the vampiric curse, and confer no bonuses.<br>\
+			These traits are applied at round start, and cannot normally be removed.</div>"
+		if(PREFS_LANGUAGES_SUB_TAB)
+			dat += "<div align='center'>Left-click to add or remove languages. You know these languages in addition to english.<br>\
+			These traits are applied at round start, and cannot normally be removed.</div>"
 	dat += "<hr>"
 	dat += "<table align='center'><tr>"
 	dat += "<td width='20%' align='center'><a href='byond://?_src_=prefs;preference=tab;merit_tab=[PREFS_MERITS_SUB_TAB]' [merit_sub_tab == PREFS_MERITS_SUB_TAB ? "class='linkOn'" : ""]>[make_font_cool("MERITS")]</a></td>"
 	dat += "<td width='20%' align='center'><a href='byond://?_src_=prefs;preference=tab;merit_tab=[PREFS_FLAWS_SUB_TAB]' [merit_sub_tab == PREFS_FLAWS_SUB_TAB ? "class='linkOn'" : ""]>[make_font_cool("FLAWS")]</a></td>"
 	if(pref_species.name == "Vampire")
 		dat += "<td width='20%' align='center'><a href='byond://?_src_=prefs;preference=tab;merit_tab=[PREFS_BANES_SUB_TAB]' [merit_sub_tab ==PREFS_BANES_SUB_TAB  ? "class='linkOn'" : ""]>[make_font_cool("BANES")]</a></td>"
+	dat += "<td width='20%' align='center'><a href='byond://?_src_=prefs;preference=tab;merit_tab=[PREFS_LANGUAGES_SUB_TAB]' [merit_sub_tab == PREFS_LANGUAGES_SUB_TAB ? "class='linkOn'" : ""]>[make_font_cool("LANGUAGES")]</a></td>"
 	dat += "</tr><table>"
 
 
 	dat += "<hr>"
-	dat += "<center><b>Current merits:</b> [all_merits.len ? all_merits.Join(", ") : "None"]</center>"
-	if(merit_sub_tab == PREFS_BANES_SUB_TAB)
-		dat += "<br><center><b>Banes Required:</b> [GetRequiredBanes()]</center><BR>"
-	else
-		dat += "<br><center><b>Character Dots Remaining:</b> [character_dots]</center><BR>"
+	dat += "<center><b>Current traits:</b> [all_merits.len ? all_merits.Join(", ") : "None"]</center>"
+	switch(merit_sub_tab)
+		if(PREFS_BANES_SUB_TAB)
+			dat += "<br><center><b>Banes Required:</b> [GetMeritCount(MERIT_BANE)]/[GetRequiredBanes()]</center><BR>"
+		if(PREFS_LANGUAGES_SUB_TAB)
+			dat += "<br><center><b>Languages:</b> [GetMeritCount(MERIT_LANGUAGE)]/[GetMaxLanguages()]</center><BR>"
+		else
+			dat += "<br><center><b>Character Dots Remaining:</b> [character_dots]</center><BR>"
 
-	dat += "<table align='center' width='70%'>"
+	dat += "<table align='center' width='90%'>"
 	dat += "<tr>"
 	if(merit_sub_tab == PREFS_MERITS_SUB_TAB)
 		dat += "<td><center><b>Cost</b></center></td>"
@@ -44,6 +59,8 @@
 			source_list = SSmerits.merits_flaws
 		if(PREFS_BANES_SUB_TAB)
 			source_list = SSmerits.merits_banes
+		if(PREFS_LANGUAGES_SUB_TAB)
+			source_list = SSmerits.merits_languages
 		else
 			source_list = SSmerits.merits
 

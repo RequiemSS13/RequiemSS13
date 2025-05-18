@@ -51,3 +51,13 @@
 #define TRAIT_COMMAND_FALL "command_fall"
 #define TRAIT_COMMAND_BE_QUIET "command_be_quiet"
 #define TRAIT_COMMAND_SIT_DOWN "command_sit_down"
+
+
+
+//Merit Traits
+#define TRAIT_EXPERTISE_WITS "ex_wits"
+#define TRAIT_EXPERTISE_RESOLVE "ex_resolve"
+#define TRAIT_EXPERTISE_PHYSIQUE "ex_physique"
+#define TRAIT_EXPERTISE_STAMINA "ex_stamina"
+#define TRAIT_EXPERTISE_CHARISMA "ex_charisma"
+#define TRAIT_EXPERTISE_COMPOSURE "ex_composure"

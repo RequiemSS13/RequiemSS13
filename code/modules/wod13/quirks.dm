@@ -68,14 +68,6 @@ Dancer
 		var/mob/living/carbon/human/H = quirk_holder
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/vampire/balaclava(H), ITEM_SLOT_MASK)
 
-/datum/quirk/bloody_lover
-	name = "Bloody Lover"
-	desc = "Your bites feel more like a kiss."
-	mob_trait = TRAIT_BLOODY_LOVER
-	value = 2
-	gain_text = "<span class='notice'>You feel more experienced in love.</span>"
-	lose_text = "<span class='warning'>You feel more clueless in love.</span>"
-	allowed_species = list("Vampire", "Kuei-Jin")
 
 /datum/quirk/tough_flesh
 	name = "Tough Flesh"
@@ -171,40 +163,6 @@ Dancer
 	lose_text = "<span class='notice'>You don't feel extra <b>HUNGRY</b> anymore.</span>"
 	allowed_species = list("Vampire", "Ghoul")
 
-/datum/action/fly_upper
-	name = "Fly Up"
-	desc = "Fly to the upper level."
-	button_icon_state = "fly"
-	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
-	var/last_acrobate = 0
-
-//VTR EDIT BEGIN -Protean Flight
-/datum/action/fly_upper/Trigger()
-	if(last_acrobate+15 > world.time)
-		return
-	
-	if(!(owner.movement_type & FLYING))
-		to_chat(src, span_notice("You must be flying to go up."))
-		return
-	var/target_turf = get_step_multiz(owner, UP)
-	if(target_turf)
-		if(istype(get_step_multiz(owner, UP), /turf/open/openspace))
-			animate(owner, pixel_y = 32, time = 20)
-			if(do_mob(owner, owner, 2 SECONDS))
-				owner.forceMove(target_turf)
-			animate(owner, pixel_y = 0, time = 0)
-
-/datum/action/fly_downer
-	name = "Fly Down"
-	desc = "Fly to the lower level."
-	button_icon_state = "fly"
-	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
-	var/last_acrobate = 0
-
-/datum/action/fly_downer/Trigger()
-	owner.down()
-//VTR EDIT END
-
 /datum/quirk/dancer
 	name = "Dancer"
 	desc = "You know a couple of dance moves."
@@ -220,7 +178,7 @@ Dancer
 
 /datum/action/dance
 	name = "Dance"
-	desc = "Dance from dusck till dawn!"
+	desc = "Dance from dusk till dawn!"
 	button_icon_state = "dance"
 	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
 	var/last_added_humanity = 0

@@ -177,6 +177,7 @@
 
 	//Merits list
 	var/list/all_merits = list()
+	var/list/merit_custom_settings = list()
 
 	var/list/exp = list() //playtime tracker
 
