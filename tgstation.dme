@@ -3897,6 +3897,8 @@
 #include "code\modules\vtr13\preferences\merits\languages\mandarin.dm"
 #include "code\modules\vtr13\preferences\merits\languages\russian.dm"
 #include "code\modules\vtr13\preferences\merits\merits\bloody_lover.dm"
+#include "code\modules\vtr13\preferences\merits\merits\direction_sense.dm"
+#include "code\modules\vtr13\preferences\merits\merits\expedient.dm"
 #include "code\modules\vtr13\preferences\merits\merits\experienced_driver.dm"
 #include "code\modules\vtr13\preferences\merits\merits\expertise.dm"
 #include "code\modules\vtr13\preferences\merits\merits\flower_language.dm"

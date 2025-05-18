@@ -96,22 +96,22 @@
 				dot_cost_display += "<font size=5>●</font>"
 		else
 			dot_cost_display = "<font size=5>○</font>"
-		dat += "<td width='10%' align='center'>[dot_cost_display]</td>"
+		dat += "<td width='10%' align='center'><p style='vertical-align: middle;'>[dot_cost_display]</p></td>"
 
 		var/lock_reason = SSmerits.CanAddMerit(src, merit_type, TRUE)
 		if(lock_reason)
-			dat += "<td width='15%' align='center'><font color='red'><b>LOCKED</b></font></td>"
-			dat += "<td width='20%' align='center'><s>[merit_name]</s></td>"
-			dat += "<td align='center'><font color='red'><b>[lock_reason]</b></font></td>"
+			dat += "<td width='15%' align='center'><p style='vertical-align: middle;'><font color='red'><b>LOCKED</b></font></p></td>"
+			dat += "<td width='20%' align='center'><p style='vertical-align: middle;'><s>[merit_name]</s></p></td>"
+			dat += "<td align='center'><font color='red'><p style='vertical-align: middle;'><b>[lock_reason]</b></font></p></td>"
 			dat+="</tr>"
 			continue
 
 		if(has_merit)
-			dat += "<td width='15%' align='center'><a href='byond://?_src_=prefs;preference=trait;task=remove;trait=[merit_name]'>Remove</a></td>"
+			dat += "<td width='15%' align='center'><p style='vertical-align: middle;'><a href='byond://?_src_=prefs;preference=trait;task=remove;trait=[merit_name]'>Remove</a></p></td>"
 		else
-			dat += "<td width='15%' align='center'><a href='byond://?_src_=prefs;preference=trait;task=add;trait=[merit_name]'>Add</a></td>"
-		dat += "<td width='20%' align='center'><b>[merit_name]</b></td>"
-		dat += "<td align='center'>[initial(merit_type.desc)]</td>"
+			dat += "<td width='15%' align='center'><p style='vertical-align: middle;'><a href='byond://?_src_=prefs;preference=trait;task=add;trait=[merit_name]'>Add</a></p></td>"
+		dat += "<td width='20%' align='center'><p style='vertical-align: middle;'><b>[merit_name]</b></p></td>"
+		dat += "<td align='center'><p style='vertical-align: middle;'>[initial(merit_type.desc)]</p></td>"
 		dat += "</tr>"
 		
 	dat += "</table>"
