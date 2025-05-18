@@ -13,11 +13,12 @@
 	duration_length = 30 SECONDS
 
 /datum/discipline_power/vtr/nightmare/phantom_trauma/pre_activation_checks(mob/living/carbon/human/target)
+	var/trait_bonus = (HAS_TRAIT(target, TRAIT_EMERSONIAN)?TRAIT_EMERSONIAN_MOD:0) + (HAS_TRAIT(target, TRAIT_PREGNABLE_MIND)?TRAIT_PREGNABLE_MIND_MOD:0)
 	if(SSroll.opposed_roll(
 		owner,
 		target,
 		dice_a = owner.get_total_wits() + discipline.level,
-		dice_b = target.get_total_resolve() + target.blood_potency,
+		dice_b = target.get_total_resolve() + target.blood_potency + trait_bonus,
 		alert_atom = target)) //TODO HEX: Tie to blood_potency
 		return TRUE	
 	to_chat(owner, span_warning("[target] resists the the chill going up their spine!"))
