@@ -63,3 +63,15 @@
 #define TRAIT_EXPERTISE_COMPOSURE "ex_composure"
 
 #define TRAIT_EXPEDIENT "expedient"
+
+#define TRAIT_INDOMITABLE "indomitable"
+	#define TRAIT_INDOMITABLE_MOD 2
+
+#define TRAIT_SUSCEPTIBLE "susceptible"
+	#define TRAIT_SUSCEPTIBLE_MOD -2
+
+#define TRAIT_EMERSONIAN "emersonian"
+#define TRAIT_EMERSONIAN_MOD 2
+
+#define TRAIT_PREGNABLE_MIND "open_book"
+#define TRAIT_PREGNABLE_MIND_MOD -2

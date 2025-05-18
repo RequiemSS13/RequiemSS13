@@ -42,12 +42,12 @@
 	if(get_dir(target, owner) != target.dir && owner != target)
 		to_chat(owner, span_warning("[target] must be facing you!"))
 		return FALSE
-
+	var/trait_bonus = (HAS_TRAIT(target, TRAIT_INDOMITABLE)?TRAIT_INDOMITABLE_MOD:0) + (HAS_TRAIT(target, TRAIT_SUSCEPTIBLE)?TRAIT_SUSCEPTIBLE_MOD:0)
 	if(!SSroll.opposed_roll(
 		owner,
 		target,
 		dice_a = owner.get_total_charisma() + discipline.level,
-		dice_b = target.get_total_composure() + target.blood_potency,
+		dice_b = target.get_total_composure() + target.blood_potency + trait_bonus,
 		alert_atom = target,
 		show_player_a = FALSE,
 		show_player_b = FALSE))

@@ -29,7 +29,8 @@ PROCESSING_SUBSYSTEM_DEF(merits)
 		SetupMeritSettings()
 
 	merit_blacklist = list(list("Lazy","Expedient"), \
-							list("Extrovert", "Introvert"))
+							list("Indomitable","Susceptible"), \
+							list("Emersonian Mind", "Pregnable Mind"))
 	return ..()
 
 /datum/controller/subsystem/processing/merits/proc/SetupMerits()

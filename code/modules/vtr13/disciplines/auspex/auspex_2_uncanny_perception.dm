@@ -23,7 +23,8 @@
 	var/theirpower = target.get_total_resolve() + target.blood_potency
 
 	to_chat(owner, span_danger("You probe [target]'s mind..."))
-	if(!SSroll.opposed_roll(owner, target, mypower, theirpower, show_player_b = FALSE, alert_atom = target))
+	var/trait_bonus = (HAS_TRAIT(target, TRAIT_EMERSONIAN)?TRAIT_EMERSONIAN_MOD:0) + (HAS_TRAIT(target, TRAIT_PREGNABLE_MIND)?TRAIT_PREGNABLE_MIND_MOD:0)
+	if(!SSroll.opposed_roll(owner, target, mypower, theirpower+trait_bonus, show_player_b = FALSE, alert_atom = target))
 		do_cooldown(TRUE)
 		owner.update_action_buttons()
 		return FALSE
