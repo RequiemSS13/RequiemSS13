@@ -90,3 +90,4 @@ GLOBAL_LIST_INIT(vampire_faction_list, list(
 #define PREFS_MERITS_SUB_TAB 1
 #define PREFS_FLAWS_SUB_TAB 2
 #define PREFS_BANES_SUB_TAB 3
+#define PREFS_LANGUAGES_SUB_TAB 4

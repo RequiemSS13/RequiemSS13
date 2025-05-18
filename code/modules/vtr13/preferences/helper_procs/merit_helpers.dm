@@ -18,6 +18,10 @@
 		if(VAMP_RANK_ELDER)
 			. += BANES_ELDER
 
+/datum/preferences/proc/GetMaxLanguages()
+	. = MAX_LANGUAGES
+	if(all_merits.Find("Polyglot"))
+		. += POLYGLOT_LANGUAGE_BONUS
 
 /datum/preferences/proc/AddBanesUntilItIsDone()
 	var/banes_needed = GetRequiredBanes()

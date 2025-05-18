@@ -39,6 +39,10 @@
 	WRITE_FILE(S["job_preferences"], job_preferences)
 	WRITE_FILE(S["alt_titles_preferences"], alt_titles_preferences)
 
+	//Merits
+	WRITE_FILE(S["all_merits"], all_merits)
+	WRITE_FILE(S["merit_custom_settings"], merit_custom_settings)
+
 	//STATS
 	WRITE_FILE(S["physique"], physique)
 	WRITE_FILE(S["stamina"], stamina)

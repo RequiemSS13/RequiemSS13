@@ -22,19 +22,17 @@
 		dat += "<b>[discipline.name]</b>: "
 		switch(discipline_level)
 			if(0)
-				dat+= "○○○○○"
+				dat+= "<font size=5>○○○○○</font>"
 			if(1)
-				dat+= "●○○○○"
+				dat+= "<font size=5>●○○○○</font>"
 			if(2)
-				dat+= "●●○○○"
+				dat+= "<font size=5>●●○○○</font>"
 			if(3)
-				dat+= "●●●○○"
+				dat+= "<font size=5>●●●○○</font>"
 			if(4)
-				dat+= "●●●●○"
+				dat+= "<font size=5>●●●●○</font>"
 			if(5)
-				dat+= "●●●●●"
-		
-		dat+="([discipline_level])"
+				dat+= "<font size=5>●●●●●</font>"
 		if(discipline_dots && (discipline_level != 5))
 			dat += " <a href='byond://?_src_=prefs;preference=discipline;task=input;upgradediscipline=[i]'>+</a>"
 		if(discipline_level)

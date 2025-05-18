@@ -3,6 +3,7 @@
 #define MERIT_MERIT "merit"
 #define MERIT_FLAW "flaw"
 #define MERIT_BANE "bane"
+#define MERIT_LANGUAGE "language"
 
 #define MERIT_FACTION_INVICTUS	(1 << 1)
 #define MERIT_FACTION_CRONE		(1 << 2)
@@ -25,6 +26,10 @@
 #define MAX_MERITS				6
 #define MAX_FLAWS				6
 
+#define MAX_LANGUAGES			1
+#define POLYGLOT_LANGUAGE_BONUS 3
+
 #define BANES_MEKHET			1
 #define BANES_ANCILLAE			1
 #define BANES_ELDER				2
+

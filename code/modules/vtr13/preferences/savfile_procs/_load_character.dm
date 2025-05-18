@@ -110,10 +110,38 @@
 				if(!(alt_titles_preferences[job.title] in job.alt_titles))
 					alt_titles_preferences.Remove(job.title)
 
+	READ_FILE(S["all_merits"], all_merits)
+	all_merits = SANITIZE_LIST(all_merits)
+	if(SSmerits?.initialized)
+		for(var/merit_name in all_merits)
+			if(!SSmerits.merits[merit_name])
+				all_merits -= merit_name
+
+	READ_FILE(S["merit_custom_settings"], merit_custom_settings)
+	merit_custom_settings = SANITIZE_LIST(merit_custom_settings)
+	if(SSmerits?.initialized)
+		for(var/merit_setting_name in merit_custom_settings)
+			if(!SSmerits.all_merit_settings[merit_setting_name])
+				merit_custom_settings -= merit_setting_name
+				continue
+
+			var/datum/merit_setting/merit_setting = SSmerits.all_merit_settings[merit_setting_name]
+
+			var/datum/merit/merit_type = initial(merit_setting.parent_merit)
+			if(!initial(merit_type.custom_setting_types))
+				merit_custom_settings -= merit_setting_name
+				break
+
+			var/list/allowed_setting_types = SSmerits.merit_setting_keys[initial(merit_type.name)]
+			if(!allowed_setting_types.Find(initial(merit_setting.name)))
+				merit_custom_settings -= merit_setting_name
+				break
+
+
 	//STATS
 	READ_FILE(S["physique"], physique)
 	physique = sanitize_integer(physique, 1, 5, 1)
-	//-----------NEW ITEMS-----------
+
 	READ_FILE(S["stamina"], stamina)
 	stamina = sanitize_integer(stamina, 1, 5, 1)
 
