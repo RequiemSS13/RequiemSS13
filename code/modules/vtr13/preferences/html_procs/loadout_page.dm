@@ -56,7 +56,7 @@
 		dat += "<td width=5%><p style='vertical-align: middle;'><center><b>(</b> [equipped_count] <b>)</b></center><p></td>"
 		dat += "<td width=25%><p style='vertical-align: middle;'><center>[category_gear.display_name]</p></center></td>"
 		dat += "<td width=15%><p style='vertical-align: middle;'><center>"
-		if((loadout_slots < loadout_slots_max) && (category_gear.cost < loadout_dots))
+		if((loadout_slots < loadout_slots_max) && (category_gear.cost <= loadout_dots))
 			dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=loadout;task=add_gear;gear=[category_gear.display_name]'>Add</a>"
 			if(equipped)
 				dat += " - "

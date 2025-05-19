@@ -72,11 +72,13 @@
 
 	var/character_dots = 0				//Replacement for XP; calculated dynamically based on character choices
 	var/discipline_dots = 0
+	var/merit_dots = 0
+	var/loadout_dots = 0
 	
 	var/show_loadout = TRUE
 	var/gear_tab = "General"
 	var/loadout_dots_max = 0
-	var/loadout_dots = 0
+
 	var/loadout_slots = 0
 	var/loadout_slots_max = 0
 

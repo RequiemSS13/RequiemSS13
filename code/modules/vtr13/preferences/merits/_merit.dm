@@ -20,6 +20,8 @@
 	var/categories_reset_on_remove //comma delimited string. Will cause the listed categories to be wiped clean if quirk is removed in preferences.
 	var/categories_reset_on_add //comma delimited string. Will cause the listed categories to be wiped clean if quirk is removed in preferences.
 	
+	var/recalculate_loadout = FALSE	//Recalculates loadouts when this merit is added/removed
+
 	var/splat_flags = 0
 	var/faction_flags = 0
 	var/clan_flags = 0
@@ -76,12 +78,12 @@
 /datum/merit/Destroy()
 	if(processing_trait)
 		STOP_PROCESSING(SSmerits, src)
-	remove()
 	if(merit_holder)
 		to_chat(merit_holder, lose_text)
 		merit_holder.roundstart_merits -= src
 		if(mob_trait)
 			REMOVE_TRAIT(merit_holder, mob_trait, ROUNDSTART_TRAIT)
+	remove()
 	SSmerits.merit_objects -= src
 	return ..()
 

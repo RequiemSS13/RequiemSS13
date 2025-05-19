@@ -11,8 +11,8 @@
 				return
 
 			var/value = SSmerits.merit_points[merit_name]
-			if(character_dots + value < 0)
-				to_chat(user, "<span class='warning'>You don't have enough dots to remove this merit!</span>")
+			if(merit_dots + value < 0)
+				to_chat(user, "<span class='warning'>You don't have enough leftover dots to remove this merit!</span>")
 				return
 
 			if(SSmerits.getMeritCategory(merit_name) == MERIT_BANE)
@@ -28,9 +28,6 @@
 				for(var/setting_name in SSmerits.merit_setting_keys[initial(merit_type.name)])
 					var/datum/merit_setting/setting = SSmerits.all_merit_settings[setting_name]
 					setting.depopulate(src)
-
-			if(!initial(merit_type.categories_reset_on_remove))
-				return TRUE
 			
 			//handle cases where removing a quirk resets a whole category
 			if(initial(merit_type.categories_reset_on_remove))
@@ -53,6 +50,9 @@
 						for(var/setting_name in SSmerits.merit_setting_keys[initial(category_merit_type.name)])
 							var/datum/merit_setting/setting = SSmerits.all_merit_settings[setting_name]
 							setting.depopulate(src)
+			
+			if(initial(merit_type.recalculate_loadout))
+				calculate_loadout_dots()
 
 		if("add")
 			var/merit_name = href_list["trait"]
@@ -69,7 +69,7 @@
 						return
 
 			var/value = SSmerits.merit_points[merit_name]
-			if(character_dots - value < 0)
+			if(merit_dots - value < 0)
 				to_chat(user, "<span class='warning'>You don't have enough dots to add this merit!</span>")
 				return
 			switch(SSmerits.getMeritCategory(merit_name))
@@ -126,6 +126,9 @@
 						return TRUE
 
 			all_merits += merit_name
+
+			if(initial(merit_type.recalculate_loadout))
+				calculate_loadout_dots()
 
 		if("reset")
 			all_merits = list()

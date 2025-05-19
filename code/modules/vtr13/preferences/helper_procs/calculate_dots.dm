@@ -1,6 +1,8 @@
 /datum/preferences/proc/calculate_dots()
 	calculate_character_dots()
 	calculate_discipline_dots()
+	calculate_loadout_dots()
+	calculate_merit_dots()
 
 
 /datum/preferences/proc/calculate_character_dots()
@@ -30,13 +32,6 @@
 	character_dots -= max(auspice_level - 1, 0)
 
 
-	for(var/merit_name in all_merits)
-		character_dots -= SSmerits.merit_points[merit_name]
-
-	if(character_dots < 0)
-		CRASH("Error - More character dots have been taken than there are dots to have!")
-
-
 /datum/preferences/proc/calculate_discipline_dots()
 	discipline_dots = 0
 	switch(vamp_rank)
@@ -60,17 +55,40 @@
 	if(discipline_dots < 0)
 		CRASH("Error - More discipline dots have been taken than there are dots to have!")
 
-/datum/preferences/proc/calculate_loadout_dots()
-	loadout_slots_max = CONFIG_GET(number/max_loadout_items)
+/datum/preferences/proc/calculate_loadout_dots(second_attempt = FALSE)
+	loadout_slots_max = LOADOUT_MAX_SLOTS
 	loadout_slots = length(equipped_gear)
 
-	loadout_dots_max = CONFIG_GET(number/base_loadout_points)
-	loadout_dots = CONFIG_GET(number/base_loadout_points)
+	loadout_dots_max = LOADOUT_MAX_DOTS
+
+	if(all_merits.Find("Loaded"))
+		loadout_slots_max += LOADOUT_LOADED_SLOT_BONUS
+		loadout_dots_max += LOADOUT_LOADED_DOT_BONUS
+		
+
+	loadout_dots = loadout_dots_max
 	if(!equipped_gear || !length(equipped_gear))
 		return
 
 	for(var/i = 1, i <= length(equipped_gear), i++)
 		var/datum/gear/selected_gear = SSloadout.gear_datums[equipped_gear[i]]
 		loadout_dots -= selected_gear.cost
-	if(loadout_slots < 0)
-		CRASH("Error - More Loadout Slots have been used then there are to begin with.")
+
+	//this can actually happen; in this case we reset the whole thing n try again
+	if(loadout_dots < 0 && !second_attempt)
+		equipped_gear.Cut()
+		calculate_loadout_dots(TRUE)
+	else if(loadout_slots > loadout_slots_max && !second_attempt)
+		equipped_gear.Cut()
+		calculate_loadout_dots(TRUE)
+	else if(second_attempt)
+		CRASH("Error - More Loadout dots aren't adding up anymore!")
+
+/datum/preferences/proc/calculate_merit_dots()
+	merit_dots = MERIT_DOTS_BASE
+	
+	for(var/merit_name in all_merits)
+		merit_dots -= SSmerits.merit_points[merit_name]
+
+	if(merit_dots < 0)
+		CRASH("Error - More merit dots have been taken than there are dots to have!")

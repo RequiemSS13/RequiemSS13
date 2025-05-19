@@ -2,14 +2,14 @@
 	if(!SSmerits || !SSmerits.merits.len)
 		dat += "The merit subsystem hasn't finished initializing, please hold..."
 		return
-	calculate_character_dots()
+	calculate_merit_dots()
 	dat += "<center><b>Choose your setup</b></center><br>"
 	switch(merit_sub_tab)
 		if(PREFS_MERITS_SUB_TAB)
-			dat += "<div align='center'>Left-click to add or remove merits. You spend character dots to take merits.<br>\
+			dat += "<div align='center'>Left-click to add or remove merits. You can gain merit dots by taking flaws.<br>\
 			These traits are applied at round start, and cannot normally be removed.</div>"
 		if(PREFS_FLAWS_SUB_TAB)
-			dat += "<div align='center'>Left-click to add or remove flaws. You gain extra character dots by taking flaws.<br>\
+			dat += "<div align='center'>Left-click to add or remove flaws. You flaws grant you merit dots- you can spend them by taking merits.<br>\
 			These traits are applied at round start, and cannot normally be removed.</div>"
 		if(PREFS_BANES_SUB_TAB)
 			dat += "<div align='center'>Left-click to add or remove banes. Banes are part of the vampiric curse, and confer no bonuses.<br>\
@@ -35,7 +35,7 @@
 		if(PREFS_LANGUAGES_SUB_TAB)
 			dat += "<br><center><b>Languages:</b> [GetMeritCount(MERIT_LANGUAGE)]/[GetMaxLanguages()]</center><BR>"
 		else
-			dat += "<br><center><b>Character Dots Remaining:</b> [character_dots]</center><BR>"
+			dat += "<br><center><b>Merit Dots Remaining:</b> [merit_dots]</center><BR>"
 
 	dat += "<table align='center' width='90%'>"
 	dat += "<tr>"
