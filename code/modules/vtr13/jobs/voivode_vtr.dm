@@ -41,7 +41,7 @@
 	belt = /obj/item/storage/belt/vampire/sheathe/longsword
 	l_pocket = /obj/item/vamp/phone
 	//r_pocket =
-	backpack_contents = list(/obj/item/melee/vampirearms/eguitar=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/elder=1)
+	backpack_contents = list(/obj/item/melee/vampirearms/eguitar=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/head=1)
 
 /obj/effect/landmark/start/vtr/voivode_vtr
 	name = "Voivode"
