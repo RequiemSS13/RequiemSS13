@@ -1,6 +1,6 @@
 /datum/merit/language/chinese
 	name = "Mandarin"
-	desc = "elgeon describe this language pls"
+	desc = "Mandarin is the most widely spoken language on the planet, and the third-most spoken language in Los Angeles."
 
 /datum/merit/language/chinese/add()
 	var/mob/living/carbon/H = merit_holder

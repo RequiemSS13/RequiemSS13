@@ -1,7 +1,7 @@
 
 /datum/merit/language/espanol
 	name = "Espanol"
-	desc = "elgeon describe this language pls"
+	desc = "One of the official languages of Hong Kong, and the fourth most widely spoken language in Los Angeles."
 
 /datum/merit/language/espanol/add()
 	var/mob/living/carbon/H = merit_holder
