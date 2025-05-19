@@ -160,9 +160,6 @@
 	READ_FILE(S["equipped_gear"], equipped_gear)
 	if(!equipped_gear)
 		equipped_gear = list()
-	else if(config && (length(equipped_gear) > CONFIG_GET(number/max_loadout_items)))
-		to_chat(parent, span_userdanger("Loadout maximum items exceeded in loaded slot, Your loadout has been cleared! You had [length(equipped_gear)]/[CONFIG_GET(number/max_loadout_items)] equipped items!"))
-		equipped_gear = list()
 	else
 		equipped_gear = sanitize_each_inlist(equipped_gear, SSloadout.gear_datums)
 

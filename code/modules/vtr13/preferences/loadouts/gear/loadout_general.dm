@@ -79,8 +79,3 @@
 /datum/gear/general/hair_spray
 	display_name = "hair spray"
 	path = /obj/item/dyespray
-
-/datum/gear/general/wealth
-	display_name = "Wealth"
-	path = /obj/item/stack/dollar/fifty
-	cost = 2

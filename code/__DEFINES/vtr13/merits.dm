@@ -33,3 +33,4 @@
 #define BANES_ANCILLAE			1
 #define BANES_ELDER				2
 
+#define MERIT_DOTS_BASE 2

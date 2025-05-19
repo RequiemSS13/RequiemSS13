@@ -75,3 +75,8 @@
 
 #define TRAIT_PREGNABLE_MIND "open_book"
 #define TRAIT_PREGNABLE_MIND_MOD -2
+
+
+#define TRAIT_HARDY "hardy"
+
+#define TRAIT_FRAIL "frail"
