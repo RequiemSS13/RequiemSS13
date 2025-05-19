@@ -1,6 +1,6 @@
 /datum/language/arabic
 	name = "Arabic"
-	desc = "A lyrical language known across the Middle East."
+	desc = "The fifth most spoken language in the world, and the 11th most spoken in Los Angeles."
 	flags = TONGUELESS_SPEECH
 	key = "a"
 	space_chance = 30

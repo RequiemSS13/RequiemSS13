@@ -1,6 +1,6 @@
 /datum/language/cantonese
 	name = "Cantonese"
-	desc = "A dialect commonly spoken in Hong Kong."
+	desc = "One of the official languages of Hong Kong, and the fourth most widely spoken language in Los Angeles."
 	key = "c"
 	flags = TONGUELESS_SPEECH
 	space_chance = 50
