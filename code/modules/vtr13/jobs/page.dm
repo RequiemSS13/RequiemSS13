@@ -43,7 +43,7 @@
 	head = /obj/item/clothing/head/pagecap
 	l_pocket = /obj/item/vamp/phone/page
 	r_pocket = /obj/item/vamp/keys/page
-	backpack_contents = list(/obj/item/phone_book=1, /obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/seneschal=1)
+	backpack_contents = list(/obj/item/phone_book=1, /obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/invictus=1)
 
 /datum/outfit/job/page/pre_equip(mob/living/carbon/human/H)
 	..()
