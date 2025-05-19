@@ -3893,8 +3893,6 @@
 #include "code\modules\vtr13\preferences\merits\languages\cantonese.dm"
 #include "code\modules\vtr13\preferences\merits\languages\espanol.dm"
 #include "code\modules\vtr13\preferences\merits\languages\french.dm"
-#include "code\modules\vtr13\preferences\merits\languages\german.dm"
-#include "code\modules\vtr13\preferences\merits\languages\greek.dm"
 #include "code\modules\vtr13\preferences\merits\languages\hebrew.dm"
 #include "code\modules\vtr13\preferences\merits\languages\italian.dm"
 #include "code\modules\vtr13\preferences\merits\languages\japanese.dm"
