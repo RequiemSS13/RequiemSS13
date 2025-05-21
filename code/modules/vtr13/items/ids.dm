@@ -169,6 +169,11 @@
 	worn_icon = 'code/modules/wod13/worn.dmi'
 	worn_icon_state = "id11"
 
+/obj/item/card/id/sanctified/Initialize()
+	. = ..()
+	AddComponent(/datum/component/sanctified)
+
+
 /obj/item/card/id/acolyte
 	name = "crew badge"
 	id_type_name = "crew badge"

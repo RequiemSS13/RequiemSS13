@@ -32,5 +32,6 @@
 		new /datum/data/retail_product("Rice seeds", /obj/item/seeds/wheat/rice, 50),
 		new /datum/data/retail_product("Soy seeds", /obj/item/seeds/soya, 50),
 		new /datum/data/retail_product("Tomato seeds", /obj/item/seeds/tomato, 50),
-		new /datum/data/retail_product("Fermentation Barrel",	 /obj/structure/fermenting_barrel,	230),
+		new /datum/data/retail_product("Fermentation Barrel", /obj/structure/fermenting_barrel,	230),
+		new /datum/data/retail_product("Burlap Sack", /obj/item/grave_soil/bag, 300)
 		)
