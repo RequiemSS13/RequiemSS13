@@ -76,3 +76,4 @@
 #define TRAIT_UNSEEN_SENSE "unseen_sense"
 #define TRAIT_DESTITUTE "destitute"
 #define TRAIT_WEALTHY "wealthy"
+#define TRAIT_HOLY_WEAKNESS "holy_weakness"

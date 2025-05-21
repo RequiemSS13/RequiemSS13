@@ -13,6 +13,9 @@
 	//marked true if an area cannot be reached via stairs
 	var/inaccessible = FALSE
 
+	//marked true if the area is sanctified
+	var/holy_ground = FALSE
+
 	//dwelling code
 	var/is_loot_dwelling = FALSE
 	var/area_tag = "default"

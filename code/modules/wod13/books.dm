@@ -40,5 +40,9 @@
 	name = "Quran"
 	icon_state = "quran"
 
+/obj/item/vampirebook/quran/New()
+	. = ..()
+	src.AddComponent(/datum/component/sanctified)
+
 /obj/item/vampirebook/quran/read_book(mob/living/carbon/human/user)
 	quote = pick(GLOB.quran_quotes)
