@@ -49,9 +49,6 @@
 		if (!DT_PROB(12.5, delta_time))
 			continue
 
-		to_chat(cursed_mob, span_warning("You don't belong in this holy place!"))
-
+		to_chat(cursed_mob, span_userdanger("Your body begins to burn! You must leave this place!"))
 		cursed_mob.apply_damage(20, BURN)
-		cursed_mob.adjust_fire_stacks(6)
-		cursed_mob.IgniteMob()
 
