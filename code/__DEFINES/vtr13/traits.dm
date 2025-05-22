@@ -77,3 +77,4 @@
 #define TRAIT_DESTITUTE "destitute"
 #define TRAIT_WEALTHY "wealthy"
 #define TRAIT_HOLY_WEAKNESS "holy_weakness"
+#define TRAIT_HONEYPOT "honeypot"

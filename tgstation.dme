@@ -3916,6 +3916,7 @@
 #include "code\modules\vtr13\preferences\merits\merits\expertise.dm"
 #include "code\modules\vtr13\preferences\merits\merits\flower_language.dm"
 #include "code\modules\vtr13\preferences\merits\merits\hardy.dm"
+#include "code\modules\vtr13\preferences\merits\merits\honeypot.dm"
 #include "code\modules\vtr13\preferences\merits\merits\indomitable.dm"
 #include "code\modules\vtr13\preferences\merits\merits\loaded.dm"
 #include "code\modules\vtr13\preferences\merits\merits\notary.dm"

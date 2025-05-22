@@ -75,15 +75,26 @@
 				if(length(H.reagents.reagent_list))
 					if(prob(50))
 						H.reagents.trans_to(src, min(10, H.reagents.total_volume), transfered_by = mob, methods = VAMPIRE)
-		if(iskindred(mob))
+		if(iskindred(mob) || HAS_TRAIT(mob, TRAIT_HONEYPOT))
 			to_chat(src, "<span class='userlove'>[mob]'s blood tastes HEAVENLY...</span>")
+		else
+			to_chat(src, "<span class='warning'>You sip some <b>BLOOD</b> from your victim. It feels good.</span>")
+		if(iskindred(mob))
 			adjustBruteLoss(-25, TRUE)
 			adjustFireLoss(-25, TRUE)
 			if(first_drink)
 				SScharacter_connection.add_connection(CONNECTION_BLOOD_BOND, src, mob)
-		else
-			to_chat(src, "<span class='warning'>You sip some <b>BLOOD</b> from your victim. It feels good.</span>")
-		bloodpool = min(maxbloodpool, bloodpool+1*max(1, mob.bloodquality-1))
+		
+
+		var/drink_mod = 1
+		if(HAS_TRAIT(BD, TRAIT_HUNGRY))
+			drink_mod *= 0.5
+		if(vamp_rank == VAMP_RANK_ELDER && !iskindred(mob))
+			drink_mod *= 0.5
+		if(HAS_TRAIT(mob, TRAIT_HONEYPOT))
+			drink_mod *= 2
+
+		bloodpool = min(maxbloodpool, bloodpool+drink_mod*max(1, mob.bloodquality-1))
 		adjustBruteLoss(-10, TRUE)
 		adjustFireLoss(-10, TRUE)
 		update_damage_overlays()
