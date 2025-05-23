@@ -1,0 +1,58 @@
+/datum/preferences/proc/save_preferences()
+	if(!path)
+		return FALSE
+	var/savefile/S = new /savefile(path)
+	if(!S)
+		return FALSE
+	S.cd = "/"
+
+	WRITE_FILE(S["version"], SAVEFILE_VERSION_MAX)		//updates (or failing that the sanity checks) will ensure data is not invalid at load. Assume up-to-date
+
+	//general preferences
+	WRITE_FILE(S["default_slot"], default_slot)
+	WRITE_FILE(S["asaycolor"], asaycolor)
+	WRITE_FILE(S["ooccolor"], ooccolor)
+	WRITE_FILE(S["lastchangelog"], lastchangelog)
+	WRITE_FILE(S["UI_style"], UI_style)
+	WRITE_FILE(S["hotkeys"], hotkeys)
+	WRITE_FILE(S["chat_on_map"], chat_on_map)
+	WRITE_FILE(S["max_chat_length"], max_chat_length)
+	WRITE_FILE(S["see_chat_non_mob"], see_chat_non_mob)
+	WRITE_FILE(S["see_rc_emotes"], see_rc_emotes)
+	WRITE_FILE(S["broadcast_login_logout"], broadcast_login_logout)
+	WRITE_FILE(S["tgui_fancy"], tgui_fancy)
+	WRITE_FILE(S["tgui_input_mode"], tgui_input_mode)
+	WRITE_FILE(S["tgui_large_buttons"], tgui_large_buttons)
+	WRITE_FILE(S["tgui_swapped_buttons"], tgui_swapped_buttons)
+	WRITE_FILE(S["tgui_lock"], tgui_lock)
+	WRITE_FILE(S["buttons_locked"], buttons_locked)
+	WRITE_FILE(S["windowflash"], windowflashing)
+	WRITE_FILE(S["be_special"], be_special)
+	
+	WRITE_FILE(S["toggles"], toggles)
+	WRITE_FILE(S["chat_toggles"], chat_toggles)
+	WRITE_FILE(S["ghost_form"], ghost_form)
+	WRITE_FILE(S["ghost_orbit"], ghost_orbit)
+	WRITE_FILE(S["ghost_accs"], ghost_accs)
+	WRITE_FILE(S["ghost_others"], ghost_others)
+	WRITE_FILE(S["ghost_hud"], ghost_hud)
+	WRITE_FILE(S["inquisitive_ghost"], inquisitive_ghost)
+	WRITE_FILE(S["preferred_map"], preferred_map)
+	WRITE_FILE(S["ignoring"], ignoring)
+
+	WRITE_FILE(S["uses_glasses_colour"], uses_glasses_colour)
+	WRITE_FILE(S["clientfps"], clientfps)
+	WRITE_FILE(S["parallax"], parallax)
+	WRITE_FILE(S["ambientocclusion"], ambientocclusion)
+	WRITE_FILE(S["auto_fit_viewport"], auto_fit_viewport)
+	WRITE_FILE(S["widescreenpref"], widescreenpref)
+	WRITE_FILE(S["pixel_size"], pixel_size)
+	WRITE_FILE(S["scaling_method"], scaling_method)
+	WRITE_FILE(S["menuoptions"], menuoptions)
+	WRITE_FILE(S["enable_tips"], enable_tips)
+	WRITE_FILE(S["tip_delay"], tip_delay)
+	WRITE_FILE(S["pda_style"], pda_style)
+	WRITE_FILE(S["pda_color"], pda_color)
+	WRITE_FILE(S["key_bindings"], key_bindings)
+	WRITE_FILE(S["hearted_until"], (hearted_until > world.realtime ? hearted_until : null))
+	return TRUE
