@@ -81,3 +81,4 @@
 #define TRAIT_METHUSELAHS_THIRST "methuselahs_thirst"
 #define TRAIT_NO_DRIVE "no_drive"
 #define TRAIT_ARCHAIC "trait_archaic"
+#define TRAIT_SILVER_BANE "silver_bane"
