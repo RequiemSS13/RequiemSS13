@@ -2,7 +2,6 @@
 	name = "Hungry"
 	desc = "You need more food to feed your hunger."
 	mob_trait = TRAIT_HUNGRY
-	dots = 0
 	gain_text = "<span class='warning'>You feel extra <b>HUNGRY</b>.</span>"
 	lose_text = "<span class='notice'>You don't feel extra <b>HUNGRY</b> anymore.</span>"
-	splat_flags = MERIT_SPLAT_KINDRED
+
