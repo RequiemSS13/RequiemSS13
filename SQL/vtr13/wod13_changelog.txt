@@ -1,0 +1,37 @@
+Any time we alter WOD13 database files, we update this file with the changes.
+
+
+
+Version 5.17, February 2025, by Helihat aka Hex37
+```
+CREATE TABLE `character_connection` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL, --unique to an individual connection between two or more players
+  `group_type` varchar(32) NOT NULL, --the kind of connection: boon, blood bond, etc.
+  `member_type` varchar(32) NOT NULL, --the characters position in this connection: Thrall, Domitor, Debtor, etc.
+  `player_ckey` varchar(32) NOT NULL, 
+  `character_name` varchar(128) NOT NULL, 
+  `connection_desc` text, --Description of how connection shows to the player, eg "You are blood bonded to Y"
+  `round_id_established` int(11) NOT NULL, --the Round ID this connection was made.
+  `date_established` datetime NOT NULL, --Date this part of the connection was made
+  `date_ended` datetime, --Date that this participant had their end of the connection nullified
+  PRIMARY KEY (`id`),
+  INDEX `group_id_index` (`group_id`),
+  INDEX `player_ckey_index` (`player_ckey`),
+  INDEX `character_name_index` (`character_name`)
+);
+```
+
+-----------------------------------------------------
+Version 5.18, February 2025, by Helihat aka Hex37
+```
+ALTER TABLE `character_connection` ADD COLUMN `hidden` BOOLEAN NOT NULL DEFAULT FALSE;
+```
+-----------------------------------------------------
+
+Version 5.19, February 2025, by Helihat aka Hex37
+ALTER TABLE `character_connection` CHANGE `group_type` `group_type` varchar(128) NOT NULL;
+ALTER TABLE `character_connection` CHANGE `member_type` `member_type` varchar(128) NOT NULL;
+ALTER TABLE `character_connection` CHANGE `player_ckey` `player_ckey` varchar(128) NOT NULL;
+
+-----------------------------------------------------
