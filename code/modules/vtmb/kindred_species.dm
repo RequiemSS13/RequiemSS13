@@ -106,7 +106,7 @@
 			button.color = "#970000"
 			animate(button, color = "#ffffff", time = 20, loop = 1)
 			BD.last_bloodpower_use = world.time
-			BD.bloodpool = max(0, BD.bloodpool-2))
+			BD.bloodpool = max(0, BD.bloodpool-2)
 			to_chat(BD, "<span class='notice'>You use blood to become more powerful.</span>")
 			BD.dna.species.punchdamagehigh = BD.dna.species.punchdamagehigh+5
 			BD.physiology.armor.melee = BD.physiology.armor.melee+15

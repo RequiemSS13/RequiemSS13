@@ -78,3 +78,6 @@
 #define TRAIT_WEALTHY "wealthy"
 #define TRAIT_HOLY_WEAKNESS "holy_weakness"
 #define TRAIT_HONEYPOT "honeypot"
+#define TRAIT_METHUSELAHS_THIRST "methuselahs_thirst"
+#define TRAIT_NO_DRIVE "no_drive"
+#define TRAIT_ARCHAIC "trait_archaic"
