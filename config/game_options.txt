@@ -566,9 +566,3 @@ MAXFINE 2000
 
 ## Uncomment to disable area ambiance text.
 #DISABLE_AREA_AMBIANCE
-
-## Set the maximum amount of loadout slots
-MAX_LOADOUT_ITEMS 10
-
-## Set the base amount of loadout points for a player
-BASE_LOADOUT_POINTS 10

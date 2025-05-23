@@ -1,6 +1,6 @@
 /datum/language/russian
 	name = "Russian"
-	desc = "The language of Mother Russia."
+	desc = "Russian is commonly spoken as a second language throughout the former Soviet Union, and the 10th most widely spoken language in Los Angeles."
 	key = "r"
 	flags = TONGUELESS_SPEECH
 	space_chance = 40

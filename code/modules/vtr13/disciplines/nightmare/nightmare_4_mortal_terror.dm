@@ -21,11 +21,12 @@
 
 /datum/discipline_power/vtr/nightmare/mortal_terror/activate(mob/living/carbon/human/target)
 	. = ..()
+	var/trait_bonus = (HAS_TRAIT(target, TRAIT_EMERSONIAN)?TRAIT_EMERSONIAN_MOD:0) + (HAS_TRAIT(target, TRAIT_PREGNABLE_MIND)?TRAIT_PREGNABLE_MIND_MOD:0)
 	var/success_count = SSroll.opposed_roll(
 		owner,
 		target,
 		dice_a = owner.get_total_wits() + discipline.level,
-		dice_b = target.get_total_resolve() + target.blood_potency,
+		dice_b = target.get_total_resolve() + target.blood_potency + trait_bonus,
 		alert_atom = target,
 		numerical = TRUE)
 

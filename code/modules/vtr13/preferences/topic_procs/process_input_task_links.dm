@@ -286,7 +286,7 @@
 			if(!(pref_species.id == "kindred"))
 				return
 
-			if (tgui_alert(user, "Are you sure you want to change your Clan? This will reset your quirks and rank.", "Confirmation", list("Yes", "No")) != "Yes")
+			if (tgui_alert(user, "Are you sure you want to change your Clan? This will reset your merits, flaws, banes and rank.", "Confirmation", list("Yes", "No")) != "Yes")
 				return
 
 			var/list/available_clans = list()
@@ -305,7 +305,7 @@
 				var/newtype = GLOB.clanes_list[result]
 				clane = new newtype()
 				vamp_rank = VAMP_RANK_NEONATE
-				all_quirks = list()
+				all_merits.Cut()
 				discipline_types = list()
 				discipline_levels = list()
 				for (var/disc_type in clane.clane_disciplines)
@@ -322,6 +322,9 @@
 					qdel(vamp_faction)
 					vamp_faction = new /datum/vtr_faction/vamp_faction/unaligned()
 					vamp_rank = VAMP_RANK_HALF_DAMNED
+				
+				if(clane.name == "Mekhet")
+					AddBanesUntilItIsDone()
 
 		if("regent_clan")
 			if(pref_species.id != "ghoul")
@@ -412,13 +415,15 @@
 			var/new_vamp_rank = tgui_input_list(user, "Choose a vampire rank:", "Character Preference", GLOB.vampire_rank_list, GLOB.vampire_rank_names[vamp_rank])
 			if(new_vamp_rank && check_vamp_rank_allowed(GLOB.vampire_rank_list[new_vamp_rank]))
 				vamp_rank = GLOB.vampire_rank_list[new_vamp_rank]
+			AddBanesUntilItIsDone()
 		
 		if("vamp_faction")
 			if((clane?.name == "Revenant"))
 				return
 
-			if(real_name && alert(user, "WARNING: Changing faction will invalidate any endorsement you have recieved or given!", "WARNING", "Okay", "Cancel") == "Cancel")
+			if(tgui_alert(user, "WARNING: Changing faction will invalidate any endorsement you have recieved or given!", "WARNING", list("Okay", "Cancel")) == "Cancel")
 				return
+
 			var/new_faction_name = tgui_input_list(user, "Choose a Covenant:", "Character Preference", GLOB.vampire_faction_list, vamp_faction.name)
 
 			if(new_faction_name != vamp_faction.name)
@@ -470,7 +475,7 @@
 			log_game("[key_name(user)] has set their Headshot image to '[headshot_link]'.")
 
 		if("species")
-			if (tgui_alert(user, "Are you sure you want to change species? This will reset species-specific stats.", "Confirmation", list("Yes", "No")) != "Yes")
+			if (tgui_alert(user, "Are you sure you want to change species? This will reset your merits, flaws and banes.", "Confirmation", list("Yes", "No")) != "Yes")
 				return
 			
 			var/list/choose_species = list()
@@ -491,7 +496,7 @@
 			qdel(choose_species)
 
 			if(result && result != pref_species.id)
-				all_quirks.Cut()
+				all_merits.Cut()
 				auspice_level = 0
 				qdel(clane)
 				clane = null
@@ -522,8 +527,6 @@
 						for (var/disc_type in clane.clane_disciplines)
 							discipline_types.Add(disc_type)
 							discipline_levels.Add(0)
-				if(randomise[RANDOM_NAME])
-					real_name = pref_species.random_name(gender)
 
 		if("s_tone")
 			var/new_s_tone = input(user, "Choose your character's skin-tone:", "Character Preference","#"+skin_tone) as color|null

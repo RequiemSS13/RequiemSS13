@@ -1,6 +1,6 @@
 /datum/language/latin
 	name = "Latin"
-	desc = "An ancient and complex language once spoken by the rulers of empires."
+	desc = "Latin was the state language of the Roman Empire, and the language of law and government throughout much of Europe for more than a thousand years. It is also the liturgical language of the Catholic Church."
 	flags = TONGUELESS_SPEECH
 	key = "l"
 	space_chance = 33

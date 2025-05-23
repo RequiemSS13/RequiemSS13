@@ -1,6 +1,6 @@
 /datum/language/espanol
 	name = "Español"
-	desc = "A romantic and widely spoken world language."
+	desc = "One of the official languages of Hong Kong, and the fourth most widely spoken language in Los Angeles."
 	key = "e"
 	flags = TONGUELESS_SPEECH
 	space_chance = 40

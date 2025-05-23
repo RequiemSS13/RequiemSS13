@@ -37,10 +37,19 @@ GLOBAL_LIST_EMPTY(retail_products)
 				my_owner = NPC
 	build_inventory()
 
+//whether or not the user can shop at this store.
+/obj/structure/retail/proc/can_shop(mob/user)
+	return TRUE
+
+/obj/structure/retail/can_interact(mob/user)
+	. = ..()
+	if(!. || !can_shop(user))
+		return FALSE
 
 /obj/structure/retail/attackby(obj/item/I, mob/user, params)
 	. = ..()
-	ui_interact(user)
+	if(can_shop(user))
+		ui_interact(user)
 
 /obj/structure/retail/proc/build_inventory()
 	for(var/datum/data/retail_product/product in products_list)

@@ -41,12 +41,12 @@
 	var/the_emotion = current_emotion
 	current_emotion = null
 	for(var/mob/living/victim in viewers(green_eyes_range, owner) - list(owner, target))
-
+		var/trait_bonus = (HAS_TRAIT(victim, TRAIT_INDOMITABLE) ? TRAIT_INDOMITABLE_MOD : 0) + (HAS_TRAIT(victim, TRAIT_SUSCEPTIBLE) ? TRAIT_SUSCEPTIBLE_MOD : 0) - (HAS_TRAIT_FROM(victim, TRAIT_CHARMED, owner) ? charmed_status_debuff : 0)
 		if(!SSroll.opposed_roll(
 			owner,
 			victim,
 			dice_a = owner.get_total_charisma() + discipline.level,
-			dice_b = target.get_total_composure() + target.blood_potency - HAS_TRAIT_FROM(victim, TRAIT_CHARMED, owner) ? charmed_status_debuff : 0,
+			dice_b = victim.get_total_composure() + victim.blood_potency + trait_bonus,
 			alert_atom = victim,
 			show_player_a = FALSE,
 			show_player_b = FALSE))

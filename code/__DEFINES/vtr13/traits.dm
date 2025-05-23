@@ -51,3 +51,34 @@
 #define TRAIT_COMMAND_FALL "command_fall"
 #define TRAIT_COMMAND_BE_QUIET "command_be_quiet"
 #define TRAIT_COMMAND_SIT_DOWN "command_sit_down"
+
+
+
+//Merit Traits
+#define TRAIT_EXPERTISE_WITS "ex_wits"
+#define TRAIT_EXPERTISE_RESOLVE "ex_resolve"
+#define TRAIT_EXPERTISE_PHYSIQUE "ex_physique"
+#define TRAIT_EXPERTISE_STAMINA "ex_stamina"
+#define TRAIT_EXPERTISE_CHARISMA "ex_charisma"
+#define TRAIT_EXPERTISE_COMPOSURE "ex_composure"
+
+#define TRAIT_EXPEDIENT "expedient"
+#define TRAIT_INDOMITABLE "indomitable"
+	#define TRAIT_INDOMITABLE_MOD 2
+#define TRAIT_SUSCEPTIBLE "susceptible"
+	#define TRAIT_SUSCEPTIBLE_MOD -2
+#define TRAIT_EMERSONIAN "emersonian"
+	#define TRAIT_EMERSONIAN_MOD 2
+#define TRAIT_PREGNABLE_MIND "open_book"
+	#define TRAIT_PREGNABLE_MIND_MOD -2
+#define TRAIT_HARDY "hardy"
+#define TRAIT_FRAIL "frail"
+#define TRAIT_UNSEEN_SENSE "unseen_sense"
+#define TRAIT_DESTITUTE "destitute"
+#define TRAIT_WEALTHY "wealthy"
+#define TRAIT_HOLY_WEAKNESS "holy_weakness"
+#define TRAIT_HONEYPOT "honeypot"
+#define TRAIT_METHUSELAHS_THIRST "methuselahs_thirst"
+#define TRAIT_NO_DRIVE "no_drive"
+#define TRAIT_ARCHAIC "trait_archaic"
+#define TRAIT_SILVER_BANE "silver_bane"

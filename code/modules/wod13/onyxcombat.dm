@@ -318,13 +318,11 @@
 		if(world.time < BD.last_bloodpower_click+10)
 			return
 		BD.last_bloodpower_click = world.time
-		var/plus = 0
-		if(HAS_TRAIT(BD, TRAIT_HUNGRY))
-			plus = 1
-		if(BD.bloodpool >= 3+plus)
+
+		if(BD.bloodpool >= 3)
 			playsound(usr, 'code/modules/wod13/sounds/bloodhealing.ogg', 50, FALSE)
 			BD.last_bloodpower_use = world.time
-			BD.bloodpool = max(0, BD.bloodpool-(3+plus))
+			BD.bloodpool = max(0, BD.bloodpool-3)
 			icon_state = "[initial(icon_state)]-on"
 			to_chat(BD, "<span class='notice'>You use blood to become more powerful.</span>")
 			BD.dna.species.punchdamagehigh = BD.dna.species.punchdamagehigh+5

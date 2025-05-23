@@ -17,11 +17,12 @@
 /datum/discipline_power/vtr/nightmare/waking_nightmare/pre_activation_checks(mob/living/target)
 	if(HAS_TRAIT(target, TRAIT_ATTENDING_CARNIVAL))
 		to_chat(owner, span_warning("You have already sent [target] to the Carnival!"))
+	var/trait_bonus = (HAS_TRAIT(target, TRAIT_EMERSONIAN)?TRAIT_EMERSONIAN_MOD:0) + (HAS_TRAIT(target, TRAIT_PREGNABLE_MIND)?TRAIT_PREGNABLE_MIND_MOD:0)
 	if(SSroll.opposed_roll(
 		owner,
 		target,
 		dice_a = owner.get_total_wits() + discipline.level,
-		dice_b = target.get_total_resolve() + target.blood_potency,
+		dice_b = target.get_total_resolve() + target.blood_potency + trait_bonus,
 		alert_atom = target)) //TODO HEX: Tie to blood_potency
 		return TRUE
 	to_chat(owner, span_warning("[target] holds onto their senses!"))

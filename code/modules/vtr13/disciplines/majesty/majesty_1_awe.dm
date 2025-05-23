@@ -9,11 +9,12 @@
 /datum/discipline_power/vtr/majesty/awe/activate()
 	. = ..()
 	for(var/mob/living/target in viewers(7,owner) - owner)
+		var/trait_bonus = (HAS_TRAIT(target, TRAIT_INDOMITABLE) ? TRAIT_INDOMITABLE_MOD : 0) + (HAS_TRAIT(target, TRAIT_SUSCEPTIBLE) ? TRAIT_SUSCEPTIBLE_MOD : 0) - (HAS_TRAIT_FROM(target, TRAIT_CHARMED, owner) ? charmed_status_debuff : 0)
 		if(!SSroll.opposed_roll(
 			owner,
 			target,
 			dice_a = owner.get_total_charisma() + discipline.level,
-			dice_b = target.get_total_composure() + target.blood_potency - HAS_TRAIT_FROM(target, TRAIT_CHARMED, owner) ? charmed_status_debuff : 0, 
+			dice_b = target.get_total_composure() + target.blood_potency + trait_bonus, 
 			alert_atom = target,
 			show_player_a = TRUE,
 			show_player_b = FALSE))
