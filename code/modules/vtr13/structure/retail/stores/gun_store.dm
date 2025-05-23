@@ -18,8 +18,16 @@
 		new /datum/data/retail_product("9mm pistol magazine, 18 rounds",		/obj/item/ammo_box/magazine/semi9mm,	100),
 		new /datum/data/retail_product("Colt M1911 magazine",		/obj/item/ammo_box/magazine/vamp45acp,	50),
 		new /datum/data/retail_product("knife",	/obj/item/melee/vampirearms/knife,	100),
+		new /datum/data/retail_product("silver knife",	/obj/item/melee/vampirearms/knife/silver,	500),
 		new /datum/data/retail_product("baseball bat",	/obj/item/melee/vampirearms/baseball,	200),
 		new /datum/data/retail_product("real katana",	/obj/item/melee/vampirearms/katana,	1500),
-		new /datum/data/retail_product("machete", /obj/item/melee/vampirearms/machete, 500),
-		new /datum/data/retail_product("donut",	/obj/item/food/vampire/donut,	10)
+		new /datum/data/retail_product("machete", /obj/item/melee/vampirearms/machete, 500)
 	)
+
+/obj/structure/retail/gun_store/can_shop(mob/user)
+	for(var/obj/item/card/id/gun_license/license in user.GetAllContents())
+		if(license)
+			return TRUE
+	if(my_owner && !my_owner.stat)
+		my_owner.RealisticSay("I can't sell you anything without a license, pal.")
+	return FALSE

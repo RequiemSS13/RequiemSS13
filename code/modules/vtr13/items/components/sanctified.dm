@@ -47,7 +47,7 @@
 	last_detonated = world.time
 
 	var/mob/living/carbon/carbon_target = target
-	carbon_target.adjustFireLoss(30)
+	carbon_target.apply_damage(15, BURN)
 	INVOKE_ASYNC(carbon_target, TYPE_PROC_REF(/mob, emote), "scream")
 	to_chat(carbon_target, "<span class='userdanger'>The zeal burns hot on your flesh!</span>", confidential = TRUE)
 
@@ -58,7 +58,13 @@
 
 
 /datum/component/sanctified/proc/drop_it_like_it_is_hot(mob/living/carbon/holder)
-	holder.adjustFireLoss(10)
+	if(!holder || !parent)
+		return
+	var/atom/parent_atom = parent
+	if(parent_atom.loc != holder)
+		return
+
+	holder.apply_damage(10, BURN)
 	if(holder.dropItemToGround(parent) || !HAS_TRAIT(holder, TRAIT_HOLY_WEAKNESS))
 		to_chat(holder, span_warning("\The [parent] burns you! You cast it away in fear!"))
 		return
