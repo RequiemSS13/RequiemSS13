@@ -1,0 +1,2 @@
+#define COMSIG_ATOM_FADE_ZONE_EXISTS "atom_fade_zone_exists"
+#define COMSIG_ATOM_FADE_ZONE_ADD "atom_fade_zone_add"

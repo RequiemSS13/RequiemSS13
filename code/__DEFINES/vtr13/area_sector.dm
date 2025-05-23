@@ -1,0 +1,15 @@
+#define AREA_SECTOR_NORTHWEST "Northwest"
+#define AREA_SECTOR_NORTHEAST "Northeast"
+#define AREA_SECTOR_SOUTHEAST "Southeast"
+#define AREA_SECTOR_SOUTHWEST "Southwest"
+#define AREA_SECTOR_CENTRAL "Central"
+#define AREA_SECTOR_SOUTH "South"
+#define AREA_SECTOR_PARK "Park"
+#define AREA_SECTOR_RESERVE "Nature Reserve"
+#define AREA_SECTOR_RIVER "LA River"
+
+
+#define AREA_LEVEL_BASEMENT 1
+#define AREA_LEVEL_GROUND_FLOOR 2
+#define AREA_LEVEL_FLOOR_TWO 3
+#define AREA_LEVEL_FLOOR_THREE 4
