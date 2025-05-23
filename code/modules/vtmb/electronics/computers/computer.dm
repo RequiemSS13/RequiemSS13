@@ -45,13 +45,15 @@ GLOBAL_LIST_EMPTY(vampire_computers)
 	apps.Add(news)
 
 	for(var/obj/vampire_computer/C in GLOB.vampire_computers)
-		if(C.main)
-			if(owner != "none")
-				var/datum/app/gmail/main_gmail = C.apps[3]
-				main_gmail.send_email("Hello! This message is from [owner]'s computer.", "Hello!", gmail.email_adress)
+		if(C.main && owner != "none")
+			var/datum/app/gmail/main_gmail = C.apps[3]
+			main_gmail.send_email("Hello! This message is from [owner]'s computer.", "Hello!", gmail.email_adress)
 
 /obj/vampire_computer/attack_hand(mob/user)
 	. = ..()
+	if(HAS_TRAIT(user, TRAIT_ARCHAIC))
+		to_chat(user, span_notice("You have no idea how to operate this contraption. The intricacies of the digital age are beyond you."))
+		return
 	ui_interact(user)
 
 /obj/vampire_computer/Destroy()

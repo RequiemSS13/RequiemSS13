@@ -31,6 +31,7 @@ PROCESSING_SUBSYSTEM_DEF(merits)
 	merit_blacklist = list(list("Lazy","Expedient"), \
 							list("Hardy","Frail"), \
 							list("Indomitable","Susceptible"), \
+							list("Passenger Princess","Experienced Driver"), \
 							list("Emersonian Mind", "Pregnable Mind"))
 	return ..()
 

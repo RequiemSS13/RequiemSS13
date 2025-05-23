@@ -175,7 +175,7 @@ SUBSYSTEM_DEF(carpool)
 		return
 
 /obj/vampire_car/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/gas_can))
+	if(istype(I, /obj/item/gas_can) && !HAS_TRAIT(user, TRAIT_NO_DRIVE))
 		var/obj/item/gas_can/G = I
 		if(G.stored_gasoline && gas < 1000 && isturf(user.loc))
 			var/gas_to_transfer = min(1000-gas, min(100, max(1, G.stored_gasoline)))
@@ -228,7 +228,7 @@ SUBSYSTEM_DEF(carpool)
 					locked = !locked
 					return
 		return
-	if(istype(I, /obj/item/melee/vampirearms/tire))
+	if(istype(I, /obj/item/melee/vampirearms/tire) && !HAS_TRAIT(user, TRAIT_NO_DRIVE))
 		if(!repairing)
 			if(health >= maxhealth)
 				to_chat(user, "<span class='notice'>[src] is already fully repaired.</span>")
@@ -509,17 +509,20 @@ SUBSYSTEM_DEF(carpool)
 				V.driver = src
 				var/datum/action/carr/exit_car/E = new()
 				E.Grant(src)
-				var/datum/action/carr/fari_vrubi/F = new()
-				F.Grant(src)
-				var/datum/action/carr/engine/N = new()
-				N.Grant(src)
-				var/datum/action/carr/stage/S = new()
-				S.Grant(src)
 				var/datum/action/carr/beep/B = new()
 				B.Grant(src)
-				if(V.baggage_limit > 0)
-					var/datum/action/carr/baggage/G = new()
-					G.Grant(src)
+				
+				if(!HAS_TRAIT(src, TRAIT_NO_DRIVE))
+					to_chat(src, span_notice("You have no idea how any of this works..."))
+					var/datum/action/carr/fari_vrubi/F = new()
+					F.Grant(src)
+					var/datum/action/carr/engine/N = new()
+					N.Grant(src)
+					var/datum/action/carr/stage/S = new()
+					S.Grant(src)
+					if(V.baggage_limit > 0)
+						var/datum/action/carr/baggage/G = new()
+						G.Grant(src)
 			else if(length(V.passengers) < V.max_passengers)
 				forceMove(over_object)
 				V.passengers += src
@@ -957,7 +960,7 @@ SUBSYSTEM_DEF(carpool)
 /obj/vampire_car/relaymove(mob/living/carbon/human/driver, direct)
 	if(world.time-impact_delay < 20)
 		return
-	if(driver.IsUnconscious() || HAS_TRAIT(driver, TRAIT_INCAPACITATED) || HAS_TRAIT(driver, TRAIT_RESTRAINED))
+	if(driver.IsUnconscious() || HAS_TRAIT(driver, TRAIT_INCAPACITATED) || HAS_TRAIT(driver, TRAIT_RESTRAINED) || HAS_TRAIT(driver, TRAIT_NO_DRIVE))
 		return
 	var/turn_speed = min(abs(speed_in_pixels) / 10, 3)
 	switch(direct)
