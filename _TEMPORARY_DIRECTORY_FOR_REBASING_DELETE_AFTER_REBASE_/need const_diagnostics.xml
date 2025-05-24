@@ -1,0 +1,225 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="file">code\modules\vtmb\jobs\national_guard.dm</S>
+      <S N="line">328</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="1">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\jobs\swat.dm</S>
+      <S N="line">306</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="2">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\preferences\preferences_defines.dm</S>
+      <S N="line">137</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="3">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\preferences\preferences_defines.dm</S>
+      <S N="line">147</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="4">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\kuei_jin.dm</S>
+      <S N="line">113</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier"></S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="5">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\game\turfs\open\wod13\openspace.dm</S>
+      <S N="line">160</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="6">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\guns\wod13\ballistic.dm</S>
+      <S N="line">11</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="7">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\guns\wod13\ballistic.dm</S>
+      <S N="line">13</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="8">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\guns\wod13\ballistic.dm</S>
+      <S N="line">19</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="9">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\guns\wod13\ballistic.dm</S>
+      <S N="line">25</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="10">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\guns\wod13\ballistic.dm</S>
+      <S N="line">31</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="11">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\guns\wod13\ballistic.dm</S>
+      <S N="line">33</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="12">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\guns\wod13\ballistic.dm</S>
+      <S N="line">39</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="13">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\guns\wod13\ballistic.dm</S>
+      <S N="line">43</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="14">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">24</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="15">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">27</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="16">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">30</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="17">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\cargo\cargo_express_console_vtr.dm</S>
+      <S N="line">16</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="18">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\cargo\console_vtr.dm</S>
+      <S N="line">16</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">=</S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="19">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\quirks.dm</S>
+      <S N="line">273</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier"></S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="20">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\quirks.dm</S>
+      <S N="line">317</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier"></S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+  <Obj RefId="21">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\quirks.dm</S>
+      <S N="line">581</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier"></S>
+      <S N="diagnostic_type">expected a constant expression</S>
+    </MS>
+  </Obj>
+</Objs>

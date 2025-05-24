@@ -1,0 +1,15 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">1128</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier"></S>
+      <S N="diagnostic_type">missing expression</S>
+    </MS>
+  </Obj>
+</Objs>

@@ -1,0 +1,875 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="file">code\modules\wod13\npcroles.dm</S>
+      <S N="line">931</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">H</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="1">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\gridventory.dm</S>
+      <S N="line">114</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">STR</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="2">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\disciplines\protean\effects\blood_mist.dm</S>
+      <S N="line">9</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">human_inhaler</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="3">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\car.dm</S>
+      <S N="line">132</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">STR</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="4">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\za_rozziu.dm</S>
+      <S N="line">25</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">Z</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="5">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">15</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">owning</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="6">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\kuei_jin.dm</S>
+      <S N="line">213</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">werewolf_victim</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="7">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\npc\beastmaster.dm</S>
+      <S N="line">261</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">H</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="8">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\npc\beastmaster.dm</S>
+      <S N="line">286</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">H</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="9">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\gifts.dm</S>
+      <S N="line">238</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">abductor_hud</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="10">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\car.dm</S>
+      <S N="line">415</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">STR</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="11">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">157</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">user</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="12">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\mobs\human\memories\components\base_memory.dm</S>
+      <S N="line">59</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">owner_human</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="13">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\mobs\human\memories\components\base_memory.dm</S>
+      <S N="line">77</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">brain</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="14">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\quirks.dm</S>
+      <S N="line">556</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">H</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="15">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\events\pirates.dm</S>
+      <S N="line">82</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">spawner</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="16">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\events\pirates.dm</S>
+      <S N="line">434</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">P</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="17">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\preferences\topic_procs\process_job_links.dm</S>
+      <S N="line">23</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">J</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="18">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\preferences\topic_procs\process_misc_task_links.dm</S>
+      <S N="line">189</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">obs</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="19">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\preferences\topic_procs\process_misc_task_links.dm</S>
+      <S N="line">202</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">obs</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="20">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\preferences\topic_procs\process_misc_task_links.dm</S>
+      <S N="line">248</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">PM</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="21">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">354</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">host</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="22">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">1524</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">host</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="23">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">1533</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">host</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="24">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">1832</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">abductor_hud</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="25">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">1851</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">health_hud</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="26">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\vampire_clane\clane.dm</S>
+      <S N="line">58</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">LM</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="27">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\__discipline_power.dm</S>
+      <S N="line">299</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">human_target</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="28">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\auspex.dm</S>
+      <S N="line">58</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">abductor_hud</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="29">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\auspex.dm</S>
+      <S N="line">67</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">abductor_hud</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="30">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\auspex.dm</S>
+      <S N="line">87</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">health_hud</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="31">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\auspex.dm</S>
+      <S N="line">96</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">health_hud</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="32">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\dominate.dm</S>
+      <S N="line">57</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">human_target</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="33">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\dominate.dm</S>
+      <S N="line">96</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">human_target</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="34">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\dominate.dm</S>
+      <S N="line">137</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">human_target</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="35">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\dominate.dm</S>
+      <S N="line">177</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">human_target</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="36">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\dominate.dm</S>
+      <S N="line">216</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">human_target</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="37">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">54</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">zombie</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="38">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">100</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">zombie</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="39">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">202</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">zombie</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="40">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">248</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">zombie</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="41">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">294</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">zombie</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="42">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\vicissitude.dm</S>
+      <S N="line">249</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">r_arm</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="43">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\vicissitude.dm</S>
+      <S N="line">250</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">l_arm</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="44">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\vicissitude.dm</S>
+      <S N="line">251</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">r_leg</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="45">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\vicissitude.dm</S>
+      <S N="line">252</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">l_leg</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="46">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\visceratika.dm</S>
+      <S N="line">30</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">human_player</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="47">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\kuei_jin.dm</S>
+      <S N="line">129</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">C</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="48">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">229</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">L</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="49">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">243</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">L</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="50">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\game\turfs\open\wod13\openspace.dm</S>
+      <S N="line">123</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">S</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="51">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\decor.dm</S>
+      <S N="line">822</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">C</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="52">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\mobs\living\status_effect_examines.dm</S>
+      <S N="line">6</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">E</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="53">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\ambient.dm</S>
+      <S N="line">530</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">H</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="54">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">441</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">C</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="55">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">446</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">C</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="56">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\mobs\human\examine\examine_mood.dm</S>
+      <S N="line">16</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">mood</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="57">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\npc.dm</S>
+      <S N="line">129</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">HS</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="58">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\witness.dm</S>
+      <S N="line">75</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">hud</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="59">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">65</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">L</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="60">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">539</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">A</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="61">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">393</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">K</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="62">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\melee.dm</S>
+      <S N="line">271</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">STR</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="63">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\melee.dm</S>
+      <S N="line">68</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">W</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="64">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\melee.dm</S>
+      <S N="line">548</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">A</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="65">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onfloor.dm</S>
+      <S N="line">18</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">BS</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="66">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\stonks.dm</S>
+      <S N="line">17</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">H</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="67">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\items\quran.dm</S>
+      <S N="line">12</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">H</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="68">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">1986</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">object_turf</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="69">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\fire.dm</S>
+      <S N="line">56</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">G</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="70">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\vault\vaultdoors.dm</S>
+      <S N="line">73</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">door_user</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="71">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\structures\doors\vampdoor.dm</S>
+      <S N="line">106</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">N</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="72">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\structures\doors\vampdoor.dm</S>
+      <S N="line">151</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">repair_kit</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="73">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\thaumaturgy.dm</S>
+      <S N="line">71</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">VH</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="74">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\thaumaturgy.dm</S>
+      <S N="line">88</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">VHL</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="75">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\magic\mysticism.dm</S>
+      <S N="line">83</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">H</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="76">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\magic\pyramid.dm</S>
+      <S N="line">108</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">H</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="77">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\mytherceria.dm</S>
+      <S N="line">208</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">L</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="78">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\gifts.dm</S>
+      <S N="line">106</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">H</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="79">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\disciplines\auspex\auspex_1_beasts_hackles.dm</S>
+      <S N="line">15</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">abductor_hud</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="80">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\disciplines\auspex\auspex_1_beasts_hackles.dm</S>
+      <S N="line">20</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">health_hud</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="81">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\disciplines\auspex\auspex_1_beasts_hackles.dm</S>
+      <S N="line">29</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">abductor_hud</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="82">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\disciplines\auspex\auspex_1_beasts_hackles.dm</S>
+      <S N="line">34</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">health_hud</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="83">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\auspex.dm</S>
+      <S N="line">133</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">Z</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="84">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\mobs\human\examine\examine_outfit.dm</S>
+      <S N="line">13</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">vampire</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="85">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\mobs\human\examine\examine_outfit.dm</S>
+      <S N="line">27</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">U</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+  <Obj RefId="86">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\mobs\human\examine\examine_outfit.dm</S>
+      <S N="line">50</S>
+      <S N="diagnostic_severity">warning (unused_var)</S>
+      <S N="identifier">FR</S>
+      <S N="diagnostic_type">variable defined but not used</S>
+    </MS>
+  </Obj>
+</Objs>
