@@ -7,14 +7,17 @@
  * Circumvents the message queue and sends the message
  * to the recipient (target) as soon as possible.
  */
-/proc/to_chat_immediate(target, html,
-		type = null,
-		text = null,
-		avoid_highlighting = FALSE,
-		// FIXME: These flags are now pointless and have no effect
-		handle_whitespace = TRUE,
-		trailing_newline = TRUE,
-		confidential = FALSE)
+/proc/to_chat_immediate(
+	target,
+	html,
+	type = null,
+	text = null,
+	avoid_highlighting = FALSE,
+	// FIXME: These flags are now pointless and have no effect
+	handle_whitespace = TRUE,
+	trailing_newline = TRUE,
+	confidential = FALSE
+)
 	// Useful where the integer 0 is the entire message. Use case is enabling to_chat(target, some_boolean) while preventing to_chat(target, "")
 	html = "[html]"
 	text = "[text]"
@@ -22,8 +25,7 @@
 	if(!target)
 		return
 	if(!html && !text)
-		// CRASH("Empty or null string in to_chat proc call.")  // TODO: source out what causes these
-		return
+		CRASH("Empty or null string in to_chat proc call.")
 	if(target == world)
 		target = GLOB.clients
 
@@ -34,7 +36,7 @@
 	if(html) message["html"] = html
 	if(avoid_highlighting) message["avoidHighlighting"] = avoid_highlighting
 
-	// Send it immediately
+	// send it immediately
 	SSchat.send_immediate(target, message)
 
 /**
@@ -61,6 +63,7 @@
 	if(isnull(Master) || !SSchat?.initialized || !MC_RUNNING(SSchat.init_stage))
 		to_chat_immediate(target, html, type, text, avoid_highlighting)
 		return
+
 	// Useful where the integer 0 is the entire message. Use case is enabling to_chat(target, some_boolean) while preventing to_chat(target, "")
 	html = "[html]"
 	text = "[text]"
@@ -68,8 +71,7 @@
 	if(!target)
 		return
 	if(!html && !text)
-		// CRASH("Empty or null string in to_chat proc call.") // TODO: source out what causes these
-		return
+		CRASH("Empty or null string in to_chat proc call.")
 	if(target == world)
 		target = GLOB.clients
 

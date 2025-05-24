@@ -25,6 +25,7 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 	icon_keyboard = null
 	circuit = /obj/item/circuitboard/computer/libraryconsole
 	desc = "Checked out books MUST be returned on time."
+	anchored_tabletop_offset = 8
 	///The current book id we're searching for
 	var/book_id = null
 	///The current title we're searching for
@@ -404,6 +405,9 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 
 	return data
 
+/obj/machinery/computer/libraryconsole/bookmanagement/ui_assets(mob/user)
+	return list(get_asset_datum(/datum/asset/spritesheet_batched/bibles))
+
 /obj/machinery/computer/libraryconsole/bookmanagement/proc/load_nearby_books()
 	for(var/datum/book_info/book as anything in SSlibrary.get_area_books(get_area(src)))
 		inventory[ref(book)] = book
@@ -541,7 +545,7 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 			set_screen_state(MIN_LIBRARY)
 			return TRUE
 
-/obj/machinery/computer/libraryconsole/bookmanagement/attackby(obj/item/weapon, mob/user, params)
+/obj/machinery/computer/libraryconsole/bookmanagement/attackby(obj/item/weapon, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(weapon, /obj/item/barcodescanner))
 		return ..()
 	var/obj/item/barcodescanner/scanner = weapon
@@ -631,7 +635,7 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 	return TRUE
 
 /obj/machinery/computer/libraryconsole/bookmanagement/proc/print_bible()
-	var/obj/item/storage/book/bible/holy_book = new(loc)
+	var/obj/item/book/bible/holy_book = new(loc)
 	if(!GLOB.bible_icon_state || !GLOB.bible_inhand_icon_state)
 		return
 	holy_book.icon_state = GLOB.bible_icon_state
@@ -686,6 +690,7 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 	icon = 'icons/obj/service/library.dmi'
 	icon_state = "bigscanner"
 	desc = "It's an industrial strength book scanner. Perfect!"
+	circuit = /obj/item/circuitboard/machine/libraryscanner
 	density = TRUE
 	var/obj/item/book/held_book
 	///Our scanned-in book
@@ -694,19 +699,19 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 /obj/machinery/libraryscanner/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(default_deconstruction_screwdriver(user, "bigscanner2", "bigscanner", tool))
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/libraryscanner/crowbar_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(default_deconstruction_crowbar(tool))
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/libraryscanner/Destroy()
 	held_book = null
 	cache = null
 	return ..()
 
-/obj/machinery/libraryscanner/attackby(obj/hitby, mob/user, params)
+/obj/machinery/libraryscanner/attackby(obj/hitby, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(hitby, /obj/item/book))
 		user.transferItemToLoc(hitby, src)
 		if(held_book)
@@ -768,6 +773,7 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 	icon = 'icons/obj/service/library.dmi'
 	icon_state = "binder"
 	desc = "Only intended for binding paper products."
+	circuit = /obj/item/circuitboard/machine/bookbinder
 	density = TRUE
 
 	/// Are we currently binding a book?
@@ -779,14 +785,14 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 /obj/machinery/bookbinder/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(default_deconstruction_screwdriver(user, "binder2", "binder", tool))
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/bookbinder/crowbar_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(default_deconstruction_crowbar(tool))
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/bookbinder/attackby(obj/hitby, mob/user, params)
+/obj/machinery/bookbinder/attackby(obj/hitby, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(hitby, /obj/item/paper))
 		prebind_book(user, hitby)
 		return TRUE

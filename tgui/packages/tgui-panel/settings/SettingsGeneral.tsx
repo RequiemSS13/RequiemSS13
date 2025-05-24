@@ -17,6 +17,7 @@ import { clearChat, saveChatToDisk } from '../chat/actions';
 import { THEMES } from '../themes';
 import { exportSettings, updateSettings } from './actions';
 import { FONTS } from './constants';
+import { resetPaneSplitters, setEditPaneSplitters } from './scaling';
 import { selectSettings } from './selectors';
 import { importChatSettings } from './settingsImExport';
 
@@ -25,6 +26,8 @@ export function SettingsGeneral(props) {
     useSelector(selectSettings);
   const dispatch = useDispatch();
   const [freeFont, setFreeFont] = useState(false);
+
+  const [editingPanes, setEditingPanes] = useState(false);
 
   return (
     <Section>
@@ -46,6 +49,29 @@ export function SettingsGeneral(props) {
               {capitalize(THEME)}
             </Button>
           ))}
+        </LabeledList.Item>
+        <LabeledList.Item label="UI sizes">
+          <Stack>
+            <Stack.Item>
+              <Button
+                onClick={() =>
+                  setEditingPanes((val) => {
+                    setEditPaneSplitters(!val);
+                    return !val;
+                  })
+                }
+                color={editingPanes ? 'red' : undefined}
+                icon={editingPanes ? 'save' : undefined}
+              >
+                {editingPanes ? 'Save' : 'Adjust UI Sizes'}
+              </Button>
+            </Stack.Item>
+            <Stack.Item>
+              <Button onClick={resetPaneSplitters} icon="refresh" color="red">
+                Reset
+              </Button>
+            </Stack.Item>
+          </Stack>
         </LabeledList.Item>
         <LabeledList.Item label="Font style">
           <Stack.Item>
@@ -86,9 +112,10 @@ export function SettingsGeneral(props) {
             ) : (
               <Stack>
                 <Input
-                  width={'100%'}
+                  fluid
                   value={fontFamily}
-                  onChange={(e, value) =>
+                  expensive
+                  onChange={(value) =>
                     dispatch(
                       updateSettings({
                         fontFamily: value,
@@ -151,18 +178,22 @@ export function SettingsGeneral(props) {
       <Stack fill>
         <Stack.Item mt={0.15}>
           <Button
-            icon="cloud-arrow-down"
+            icon="compact-disc"
             tooltip="Export chat settings"
             onClick={() => dispatch(exportSettings())}
-          />
+          >
+            Export settings
+          </Button>
         </Stack.Item>
         <Stack.Item mt={0.15}>
           <Button.File
             accept=".json"
             tooltip="Import chat settings"
-            icon="cloud-arrow-up"
+            icon="arrow-up-from-bracket"
             onSelectFiles={(files) => importChatSettings(files)}
-          />
+          >
+            Import settings
+          </Button.File>
         </Stack.Item>
         <Stack.Item grow mt={0.15}>
           <Button

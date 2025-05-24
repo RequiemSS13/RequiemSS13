@@ -1,5 +1,3 @@
-import { toFixed } from 'tgui-core/math';
-import { useBackend } from '../backend';
 import {
   Button,
   LabeledControls,
@@ -8,6 +6,9 @@ import {
   Section,
 } from 'tgui-core/components';
 import { formatSiUnit } from 'tgui-core/format';
+import { toFixed } from 'tgui-core/math';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 const formatPressure = (value) => {
@@ -30,7 +31,7 @@ export const Tank = (props) => {
     connected,
   } = data;
   return (
-    <Window resizable width={275} height={120}>
+    <Window width={275} height={120}>
       <Window.Content>
         <Section>
           <LabeledControls>
@@ -64,9 +65,10 @@ export const Tank = (props) => {
                 value={parseFloat(data.releasePressure)}
                 width="65px"
                 unit="kPa"
+                step={1}
                 minValue={data.minReleasePressure}
                 maxValue={data.maxReleasePressure}
-                onChange={(e, value) =>
+                onChange={(value) =>
                   act('pressure', {
                     pressure: value,
                   })

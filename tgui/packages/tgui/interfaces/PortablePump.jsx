@@ -1,5 +1,11 @@
+import {
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
+
 import { useBackend } from '../backend';
-import { Button, LabeledList, NumberInput, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 import { PortableBasicInfo } from './common/PortableAtmos';
 
@@ -7,23 +13,29 @@ export const PortablePump = (props) => {
   const { act, data } = useBackend();
   const {
     direction,
+    connected,
     holding,
-    target_pressure,
-    default_pressure,
-    min_pressure,
-    max_pressure,
+    targetPressure,
+    defaultPressure,
+    minPressure,
+    maxPressure,
   } = data;
+  const pump_or_port = connected ? 'Port' : 'Pump';
+  const area_or_tank = holding ? 'Tank' : 'Area';
   return (
-    <Window width={300} height={315}>
+    <Window width={300} height={340}>
       <Window.Content>
         <PortableBasicInfo />
         <Section
-          title="Pump"
+          title="Pumping"
           buttons={
             <Button
-              icon={direction ? 'sign-in-alt' : 'sign-out-alt'}
-              content={direction ? 'In' : 'Out'}
-              selected={direction}
+              content={
+                direction
+                  ? area_or_tank + ' → ' + pump_or_port
+                  : pump_or_port + ' → ' + area_or_tank
+              }
+              color={!direction && !holding ? 'caution' : null}
               onClick={() => act('direction')}
             />
           }
@@ -31,13 +43,13 @@ export const PortablePump = (props) => {
           <LabeledList>
             <LabeledList.Item label="Output">
               <NumberInput
-                value={target_pressure}
+                value={targetPressure}
                 unit="kPa"
                 width="75px"
-                minValue={min_pressure}
-                maxValue={max_pressure}
+                minValue={minPressure}
+                maxValue={maxPressure}
                 step={10}
-                onChange={(e, value) =>
+                onChange={(value) =>
                   act('pressure', {
                     pressure: value,
                   })
@@ -47,7 +59,7 @@ export const PortablePump = (props) => {
             <LabeledList.Item label="Presets">
               <Button
                 icon="minus"
-                disabled={target_pressure === min_pressure}
+                disabled={targetPressure === minPressure}
                 onClick={() =>
                   act('pressure', {
                     pressure: 'min',
@@ -56,7 +68,7 @@ export const PortablePump = (props) => {
               />
               <Button
                 icon="sync"
-                disabled={target_pressure === default_pressure}
+                disabled={targetPressure === defaultPressure}
                 onClick={() =>
                   act('pressure', {
                     pressure: 'reset',
@@ -65,7 +77,7 @@ export const PortablePump = (props) => {
               />
               <Button
                 icon="plus"
-                disabled={target_pressure === max_pressure}
+                disabled={targetPressure === maxPressure}
                 onClick={() =>
                   act('pressure', {
                     pressure: 'max',

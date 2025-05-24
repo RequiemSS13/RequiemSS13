@@ -44,10 +44,8 @@ it will be sent to all connected chats.
  * channel_tag - Required. If "", the message with be sent to all connected (Game-type for TGS3) channels. Otherwise, it will be sent to TGS4 channels with that tag (Delimited by ','s).
  * admin_only - Determines if this communication can only be sent to admin only channels.
  */
-
 /proc/send2chat(datum/tgs_message_content/message, channel_tag, admin_only = FALSE)
 	set waitfor = FALSE
-  
 	if(channel_tag == null || !world.TgsAvailable())
 		return
 
@@ -80,3 +78,22 @@ it will be sent to all connected chats.
 	if(!embed_links)
 		message = GLOB.has_discord_embeddable_links.Replace(replacetext(message, "`", ""), " ```$1``` ")
 	world.TgsTargetedChatBroadcast(new /datum/tgs_message_content("[category] | [message]"), TRUE)
+
+/// Handles text formatting for item use hints in examine text
+#define EXAMINE_HINT(text) ("<b>" + text + "</b>")
+
+/// Sends a message to all dead and observing players, if a source is provided a follow link will be attached.
+/proc/send_to_observers(message, source, message_type = null)
+	var/list/all_observers = GLOB.dead_player_list + GLOB.current_observers_list
+	for(var/mob/observer as anything in all_observers)
+		if (isnull(source))
+			to_chat(observer, "[message]", type = message_type)
+			continue
+		var/link = FOLLOW_LINK(observer, source)
+		to_chat(observer, "[link] [message]", type = message_type)
+
+/// Sends a message to everyone within the list, as well as all observers.
+/proc/relay_to_list_and_observers(message, list/mob_list, source, message_type = null)
+	for(var/mob/creature as anything in mob_list)
+		to_chat(creature, message, type = message_type)
+	send_to_observers(message, source)

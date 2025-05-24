@@ -1,12 +1,13 @@
-import { useBackend } from '../backend';
 import { Button, Section, Table } from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export const NtosFileManager = (props) => {
   const { act, data } = useBackend();
-  const { PC_device_theme, usbconnected, files = [], usbfiles = [] } = data;
+  const { usbconnected, files = [], usbfiles = [] } = data;
   return (
-    <NtosWindow resizable theme={PC_device_theme}>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section>
           <FileTable
@@ -15,7 +16,7 @@ export const NtosFileManager = (props) => {
             onUpload={(file) => act('PRG_copytousb', { name: file })}
             onDelete={(file) => act('PRG_deletefile', { name: file })}
             onRename={(file, newName) =>
-              act('PRG_rename', {
+              act('PRG_renamefile', {
                 name: file,
                 new_name: newName,
               })
@@ -31,9 +32,9 @@ export const NtosFileManager = (props) => {
               files={usbfiles}
               usbconnected={usbconnected}
               onUpload={(file) => act('PRG_copyfromusb', { name: file })}
-              onDelete={(file) => act('PRG_deletefile', { name: file })}
+              onDelete={(file) => act('PRG_usbdeletefile', { name: file })}
               onRename={(file, newName) =>
-                act('PRG_rename', {
+                act('PRG_usbrenamefile', {
                   name: file,
                   new_name: newName,
                 })
@@ -70,10 +71,8 @@ const FileTable = (props) => {
             {!file.undeletable ? (
               <Button.Input
                 fluid
-                content={file.name}
-                currentValue={file.name}
-                tooltip="Rename"
-                onCommit={(e, value) => onRename(file.name, value)}
+                value={file.name}
+                onCommit={(value) => onRename(file.name, value)}
               />
             ) : (
               file.name

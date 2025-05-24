@@ -1,21 +1,21 @@
 import { map, sortBy } from 'common/collections';
-import { flow } from 'tgui-core/fp';
-import { useBackend } from '../backend';
 import { Box, Button, Flex, Section, Table } from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const AtmosControlPanel = (props) => {
   const { act, data } = useBackend();
-  const groups = flow([
-    map((group, i) => ({
+  const groups = sortBy(
+    map(data.excited_groups, (group, i) => ({
       ...group,
       // Generate a unique id
       id: group.area + i,
     })),
-    sortBy((group) => group.id),
-  ])(data.excited_groups);
+    (group) => group.id,
+  );
   return (
-    <Window title="SSAir Control Panel" width={900} height={500} resizable>
+    <Window title="SSAir Control Panel" width={900} height={500}>
       <Section m={1}>
         <Flex justify="space-between" align="baseline">
           <Flex.Item>

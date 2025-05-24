@@ -2,7 +2,7 @@
 SUBSYSTEM_DEF(dbcore)
 	name = "Database"
 	flags = SS_TICKER
-	init_stage = INITSTAGE_EARLY
+	init_stage = INITSTAGE_FIRST
 	wait = 10 // Not seconds because we're running on SS_TICKER
 	runlevels = RUNLEVEL_LOBBY|RUNLEVELS_DEFAULT
 	priority = FIRE_PRIORITY_DATABASE
@@ -59,7 +59,7 @@ SUBSYSTEM_DEF(dbcore)
 		if(2)
 			message_admins("Could not get schema version from database")
 
-	return TRUE
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/dbcore/OnConfigLoad()
 	. = ..()
@@ -166,14 +166,11 @@ SUBSYSTEM_DEF(dbcore)
 		return
 	query.job_id = rustg_sql_query_async(connection, query.sql, json_encode(query.arguments))
 
-/datum/controller/subsystem/dbcore/proc/run_or_queue_query(datum/db_query/query)
+/datum/controller/subsystem/dbcore/proc/queue_query(datum/db_query/query)
 	if(IsAdminAdvancedProcCall())
 		return
 
-	// If we can immediately run the query, then do it
-	// We need no standby queries, since we should not be jumping the queue if there
-	// are others waiting.
-	if (length(queries_active) < max_concurrent_queries && length(queries_standby) == 0)
+	if (!length(queries_standby) && length(queries_active) < max_concurrent_queries)
 		create_active_query(query)
 		return
 
@@ -324,7 +321,7 @@ SUBSYSTEM_DEF(dbcore)
 	else
 		log_sql("Database is not enabled in configuration.")
 
-/datum/controller/subsystem/dbcore/proc/SetRoundID()
+/datum/controller/subsystem/dbcore/proc/InitializeRound()
 	CheckSchemaVersion()
 
 	if(!Connect())
@@ -617,10 +614,10 @@ Ignore_errors instructes mysql to continue inserting rows if some of them have e
 	Close()
 	status = DB_QUERY_STARTED
 	if(async)
-		if(!Master.current_runlevel || Master.processing == 0)
+		if(!MC_RUNNING(SSdbcore.init_stage))
 			SSdbcore.run_query_sync(src)
 		else
-			SSdbcore.run_or_queue_query(src)
+			SSdbcore.queue_query(src)
 		sync()
 	else
 		var/job_result_str = rustg_sql_query_blocking(connection, sql, json_encode(arguments))
@@ -645,9 +642,10 @@ Ignore_errors instructes mysql to continue inserting rows if some of them have e
 
 /// Sleeps until execution of the query has finished.
 /datum/db_query/proc/sync()
-	UNTIL(process())
+	while(status < DB_QUERY_FINISHED)
+		stoplag()
 
-/datum/db_query/process(delta_time)
+/datum/db_query/process(seconds_per_tick)
 	if(status >= DB_QUERY_FINISHED)
 		return TRUE // we are done processing after all
 

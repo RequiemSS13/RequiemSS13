@@ -1,0 +1,15 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <Nil N="file" />
+      <Nil N="line" />
+      <Nil N="diagnostic_severity" />
+      <Nil N="identifier" />
+      <Nil N="diagnostic_type" />
+    </MS>
+  </Obj>
+</Objs>

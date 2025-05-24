@@ -1,5 +1,5 @@
 /*
- *	Premade paper
+ * Premade paper
  */
 
 /obj/item/paper/fluff/sop
@@ -21,7 +21,7 @@
 	<br>-Love, <i>Your Dearest</i>"}
 
 
-////////////	Job guides n' fluff
+//////////// Job guides n' fluff
 
 /obj/item/paper/guides/jobs/hydroponics
 	name = "paper- 'Greetings from Billy Bob'"
@@ -30,6 +30,60 @@
 /obj/item/paper/guides/jobs/holopad_hydro
 	name = "paper- 'Holopad Notice'"
 	default_raw_text = "<B>Can't get any botanists at the table? Have you tried using the damn holopad?</B><BR>\n<BR>\nStep onto the pad, and interface with it<BR>\nthen make your dang ol' call!<BR>\n<BR>\nYou want to call \"Hydroponics\" to reach them."
+
+/obj/item/paper/guides/jobs/engineering/bsa
+	name = "Bluespace Artillery (BSA) Assembly Instructions"
+	default_raw_text = {"<b>Below is a quick guide on setting up your new Bluespace Artillery Cannon.</b>
+	<br>
+	Featuring the newest in Nanotrasen technology, the Bluespace Artillery Cannon is your surefire ticket to complete and total threat elimination.
+	<br>
+	<h1>1. Acquire necessary resources.</h1>
+	* Bluespace Artillery Bore
+	* Bluespace Artillery Fusor
+	* Bluespace Artillery Generator
+	* Bluespace Artillery Controls
+	* 26 cable pieces
+	* 20 iron
+	* 20 bluespace crystals (or artificial)
+	* 5 quadratic capacitors
+	* 5 femto servos
+	* 1 glass sheet
+	<h1>2. Find suitable location</h1>
+	The BSA has a steep power requirement and functions best when it is on its own APC; keep other items in the room to a minimum. Ensure the BSA is placed at the edge of the station, so that it won't shoot through another portion of the station..  Make sure the room isn't easily accessible by someone who shouldn't be there.
+	<h1>3. Construction</h1>
+	1. Build three machine frames.
+	2. Determine the desired direction you want your artillery to face.
+	3. Leave six spaces in front, four behind.  The artillery cannon finishes itself after the assemblies are aligned.
+	4. Place the machine frames in a horizontal line.
+	5. Wrench the three machine frames in place.
+	6. Install wires in the three machine frames.
+	7. Install the bore in the front machine frame. this is your barrel.
+	8. Install the fusor in the center machine frame.
+	9. Install the generator in the back machine frame.
+	10. Examine the three machines and see what else they need, you can use a screwdriver to finish the assembly when parts are installed.
+	11. Construct a computer terminal in the same room as the BSA assembly, make sure they draw power from the same APC or ask the Chief Engineer to check the blueprints for you.
+	12. Use a screwdriver to fasten the board, install wires and one glass sheet, use screwdriver again to turn on.
+	13. Use a multitool and interact with the generator, then the fusor.
+	14. Use a multitool again to interact with the bore, then the fusor.
+	15. Use the console to finalize construction, make sure there's enough empty space around the BSA for the assembly to commence.
+	And with that, you are done!
+	<b>Commencing firing protocols requires the access of at least two heads, the console will be locked down until this requirement is met.</b>
+	<b>Always make sure you are certain before attempting to fire the BSA.<b>
+	<br>
+	<i>Keep this manual for your records, failure to do so will void your 2 day limited liability warranty from Nanotrasen.</i>"}
+
+/obj/item/paper/fluff/jobs/engineering/frequencies
+	name = "Station Frequencies"
+	default_raw_text = {"Please remember the frequencies of each radio channel used on station:
+		* AI Private - 144.7
+		* Command - 135.3
+		* Common - 145.9
+		* Engineering - 135.7
+		* Medical - 135.5
+		* Science - 135.1
+		* Security - 135.9
+		* Service - 134.9
+		* Supply - 134.7"}
 
 /obj/item/paper/fluff/jobs/security/beepsky_mom
 	name = "Note from Beepsky's Mom"
@@ -55,7 +109,7 @@
 	name = "paper- 'Judgement'"
 	default_raw_text = "For crimes against the station, the offender is sentenced to:<BR>\n<BR>\n"
 
-/obj/item/paper/fluff/jobs/toxins/chemical_info
+/obj/item/paper/fluff/jobs/ordnance/chemical_info
 	name = "paper- 'Chemical Information'"
 	default_raw_text = "Known Onboard Toxins:<BR>\n\tGrade A Semi-Liquid Plasma:<BR>\n\t\tHighly poisonous. You cannot sustain concentrations above 15 units.<BR>\n\t\tA gas mask fails to filter plasma after 50 units.<BR>\n\t\tWill attempt to diffuse like a gas.<BR>\n\t\tFiltered by scrubbers.<BR>\n\t\tThere is a bottled version which is very different<BR>\n\t\t\tfrom the version found in canisters!<BR>\n<BR>\n\t\tWARNING: Highly Flammable. Keep away from heat sources<BR>\n\t\texcept in an enclosed fire area!<BR>\n\t\tWARNING: It is a crime to use this without authorization.<BR>\nKnown Onboard Anti-Toxin:<BR>\n\tAnti-Toxin Type 01P: Works against Grade A Plasma.<BR>\n\t\tBest if injected directly into bloodstream.<BR>\n\t\tA full injection is in every regular Med-Kit.<BR>\n\t\tSpecial toxin Kits hold around 7.<BR>\n<BR>\nKnown Onboard Chemicals (other):<BR>\n\tRejuvenation T#001:<BR>\n\t\tEven 1 unit injected directly into the bloodstream<BR>\n\t\t\twill cure unconscious and sleep toxins.<BR>\n\t\tIf administered to a dying patient it will prevent<BR>\n\t\t\tfurther damage for about units*3 seconds.<BR>\n\t\t\tit will not cure them or allow them to be cured.<BR>\n\t\tIt can be administered to a non-dying patient<BR>\n\t\t\tbut the chemicals disappear just as fast.<BR>\n\tMorphine T#054:<BR>\n\t\t5 units will induce precisely 1 minute of sleep.<BR>\n\t\t\tThe effect are cumulative.<BR>\n\t\tWARNING: It is a crime to use this without authorization"
 
@@ -91,12 +145,174 @@
 	May I always act so as to preserve the finest traditions of my calling and may I long experience the joy of healing those who seek my help.
 	</i>"}
 
+/obj/item/paper/fluff/jobs/medical/blood_types
+	name = "blood type compatibility reference"
+	default_raw_text = {"<h2>Blood Type Compatibility</h2>
+<table style="text-align:center;" border="1" width="100%">
+		<tbody>
+			<tr>
+				<td width="25px" height="25px"></td>
+				<td></td>
+				<td colspan="10" style="background-color: red; color: white;">Donor</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td style="background-color: red; color: white;">A+</td>
+				<td style="background-color: red; color: white;">A-</td>
+				<td style="background-color: red; color: white;">B+</td>
+				<td style="background-color: red; color: white;">B-</td>
+				<td style="background-color: red; color: white;">AB+</td>
+				<td style="background-color: red; color: white;">AB-</td>
+				<td style="background-color: red; color: white;">O+</td>
+				<td style="background-color: red; color: white;">O-</td>
+				<td style="background-color: red; color: white;">L</td>
+				<td style="background-color: red; color: white;">U</td>
+			</tr>
+			<tr>
+				<td rowspan="10" style="margin: 0; padding-left:6px; writing-mode: sideways-rl; background-color: blue; color: white;">Receiver</td>
+				<td style="background-color: blue; color: white;">A+</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>✓</td>
+				<td>✓</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="background-color: blue; color: white;">A-</td>
+				<td></td>
+				<td>✓</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>✓</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="background-color: blue; color: white;">B+</td>
+				<td></td>
+				<td></td>
+				<td>✓</td>
+				<td>✓</td>
+				<td></td>
+				<td></td>
+				<td>✓</td>
+				<td>✓</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="background-color: blue; color: white;">B-</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>✓</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>✓</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="background-color: blue; color: white;">AB+</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="background-color: blue; color: white;">AB-</td>
+				<td></td>
+				<td>✓</td>
+				<td></td>
+				<td>✓</td>
+				<td></td>
+				<td>✓</td>
+				<td></td>
+				<td>✓</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="background-color: blue; color: white;">O+</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>✓</td>
+				<td>✓</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="background-color: blue; color: white;">O-</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>✓</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="background-color: blue; color: white;">L</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>✓</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="background-color: blue; color: white;">U</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+				<td>✓</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/>
+	Blood types not written above can only receive from the same blood type.
+	Certain species do not have blood.
+	"}
+
 	/*
-	*	Stations
+	* Stations
 	*/
 
 
-///////////	CentCom
+/////////// CentCom
 
 /obj/item/paper/fluff/stations/centcom/disk_memo
 	name = "memo"
@@ -110,9 +326,62 @@
 	default_raw_text = "<BR>CentCom Security<BR>Port Division<BR>Official Bulletin<BR><BR>Inspector,<BR>There is an emergency shuttle arriving today.<BR><BR>Approval is restricted to Nanotrasen employees only. Deny all other entrants.<BR><BR>CentCom Port Commissioner"
 
 
-///////////	Lavaland
+/////////// Lavaland
 
 /obj/item/paper/fluff/stations/lavaland/orm_notice
-	name = "URGENT!"
-	default_raw_text = "A hastily written note has been scribbled here... <br><br> Please use the ore redemption machine in the cargo office for smelting. PLEASE! <br><br>--The Research Staff"
+	name = "URGENT! RENOVATIONS!"
+	default_raw_text = "A hastily written note has been scribbled here... <br><br> Please use the <s>ore redemption machine</s> smelter and refinery in the cargo office for smelting. PLEASE! Leave boulders alone for the BRM to pick up! <br><br>--The Research Staff"
 
+/////////// Space Ruins
+
+/obj/item/paper/fluff/spaceruins/lizardsgas/memorandum
+	name = "A Memorandum"
+	default_raw_text = {"To all employees:
+	<br> Hey there, it's me, Josh. You know who I am, I hired you! Anyways, you're probably wondering why this gas station is themed after lizards. I just think they're pretty neat! I wish I was a lizard.
+	<br>
+	<br> Anywho, it's also called "The Lizard's Gas" for another reason... <i> weeeeeeeeeeeeeeeeeeeeeeeeeeed. </i> Yeah, I got a buddy who's a fucking wizard with growing weed.
+	<br>
+	<br> Anyways, I thought that when I bought this fuckin' joint (ha ha get it weed), that I should probably sell, y'know, <i> gas? </i> Get it? Gas. Like weed. God, I love weed so much.
+	<br>
+	<br> Back to my point, feel free to sling some of this weed on the side. I don't know what jurisdiction we're in, but it's fine. I know it's fine. I probably wouldn't care. Weed.
+	<br>
+	<br> Yep, all of my weed is in this box. Enjoy! I'm going to go home and hit a gram of my THC (that's like, concentrated weed) Pen (for weed). I'll be back, and those hemp ropes I tied should stay...
+	<br>
+	<br> Make sure you turn that SMES off before you leave! It needs to be on for everything to function, but there's only so much charge left and I can't afford a new one!
+	<br>
+	<br> Best of luck!
+	<br> Josh."}
+
+/// instructions for nuclear operatives on how to use their medipen
+
+/obj/item/paper/fluff/operative
+	name = "ATTENTION: How to prevent your untimely demise."
+	color = "#b94030"
+	desc = "Seems important. That's why it's red."
+	default_raw_text = {"
+Greetings operative.
+
+<br>As you may be aware, since your financial backers do not wish to provide our collective enemies access to any trace of you or your physical form, we've had to augment
+you with an explosive located in the base of your neck: a microbomb implant. This implant activates a blood-based explosive the moment your heart stops beating, destroying all
+evidence of your physical body and brain, eradicating you permanently so those freaks at Nanotrasen can't interrogate your brain. Or worse, clone you and mindwipe you.
+We much prefer you free to die red than a slave to the corporation. I'm sure you agree. <B><i>Right, comrade?</i></B>
+<br>
+<br>Now, don't fret. While this is beneficial for our needs, we understand that operatives sometimes would prefer themselves to be able to have more
+precise control over their own total oblivion. This is why our microbomb implants come equipped with a few useful features.
+<br>
+<br><B>Firstly, the bombs autodetonation is neutralized by atropine</B>. So, if you have atropine in your system when your heart stops beating, your implant does not automatically detonate.
+This is why you are equipped with an atropine autoinjector. If you see a fellow operative fall, immediately inject them with the autoinjector before they expire. If you're lucky,
+you'll potentially be able to recover their body for revival. Atropine also just so happens to be an incredibly powerful stablizer, so maybe use it before you fall. You might just
+be able to save yourself for a few seconds and keep fighting.
+<br>
+<br><B>Secondly, the bomb can be activated posthumously</B>. There is a small onboard, low-level AI built into the microbomb. Based on a series of arbitrary factors, the bomb can still be activated
+despite the presence of atropine by releasing a failsafe vial of monkey blood (notoriously volatile), the timing of which is determined by the onboard AI.
+<br>The only factor is whether or not, and for give me for what I'm about to write, your 'animating spirit' still resides within your body to guide the AI and activate the bomb manually.
+<br>Please, do not ask your fellow operatives what this means.
+<br>
+<br>They'll probably say something absurd like <B>'your ghost needs to still be in your body to use the microbomb'</B>. That's stupid, do not listen to these ridiculous assertions. It is likely Nanotrasen propaganda.
+<br>
+<br>Ghosts are not real. Necromancy is <B>bullshit</B>.
+<br>
+<br>Anyway, best of luck on your mission, operative.
+	"}

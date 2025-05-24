@@ -76,6 +76,7 @@ img {
 	display: inline-table;
 	cursor: pointer;
 	user-select: none;
+	-ms-user-select: none; /* Remove after Byond 516 */
 	text-align: center;
 	font-size: 1em;
 	min-width: 2.9em;
@@ -111,7 +112,7 @@ img {
 #statcontent {
 	flex: 1;
 	padding: 0.75em 0.5em;
-	overflow-y: scroll;
+	overflow-y: auto;
 	overflow-x: hidden;
 }
 
@@ -123,6 +124,7 @@ img {
 	display: inline-flex;
 	position: relative;
 	user-select: none;
+	-ms-user-select: none; /* Remove after Byond 516 */
 	width: 100%;
 	max-height: 1.85em;
 	text-decoration: none;

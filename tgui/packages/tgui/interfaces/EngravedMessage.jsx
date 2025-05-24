@@ -1,6 +1,7 @@
+import { Box, Button, LabeledList, Section, Stack } from 'tgui-core/components';
 import { decodeHtmlEntities } from 'tgui-core/string';
+
 import { useBackend } from '../backend';
-import { Box, Button, Stack, LabeledList, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export const EngravedMessage = (props) => {
@@ -18,14 +19,14 @@ export const EngravedMessage = (props) => {
     realdate,
   } = data;
   return (
-    <Window width={600} height={300} resizable>
+    <Window width={600} height={300}>
       <Window.Content scrollable>
         <Section>
           <Box bold textAlign="center" fontSize="20px" mb={2}>
             {decodeHtmlEntities(hidden_message)}
           </Box>
           <Stack>
-            <Stack.Item grow>
+            <Stack.Item grow={1.05}>
               <Button
                 fluid
                 icon="arrow-up"
@@ -38,7 +39,7 @@ export const EngravedMessage = (props) => {
                 onClick={() => act('like')}
               />
             </Stack.Item>
-            <Stack.Item grow>
+            <Stack.Item grow={1}>
               <Button
                 fluid
                 icon="circle"
@@ -50,7 +51,7 @@ export const EngravedMessage = (props) => {
                 onClick={() => act('neutral')}
               />
             </Stack.Item>
-            <Stack.Item grow>
+            <Stack.Item grow={1.05}>
               <Button
                 fluid
                 icon="arrow-down"
@@ -70,7 +71,6 @@ export const EngravedMessage = (props) => {
             <LabeledList.Item label="Created On">{realdate}</LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section />
         {!!admin_mode && (
           <Section
             title="Admin Panel"

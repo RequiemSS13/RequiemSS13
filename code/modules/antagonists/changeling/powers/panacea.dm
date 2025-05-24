@@ -1,6 +1,6 @@
 /datum/action/changeling/panacea
 	name = "Anatomic Panacea"
-	desc = "Expels impurifications from our form; curing diseases, removing parasites, sobering us, purging toxins and radiation, curing traumas and brain damage, and resetting our genetic code completely. Costs 20 chemicals."
+	desc = "Expels impurities from our form: curing diseases, removing parasites, sobering us, purging toxins and radiation, curing traumas and brain damage, and resetting our genetic code completely. Costs 20 chemicals."
 	helptext = "Can be used while unconscious."
 	button_icon_state = "panacea"
 	chemical_cost = 20
@@ -9,11 +9,13 @@
 
 //Heals the things that the other regenerative abilities don't.
 /datum/action/changeling/panacea/sting_action(mob/user)
-	to_chat(user, "<span class='notice'>We cleanse impurities from our form.</span>")
+	to_chat(user, span_notice("We cleanse impurities from our form."))
 	..()
 	var/list/bad_organs = list(
-		user.getorgan(/obj/item/organ/body_egg),
-		user.getorgan(/obj/item/organ/zombie_infection))
+		user.get_organ_by_type(/obj/item/organ/body_egg),
+		user.get_organ_by_type(/obj/item/organ/legion_tumour),
+		user.get_organ_by_type(/obj/item/organ/zombie_infection),
+	)
 
 	for(var/o in bad_organs)
 		var/obj/item/organ/O = o
@@ -23,7 +25,7 @@
 		O.Remove(user)
 		if(iscarbon(user))
 			var/mob/living/carbon/C = user
-			C.vomit(0)
+			C.vomit(VOMIT_CATEGORY_DEFAULT, lost_nutrition = 0)
 		O.forceMove(get_turf(user))
 
 	user.reagents.add_reagent(/datum/reagent/medicine/mutadone, 10)

@@ -1,9 +1,11 @@
-/// The directory in which ALL log files should be stored
-GLOBAL_VAR(log_directory)
-GLOBAL_PROTECT(log_directory)
+GLOBAL_LIST_EMPTY(active_turfs_startlist)
 
 GLOBAL_VAR(round_id)
 GLOBAL_PROTECT(round_id)
+
+/// The directory in which ALL log files should be stored
+GLOBAL_VAR(log_directory)
+GLOBAL_PROTECT(log_directory)
 
 #define DECLARE_LOG_NAMED(log_var_name, log_file_name, start)\
 GLOBAL_VAR(##log_var_name);\
@@ -31,7 +33,7 @@ GLOBAL_PROTECT(##log_var_name);\
 DECLARE_LOG(config_error_log, DONT_START_LOG)
 DECLARE_LOG(perf_log, DONT_START_LOG) // Declared here but name is set in time_track subsystem
 
-#ifdef REFERENCE_DOING_IT_LIVE
+#ifdef REFERENCE_TRACKING_LOG_APART
 DECLARE_LOG_NAMED(harddel_log, "harddels", START_LOG)
 #endif
 
@@ -39,36 +41,40 @@ DECLARE_LOG_NAMED(harddel_log, "harddels", START_LOG)
 DECLARE_LOG_NAMED(test_log, "tests", START_LOG)
 #endif
 
-GLOBAL_LIST_EMPTY(bombers)
-GLOBAL_PROTECT(bombers)
 
-GLOBAL_LIST_EMPTY(lastsignalers)	//keeps last 100 signals here in format: "[src] used [REF(src)] @ location [src.loc]: [freq]/[code]"
-GLOBAL_PROTECT(lastsignalers)
-GLOBAL_LIST_EMPTY(lawchanges) //Stores who uploaded laws to which silicon-based lifeform, and what the law was
-GLOBAL_PROTECT(lawchanges)
-
-GLOBAL_LIST_EMPTY(combatlog)
-GLOBAL_PROTECT(combatlog)
-GLOBAL_LIST_EMPTY(IClog)
-GLOBAL_PROTECT(IClog)
-GLOBAL_LIST_EMPTY(OOClog)
-GLOBAL_PROTECT(OOClog)
-GLOBAL_LIST_EMPTY(adminlog)
-GLOBAL_PROTECT(adminlog)
-
-GLOBAL_LIST_EMPTY(active_turfs_startlist)
-
+/// Picture logging
 GLOBAL_VAR(picture_log_directory)
 GLOBAL_PROTECT(picture_log_directory)
 
 GLOBAL_VAR_INIT(picture_logging_id, 1)
 GLOBAL_PROTECT(picture_logging_id)
+
 GLOBAL_VAR(picture_logging_prefix)
 GLOBAL_PROTECT(picture_logging_prefix)
 
 /// All admin related log lines minus their categories
 GLOBAL_LIST_EMPTY(admin_activities)
 GLOBAL_PROTECT(admin_activities)
+
+/// All bomb related messages
+GLOBAL_LIST_EMPTY(bombers)
+GLOBAL_PROTECT(bombers)
+
+/// Investigate log for signaler usage, use the add_to_signaler_investigate_log proc
+GLOBAL_LIST_EMPTY(investigate_signaler)
+GLOBAL_PROTECT(investigate_signaler)
+
+/// Used to add a text log to the signaler investigation log.
+/// Do not add to the list directly; if the list is too large it can cause lag when an admin tries to view it.
+/proc/add_to_signaler_investigate_log(text)
+	var/log_length = length(GLOB.investigate_signaler)
+	if(log_length >= INVESTIGATE_SIGNALER_LOG_MAX_LENGTH)
+		GLOB.investigate_signaler = GLOB.investigate_signaler.Copy((INVESTIGATE_SIGNALER_LOG_MAX_LENGTH - log_length) + 2)
+	GLOB.investigate_signaler += list(text)
+
+/// Stores who uploaded laws to which silicon-based lifeform, and what the law was
+GLOBAL_LIST_EMPTY(lawchanges)
+GLOBAL_PROTECT(lawchanges)
 
 #undef DECLARE_LOG
 #undef DECLARE_LOG_NAMED

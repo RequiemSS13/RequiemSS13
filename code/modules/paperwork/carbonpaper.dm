@@ -20,12 +20,11 @@
 		return
 	. += span_notice("Right-click to tear off the carbon-copy (you must use both hands).")
 
-/obj/item/paper/carbon/AltClick(mob/living/user, obj/item/I)
-	. = ..()
+/obj/item/paper/carbon/click_alt(mob/living/user)
 	if(!copied)
 		to_chat(user, span_notice("Take off the carbon copy first."))
-		return FALSE
-	return TRUE
+		return CLICK_ACTION_BLOCKING
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/paper/carbon/proc/removecopy(mob/living/user)
 	if(copied)
@@ -38,6 +37,15 @@
 	copied = TRUE
 	update_icon_state()
 	user.put_in_hands(copy)
+
+/obj/item/paper/carbon/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return
+
+	if(loc == user && user.is_holding(src))
+		removecopy(user)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/item/paper/carbon_copy
 	icon_state = "cpaper"

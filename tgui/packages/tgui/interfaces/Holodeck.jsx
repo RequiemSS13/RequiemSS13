@@ -1,5 +1,6 @@
-import { useBackend } from '../backend';
 import { Button, Section } from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const Holodeck = (props) => {
@@ -8,7 +9,7 @@ export const Holodeck = (props) => {
   const default_programs = data.default_programs || [];
   const emag_programs = data.emag_programs || [];
   return (
-    <Window width={400} height={500} resizable>
+    <Window width={400} height={500}>
       <Window.Content scrollable>
         <Section
           title="Default Programs"

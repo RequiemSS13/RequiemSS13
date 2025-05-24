@@ -7,6 +7,7 @@
 	circuit = /obj/item/circuitboard/computer/mecha_control
 
 /obj/machinery/computer/mecha/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ExosuitControlConsole", name)
@@ -26,26 +27,25 @@
 		var/obj/vehicle/sealed/mecha/M = MT.chassis
 		var/list/mech_data = list(
 			name = M.name,
-			integrity = round((M.obj_integrity / M.max_integrity) * 100),
+			integrity = round((M.get_integrity() / M.max_integrity) * 100),
 			charge = M.cell ? round(M.cell.percent()) : null,
-			airtank = M.internal_tank ? M.return_pressure() : null,
+			airtank = (M.mecha_flags & IS_ENCLOSED) ? M.return_pressure() : null,
 			pilot = M.return_drivers(),
 			location = get_area_name(M, TRUE),
-			active_equipment = M.selected,
 			emp_recharging = MT.recharging,
 			tracker_ref = REF(MT)
 		)
-		if(istype(M, /obj/vehicle/sealed/mecha/working/ripley))
-			var/obj/vehicle/sealed/mecha/working/ripley/RM = M
+		if(istype(M, /obj/vehicle/sealed/mecha/ripley))
+			var/obj/vehicle/sealed/mecha/ripley/workmech = M
 			mech_data += list(
-				cargo_space = round((LAZYLEN(RM.cargo) / RM.cargo_capacity) * 100)
+				cargo_space = round(workmech.cargo_hold.contents.len / workmech.cargo_hold.cargo_capacity * 100)
 		)
 
 		data["mechs"] += list(mech_data)
 
 	return data
 
-/obj/machinery/computer/mecha/ui_act(action, params)
+/obj/machinery/computer/mecha/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -55,11 +55,11 @@
 			var/obj/item/mecha_parts/mecha_tracking/MT = locate(params["tracker_ref"])
 			if(!istype(MT))
 				return
-			var/message = stripped_input(usr, "Input message", "Transmit message")
+			var/message = tgui_input_text(usr, "Input message", "Transmit message", max_length = MAX_MESSAGE_LEN)
 			var/obj/vehicle/sealed/mecha/M = MT.chassis
 			if(trim(message) && M)
 				to_chat(M.occupants, message)
-				to_chat(usr, "<span class='notice'>Message sent.</span>")
+				to_chat(usr, span_notice("Message sent."))
 				. = TRUE
 		if("shock")
 			var/obj/item/mecha_parts/mecha_tracking/MT = locate(params["tracker_ref"])
@@ -68,14 +68,15 @@
 			var/obj/vehicle/sealed/mecha/M = MT.chassis
 			if(M)
 				MT.shock()
-				log_game("[key_name(usr)] has activated remote EMP on exosuit [M], located at [loc_name(M)], which is currently [LAZYLEN(M.occupants) ? "occupied by [M.occupants.Join(",")][ADMIN_FLW(M)]." : "without a pilot."]")
+				usr.log_message("has activated remote EMP on exosuit [M], located at [loc_name(M)], which is currently [LAZYLEN(M.occupants) ? "occupied by [M.occupants.Join(", ")]." : "without a pilot."]", LOG_ATTACK)
+				usr.log_message("has activated remote EMP on exosuit [M], located at [loc_name(M)], which is currently [LAZYLEN(M.occupants) ? "occupied by [M.occupants.Join(", ")]." : "without a pilot."]", LOG_GAME, log_globally = FALSE)
 				message_admins("[key_name_admin(usr)][ADMIN_FLW(usr)] has activated remote EMP on exosuit [M][ADMIN_JMP(M)], which is currently [LAZYLEN(M.occupants) ? "occupied by [M.occupants.Join(",")][ADMIN_FLW(M)]." : "without a pilot."]")
 				. = TRUE
 
 /obj/item/mecha_parts/mecha_tracking
 	name = "exosuit tracking beacon"
 	desc = "Device used to transmit exosuit data."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/devices/new_assemblies.dmi'
 	icon_state = "motion2"
 	w_class = WEIGHT_CLASS_SMALL
 	/// If this beacon allows for AI control. Exists to avoid using istype() on checking
@@ -92,21 +93,23 @@
 	if(!chassis)
 		return FALSE
 
+	var/list/output = list()
+
 	var/cell_charge = chassis.get_charge()
-	var/answer = {"<b>Name:</b> [chassis.name]<br>
-				<b>Integrity:</b> [round((chassis.obj_integrity/chassis.max_integrity * 100), 0.01)]%<br>
-				<b>Cell Charge:</b> [isnull(cell_charge) ? "Not Found":"[chassis.cell.percent()]%"]<br>
-				<b>Airtank:</b> [chassis.internal_tank ? "[round(chassis.return_pressure(), 0.01)]" : "Not Equipped"] kPa<br>
-				<b>Pilot:</b> [chassis.return_drivers() || "None"]<br>
-				<b>Location:</b> [get_area_name(chassis, TRUE) || "Unknown"]<br>
-				<b>Active Equipment:</b> [chassis.selected || "None"]"}
-	if(istype(chassis, /obj/vehicle/sealed/mecha/working/ripley))
-		var/obj/vehicle/sealed/mecha/working/ripley/RM = chassis
-		answer += "<br><b>Used Cargo Space:</b> [round((LAZYLEN(RM.cargo) / RM.cargo_capacity * 100), 0.01)]%"
+	output += "[span_bold("Name:")] [chassis.name]"
+	output += "[span_bold("Integrity:")] [round((chassis.get_integrity()/chassis.max_integrity * 100), 0.01)]%"
+	output += "[span_bold("Cell Charge:")] [isnull(cell_charge) ? "Not Found":"[chassis.cell.percent()]%"]"
+	output += "[span_bold("Cabin Pressure:")] [(chassis.mecha_flags & IS_ENCLOSED) ? "[round(chassis.return_pressure(), 0.01)] kPa" : "Not Sealed"]"
+	output += "[span_bold("Pilot:")] [english_list(chassis.return_drivers(), nothing_text = "None")]"
+	output += "[span_bold("Current Location:")] [get_area_name(chassis, TRUE) || "Unknown"]"
 
-	return answer
+	if(istype(chassis, /obj/vehicle/sealed/mecha/ripley))
+		var/obj/item/mecha_parts/mecha_equipment/ejector/cargo_holder = locate(/obj/item/mecha_parts/mecha_equipment/ejector) in chassis.equip_by_category[MECHA_UTILITY]
+		output += "[span_bold("Used Cargo Space:")] [round((cargo_holder.contents.len / cargo_holder.cargo_capacity * 100), 0.01)]%"
 
-/obj/item/mecha_parts/mecha_tracking/emp_act()
+	return jointext(output, "\n")
+
+/obj/item/mecha_parts/mecha_tracking/emp_act(severity)
 	. = ..()
 	if(!(. & EMP_PROTECT_SELF))
 		qdel(src)
@@ -118,12 +121,14 @@
 	chassis = null
 	return ..()
 
-/obj/item/mecha_parts/mecha_tracking/try_attach_part(mob/user, obj/vehicle/sealed/mecha/M)
+/obj/item/mecha_parts/mecha_tracking/try_attach_part(mob/user, obj/vehicle/sealed/mecha/mecha_to_attach, attach_right = FALSE)
+	if(!mecha_to_attach.can_be_tracked)
+		return
 	if(!..())
 		return
-	M.trackers += src
-	M.diag_hud_set_mechtracking()
-	chassis = M
+	mecha_to_attach.trackers += src
+	mecha_to_attach.diag_hud_set_mechtracking()
+	chassis = mecha_to_attach
 
 /**
  * Attempts to EMP mech that the tracker is attached to, if there is one and tracker is not on cooldown
@@ -146,16 +151,3 @@
 	name = "exosuit AI control beacon"
 	desc = "A device used to transmit exosuit data. Also allows active AI units to take control of said exosuit."
 	ai_beacon = TRUE
-
-/obj/item/storage/box/mechabeacons
-	name = "exosuit tracking beacons"
-
-/obj/item/storage/box/mechabeacons/PopulateContents()
-	..()
-	new /obj/item/mecha_parts/mecha_tracking(src)
-	new /obj/item/mecha_parts/mecha_tracking(src)
-	new /obj/item/mecha_parts/mecha_tracking(src)
-	new /obj/item/mecha_parts/mecha_tracking(src)
-	new /obj/item/mecha_parts/mecha_tracking(src)
-	new /obj/item/mecha_parts/mecha_tracking(src)
-	new /obj/item/mecha_parts/mecha_tracking(src)

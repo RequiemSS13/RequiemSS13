@@ -19,11 +19,11 @@
 	description = "Go ghost"
 	keybind_signal = COMSIG_KB_ADMIN_AGHOST_DOWN
 
-/datum/keybinding/admin/admin_ghost/down(client/user)
+/datum/keybinding/admin/admin_ghost/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
-	user.admin_ghost()
+	SSadmin_verbs.dynamic_invoke_verb(user, /datum/admin_verb/admin_ghost)
 	return TRUE
 
 /datum/keybinding/admin/player_panel_new
@@ -33,7 +33,7 @@
 	description = "Opens up the new player panel"
 	keybind_signal = COMSIG_KB_ADMIN_PLAYERPANELNEW_DOWN
 
-/datum/keybinding/admin/player_panel_new/down(client/user)
+/datum/keybinding/admin/player_panel_new/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
@@ -47,11 +47,11 @@
 	description = "Toggles buildmode"
 	keybind_signal = COMSIG_KB_ADMIN_TOGGLEBUILDMODE_DOWN
 
-/datum/keybinding/admin/toggle_buildmode_self/down(client/user)
+/datum/keybinding/admin/toggle_buildmode_self/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
-	user.togglebuildmodeself()
+	SSadmin_verbs.dynamic_invoke_verb(user, /datum/admin_verb/build_mode_self)
 	return TRUE
 
 /datum/keybinding/admin/stealthmode
@@ -61,11 +61,11 @@
 	description = "Enters stealth mode"
 	keybind_signal = COMSIG_KB_ADMIN_STEALTHMODETOGGLE_DOWN
 
-/datum/keybinding/admin/stealthmode/down(client/user)
+/datum/keybinding/admin/stealthmode/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
-	user.stealth()
+	SSadmin_verbs.dynamic_invoke_verb(user, /datum/admin_verb/stealth)
 	return TRUE
 
 /datum/keybinding/admin/invisimin
@@ -75,11 +75,11 @@
 	description = "Toggles ghost-like invisibility (Don't abuse this)"
 	keybind_signal = COMSIG_KB_ADMIN_INVISIMINTOGGLE_DOWN
 
-/datum/keybinding/admin/invisimin/down(client/user)
+/datum/keybinding/admin/invisimin/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
-	user.invisimin()
+	SSadmin_verbs.dynamic_invoke_verb(user, /datum/admin_verb/invisimin)
 	return TRUE
 
 /datum/keybinding/admin/deadsay
@@ -89,7 +89,7 @@
 	description = "Allows you to send a message to dead chat"
 	keybind_signal = COMSIG_KB_ADMIN_DSAY_DOWN
 
-/datum/keybinding/admin/deadsay/down(client/user)
+/datum/keybinding/admin/deadsay/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
@@ -103,11 +103,11 @@
 	description = "Shed your admin powers"
 	keybind_signal = COMSIG_KB_ADMIN_DEADMIN_DOWN
 
-/datum/keybinding/admin/deadmin/down(client/user)
+/datum/keybinding/admin/deadmin/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
-	user.deadmin()
+	SSadmin_verbs.dynamic_invoke_verb(user, /datum/admin_verb/deadmin)
 	return TRUE
 
 /datum/keybinding/admin/readmin
@@ -117,9 +117,23 @@
 	description = "Regain your admin powers"
 	keybind_signal = COMSIG_KB_ADMIN_READMIN_DOWN
 
-/datum/keybinding/admin/readmin/down(client/user)
+/datum/keybinding/admin/readmin/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
 	user.readmin()
+	return TRUE
+
+/datum/keybinding/admin/view_tags
+	hotkey_keys = list("F9")
+	name = "view_tags"
+	full_name = "View Tags"
+	description = "Open the View-Tags menu"
+	keybind_signal = COMSIG_KB_ADMIN_VIEWTAGS_DOWN
+
+/datum/keybinding/admin/view_tags/down(client/user, turf/target)
+	. = ..()
+	if(.)
+		return
+	SSadmin_verbs.dynamic_invoke_verb(user, /datum/admin_verb/display_tags)
 	return TRUE

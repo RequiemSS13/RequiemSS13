@@ -5,7 +5,7 @@
 	name = "voting box"
 	desc = "An automatic voting box."
 
-	icon = 'icons/obj/votebox.dmi'
+	icon = 'icons/obj/storage/box.dmi'
 	icon_state = "votebox_maint"
 
 	anchored = TRUE
@@ -19,7 +19,7 @@
 	var/list/voted //List of ID's that already voted.
 	COOLDOWN_DECLARE(vote_print_cooldown)
 
-/obj/structure/votebox/attackby(obj/item/I, mob/living/user, params)
+/obj/structure/votebox/attackby(obj/item/I, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(istype(I,/obj/item/card/id))
 		if(!owner)
 			register_owner(I,user)
@@ -71,7 +71,7 @@
 		switch(href_list["act"])
 			if("toggle_vote")
 				voting_active = !voting_active
-				update_icon()
+				update_appearance()
 			if("toggle_auth")
 				id_auth = !id_auth
 			if("reset_voted")
@@ -94,7 +94,7 @@
 	ui_interact(user)
 
 /obj/structure/votebox/proc/set_description(mob/user)
-	var/new_description = tgui_input_text(user, "Enter a new description", "Vote Description", vote_description, multiline = TRUE)
+	var/new_description = tgui_input_text(user, "Enter a new description", "Vote Description", vote_description, multiline = TRUE, max_length = MAX_DESC_LEN)
 	if(new_description)
 		vote_description = new_description
 
@@ -133,7 +133,7 @@
 /obj/structure/votebox/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	default_unfasten_wrench(user, tool, time = 4 SECONDS)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/votebox/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -149,9 +149,8 @@
 	for(var/atom/movable/AM in contents)
 		AM.forceMove(droppoint)
 
-/obj/structure/votebox/deconstruct(disassembled)
+/obj/structure/votebox/atom_deconstruct(disassembled)
 	dump_contents()
-	. = ..()
 
 /obj/structure/votebox/proc/raffle(mob/user)
 	var/list/options = list()
@@ -213,7 +212,7 @@
 
 	vote_tally_paper.add_raw_text(tally.Join())
 	vote_tally_paper.name = "Voting Results"
-	vote_tally_paper.update_icon()
+	vote_tally_paper.update_appearance()
 	user.put_in_hands(vote_tally_paper)
 	to_chat(user,span_notice("[src] prints out the voting tally."))
 

@@ -1,4 +1,3 @@
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -6,22 +5,24 @@ import {
   Flex,
   Input,
   NoticeBox,
-  NumberInput,
   Section,
 } from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const MechpadControl = (props) => {
   const { topLevel } = props;
   const { act, data } = useBackend();
-  const { pad_name, connected_mechpad } = data;
+  const { pad_name, connected_mechpad, pad_active, mechonly } = data;
   return (
     <Section
       title={
         <Input
           value={pad_name}
-          width="170px"
-          onChange={(e, value) =>
+          width="200px"
+          expensive
+          onChange={(value) =>
             act('rename', {
               name: value,
             })
@@ -40,13 +41,15 @@ export const MechpadControl = (props) => {
     >
       {(!connected_mechpad && (
         <Box color="bad" textAlign="center">
-          No Pad Connected.
+          No Launch Pad Connected.
         </Box>
       )) || (
         <Button
           fluid
           icon="upload"
-          content="Launch"
+          disabled={!pad_active}
+          content={mechonly ? 'Launch (Mech Only)' : 'Launch'}
+          color={mechonly ? 'default' : 'good'}
           textAlign="center"
           onClick={() => act('launch')}
         />
@@ -59,7 +62,7 @@ export const MechpadConsole = (props) => {
   const { act, data } = useBackend();
   const { mechpads = [], selected_id } = data;
   return (
-    <Window width={475} height={130} resizable>
+    <Window width={475} height={130}>
       <Window.Content>
         {(mechpads.length === 0 && (
           <NoticeBox>No Pads Connected</NoticeBox>

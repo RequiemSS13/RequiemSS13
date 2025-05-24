@@ -1,0 +1,285 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="file">code\modules\vtr13\preferences\preferences_setup.dm</S>
+      <S N="line">49</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="1">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\preferences\html_procs\quirk_page.dm</S>
+      <S N="line">23</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="2">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\preferences\html_procs\quirk_page.dm</S>
+      <S N="line">38</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="3">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">707</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="4">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">709</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="5">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">875</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="6">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\potence.dm</S>
+      <S N="line">49</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="7">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\potence.dm</S>
+      <S N="line">89</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="8">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\potence.dm</S>
+      <S N="line">129</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="9">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\potence.dm</S>
+      <S N="line">169</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="10">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\potence.dm</S>
+      <S N="line">209</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="11">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\gridventory.dm</S>
+      <S N="line">777</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="12">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\gridventory.dm</S>
+      <S N="line">778</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="13">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\gridventory.dm</S>
+      <S N="line">779</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="14">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\gridventory.dm</S>
+      <S N="line">780</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="15">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\gifts.dm</S>
+      <S N="line">115</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="16">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\gifts.dm</S>
+      <S N="line">116</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="17">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\gifts.dm</S>
+      <S N="line">117</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="18">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\gifts.dm</S>
+      <S N="line">118</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="19">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\gifts.dm</S>
+      <S N="line">119</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="20">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\preferences\copy_to.dm</S>
+      <S N="line">109</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="21">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\preferences\copy_to.dm</S>
+      <S N="line">193</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="22">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\preferences\copy_to.dm</S>
+      <S N="line">195</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="23">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\disciplines\vigor\vigor_1.dm</S>
+      <S N="line">34</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="24">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\disciplines\vigor\vigor_2.dm</S>
+      <S N="line">34</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="25">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\disciplines\vigor\vigor_3.dm</S>
+      <S N="line">34</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="26">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\disciplines\vigor\vigor_4.dm</S>
+      <S N="line">34</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+  <Obj RefId="27">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\disciplines\vigor\vigor_5.dm</S>
+      <S N="line">34</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">initial</S>
+      <S N="diagnostic_type">bad variable</S>
+    </MS>
+  </Obj>
+</Objs>

@@ -1,9 +1,10 @@
 /obj/item/folder
 	name = "folder"
 	desc = "A folder."
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "folder"
 	w_class = WEIGHT_CLASS_SMALL
+	pressure_resistance = 2
 	resistance_flags = FLAMMABLE
 	/// The background color for tgui in hex (with a `#`)
 	var/bg_color = "#7f7f7f"
@@ -20,12 +21,13 @@
 	var/paper_overlay_state = "folder_paper"
 
 /obj/item/folder/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] begins filing an imaginary death warrant! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] begins filing an imaginary death warrant! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return OXYLOSS
 
-/obj/item/folder/Initialize()
+/obj/item/folder/Initialize(mapload)
 	update_icon()
 	. = ..()
+	AddElement(/datum/element/burn_on_item_ignition)
 
 /obj/item/folder/Destroy()
 	for(var/obj/important_thing in contents)
@@ -36,20 +38,19 @@
 
 /obj/item/folder/examine()
 	. = ..()
-	if(contents)
-		. += "<span class='notice'>Right-click to remove [contents[1]].</span>"
+	if(length(contents) && !contents_hidden)
+		. += span_notice("<b>Right-click</b> to remove [contents[1]].")
 
-/obj/item/folder/proc/rename(mob/user)
-	if(!user.is_literate())
-		to_chat(user, "<span class='notice'>You scribble illegibly on the cover of [src]!</span>")
+/obj/item/folder/proc/rename(mob/user, obj/item/writing_instrument)
+	if(!user.can_write(writing_instrument))
 		return
 
-	var/inputvalue = stripped_input(user, "What would you like to label the folder?", "Folder Labelling", "", MAX_NAME_LEN)
+	var/inputvalue = tgui_input_text(user, "What would you like to label the folder?", "Folder Labelling", max_length = MAX_NAME_LEN)
 
 	if(!inputvalue)
 		return
 
-	if(user.canUseTopic(src, BE_CLOSE))
+	if(user.can_perform_action(src))
 		name = "folder[(inputvalue ? " - '[inputvalue]'" : null)]"
 		playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
 
@@ -57,11 +58,11 @@
 	if(istype(Item))
 		Item.forceMove(user.loc)
 		user.put_in_hands(Item)
-		to_chat(user, "<span class='notice'>You remove [Item] from [src].</span>")
+		to_chat(user, span_notice("You remove [Item] from [src]."))
 		update_icon()
 
 /obj/item/folder/attack_hand(mob/user, list/modifiers)
-	if(LAZYACCESS(modifiers, "right"))
+	if(length(contents) && LAZYACCESS(modifiers, RIGHT_CLICK))
 		remove_item(contents[1], user)
 		return TRUE
 	. = ..()
@@ -74,18 +75,17 @@
 			. += to_add
 
 /obj/item/folder/proc/get_paper_overlay()
-	var/mutable_appearance/paper_overlay = mutable_appearance(icon, paper_overlay_state)
+	var/mutable_appearance/paper_overlay = mutable_appearance(icon, paper_overlay_state, offset_spokesman = src, appearance_flags = KEEP_APART)
+	paper_overlay = contents[1].color_atom_overlay(paper_overlay)
 	return paper_overlay
 
-/obj/item/folder/attackby(obj/item/weapon, mob/user, params)
-	if(burn_paper_product_attackby_check(weapon, user))
-		return
+/obj/item/folder/attackby(obj/item/weapon, mob/user, list/modifiers, list/attack_modifiers)
 	if(is_type_in_typecache(weapon, folder_insertables))
 		//Add paper, photo or documents into the folder
 		if(!user.transferItemToLoc(weapon, src))
 			return
 		to_chat(user, span_notice("You put [weapon] into [src]."))
-		update_icon()
+		update_appearance()
 	else if(IS_WRITING_UTENSIL(weapon))
 		rename(user, weapon)
 
@@ -115,7 +115,7 @@
 
 	return data
 
-/obj/item/folder/ui_act(action, params)
+/obj/item/folder/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

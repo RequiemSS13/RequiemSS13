@@ -1,0 +1,115 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="file">code\modules\wod13\status_effects\debuffs.dm</S>
+      <S N="line">603</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">C</S>
+      <S N="diagnostic_type">unknown variable type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="1">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\jobs\priest.dm</S>
+      <S N="line">59</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">n_freeze</S>
+      <S N="diagnostic_type">unknown variable type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="2">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\jobs\priest.dm</S>
+      <S N="line">60</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">n_heal</S>
+      <S N="diagnostic_type">unknown variable type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="3">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">1373</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">cat</S>
+      <S N="diagnostic_type">unknown variable type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="4">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\vampire_clane\kiasyd.dm</S>
+      <S N="line">33</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">NV</S>
+      <S N="diagnostic_type">unknown variable type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="5">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\animalism.dm</S>
+      <S N="line">66</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">cat</S>
+      <S N="diagnostic_type">unknown variable type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="6">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\obtenebration.dm</S>
+      <S N="line">58</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">casing</S>
+      <S N="diagnostic_type">unknown variable type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="7">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\dominate.dm</S>
+      <S N="line">10</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">voice_of_domination</S>
+      <S N="diagnostic_type">unknown variable type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="8">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\car.dm</S>
+      <S N="line">66</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">G</S>
+      <S N="diagnostic_type">unknown variable type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="9">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\map.dm</S>
+      <S N="line">92</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">AM</S>
+      <S N="diagnostic_type">unknown variable type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="10">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\status_effects\debuffs.dm</S>
+      <S N="line">419</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">crit_wound</S>
+      <S N="diagnostic_type">unknown variable type</S>
+    </MS>
+  </Obj>
+</Objs>

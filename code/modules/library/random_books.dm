@@ -1,3 +1,13 @@
+/obj/item/book/manual/random
+	icon_state = "random_book"
+
+/obj/item/book/manual/random/Initialize(mapload)
+	..()
+	var/static/banned_books = list(/obj/item/book/manual/random, /obj/item/book/manual/nuclear, /obj/item/book/manual/wiki)
+	var/newtype = pick(subtypesof(/obj/item/book/manual) - banned_books)
+	new newtype(loc)
+	return INITIALIZE_HINT_QDEL
+
 /obj/item/book/random
 	icon_state = "random_book"
 	/// The category of books to pick from when creating this book.
@@ -7,7 +17,7 @@
 
 /obj/item/book/random/Initialize(mapload)
 	. = ..()
-	icon_state = "book[rand(1,maximum_book_state)]"
+	gen_random_icon_state()
 
 /obj/item/book/random/attack_self()
 	if(!random_loaded)
@@ -26,7 +36,7 @@
 	. = ..()
 	if(books_to_load && isnum(books_to_load))
 		books_to_load += pick(-1,-1,0,1,1)
-	update_icon()
+	update_appearance()
 
 /**
  * Create a random book or books.
@@ -45,9 +55,8 @@
 		return
 	if (!SSdbcore.Connect())
 		if(existing_book && (fail_loud || prob(5)))
-			existing_book.starting_author = "???"
-			existing_book.starting_title = "Strange book"
-			existing_book.starting_content = "There once was a book from Nantucket<br>But the database failed us, so f*$! it.<br>I tried to be good to you<br>Now this is an I.O.U<br>If you're feeling entitled, well, stuff it!<br><br><font color='gray'>~</font>"
+			var/error_text = "There once was a book from Nantucket<br>But the database failed us, so f*$! it.<br>I tried to be good to you<br>Now this is an I.O.U<br>If you're feeling entitled, well, stuff it!<br><br><font color='gray'>~</font>"
+			existing_book.book_data = new("Strange Book", "???", error_text)
 		return
 	if(category == BOOK_CATEGORY_RANDOM)
 		category = null
@@ -78,6 +87,11 @@
 	///have we spawned the chuuni granter
 	var/static/chuuni_book_spawned = FALSE
 
+/obj/structure/bookcase/random/fiction/after_random_load()
+	if(!chuuni_book_spawned && is_station_level(z))
+		chuuni_book_spawned = TRUE
+		new /obj/item/book/granter/chuunibyou(src)
+
 /obj/structure/bookcase/random/nonfiction
 	name = "bookcase (Non-Fiction)"
 	random_category = BOOK_CATEGORY_NONFICTION
@@ -93,15 +107,23 @@
 /obj/structure/bookcase/random/reference
 	name = "bookcase (Reference)"
 	random_category = BOOK_CATEGORY_REFERENCE
+	///Chance to spawn a random manual book
+	var/ref_book_prob = 20
 
-/obj/structure/bookcase/random/kindred
-	name = "bookcase (Kindred)"
-	random_category = BOOK_CATEGORY_KINDRED
+/obj/structure/bookcase/random/reference/Initialize(mapload)
+	. = ..()
+	while(books_to_load > 0 && prob(ref_book_prob))
+		books_to_load--
+		new /obj/item/book/manual/random(src)
 
-/obj/structure/bookcase/random/lupine
-	name = "bookcase (Lupine)"
-	random_category = BOOK_CATEGORY_LUPINE
+/obj/structure/bookcase/random/reference/wizard
+	desc = "It reeks of cheese..."
+	///Whether this shelf has spawned a cheese granter
+	var/static/cheese_granter_spawned = FALSE
 
-/obj/structure/bookcase/random/kueijin
-	name = "bookcase (Kuei-Jin)"
-	random_category = BOOK_CATEGORY_KUEIJIN
+/obj/structure/bookcase/random/reference/wizard/after_random_load()
+	if(cheese_granter_spawned)
+		return
+	cheese_granter_spawned = TRUE
+	new /obj/item/book/granter/action/spell/summon_cheese(src)
+	new /obj/item/book/manual/ancient_parchment(src)

@@ -1,4 +1,3 @@
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -9,13 +8,15 @@ import {
   NoticeBox,
   Section,
 } from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const Holopad = (props) => {
   const { act, data } = useBackend();
   const { calling } = data;
   return (
-    <Window width={440} height={245} resizable>
+    <Window width={440} height={245}>
       {!!calling && (
         <Modal fontSize="36px" fontFamily="monospace">
           <Flex align="center">
@@ -89,8 +90,8 @@ const HolopadContent = (props) => {
                   icon={call.connected ? 'phone-slash' : 'phone-alt'}
                   content={
                     call.connected
-                      ? 'Disconnect call from ' + call.holopad_caller
-                      : 'Answer call from ' + call.holopad_caller
+                      ? 'Disconnect call from ' + call.caller
+                      : 'Answer call from ' + call.caller
                   }
                   color={call.connected ? 'bad' : 'good'}
                   disabled={!on_network}
@@ -103,6 +104,16 @@ const HolopadContent = (props) => {
               </LabeledList.Item>
             );
           })}
+          {holo_calls.filter((call) => !call.connected).length > 0 && (
+            <LabeledList.Item key="reject">
+              <Button
+                icon="phone-slash"
+                content="Reject incoming call(s)"
+                color="bad"
+                onClick={() => act('rejectall')}
+              />
+            </LabeledList.Item>
+          )}
         </LabeledList>
       </Section>
       <Section

@@ -211,6 +211,13 @@ if $grep 'AddElement\(/datum/element/update_icon_updates_onmob.+ITEM_SLOT_HANDS'
 	st=1
 fi;
 
+part "forceMove sanity"
+if $grep 'forceMove\(\s*(\w+\(\)|\w+)\s*,\s*(\w+\(\)|\w+)\s*\)' $code_files; then
+	echo
+	echo -e "${RED}ERROR: forceMove() call with two arguments - this is not how forceMove() is invoked! It's x.forceMove(y), not forceMove(x, y).${NC}"
+	st=1
+fi;
+
 part "common spelling mistakes"
 if $grep -i 'centcomm' $code_files; then
 	echo
@@ -276,10 +283,6 @@ if $grep '\.proc/' $code_x_515 ; then
     echo -e "${RED}ERROR: Outdated proc reference use detected in code, please use proc reference helpers.${NC}"
     st=1
 fi;
-if $grep "href[\s='\"\\\\]*\?" $code_files ; then
-    echo
-    echo -e "${RED}ERROR: BYOND requires internal href links to begin with \"byond://\".${NC}"
-    st=1
 
 if [ "$pcre2_support" -eq 1 ]; then
 	section "regexes requiring PCRE2"

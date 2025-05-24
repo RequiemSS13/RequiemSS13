@@ -4,16 +4,21 @@
 	name = "xeno blood"
 	desc = "It's green and acidic. It looks like... <i>blood?</i>"
 	icon = 'icons/effects/blood.dmi'
-	icon_state = "xfloor1"
-	random_icon_states = list("xfloor1", "xfloor2", "xfloor3", "xfloor4", "xfloor5", "xfloor6", "xfloor7")
+	icon_state = "floor1"
+	random_icon_states = list("floor1", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7")
 	bloodiness = BLOOD_AMOUNT_PER_DECAL
 	blood_state = BLOOD_STATE_XENO
 	beauty = -250
 	clean_type = CLEAN_TYPE_BLOOD
 
-/obj/effect/decal/cleanable/xenoblood/Initialize()
+/obj/effect/decal/cleanable/xenoblood/add_blood_DNA(list/blood_DNA, no_visuals = FALSE)
 	. = ..()
-	add_blood_DNA(list("UNKNOWN DNA" = "X*"))
+	if(!no_visuals && length(blood_DNA))
+		color = get_blood_dna_color(blood_DNA)
+
+/obj/effect/decal/cleanable/xenoblood/Initialize(mapload)
+	. = ..()
+	add_blood_DNA(list("UNKNOWN DNA" = get_blood_type(BLOOD_TYPE_XENO)))
 
 /obj/effect/decal/cleanable/xenoblood/xsplatter
 	random_icon_states = list("xgibbl1", "xgibbl2", "xgibbl3", "xgibbl4", "xgibbl5")
@@ -23,24 +28,49 @@
 	desc = "Gnarly..."
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "xgib1"
-	layer = LOW_OBJ_LAYER
+	plane = GAME_PLANE
+	layer = GIB_LAYER
 	random_icon_states = list("xgib1", "xgib2", "xgib3", "xgib4", "xgib5", "xgib6")
 	mergeable_decal = FALSE
 
-/obj/effect/decal/cleanable/xenoblood/xgibs/Initialize()
+	is_mopped = TRUE // probably shouldn't be, but janitor powercreep
+
+/obj/effect/decal/cleanable/xenoblood/xgibs/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_MOVABLE_PIPE_EJECTING, PROC_REF(on_pipe_eject))
+	update_appearance(UPDATE_OVERLAYS)
+
+/obj/effect/decal/cleanable/xenoblood/xgibs/update_overlays()
+	. = ..()
+	var/mutable_appearance/gib_overlay = mutable_appearance(icon, "[icon_state]-overlay", appearance_flags = KEEP_APART|RESET_COLOR)
+	if(gib_overlay)
+		. += gib_overlay
 
 /obj/effect/decal/cleanable/xenoblood/xgibs/proc/streak(list/directions, mapload=FALSE)
-	set waitfor = FALSE
+	SEND_SIGNAL(src, COMSIG_GIBS_STREAK, directions)
 	var/direction = pick(directions)
-	for(var/i = 0, i < pick(1, 200; 2, 150; 3, 50; 4, 17; 50), i++) //the 3% chance of 50 steps is intentional and played for laughs.
-		if (!mapload)
-			sleep(2)
-		if(i > 0)
-			new /obj/effect/decal/cleanable/xenoblood/xsplatter(loc)
-		if(!step_to(src, get_step(src, direction), 0))
-			break
+	var/delay = 2
+	var/range = pick(0, 200; 1, 150; 2, 50; 3, 17; 50) //the 3% chance of 50 steps is intentional and played for laughs.
+	if(!step_to(src, get_step(src, direction), 0))
+		return
+	if(mapload)
+		for (var/i in 1 to range)
+			var/turf/my_turf = get_turf(src)
+			if(!isgroundlessturf(my_turf) || GET_TURF_BELOW(my_turf))
+				var/obj/effect/decal/cleanable/xenoblood/xsplatter/new_splatter = new /obj/effect/decal/cleanable/xenoblood/xsplatter(my_turf)
+				new_splatter.add_blood_DNA(GET_ATOM_BLOOD_DNA(src))
+			if (!step_to(src, get_step(src, direction), 0))
+				break
+		return
+
+	var/datum/move_loop/loop = GLOB.move_manager.move(src, direction, delay = delay, timeout = range * delay, priority = MOVEMENT_ABOVE_SPACE_PRIORITY)
+	RegisterSignal(loop, COMSIG_MOVELOOP_POSTPROCESS, PROC_REF(spread_movement_effects))
+
+/obj/effect/decal/cleanable/xenoblood/xgibs/proc/spread_movement_effects(datum/move_loop/has_target/source)
+	SIGNAL_HANDLER
+	if(NeverShouldHaveComeHere(loc))
+		return
+	new /obj/effect/decal/cleanable/xenoblood/xsplatter(loc)
 
 /obj/effect/decal/cleanable/xenoblood/xgibs/proc/on_pipe_eject(atom/source, direction)
 	SIGNAL_HANDLER
@@ -54,7 +84,7 @@
 	streak(dirs)
 
 /obj/effect/decal/cleanable/xenoblood/xgibs/ex_act()
-	return
+	return FALSE
 
 /obj/effect/decal/cleanable/xenoblood/xgibs/up
 	icon_state = "xgibup1"
@@ -89,9 +119,9 @@
 	random_icon_states = list("xgiblarvahead", "xgiblarvatorso")
 
 /obj/effect/decal/cleanable/blood/xtracks
-	icon_state = "xtracks"
+	icon_state = "tracks"
 	random_icon_states = null
 
-/obj/effect/decal/cleanable/blood/xtracks/Initialize()
+/obj/effect/decal/cleanable/blood/xtracks/Initialize(mapload)
 	. = ..()
-	add_blood_DNA(list("Unknown DNA" = "X*"))
+	add_blood_DNA(list("Unknown DNA" = get_blood_type(BLOOD_TYPE_XENO)))

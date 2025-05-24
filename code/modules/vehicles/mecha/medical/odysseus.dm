@@ -1,34 +1,28 @@
-/obj/vehicle/sealed/mecha/medical/odysseus
+/obj/vehicle/sealed/mecha/odysseus
 	desc = "These exosuits are developed and produced by Vey-Med. (&copy; All rights reserved)."
 	name = "\improper Odysseus"
 	icon_state = "odysseus"
 	base_icon_state = "odysseus"
-	allow_diagonal_movement = TRUE
 	movedelay = 2
 	max_temperature = 15000
 	max_integrity = 120
 	wreckage = /obj/structure/mecha_wreckage/odysseus
-	internal_damage_threshold = 35
-	deflect_chance = 15
+	mech_type = EXOSUIT_MODULE_ODYSSEUS
 	step_energy_drain = 6
-	internals_req_access = list(ACCESS_MECH_SCIENCE, ACCESS_MECH_MEDICAL)
+	accesses = list(ACCESS_MECH_SCIENCE, ACCESS_MECH_MEDICAL)
+	pivot_step = TRUE
 
-/obj/vehicle/sealed/mecha/medical/odysseus/moved_inside(mob/living/carbon/human/H)
+/obj/vehicle/sealed/mecha/odysseus/moved_inside(mob/living/carbon/human/human)
 	. = ..()
-	if(. && !HAS_TRAIT(H, TRAIT_MEDICAL_HUD))
-		var/datum/atom_hud/hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
-		hud.add_hud_to(H)
+	if(. && !HAS_TRAIT(human, TRAIT_MEDICAL_HUD))
+		ADD_TRAIT(human, TRAIT_MEDICAL_HUD, VEHICLE_TRAIT)
 
-/obj/vehicle/sealed/mecha/medical/odysseus/remove_occupant(mob/M)
-	if(isliving(M) && HAS_TRAIT_FROM(M, TRAIT_MEDICAL_HUD, src))
-		var/mob/living/L = M
-		var/datum/atom_hud/hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
-		hud.remove_hud_from(L)
+/obj/vehicle/sealed/mecha/odysseus/remove_occupant(mob/living/carbon/human/human)
+	if(isliving(human) && HAS_TRAIT_FROM(human, TRAIT_MEDICAL_HUD, VEHICLE_TRAIT))
+		REMOVE_TRAIT(human, TRAIT_MEDICAL_HUD, VEHICLE_TRAIT)
 	return ..()
 
-/obj/vehicle/sealed/mecha/medical/odysseus/mmi_moved_inside(obj/item/mmi/M, mob/user)
+/obj/vehicle/sealed/mecha/odysseus/mmi_moved_inside(obj/item/mmi/MMI, mob/user)
 	. = ..()
-	if(. && !HAS_TRAIT(M, TRAIT_MEDICAL_HUD))
-		var/datum/atom_hud/hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
-		var/mob/living/brain/B = M.brainmob
-		hud.add_hud_to(B)
+	if(. && !isnull(MMI.brainmob) && !HAS_TRAIT(MMI.brainmob, TRAIT_MEDICAL_HUD))
+		ADD_TRAIT(MMI.brainmob, TRAIT_MEDICAL_HUD, VEHICLE_TRAIT)

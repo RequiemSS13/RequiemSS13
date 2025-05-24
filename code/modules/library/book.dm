@@ -34,6 +34,9 @@
 	. = ..()
 	book_data = new(starting_title, starting_author, starting_content)
 
+	AddElement(/datum/element/falling_hazard, damage = 5, wound_bonus = 0, hardhat_safety = TRUE, crushes = FALSE, impact_sound = drop_sound)
+	AddElement(/datum/element/burn_on_item_ignition)
+
 /obj/item/book/examine(mob/user)
 	. = ..()
 	if(carved)
@@ -54,6 +57,7 @@
 
 /// Proc that handles sending the book information to the user, as well as some housekeeping stuff.
 /obj/item/book/proc/display_content(mob/living/user)
+	credit_book_to_reader(user)
 	ui_interact(user)
 
 /// Proc that checks if the user is capable of reading the book, for UI interactions and otherwise. Returns TRUE if they can, FALSE if they can't.
@@ -75,6 +79,18 @@
 
 	return TRUE
 
+/// Proc that adds the book to a list on the user's mind so we know what works of art they've been catching up on.
+/obj/item/book/proc/credit_book_to_reader(mob/living/user)
+	if(!isliving(user) || isnull(user.mind))
+		return
+
+	LAZYINITLIST(user.mind.book_titles_read)
+	if(starting_title in user.mind.book_titles_read)
+		return
+
+	user.add_mood_event("book_nerd", /datum/mood_event/book_nerd)
+	user.mind.book_titles_read[starting_title] = TRUE
+
 /obj/item/book/attack_self(mob/user)
 	if(!can_read_book(user))
 		return
@@ -82,12 +98,9 @@
 	user.visible_message(span_notice("[user] opens a book titled \"[book_data.title]\" and begins reading intently."))
 	display_content(user)
 
-/obj/item/book/attackby(obj/item/attacking_item, mob/living/user, params)
-	if(burn_paper_product_attackby_check(attacking_item, user))
-		return
-
+/obj/item/book/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(IS_WRITING_UTENSIL(attacking_item))
-		if(!user.canUseTopic(src) || !user.can_write(attacking_item))
+		if(!user.can_perform_action(src) || !user.can_write(attacking_item))
 			return
 		if(user.is_blind())
 			to_chat(user, span_warning("As you are trying to write on the book, you suddenly feel very stupid!"))
@@ -102,12 +115,12 @@
 		var/choice = tgui_input_list(usr, "What would you like to change?", "Book Alteration", list("Title", "Contents", "Author", "Cancel"))
 		if(isnull(choice))
 			return
-		if(!user.canUseTopic(src) || !user.can_write(attacking_item))
+		if(!user.can_perform_action(src) || !user.can_write(attacking_item))
 			return
 		switch(choice)
 			if("Title")
 				var/newtitle = reject_bad_text(tgui_input_text(user, "Write a new title", "Book Title", max_length = 30))
-				if(!user.canUseTopic(src) || !user.can_write(attacking_item))
+				if(!user.can_perform_action(src) || !user.can_write(attacking_item))
 					return
 				if (length_char(newtitle) > 30)
 					to_chat(user, span_warning("That title won't fit on the cover!"))
@@ -120,7 +133,7 @@
 				book_data.set_title(html_decode(newtitle)) //Don't want to double encode here
 			if("Contents")
 				var/content = tgui_input_text(user, "Write your book's contents (HTML NOT allowed)", "Book Contents", max_length = MAX_PAPER_LENGTH, multiline = TRUE)
-				if(!user.canUseTopic(src) || !user.can_write(attacking_item))
+				if(!user.can_perform_action(src) || !user.can_write(attacking_item))
 					return
 				if(!content)
 					to_chat(user, span_warning("The content is invalid."))
@@ -129,7 +142,7 @@
 				playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
 			if("Author")
 				var/author = tgui_input_text(user, "Write the author's name", "Author Name", max_length = MAX_NAME_LEN)
-				if(!user.canUseTopic(src) || !user.can_write(attacking_item))
+				if(!user.can_perform_action(src) || !user.can_write(attacking_item))
 					return
 				if(!author)
 					to_chat(user, span_warning("The name is invalid."))
@@ -165,8 +178,36 @@
 				computer.inventory_update()
 				user.balloon_alert(user, "book added to inventory")
 				playsound(loc, 'sound/items/barcodebeep.ogg', 20, FALSE)
+
+	else if(try_carve(attacking_item, user, modifiers))
+		return
 	return ..()
 
 /// Generates a random icon state for the book
 /obj/item/book/proc/gen_random_icon_state()
 	icon_state = "book[rand(1, maximum_book_state)]"
+
+/// Called when user attempts to carve the book with an item
+/obj/item/book/proc/try_carve(obj/item/carving_item, mob/living/user, list/modifiers)
+	if(carved)
+		return FALSE
+	if(!user.combat_mode)
+		return FALSE
+	//special check for wirecutter's because they don't have a sharp edge
+	if((carving_item.get_sharpness() & SHARP_EDGED) || (carving_item.tool_behaviour == TOOL_WIRECUTTER))
+		balloon_alert(user, "carving out...")
+		if(!do_after(user, 3 SECONDS, target = src))
+			balloon_alert(user, "interrupted!")
+			return FALSE
+		carve_out(carving_item, user)
+		return TRUE
+	return FALSE
+
+/// Called when the book gets carved successfully
+/obj/item/book/proc/carve_out(obj/item/carving_item, mob/living/user)
+	if(user)
+		balloon_alert(user, "carved out")
+		playsound(src, 'sound/effects/cloth_rip.ogg', vol = 75, vary = TRUE)
+	carved = TRUE
+	create_storage(max_slots = 1)
+	return TRUE

@@ -1,4 +1,3 @@
-import { useBackend, useSharedState } from '../backend';
 import {
   AnimatedNumber,
   Box,
@@ -10,6 +9,8 @@ import {
   Section,
   Stack,
 } from 'tgui-core/components';
+
+import { useBackend, useSharedState } from '../backend';
 import { Window } from '../layouts';
 
 export const MedicalKiosk = (props) => {
@@ -18,7 +19,7 @@ export const MedicalKiosk = (props) => {
   const { active_status_1, active_status_2, active_status_3, active_status_4 } =
     data;
   return (
-    <Window width={575} height={420} resizable>
+    <Window width={575} height={420}>
       <Window.Content scrollable>
         <Flex mb={1}>
           <Flex.Item mr={1}>
@@ -85,7 +86,7 @@ const MedicalKioskScanButton = (props) => {
           color={paid ? 'green' : 'grey'}
         />
       </Stack.Item>
-      <Stack.Item grow>
+      <Stack.Item grow basis="content">
         <Button
           fluid
           icon={icon}
@@ -219,25 +220,10 @@ const MedicalKioskScanResults2 = (props) => {
 
 const MedicalKioskScanResults3 = (props) => {
   const { data } = useBackend();
-  const {
-    clone_health,
-    brain_damage,
-    brain_health,
-    rad_contamination_status,
-    rad_contamination_value,
-    rad_sickness_status,
-    rad_sickness_value,
-    trauma_status,
-  } = data;
+  const { brain_damage, brain_health, trauma_status } = data;
   return (
-    <Section title="Patient Neurological and Radiological Health">
+    <Section title="Patient Neurological Health">
       <LabeledList>
-        <LabeledList.Item label="Cellular Damage">
-          <ProgressBar value={clone_health / 100} color="good">
-            <AnimatedNumber value={clone_health} />
-          </ProgressBar>
-        </LabeledList.Item>
-        <LabeledList.Divider />
         <LabeledList.Item label="Brain Damage">
           <ProgressBar value={brain_damage / 100} color="good">
             <AnimatedNumber value={brain_damage} />
@@ -248,19 +234,6 @@ const MedicalKioskScanResults3 = (props) => {
         </LabeledList.Item>
         <LabeledList.Item label="Brain Trauma Status">
           {trauma_status}
-        </LabeledList.Item>
-        <LabeledList.Divider />
-        <LabeledList.Item label="Radiation Sickness Status">
-          {rad_sickness_status}
-        </LabeledList.Item>
-        <LabeledList.Item label="Radiation Sickness Percentage">
-          {rad_sickness_value}%
-        </LabeledList.Item>
-        <LabeledList.Item label="Radiation Contamination Status">
-          {rad_contamination_status}
-        </LabeledList.Item>
-        <LabeledList.Item label="Radiation Contamination Percentage">
-          {rad_contamination_value}%
         </LabeledList.Item>
       </LabeledList>
     </Section>
@@ -274,6 +247,7 @@ const MedicalKioskScanResults4 = (props) => {
     overdose_list = [],
     addict_list = [],
     hallucinating_status,
+    blood_alcohol,
   } = data;
   return (
     <Section title="Chemical and Psychoactive Analysis">
@@ -306,6 +280,19 @@ const MedicalKioskScanResults4 = (props) => {
         </LabeledList.Item>
         <LabeledList.Item label="Psychoactive Status">
           {hallucinating_status}
+        </LabeledList.Item>
+        <LabeledList.Item label="Blood Alcohol Content">
+          <ProgressBar
+            value={blood_alcohol}
+            minValue={0}
+            maxValue={0.3}
+            ranges={{
+              blue: [-Infinity, 0.23],
+              bad: [0.23, Infinity],
+            }}
+          >
+            <AnimatedNumber value={blood_alcohol} />
+          </ProgressBar>
         </LabeledList.Item>
       </LabeledList>
     </Section>

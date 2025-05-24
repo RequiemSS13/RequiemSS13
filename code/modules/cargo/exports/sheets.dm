@@ -50,6 +50,11 @@
 	unit_name = "alien hide"
 	export_types = list(/obj/item/stack/sheet/animalhide/xeno)
 
+/datum/export/stack/skin/carp
+	cost = CARGO_CRATE_VALUE * 0.5
+	unit_name = "carp skin"
+	export_types = list(/obj/item/stack/sheet/animalhide/carp)
+
 /datum/export/stack/licenseplate
 	cost = CARGO_CRATE_VALUE * 0.125
 	unit_name = "license plate"
@@ -60,11 +65,11 @@
 // For base materials, see materials.dm
 
 /datum/export/stack/plasteel
-	cost = CARGO_CRATE_VALUE * 0.41 // 2000u of plasma + 2000u of metal.
+	cost = CARGO_CRATE_VALUE * 0.41 // 100u of plasma + 100u of iron.
 	message = "of plasteel"
 	export_types = list(/obj/item/stack/sheet/plasteel)
 
-// 1 glass + 0.5 metal, cost is rounded up.
+// 1 glass + 0.5 iron, cost is rounded up.
 /datum/export/stack/rglass
 	cost = CARGO_CRATE_VALUE * 0.02
 	message = "of reinforced glass"
@@ -114,7 +119,7 @@
 
 /datum/export/stack/pizza
 	cost = CARGO_CRATE_VALUE * 0.06
-	unit_name = "of sheetza"
+	unit_name = "of sheet pizza"
 	export_types = list(/obj/item/stack/sheet/pizza)
 
 /datum/export/stack/meat

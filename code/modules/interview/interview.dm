@@ -1,10 +1,3 @@
-/// State when an interview has been approved
-#define INTERVIEW_APPROVED	"interview_approved"
-/// State when an interview as been denied
-#define INTERVIEW_DENIED 	"interview_denied"
-/// State when an interview has had no action on it yet
-#define INTERVIEW_PENDING	"interview_pending"
-
 /**
  * Represents a new-player interview form
  *
@@ -60,12 +53,12 @@
 	GLOB.interviews.approved_ckeys |= owner_ckey
 	GLOB.interviews.close_interview(src)
 	log_admin_private("[key_name(approved_by)] has approved interview #[id] for [owner_ckey][!owner ? "(DC)": ""].")
-	message_admins("<span class='adminnotice'>[key_name(approved_by)] has approved interview #[id] for [owner_ckey][!owner ? "(DC)": ""].</span>")
+	message_admins(span_adminnotice("[key_name(approved_by)] has approved [link_self()] for [owner_ckey][!owner ? "(DC)": ""]."))
 	if (owner)
 		SEND_SOUND(owner, sound('sound/effects/adminhelp.ogg'))
 		to_chat(owner, "<font color='red' size='4'><b>-- Interview Update --</b></font>" \
-			+ "\n<span class='adminsay'>Your interview was approved, you will now be reconnected in 5 seconds.</span>", confidential = TRUE)
-		addtimer(CALLBACK(src, PROC_REF(reconnect_owner)), 50)
+			+ "\n[span_adminsay("Your interview was approved, you will now be reconnected in 5 seconds.")]", confidential = TRUE)
+		addtimer(CALLBACK(src, PROC_REF(reconnect_owner)), 5 SECONDS)
 
 /**
  * Denies the interview and adds the owner to the cooldown for new interviews.
@@ -79,8 +72,8 @@
 	GLOB.interviews.close_interview(src)
 	GLOB.interviews.cooldown_ckeys |= owner_ckey
 	log_admin_private("[key_name(denied_by)] has denied interview #[id] for [owner_ckey][!owner ? "(DC)": ""].")
-	message_admins("<span class='adminnotice'>[key_name(denied_by)] has denied interview #[id] for [owner_ckey][!owner ? "(DC)": ""].</span>")
-	addtimer(CALLBACK(GLOB.interviews, TYPE_PROC_REF(/datum/interview_manager, release_from_cooldown), owner_ckey), 180)
+	message_admins(span_adminnotice("[key_name(denied_by)] has denied [link_self()] for [owner_ckey][!owner ? "(DC)": ""]."))
+	addtimer(CALLBACK(GLOB.interviews, TYPE_PROC_REF(/datum/interview_manager, release_from_cooldown), owner_ckey), 18 SECONDS)
 	if (owner)
 		SEND_SOUND(owner, sound('sound/effects/adminhelp.ogg'))
 		to_chat(owner, "<font color='red' size='4'><b>-- Interview Update --</b></font>" \
@@ -117,6 +110,8 @@
 		ui.open()
 
 /datum/interview/ui_state(mob/user)
+	if(check_rights_for(user.client, R_ADMIN))
+		return GLOB.always_state
 	return GLOB.new_player_state
 
 /datum/interview/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -143,6 +138,9 @@
 		if ("adminpm")
 			if (usr.client?.holder && owner)
 				usr.client.cmd_admin_pm(owner, null)
+		if("check_centcom")
+			if(usr.client?.holder && owner)
+				usr.client?.holder.open_centcom_bans(owner_ckey)
 
 /datum/interview/ui_data(mob/user)
 	. = list(
@@ -152,7 +150,18 @@
 		"queue_pos" = pos_in_queue,
 		"is_admin" = !!(user?.client && user.client.holder),
 		"status" = status,
-		"connected" = !!owner)
+		"connected" = !!owner,
+	)
+	if(CONFIG_GET(string/centcom_ban_db))
+		. += list(
+			"centcom_connected" = TRUE,
+			"has_permabans" = user.client.holder.check_centcom_permabans(owner_ckey),
+		)
+	else
+		. += list(
+			"centcom_connected" = FALSE,
+			"has_permabans" = FALSE,
+		)
 	for (var/i in 1 to questions.len)
 		var/list/data = list(
 			"qidx" = i,
@@ -160,3 +169,9 @@
 			"response" = responses.len < i ? null : responses[i]
 		)
 		.["questions"] += list(data)
+
+/**
+ * Generates a clickable link to open this interview
+ */
+/datum/interview/proc/link_self()
+	return "<a href='byond://?_src_=holder;[HrefToken(forceGlobal = TRUE)];interview=[REF(src)]'>Interview #[id]</a>"

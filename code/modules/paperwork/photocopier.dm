@@ -60,12 +60,15 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 /obj/machinery/photocopier
 	name = "photocopier"
 	desc = "Used to copy important documents and anatomy studies."
-	icon = 'icons/obj/library.dmi'
+	icon = 'icons/obj/service/library.dmi'
 	icon_state = "photocopier"
 	density = TRUE
 	power_channel = AREA_USAGE_EQUIP
 	max_integrity = 300
 	integrity_failure = 0.33
+	interaction_flags_mouse_drop = NEED_DEXTERITY | ALLOW_RESTING
+	circuit = /obj/item/circuitboard/machine/photocopier
+
 	/// A reference to a mob on top of the photocopier trying to copy their ass. Null if there is no mob.
 	var/mob/living/ass
 	/// A reference to the toner cartridge that's inserted into the copier. Null if there is no cartridge.
@@ -81,30 +84,44 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 	/// Variable for the UI telling us how many copies are in the queue.
 	var/copies_left = 0
 	/// The amount of paper this photocoper starts with.
-	var/starting_paper = 30
+	var/starting_paper = 0
 	/// A stack for all the empty paper we have newly inserted (LIFO)
 	var/list/paper_stack = list()
+	/// Type path to the paper that's created when we're initalized
+	var/created_paper = /obj/item/paper
+
+/obj/machinery/photocopier/prebuilt
+	starting_paper = 30
+
+/obj/machinery/photocopier/prebuilt/Initialize(mapload)
+	toner_cartridge = new(src)
+	return ..()
 
 /obj/machinery/photocopier/Initialize(mapload)
 	. = ..()
-	toner_cartridge = new(src)
+	// Creates the paper and inserts it so we can drop it when we get destroyed/deconstructed
+	for(var/i in 1 to starting_paper)
+		paper_stack += new created_paper(src)
+	setup_components()
+	AddElement(/datum/element/elevation, pixel_shift = 8) //enough to look like your bums are on the machine.
 
-/obj/machinery/photocopier/handle_atom_del(atom/deleting_atom)
-	if(deleting_atom == object_copy)
+/// Simply adds the necessary components for this to function.
+/obj/machinery/photocopier/proc/setup_components()
+	AddComponent(/datum/component/payment, PHOTOCOPIER_FEE, SSeconomy.get_dep_account(ACCOUNT_CIV), PAYMENT_CLINICAL)
+
+/obj/machinery/photocopier/Exited(atom/movable/gone, direction)
+	. = ..()
+	if(gone == object_copy)
 		object_copy = null
-	if(deleting_atom == ass)
-		ass = null
-	if(deleting_atom == toner_cartridge)
+	if(gone == toner_cartridge)
 		toner_cartridge = null
-	if(deleting_atom in paper_stack)
-		paper_stack -= deleting_atom
-	return ..()
+	if(gone in paper_stack)
+		paper_stack -= gone
 
 /obj/machinery/photocopier/Destroy()
 	// object_copy can be a traitor objective, don't qdel
 	if(object_copy)
 		object_copy.forceMove(drop_location())
-		object_copy = null
 
 	QDEL_NULL(toner_cartridge)
 	QDEL_LIST(paper_stack)
@@ -156,7 +173,7 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 		data["is_photo"] = TRUE
 		data["color_mode"] = color_mode
 
-	if(isAI(user))
+	if(HAS_AI_ACCESS(user))
 		data["isAI"] = TRUE
 		data["can_AI_print"] = toner_cartridge && (toner_cartridge.charges >= PHOTO_TONER_USE) && (get_paper_count() >= PHOTO_PAPER_USE)
 	else
@@ -173,7 +190,7 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 
 	return data
 
-/obj/machinery/photocopier/ui_act(action, list/params)
+/obj/machinery/photocopier/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -194,7 +211,7 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 					else
 						to_chat(usr, span_notice("You feel kind of silly, copying [ass]\'s ass with [ass.p_their()] clothes on."))
 					return FALSE
-				do_copies(CALLBACK(src, PROC_REF(make_ass_copy), usr), usr, ASS_PAPER_USE, ASS_TONER_USE, num_copies)
+				do_copies(CALLBACK(src, PROC_REF(make_ass_copy)), usr, ASS_PAPER_USE, ASS_TONER_USE, num_copies)
 				return TRUE
 			else
 				// Basic paper
@@ -274,7 +291,11 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 
 /// Will invoke `do_copy_loop` asynchronously. Passes the supplied arguments on to it.
 /obj/machinery/photocopier/proc/do_copies(datum/callback/copy_cb, mob/user, paper_use, toner_use, copies_amount)
+	if(machine_stat & (BROKEN|NOPOWER))
+		return
+
 	busy = TRUE
+	update_use_power(ACTIVE_POWER_USE)
 	// fucking god proc
 	INVOKE_ASYNC(src, PROC_REF(do_copy_loop), copy_cb, user, paper_use, toner_use, copies_amount)
 
@@ -299,15 +320,14 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 	if(get_paper_count() < paper_use * copies_amount)
 		copies_amount = FLOOR(get_paper_count() / paper_use, 1)
 		error_message = span_warning("An error message flashes across \the [src]'s screen: \"Not enough paper to perform [copies_amount >= 1 ? "full " : ""]operation.\"")
+	if(copies_amount > 0 && (attempt_charge(src, user, (copies_amount - 1) * PHOTOCOPIER_FEE) & COMPONENT_OBJ_CANCEL_CHARGE))
+		copies_amount = 0
+		error_message = span_warning("An error message flashes across \the [src]'s screen: \"Failed to charge bank account. Aborting.\"")
 
 	copies_left = copies_amount
 
 	if(copies_amount <= 0)
 		to_chat(user, error_message)
-		reset_busy()
-		return
-
-	if(attempt_charge(src, user, (copies_amount - 1) * PHOTOCOPIER_FEE) & COMPONENT_OBJ_CANCEL_CHARGE)
 		reset_busy()
 		return
 
@@ -340,6 +360,7 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 
 /// Sets busy to `FALSE`.
 /obj/machinery/photocopier/proc/reset_busy()
+	update_use_power(IDLE_POWER_USE)
 	busy = FALSE
 
 /// Determines if the printer is currently busy, informs the user if it is.
@@ -464,7 +485,7 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 
 	printblank.name = "paper - '[printname]'"
 	printblank.add_raw_text(printinfo, color = copy_colour)
-	printblank.update_icon()
+	printblank.update_appearance()
 
 	toner_cartridge.charges -= PAPER_TONER_USE
 	return printblank
@@ -475,24 +496,12 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
  * Calls `check_ass()` first to make sure that `ass` exists, among other conditions. Since this proc is called from a timer, it's possible that it was removed.
  * Additionally checks that the mob has their clothes off.
  */
-/obj/machinery/photocopier/proc/make_ass_copy(mob/user)
+/obj/machinery/photocopier/proc/make_ass_copy()
 	if(!check_ass())
 		return null
-	var/icon/temp_img
-	if(ishuman(ass))
-		var/mob/living/carbon/human/H = ass
-		var/datum/species/spec = H.dna.species
-		if(spec.ass_image)
-			temp_img = icon(spec.ass_image)
-		else
-			temp_img = icon(ass.gender == FEMALE ? 'icons/ass/assfemale.png' : 'icons/ass/assmale.png')
-	else if(isalienadult(ass)) //Xenos have their own asses, thanks to Pybro.
-		temp_img = icon('icons/ass/assalien.png')
-	else if(issilicon(ass))
-		temp_img = icon('icons/ass/assmachine.png')
-	else if(isdrone(ass)) //Drones are hot
-		temp_img = icon('icons/ass/assdrone.png')
-
+	var/icon/temp_img = ass.get_butt_sprite()
+	if(isnull(temp_img))
+		return null
 	var/obj/item/photo/copied_ass = new /obj/item/photo(src)
 	var/datum/picture/toEmbed = new(name = "[ass]'s Ass", desc = "You see [ass]'s ass on the photo.", image = temp_img)
 	toEmbed.psize_x = 128
@@ -522,12 +531,22 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 
 	to_chat(user, span_notice("You take [object] out of [src]. [busy ? "The [src] comes to a halt." : ""]"))
 
+/obj/machinery/photocopier/screwdriver_act(mob/living/user, obj/item/tool)
+	. = ..()
+	if(default_deconstruction_screwdriver(user, "photocopier2", "photocopier", tool))
+		return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/photocopier/crowbar_act(mob/living/user, obj/item/tool)
+	. = ..()
+	if(default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_SUCCESS
+
 /obj/machinery/photocopier/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	default_unfasten_wrench(user, tool)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/photocopier/attackby(obj/item/object, mob/user, params)
+/obj/machinery/photocopier/attackby(obj/item/object, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(object, /obj/item/paper) || istype(object, /obj/item/photo) || istype(object, /obj/item/documents))
 		if(istype(object, /obj/item/paper))
 			var/obj/item/paper/paper = object
@@ -544,7 +563,7 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 		toner_cartridge = object
 		balloon_alert(user, "cartridge inserted")
 
-	else if(istype(object, /obj/item/areaeditor/blueprints))
+	else if(istype(object, /obj/item/blueprints))
 		to_chat(user, span_warning("\The [object] is too large to put into the copier. You need to find something else to record the document."))
 
 	else if(istype(object, /obj/item/paperwork))
@@ -556,6 +575,7 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 /// Proc that handles insertion of empty paper, useful for copying later.
 /obj/machinery/photocopier/proc/insert_empty_paper(obj/item/paper/paper, mob/user)
 	if(istype(paper, /obj/item/paper/paperslip))
+		balloon_alert(user, "too small!")
 		return
 	if(get_paper_count() >= MAX_PAPER_CAPACITY)
 		balloon_alert(user, "cannot hold more paper!")
@@ -577,15 +597,14 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 	balloon_alert(user, "copy object inserted")
 	flick("photocopier1", src)
 
-/obj/machinery/photocopier/obj_break(damage_flag)
+/obj/machinery/photocopier/atom_break(damage_flag)
 	. = ..()
 	if(. && toner_cartridge.charges)
 		new /obj/effect/decal/cleanable/oil(get_turf(src))
 		toner_cartridge.charges = 0
 
-/obj/machinery/photocopier/MouseDrop_T(mob/target, mob/user)
-	check_ass() //Just to make sure that you can re-drag somebody onto it after they moved off.
-	if(!istype(target) || target.anchored || target.buckled || !Adjacent(target) || !user.canUseTopic(src) || target == ass || copier_blocked())
+/obj/machinery/photocopier/mouse_drop_receive(mob/target, mob/user, params)
+	if(!istype(target) || target.anchored || target.buckled || target == ass || copier_blocked())
 		return
 	add_fingerprint(user)
 	if(target == user)
@@ -593,7 +612,7 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 	else
 		user.visible_message(span_warning("[user] starts putting [target] onto the photocopier!"), span_notice("You start putting [target] onto the photocopier..."))
 
-	if(do_after(user, 20, target = src))
+	if(do_after(user, 2 SECONDS, target = src))
 		if(!target || QDELETED(target) || QDELETED(src) || !Adjacent(target)) //check if the photocopier/target still exists.
 			return
 
@@ -610,17 +629,13 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 			visible_message(span_warning("[object_copy] is shoved out of the way by [ass]!"))
 			object_copy = null
 
-/obj/machinery/photocopier/Exited(atom/movable/gone, direction)
-	check_ass() // There was potentially a person sitting on the copier, check if they're still there.
-	return ..()
-
 /**
  * Checks the living mob `ass` exists and its location is the same as the photocopier.
  *
  * Returns FALSE if `ass` doesn't exist or is not at the copier's location. Returns TRUE otherwise.
  */
 /obj/machinery/photocopier/proc/check_ass() //I'm not sure wether I made this proc because it's good form or because of the name.
-	if(!ass)
+	if(!isliving(ass))
 		return FALSE
 	if(ass.loc != loc)
 		ass = null
@@ -628,7 +643,7 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 	return TRUE
 
 /**
- * Checks if the copier is deleted, or has something dense at its location. Called in `MouseDrop_T()`
+ * Checks if the copier is deleted, or has something dense at its location. Called in `mouse_drop_receive()`
  */
 /obj/machinery/photocopier/proc/copier_blocked()
 	if(QDELETED(src))
@@ -657,14 +672,19 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 /obj/machinery/photocopier/gratis
 	desc = "Does the same important paperwork, but it's free to use! The best type of free."
 
+/obj/machinery/photocopier/gratis/setup_components()
+	// it's free! no charge! very cool and gratis-pilled.
+	AddComponent(/datum/component/payment, 0, SSeconomy.get_dep_account(ACCOUNT_CIV), PAYMENT_CLINICAL)
+
 /*
  * Toner cartridge
  */
 /obj/item/toner
 	name = "toner cartridge"
 	desc = "A small, lightweight cartridge of Nanotrasen ValueBrand toner. Fits photocopiers and autopainters alike."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "tonercartridge"
+	w_class = WEIGHT_CLASS_SMALL
 	grind_results = list(/datum/reagent/iodine = 40, /datum/reagent/iron = 10)
 	var/charges = 5
 	var/max_charges = 5

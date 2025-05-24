@@ -14,8 +14,5 @@
 #define BOOK_CATEGORY_RELIGION "Religion"
 #define BOOK_CATEGORY_ADULT "Adult"
 #define BOOK_CATEGORY_REFERENCE "Reference"
-#define BOOK_CATEGORY_KINDRED "Kindred"
-#define BOOK_CATEGORY_LUPINE "Lupine"
-#define BOOK_CATEGORY_KUEIJIN "Kuei-Jin"
 /// If making a book of this category it will be randomly selected from all categories
 #define BOOK_CATEGORY_RANDOM "Random"

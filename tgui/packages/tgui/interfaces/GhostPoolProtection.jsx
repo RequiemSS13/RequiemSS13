@@ -1,5 +1,6 @@
-import { useBackend } from '../backend';
 import { Button, Flex, NoticeBox, Section } from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const GhostPoolProtection = (props) => {
@@ -12,7 +13,12 @@ export const GhostPoolProtection = (props) => {
     minigames,
   } = data;
   return (
-    <Window title="Ghost Pool Protection" width={400} height={270}>
+    <Window
+      title="Ghost Pool Protection"
+      width={400}
+      height={270}
+      theme="admin"
+    >
       <Window.Content>
         <Flex grow={1} height="100%">
           <Section

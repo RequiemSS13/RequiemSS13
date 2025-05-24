@@ -1,6 +1,10 @@
 /// Manages library data, loading bookselves, etc
 SUBSYSTEM_DEF(library)
 	name = "Library Loading"
+	dependencies = list(
+		/datum/controller/subsystem/atoms,
+		/datum/controller/subsystem/mapping,
+	)
 	flags = SS_NO_FIRE
 
 	/// List of bookselves to prefill with books
@@ -9,9 +13,9 @@ SUBSYSTEM_DEF(library)
 	var/list/books_by_area = list()
 
 	/// List of acceptable search categories for book consoles
-	var/list/search_categories = list("Any", "Fiction", "Non-Fiction", "Adult", "Reference", "Religion", "Kindred", "Lupine", "Kuei-Jin")
+	var/list/search_categories = list("Any", "Fiction", "Non-Fiction", "Adult", "Reference", "Religion")
 	/// List of acceptable categories for a book to be
-	var/list/upload_categories = list("Fiction", "Non-Fiction", "Adult", "Reference", "Religion", "Kindred", "Lupine", "Kuei-Jin")
+	var/list/upload_categories = list("Fiction", "Non-Fiction", "Adult", "Reference", "Religion")
 
 	/// List of poster typepaths we're ok with being printable
 	var/list/printable_posters = list()
@@ -19,18 +23,23 @@ SUBSYSTEM_DEF(library)
 	var/list/library_areas = list()
 
 /datum/controller/subsystem/library/Initialize()
-	. = ..()
 	prepare_official_posters()
 	prepare_library_areas()
 	load_shelves()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/library/proc/load_shelves()
+	var/list/datum/callback/load_callbacks = list()
+
 	for(var/obj/structure/bookcase/case_to_load as anything in shelves_to_load)
 		if(!case_to_load)
 			stack_trace("A null bookcase somehow ended up in SSlibrary's shelves_to_load list. Did something harddel?")
 			continue
-		case_to_load.load_shelf()
+		load_callbacks += CALLBACK(case_to_load, TYPE_PROC_REF(/obj/structure/bookcase, load_shelf))
 	shelves_to_load = null
+
+	//Load all of the shelves asyncronously at the same time, blocking until the last one is finished.
+	callback_select(load_callbacks, savereturns = FALSE)
 
 /// Returns a list of copied book datums that we consider to be "in" the passed in area at roundstart
 /datum/controller/subsystem/library/proc/get_area_books(area/book_parent)
@@ -49,14 +58,11 @@ SUBSYSTEM_DEF(library)
 /datum/controller/subsystem/library/proc/prepare_official_posters()
 	printable_posters = list()
 	for(var/obj/structure/sign/poster/official/poster_type as anything in subtypesof(/obj/structure/sign/poster/official))
-		printable_posters[initial(poster_type.name)] = poster_type
+		if (initial(poster_type.printable) == TRUE) //Mostly this check exists to keep directionals from ending up in the printable list
+			printable_posters[initial(poster_type.name)] = poster_type
 
 /datum/controller/subsystem/library/proc/prepare_library_areas()
-	library_areas = list(
-		/area/vtm/vtr/masquerade/interior/ground_floor/central/library,
-		/area/vtm/vtr/masquerade/interior/floor_two/central/library,
-		/area/vtm/vtr/masquerade/interior/basement/central/library_basement
-	)
-	var/list/additional_areas = SSmapping.config.library_areas
+	library_areas = typesof(/area/station/service/library) - /area/station/service/library/abandoned
+	var/list/additional_areas = SSmapping.current_map.library_areas
 	if(additional_areas)
 		library_areas += additional_areas

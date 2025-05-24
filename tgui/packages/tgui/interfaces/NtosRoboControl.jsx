@@ -1,11 +1,14 @@
-import { useBackend } from '../backend';
 import {
+  Box,
   Button,
   LabeledList,
   ProgressBar,
   Section,
   Stack,
+  Tabs,
 } from 'tgui-core/components';
+
+import { useBackend, useSharedState } from '../backend';
 import { NtosWindow } from '../layouts';
 
 const getMuleByRef = (mules, ref) => {
@@ -14,37 +17,88 @@ const getMuleByRef = (mules, ref) => {
 
 export const NtosRoboControl = (props) => {
   const { act, data } = useBackend();
-  const { bots, id_owner, has_id } = data;
+  const [tab_main, setTab_main] = useSharedState('tab_main', 1);
+  const { bots, drones, id_owner, droneaccess, dronepingtypes } = data;
+
   return (
-    <NtosWindow width={550} height={550} resizable>
+    <NtosWindow width={550} height={550}>
       <NtosWindow.Content scrollable>
         <Section title="Robot Control Console">
           <LabeledList>
-            <LabeledList.Item label="Id Card">
-              {id_owner}
-              {!!has_id && (
-                <Button
-                  ml={2}
-                  icon="eject"
-                  content="Eject"
-                  onClick={() => act('ejectcard')}
-                />
-              )}
-            </LabeledList.Item>
-            <LabeledList.Item label="Bots in range">
+            <LabeledList.Item label="ID Card">{id_owner}</LabeledList.Item>
+            <LabeledList.Item label="Bots In Range">
               {data.botcount}
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        {bots?.map((robot) => (
-          <RobotInfo key={robot.bot_ref} robot={robot} />
-        ))}
+        <Stack.Item>
+          <Tabs>
+            <Tabs.Tab
+              icon="robot"
+              lineHeight="23px"
+              selected={tab_main === 1}
+              onClick={() => setTab_main(1)}
+            >
+              Bots
+            </Tabs.Tab>
+            <Tabs.Tab
+              icon="hammer"
+              lineHeight="23px"
+              selected={tab_main === 2}
+              onClick={() => setTab_main(2)}
+            >
+              Drones
+            </Tabs.Tab>
+          </Tabs>
+        </Stack.Item>
+        {tab_main === 1 && (
+          <Stack.Item>
+            <Section>
+              <LabeledList>
+                <LabeledList.Item label="Bots in range">
+                  {data.botcount}
+                </LabeledList.Item>
+              </LabeledList>
+            </Section>
+            {bots?.map((robot) => (
+              <RobotInfo key={robot.bot_ref} robot={robot} />
+            ))}
+          </Stack.Item>
+        )}
+        {tab_main === 2 && (
+          <Stack.Item grow>
+            <Section>
+              <Button
+                icon="address-card"
+                tooltip="Grant/Remove Drone access to interact with machines and wires that would otherwise be deemed dangerous."
+                color={droneaccess ? 'good' : 'bad'}
+                onClick={() => act('changedroneaccess')}
+              >
+                {droneaccess ? 'Grant Drone Access' : 'Revoke Drone Access'}
+              </Button>
+              <Box my={1}>Drone Pings</Box>
+              {dronepingtypes.map((ping_type) => (
+                <Button
+                  key={ping_type}
+                  icon="bullhorn"
+                  tooltip="Issue a drone ping."
+                  onClick={() => act('ping_drones', { ping_type })}
+                >
+                  {ping_type}
+                </Button>
+              ))}
+            </Section>
+            {drones?.map((drone) => (
+              <DroneInfo key={drone.drone_ref} drone={drone} />
+            ))}
+          </Stack.Item>
+        )}
       </NtosWindow.Content>
     </NtosWindow>
   );
 };
 
-const RobotInfo = (props) => {
+export const RobotInfo = (props) => {
   const { robot } = props;
   const { act, data } = useBackend();
   const mules = data.mules || [];
@@ -83,7 +137,7 @@ const RobotInfo = (props) => {
             <Button
               icon="home"
               tooltip="Travel Home."
-              tooltipPosition="bottom-left"
+              tooltipPosition="bottom-start"
               onClick={() =>
                 act('home', {
                   robot: mule.mule_ref,
@@ -102,8 +156,9 @@ const RobotInfo = (props) => {
             <LabeledList.Item label="Status">{robot.mode}</LabeledList.Item>
             {mule && (
               <>
+                <LabeledList.Item label="Bot ID">{mule.id}</LabeledList.Item>
                 <LabeledList.Item label="Loaded Cargo">
-                  {data.load || 'N/A'}
+                  {mule.load || 'N/A'}
                 </LabeledList.Item>
                 <LabeledList.Item label="Home">{mule.home}</LabeledList.Item>
                 <LabeledList.Item label="Destination">
@@ -236,6 +291,33 @@ const RobotInfo = (props) => {
               />
             </>
           )}
+        </Stack.Item>
+      </Stack>
+    </Section>
+  );
+};
+
+export const DroneInfo = (props) => {
+  const { drone } = props;
+  const { act, data } = useBackend();
+  const color = 'rgba(74, 59, 140, 1)';
+
+  return (
+    <Section
+      title={drone.name}
+      style={{
+        border: `4px solid ${color}`,
+      }}
+    >
+      <Stack>
+        <Stack.Item grow={1} basis={0}>
+          <LabeledList>
+            <LabeledList.Item label="Status">
+              <Box color={drone.status ? 'bad' : 'good'}>
+                {drone.status ? 'Not Responding' : 'Nominal'}
+              </Box>
+            </LabeledList.Item>
+          </LabeledList>
         </Stack.Item>
       </Stack>
     </Section>

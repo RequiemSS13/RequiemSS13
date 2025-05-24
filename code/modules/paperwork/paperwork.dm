@@ -13,7 +13,7 @@
 /obj/item/paperwork
 	name = "paperwork documents"
 	desc = "A disorganized mess of documents, research results, and investigation findings."
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "docs_part"
 	inhand_icon_state = "paper"
 	throwforce = 0
@@ -39,22 +39,27 @@
 
 	detailed_desc = span_notice("<i>As you sift through the papers, you slowly start to piece together what you're reading.</i>")
 
-/obj/item/paperwork/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/paperwork/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
+	if(.)
+		return
 
-	if(!stamped)
-		if(istype(attacking_item, /obj/item/stamp))
-			if(istype(attacking_item, stamp_requested)) //chameleon stamp does not work, this is a CRITICAL issue
-				add_stamp()
-				to_chat(user, span_notice("You skim through the papers until you find a field reading 'STAMP HERE', and complete the paperwork."))
-			else
-				if(istype(attacking_item, /obj/item/stamp/chameleon))
-					var/obj/item/stamp/chameleon/chameleon_stamp = attacking_item
-					to_chat(user, span_notice("[chameleon_stamp] morphs into the appropriate stamp, which you use to complete the paperwork."))
-					chameleon_stamp.chameleon_action.update_item(stamp_requested)
-					add_stamp()
-				else
-					to_chat(user, span_warning("You hunt through the papers for somewhere to use the [attacking_item], but can't find anything."))
+	if(stamped || !istype(attacking_item, /obj/item/stamp))
+		return
+
+	if(istype(attacking_item, stamp_requested))
+		add_stamp()
+		to_chat(user, span_notice("You skim through the papers until you find a field reading 'STAMP HERE', and complete the paperwork."))
+		return TRUE
+	var/datum/action/item_action/chameleon/change/stamp/stamp_action = locate() in attacking_item.actions
+	if(isnull(stamp_action))
+		to_chat(user, span_warning("You hunt through the papers for somewhere to use [attacking_item], but can't find anything."))
+		return TRUE
+
+	to_chat(user, span_notice("[attacking_item] morphs into the appropriate stamp, which you use to complete the paperwork."))
+	stamp_action.update_look(stamp_requested)
+	add_stamp()
+	return TRUE
 
 /obj/item/paperwork/examine_more(mob/user)
 	. = ..()
@@ -95,7 +100,7 @@
  * Handled as a proc so that an object may be maked as "stamped" even when a stamp isn't present (like the photocopier)
  */
 /obj/item/paperwork/proc/add_stamp()
-	stamp_overlay = mutable_appearance('icons/obj/bureaucracy.dmi', stamp_icon)
+	stamp_overlay = mutable_appearance('icons/obj/service/bureaucracy.dmi', stamp_icon)
 	add_overlay(stamp_overlay)
 	stamped = TRUE
 
@@ -113,10 +118,11 @@
 //HEAD OF STAFF DOCUMENTS
 
 /obj/item/paperwork/cargo
-	stamp_requested = /obj/item/stamp/qm
+	stamp_requested = /obj/item/stamp/head/qm
+	stamp_job = /datum/job/quartermaster
 	stamp_icon = "paper_stamp-qm"
 
-/obj/item/paperwork/cargo/Initialize()
+/obj/item/paperwork/cargo/Initialize(mapload)
 	. = ..()
 
 	detailed_desc += span_info(" The papers are a mess of shipping order paperwork. There's no rhyme or reason to how these documents are sorted at all.")
@@ -125,10 +131,11 @@
 	detailed_desc += span_info(" Despite how disorganized the documents are, they're all appropriately filled in. You should probably stamp this.")
 
 /obj/item/paperwork/security
-	stamp_requested = /obj/item/stamp/hos
+	stamp_requested = /obj/item/stamp/head/hos
+	stamp_job = /datum/job/head_of_security
 	stamp_icon = "paper_stamp-hos"
 
-/obj/item/paperwork/security/Initialize()
+/obj/item/paperwork/security/Initialize(mapload)
 	. = ..()
 
 	detailed_desc += span_info(" The stack of documents are related to a civil case being processed by a neighboring installation.")
@@ -137,10 +144,11 @@
 	detailed_desc += span_info(" What a bunch of crap, the security team were clearly just doing what they had to. You should probably stamp this.")
 
 /obj/item/paperwork/service
-	stamp_requested = /obj/item/stamp/hop
+	stamp_requested = /obj/item/stamp/head/hop
+	stamp_job = /datum/job/head_of_personnel
 	stamp_icon = "paper_stamp-hop"
 
-/obj/item/paperwork/service/Initialize()
+/obj/item/paperwork/service/Initialize(mapload)
 	. = ..()
 
 	detailed_desc += span_info(" You begin scanning over the document. This is a standard Nanotrasen NT-435Z3 form used for requests to Central Command.")
@@ -149,23 +157,25 @@
 	detailed_desc += span_info(" A MAXIMUM priority request like this is nothing to balk at. You should probably stamp this.")
 
 /obj/item/paperwork/medical
-	stamp_requested = /obj/item/stamp/cmo
+	stamp_requested = /obj/item/stamp/head/cmo
+	stamp_job = /datum/job/chief_medical_officer
 	stamp_icon = "paper_stamp-cmo"
 
-/obj/item/paperwork/medical/Initialize()
+/obj/item/paperwork/medical/Initialize(mapload)
 	. = ..()
 
 	detailed_desc += span_info(" The stack of documents appear to be a medical report from a nearby station, detailing the autopsy of an unknown xenofauna.")
 	detailed_desc += span_info(" Skipping to the end of the report reveals that the specimen was the station bartender's pet monkey.")
-	detailed_desc += span_info(" The specimen had been exposed to radiation during an 'unrelated incident with the engine', leading to it's mutated form.")
+	detailed_desc += span_info(" The specimen had been exposed to radiation during an 'unrelated incident with the engine', leading to its mutated form.")
 	detailed_desc += span_info(" Regardless, the autopsy results look like they could be useful. You should probably stamp this.")
 
 
 /obj/item/paperwork/engineering
-	stamp_requested = /obj/item/stamp/ce
+	stamp_requested = /obj/item/stamp/head/ce
+	stamp_job = /datum/job/chief_engineer
 	stamp_icon = "paper_stamp-ce"
 
-/obj/item/paperwork/engineering/Initialize()
+/obj/item/paperwork/engineering/Initialize(mapload)
 	. = ..()
 
 	detailed_desc += span_info(" These papers are a power output report from a neighboring station. It details the power output and other engineering data regarding the station during a typical shift.")
@@ -174,10 +184,11 @@
 	detailed_desc += span_info(" Damn, that's impressive stuff. You should probably stamp this.")
 
 /obj/item/paperwork/research
-	stamp_requested = /obj/item/stamp/rd
+	stamp_requested = /obj/item/stamp/head/rd
+	stamp_job = /datum/job/research_director
 	stamp_icon = "paper_stamp-rd"
 
-/obj/item/paperwork/research/Initialize()
+/obj/item/paperwork/research/Initialize(mapload)
 	. = ..()
 
 	detailed_desc += span_info(" The documents detail the results of a standard ordnance test that occured on a nearby station.")
@@ -186,11 +197,11 @@
 	detailed_desc += span_info(" Regardless, they're still perfectly usable test results. You should probably stamp this.")
 
 /obj/item/paperwork/captain
-	stamp_requested = /obj/item/stamp/captain
+	stamp_requested = /obj/item/stamp/head/captain
 	stamp_job = /datum/job/captain
 	stamp_icon = "paper_stamp-cap"
 
-/obj/item/paperwork/captain/Initialize()
+/obj/item/paperwork/captain/Initialize(mapload)
 	. = ..()
 
 	detailed_desc += span_info(" The documents are an unsigned correspondence from the captain's desk of a nearby station.")
@@ -223,10 +234,10 @@
 	else
 		. += span_notice("These appear to just be a photocopy of the original documents.")
 
-/obj/item/paperwork/photocopy/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/paperwork/photocopy/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/stamp/void) && !stamped && !voided)
 		to_chat(user, span_notice("You plant the [attacking_item] firmly onto the front of the documents."))
-		stamp_overlay = mutable_appearance('icons/obj/bureaucracy.dmi', "paper_stamp-void")
+		stamp_overlay = mutable_appearance('icons/obj/service/bureaucracy.dmi', "paper_stamp-void")
 		add_overlay(stamp_overlay)
 		voided = TRUE
 		stamped = TRUE //It won't get you any money, but it also can't LOSE you money now.

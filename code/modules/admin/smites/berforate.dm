@@ -12,7 +12,7 @@
 /datum/smite/berforate/effect(client/user, mob/living/target)
 	. = ..()
 	if (!iscarbon(target))
-		to_chat(user, "<span class='warning'>This must be used on a carbon mob.</span>", confidential = TRUE)
+		to_chat(user, span_warning("This must be used on a carbon mob."), confidential = TRUE)
 		return
 
 	var/repetitions
@@ -51,3 +51,7 @@
 				shots_this_limb += 1
 				if (shots_this_limb > shots_per_limb_per_rep)
 					break
+
+/datum/smite/berforate/divine
+	name = ":B:erforate (Divine)"
+	smite_flags = SMITE_DIVINE

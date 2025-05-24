@@ -1,0 +1,345 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="file">code\modules\vtmb\ghoul_species.dm</S>
+      <S N="line">99</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="1">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\kindred_species.dm</S>
+      <S N="line">95</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="2">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\gifts.dm</S>
+      <S N="line">14</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="3">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\kindred_species.dm</S>
+      <S N="line">542</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="4">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\jobs\prince.dm</S>
+      <S N="line">46</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="5">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\wallcode.dm</S>
+      <S N="line">72</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="6">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\npc\beastmaster.dm</S>
+      <S N="line">175</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="7">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\mobs\human\jump.dm</S>
+      <S N="line">3</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="8">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\npc.dm</S>
+      <S N="line">601</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="9">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\mob\living\carbon\werewolf\life.dm</S>
+      <S N="line">95</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="10">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\mob\living\carbon\werewolf\life.dm</S>
+      <S N="line">104</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="11">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\mob\living\carbon\werewolf\werewolf.dm</S>
+      <S N="line">131</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="12">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\npc\beastmaster.dm</S>
+      <S N="line">215</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="13">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\guns\wod13\ballistic.dm</S>
+      <S N="line">406</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="14">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\guns.dm</S>
+      <S N="line">63</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="15">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">115</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="16">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">374</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="17">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\melee.dm</S>
+      <S N="line">269</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="18">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\gridventory.dm</S>
+      <S N="line">113</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="19">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\melee.dm</S>
+      <S N="line">45</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="20">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\melee.dm</S>
+      <S N="line">518</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="21">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\melee.dm</S>
+      <S N="line">680</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="22">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\items\stores\food.dm</S>
+      <S N="line">42</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="23">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">471</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="24">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">1161</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="25">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\vault\vaultdoors.dm</S>
+      <S N="line">144</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="26">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\structures\doors\vampdoor.dm</S>
+      <S N="line">72</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="27">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\decor.dm</S>
+      <S N="line">300</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="28">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\decor.dm</S>
+      <S N="line">1327</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="29">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\magic\mysticism.dm</S>
+      <S N="line">63</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="30">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\magic\pyramid.dm</S>
+      <S N="line">88</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="31">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\car.dm</S>
+      <S N="line">130</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="32">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\car.dm</S>
+      <S N="line">147</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+  <Obj RefId="33">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\lombard.dm</S>
+      <S N="line">78</S>
+      <S N="diagnostic_severity">warning (no_parent)</S>
+      <S N="identifier">..</S>
+      <S N="diagnostic_type">..() has no parent proc to call</S>
+    </MS>
+  </Obj>
+</Objs>

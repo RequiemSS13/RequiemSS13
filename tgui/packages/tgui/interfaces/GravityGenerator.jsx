@@ -1,4 +1,3 @@
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -7,21 +6,17 @@ import {
   ProgressBar,
   Section,
 } from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const GravityGenerator = (props) => {
-  const { act, data } = useBackend();
-  const { charging_state, operational } = data;
+  const { data } = useBackend();
+  const { operational } = data;
   return (
     <Window width={400} height={155}>
       <Window.Content>
         {!operational && <NoticeBox>No data available</NoticeBox>}
-        {!!operational && charging_state !== 0 && (
-          <NoticeBox danger>WARNING - Radiation detected</NoticeBox>
-        )}
-        {!!operational && charging_state === 0 && (
-          <NoticeBox success>No radiation detected</NoticeBox>
-        )}
         {!!operational && <GravityGeneratorContent />}
       </Window.Content>
     </Window>

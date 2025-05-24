@@ -1,11 +1,18 @@
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
 import { decodeHtmlEntities } from 'tgui-core/string';
+
 import { useBackend } from '../backend';
-import { Box, Button, NoticeBox, Section, LabeledList } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export const RemoteRobotControl = (props) => {
   return (
-    <Window title="Remote Robot Control" width={500} height={500} resizable>
+    <Window title="Remote Robot Control" width={500} height={500}>
       <Window.Content scrollable>
         <RemoteRobotControlContent />
       </Window.Content>

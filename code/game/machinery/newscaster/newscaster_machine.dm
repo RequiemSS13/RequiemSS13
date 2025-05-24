@@ -3,16 +3,16 @@
 /obj/machinery/newscaster
 	name = "newscaster"
 	desc = "A standard Nanotrasen-licensed newsfeed handler for use in commercial space stations. All the news you absolutely have no use for, in one place!"
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machines/wallmounts.dmi'
 	icon_state = "newscaster_off"
 	base_icon_state = "newscaster"
 	verb_say = "beeps"
 	verb_ask = "beeps"
 	verb_exclaim = "beeps"
-	armor = /datum/armor/machinery_newscaster
+	armor_type = /datum/armor/machinery_newscaster
 	max_integrity = 200
 	integrity_failure = 0.25
-	interaction_flags_machine = INTERACT_MACHINE_ALLOW_SILICON
+	interaction_flags_machine = INTERACT_MACHINE_ALLOW_SILICON|INTERACT_MACHINE_REQUIRES_LITERACY
 	///Reference to the currently logged in user.
 	var/datum/bank_account/current_user
 	///Name of the logged in user.
@@ -40,6 +40,8 @@
 	var/creating_channel = FALSE
 	///Is the current user creating a new comment at the moment?
 	var/creating_comment = FALSE
+	///Are we currently locked and awaiting approval for the new cross-sector channel?
+	var/awaiting_approval = FALSE
 	///What is the user submitted, criminal name for the new wanted issue?
 	var/criminal_name
 	///What is the user submitted, crime description for the new wanted issue?
@@ -50,6 +52,8 @@
 	var/channel_desc
 	///What is the current, in-creation comment's body going to be?
 	var/comment_text
+	///Timer ID for creation of cross-sector channels
+	var/channel_approval_timer
 
 	///The station request datum being affected by UI actions.
 	var/datum/station_request/active_request
@@ -66,11 +70,14 @@
 /obj/machinery/newscaster/pai/ui_state(mob/user)
 	return GLOB.deep_inventory_state
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
+
 /obj/machinery/newscaster/Initialize(mapload, ndir, building)
 	. = ..()
 	GLOB.allCasters += src
 	GLOB.allbountyboards += src
-	update_icon()
+	update_appearance()
+	find_and_hang_on_wall()
 
 /obj/machinery/newscaster/Destroy()
 	GLOB.allCasters -= src
@@ -82,7 +89,7 @@
 	newscaster_username = null
 	return ..()
 
-/obj/machinery/newscaster/update_icon(updates=ALL)
+/obj/machinery/newscaster/update_appearance(updates=ALL)
 	. = ..()
 	if(machine_stat & (NOPOWER|BROKEN))
 		set_light(0)
@@ -96,25 +103,25 @@
 	if(!(machine_stat & (NOPOWER|BROKEN)))
 		var/state = "[base_icon_state]_[GLOB.news_network.wanted_issue.active ? "wanted" : "normal"]"
 		. += mutable_appearance(icon, state)
-		//. += emissive_appearance(icon, state, src, alpha = src.alpha)
+		. += emissive_appearance(icon, state, src, alpha = src.alpha)
 
 		if(GLOB.news_network.wanted_issue.active && alert)
 			. += mutable_appearance(icon, "[base_icon_state]_alert")
-		//	. += emissive_appearance(icon, "[base_icon_state]_alert", src, alpha = src.alpha,)
+			. += emissive_appearance(icon, "[base_icon_state]_alert", src, alpha = src.alpha,)
 
-	var/hp_percent = obj_integrity * 100 / max_integrity
+	var/hp_percent = atom_integrity * 100 / max_integrity
 	switch(hp_percent)
 		if(75 to 100)
 			return
 		if(50 to 75)
 			. += "crack1"
-			//. += emissive_blocker(icon, "crack1", src, alpha = src.alpha)
+			. += emissive_blocker(icon, "crack1", src, alpha = src.alpha)
 		if(25 to 50)
 			. += "crack2"
-			//. += emissive_blocker(icon, "crack2", src, alpha = src.alpha)
+			. += emissive_blocker(icon, "crack2", src, alpha = src.alpha)
 		else
 			. += "crack3"
-			//. += emissive_blocker(icon, "crack3", src, alpha = src.alpha)
+			. += emissive_blocker(icon, "crack3", src, alpha = src.alpha)
 
 /obj/machinery/newscaster/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()
@@ -147,7 +154,7 @@
 			data["user"]["department"] = card.registered_account.account_job.paycheck_department
 		else
 			data["user"]["job"] = "No Job"
-			data["user"]["department"] = "Unknown"
+			data["user"]["department"] = DEPARTMENT_UNASSIGNED
 	else if(issilicon(user))
 		var/mob/living/silicon/silicon_user = user
 		data["user"] = list()
@@ -164,6 +171,7 @@
 	data["security_mode"] = (security_access in card?.GetAccess())
 	data["photo_data"] = !isnull(current_image)
 	data["creating_channel"] = creating_channel
+	data["awaiting_approval"] = awaiting_approval
 	data["creating_comment"] = creating_comment
 	data["viewing_wanted"] = viewing_wanted
 
@@ -222,12 +230,14 @@
 		data["channelAuthor"] = "Nanotrasen Inc"
 		data["channelDesc"] = "Welcome to Newscaster Net. Interface & News networks Operational."
 		data["channelLocked"] = TRUE
+		data["receivingCrossSector"] = FALSE
 	else
 		data["channelDesc"] = current_channel.channel_desc
 		data["channelLocked"] = current_channel.locked
 		data["channelCensored"] = current_channel.censored
+		data["receivingCrossSector"] = current_channel.receiving_cross_sector
 
-	//We send all the information about all messages in existance.
+	//We send all the information about all messages in existence.
 	data["messages"] = message_list
 	data["wanted"] = wanted_info
 
@@ -261,10 +271,12 @@
 	return data
 
 
-/obj/machinery/newscaster/ui_act(action, params)
+/obj/machinery/newscaster/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
+
+	var/mob/user = ui.user
 	var/current_ref_num = params["request"]
 	var/current_app_num = params["applicant"]
 	var/datum/bank_account/request_target
@@ -290,17 +302,17 @@
 
 		if("createStory")
 			if(!current_channel)
-				balloon_alert(usr, "select a channel first!")
+				balloon_alert(user, "select a channel first!")
 				return TRUE
 			var/prototype_channel = params["current"]
-			create_story(channel_name = prototype_channel)
+			create_story(user, channel_name = prototype_channel)
 
 		if("togglePhoto")
-			toggle_photo()
+			toggle_photo(user)
 			return TRUE
 
 		if("startCreateChannel")
-			start_create_channel()
+			start_create_channel(user)
 			return TRUE
 
 		if("setChannelName")
@@ -317,12 +329,14 @@
 
 		if("createChannel")
 			var/locked = params["lockedmode"]
-			create_channel(locked)
+			var/cross_sector = params["cross_sector"]
+			create_channel(user, locked, cross_sector)
 			return TRUE
 
 		if("cancelCreation")
 			creating_channel = FALSE
 			creating_comment = FALSE
+			awaiting_approval = FALSE
 			viewing_wanted = FALSE
 			criminal_name = null
 			crime_description = null
@@ -330,8 +344,8 @@
 
 		if("storyCensor")
 			var/obj/item/card/id/id_card
-			if(isliving(usr))
-				var/mob/living/living_user = usr
+			if(isliving(user))
+				var/mob/living/living_user = user
 				id_card = living_user.get_idcard(hand_first = TRUE)
 			if(!(admin_access in id_card?.GetAccess()))
 				say("Clearance not found.")
@@ -344,8 +358,8 @@
 
 		if("authorCensor")
 			var/obj/item/card/id/id_card
-			if(isliving(usr))
-				var/mob/living/living_user = usr
+			if(isliving(user))
+				var/mob/living/living_user = user
 				id_card = living_user.get_idcard(hand_first = TRUE)
 			if(!(admin_access in id_card?.GetAccess()))
 				say("Clearance not found.")
@@ -358,8 +372,8 @@
 
 		if("channelDNotice")
 			var/obj/item/card/id/id_card
-			if(isliving(usr))
-				var/mob/living/living_user = usr
+			if(isliving(user))
+				var/mob/living/living_user = user
 				id_card = living_user.get_idcard(hand_first = TRUE)
 			if(!(admin_access in id_card?.GetAccess()))
 				say("Clearance not found.")
@@ -392,24 +406,24 @@
 			return TRUE
 
 		if("createComment")
-			create_comment()
+			create_comment(user)
 			return TRUE
 
 		if("toggleWanted")
 			alert = FALSE
 			viewing_wanted = TRUE
-			update_icon()
+			update_appearance()
 			return TRUE
 
 		if("setCriminalName")
-			var/temp_name = tgui_input_text(usr, "Write the Criminal's Name", "Warrent Alert Handler", "John Doe", MAX_NAME_LEN, multiline = FALSE)
+			var/temp_name = tgui_input_text(user, "Write the Criminal's Name", "Warrent Alert Handler", "John Doe", max_length = MAX_NAME_LEN, multiline = FALSE)
 			if(!temp_name)
 				return TRUE
 			criminal_name = temp_name
 			return TRUE
 
 		if("setCrimeData")
-			var/temp_desc = tgui_input_text(usr, "Write the Criminal's Crimes", "Warrent Alert Handler", "Unknown", MAX_BROADCAST_LEN, multiline = TRUE)
+			var/temp_desc = tgui_input_text(user, "Write the Criminal's Crimes", "Warrent Alert Handler", "Unknown", max_length = MAX_BROADCAST_LEN, multiline = TRUE)
 			if(!temp_desc)
 				return TRUE
 			crime_description = temp_desc
@@ -423,13 +437,13 @@
 			return TRUE
 
 		if("clearWantedIssue")
-			clear_wanted_issue(user = usr)
+			clear_wanted_issue(user)
 			for(var/obj/machinery/newscaster/other_newscaster in GLOB.allCasters)
-				other_newscaster.update_icon()
+				other_newscaster.update_appearance()
 				return TRUE
 
 		if("printNewspaper")
-			print_paper(usr)
+			print_paper(user)
 			return TRUE
 
 		if("createBounty")
@@ -470,9 +484,9 @@
 
 /obj/machinery/newscaster/on_set_machine_stat(old_value)
 	. = ..()
-	update_icon()
+	update_appearance()
 
-/obj/machinery/newscaster/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/machinery/newscaster/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/paper))
 		if(!user.temporarilyRemoveItemFromInventory(attacking_item))
 			return
@@ -487,9 +501,9 @@
 	return (machine_stat & BROKEN)
 
 /obj/machinery/newscaster/welder_act(mob/living/user, obj/item/tool)
-	if(user.a_intent == INTENT_HARM)
+	if(user.combat_mode)
 		return
-	. = TRUE
+	. = ITEM_INTERACT_SUCCESS
 	if(!(machine_stat & BROKEN))
 		to_chat(user, span_notice("[src] does not need repairs."))
 		return
@@ -501,7 +515,7 @@
 		user.balloon_alert_to_viewers("stopped welding!", "interrupted the repair!")
 		return
 	user.balloon_alert_to_viewers("repaired [src]")
-	obj_integrity = max_integrity
+	atom_integrity = max_integrity
 	set_machine_stat(machine_stat & ~BROKEN)
 
 /obj/machinery/newscaster/wrench_act(mob/living/user, obj/item/tool)
@@ -511,14 +525,14 @@
 	playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
 	if((machine_stat & BROKEN))
 		to_chat(user, span_warning("The broken remains of [src] fall on the ground."))
-		new /obj/item/stack/sheet/metal(loc, 5)
+		new /obj/item/stack/sheet/iron(loc, 5)
 		new /obj/item/shard(loc)
 		new /obj/item/shard(loc)
 	else
 		to_chat(user, span_notice("You [anchored ? "un" : ""]secure [src]."))
 		new /obj/item/wallframe/newscaster(loc)
 	qdel(src)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/newscaster/play_attack_sound(damage, damage_type = BRUTE, damage_flag = 0)
 	switch(damage_type)
@@ -526,31 +540,31 @@
 			if(machine_stat & BROKEN)
 				playsound(loc, 'sound/effects/hit_on_shattered_glass.ogg', 100, TRUE)
 			else
-				playsound(loc, 'sound/effects/glasshit.ogg', 90, TRUE)
+				playsound(loc, 'sound/effects/glass/glasshit.ogg', 90, TRUE)
 		if(BURN)
-			playsound(src.loc, 'sound/items/welder.ogg', 100, TRUE)
+			playsound(src.loc, 'sound/items/tools/welder.ogg', 100, TRUE)
 
 
 /obj/machinery/newscaster/on_deconstruction(disassembled)
-	new /obj/item/stack/sheet/metal(loc, 2)
+	new /obj/item/stack/sheet/iron(loc, 2)
 	new /obj/item/shard(loc)
 	new /obj/item/shard(loc)
 
-/obj/machinery/newscaster/obj_break(damage_flag)
+/obj/machinery/newscaster/atom_break(damage_flag)
 	. = ..()
 	if(.)
-		playsound(loc, 'sound/effects/glassbr3.ogg', 100, TRUE)
+		playsound(loc, 'sound/effects/glass/glassbr3.ogg', 100, TRUE)
 
 
 /obj/machinery/newscaster/attack_paw(mob/living/user, list/modifiers)
-	if(!user.a_intent != INTENT_HARM)
+	if(!user.combat_mode)
 		to_chat(user, span_warning("The newscaster controls are far too complicated for your tiny brain!"))
 	else
 		take_damage(5, BRUTE, MELEE)
 
 /obj/machinery/newscaster/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	. = ..()
-	update_icon()
+	update_appearance()
 
 /**
  * Sends photo data to build the newscaster article.
@@ -586,7 +600,7 @@
 		else
 			to_chat(user, span_warning("You cannot interface with silicon photo uploading!"))
 		if(!targetcam.stored.len)
-			to_chat(usr, span_boldannounce("No images saved."))
+			to_chat(user, span_bolddanger("No images saved."))
 			return
 		var/datum/picture/selection = targetcam.selectpicture(user)
 		if(selection)
@@ -602,7 +616,7 @@
 		return TRUE
 	SSblackbox.record_feedback("amount", "newspapers_printed", 1)
 	var/obj/item/newspaper/new_newspaper = new(loc)
-	playsound(loc, "page_turn", 50, TRUE)
+	playsound(loc, SFX_PAGE_TURN, 50, TRUE)
 	try_put_in_hand(new_newspaper, user)
 	paper_remaining--
 
@@ -611,7 +625,7 @@
  */
 /obj/machinery/newscaster/proc/remove_alert()
 	alert = FALSE
-	update_icon()
+	update_appearance()
 
 /**
  * When a new feed message is made that will alert all newscasters, this causes the newscasters to sent out a spoken message as well as create a sound.
@@ -620,9 +634,9 @@
 	if(channel)
 		if(update_alert)
 			say("Breaking news from [channel]!")
-			playsound(loc, 'sound/machines/twobeep_high.ogg', 75, TRUE)
+			playsound(loc, 'sound/machines/beep/twobeep_high.ogg', 75, TRUE)
 		alert = TRUE
-		update_icon()
+		update_appearance()
 		addtimer(CALLBACK(src, PROC_REF(remove_alert)), ALERT_DELAY, TIMER_UNIQUE|TIMER_OVERRIDE)
 
 	else if(!channel && update_alert)
@@ -632,42 +646,102 @@
 /**
  * Performs a series of sanity checks before giving the user confirmation to create a new feed_channel using channel_name, and channel_desc.
  * *channel_locked: This variable determines if other users than the author can make comments and new feed_stories on this channel.
+ *
  */
-/obj/machinery/newscaster/proc/create_channel(channel_locked)
+/obj/machinery/newscaster/proc/create_channel(mob/user, channel_locked, cross_sector)
 	if(!channel_name)
 		return
-	for(var/datum/feed_channel/iterated_feed_channel as anything in GLOB.news_network.network_channels)
-		if(iterated_feed_channel.channel_name == channel_name)
-			tgui_alert(usr, "ERROR: Feed channel with that name already exists on the Network.", list("Okay"))
-			return TRUE
+	if(cross_sector)
+		channel_locked = TRUE
+
 	if(!channel_desc)
 		return TRUE
+
 	if(isnull(channel_locked))
 		return TRUE
-	var/choice = tgui_alert(usr, "Please confirm feed channel creation","Network Channel Handler", list("Confirm","Cancel"))
-	if(choice == "Confirm")
-		GLOB.news_network.create_feed_channel(channel_name, newscaster_username, channel_desc, locked = channel_locked)
-		SSblackbox.record_feedback("text", "newscaster_channels", 1, "[channel_name]")
+
+	for(var/datum/feed_channel/iterated_feed_channel as anything in GLOB.news_network.network_channels)
+		if(iterated_feed_channel.channel_name == channel_name)
+			tgui_alert(user, "ERROR: Feed channel with that name already exists on the Network.", list("Okay"))
+			return TRUE
+
+	var/list/hard_filter_result = is_ic_filtered(channel_name)
+	if(hard_filter_result)
+		tgui_alert(user, "Your channel name contains: (\"[hard_filter_result[CHAT_FILTER_INDEX_WORD]]\"), which is not allowed on this server.")
+		return TRUE
+
+	var/choice = tgui_alert(user, "Please confirm feed channel creation","Network Channel Handler", list("Confirm", "Cancel"))
 	creating_channel = FALSE
-	update_static_data(usr)
+	if(choice != "Confirm")
+		update_static_data(user)
+		return
+
+	var/approval_time = CROSS_SECTOR_CANCEL_TIME
+	var/list/soft_filter_result = is_soft_ooc_filtered(channel_name)
+	if(soft_filter_result)
+		if(tgui_alert(user,"Your channel name contains \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\". \"[soft_filter_result[CHAT_FILTER_INDEX_REASON]]\", Are you sure you want to use it?", "Soft Blocked Word", list("Yes", "No")) != "Yes")
+			return
+		message_admins("[ADMIN_LOOKUPFLW(user)] has passed the soft filter for \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\". \
+			They may be using a disallowed term for a cross-station newscaster channel. Increasing delay time to reject.\n\n Channel name: \"[channel_name]\"")
+		log_admin_private("[key_name(user)] has passed the soft filter for \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\". \
+			They may be using a disallowed term for a cross-station newscaster channel. Increasing delay time to reject.\n\n Channel name: \"[channel_name]\"")
+		approval_time = EXTENDED_CROSS_SECTOR_CANCEL_TIME
+
+	if(!cross_sector)
+		finish_channel_creation(user, channel_locked, FALSE)
+		return
+
+	awaiting_approval = TRUE
+	update_static_data(user)
+	user.log_message("is about to create a cross-sector newscaster channel with the following name: [channel_name]", LOG_GAME)
+	to_chat(
+		GLOB.admins,
+		span_adminnotice( \
+			"<b color='orange'>Cross-sector channel creation (OUTGOING):</b> [ADMIN_LOOKUPFLW(user)] is about to create a cross-sector \
+			newscaster channel \"[channel_name]\" (will autoapprove in [DisplayTimeText(approval_time)]): \
+			<b><a href='byond://?src=[REF(src)];reject_channel_creation=1'>REJECT</a></b>"\
+		)
+	)
+	channel_approval_timer = addtimer(CALLBACK(src, PROC_REF(finish_channel_creation), user, channel_locked, TRUE, approval_time), approval_time, TIMER_STOPPABLE)
+
+/obj/machinery/newscaster/proc/finish_channel_creation(mob/user, channel_locked, cross_sector, cross_sector_delay)
+	channel_approval_timer = null
+	awaiting_approval = FALSE
+	GLOB.news_network.create_feed_channel(channel_name, newscaster_username, channel_desc, locked = channel_locked, author_ckey = user.ckey, cross_sector = cross_sector, cross_sector_delay = cross_sector_delay)
+	SSblackbox.record_feedback("text", "newscaster_channels", 1, "[channel_name]")
+	update_static_data(user)
+
+/obj/machinery/newscaster/Topic(href, href_list)
+	if (!href_list["reject_channel_creation"])
+		return ..()
+
+	if (!usr.client?.holder)
+		usr.log_message("tried to reject the creation of a cross-sector newscaster channel without being an admin.", LOG_ADMIN)
+		message_admins("[key_name(usr)] tried to reject the creation of a cross-sector newscaster channel without being an admin.")
+		return
+
+	if (isnull(channel_approval_timer))
+		to_chat(usr, span_warning("It's too late!"))
+		return
+
+	deltimer(channel_approval_timer)
+	channel_approval_timer = null
+
+	log_admin("[key_name(usr)] has cancelled the creation of a cross-sector newscaster channel.")
+	message_admins("[key_name(usr)] has cancelled the creation of a cross-sector newscaster channel.")
+	return TRUE
 
 /**
  * Constructs a comment to attach to the currently selected feed_message of choice, assuming that a user can be found and that a message body has been written.
  */
-/obj/machinery/newscaster/proc/create_comment()
+/obj/machinery/newscaster/proc/create_comment(mob/user)
 	if(!comment_text)
 		creating_comment = FALSE
 		return TRUE
 	if(!newscaster_username)
 		creating_comment = FALSE
 		return TRUE
-	var/datum/feed_comment/new_feed_comment = new/datum/feed_comment
-	new_feed_comment.author = newscaster_username
-	new_feed_comment.body = comment_text
-	new_feed_comment.time_stamp = station_time_timestamp()
-	GLOB.news_network.last_action ++
-	current_message.comments += new_feed_comment
-	usr.log_message("(as [newscaster_username]) commented on message [current_message.return_body(-1)] -- [current_message.body]", LOG_COMMENT)
+	GLOB.news_network.submit_comment(user, comment_text, newscaster_username, current_message)
 	creating_comment = FALSE
 
 /**
@@ -675,7 +749,7 @@
  * preventing an un-ID'd user from making a channel, and preventing censored authors from making a channel.
  * Otherwise, sets creating_channel to TRUE.
  */
-/obj/machinery/newscaster/proc/start_create_channel()
+/obj/machinery/newscaster/proc/start_create_channel(mob/user)
 	//This first block checks for pre-existing reasons to prevent you from making a new channel, like being censored, or if you have a channel already.
 	var/list/existing_authors = list()
 	for(var/datum/feed_channel/iterated_feed_channel as anything in GLOB.news_network.network_channels)
@@ -685,7 +759,7 @@
 			existing_authors += iterated_feed_channel.author
 	if(!newscaster_username || (newscaster_username in existing_authors))
 		creating_channel = FALSE
-		tgui_alert(usr, "ERROR: User cannot be found or already has an owned feed channel.", list("Okay"))
+		tgui_alert(user, "ERROR: User cannot be found or already has an owned feed channel.", list("Okay"))
 		return TRUE
 	creating_channel = TRUE
 	return TRUE
@@ -695,17 +769,23 @@
  * Verifies that the message is being written to a real feed_channel, then provides a text input for the feed story to be written into.
  * Finally, it submits the message to the network, is logged globally, and clears all message-specific variables from the machine.
  */
-/obj/machinery/newscaster/proc/create_story(channel_name)
+/obj/machinery/newscaster/proc/create_story(mob/user, channel_name)
 	for(var/datum/feed_channel/potential_channel as anything in GLOB.news_network.network_channels)
 		if(channel_name == potential_channel.channel_ID)
 			current_channel = potential_channel
 			break
-	var/temp_message = tgui_input_text(usr, "Write your Feed story", "Network Channel Handler", feed_channel_message, multiline = TRUE)
+
+	if (current_channel.receiving_cross_sector)
+		return
+
+	var/temp_message = tgui_input_text(user, "Write your Feed story", "Network Channel Handler", feed_channel_message, max_length = MAX_BROADCAST_LEN, multiline = TRUE)
 	if(length(temp_message) <= 1)
 		return TRUE
+
 	if(temp_message)
 		feed_channel_message = temp_message
-	GLOB.news_network.submit_article("<font face=\"[PEN_FONT]\">[parsemarkdown(feed_channel_message, usr)]</font>", newscaster_username, current_channel.channel_name, send_photo_data(), adminMessage = FALSE, allow_comments = TRUE)
+
+	GLOB.news_network.submit_article("<font face=\"[PEN_FONT]\">[parsemarkdown(feed_channel_message, user)]</font>", newscaster_username, current_channel.channel_name, send_photo_data(), adminMessage = FALSE, allow_comments = TRUE, author_mob = user)
 	SSblackbox.record_feedback("amount", "newscaster_stories", 1)
 	feed_channel_message = ""
 	current_image = null
@@ -714,22 +794,22 @@
  * Selects a currently held photo from the user's hand and makes it the current_image held by the newscaster.
  * If a photo is still held in the newscaster, it will otherwise clear it from the machine.
  */
-/obj/machinery/newscaster/proc/toggle_photo()
+/obj/machinery/newscaster/proc/toggle_photo(mob/user)
 	if(current_image)
-		balloon_alert(usr, "current photo cleared.")
+		balloon_alert(user, "current photo cleared.")
 		current_image = null
 		return TRUE
-	else
-		attach_photo(usr)
-		if(current_image)
-			balloon_alert(usr, "photo selected.")
-		else
-			balloon_alert(usr, "no photo identified.")
 
-/obj/machinery/newscaster/proc/clear_wanted_issue(user)
+	attach_photo(user)
+	if(current_image)
+		balloon_alert(user, "photo selected.")
+	else
+		balloon_alert(user, "no photo identified.")
+
+/obj/machinery/newscaster/proc/clear_wanted_issue(mob/user)
 	var/obj/item/card/id/id_card
-	if(isliving(usr))
-		var/mob/living/living_user = usr
+	if(isliving(user))
+		var/mob/living/living_user = user
 		id_card = living_user.get_idcard(hand_first = TRUE)
 	if(!(security_access in id_card?.GetAccess()))
 		say("Clearance not found.")
@@ -742,10 +822,10 @@
  */
 /obj/machinery/newscaster/proc/delete_bounty_request()
 	if(!active_request || !current_user)
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
+		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 20, TRUE)
 		return TRUE
 	if(active_request?.owner != current_user.account_holder)
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
+		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 20, TRUE)
 		return TRUE
 	say("Deleted current request.")
 	GLOB.request_list.Remove(active_request)
@@ -756,7 +836,7 @@
  */
 /obj/machinery/newscaster/proc/create_bounty()
 	if(!current_user || !bounty_text)
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
+		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 20, TRUE)
 		return TRUE
 	for(var/datum/station_request/iterated_station_request as anything in GLOB.request_list)
 		if(iterated_station_request.req_number == current_user.account_id)
@@ -776,11 +856,11 @@
 		say("No ID detected.")
 		return TRUE
 	if(current_user.account_holder == active_request.owner)
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
+		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 20, TRUE)
 		return TRUE
 	for(var/new_apply in active_request?.applicants)
 		if(current_user.account_holder == active_request?.applicants[new_apply])
-			playsound(src, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
+			playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 20, TRUE)
 			return TRUE
 	active_request.applicants += list(current_user)
 
@@ -791,7 +871,7 @@
 	if(!current_user)
 		return TRUE
 	if(!current_user.has_money(active_request.value) || (current_user.account_holder != active_request.owner))
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
+		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 30, TRUE)
 		return TRUE
 	payment_target.transfer_money(current_user, active_request.value, "Bounty Request")
 	say("Paid out [active_request.value] credits.")
@@ -802,7 +882,7 @@
 	name = "newscaster frame"
 	desc = "Used to build newscasters, just secure to the wall."
 	icon_state = "newscaster_assembly"
-	custom_materials = list(/datum/material/iron= MINERAL_MATERIAL_AMOUNT * 7, /datum/material/glass= MINERAL_MATERIAL_AMOUNT * 4)
+	custom_materials = list(/datum/material/iron= SHEET_MATERIAL_AMOUNT * 7)
 	result_path = /obj/machinery/newscaster
 	pixel_shift = 30
 

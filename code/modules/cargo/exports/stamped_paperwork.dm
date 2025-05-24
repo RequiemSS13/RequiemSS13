@@ -3,6 +3,7 @@
 	unit_name = "paperwork pile"
 	export_types = list(/obj/item/paperwork)
 	exclude_types = list(/obj/item/paperwork/photocopy) //Has its own category
+	allow_negative_cost = TRUE
 
 /datum/export/paperwork/get_cost(obj/item/paperwork/sold_paperwork)
 	var/paperwork_cost = cost
@@ -18,6 +19,7 @@
 	cost = CARGO_CRATE_VALUE
 	unit_name = "messy paperwork pile"
 	export_types = list(/obj/item/paperwork/photocopy)
+	allow_negative_cost = TRUE
 	///Tracks the chance of losing money for trying to double-dip with photocopies. Resets every time it ruins an order.
 	var/backfire_chance = 0
 	///Used to track if a batch of photocopy exports has backfired

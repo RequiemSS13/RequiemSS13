@@ -1,7 +1,7 @@
 /obj/item/papercutter
 	name = "paper cutter"
 	desc = "Standard office equipment. Precisely cuts paper using a large blade."
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "papercutter"
 	force = 5
 	throwforce = 5
@@ -24,7 +24,8 @@
 /obj/item/papercutter/Initialize(mapload)
 	. = ..()
 	stored_blade = new /obj/item/hatchet/cutterblade(src)
-	update_icon()
+	register_context()
+	update_appearance()
 
 /obj/item/papercutter/Destroy(force)
 	if(!isnull(stored_paper))
@@ -33,8 +34,34 @@
 		QDEL_NULL(stored_blade)
 	return ..()
 
-/obj/item/papercutter/deconstruct(disassembled)
-	..()
+/obj/item/papercutter/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+
+	if(!isnull(held_item))
+		if(held_item.tool_behaviour == TOOL_SCREWDRIVER)
+			if(isnull(stored_blade))
+				return NONE
+			context[SCREENTIP_CONTEXT_LMB] = "[(blade_secured ? "Unsecure" : "Secure")] blade"
+		if(istype(held_item, /obj/item/paper))
+			if(!isnull(stored_paper))
+				return NONE
+			context[SCREENTIP_CONTEXT_LMB] = "Insert paper"
+		if(istype(held_item, /obj/item/hatchet/cutterblade))
+			if(!isnull(stored_blade))
+				return NONE
+			context[SCREENTIP_CONTEXT_LMB] = "Insert blade"
+
+	if(!isnull(stored_paper))
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove paper"
+		if(!(isnull(stored_blade)) && blade_secured)
+			context[SCREENTIP_CONTEXT_RMB] = "Cut paper"
+
+	else if(!isnull(stored_blade) && !blade_secured)
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove blade"
+
+	return CONTEXTUAL_SCREENTIP_SET
+
+/obj/item/papercutter/atom_deconstruct(disassembled)
 	if(!disassembled)
 		return
 
@@ -43,12 +70,12 @@
 	if(!isnull(stored_blade))
 		stored_blade.forceMove(drop_location())
 
-/obj/item/papercutter/Exited(atom/movable/leaving, direction)
+/obj/item/papercutter/Exited(atom/movable/leaving, atom/new_loc)
+	. = ..()
 	if(leaving == stored_paper)
 		stored_paper = null
 	if(leaving == stored_blade)
 		stored_blade = null
-	return ..()
 
 /obj/item/papercutter/suicide_act(mob/living/user)
 	if(iscarbon(user) && stored_blade)
@@ -59,7 +86,7 @@
 			return SHAME
 		user.visible_message(span_suicide("[user] is beheading [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 		user_head.drop_limb()
-		playsound(loc, "desecration", 50, TRUE, -1)
+		playsound(loc, SFX_DESECRATION, 50, TRUE, -1)
 		return BRUTELOSS
 	// If we have no blade, just beat ourselves up
 	user.visible_message(span_suicide("[user] repeatedly bashes [src] against [user.p_them()]self! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -81,26 +108,17 @@
 	tool.play_tool_sound(src)
 	balloon_alert(user, "[blade_secured ? "un" : ""]secured")
 	blade_secured = !blade_secured
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
-/obj/item/papercutter/attack_hand(mob/user)
-	. = ..()
-	if(!stored_blade)
-		balloon_alert(user, "no blade!")
-	else if(!blade_secured)
-		balloon_alert(user, "blade unsecured!")
-	else if(!stored_paper)
-		balloon_alert(user, "nothing to cut!")
-	else
-		cut_paper(user)
-
-	return TRUE
-
-/obj/item/papercutter/attackby(obj/item/inserted_item, mob/user, params)
+/obj/item/papercutter/attackby(obj/item/inserted_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(inserted_item, /obj/item/paper))
 		if(is_type_in_list(inserted_item, list(
-			/obj/item/paper/paperslip, /obj/item/paper/pamphlet)
-			))
+				/obj/item/paper/fake_report,
+				/obj/item/paper/holy_writ,
+				/obj/item/paper/pamphlet,
+				/obj/item/paper/paperslip,
+				/obj/item/paper/report,
+		)))
 			balloon_alert(user, "won't fit!")
 			return
 		if(stored_paper)
@@ -108,7 +126,7 @@
 			return
 		if(!user.transferItemToLoc(inserted_item, src))
 			return
-		playsound(loc, "page_turn", 60, TRUE)
+		playsound(loc, SFX_PAGE_TURN, 60, TRUE)
 		balloon_alert(user, "paper inserted")
 		stored_paper = inserted_item
 
@@ -122,41 +140,47 @@
 		inserted_item.forceMove(src)
 		stored_blade = inserted_item
 
-	update_icon()
+	update_appearance()
 
 	return ..()
 
-/obj/item/papercutter/AltClick(mob/user)
-	if(!user.Adjacent(src))
-		return ..()
-
+/obj/item/papercutter/click_alt(mob/user)
 	// can only remove one at a time; paper goes first, as its most likely what players will want to be taking out
 	if(!isnull(stored_paper))
 		user.put_in_hands(stored_paper)
 	else if(!isnull(stored_blade) && !blade_secured)
 		user.put_in_hands(stored_blade)
-	update_icon()
+	update_appearance()
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/papercutter/attack_hand_secondary(mob/user, list/modifiers)
+	if(!stored_blade)
+		balloon_alert(user, "no blade!")
+	else if(!blade_secured)
+		balloon_alert(user, "blade unsecured!")
+	else if(!stored_paper)
+		balloon_alert(user, "nothing to cut!")
+	else
+		cut_paper(user)
+
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/item/papercutter/proc/cut_paper(mob/user)
-	playsound(src.loc, 'sound/weapons/slash.ogg', 50, TRUE)
+	playsound(src.loc, 'sound/items/weapons/slash.ogg', 50, TRUE)
 	var/clumsy = (iscarbon(user) && HAS_TRAIT(user, TRAIT_CLUMSY) && prob(cut_self_chance))
 	to_chat(user, span_userdanger("You neatly cut [stored_paper][clumsy ? "... and your finger in the process!" : "."]"))
 	if(clumsy)
 		var/obj/item/bodypart/finger = user.get_active_hand()
-		var/datum/wound/slash/moderate/papercut = new
-		papercut.apply_wound(finger)
+		if (iscarbon(user))
+			var/mob/living/carbon/carbon_user = user
+			carbon_user.cause_wound_of_type_and_severity(WOUND_SLASH, finger, WOUND_SEVERITY_MODERATE, wound_source = "paper cut")
 	stored_paper = null
 	qdel(stored_paper)
 	new /obj/item/paper/paperslip(get_turf(src))
 	new /obj/item/paper/paperslip(get_turf(src))
-	update_icon()
+	update_appearance()
 
-/obj/item/papercutter/MouseDrop(atom/over_object)
-	. = ..()
-	var/mob/user = usr
-	if(user.incapacitated() || !Adjacent(user))
-		return
-
+/obj/item/papercutter/mouse_drop_dragged(atom/over_object, mob/user)
 	if(over_object == user)
 		user.put_in_hands(src)
 
@@ -174,6 +198,13 @@
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
 	grind_results = list(/datum/reagent/cellulose = 1.5) //It's a normal paper sheet divided in 2. 3 divided by 2 equals 1.5, this way you can't magically dupe cellulose
 
+/obj/item/paper/paperslip/fortune
+	name = "fortune slip"
+
+/obj/item/paper/paperslip/fortune/Initialize(mapload)
+	default_raw_text = pick(GLOB.wisdoms)
+	return ..()
+
 /obj/item/paper/paperslip/corporate //More fancy and sturdy paper slip which is a "plastic card", used for things like spare ID safe code
 	name = "corporate plastic card"
 	desc = "A plastic card for confidential corporate matters. Can be written on with pen somehow."
@@ -188,7 +219,7 @@
 /obj/item/hatchet/cutterblade
 	name = "paper cutter blade"
 	desc = "The blade of a paper cutter. Most likely removed for polishing or sharpening."
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "cutterblade"
 	inhand_icon_state = "knife"
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'

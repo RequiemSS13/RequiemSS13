@@ -9,8 +9,8 @@
 	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "newspaper"
 	inhand_icon_state = "newspaper"
-	lefthand_file = 'icons/mob/inhands/misc/books_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/books_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/items/books_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/books_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	attack_verb_continuous = list("baps")
 	attack_verb_simple = list("bap")
@@ -33,9 +33,17 @@
 	var/saved_wanted_body
 	///Stored icon of the wanted criminal, if one existed at the time of creation.
 	var/icon/saved_wanted_icon
+	///Do we have eyeholes punctured?
+	var/punctured = FALSE
 
 /obj/item/newspaper/Initialize(mapload)
 	. = ..()
+	register_context()
+	AddComponent(\
+		/datum/component/two_handed,\
+		wield_callback = CALLBACK(src, PROC_REF(on_wielded)),\
+		unwield_callback = CALLBACK(src, PROC_REF(on_unwielded)),\
+	)
 	creation_time = GLOB.news_network.last_action
 	for(var/datum/feed_channel/iterated_feed_channel in GLOB.news_network.network_channels)
 		news_content += iterated_feed_channel
@@ -46,6 +54,21 @@
 	saved_wanted_body = GLOB.news_network.wanted_issue.body
 	if(GLOB.news_network.wanted_issue.img)
 		saved_wanted_icon = GLOB.news_network.wanted_issue.img
+	AddElement(/datum/element/burn_on_item_ignition)
+	RegisterSignal(src, COMSIG_ATOM_IGNITED_BY_ITEM, PROC_REF(close_paper_ui))
+
+/obj/item/newspaper/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	if(held_item)
+		if(IS_WRITING_UTENSIL(held_item))
+			context[SCREENTIP_CONTEXT_LMB] = "Scribble"
+			return CONTEXTUAL_SCREENTIP_SET
+		if(held_item.get_temperature())
+			context[SCREENTIP_CONTEXT_LMB] = "Burn"
+			return CONTEXTUAL_SCREENTIP_SET
+
+/obj/item/newspaper/proc/close_paper_ui()
+	SIGNAL_HANDLER
+	SStgui.close_uis(src)
 
 /obj/item/newspaper/suicide_act(mob/living/user)
 	user.visible_message(span_suicide(\
@@ -53,33 +76,58 @@
 		until [user.p_their()] eyes light up with realization!"\
 	))
 	user.say(";JOURNALISM IS MY CALLING! EVERYBODY APPRECIATES UNBIASED REPORTI-GLORF", forced = "newspaper suicide")
-	var/obj/item/reagent_containers/food/drinks/bottle/whiskey/last_drink = new(user.loc)
+	var/obj/item/reagent_containers/cup/glass/bottle/whiskey/last_drink = new(user.loc)
 	playsound(user, 'sound/items/drink.ogg', vol = rand(10, 50), vary = TRUE)
-	last_drink.reagents.trans_to(user, last_drink.reagents.total_volume, transfered_by = user)
+	last_drink.reagents.trans_to(user, last_drink.reagents.total_volume, transferred_by = user)
 	user.visible_message(span_suicide("[user] downs the contents of [last_drink.name] in one gulp! Shoulda stuck to sudoku!"))
 	return TOXLOSS
 
-/obj/item/newspaper/attackby(obj/item/attacking_item, mob/user, params)
-	if(burn_paper_product_attackby_check(attacking_item, user))
-		SStgui.close_uis(src)
-		return
+/obj/item/newspaper/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if (tool.tool_behaviour == TOOL_SCREWDRIVER || tool.tool_behaviour == TOOL_WIRECUTTER || tool.sharpness)
+		if (punctured)
+			balloon_alert(user, "already has holes!")
+			return ITEM_INTERACT_BLOCKING
 
-	if(!user.can_write(attacking_item))
-		return ..()
-	if(scribble_page == current_page)
+		var/used_verb = "cutting out"
+		if (tool.sharpness != SHARP_EDGED || tool.tool_behaviour == TOOL_SCREWDRIVER)
+			used_verb = "puncturing"
+
+		balloon_alert(user, "[used_verb] peekholes...")
+		if (!do_after(user, 3 SECONDS, src))
+			balloon_alert(user, "interrupted!")
+			return ITEM_INTERACT_BLOCKING
+
+		playsound(src, 'sound/items/duct_tape/duct_tape_rip.ogg', 50, TRUE)
+		punctured = TRUE
+		// User has additional arms or something, I dunno
+		if (isliving(loc))
+			var/mob/living/owner = loc
+			owner.remove_fov_trait(REF(src), FOV_REVERSE_270_DEGRESS)
+			owner.update_appearance(UPDATE_OVERLAYS)
+		return ITEM_INTERACT_SUCCESS
+
+	if (!user.can_write(tool))
+		return NONE
+
+	if (scribble_page == current_page)
 		user.balloon_alert(user, "already scribbled!")
-		return
-	var/new_scribble_text = tgui_input_text(user, "What do you want to scribble?", "Write something")
-	if(isnull(new_scribble_text))
-		return
+		return ITEM_INTERACT_BLOCKING
+
+	var/new_scribble_text = tgui_input_text(user, "What do you want to scribble?", "Write something", max_length = MAX_MESSAGE_LEN)
+	if (isnull(new_scribble_text))
+		return ITEM_INTERACT_BLOCKING
+
 	add_fingerprint(user)
 	user.balloon_alert(user, "scribbling...")
 	playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
-	if(!do_after(user, 2 SECONDS, src))
-		return
+	if (!do_after(user, 2 SECONDS, src))
+		balloon_alert(user, "interrupted!")
+		return ITEM_INTERACT_BLOCKING
+
 	user.balloon_alert(user, "scribbled!")
 	scribble_page = current_page
 	scribble_text = new_scribble_text
+	return ITEM_INTERACT_SUCCESS
 
 ///Checks the creation time of the newspaper and compares it to list to see if the list is meant to be censored at the time of printing.
 /obj/item/newspaper/proc/censored_check(list/times_censored)
@@ -96,11 +144,61 @@
 				return FALSE
 	return FALSE
 
+/// Called when you start reading the paper with both hands
+/obj/item/newspaper/proc/on_wielded(obj/item/source, mob/living/user)
+	ADD_TRAIT(user, TRAIT_FACE_COVERED, REF(src))
+	RegisterSignal(user, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(holder_updated_overlays))
+	RegisterSignal(user, COMSIG_HUMAN_GET_VISIBLE_NAME, PROC_REF(holder_checked_name))
+	user.update_appearance(UPDATE_OVERLAYS)
+	user.name = user.get_visible_name()
+	if (!punctured)
+		user.add_fov_trait(REF(src), FOV_REVERSE_270_DEGRESS)
+
+/// Called when you stop doing that
+/obj/item/newspaper/proc/on_unwielded(obj/item/source, mob/living/user)
+	REMOVE_TRAIT(user, TRAIT_FACE_COVERED, REF(src))
+	UnregisterSignal(user, list(COMSIG_ATOM_UPDATE_OVERLAYS, COMSIG_HUMAN_GET_VISIBLE_NAME))
+	user.update_appearance(UPDATE_OVERLAYS)
+	user.name = user.get_visible_name()
+	if (!punctured)
+		user.remove_fov_trait(REF(src), FOV_REVERSE_270_DEGRESS)
+
+/// Called when we're being read and overlays are updated, we should show a big newspaper over the reader
+/obj/item/newspaper/proc/holder_updated_overlays(atom/reader, list/overlays)
+	SIGNAL_HANDLER
+	overlays += mutable_appearance(icon, "newspaper_held_over[punctured ? "_holed" : ""]", ABOVE_MOB_LAYER)
+	overlays += mutable_appearance(icon, "newspaper_held_under[punctured ? "_holed" : ""]", BELOW_MOB_LAYER)
+
+/obj/item/newspaper/examine(mob/user)
+	. = ..()
+	if (punctured)
+		. += span_notice("It has a pair of small peek holes punctured near the top.")
+	else
+		. += span_notice("You can cut out some peek holes using something [span_bolditalic("sharp")] or [span_bolditalic("pointy")]...")
+
+/// Called when someone tries to figure out what our identity is, but they can't see it because of the newspaper
+/obj/item/newspaper/proc/holder_checked_name(mob/living/carbon/human/source, list/identity)
+	SIGNAL_HANDLER
+
+	var/newspaper_obscurity_priority = 100 // how powerful obscuring your appearance with a newspaper is
+	if(identity[VISIBLE_NAME_FORCED])
+		if(identity[VISIBLE_NAME_FORCED] > newspaper_obscurity_priority) // the other set forced name is forcier than breaking news
+			return
+		else if(identity[VISIBLE_NAME_FORCED] == newspaper_obscurity_priority)
+			stack_trace("A name-setting signal operation ([identity[VISIBLE_NAME_FACE]]) has a priority collision with [src].")
+		else
+			identity[VISIBLE_NAME_FORCED] = newspaper_obscurity_priority
+	identity[VISIBLE_NAME_FACE] = ""
+	identity[VISIBLE_NAME_ID] = ""
+
 /obj/item/newspaper/ui_interact(mob/user, datum/tgui/ui)
+	if(resistance_flags & ON_FIRE)
+		return
 	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "Newspaper", name)
-		ui.open()
+	if(ui)
+		return
+	ui = new(user, src, "Newspaper", name)
+	ui.open()
 
 /obj/item/newspaper/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -121,7 +219,7 @@
 		else
 			return TRUE
 	SStgui.update_uis(src)
-	playsound(src, "page_turn", 50, TRUE)
+	playsound(src, SFX_PAGE_TURN, 50, TRUE)
 	return TRUE
 
 /obj/item/newspaper/ui_static_data(mob/user)

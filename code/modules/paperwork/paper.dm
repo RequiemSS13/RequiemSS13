@@ -17,17 +17,19 @@
 	icon_state = "paper"
 	inhand_icon_state = "paper"
 	worn_icon_state = "paper"
-	custom_fire_overlay = "paper_onfire_overlay"
 	throwforce = 0
 	w_class = WEIGHT_CLASS_TINY
 	throw_range = 1
 	throw_speed = 1
+	pressure_resistance = 0
 	resistance_flags = FLAMMABLE
 	max_integrity = 50
 	drop_sound = 'sound/items/handling/paper_drop.ogg'
 	pickup_sound = 'sound/items/handling/paper_pickup.ogg'
 	grind_results = list(/datum/reagent/cellulose = 3)
 	color = COLOR_WHITE
+	item_flags = SKIP_FANTASY_ON_SPAWN
+	interaction_flags_click = NEED_DEXTERITY|NEED_HANDS|ALLOW_RESTING
 
 	/// Lazylist of raw, unsanitised, unparsed text inputs that have been made to the paper.
 	var/list/datum/paper_input/raw_text_inputs
@@ -61,6 +63,9 @@
 	///If TRUE, staff can read paper everywhere, but usually from requests panel.
 	var/request_state = FALSE
 
+	///If this paper can be selected as a candidate for a future message in a bottle when spawned outside of mapload. Doesn't affect manually doing that.
+	var/can_become_message_in_bottle = TRUE
+
 /obj/item/paper/Initialize(mapload)
 	. = ..()
 	pixel_x = base_pixel_x + rand(-9, 9)
@@ -69,12 +74,28 @@
 	if(default_raw_text)
 		add_raw_text(default_raw_text)
 
-	update_icon()
+	update_appearance()
+
+	if(can_become_message_in_bottle && !mapload && prob(MESSAGE_BOTTLE_CHANCE))
+		LAZYADD(SSpersistence.queued_message_bottles, src)
+
+	AddElement(/datum/element/burn_on_item_ignition)
+	RegisterSignal(src, COMSIG_ATOM_IGNITED_BY_ITEM, PROC_REF(close_paper_ui))
 
 /obj/item/paper/Destroy()
 	camera_holder = null
 	clear_paper()
+	LAZYREMOVE(SSpersistence.queued_message_bottles, src)
 	return ..()
+
+/obj/item/paper/custom_fire_overlay()
+	if (!custom_fire_overlay)
+		custom_fire_overlay = mutable_appearance('icons/obj/service/bureaucracy.dmi', "paper_onfire_overlay", appearance_flags = RESET_COLOR|KEEP_APART)
+	return custom_fire_overlay
+
+/obj/item/paper/proc/close_paper_ui()
+	SIGNAL_HANDLER
+	SStgui.close_uis(src)
 
 /// Determines whether this paper has been written or stamped to.
 /obj/item/paper/proc/is_empty()
@@ -209,9 +230,9 @@
 	if(is_signature)
 		field_text = signature_name
 	else if(is_date)
-		field_text = "[time2text(world.timeofday, "DD/MM")]/[GLOB.year_integer]"
+		field_text = "[time2text(world.timeofday, "DD/MM", NO_TIMEZONE)]/[CURRENT_STATION_YEAR]"
 	else if(is_time)
-		field_text = time2text(world.timeofday, "hh:mm")
+		field_text = time2text(world.timeofday, "hh:mm", NO_TIMEZONE)
 
 	var/field_font = is_signature ? SIGNATURE_FONT : font
 
@@ -268,7 +289,7 @@
 	if(LAZYLEN(stamp_cache) > MAX_PAPER_STAMPS_OVERLAYS)
 		return
 
-	var/mutable_appearance/stamp_overlay = mutable_appearance('icons/obj/service/bureaucracy.dmi', "paper_[stamp_icon_state]")
+	var/mutable_appearance/stamp_overlay = mutable_appearance('icons/obj/service/bureaucracy.dmi', "paper_[stamp_icon_state]", appearance_flags = KEEP_APART | RESET_COLOR)
 	stamp_overlay.pixel_w = rand(-2, 2)
 	stamp_overlay.pixel_z = rand(-3, 2)
 	add_overlay(stamp_overlay)
@@ -282,13 +303,13 @@
 	LAZYNULL(stamp_cache)
 
 	cut_overlays()
-	update_icon()
+	update_appearance()
 
 /obj/item/paper/pickup(user)
 	if(contact_poison && ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/clothing/gloves/G = H.gloves
-		if(!istype(G) || G.transfer_prints)
+		if(!istype(G) || !(G.body_parts_covered & HANDS) || HAS_TRAIT(G, TRAIT_FINGERPRINT_PASSTHROUGH) || HAS_TRAIT(H, TRAIT_FINGERPRINT_PASSTHROUGH))
 			H.reagents.add_reagent(contact_poison,contact_poison_volume)
 			contact_poison = null
 	. = ..()
@@ -305,7 +326,7 @@
 	set category = "Object"
 	set src in usr
 
-	if(!usr.can_read(src) || usr.is_blind() || usr.incapacitated(ignore_restraints = TRUE, ignore_grab = TRUE) || (isobserver(usr) && !isAdminGhostAI(usr)))
+	if(!usr.can_read(src) || usr.is_blind() || INCAPACITATED_IGNORING(usr, INCAPABLE_RESTRAINTS|INCAPABLE_GRAB) || (isobserver(usr) && !isAdminGhostAI(usr)))
 		return
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
@@ -350,7 +371,7 @@
 		return UI_UPDATE
 	if(!in_range(user, src) && !isobserver(user))
 		return UI_CLOSE
-	if(user.incapacitated(ignore_restraints = TRUE, ignore_grab = TRUE) || (isobserver(user) && !isAdminGhostAI(user)))
+	if(INCAPACITATED_IGNORING(user, INCAPABLE_RESTRAINTS|INCAPABLE_GRAB) || (isobserver(user) && !isAdminGhostAI(user)))
 		return UI_UPDATE
 	// Even harder to read if your blind...braile? humm
 	// .. or if you cannot read
@@ -368,9 +389,14 @@
 		return TRUE
 	return ..()
 
-/obj/item/paper/AltClick(mob/user)
+/obj/item/paper/click_alt(mob/living/user)
+	if(HAS_TRAIT(user, TRAIT_PAPER_MASTER))
+		make_plane(user, /obj/item/paperplane/syndicate)
+		return CLICK_ACTION_SUCCESS
 	make_plane(user, /obj/item/paperplane)
-	return TRUE
+	return CLICK_ACTION_SUCCESS
+
+
 
 /**
  * Paper plane folding
@@ -388,37 +414,7 @@
 		user.put_in_hands(new_plane)
 	return new_plane
 
-/obj/item/proc/burn_paper_product_attackby_check(obj/item/attacking_item, mob/living/user, bypass_clumsy = FALSE)
-	//can't be put on fire!
-	if((resistance_flags & FIRE_PROOF) || !(resistance_flags & FLAMMABLE))
-		return FALSE
-	//already on fire!
-	if(resistance_flags & ON_FIRE)
-		return FALSE
-	var/ignition_message = attacking_item.ignition_effect(src, user)
-	if(!ignition_message)
-		return FALSE
-	if(!bypass_clumsy && HAS_TRAIT(user, TRAIT_CLUMSY) && prob(10) && Adjacent(user))
-		user.visible_message(span_warning("[user] accidentally ignites [user.p_them()]self!"), \
-							span_userdanger("You miss [src] and accidentally light yourself on fire!"))
-		if(user.is_holding(attacking_item)) //checking if they're holding it in case TK is involved
-			user.dropItemToGround(attacking_item)
-		user.adjust_fire_stacks(attacking_item)
-		user.IgniteMob()
-		return TRUE
-
-	if(user.is_holding(src)) //no TK shit here.
-		user.dropItemToGround(src)
-	user.visible_message(ignition_message)
-	add_fingerprint(user)
-	fire_act(attacking_item.get_temperature())
-	return TRUE
-
-/obj/item/paper/attackby(obj/item/attacking_item, mob/living/user, params)
-	if(burn_paper_product_attackby_check(attacking_item, user))
-		SStgui.close_uis(src)
-		return
-
+/obj/item/paper/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	// Enable picking paper up by clicking on it with the clipboard or folder
 	if(istype(attacking_item, /obj/item/clipboard) || istype(attacking_item, /obj/item/folder) || istype(attacking_item, /obj/item/paper_bin))
 		attacking_item.attackby(src, user)
@@ -457,15 +453,9 @@
 	ui_interact(user)
 	return ..()
 
-/obj/item/paper/Click(location, control, params)
-	. = ..()
-	var/list/modifiers = params2list(params)
-	if(!modifiers["right"])
-		return
-
-	var/mob/living/carbon/human/user = usr
-	var/obj/item/tool = user.get_active_held_item()
-	var/list/writing_stats = tool?.get_writing_implement_details()
+/// Secondary right click interaction to quickly stamp things
+/obj/item/paper/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
+	var/list/writing_stats = tool.get_writing_implement_details()
 
 	if(!length(writing_stats))
 		return NONE
@@ -481,8 +471,7 @@
 	)
 	playsound(src, 'sound/items/handling/standard_stamp.ogg', 50, vary = TRUE)
 
-	return FALSE // Stop the UI from opening.
-
+	return ITEM_INTERACT_BLOCKING // Stop the UI from opening.
 /**
  * Attempts to ui_interact the paper to the given user, with some sanity checking
  * to make sure the camera still exists via the weakref and that this paper is still
@@ -518,6 +507,8 @@
 	)
 
 /obj/item/paper/ui_interact(mob/user, datum/tgui/ui)
+	if(resistance_flags & ON_FIRE)
+		return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "PaperSheet", name)
@@ -635,7 +626,7 @@
 			user.visible_message(span_notice("[user] stamps [src] with \the [holding.name]!"), span_notice("You stamp [src] with \the [holding.name]!"))
 			playsound(src, 'sound/items/handling/standard_stamp.ogg', 50, vary = TRUE)
 
-			update_icon()
+			update_appearance()
 			update_static_data_for_all_viewers()
 			return TRUE
 		if("add_text")
@@ -685,7 +676,7 @@
 			to_chat(user, "You have added to your paper masterpiece!");
 
 			update_static_data_for_all_viewers()
-			update_icon()
+			update_appearance()
 			return TRUE
 		if("fill_input_field")
 			// If the paper is on an unwritable noticeboard, this usually shouldn't be possible.

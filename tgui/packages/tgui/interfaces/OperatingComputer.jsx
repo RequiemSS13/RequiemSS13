@@ -1,4 +1,3 @@
-import { useBackend, useSharedState } from '../backend';
 import {
   AnimatedNumber,
   Button,
@@ -8,6 +7,8 @@ import {
   Section,
   Tabs,
 } from 'tgui-core/components';
+
+import { useBackend, useSharedState } from '../backend';
 import { Window } from '../layouts';
 
 const damageTypes = [
@@ -30,9 +31,11 @@ const damageTypes = [
 ];
 
 export const OperatingComputer = (props) => {
+  const { act } = useBackend();
   const [tab, setTab] = useSharedState('tab', 1);
+
   return (
-    <Window width={350} height={470} resizable>
+    <Window width={350} height={470}>
       <Window.Content scrollable>
         <Tabs>
           <Tabs.Tab selected={tab === 1} onClick={() => setTab(1)}>
@@ -40,6 +43,9 @@ export const OperatingComputer = (props) => {
           </Tabs.Tab>
           <Tabs.Tab selected={tab === 2} onClick={() => setTab(2)}>
             Surgery Procedures
+          </Tabs.Tab>
+          <Tabs.Tab onClick={() => act('open_experiments')}>
+            Experiments
           </Tabs.Tab>
         </Tabs>
         {tab === 1 && <PatientStateView />}
@@ -55,16 +61,17 @@ const PatientStateView = (props) => {
   if (!table) {
     return <NoticeBox>No Table Detected</NoticeBox>;
   }
+
   return (
     <>
       <Section title="Patient State">
-        {(patient && (
+        {Object.keys(patient).length ? (
           <LabeledList>
             <LabeledList.Item label="State" color={patient.statstate}>
               {patient.stat}
             </LabeledList.Item>
             <LabeledList.Item label="Blood Type">
-              {patient.blood_type}
+              {patient.blood_type || 'Unable to determine blood type'}
             </LabeledList.Item>
             <LabeledList.Item label="Health">
               <ProgressBar
@@ -87,8 +94,9 @@ const PatientStateView = (props) => {
               </LabeledList.Item>
             ))}
           </LabeledList>
-        )) ||
-          'No Patient Detected'}
+        ) : (
+          'No Patient Detected'
+        )}
       </Section>
       {procedures.length === 0 && <Section>No Active Procedures</Section>}
       {procedures.map((procedure) => (
@@ -96,24 +104,24 @@ const PatientStateView = (props) => {
           <LabeledList>
             <LabeledList.Item label="Next Step">
               {procedure.next_step}
-              {procedure.chems_needed && (
-                <>
-                  <b>Required Chemicals:</b>
-                  <br />
-                  {procedure.chems_needed}
-                </>
-              )}
             </LabeledList.Item>
-            {!!data.alternative_step && (
+            {procedure.chems_needed && (
+              <LabeledList.Item label="Required Chems">
+                <NoticeBox success={procedure.chems_present ? true : false}>
+                  {procedure.chems_needed}
+                </NoticeBox>
+              </LabeledList.Item>
+            )}
+            {procedure.alternative_step && (
               <LabeledList.Item label="Alternative Step">
                 {procedure.alternative_step}
-                {procedure.alt_chems_needed && (
-                  <>
-                    <b>Required Chemicals:</b>
-                    <br />
-                    {procedure.alt_chems_needed}
-                  </>
-                )}
+              </LabeledList.Item>
+            )}
+            {procedure.alt_chems_needed && (
+              <LabeledList.Item label="Required Chems">
+                <NoticeBox success={procedure.alt_chems_present ? true : false}>
+                  {procedure.alt_chems_needed}
+                </NoticeBox>
               </LabeledList.Item>
             )}
           </LabeledList>

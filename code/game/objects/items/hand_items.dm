@@ -127,7 +127,13 @@
 	if(!(target?.get_bodypart(BODY_ZONE_HEAD)) || user.pulling != target || user.grab_state < GRAB_AGGRESSIVE || user.getStaminaLoss() > 80)
 		return FALSE
 
+	var/obj/item/bodypart/head/the_head = target.get_bodypart(BODY_ZONE_HEAD)
+	if(!(the_head.biological_state & BIO_FLESH))
+		to_chat(user, span_warning("You can't noogie [target], [target.p_they()] [target.p_have()] no skin on [target.p_their()] head!"))
+		return
+
 	// [user] gives [target] a [prefix_desc] noogie[affix_desc]!
+	var/brutal_noogie = FALSE // was it an extra hard noogie?
 	var/prefix_desc = "rough"
 	var/affix_desc = ""
 	var/affix_desc_target = ""
@@ -136,8 +142,10 @@
 		prefix_desc = "violent"
 		affix_desc = "on [target.p_their()] sensitive antennae"
 		affix_desc_target = "on your highly sensitive antennae"
+		brutal_noogie = TRUE
 	if(HAS_TRAIT(user, TRAIT_HULK))
 		prefix_desc = "sickeningly brutal"
+		brutal_noogie = TRUE
 
 	var/message_others = "[prefix_desc] noogie[affix_desc]"
 	var/message_target = "[prefix_desc] noogie[affix_desc_target]"
@@ -149,6 +157,11 @@
 		to_chat(user, span_warning("You fail to give [target] a noogie!"))
 		to_chat(target, span_danger("[user] fails to give you a noogie!"))
 		return
+
+	if(brutal_noogie)
+		target.add_mood_event("noogie_harsh", /datum/mood_event/noogie_harsh)
+	else
+		target.add_mood_event("noogie", /datum/mood_event/noogie)
 
 	noogie_loop(user, target, 0)
 
@@ -174,7 +187,7 @@
 	log_combat(user, target, "given a noogie to", addition = "([damage] brute before armor)")
 	target.apply_damage(damage, BRUTE, BODY_ZONE_HEAD)
 	user.adjustStaminaLoss(iteration + 5)
-	playsound(get_turf(user), "rustle", 50)
+	playsound(get_turf(user), SFX_RUSTLE, 50)
 
 	if(prob(33))
 		user.visible_message(span_danger("[user] continues noogie'ing [target]!"), span_warning("You continue giving [target] a noogie!"), vision_distance=COMBAT_MESSAGE_RANGE, ignored_mobs=target)
@@ -207,6 +220,9 @@
 	SEND_SIGNAL(user, COMSIG_LIVING_SLAP_MOB, slapped)
 	SEND_SIGNAL(slapped, COMSIG_LIVING_SLAPPED, user)
 
+	if(iscarbon(slapped))
+		var/mob/living/carbon/potential_tailed = slapped
+		potential_tailed.unwag_tail()
 	user.do_attack_animation(slapped)
 
 	var/slap_volume = 50
@@ -220,10 +236,10 @@
 		)
 		to_chat(slapped, span_userdanger("You see [user] scoff and pull back [user.p_their()] arm, then suddenly you're on the ground with an ungodly ringing in your ears!"))
 		slap_volume = 120
-		SEND_SOUND(slapped, sound('sound/weapons/flash_ring.ogg'))
+		SEND_SOUND(slapped, sound('sound/items/weapons/flash_ring.ogg'))
 		shake_camera(slapped, 2, 2)
 		slapped.Paralyze(2.5 SECONDS)
-		slapped.add_confusion(7 SECONDS)
+		slapped.adjust_confusion(7 SECONDS)
 		slapped.adjustStaminaLoss(40)
 	else if(user.zone_selected == BODY_ZONE_HEAD || user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
 		if(user == slapped)
@@ -263,10 +279,17 @@
 			span_notice("You slap [slapped]!"),
 			span_hear("You hear a slap."),
 		)
-	playsound(slapped, 'sound/weapons/slap.ogg', slap_volume, TRUE, -1)
+	playsound(slapped, 'sound/items/weapons/slap.ogg', slap_volume, TRUE, -1)
 	return
 
-/obj/item/hand_item/slapper/pre_attack(atom/target, mob/living/user, params)
+/obj/item/hand_item/slapper/pre_attack_secondary(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
+	if(!loc.Adjacent(target) || !istype(target, /obj/structure/table))
+		return ..()
+
+	slam_table(target, user)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/item/hand_item/slapper/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!loc.Adjacent(target) || !istype(target, /obj/structure/table))
 		return ..()
 
@@ -304,7 +327,7 @@
 // Successful takes will qdel our hand after
 /obj/item/hand_item/slapper/on_offer_taken(mob/living/carbon/offerer, mob/living/carbon/taker)
 	. = ..()
-	if(!.)
+	if(.)
 		return
 
 	qdel(src)
@@ -315,7 +338,7 @@
 	desc = "Sometimes, you just want to act gentlemanly."
 	inhand_icon_state = "nothing"
 
-/obj/item/hand_item/hand/pre_attack(mob/living/carbon/help_target, mob/living/carbon/helper, params)
+/obj/item/hand_item/hand/pre_attack(mob/living/carbon/help_target, mob/living/carbon/helper, list/modifiers, list/attack_modifiers)
 	if(!loc.Adjacent(help_target) || !istype(helper) || !istype(help_target))
 		return ..()
 
@@ -323,7 +346,19 @@
 		to_chat(helper, span_warning("You can't act gentlemanly when you're lying down!"))
 		return TRUE
 
-/obj/item/hand_item/hand/attack(mob/living/carbon/target_mob, mob/living/carbon/user, params)
+
+/obj/item/hand_item/hand/pre_attack_secondary(mob/living/carbon/help_target, mob/living/carbon/helper, list/modifiers, list/attack_modifiers)
+	if(!loc.Adjacent(help_target) || !istype(helper) || !istype(help_target))
+		return ..()
+
+	if(helper.resting)
+		to_chat(helper, span_warning("You can't act gentlemanly when you're lying down!"))
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+	return SECONDARY_ATTACK_CALL_NORMAL
+
+
+/obj/item/hand_item/hand/attack(mob/living/carbon/target_mob, mob/living/carbon/user, list/modifiers, list/attack_modifiers)
 	if(!loc.Adjacent(target_mob) || !istype(user) || !istype(target_mob))
 		return TRUE
 
@@ -359,7 +394,11 @@
 
 
 /obj/item/hand_item/hand/on_offer_taken(mob/living/carbon/offerer, mob/living/carbon/taker)
-	. = TRUE
+	. = ..()
+	if(!offerer || !taker)
+		return TRUE // this doesn't make sense unless both are carbons
+	if(.)
+		return
 
 	if(taker.body_position == LYING_DOWN)
 		taker.help_shake_act(offerer)
@@ -370,6 +409,11 @@
 		offerer.visible_message(span_notice("[offerer] helps [taker] up!"), span_nicegreen("You help [taker] up!"), span_hear("You hear someone helping someone else up!"), ignored_mobs = taker)
 		to_chat(taker, span_nicegreen("You take [offerer]'s hand, letting [offerer.p_them()] help your up! How nice of them!"))
 
+		offerer.add_mob_memory(/datum/memory/helped_up, protagonist = offerer, deuteragonist = taker)
+		taker.add_mob_memory(/datum/memory/helped_up, protagonist = offerer, deuteragonist = taker)
+
+		offerer.add_mood_event("helping_up", /datum/mood_event/helped_up, taker, TRUE) // Different IDs because you could be helped up and then help someone else up.
+		taker.add_mood_event("helped_up", /datum/mood_event/helped_up, offerer, FALSE)
 
 		qdel(src)
 		return
@@ -400,7 +444,7 @@
 	attack_verb_continuous = list("steals")
 	attack_verb_simple = list("steal")
 
-/obj/item/hand_item/stealer/attack(mob/living/target_mob, mob/living/user, params)
+/obj/item/hand_item/stealer/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if (!ishuman(target_mob))
 		return
@@ -428,7 +472,7 @@
 /obj/item/hand_item/kisser
 	name = "kiss"
 	desc = "I want you all to know, everyone and anyone, to seal it with a kiss."
-	icon = 'icons/mob/animal.dmi'
+	icon = 'icons/mob/simple/animal.dmi'
 	icon_state = "heart"
 	inhand_icon_state = "nothing"
 	/// The kind of projectile this version of the kiss blower fires
@@ -436,8 +480,10 @@
 	/// TRUE if the user was aiming anywhere but the mouth when they offer the kiss, if it's offered
 	var/cheek_kiss
 
-/obj/item/hand_item/kisser/afterattack(atom/target, mob/living/carbon/user, proximity)
-	. = ..()
+/obj/item/hand_item/kisser/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	return ranged_interact_with_atom(interacting_with, user, modifiers)
+
+/obj/item/hand_item/kisser/ranged_interact_with_atom(atom/target, mob/living/user, list/modifiers)
 	var/obj/projectile/blown_kiss = new kiss_type(get_turf(user))
 	user.visible_message("<b>[user]</b> blows \a [blown_kiss] at [target]!", span_notice("You blow \a [blown_kiss] at [target]!"))
 
@@ -446,10 +492,10 @@
 	blown_kiss.fired_from = user
 	blown_kiss.firer = user // don't hit ourself that would be really annoying
 	blown_kiss.impacted = list(WEAKREF(user) = TRUE) // just to make sure we don't hit the wearer
-	blown_kiss.preparePixelProjectile(target, user)
+	blown_kiss.aim_projectile(target, user)
 	blown_kiss.fire()
 	qdel(src)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/hand_item/kisser/on_offered(mob/living/carbon/offerer, mob/living/carbon/offered)
 	if(!(locate(/mob/living/carbon) in orange(1, offerer)))
@@ -462,29 +508,63 @@
 	return TRUE
 
 /obj/item/hand_item/kisser/on_offer_taken(mob/living/carbon/offerer, mob/living/carbon/taker)
+	. = ..()
+	if(.)
+		return
+
 	var/obj/projectile/blown_kiss = new kiss_type(get_turf(offerer))
 	offerer.visible_message("<b>[offerer]</b> gives [taker] \a [blown_kiss][cheek_kiss ? " on the cheek" : ""]!!", span_notice("You give [taker] \a [blown_kiss][cheek_kiss ? " on the cheek" : ""]!"), ignored_mobs = taker)
 	to_chat(taker, span_nicegreen("[offerer] gives you \a [blown_kiss][cheek_kiss ? " on the cheek" : ""]!"))
 	offerer.face_atom(taker)
 	taker.face_atom(offerer)
-	offerer.do_item_attack_animation(taker, used_item = src)
+	offerer.do_item_attack_animation(taker, used_item = src, animation_type = ATTACK_ANIMATION_BLUNT)
 	//We're still firing a shot here because I don't want to deal with some weird edgecase where direct impacting them with the projectile causes it to freak out because there's no angle or something
 	blown_kiss.original = taker
 	blown_kiss.fired_from = offerer
 	blown_kiss.firer = offerer // don't hit ourself that would be really annoying
 	blown_kiss.impacted = list(WEAKREF(offerer) = TRUE) // just to make sure we don't hit the wearer
-	blown_kiss.preparePixelProjectile(taker, offerer)
+	blown_kiss.aim_projectile(taker, offerer)
 	blown_kiss.suppressed = SUPPRESSED_VERY // this also means it's a direct offer
 	blown_kiss.fire()
 	qdel(src)
 	return TRUE // so the core offering code knows to halt
 
+/obj/item/hand_item/kisser/death
+	name = "kiss of death"
+	desc = "If looks could kill, they'd be this."
+	color = COLOR_BLACK
+	kiss_type = /obj/projectile/kiss/death
+
+/obj/item/hand_item/kisser/syndie
+	name = "syndie kiss"
+	desc = "oooooo you like syndicate ur a syndiekisser"
+	color = COLOR_SYNDIE_RED
+	kiss_type = /obj/projectile/kiss/syndie
+
+/obj/item/hand_item/kisser/ink
+	name = "ink kiss"
+	desc = "Is that a blot of ink in your pocket or are you just happy to see me?"
+	color = COLOR_ALMOST_BLACK
+	kiss_type = /obj/projectile/kiss/ink
+
+/obj/item/hand_item/kisser/french
+	name = "french kiss"
+	desc = "You really should brush your teeth."
+	color = COLOR_GRAY
+	kiss_type = /obj/projectile/kiss/french
+
+/obj/item/hand_item/kisser/chef
+	name = "chef's kiss"
+	desc = "The secret ingridient is love. And opium, but mostly love."
+	color = COLOR_LIGHT_PINK
+	kiss_type = /obj/projectile/kiss/chef
+
 /obj/projectile/kiss
 	name = "kiss"
-	icon = 'icons/mob/animal.dmi'
+	icon = 'icons/mob/simple/animal.dmi'
 	icon_state = "heart"
-	hitsound = 'sound/effects/kiss.ogg'
-	hitsound_wall = 'sound/effects/kiss.ogg'
+	hitsound = 'sound/effects/emotes/kiss.ogg'
+	hitsound_wall = 'sound/effects/emotes/kiss.ogg'
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	speed = 0.66
 	damage_type = BRUTE
@@ -492,19 +572,23 @@
 	armour_penetration = 100 // but if it could, it would cut through even the thickest plate
 	var/silent_blown = FALSE
 
+/obj/projectile/kiss/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/parriable_projectile)
+
 /obj/projectile/kiss/fire(angle, atom/direct_target)
 	if(firer && !silent_blown)
 		name = "[name] blown by [firer]"
 
 	return ..()
 
-/obj/projectile/kiss/on_hit(atom/target, blocked = FALSE, pierce_hit)
+/obj/projectile/kiss/impact(atom/A)
 	def_zone = BODY_ZONE_HEAD // let's keep it PG, people
 
-	if(damage > 0 || !isliving(target)) // if we do damage or we hit a nonliving thing, we don't have to worry about a harmless hit because we can't wrongly do damage anyway
+	if(damage > 0 || !isliving(A)) // if we do damage or we hit a nonliving thing, we don't have to worry about a harmless hit because we can't wrongly do damage anyway
 		return ..()
 
-	harmless_on_hit(target)
+	harmless_on_hit(A)
 	qdel(src)
 	return FALSE
 
@@ -518,11 +602,16 @@
 	if(!suppressed)  // direct
 		living_target.visible_message(span_danger("[living_target] is hit by \a [src]."), span_userdanger("You're hit by \a [src]!"), vision_distance=COMBAT_MESSAGE_RANGE)
 
+	living_target.add_mob_memory(/datum/memory/kissed, deuteragonist = firer)
+	living_target.add_mood_event("kiss", /datum/mood_event/kiss, firer, suppressed)
+	if(isliving(firer))
+		var/mob/living/kisser = firer
+		kisser.add_mob_memory(/datum/memory/kissed, protagonist = living_target, deuteragonist = firer)
 	try_fluster(living_target)
 
 /obj/projectile/kiss/proc/try_fluster(mob/living/living_target)
 	// people with the social anxiety quirk can get flustered when hit by a kiss
-	if((living_target.stat > SOFT_CRIT) || living_target.is_blind())
+	if(!HAS_TRAIT(living_target, TRAIT_ANXIOUS) || (living_target.stat > SOFT_CRIT) || living_target.is_blind())
 		return
 	if(HAS_TRAIT(living_target, TRAIT_FEARLESS) || prob(50)) // 50% chance for it to apply, also immune while on meds
 		return
@@ -534,12 +623,12 @@
 		if(1)
 			other_msg = "stumbles slightly, turning a bright red!"
 			self_msg = "You lose control of your limbs for a moment as your blood rushes to your face, turning it bright red!"
-			living_target.set_confusion(rand(5 SECONDS, 10 SECONDS))
+			living_target.adjust_confusion(rand(5 SECONDS, 10 SECONDS))
 		if(2)
 			other_msg = "stammers softly for a moment before choking on something!"
 			self_msg = "You feel your tongue disappear down your throat as you fight to remember how to make words!"
 			addtimer(CALLBACK(living_target, TYPE_PROC_REF(/atom/movable, say), pick("Uhhh...", "O-oh, uhm...", "I- uhhhhh??", "You too!!", "What?")), rand(0.5 SECONDS, 1.5 SECONDS))
-			living_target.stuttering = (rand(10 SECONDS, 30 SECONDS))
+			living_target.adjust_stutter(rand(10 SECONDS, 30 SECONDS))
 		if(3)
 			other_msg = "locks up with a stunned look on [living_target.p_their()] face, staring at [firer ? firer : "the ceiling"]!"
 			self_msg = "Your brain completely fails to process what just happened, leaving you rooted in place staring at [firer ? "[firer]" : "the ceiling"] for what feels like an eternity!"
@@ -552,5 +641,96 @@
 	. = ..()
 	if(isliving(target))
 		var/mob/living/living_target = target
+		living_target.add_mood_event("kiss", /datum/mood_event/kiss, firer, suppressed)
 		try_fluster(living_target)
 
+/obj/projectile/kiss/death
+	name = "kiss of death"
+	damage = 35 // okay i kinda lied about love not being able to hurt you
+	wound_bonus = 0
+	sharpness = SHARP_POINTY
+	color = COLOR_BLACK
+
+/obj/projectile/kiss/death/on_hit(atom/target, blocked, pierce_hit)
+	. = ..()
+	if(!iscarbon(target))
+		return
+	var/mob/living/carbon/heartbreakee = target
+	var/obj/item/organ/heart/dont_go_breakin_my_heart = heartbreakee.get_organ_slot(ORGAN_SLOT_HEART)
+	dont_go_breakin_my_heart.apply_organ_damage(999)
+
+/obj/projectile/kiss/ink
+	name = "ink kiss"
+	color = COLOR_ALMOST_BLACK
+	damage = /obj/projectile/ink_spit::damage
+	damage_type = /obj/projectile/ink_spit::damage_type
+	armor_flag = /obj/projectile/ink_spit::armor_flag
+	armour_penetration = /obj/projectile/ink_spit::armour_penetration
+	impact_effect_type = /obj/projectile/ink_spit::impact_effect_type
+	hitsound = /obj/projectile/ink_spit::hitsound
+	hitsound_wall = /obj/projectile/ink_spit::hitsound_wall
+
+/obj/projectile/kiss/ink/on_hit(atom/target, blocked, pierce_hit)
+	. = ..()
+	var/obj/projectile/ink_spit/ink_spit =  new (target)
+	ink_spit.on_hit(target)
+	if(!QDELETED(ink_spit)) // in case it somehow remains around
+		qdel(ink_spit)
+
+// Based on energy gun characteristics
+/obj/projectile/kiss/syndie
+	name = "syndie kiss"
+	color = COLOR_SYNDIE_RED
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser
+	damage_type = BURN
+	armor_flag = LASER
+	armour_penetration = 0
+	damage = 25
+	wound_bonus = -20
+	bare_wound_bonus = 40
+	silent_blown = TRUE
+
+/obj/projectile/kiss/french
+	name = "french kiss (is that a hint of garlic?)"
+	color = "#f2e9d2" //Scientifically proven to be the colour of garlic
+
+/obj/projectile/kiss/french/harmless_on_hit(mob/living/living_target)
+	. = ..()
+	if(isnull(living_target.reagents))
+		return
+	//Don't stack the garlic
+	if(!living_target.has_reagent(/datum/reagent/consumable/garlic))
+		//Phwoar
+		living_target.reagents.add_reagent(/datum/reagent/consumable/garlic, 1)
+	living_target.visible_message("[living_target] has a funny look on [living_target.p_their()] face.", "Wow, that is a strong after taste of garlic!", vision_distance=COMBAT_MESSAGE_RANGE)
+
+/obj/projectile/kiss/chef
+	name = "chef's kiss"
+
+// If our chef's kiss hits a food item, we will improve it with love.
+/obj/projectile/kiss/chef/on_hit(atom/target, blocked, pierce_hit)
+	. = ..()
+	if(!IS_EDIBLE(target) || !target.reagents)
+		return
+	if(!firer || !target.Adjacent(firer) || !ismob(firer))
+		return
+
+	var/mob/kisser = firer
+
+	// From here on, no message
+	suppressed = SUPPRESSED_VERY
+	if(!(kisser.mind && HAS_TRAIT_FROM(target, TRAIT_FOOD_CHEF_MADE, REF(kisser.mind))))
+		to_chat(firer, span_warning("Wait a second, you didn't make this [target.name]. How can you claim it as your own?"))
+		return
+	if(target.reagents.has_reagent(/datum/reagent/love))
+		to_chat(firer, span_warning("You've already blessed [target.name] with your heart and soul."))
+		return
+
+	var/amount_nutriment = target.reagents.get_reagent_amount(/datum/reagent/consumable/nutriment, type_check = REAGENT_PARENT_TYPE)
+	if(amount_nutriment <= 0)
+		to_chat(firer, span_warning("There's not enough nutrition in [target.name] for it to be a proper meal."))
+		return
+
+	to_chat(firer, span_green("You deliver a chef's kiss over [target], declaring it perfect."))
+	target.visible_message(span_notice("[firer] delivers a chef's kiss over [target]."), ignored_mobs = firer)
+	target.reagents.add_reagent(/datum/reagent/love, clamp(amount_nutriment / 4, 1, 10)) // clamped to about half of the most dense food I think we have (super bite burger)

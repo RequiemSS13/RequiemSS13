@@ -1,13 +1,14 @@
 import { map } from 'common/collections';
-import { useBackend } from '../backend';
 import { Button, Section, Table } from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export const NtosCrewManifest = (props) => {
   const { act, data } = useBackend();
-  const { have_printer, manifest = {} } = data;
+  const { manifest = {} } = data;
   return (
-    <NtosWindow width={400} height={480} resizable>
+    <NtosWindow width={400} height={480}>
       <NtosWindow.Content scrollable>
         <Section
           title="Crew Manifest"
@@ -15,12 +16,11 @@ export const NtosCrewManifest = (props) => {
             <Button
               icon="print"
               content="Print"
-              disabled={!have_printer}
               onClick={() => act('PRG_print')}
             />
           }
         >
-          {map((entries, department) => (
+          {map(manifest, (entries, department) => (
             <Section key={department} level={2} title={department}>
               <Table>
                 {entries.map((entry) => (
@@ -31,7 +31,7 @@ export const NtosCrewManifest = (props) => {
                 ))}
               </Table>
             </Section>
-          ))(manifest)}
+          ))}
         </Section>
       </NtosWindow.Content>
     </NtosWindow>

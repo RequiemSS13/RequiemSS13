@@ -1,36 +1,25 @@
-html
-{
-	height:100%
-}
-
 body
 {
 	padding: 0;
 	margin: 0;
-	font-size: 13px;
+	background-color: #272727;
+	font-size: 12px;
 	color: #ffffff;
 	line-height: 170%;
-	min-height: 100%;
-	background-size: 100% 100%;
-	background-repeat:no-repeat;
-	background-color: #161616;
-	background-image: url('data:image/svg+xml;encoding:utf8;, <svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0, 0, 400, 939.2" opacity=".33"> <path d="M177.600 1.191 C 81.374 17.008,32.582 119.042,72.876 220.191 C 89.934 263.013,115.570 292.829,155.063 315.782 C 157.412 317.147,63.943 315.576,58.643 314.162 C 44.939 310.504,35.025 302.808,25.053 288.087 C 24.523 287.305,17.382 294.070,14.028 298.532 C 0.184 316.949,-4.132 344.163,4.216 360.400 C 8.083 367.922,8.095 367.928,11.957 364.622 C 36.043 344.006,120.837 339.355,150.800 357.007 C 178.762 373.481,187.265 409.638,170.713 441.686 L 167.105 448.670 167.952 456.535 C 173.380 506.990,173.850 568.438,169.237 624.567 C 161.665 716.700,162.788 760.670,174.425 827.763 C 179.071 854.546,186.345 888.100,193.381 915.200 C 195.380 922.900,197.578 931.456,198.265 934.214 C 200.033 941.315,200.616 940.458,204.931 924.405 C 227.581 840.142,236.729 775.408,235.773 706.161 C 235.357 676.049,234.652 663.003,231.196 621.464 C 226.837 569.076,227.275 510.609,232.410 459.392 L 233.554 447.983 231.171 444.226 C 212.754 415.185,221.633 373.456,249.742 356.943 C 271.082 344.407,327.580 342.409,363.600 352.916 C 375.331 356.338,390.400 363.910,390.400 366.384 C 390.400 368.296,392.557 366.946,394.531 363.799 C 404.590 347.756,400.344 316.983,385.343 297.200 C 382.091 292.912,376.220 287.393,375.686 288.122 C 364.315 303.660,355.945 310.123,342.000 314.128 C 337.876 315.313,243.997 317.311,243.999 316.213 C 244.000 316.111,245.890 315.071,248.200 313.904 C 270.916 302.420,296.505 277.069,312.439 250.263 C 374.249 146.278,333.527 25.255,229.011 2.324 C 218.860 0.096,188.347 -0.576,177.600 1.191 M223.543 60.280 C 263.821 70.929,290.313 108.287,294.485 160.321 C 298.531 210.780,268.129 269.238,227.000 290.083 L 221.600 292.820 221.628 268.610 C 221.660 240.642,222.366 234.814,226.808 225.825 C 229.768 219.838,236.633 211.616,240.323 209.641 C 243.087 208.162,242.943 207.503,239.615 206.405 C 228.147 202.620,213.503 187.639,204.725 170.711 C 199.707 161.035,200.190 161.162,196.800 168.618 C 189.079 185.599,174.859 200.792,161.800 206.014 C 157.670 207.666,157.647 207.880,161.337 210.393 C 168.120 215.014,175.228 226.031,177.599 235.600 C 178.677 239.949,179.777 292.800,178.790 292.800 C 174.871 292.800,156.520 279.909,147.496 270.817 C 101.338 224.308,92.028 148.356,126.176 96.880 C 147.022 65.457,186.704 50.541,223.543 60.280 " /></svg>');
 }
-
 
 hr
 {
-	border: none;
-	height: 2px;
-	background-color: white;
+	background-color: #40628a;
+	height: 1px;
 }
 
 a, button, a:link, a:visited, a:active, .linkOn, .linkOff
 {
 	color: #ffffff;
 	text-decoration: none;
-	background: #090909;
-	border: 1px solid #999999;
+	background: #40628a;
+	border: 1px solid #161616;
 	padding: 1px 4px 1px 4px;
 	margin: 0 2px 0 0;
 	cursor:default;
@@ -38,17 +27,16 @@ a, button, a:link, a:visited, a:active, .linkOn, .linkOff
 
 a:hover
 {
-	color: #47a0c3;
-	background: #090909;
-	border-color: #ffffff;
+	color: #40628a;
+	background: #ffffff;
 }
 
 a.white, a.white:link, a.white:visited, a.white:active
 {
-	color: #47a0c3;
+	color: #40628a;
 	text-decoration: none;
-	background: #090909;
-	border: 1px solid #999999;
+	background: #ffffff;
+	border: 1px solid #161616;
 	padding: 1px 4px 1px 4px;
 	margin: 0 2px 0 0;
 	cursor:default;
@@ -57,14 +45,14 @@ a.white, a.white:link, a.white:visited, a.white:active
 a.white:hover
 {
 	color: #ffffff;
-	background: #090909;
+	background: #40628a;
 }
 
 .linkOn, a.linkOn:link, a.linkOn:visited, a.linkOn:active, a.linkOn:hover
 {
 	color: #ffffff;
-	background: #161616;
-	border-color: #ffffff;
+	background: #2f943c;
+	border-color: #24722e;
 }
 
 .linkOff, a.linkOff:link, a.linkOff:visited, a.linkOff:active, a.linkOff:hover
@@ -109,27 +97,27 @@ h1, h2, h3, h4, h5, h6
 {
 	margin: 0;
 	padding: 16px 0 8px 0;
-	color: #ffef9d;
+	color: #517087;
 }
 
 h1
 {
-	font-size: 16px;
+	font-size: 15px;
 }
 
 h2
 {
-	font-size: 15px;
+	font-size: 14px;
 }
 
 h3
 {
-	font-size: 14px;
+	font-size: 13px;
 }
 
 h4
 {
-	font-size: 13px;
+	font-size: 12px;
 }
 
 .uiWrapper
@@ -143,10 +131,10 @@ h4
 {
 	clear: both;
 	padding: 6px 8px 6px 8px;
-	border-bottom: 2px solid #000000;
-	background: #161616;
-	color: #e9c52f;
-	font-size: 18px;
+	border-bottom: 2px solid #161616;
+	background: #383838;
+	color: #98B0C3;
+	font-size: 16px;
 }
 
 .uiTitle.icon
@@ -185,7 +173,7 @@ h4
 
 .dark
 {
-	color: #090909;
+	color: #272727;
 }
 
 .notice
@@ -222,7 +210,7 @@ div.notice
 {
 	background: #000000;
 	color: #ffffff;
-	border: 1px solid #821313;
+	border: 1px solid #40628a;
 	padding: 4px;
 	margin: 3px 0;
 }
@@ -232,7 +220,7 @@ div.notice
 	width: 138px;
 	float: left;
 	overflow: hidden;
-	color: #e61919;
+	color: #98B0C3;
 }
 
 .statusValue
@@ -244,7 +232,7 @@ div.notice
 {
 	padding: 8px;
 	margin: 10px 4px 4px 4px;
-	border: 1px solid #821313;
+	border: 1px solid #40628a;
 	background-color: #202020;
 }
 
@@ -267,7 +255,7 @@ div.notice
 {
 	width: 100%;
 	height: 100%;
-	background: #821313;
+	background: #40628a;
 	overflow: hidden;
 }
 
@@ -333,7 +321,7 @@ div.notice
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #161616;
+  background-color: #383838;
   transition: .4s;
 }
 
@@ -344,7 +332,7 @@ div.notice
   width: 18px;
   left: 4px;
   bottom: 4px;
-  background-color: #e61919;
+  background-color: #98B0C3;
   transition: .4s;
 }
 
@@ -358,7 +346,7 @@ div.notice
 }
 
 input:checked + .slider {
-  background-color: #821313;
+  background-color: #40628a;
 }
 
 input:checked + .slider.red {
@@ -412,8 +400,8 @@ ul.sparse {
 	margin:0px;
 	padding: 1px 8px 1px 8px;
 	border-radius: 25px;
-	border: 1px solid #000000;
-	background: #821313;
+	border: 1px solid #161616;
+	background: #40628a;
 	color: #ffffff;
 }
 
@@ -421,3 +409,19 @@ ul.sparse {
     display: inline-block;
     vertical-align: middle;
 }
+
+.code {
+	padding: 6px 8px;
+	border: 1px solid #161616;
+	background: #383838;
+	color: #FFFFFF;
+	font-size: 12px;
+	display: block;
+	margin: 4px 0;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.user-select {
+	user-select: all;
+}
+

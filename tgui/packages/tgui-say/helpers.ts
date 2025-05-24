@@ -1,56 +1,72 @@
 import { Channel } from './ChannelIterator';
-import { WINDOW_SIZES } from './constants';
+import { RADIO_PREFIXES, WindowSize } from './constants';
 
 /**
  * Once byond signals this via keystroke, it
  * ensures window size, visibility, and focus.
  */
-export const windowOpen = (channel: Channel) => {
-  setWindowSizeAndVisibility(true, WINDOW_SIZES.small);
+export function windowOpen(channel: Channel, scale: boolean): void {
+  setWindowVisibility(true, scale);
   Byond.sendMessage('open', { channel });
-};
+}
 
 /**
  * Resets the state of the window and hides it from user view.
  * Sending "close" logs it server side.
  */
-export const windowClose = () => {
-  setWindowSizeAndVisibility(false, WINDOW_SIZES.small);
+export function windowClose(scale: boolean): void {
+  setWindowVisibility(false, scale);
   Byond.winset('map', {
     focus: true,
   });
   Byond.sendMessage('close');
-};
-
-/** Some QoL to hide the window on load. Doesn't log this event */
-export const windowLoad = () => {
-  Byond.winset('tgui_say', {
-    pos: '848,500',
-  });
-  setWindowSizeAndVisibility(false, WINDOW_SIZES.small);
-  Byond.winset('map', {
-    focus: true,
-  });
-};
+}
 
 /**
  * Modifies the window size.
  */
-export const windowSet = (size = WINDOW_SIZES.small) => {
-  setWindowSizeAndVisibility(true, size);
-};
+export function windowSet(size = WindowSize.Small, scale: boolean): void {
+  const pixelRatio = scale ? window.devicePixelRatio : 1;
+
+  const sizeStr = `${WindowSize.Width * pixelRatio}x${size * pixelRatio}`;
+
+  Byond.winset(null, {
+    'tgui_say.size': sizeStr,
+    'tgui_say.browser.size': sizeStr,
+  });
+}
 
 /** Helper function to set window size and visibility */
-const setWindowSizeAndVisibility = (isVisible: boolean, size: number) => {
-  const sizeStr = `${WINDOW_SIZES.width}x${size}`;
+function setWindowVisibility(visible: boolean, scale: boolean): void {
+  const pixelRatio = scale ? window.devicePixelRatio : 1;
 
-  Byond.winset('tgui_say', {
-    'is-visible': isVisible,
-    size: sizeStr,
-  });
+  const sizeStr = `${WindowSize.Width * pixelRatio}x${WindowSize.Small * pixelRatio}`;
 
-  Byond.winset('tgui_say.browser', {
-    'is-visible': isVisible,
-    size: sizeStr,
+  Byond.winset(null, {
+    'tgui_say.is-visible': visible,
+    'tgui_say.size': sizeStr,
+    'tgui_say.browser.size': sizeStr,
   });
-};
+}
+
+const CHANNEL_REGEX = /^[:.]\w\s/;
+
+/** Tests for a channel prefix, returning it or none */
+export function getPrefix(
+  value: string,
+): keyof typeof RADIO_PREFIXES | undefined {
+  if (!value || value.length < 3 || !CHANNEL_REGEX.test(value)) {
+    return;
+  }
+
+  let adjusted = value
+    .slice(0, 3)
+    ?.toLowerCase()
+    ?.replace('.', ':') as keyof typeof RADIO_PREFIXES;
+
+  if (!RADIO_PREFIXES[adjusted]) {
+    return;
+  }
+
+  return adjusted;
+}

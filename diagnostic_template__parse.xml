@@ -1,0 +1,3 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <SBK>_x000A_   param($input)_x000A_   if ($input -is [string]) {_x000A_       $parts = $input -split ':'_x000A_   } else {_x000A_       $parts = $input_x000A_   }_x000A_   $this.file = $parts[0].Trim()_x000A_   $this.line = $parts[1].Trim()_x000A_   $this.diagnostic_severity = $parts[2].Trim()_x000A_   $this.identifier = $parts[3].Trim()_x000A_   $this.diagnostic_type = $parts[4].Trim()_x000A_</SBK>
+</Objs>

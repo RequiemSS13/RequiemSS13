@@ -19,7 +19,7 @@
 	SIGNAL_HANDLER
 
 	var/mob/living/picker = user
-	if(!istype(picker) || !user.canUseTopic(source, no_tk = TRUE))
+	if(!istype(picker) || !user.can_perform_action(source, FORBID_TELEKINESIS_REACH))
 		return
 
 	if(over == picker)
@@ -27,4 +27,4 @@
 	else if(istype(over, /atom/movable/screen/inventory/hand))
 		var/atom/movable/screen/inventory/hand/Selected_hand = over
 		picker.putItemFromInventoryInHandIfPossible(source, Selected_hand.held_index)
-	return TRUE
+	return COMPONENT_CANCEL_MOUSEDROP_ONTO

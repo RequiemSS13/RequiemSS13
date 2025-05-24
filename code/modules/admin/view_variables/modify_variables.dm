@@ -1,15 +1,15 @@
-GLOBAL_LIST_INIT(VVlocked, list("vars", "datum_flags", "client", "mob"))		//Requires DEBUG
+GLOBAL_LIST_INIT(VVlocked, list("vars", "datum_flags", "client", "mob")) //Requires DEBUG
 GLOBAL_PROTECT(VVlocked)
-GLOBAL_LIST_INIT(VVicon_edit_lock, list("icon", "icon_state", "overlays", "underlays"))		//Requires DEBUG or FUN
+GLOBAL_LIST_INIT(VVicon_edit_lock, list("icon", "icon_state", "overlays", "underlays")) //Requires DEBUG or FUN
 GLOBAL_PROTECT(VVicon_edit_lock)
-GLOBAL_LIST_INIT(VVckey_edit, list("key", "ckey"))	//Requires DEBUG or SPAWN
+GLOBAL_LIST_INIT(VVckey_edit, list("key", "ckey")) //Requires DEBUG or SPAWN
 GLOBAL_PROTECT(VVckey_edit)
-GLOBAL_LIST_INIT(VVpixelmovement, list("bound_x", "bound_y", "step_x", "step_y", "step_size", "bound_height", "bound_width", "bounds"))		//No editing ever.
+GLOBAL_LIST_INIT(VVpixelmovement, list("bound_x", "bound_y", "step_x", "step_y", "step_size", "bound_height", "bound_width", "bounds")) //No editing ever.
 GLOBAL_PROTECT(VVpixelmovement)
 
 /client/proc/vv_parse_text(O, new_var)
 	if(O && findtext(new_var,"\["))
-		var/process_vars = alert(usr,"\[] detected in string, process as variables?","Process Variables?","Yes","No")
+		var/process_vars = tgui_alert(usr,"\[] detected in string, process as variables?","Process Variables?",list("Yes","No"))
 		if(process_vars == "Yes")
 			. = string2listofvars(new_var, O)
 
@@ -24,7 +24,7 @@ GLOBAL_PROTECT(VVpixelmovement)
 	if (!subtypes || !subtypes.len)
 		return FALSE
 	if (subtypes?.len)
-		switch(alert("Strict object type detection?", "Type detection", "Strictly this type","This type and subtypes", "Cancel"))
+		switch(tgui_alert(usr,"Strict object type detection?", "Type detection", list("Strictly this type","This type and subtypes", "Cancel")))
 			if("Strictly this type")
 				return FALSE
 			if("This type and subtypes")
@@ -50,9 +50,9 @@ GLOBAL_PROTECT(VVpixelmovement)
 		var/datum/D = thing
 		i++
 		//try one of 3 methods to shorten the type text:
-		//	fancy type,
-		//	fancy type with the base type removed from the begaining,
-		//	the type with the base type removed from the begaining
+		// fancy type,
+		// fancy type with the base type removed from the begaining,
+		// the type with the base type removed from the begaining
 		var/fancytype = types[D.type]
 		if (findtext(fancytype, types[type]))
 			fancytype = copytext(fancytype, length(types[type]) + 1)
@@ -65,7 +65,6 @@ GLOBAL_PROTECT(VVpixelmovement)
 		.["[D]([shorttype])[REF(D)]#[i]"] = D
 
 /client/proc/mod_list_add_ass(atom/O) //hehe
-
 	var/list/L = vv_get_value(restricted_classes = list(VV_RESTORE_DEFAULT))
 	var/class = L["class"]
 	if (!class)
@@ -95,9 +94,9 @@ GLOBAL_PROTECT(VVpixelmovement)
 	if (O)
 		L = L.Copy()
 
-	L += var_value
+	L += list(var_value) //var_value could be a list
 
-	switch(alert("Would you like to associate a value with the list entry?",,"Yes","No"))
+	switch(tgui_alert(usr,"Would you like to associate a value with the list entry?",,list("Yes","No")))
 		if("Yes")
 			L[var_value] = mod_list_add_ass(O) //hehe
 	if (O)
@@ -107,7 +106,6 @@ GLOBAL_PROTECT(VVpixelmovement)
 	log_world("### ListVarEdit by [src]: [(O ? O.type : "/list")] [objectvar]: ADDED=[var_value]")
 	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: ADDED=[var_value]")
 	message_admins("[key_name_admin(src)] modified [original_name]'s [objectvar]: ADDED=[var_value]")
-	SSoverwatch.record_action(src, "[key_name_admin(src)] modified [original_name]'s [objectvar]: ADDED=[var_value]")
 
 /client/proc/mod_list(list/L, atom/O, original_name, objectvar, index, autodetect_class = FALSE)
 	if(!check_rights(R_VAREDIT))
@@ -117,7 +115,7 @@ GLOBAL_PROTECT(VVpixelmovement)
 		return
 
 	if(L.len > 1000)
-		var/confirm = alert(src, "The list you're trying to edit is very long, continuing may crash the server.", "Warning", "Continue", "Abort")
+		var/confirm = tgui_alert(usr, "The list you're trying to edit is very long, continuing may crash the server.", "Warning", list("Continue", "Abort"))
 		if(confirm != "Continue")
 			return
 
@@ -143,25 +141,23 @@ GLOBAL_PROTECT(VVpixelmovement)
 
 		if(variable == "(CLEAR NULLS)")
 			L = L.Copy()
-			listclearnulls(L)
+			list_clear_nulls(L)
 			if (!O.vv_edit_var(objectvar, L))
 				to_chat(src, "Your edit was rejected by the object.", confidential = TRUE)
 				return
 			log_world("### ListVarEdit by [src]: [O.type] [objectvar]: CLEAR NULLS")
 			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: CLEAR NULLS")
 			message_admins("[key_name_admin(src)] modified [original_name]'s list [objectvar]: CLEAR NULLS")
-			SSoverwatch.record_action(src, "[key_name_admin(src)] modified [original_name]'s list [objectvar]: CLEAR NULLS")
 			return
 
 		if(variable == "(CLEAR DUPES)")
-			L = uniqueList(L)
+			L = unique_list(L)
 			if (!O.vv_edit_var(objectvar, L))
 				to_chat(src, "Your edit was rejected by the object.", confidential = TRUE)
 				return
 			log_world("### ListVarEdit by [src]: [O.type] [objectvar]: CLEAR DUPES")
 			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: CLEAR DUPES")
 			message_admins("[key_name_admin(src)] modified [original_name]'s list [objectvar]: CLEAR DUPES")
-			SSoverwatch.record_action(src, "[key_name_admin(src)] modified [original_name]'s list [objectvar]: CLEAR DUPES")
 			return
 
 		if(variable == "(SHUFFLE)")
@@ -172,7 +168,6 @@ GLOBAL_PROTECT(VVpixelmovement)
 			log_world("### ListVarEdit by [src]: [O.type] [objectvar]: SHUFFLE")
 			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: SHUFFLE")
 			message_admins("[key_name_admin(src)] modified [original_name]'s list [objectvar]: SHUFFLE")
-			SSoverwatch.record_action(src, "[key_name_admin(src)] modified [original_name]'s list [objectvar]: SHUFFLE")
 			return
 
 		index = names[variable]
@@ -182,7 +177,7 @@ GLOBAL_PROTECT(VVpixelmovement)
 	if (index == null)
 		return
 	var/assoc = 0
-	var/prompt = alert(src, "Do you want to edit the key or its assigned value?", "Associated List", "Key", "Assigned Value", "Cancel")
+	var/prompt = tgui_alert(usr, "Do you want to edit the key or its assigned value?", "Associated List", list("Key", "Assigned Value", "Cancel"))
 	if (prompt == "Cancel")
 		return
 	if (prompt == "Assigned Value")
@@ -190,7 +185,7 @@ GLOBAL_PROTECT(VVpixelmovement)
 		assoc_key = L[index]
 	var/default
 	var/variable
-	var/old_assoc_value		//EXPERIMENTAL - Keep old associated value while modifying key, if any
+	var/old_assoc_value //EXPERIMENTAL - Keep old associated value while modifying key, if any
 	if(is_normal_list)
 		if (assoc)
 			variable = L[assoc_key]
@@ -256,7 +251,6 @@ GLOBAL_PROTECT(VVpixelmovement)
 			log_world("### ListVarEdit by [src]: [O.type] [objectvar]: REMOVED=[html_encode("[original_var]")]")
 			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: REMOVED=[original_var]")
 			message_admins("[key_name_admin(src)] modified [original_name]'s [objectvar]: REMOVED=[original_var]")
-			SSoverwatch.record_action(src, "[key_name_admin(src)] modified [original_name]'s [objectvar]: REMOVED=[original_var]")
 			return
 
 		if(VV_TEXT)
@@ -279,7 +273,6 @@ GLOBAL_PROTECT(VVpixelmovement)
 	log_world("### ListVarEdit by [src]: [(O ? O.type : "/list")] [objectvar]: [original_var]=[new_var]")
 	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: [original_var]=[new_var]")
 	message_admins("[key_name_admin(src)] modified [original_name]'s varlist [objectvar]: [original_var]=[new_var]")
-	SSoverwatch.record_action(src, "[key_name_admin(src)] modified [original_name]'s varlist [objectvar]: [original_var]=[new_var]")
 
 /proc/vv_varname_lockcheck(param_var_name)
 	if(param_var_name in GLOB.VVlocked)
@@ -312,7 +305,7 @@ GLOBAL_PROTECT(VVpixelmovement)
 		for (var/V in O.vars)
 			names += V
 
-		names = sortList(names)
+		names = sort_list(names)
 
 		variable = input("Which var?","Var") as null|anything in names
 		if(!variable)
@@ -387,9 +380,9 @@ GLOBAL_PROTECT(VVpixelmovement)
 		to_chat(src, "Your edit was rejected by the object.", confidential = TRUE)
 		return
 	vv_update_display(O, "varedited", VV_MSG_EDITED)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_VAR_EDIT, args)
 	log_world("### VarEdit by [key_name(src)]: [O.type] [variable]=[var_value] => [var_new]")
 	log_admin("[key_name(src)] modified [original_name]'s [variable] from [html_encode("[var_value]")] to [html_encode("[var_new]")]")
-	SSoverwatch.record_action(src, "[key_name(src)] modified [original_name]'s [variable] from [html_encode("[var_value]")] to [html_encode("[var_new]")]")
 	var/msg = "[key_name_admin(src)] modified [original_name]'s [variable] from [var_value] to [var_new]"
 	message_admins(msg)
 	admin_ticket_log(O, msg)

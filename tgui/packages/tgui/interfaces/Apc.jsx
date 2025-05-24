@@ -1,4 +1,3 @@
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -7,12 +6,14 @@ import {
   ProgressBar,
   Section,
 } from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 import { InterfaceLockNoticeBox } from './common/InterfaceLockNoticeBox';
 
 export const Apc = (props) => {
   return (
-    <Window width={450} height={445} resizable>
+    <Window width={450} height={445}>
       <Window.Content scrollable>
         <ApcContent />
       </Window.Content>
@@ -29,7 +30,7 @@ const powerStatusMap = {
   1: {
     color: 'average',
     externalPowerText: 'Low External Power',
-    chargingText: 'Charging',
+    chargingText: 'Charging: ',
   },
   0: {
     color: 'bad',
@@ -73,16 +74,21 @@ const ApcContent = (props) => {
   const adjustedCellChange = data.powerCellStatus / 100;
   if (data.failTime > 0) {
     return (
-      <NoticeBox>
+      <NoticeBox info textAlign="center" mb={0}>
         <b>
           <h3>SYSTEM FAILURE</h3>
         </b>
-        <i>I/O regulators malfunction detected! Waiting for system reboot...</i>
+        I/O regulators have malfunctioned! <br />
+        Awaiting system reboot.
         <br />
-        Automatic reboot in {data.failTime} seconds...
+        Executing software reboot in {data.failTime} seconds...
+        <br />
+        <br />
         <Button
           icon="sync"
           content="Reboot Now"
+          tooltip="Force an interface reset."
+          tooltipPosition="bottom"
           onClick={() => act('reboot')}
         />
       </NoticeBox>
@@ -90,7 +96,10 @@ const ApcContent = (props) => {
   }
   return (
     <>
-      <InterfaceLockNoticeBox />
+      <InterfaceLockNoticeBox
+        siliconUser={data.remoteAccess || data.siliconUser}
+        preventLocking={data.remoteAccess}
+      />
       <Section title="Power Status">
         <LabeledList>
           <LabeledList.Item
@@ -116,14 +125,17 @@ const ApcContent = (props) => {
             color={chargingStatus.color}
             buttons={
               <Button
-                icon={data.chargeMode ? 'sync' : 'close'}
+                icon={data.chargeMode ? 'sync' : 'times'}
                 content={data.chargeMode ? 'Auto' : 'Off'}
                 disabled={locked}
                 onClick={() => act('charge')}
               />
             }
           >
-            [ {chargingStatus.chargingText} ]
+            [{' '}
+            {chargingStatus.chargingText +
+              (data.chargingStatus === 1 ? data.chargingPowerDisplay : '')}{' '}
+            ]
           </LabeledList.Item>
         </LabeledList>
       </Section>
@@ -207,6 +219,7 @@ const ApcContent = (props) => {
             label="Cover Lock"
             buttons={
               <Button
+                tooltip="APC cover can be pried open with a crowbar."
                 icon={data.coverLocked ? 'lock' : 'unlock'}
                 content={data.coverLocked ? 'Engaged' : 'Disengaged'}
                 disabled={locked}
@@ -218,6 +231,7 @@ const ApcContent = (props) => {
             label="Emergency Lighting"
             buttons={
               <Button
+                tooltip="Lights use internal power cell when there is no power available."
                 icon="lightbulb-o"
                 content={data.emergencyLights ? 'Enabled' : 'Disabled'}
                 disabled={locked}
@@ -229,8 +243,10 @@ const ApcContent = (props) => {
             label="Night Shift Lighting"
             buttons={
               <Button
+                tooltip="Dim lights to reduce power consumption."
                 icon="lightbulb-o"
                 content={data.nightshiftLights ? 'Enabled' : 'Disabled'}
+                disabled={data.disable_nightshift_toggle}
                 onClick={() => act('toggle_nightshift')}
               />
             }

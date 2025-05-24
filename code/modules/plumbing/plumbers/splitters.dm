@@ -1,9 +1,8 @@
 ///it splits the reagents however you want. So you can "every 60 units, 45 goes left and 15 goes straight". The side direction is EAST, you can change this in the component
 /obj/machinery/plumbing/splitter
-	name = "Chemical Splitter"
+	name = "chemical splitter"
 	desc = "A chemical splitter for smart chemical factorization. Waits till a set of conditions is met and then stops all input and splits the buffer evenly or other in two ducts."
 	icon_state = "splitter"
-
 	buffer = 100
 	density = FALSE
 
@@ -16,9 +15,9 @@
 	//the maximum you can set the transfer to
 	var/max_transfer = 9
 
-/obj/machinery/plumbing/splitter/Initialize(mapload, bolt)
+/obj/machinery/plumbing/splitter/Initialize(mapload, bolt, layer)
 	. = ..()
-	AddComponent(/datum/component/plumbing/splitter, bolt)
+	AddComponent(/datum/component/plumbing/splitter, bolt, layer)
 
 /obj/machinery/plumbing/splitter/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -33,7 +32,7 @@
 	data["max_transfer"] = max_transfer
 	return data
 
-/obj/machinery/plumbing/splitter/ui_act(action, params)
+/obj/machinery/plumbing/splitter/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

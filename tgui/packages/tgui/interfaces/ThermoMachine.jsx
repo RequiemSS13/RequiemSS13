@@ -1,5 +1,3 @@
-import { toFixed } from 'tgui-core/math';
-import { useBackend } from '../backend';
 import {
   AnimatedNumber,
   Button,
@@ -7,12 +5,15 @@ import {
   NumberInput,
   Section,
 } from 'tgui-core/components';
+import { toFixed } from 'tgui-core/math';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const ThermoMachine = (props) => {
   const { act, data } = useBackend();
   return (
-    <Window width={300} height={250}>
+    <Window width={300} height={350}>
       <Window.Content>
         <Section title="Status">
           <LabeledList>
@@ -44,14 +45,6 @@ export const ThermoMachine = (props) => {
           }
         >
           <LabeledList>
-            <LabeledList.Item label="Setting">
-              <Button
-                icon={data.cooling ? 'cooling' : 'heating'}
-                content={data.cooling ? 'Cooling' : 'Heating'}
-                selected={data.cooling}
-                onClick={() => act('cooling')}
-              />
-            </LabeledList.Item>
             <LabeledList.Item label="Target Temperature">
               <NumberInput
                 animated
@@ -62,7 +55,7 @@ export const ThermoMachine = (props) => {
                 maxValue={Math.round(data.max)}
                 step={5}
                 stepPixelSize={3}
-                onDrag={(e, value) =>
+                onDrag={(value) =>
                   act('target', {
                     target: value,
                   })

@@ -10,7 +10,7 @@
 /datum/tgui_say/proc/alter_entry(payload)
 	var/entry = payload["entry"]
 	/// No OOC leaks
-	if(!entry || payload["channel"] == OOC_CHANNEL || payload["channel"] == ME_CHANNEL || payload["channel"] == LOOC_CHANNEL) // TFN EDIT: LOOC CHANNEL
+	if(!entry || payload["channel"] == OOC_CHANNEL || payload["channel"] == ME_CHANNEL)
 		return pick(hurt_phrases)
 	/// Random trimming for larger sentences
 	if(length(entry) > 50)
@@ -36,7 +36,7 @@
 			client.mob.say_verb(entry)
 			return TRUE
 		if(RADIO_CHANNEL)
-			client.mob.say_verb(".r" + entry)
+			client.mob.say_verb(";" + entry)
 			return TRUE
 		if(ME_CHANNEL)
 			client.mob.me_verb(entry)
@@ -45,16 +45,8 @@
 			client.ooc(entry)
 			return TRUE
 		if(ADMIN_CHANNEL)
-			client.cmd_admin_say(entry)
+			SSadmin_verbs.dynamic_invoke_verb(client, /datum/admin_verb/cmd_admin_say, entry)
 			return TRUE
-		// TFN EDIT START
-		if(LOOC_CHANNEL)
-			client.looc(entry)
-			return TRUE
-		if(WHIS_CHANNEL)
-			client.mob.whisper_verb(entry)
-			return TRUE
-		// TFN EDIT END
 	return FALSE
 
 /**
@@ -76,6 +68,7 @@
 		log_speech_indicators("[key_name(client)] FORCED to stop typing, indicators enabled.")
 	else
 		log_speech_indicators("[key_name(client)] FORCED to stop typing, indicators DISABLED.")
+	SEND_SIGNAL(src, COMSIG_HUMAN_FORCESAY)
 
 /**
  * Handles text entry and forced speech.

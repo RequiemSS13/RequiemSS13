@@ -1,7 +1,5 @@
-<!-- Most valid html will work in here, excluding images. -->
+<!-- Most valid html will work in here, but you have to use URL links for images. -->
 
-<div class="motd"><h1>Welcome to Vampire: the Requiem 13!</h1></div>
+<h1>Welcome to Space Station 13!</h1>
 
-<div class="warning"><h3 style="color: red;">This server is in open alpha. Progression will not carry into the full release.</h3></div>
-
-<i>You're not human tonight...</i>
+<i>This server is running a /tg/station 13 Git build.</i>

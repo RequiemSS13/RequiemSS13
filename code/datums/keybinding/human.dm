@@ -12,7 +12,7 @@
 	description = "Quickly puts an item in the best slot available"
 	keybind_signal = COMSIG_KB_HUMAN_QUICKEQUIP_DOWN
 
-/datum/keybinding/human/quick_equip/down(client/user)
+/datum/keybinding/human/quick_equip/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
@@ -31,7 +31,7 @@
 	var/slot_item_name = "belt"
 	keybind_signal = COMSIG_KB_HUMAN_QUICKEQUIPBELT_DOWN
 
-/datum/keybinding/human/quick_equip_belt/down(client/user)
+/datum/keybinding/human/quick_equip_belt/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
@@ -57,35 +57,20 @@
 	slot_item_name = "suit storage slot item"
 	keybind_signal = COMSIG_KB_HUMAN_SUITEQUIP_DOWN
 
-/datum/keybinding/human/block
-	hotkey_keys = list("C")
-	name = "enable_blocking"
-	full_name = " Enable or disable blocking mod"
-	description = "Toggles blocking mode for combat"
-	keybind_signal = COMSIG_KB_HUMAN_BLOCK
+/datum/keybinding/human/quick_equip_belt/quick_equip_lpocket
+	hotkey_keys = list("Ctrl1")
+	name = "quick_equip_lpocket"
+	full_name = "Quick equip left pocket"
+	description = "Put in or take out an item in left pocket"
+	slot_type = ITEM_SLOT_LPOCKET
+	slot_item_name = "left pocket"
+	keybind_signal = COMSIG_KB_HUMAN_LPOCKETEQUIP_DOWN
 
-/datum/keybinding/human/block/down(client/user)
-	. = ..()
-	if(.)
-		return
-	var/mob/living/carbon/human/H = user.mob
-	H.SwitchBlocking()
-	return TRUE
-
-/datum/keybinding/human/bite
-	hotkey_keys = list("F")
-	name = "bite"
-	full_name = "Bite"
-	description = "Bite whoever you're aggressively grabbing, and feed on them if possible."
-	keybind_signal = COMSIG_KB_HUMAN_BITE_DOWN
-
-/datum/keybinding/human/bite/down(client/user)
-	. = ..()
-	if(.)
-		return
-
-	if(ishuman(user.mob))
-		var/mob/living/carbon/human/human_user = user.mob
-		human_user.vamp_bite()
-					
-	return TRUE
+/datum/keybinding/human/quick_equip_belt/quick_equip_rpocket
+	hotkey_keys = list("Ctrl2")
+	name = "quick_equip_rpocket"
+	full_name = "Quick equip right pocket"
+	description = "Put in or take out an item in right pocket"
+	slot_type = ITEM_SLOT_RPOCKET
+	slot_item_name = "right pocket"
+	keybind_signal = COMSIG_KB_HUMAN_RPOCKETEQUIP_DOWN

@@ -1,11 +1,12 @@
-import { useBackend } from '../backend';
 import { Box, Button, Section } from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const KeycardAuth = (props) => {
   const { act, data } = useBackend();
   return (
-    <Window width={375} height={125}>
+    <Window width={375} height={145}>
       <Window.Content>
         <Section>
           <Box>
@@ -48,6 +49,12 @@ export const KeycardAuth = (props) => {
                       fluid
                       onClick={() => act('bsa_unlock')}
                       content="Bluespace Artillery Unlock"
+                    />
+                    <Button
+                      icon="key"
+                      fluid
+                      onClick={() => act('give_janitor_access')}
+                      content="Grant Janitor Access"
                     />
                   </>
                 )}

@@ -1,3 +1,6 @@
+/// How many jobs have bounties, minus the random civ bounties. PLEASE INCREASE THIS NUMBER AS MORE DEPTS ARE ADDED TO BOUNTIES.
+#define MAXIMUM_BOUNTY_JOBS 14
+
 /datum/bounty
 	var/name
 	var/description
@@ -13,67 +16,74 @@
 	if(can_claim())
 		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
 		if(D)
-			D.adjust_money(reward)
+			D.adjust_money(reward * SSeconomy.bounty_modifier)
 		claimed = TRUE
 
-/// If an item sent in the cargo shuttle can satisfy the bounty.
+/// If an item in question can satisfy the bounty.
 /datum/bounty/proc/applies_to(obj/O)
 	return FALSE
 
-/// Called when an object is shipped on the cargo shuttle.
+/// Called when an object is sent on the bounty pad.
 /datum/bounty/proc/ship(obj/O)
 	return
 
 /** Returns a new bounty of random type, but does not add it to GLOB.bounties_list.
  *
- * *Guided determines what specific catagory of bounty should be chosen.
+ * * Category determines what specific catagory of bounty should be chosen.
  */
-/proc/random_bounty(guided = 0)
+/proc/random_bounty(category = 0)
 	var/bounty_num
-	if(guided && (guided != CIV_JOB_RANDOM))
-		bounty_num = guided
-	else
-		bounty_num = rand(1,12)
-	switch(bounty_num)
-		if(1)
-			var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
-			return new subtype
-		if(2)
-			var/subtype = pick(subtypesof(/datum/bounty/item/mech))
-			return new subtype
-		if(3)
-			var/subtype = pick(subtypesof(/datum/bounty/item/chef))
-			return new subtype
-		if(4)
-			var/subtype = pick(subtypesof(/datum/bounty/item/security))
-			return new subtype
-		if(5)
-			if(rand(2) == 1)
-				return new /datum/bounty/reagent/simple_drink
-			return new /datum/bounty/reagent/complex_drink
-		if(6)
-			if(rand(2) == 1)
-				return new /datum/bounty/reagent/chemical_simple
-			return new /datum/bounty/reagent/chemical_complex
-		if(7)
-			var/subtype = pick(subtypesof(/datum/bounty/virus))
-			return new subtype
-		if(8)
-			if(rand(2) == 1)
-				var/subtype = pick(subtypesof(/datum/bounty/item/science))
-				return new subtype
-			var/subtype = pick(subtypesof(/datum/bounty/item/slime))
-			return new subtype
-		if(9)
-			var/subtype = pick(subtypesof(/datum/bounty/item/engineering))
-			return new subtype
-		if(10)
-			var/subtype = pick(subtypesof(/datum/bounty/item/mining))
-			return new subtype
-		if(11)
-			var/subtype = pick(subtypesof(/datum/bounty/item/medical))
-			return new subtype
-		if(12)
-			var/subtype = pick(subtypesof(/datum/bounty/item/botany))
-			return new subtype
+	var/chosen_type
+	var/bounty_succeeded = FALSE
+	var/datum/bounty/item/bounty_ref
+	while(!bounty_succeeded)
+		if(category && (category != CIV_JOB_RANDOM))
+			bounty_num = category
+		else
+			bounty_num = rand(1, MAXIMUM_BOUNTY_JOBS)
+		switch(bounty_num)
+			if(CIV_JOB_BASIC)
+				chosen_type = pick(subtypesof(/datum/bounty/item/assistant))
+			if(CIV_JOB_ROBO)
+				chosen_type = pick(subtypesof(/datum/bounty/item/mech))
+			if(CIV_JOB_CHEF)
+				chosen_type = pick(subtypesof(/datum/bounty/item/chef) + subtypesof(/datum/bounty/reagent/chef))
+			if(CIV_JOB_SEC)
+				chosen_type = pick(subtypesof(/datum/bounty/item/security))
+			if(CIV_JOB_DRINK)
+				if(prob(50))
+					chosen_type = /datum/bounty/reagent/simple_drink
+				else
+					chosen_type = /datum/bounty/reagent/complex_drink
+			if(CIV_JOB_CHEM)
+				if(prob(50))
+					chosen_type = /datum/bounty/reagent/chemical_simple
+				else
+					chosen_type = /datum/bounty/reagent/chemical_complex
+			if(CIV_JOB_VIRO)
+				chosen_type = pick(subtypesof(/datum/bounty/virus))
+			if(CIV_JOB_SCI)
+				if(prob(50))
+					chosen_type = pick(subtypesof(/datum/bounty/item/science))
+				else
+					chosen_type = pick(subtypesof(/datum/bounty/item/slime))
+			if(CIV_JOB_ENG)
+				chosen_type = pick(subtypesof(/datum/bounty/item/engineering))
+			if(CIV_JOB_MINE)
+				chosen_type = pick(subtypesof(/datum/bounty/item/mining))
+			if(CIV_JOB_MED)
+				chosen_type = pick(subtypesof(/datum/bounty/item/medical))
+			if(CIV_JOB_GROW)
+				chosen_type = pick(subtypesof(/datum/bounty/item/botany))
+			if(CIV_JOB_ATMOS)
+				chosen_type = pick(subtypesof(/datum/bounty/item/atmospherics))
+			if(CIV_JOB_BITRUN)
+				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
+		bounty_ref = new chosen_type
+		if(bounty_ref.can_get())
+			bounty_succeeded = TRUE
+		else
+			qdel(bounty_ref)
+	return bounty_ref
 
+#undef MAXIMUM_BOUNTY_JOBS

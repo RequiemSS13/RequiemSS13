@@ -5,10 +5,10 @@
  * ## USAGE
  *
  * ```
- * var/datum/callback/C = new(object|null, GLOBAL_PROC_REF(type)/path|"procstring", arg1, arg2, ... argn)
+ * var/datum/callback/C = new(object|null, PROC_REF(procname), arg1, arg2, ... argn)
  * var/timerid = addtimer(C, time, timertype)
  * you can also use the compiler define shorthand
- * var/timerid = addtimer(CALLBACK(object|null, GLOBAL_PROC_REF(type)/path|procstring, arg1, arg2, ... argn), time, timertype)
+ * var/timerid = addtimer(CALLBACK(object|null, PROC_REF(procname), arg1, arg2, ... argn), time, timertype)
  * ```
  *
  * Note: proc strings can only be given for datum proc calls, global procs must be proc paths
@@ -26,27 +26,19 @@
  * ## PROC TYPEPATH SHORTCUTS
  * (these operate on paths, not types, so to these shortcuts, datum is NOT a parent of atom, etc...)
  *
- * ### global proc while in another global proc:
- * .procname
- *
- * `CALLBACK(GLOBAL_PROC, .some_proc_here)`
- *
- * ### proc defined on current(src) object (when in a /proc/ and not an override) OR overridden at src or any of it's parents:
- * .procname
- *
- * `CALLBACK(src, .some_proc_here)`
- *
- * ### when the above doesn't apply:
- *PROC_REF(procname)
+ * ### proc defined on current(src) object OR overridden at src or any of its parents:
+ * PROC_REF(procname)
  *
  * `CALLBACK(src, PROC_REF(some_proc_here))`
  *
+ * ### global proc
+ * GLOBAL_PROC_REF(procname)
  *
- * proc defined on a parent of a some type
+ * `CALLBACK(src, GLOBAL_PROC_REF(some_proc_here))`
  *
- * `TYPE_PROC_REF(/some/type, some_proc_here)`
  *
- * Otherwise you must always provide the full typepath of the proc (/type/of/thing/proc/procname)
+ * ### proc defined on some type
+ * TYPE_PROC_REF(/some/type/, some_proc_here)
  */
 /datum/callback
 
@@ -77,6 +69,21 @@
 		user = WEAKREF(usr)
 
 /**
+ * Qdel a callback datum
+ * This is not allowed and will stack trace. callback datums are structs, if they are referenced they exist
+ *
+ * Arguments
+ * * force set to true to force the deletion to be allowed.
+ * * ... an optional list of extra arguments to pass to the proc
+ */
+/datum/callback/Destroy(force=FALSE, ...)
+	SHOULD_CALL_PARENT(FALSE)
+	if (force)
+		return ..()
+	stack_trace("Callbacks can not be qdeleted. If they are referenced, they must exist. ([object == GLOBAL_PROC ? GLOBAL_PROC : object.type] [delegate])")
+	return QDEL_HINT_LETMELIVE
+
+/**
  * Invoke this callback
  *
  * Calls the registered proc on the registered object, if the user ref
@@ -91,8 +98,8 @@
 			var/mob/M = W.resolve()
 			if(M)
 				if (length(args))
-					return world.PushUsr(arglist(list(M, src) + args))
-				return world.PushUsr(M, src)
+					return world.push_usr(arglist(list(M, src) + args))
+				return world.push_usr(M, src)
 
 	if (!object)
 		return
@@ -104,6 +111,8 @@
 		else
 			calling_arguments = args
 	if(datum_flags & DF_VAR_EDITED)
+		if(usr != GLOB.AdminProcCallHandler && !(usr && usr?.client?.ckey)) //This happens when a timer or the MC invokes a callback
+			return HandleUserlessProcCall(usr, object, delegate, calling_arguments)
 		return WrapAdminProcCall(object, delegate, calling_arguments)
 	if (object == GLOBAL_PROC)
 		return call(delegate)(arglist(calling_arguments))
@@ -126,8 +135,8 @@
 			var/mob/M = W.resolve()
 			if(M)
 				if (length(args))
-					return world.PushUsr(arglist(list(M, src) + args))
-				return world.PushUsr(M, src)
+					return world.push_usr(arglist(list(M, src) + args))
+				return world.push_usr(M, src)
 
 	if (!object)
 		return
@@ -139,6 +148,8 @@
 		else
 			calling_arguments = args
 	if(datum_flags & DF_VAR_EDITED)
+		if(usr != GLOB.AdminProcCallHandler && !(usr && usr?.client?.ckey)) //This happens when a timer or the MC invokes a callback
+			return HandleUserlessProcCall(usr, object, delegate, calling_arguments)
 		return WrapAdminProcCall(object, delegate, calling_arguments)
 	if (object == GLOBAL_PROC)
 		return call(delegate)(arglist(calling_arguments))
@@ -200,6 +211,3 @@
 	while(CS.pendingcount)
 		sleep(resolution*world.tick_lag)
 	return CS.finished
-
-/proc/___callbacknew(typepath, arguments)
-	new typepath(arglist(arguments))

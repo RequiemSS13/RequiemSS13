@@ -1,5 +1,3 @@
-import { toFixed } from 'tgui-core/math';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -11,6 +9,9 @@ import {
   Stack,
   Table,
 } from 'tgui-core/components';
+import { toFixed } from 'tgui-core/math';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const InsertedSkillchip = (props) => {
@@ -242,7 +243,7 @@ export const SkillStation = (props) => {
   const { data } = useBackend();
   const { working, timeleft, error } = data;
   return (
-    <Window title="Skillsoft Station" width={500} height={500} resizable>
+    <Window title="Skillsoft Station" width={500} height={500}>
       <Window.Content>
         {!!error && <NoticeBox>{error}</NoticeBox>}
         {!!working && (

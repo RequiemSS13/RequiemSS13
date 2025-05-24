@@ -1,0 +1,1425 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="file">code\modules\wod13\status_effects\debuffs.dm</S>
+      <S N="line">420</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">crit_wound.apply_wound</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="1">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\events\pirates.dm</S>
+      <S N="line">82</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">spawner</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="2">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\events\pirates.dm</S>
+      <S N="line">85</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">spawner.create</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="3">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\events\pirates.dm</S>
+      <S N="line">89</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">spawner</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="4">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\events\pirates.dm</S>
+      <S N="line">434</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">P</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="5">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\events\pirates.dm</S>
+      <S N="line">435</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">P</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="6">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\events\pirates.dm</S>
+      <S N="line">437</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">returnP</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="7">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">2193</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">jaunt</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="8">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">2194</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">jaunt</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="9">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">2247</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">jaunt.cast</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="10">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\vampire_clane\kiasyd.dm</S>
+      <S N="line">34</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">NV.Insert</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="11">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\daimonion.dm</S>
+      <S N="line">124</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bat_shapeshift</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="12">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\daimonion.dm</S>
+      <S N="line">125</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bat_shapeshift</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="13">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\daimonion.dm</S>
+      <S N="line">128</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bat_shapeshift.Shapeshift</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="14">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\daimonion.dm</S>
+      <S N="line">132</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bat_shapeshift.myshape</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="15">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\daimonion.dm</S>
+      <S N="line">132</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bat_shapeshift.Restore</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="16">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\daimonion.dm</S>
+      <S N="line">154</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bat_shapeshift</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="17">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\daimonion.dm</S>
+      <S N="line">155</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bat_shapeshift</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="18">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\daimonion.dm</S>
+      <S N="line">158</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bat_shapeshift.Shapeshift</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="19">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\daimonion.dm</S>
+      <S N="line">162</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bat_shapeshift.myshape</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="20">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\daimonion.dm</S>
+      <S N="line">162</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bat_shapeshift.Restore</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="21">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\obtenebration.dm</S>
+      <S N="line">128</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">tenebrous_form_spell</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="22">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\obtenebration.dm</S>
+      <S N="line">129</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">tenebrous_form_spell</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="23">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\obtenebration.dm</S>
+      <S N="line">131</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">tenebrous_form_spell.cast</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="24">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">372</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level2</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="25">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">373</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level2.icon</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="26">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">374</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level2.icon_state</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="27">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">375</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level2.layer</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="28">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">376</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level2.plane</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="29">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">377</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level3</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="30">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">378</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level3.icon</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="31">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">379</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level3.icon_state</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="32">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">380</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level3.layer</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="33">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">381</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level3.plane</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="34">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">382</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level4</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="35">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">383</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level4.icon</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="36">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">384</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level4.icon_state</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="37">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">385</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level4.layer</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="38">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">386</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level4.plane</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="39">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">387</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level5</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="40">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">388</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level5.icon</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="41">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">389</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level5.icon_state</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="42">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">390</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level5.layer</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="43">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\onyxcombat.dm</S>
+      <S N="line">391</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">level5.plane</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="44">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\mobs\human\examine\examine_outfit.dm</S>
+      <S N="line">54</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">FR</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="45">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\mobs\human\examine\examine_outfit.dm</S>
+      <S N="line">54</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">FR.blood_DNA</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="46">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">93</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="47">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">94</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="48">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">94</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="49">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">109</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="50">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">133</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="51">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">134</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="52">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">136</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="53">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">362</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="54">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">363</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="55">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">371</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="56">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">372</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="57">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">394</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="58">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">399</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="59">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">411</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="60">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">412</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="61">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">421</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="62">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">422</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="63">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">566</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="64">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">569</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet.icon_state</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="65">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">570</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet.icon_state</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="66">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\car.dm</S>
+      <S N="line">67</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">G</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="67">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\fire.dm</S>
+      <S N="line">56</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">G</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="68">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\fire.dm</S>
+      <S N="line">57</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">G</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="69">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\fire.dm</S>
+      <S N="line">58</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">G</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="70">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\totems.dm</S>
+      <S N="line">37</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">totem_light_overlay</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="71">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\totems.dm</S>
+      <S N="line">38</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">totem_light_overlay.icon</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="72">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\totems.dm</S>
+      <S N="line">39</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">totem_light_overlay.icon_state</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="73">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\totems.dm</S>
+      <S N="line">40</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">totem_light_overlay.plane</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="74">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\totems.dm</S>
+      <S N="line">41</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">totem_light_overlay.layer</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="75">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\totems.dm</S>
+      <S N="line">42</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">totem_light_overlay.color</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="76">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\totems.dm</S>
+      <S N="line">43</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">totem_light_overlay</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="77">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\totems.dm</S>
+      <S N="line">52</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">totem_light_overlay</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="78">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\totems.dm</S>
+      <S N="line">53</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">totem_light_overlay.icon_state</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="79">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\totems.dm</S>
+      <S N="line">54</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">totem_light_overlay</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="80">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\totems.dm</S>
+      <S N="line">89</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">totem_light_overlay</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="81">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\totems.dm</S>
+      <S N="line">90</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">totem_light_overlay.icon_state</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="82">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\werewolf\totems.dm</S>
+      <S N="line">91</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">totem_light_overlay</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="83">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\structures\doors\vampdoor.dm</S>
+      <S N="line">160</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">repair_kit</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="84">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\za_rozziu.dm</S>
+      <S N="line">28</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">Z</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="85">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\za_rozziu.dm</S>
+      <S N="line">28</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">Z.gc_destroyed</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="86">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\za_rozziu.dm</S>
+      <S N="line">29</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">Z</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="87">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\za_rozziu.dm</S>
+      <S N="line">36</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">Z.handle_automated_patriotification</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="88">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\status_effects\debuffs.dm</S>
+      <S N="line">604</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">C.set_target</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="89">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\status_effects\debuffs.dm</S>
+      <S N="line">605</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">C.GiveTarget</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="90">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\jobs\priest.dm</S>
+      <S N="line">61</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">n_freeze</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="91">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\jobs\priest.dm</S>
+      <S N="line">62</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">n_heal</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="92">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\preferences\topic_procs\process_misc_task_links.dm</S>
+      <S N="line">249</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">PM.backdrop</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="93">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">1374</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">cat</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="94">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\chi_disciplines.dm</S>
+      <S N="line">1375</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">cat.beastmaster</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="95">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\vampire_clane\clane.dm</S>
+      <S N="line">59</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">LM</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="96">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtmb\vampire_clane\clane.dm</S>
+      <S N="line">60</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">LM.loc</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="97">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\animalism.dm</S>
+      <S N="line">67</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">cat.my_creator</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="98">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\animalism.dm</S>
+      <S N="line">68</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">cat</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="99">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\animalism.dm</S>
+      <S N="line">69</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">cat.beastmaster</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="100">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">55</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie.my_creator</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="101">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">56</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="102">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">57</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie.beastmaster</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="103">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">101</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie.my_creator</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="104">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">102</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="105">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">103</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie.beastmaster</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="106">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">203</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie.my_creator</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="107">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">204</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="108">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">205</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie.beastmaster</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="109">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">249</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie.my_creator</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="110">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">250</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="111">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">251</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie.beastmaster</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="112">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">295</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie.my_creator</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="113">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">296</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="114">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\necromancy.dm</S>
+      <S N="line">297</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">zombie.beastmaster</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="115">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\obtenebration.dm</S>
+      <S N="line">59</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">casing.fire_casing</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="116">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\vicissitude.dm</S>
+      <S N="line">253</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">r_arm</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="117">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\vicissitude.dm</S>
+      <S N="line">254</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">r_arm.drop_limb</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="118">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\vicissitude.dm</S>
+      <S N="line">255</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">l_arm</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="119">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\vicissitude.dm</S>
+      <S N="line">256</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">l_arm.drop_limb</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="120">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\vicissitude.dm</S>
+      <S N="line">257</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">r_leg</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="121">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\vicissitude.dm</S>
+      <S N="line">258</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">r_leg.drop_limb</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="122">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\vicissitude.dm</S>
+      <S N="line">259</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">l_leg</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="123">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\vicissitude.dm</S>
+      <S N="line">260</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">l_leg.drop_limb</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="124">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\datums\powers\discipline\dominate.dm</S>
+      <S N="line">11</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">voice_of_domination</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="125">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\game\turfs\open\wod13\openspace.dm</S>
+      <S N="line">124</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">S.use</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="126">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\vtr13\mobs\human\examine\examine_mood.dm</S>
+      <S N="line">17</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">mood.sanity</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="127">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">467</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="128">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">473</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="129">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">475</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="130">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\guns\wod13\ballistic.dm</S>
+      <S N="line">560</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="131">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\guns\wod13\ballistic.dm</S>
+      <S N="line">561</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="132">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">394</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">K.bayonet</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="133">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">398</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">K</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="134">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\projectiles\wod13\gun.dm</S>
+      <S N="line">399</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">K</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="135">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\map.dm</S>
+      <S N="line">93</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">AM.icon</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="136">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\map.dm</S>
+      <S N="line">94</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">AM.icon_state</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="137">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\map.dm</S>
+      <S N="line">95</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">AM.layer</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="138">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\map.dm</S>
+      <S N="line">96</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">AM.pixel_x005F_x</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="139">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\map.dm</S>
+      <S N="line">97</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">AM.pixel_y</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="140">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\map.dm</S>
+      <S N="line">98</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">AM</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+  <Obj RefId="141">
+    <TNRef RefId="0" />
+    <MS>
+      <S N="file">code\modules\wod13\map.dm</S>
+      <S N="line">112</S>
+      <S N="diagnostic_severity">error</S>
+      <S N="identifier">AM</S>
+      <S N="diagnostic_type">undefined type</S>
+    </MS>
+  </Obj>
+</Objs>

@@ -1,44 +1,53 @@
+## /tg/station codebase
 
-* **Website:** TO_BE_DECLARED
-* **Code:** https://github.com/WorldOfDarknessXIII/World-of-Darkness-13
-* **Wiki:** UNDER_CONSTRUCTION
-* **Codedocs:** https://codedocs.tgstation13.org/ + For the time being +
-* **World of Darkness 13 Discord:** https://discord.gg/WBktth6Z8j
-* **Coderbus Discord:** https://discord.gg/Vh8TJp9
-* ~~**IRC:** irc://irc.rizon.net/coderbus~~ (dead)
+[![Build Status](https://github.com/tgstation/tgstation/workflows/CI%20Suite/badge.svg)](https://github.com/tgstation/tgstation/actions?query=workflow%3A%22CI+Suite%22)
+[![Percentage of issues still open](https://isitmaintained.com/badge/open/tgstation/tgstation.svg)](https://isitmaintained.com/project/tgstation/tgstation "Percentage of issues still open")
+[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/tgstation/tgstation.svg)](https://isitmaintained.com/project/tgstation/tgstation "Average time to resolve an issue")
+![Coverage](https://img.shields.io/badge/coverage---4%25-red.svg)
 
-This is the codebase for the World of Darkness 13, a build of a fork of a downstream of a-- in any case...
+[![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
-We are based on the Paradox Interactive World of Darkness(c) gamelines, with administrative oversight determining what we add to our game. Please see below for our guides on contributing.
+| Website                   | Link                                           |
+|---------------------------|------------------------------------------------|
+| Website                   | [https://tgstation13.org](https://tgstation13.org)          |
+| Code                      | [https://github.com/tgstation/tgstation](https://github.com/tgstation/tgstation)    |
+| Wiki                      | [https://tgstation13.org/wiki/Main_Page](https://tgstation13.org/wiki/Main_Page)   |
+| Codedocs                  | [https://codedocs.tgstation13.org/](https://codedocs.tgstation13.org/)       |
+| /tg/station Discord       | [https://tgstation13.org/phpBB/viewforum.php?f=60](https://tgstation13.org/phpBB/viewforum.php?f=60) |
+| Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)               |
 
-If you'd like to contribute to this codebase, consider uncommenting line 1 @ _maps\_basemap.dm for faster initialization.
+This is the codebase for the /tg/station flavoured fork of SpaceStation 13.
 
-## Attribution: tgstation
-## The vast majority of our code was written by the maintainers and members of the /tg/station community up to February 3rd, 2021. We regularly pull and port features from /tg/station as well. We would like to officially recognize and pay our respect to the thousands of development hours that created the foundation and continue to create the function of our server.
-## Changes to the below files have taken place to amend references to /tg/station with our own where appropriate. These changes are not intended and should not be interpreted as any attempt to inappropriately misattribute credit for the efforts of the original developers, maintainers, artists, or community managers.
-## The commit for the point at which we diverged from /tg/station:
+Space Station 13 is a paranoia-laden round-based roleplaying game set against the backdrop of a nonsensical, metal death trap masquerading as a space station, with charming spritework designed to represent the sci-fi setting and its dangerous undertones. Have fun, and survive!
 
-## commit c0c39018f369fa4d4950a56d565dadb573be54f2 (tg-divergence-backup, tg-divergence)
-## Author: tgstation-server <tgstation-server@tgstation13.org>
-## Date:   Wed Feb 3 16:50:49 2021 -0800
-##
-##    Automatic changelog generation for PR #56506 [ci skip]
+*All github inquiries (such as moderation actions) may be handled via the /tg/station discord [#coding-general](https://discord.com/channels/326822144233439242/326831214667235328). Simply ping the `@Maintainer` role, following the guide on asking questions located in the channel description, with your issue!*
 
 ## DOWNLOADING
-[Downloading](.github/DOWNLOADING.md)
+[Downloading](.github/guides/DOWNLOADING.md)
 
-[Running on the server](.github/RUNNING_A_SERVER.md)
+[Running a server](.github/guides/RUNNING_A_SERVER.md)
 
-## Requirements for contributors
-[Guidelines for Contributors](.github/CONTRIBUTING.md)
+[Maps and Away Missions](.github/guides/MAPS_AND_AWAY_MISSIONS.md)
 
-[/tg/station HACKMD account](https://hackmd.io/@tgstation) - Design documentation here
+## Compilation
 
-[Documenting your code](.github/AUTODOC_GUIDE.md)
+**The quick way**. Find `bin/server.cmd` in this folder and double click it to automatically build and host the server on port 1337.
 
-[Policy configuration system](.github/POLICYCONFIG.md)
+**The long way**. Find `bin/build.cmd` in this folder, and double click it to initiate the build. It consists of multiple steps and might take around 1-5 minutes to compile. If it closes, it means it has finished its job. You can then [setup the server](.github/guides/RUNNING_A_SERVER.md) normally by opening `tgstation.dmb` in DreamDaemon.
 
-[Interested in some starting lore?](https://github.com/tgstation/common_core)
+**Building tgstation in DreamMaker directly is deprecated and might produce errors**, such as `'tgui.bundle.js': cannot find file`.
+
+**[How to compile in VSCode and other build options](tools/build/README.md).**
+
+## Getting started
+
+For contribution guidelines refer to the [Guides for Contributors](.github/CONTRIBUTING.md).
+
+For getting started (dev env, compilation) see the HackMD document [here](https://hackmd.io/@tgstation/HJ8OdjNBc#tgstation-Development-Guide).
+
+For overall design documentation see [HackMD](https://hackmd.io/@tgstation).
+
+For lore, [see Common Core](https://github.com/tgstation/common_core).
 
 ## LICENSE
 
@@ -49,7 +58,7 @@ All code before [commit 333c566b88108de218d882840e61928a9b759d8f on 2014/31/12 a
 
 See LICENSE and GPLv3.txt for more details.
 
-The TGS DMAPI API is licensed as a subproject under the MIT license.
+The TGS DMAPI is licensed as a subproject under the MIT license.
 
 See the footer of [code/__DEFINES/tgs.dm](./code/__DEFINES/tgs.dm) and [code/modules/tgs/LICENSE](./code/modules/tgs/LICENSE) for the MIT license.
 

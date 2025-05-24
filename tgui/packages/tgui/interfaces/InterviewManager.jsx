@@ -1,6 +1,7 @@
 import { Button, Section } from 'tgui-core/components';
-import { Window } from '../layouts';
+
 import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
 export const InterviewManager = (props) => {
   const { act, data } = useBackend();
@@ -18,7 +19,7 @@ export const InterviewManager = (props) => {
   };
 
   return (
-    <Window width={500} height={600}>
+    <Window width={500} height={600} theme="admin">
       <Window.Content scrollable>
         <Section title="Active Interviews">
           {open_interviews.map(({ id, ckey, status, queued, disconnected }) => (
