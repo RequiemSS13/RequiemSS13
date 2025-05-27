@@ -155,7 +155,7 @@ PROCESSING_SUBSYSTEM_DEF(merits)
 					else
 						return FALSE
 			if("human","garou")
-				if(!(flags & MERIT_SPLAT_GHOUL))
+				if(!(flags & MERIT_SPLAT_HUMAN))
 					if(with_reason)
 						return "Humans cannot take this [initial(merit.category)]."
 					else
