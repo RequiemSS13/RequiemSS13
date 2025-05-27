@@ -40,26 +40,50 @@ export class VaultDoor extends Component {
       <Window resizable>
         <Window.Content scrollable>
           <Section title="Vault Door">
-            <LabeledList>
-              <LabeledList.Item label="Enter Pincode">
-                <Box>
-                  <Box>{inputCode}</Box>
-                  <Box>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((num) => (
-                      <Button
-                        key={num}
-                        content={num}
-                        onClick={() => this.handleButtonClick(num.toString())}
-                      />
-                    ))}
-                  </Box>
-                  <Box>
-                    <Button content="Submit" onClick={this.handleSubmit} />
-                    <Button content="Clear" onClick={this.handleClear} />
-                  </Box>
+            <Box textAlign="center">
+              Enter Pincode:
+              <Box minHeight={2}>{inputCode}</Box>
+              <Box>
+                {[1, 2, 3].map((num) => (
+                  <Button
+                    key={num}
+                    content={num}
+                    onClick={() => this.handleButtonClick(num.toString())}
+                    />
+                  ))}
                 </Box>
-              </LabeledList.Item>
-            </LabeledList>
+                <Box>
+                  {[4, 5, 6].map((num) => (
+                    <Button
+                      key={num}
+                      content={num}
+                      onClick={() => this.handleButtonClick(num.toString())}
+                    />
+                  ))}
+                </Box>
+                <Box>
+                  {[7, 8, 9].map((num) => (
+                    <Button
+                      key={num}
+                      content={num}
+                      onClick={() => this.handleButtonClick(num.toString())}
+                    />
+                  ))}
+                </Box>
+                <Box>
+                  {[0].map((num) => (
+                    <Button
+                      key={num}
+                      content={"0"}
+                      onClick={() => this.handleButtonClick("0")}
+                    />
+                  ))}
+                </Box>
+                <Box mt={"2px"}>
+                  <Button content="Submit" onClick={this.handleSubmit} />
+                  <Button content="Clear" onClick={this.handleClear} />
+                </Box>
+              </Box>
           </Section>
         </Window.Content>
       </Window>

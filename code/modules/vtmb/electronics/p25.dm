@@ -375,11 +375,9 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 
 	radio_emergency_cooldowns[source] = current_time + emergency_cooldown
 
-	var/turf/T = get_turf(source)
-	var/area/A = get_area(source)
-	var/coords = "[T.x], [T.y]"
+	var/area/vtm/vtr/A = get_area(source)
 	var/prefix = source.get_prefix()
-	var/emergency_msg = "\[<b><span class='red'>[prefix]-[source.callsign]</span></b>\]: <span class='robot'><b><span class='red'>11-99 OFFICER NEEDS ASSISTANCE AT: [A.name] ([coords])</span></b></span>"
+	var/emergency_msg = "\[<b><span class='red'>[prefix]-[source.callsign]</span></b>\]: <span class='robot'><b><span class='red'>11-99 OFFICER NEEDS ASSISTANCE AT: [A.sector]</span></b></span>"
 	var/formatted = "[icon2html(source, world)] [emergency_msg]"
 
 	return broadcast_to_network(formatted, "police", 'sound/effects/radioalert.ogg', 100)
@@ -388,13 +386,12 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 	if(!active || !location)
 		return
 
-	var/area/A = get_area(location)
+	var/area/vtm/vtr/A = get_area(location)
 	if(!A)
 		return
 
 	if(!isMasqueradeEnforced(A))
 		return
-	var/coords = "[location.x]:[location.y]"
 	var/message = ""
 	var/should_announce = FALSE
 
@@ -402,18 +399,18 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 		if("shooting")
 			if(last_shooting + 50 < world.time)
 				last_shooting = world.time
-				message = "Gun shots at [A.name], [coords]"
+				message = "Gun shots at [A.sector]."
 				should_announce = TRUE
 		if("victim")
 			if(last_shooting_victims + 50 < world.time)
 				last_shooting_victims = world.time
-				message = "Engaged combat at [A.name], wounded civillian, [coords]"
+				message = "Engaged combat at [A.sector], wounded civillian."
 				should_announce = TRUE
 		if("murder")
-			message = "Murder at [A.name], [coords]"
+			message = "Murder at [A.sector]."
 			should_announce = TRUE
 		if("burglary")
-			message = "Burglary at [A.name], [coords]"
+			message = "Burglary at [A.sector]."
 
 	if(should_announce)
 		var/formatted = "[icon2html(src, world)]\[<b>DISPATCH</b>\]: <span class='robot'>[message]</span>"
@@ -516,6 +513,8 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 			return "CRT"
 		if("tower")
 			return "TRT"
+		if("kiss")
+			return "KRT"
 		else
 			return "RT"
 

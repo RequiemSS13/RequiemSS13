@@ -43,6 +43,11 @@ SUBSYSTEM_DEF(humannpcpool)
 /datum/controller/subsystem/humannpcpool/proc/npclost()
 	while(length(GLOB.alive_npc_list) < npc_max)
 		var/atom/kal = pick(GLOB.npc_spawn_points)
-		var/NEPIS = pick(/mob/living/carbon/human/npc/police, /mob/living/carbon/human/npc/bandit, /mob/living/carbon/human/npc/hobo, /mob/living/carbon/human/npc/walkby, /mob/living/carbon/human/npc/business)
+		var/NEPIS = pick(
+			5;/mob/living/carbon/human/npc/police,
+			5;/mob/living/carbon/human/npc/bandit,
+			5;/mob/living/carbon/human/npc/hobo,
+			45;/mob/living/carbon/human/npc/walkby,
+			10;/mob/living/carbon/human/npc/business)
 		new NEPIS(get_turf(kal))
 

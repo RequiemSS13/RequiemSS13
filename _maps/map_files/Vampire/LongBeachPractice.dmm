@@ -624,6 +624,13 @@
 	},
 /turf/open/floor/plating/asphalt,
 /area/vtm/vtr/masquerade/exterior/ground_floor/southwest/southwest_long_beach)
+"aEH" = (
+/obj/effect/decal/bordur{
+	dir = 4
+	},
+/mob/living/carbon/human/npc/hobo,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/northwest/northwest_long_beach)
 "aEP" = (
 /obj/structure/vampfence/corner/rich{
 	dir = 4;
@@ -657,6 +664,13 @@
 	},
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/exterior/ground_floor/northwest/northwest_long_beach)
+"aFF" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/mob/living/carbon/human/npc/hobo,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/northeast/northeast_long_beach)
 "aGk" = (
 /obj/vampgrave{
 	pixel_y = 7
@@ -692,7 +706,7 @@
 /turf/open/floor/plating/church,
 /area/vtm/vtr/elysium/interior/ground_floor/central/castle_theater)
 "aHB" = (
-/obj/structure/vaultdoor/pincode,
+/obj/structure/vaultdoor/pincode/basement,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/vtr/elysium/interior/basement/central/castle_elysium)
 "aHN" = (
@@ -1177,7 +1191,7 @@
 /area/vtm/vtr/masquerade/exterior/ground_floor/southwest/southwest_long_beach)
 "bfY" = (
 /obj/machinery/button/door{
-	id = "warehouse";
+	id = "carthian";
 	name = "Parking Shutters Control";
 	pixel_x = 0;
 	pixel_y = 32
@@ -1751,6 +1765,10 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/ground_floor/central/library)
+"bGI" = (
+/mob/living/carbon/human/npc/business,
+/turf/open/floor/plating/vampwood,
+/area/vtm/vtr/masquerade/exterior/ground_floor/southeast/southeast_long_beach)
 "bGL" = (
 /obj/effect/decal/crosswalk{
 	dir = 4
@@ -1934,6 +1952,11 @@
 /obj/item/pen/fountain/captain,
 /turf/open/floor/plating/vampplating,
 /area/vtm/vtr/masquerade/interior/ground_floor/southwest/fax_spot)
+"bPW" = (
+/obj/effect/decal/bordur,
+/mob/living/carbon/human/npc/bandit,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/southwest/southwest_long_beach)
 "bQs" = (
 /turf/closed/wall/vampwall/painted,
 /area/vtm/vtr/masquerade/exterior/floor_three/southwest/southwest_long_beach/inaccessible)
@@ -1944,10 +1967,10 @@
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/exterior/ground_floor/northwest/northwest_long_beach)
 "bQI" = (
-/obj/structure/vaultdoor/pincode,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/structure/vaultdoor/pincode/records,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/elysium/interior/floor_three/central/castle_elysium)
 "bQJ" = (
@@ -3031,6 +3054,11 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/floor_three/northwest/apartment)
+"cMj" = (
+/obj/effect/decal/bordur,
+/mob/living/carbon/human/npc/business,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/southwest/southwest_long_beach)
 "cMx" = (
 /obj/structure/vampfence/rich{
 	dir = 4
@@ -3345,6 +3373,10 @@
 /obj/structure/flora/ausbushes/genericbush,
 /turf/open/floor/plating/vampgrass,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/hotel)
+"dam" = (
+/mob/living/carbon/human/npc/bandit,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/park/shoreline_park)
 "day" = (
 /obj/structure/vampfence/rich{
 	dir = 8
@@ -4218,10 +4250,6 @@
 	},
 /turf/open/floor/plating/vampplating,
 /area/vtm/vtr/masquerade/interior/ground_floor/southwest/clinic)
-"dPC" = (
-/mob/living/carbon/human/npc/walkby,
-/turf/open/floor/plating/vampwood,
-/area/vtm/vtr/masquerade/exterior/ground_floor/southeast/southeast_long_beach)
 "dQa" = (
 /obj/structure/curtain/bounty,
 /turf/closed/wall/vampwall/bar/low/window,
@@ -6003,6 +6031,7 @@
 	pixel_x = 7;
 	pixel_y = 16
 	},
+/obj/machinery/p25transceiver/clinic,
 /turf/open/floor/plating/vampplating/stone,
 /area/vtm/vtr/masquerade/interior/floor_two/southwest/clinic)
 "foP" = (
@@ -6414,7 +6443,7 @@
 /area/vtm/vtr/masquerade/interior/ground_floor/central/bank)
 "fIc" = (
 /obj/machinery/button/door{
-	id = "tower";
+	id = "invictus_car";
 	name = "Parking Shutters Control";
 	pixel_x = 0;
 	pixel_y = 32
@@ -7264,6 +7293,13 @@
 	},
 /turf/open/water/la_river,
 /area/vtm/vtr/masquerade/exterior/basement/river/la_river)
+"gvJ" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/mob/living/carbon/human/npc/police,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "gvW" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 4
@@ -9545,6 +9581,10 @@
 /obj/structure/stairs/east,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/ground_floor/central/library)
+"iBS" = (
+/obj/effect/landmark/observer_start,
+/turf/open/floor/plating/asphalt,
+/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "iCh" = (
 /obj/structure/table,
 /obj/item/kitchen/knife,
@@ -10130,6 +10170,10 @@
 /obj/effect/landmark/npcwall,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/exterior/ground_floor/southeast/southeast_long_beach)
+"jcx" = (
+/mob/living/carbon/human/npc/bandit,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/southeast/southeast_long_beach)
 "jcM" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/decal/cleanable/blood/old,
@@ -10187,6 +10231,13 @@
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/vtr/masquerade/exterior/floor_two/northeast/northeast_long_beach/inaccessible)
+"jfN" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/mob/living/carbon/human/npc/business,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "jgj" = (
 /obj/structure/table/wood,
 /turf/open/floor/plating/parquetry/old,
@@ -10589,7 +10640,7 @@
 /turf/open/floor/plating/asphalt,
 /area/vtm/vtr/masquerade/exterior/ground_floor/southeast/southeast_long_beach)
 "jAm" = (
-/mob/living/carbon/human/npc/walkby,
+/mob/living/carbon/human/npc/bandit,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/exterior/ground_floor/southwest/southwest_long_beach)
 "jAT" = (
@@ -12268,6 +12319,13 @@
 	},
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/exterior/ground_floor/southwest/southwest_long_beach)
+"ljy" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/mob/living/carbon/human/npc/police,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/southeast/southeast_long_beach)
 "ljG" = (
 /obj/structure/vampdoor/vtr_library{
 	dir = 4
@@ -12513,6 +12571,11 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/vtr/masquerade/interior/ground_floor/central/nightclub)
+"lxL" = (
+/obj/effect/decal/bordur,
+/mob/living/carbon/human/npc/hobo,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/northeast/northeast_long_beach)
 "lxX" = (
 /obj/structure/table/wood,
 /turf/open/floor/plating/vampplating,
@@ -15772,7 +15835,7 @@
 /turf/open/floor/plating/vampgrass,
 /area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach/inaccessible)
 "ojJ" = (
-/mob/living/carbon/human/npc/walkby,
+/mob/living/carbon/human/npc/hobo,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/exterior/ground_floor/park/shoreline_park)
 "ojP" = (
@@ -16729,11 +16792,6 @@
 "oZI" = (
 /turf/open/floor/plating/vampgrass,
 /area/vtm/vtr/masquerade/exterior/ground_floor/northeast/graveyard)
-"paf" = (
-/obj/keypad/armory,
-/obj/effect/decal/wallpaper/stone,
-/turf/closed/wall/vampwall/rich,
-/area/vtm/vtr/elysium/interior/basement/central/castle_elysium)
 "pap" = (
 /obj/effect/decal/wallpaper/paper/rich,
 /turf/closed/wall/vampwall/metal/alt,
@@ -18603,7 +18661,7 @@
 /obj/effect/decal/bordur{
 	dir = 10
 	},
-/mob/living/carbon/human/npc/walkby,
+/mob/living/carbon/human/npc/bandit,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/exterior/ground_floor/northeast/northeast_long_beach)
 "qRe" = (
@@ -18844,7 +18902,7 @@
 /turf/open/floor/plating/vampcanalplating,
 /area/vtm/vtr/masquerade/interior/basement/southeast/sewers_beach)
 "ral" = (
-/mob/living/carbon/human/npc/walkby,
+/mob/living/carbon/human/npc/business,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/vtr/masquerade/exterior/ground_floor/park/shoreline_park)
 "rao" = (
@@ -19553,6 +19611,10 @@
 	},
 /turf/open/openspace,
 /area/vtm/vtr/masquerade/exterior/ground_floor/southeast/southeast_long_beach/inaccessible)
+"rBS" = (
+/obj/structure/table,
+/turf/open/floor/plating/vampplating,
+/area/vtm/vtr/masquerade/interior/floor_two/northwest/police_station)
 "rCm" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/plating/vampplating/stone,
@@ -20387,6 +20449,13 @@
 	},
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/vtr/elysium/interior/ground_floor/central/castle_elevator)
+"skH" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/mob/living/carbon/human/npc/hobo,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "slx" = (
 /obj/structure/table/wood,
 /obj/structure/showcase/machinery/tv{
@@ -20658,6 +20727,7 @@
 /area/vtm/vtr/masquerade/interior/ground_floor/northwest/apartment)
 "swi" = (
 /obj/structure/table,
+/obj/machinery/p25transceiver/police,
 /turf/open/floor/plating/vampplating,
 /area/vtm/vtr/masquerade/interior/floor_two/northwest/police_station)
 "swD" = (
@@ -21582,6 +21652,11 @@
 /obj/structure/bookcase/random/reference,
 /turf/open/floor/plating/parquetry,
 /area/vtm/vtr/masquerade/interior/ground_floor/northwest/police_station)
+"tjC" = (
+/obj/effect/decal/bordur,
+/mob/living/carbon/human/npc/police,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/northeast/northeast_long_beach)
 "tjF" = (
 /obj/effect/decal/crosswalk{
 	dir = 1
@@ -22380,6 +22455,11 @@
 /obj/structure/table/wood,
 /turf/open/floor/plating/vampwood,
 /area/vtm/vtr/masquerade/interior/ground_floor/central/nightclub)
+"tOf" = (
+/obj/effect/decal/bordur,
+/mob/living/carbon/human/npc/police,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/northwest/northwest_long_beach)
 "tOi" = (
 /turf/open/floor/plating/parquetry,
 /area/vtm/vtr/masquerade/interior/ground_floor/central/castle_lobby)
@@ -22563,11 +22643,11 @@
 /area/vtm/vtr/masquerade/interior/basement/southeast/queen_lilith)
 "tUl" = (
 /obj/effect/decal/bordur{
-	dir = 1
+	dir = 4
 	},
-/mob/living/carbon/human/npc/walkby,
+/mob/living/carbon/human/npc/business,
 /turf/open/floor/plating/sidewalk/rich,
-/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
+/area/vtm/vtr/masquerade/exterior/ground_floor/northeast/northeast_long_beach)
 "tUG" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/vampgrass,
@@ -23479,6 +23559,11 @@
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/vtr/masquerade/exterior/ground_floor/park/shoreline_park)
+"uOI" = (
+/obj/effect/decal/bordur,
+/mob/living/carbon/human/npc/police,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "uOO" = (
 /obj/effect/decal/bordur{
 	dir = 10
@@ -24246,6 +24331,13 @@
 	},
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/exterior/ground_floor/park/shoreline_park)
+"vvZ" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/mob/living/carbon/human/npc/business,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/vtr/masquerade/exterior/ground_floor/southeast/southeast_long_beach)
 "vwc" = (
 /obj/structure/table/wood,
 /turf/open/floor/plasteel/cult{
@@ -24678,6 +24770,11 @@
 "vSw" = (
 /turf/closed/wall/vampwall/painted,
 /area/vtm/vtr/masquerade/exterior/basement/southwest/southwest_long_beach)
+"vSS" = (
+/obj/structure/table/wood,
+/obj/machinery/p25transceiver/tower,
+/turf/closed/wall/vampwall/wood/low,
+/area/vtm/vtr/elysium/interior/ground_floor/central/castle_elysium)
 "vSW" = (
 /obj/effect/decal/trash,
 /turf/open/floor/plating/concrete,
@@ -25609,6 +25706,11 @@
 /obj/effect/vip_barrier/elysium_2,
 /turf/open/floor/plating/vampplating/stone,
 /area/vtm/vtr/masquerade/interior/ground_floor/central/castle_lobby)
+"wHv" = (
+/obj/structure/table/wood,
+/obj/machinery/p25transceiver/elysium,
+/turf/open/floor/plating/vampwood,
+/area/vtm/vtr/masquerade/interior/ground_floor/central/nightclub)
 "wHU" = (
 /obj/machinery/roulette,
 /turf/open/floor/carpet,
@@ -61128,7 +61230,7 @@ aJY
 bOj
 wPj
 wPj
-paf
+hKv
 aJY
 aJY
 aJY
@@ -99968,7 +100070,7 @@ sDs
 sDs
 frh
 vgR
-wPq
+bPW
 byw
 byw
 bxH
@@ -105328,7 +105430,7 @@ pFr
 nub
 wEM
 rYY
-lzy
+tOf
 oWd
 aHY
 oWd
@@ -111018,7 +111120,7 @@ veS
 veS
 veS
 veS
-tUl
+jfN
 irj
 sBh
 sBh
@@ -112568,7 +112670,7 @@ odQ
 sBh
 sBh
 cpj
-tPm
+uOI
 nAO
 nAO
 jIK
@@ -113631,7 +113733,7 @@ bBx
 hLr
 rnH
 lOa
-wPq
+cMj
 byw
 byw
 byw
@@ -117413,7 +117515,7 @@ oWd
 oWd
 mJd
 lss
-pAJ
+aEH
 ppy
 ppy
 ppy
@@ -118218,7 +118320,7 @@ tgh
 sBh
 sBh
 sBh
-sBh
+iBS
 sBh
 sBh
 sBh
@@ -119008,7 +119110,7 @@ hlI
 hlI
 hlI
 hlI
-sPq
+gvJ
 hlI
 hlI
 hlI
@@ -119506,7 +119608,7 @@ sBh
 odQ
 sBh
 sBh
-tUl
+jfN
 hyS
 vis
 vis
@@ -120280,7 +120382,7 @@ sBh
 cpj
 hcV
 vis
-mXL
+wHv
 mXL
 uLs
 mXL
@@ -123066,7 +123168,7 @@ gkm
 anY
 gkm
 wyv
-dzL
+tjC
 qro
 hLk
 hLk
@@ -123939,7 +124041,7 @@ nxX
 rLT
 rLT
 nnf
-haa
+dam
 mdv
 iGU
 ctK
@@ -124132,7 +124234,7 @@ sBh
 odQ
 sBh
 sBh
-tUl
+skH
 hcV
 vis
 vis
@@ -124196,7 +124298,7 @@ rLT
 rLT
 rLT
 nnf
-ojJ
+haa
 mdv
 iGU
 ctK
@@ -126675,7 +126777,7 @@ onf
 qWR
 rAK
 sAP
-dme
+vSS
 rAK
 gFd
 smH
@@ -127488,7 +127590,7 @@ rhb
 rhb
 rhb
 rhb
-dPC
+bGI
 rhb
 rhb
 rhb
@@ -127548,7 +127650,7 @@ rhb
 rhb
 rhb
 rhb
-dPC
+bGI
 rhb
 rhb
 rhb
@@ -129747,7 +129849,7 @@ nQr
 gkm
 anY
 gkm
-fKu
+aFF
 nQr
 ikY
 joT
@@ -138524,7 +138626,7 @@ vur
 fYR
 vur
 vur
-hyi
+ljy
 tsr
 gIB
 klW
@@ -138738,7 +138840,7 @@ gBd
 gBd
 hIv
 wls
-dzL
+lxL
 gkm
 gkm
 gkm
@@ -139280,7 +139382,7 @@ aay
 aoC
 aay
 aay
-jdP
+tUl
 aay
 aay
 aay
@@ -141344,7 +141446,7 @@ egL
 oZI
 oZI
 pQM
-hyi
+vvZ
 jCH
 vur
 vur
@@ -143921,7 +144023,7 @@ vur
 fYR
 vur
 vur
-hyi
+vvZ
 tsr
 gIB
 klW
@@ -153688,7 +153790,7 @@ fYR
 vur
 ppz
 vrE
-fES
+jcx
 tsr
 gVB
 mXc
@@ -155222,7 +155324,7 @@ qcM
 pqZ
 asp
 dyB
-hyi
+vvZ
 jCH
 vur
 vur
@@ -172649,7 +172751,7 @@ jMh
 qyN
 aTL
 aTL
-swi
+rBS
 swi
 aTL
 aTL
@@ -251321,7 +251423,7 @@ lQm
 ddP
 ddP
 vMM
-poQ
+aUX
 jVY
 jVY
 jVY

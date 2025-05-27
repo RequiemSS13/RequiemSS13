@@ -36,6 +36,10 @@
 
 /obj/structure/vaultdoor/pincode/bank
 
+/obj/structure/vaultdoor/pincode/records //door on the tower top floor that goes into the room with the masquerade contracts
+
+/obj/structure/vaultdoor/pincode/basement //door in the tower basement
+
 /obj/structure/vaultdoor/New()
 	..()
 	if(uses_pincode_lock)
@@ -113,6 +117,7 @@
 	if(do_after(user, 4 SECONDS))
 		icon_state = "[baseicon]-1"
 		density = TRUE
+		opacity = TRUE
 		layer = ABOVE_ALL_MOB_LAYER
 		to_chat(user, "<span class='notice'>You close [src].</span>")
 		closed = TRUE

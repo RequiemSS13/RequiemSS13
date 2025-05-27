@@ -31,11 +31,11 @@
 	dat += "<b>Unprovoked Violence:</b> <a href='byond://?_src_=prefs;preference=ooc_escalation_pref;task=input'>[ooc_escalation_pref]</a>"
 	dat += "</td></tr></table>"
 	
-	dat += "<h2>[make_font_cool("SPECIES")]</h2>"
+	dat += "<h2>[make_font_cool("Splat")]</h2>"
 
 	
 
-	dat += "<b>Species:</b><BR><a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a><BR>"
+	dat += "<b>Splat:</b> <a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a><BR>"
 	if(pref_species.name == "Vampire")
 		dat += "<b>Humanity:</b> [humanity]/10"
 		dat += "<br>"

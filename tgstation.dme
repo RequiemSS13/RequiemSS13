@@ -3785,6 +3785,7 @@
 #include "code\modules\vtr13\jobs\taxi_vtr.dm"
 #include "code\modules\vtr13\jobs\voivode_vtr.dm"
 #include "code\modules\vtr13\machines\coffee_master.dm"
+#include "code\modules\vtr13\machines\radio_transciever.dm"
 #include "code\modules\vtr13\machines\vendors\coffee_vendor.dm"
 #include "code\modules\vtr13\masquerade\visible_masquerade_check.dm"
 #include "code\modules\vtr13\mobs\carbon\CheckFrenzyMove.dm"
