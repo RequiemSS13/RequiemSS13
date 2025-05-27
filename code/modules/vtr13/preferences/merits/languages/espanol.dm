@@ -1,7 +1,7 @@
 
 /datum/merit/language/espanol
-	name = "Espanol"
-	desc = "One of the official languages of Hong Kong, and the fourth most widely spoken language in Los Angeles."
+	name = "Spanish"
+	desc = "The second most commonly spoken language in the world, the United States, and Los Angeles county."
 
 /datum/merit/language/espanol/add()
 	var/mob/living/carbon/H = merit_holder
