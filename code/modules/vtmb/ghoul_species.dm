@@ -30,8 +30,9 @@
 	var/datum/discipline/bloodheal/giving_bloodheal = new(1)
 	C.give_discipline(giving_bloodheal)
 
-	C.bloodpool = 5
+	
 	C.maxbloodpool = 5 + C.get_total_stamina()
+	C.adjustBloodPool(5, TRUE)
 	C.recalculate_max_health()
 
 /datum/species/ghoul/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
@@ -62,8 +63,8 @@
 							H.drunked_of |= "[VIT.dna.real_name]"
 							H.adjustBruteLoss(-25, TRUE)
 							H.adjustFireLoss(-25, TRUE)
-							VIT.bloodpool = max(0, VIT.bloodpool-1)
-							H.bloodpool = min(H.maxbloodpool, H.bloodpool+1)
+							VIT.adjustBloodPool(-1)
+							H.adjustBloodPool(1)
 							H.update_blood_hud()
 							to_chat(owner, "<span class='warning'>You feel precious <b>VITAE</b> entering your mouth and suspending your addiction.</span>")
 							return
@@ -115,7 +116,7 @@
 		if((last_heal + 30) >= world.time)
 			return
 		last_heal = world.time
-		H.bloodpool = max(0, H.bloodpool-1)
+		H.adjustBloodPool(-1)
 		SEND_SOUND(H, sound('code/modules/wod13/sounds/bloodhealing.ogg', 0, 0, 50))
 		H.heal_overall_damage(15*level, 2.5*level, 20*level)
 		H.adjustBruteLoss(-15*level, TRUE)
@@ -223,7 +224,10 @@
 									H.set_warrant(H.killed_count >= 5, "SUSPICIOUS ACTION (equipment)")
 	if((H.last_bloodpool_restore + 60 SECONDS) <= world.time)
 		H.last_bloodpool_restore = world.time
-		H.bloodpool = min(H.maxbloodpool, H.bloodpool+1)
+		var/amount_of_blood = 1
+		if(HAS_TRAIT(H, TRAIT_PRODUCER))
+			amount_of_blood = 2
+		H.adjustBloodPool(amount_of_blood)
 
 /datum/species/garou/spec_life(mob/living/carbon/human/H)
 	. = ..()
@@ -257,7 +261,7 @@
 									H.set_warrant(H.killed_count >= 5, "SUSPICIOUS ACTION (equipment)")
 	if((H.last_bloodpool_restore + 60 SECONDS) <= world.time)
 		H.last_bloodpool_restore = world.time
-		H.bloodpool = min(H.maxbloodpool, H.bloodpool+1)
+		H.adjustBloodPool(1)
 	if(glabro)
 		if(H.CheckEyewitness(H, H, 7, FALSE))
 			H.adjust_veil(-1)

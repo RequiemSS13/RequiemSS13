@@ -62,9 +62,9 @@
 		character.clane.current_accessory = clane_accessory
 		character.maxbloodpool = 9 + character.blood_potency
 		if(character.clane.name == "Revenant")
-			character.bloodpool = character.composure
+			character.adjustBloodPool(character.composure, TRUE)
 		else
-			character.bloodpool = rand(character.composure, character.maxbloodpool)
+			character.adjustBloodPool(rand(character.composure, character.maxbloodpool), TRUE)
 		character.humanity = humanity
 		character.vtr_faction = vamp_faction
 	else if(pref_species.name == "Ghoul")
@@ -72,14 +72,14 @@
 		var/datum/vampireclane/CLN = new regent_clan.type()
 		character.regent_clan = CLN
 		character.maxbloodpool = 5 + character.stamina
-		character.bloodpool = rand(character.composure, character.maxbloodpool)
+		character.adjustBloodPool(rand(character.composure, character.maxbloodpool), TRUE)
 		character.vtr_faction = vamp_faction
 	else if(pref_species.name == "Werewolf")
 		character.blood_potency = 5
 	else
 		character.clane = null
 		qdel(character.regent_clan)
-		character.bloodpool = character.maxbloodpool
+		character.adjustBloodPool(character.maxbloodpool, TRUE)
 
 	character.masquerade = masquerade
 

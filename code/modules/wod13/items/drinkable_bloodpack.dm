@@ -20,7 +20,7 @@
 /obj/item/drinkable_bloodpack/attack(mob/living/M, mob/living/user)
 	. = ..()
 	if(!iskindred(M))
-		if(!vitae || iscathayan(M))
+		if(!vitae)
 			return
 	if(empty)
 		return
@@ -31,13 +31,21 @@
 		icon_state = "blood0"
 		inhand_icon_state = "blood0"
 		name = "\improper drinkable blood pack (empty)"
-		M.bloodpool = min(M.maxbloodpool, M.bloodpool+amount_of_bloodpoints)
-		M.adjustBruteLoss(-20, TRUE)
-		M.adjustFireLoss(-20, TRUE)
-		M.update_damage_overlays()
-		M.update_health_hud()
-		if(iskindred(M))
-			M.update_blood_hud()
+		var/blood_mod = 1
+		var/mob/living/carbon/human/human_user = user
+		if(HAS_TRAIT(src, TRAIT_METHUSELAHS_THIRST) && !vitae)
+			blood_mod = 0
+		else if(human_user?.vamp_rank == VAMP_RANK_ELDER && !vitae)
+			blood_mod *= 0.5
+		
+		if(blood_mod)
+			M.adjustBloodPool(blood_mod * amount_of_bloodpoints)
+			M.adjustBruteLoss(-20 * blood_mod, TRUE)
+			M.adjustFireLoss(-20 * blood_mod, TRUE)
+			M.update_damage_overlays()
+			M.update_health_hud()
+			if(iskindred(M))
+				M.update_blood_hud()
 		playsound(M.loc,'sound/items/drink.ogg', 50, TRUE)
 		return
 	else

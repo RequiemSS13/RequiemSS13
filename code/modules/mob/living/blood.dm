@@ -97,7 +97,7 @@
 
 	if(last_bloodpool_restore+timing <= world.time)
 		last_bloodpool_restore = world.time
-		bloodpool = max(0, bloodpool-1)
+		adjustBloodPool(-1)
 
 	//Blood loss still happens in locker, floor stays clean
 	if(isturf(loc) && prob(sqrt(amt)*BLOOD_DRIP_RATE_MOD))

@@ -82,3 +82,6 @@
 #define TRAIT_NO_DRIVE "no_drive"
 #define TRAIT_ARCHAIC "trait_archaic"
 #define TRAIT_SILVER_BANE "silver_bane"
+
+#define TRAIT_PRODUCER "producer"
+#define TRAIT_FACE_OF_HUNGER "face_of_hunger"
