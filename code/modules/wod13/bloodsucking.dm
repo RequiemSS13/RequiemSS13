@@ -64,7 +64,7 @@
 		if(CheckEyewitness(src, src, 7, FALSE))
 			AdjustMasquerade(-1)
 	if(do_after(src, 30, target = mob, timed_action_flags = NONE, progress = FALSE))
-		mob.bloodpool = max(0, mob.bloodpool-1)
+		mob.adjustBloodPool(-1)
 		suckbar.icon_state = "[round(14*(mob.bloodpool/mob.maxbloodpool))]"
 		if(ishuman(mob))
 			var/mob/living/carbon/human/H = mob
@@ -109,7 +109,8 @@
 			drink_mod *= 2
 
 		if(drink_mod)
-			bloodpool = min(maxbloodpool, bloodpool+drink_mod*max(1, mob.bloodquality-1))
+			adjustBloodPool(drink_mod*max(1, mob.bloodquality-1))
+
 			adjustBruteLoss(-10, TRUE)
 			adjustFireLoss(-10, TRUE)
 			update_damage_overlays()
