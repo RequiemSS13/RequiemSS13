@@ -32,7 +32,9 @@ PROCESSING_SUBSYSTEM_DEF(merits)
 							list("Hardy","Frail"), \
 							list("Indomitable","Susceptible"), \
 							list("Passenger Princess","Experienced Driver"), \
-							list("Emersonian Mind", "Pregnable Mind"))
+							list("Destitute","Childe of Orlok"), \
+							list("Face of Hunger","Wealthy"), \
+							list("Emersonian Mind", "Pregnable Mind"),)
 	return ..()
 
 /datum/controller/subsystem/processing/merits/proc/SetupMerits()
