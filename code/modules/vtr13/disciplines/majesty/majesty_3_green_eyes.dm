@@ -45,8 +45,8 @@
 		if(!SSroll.opposed_roll(
 			owner,
 			victim,
-			dice_a = owner.get_total_charisma() + discipline.level,
-			dice_b = victim.get_total_composure() + victim.blood_potency + trait_bonus,
+			dice_a = owner.get_charisma() + discipline.level,
+			dice_b = victim.get_composure() + victim.blood_potency + trait_bonus,
 			alert_atom = victim,
 			show_player_a = FALSE,
 			show_player_b = FALSE))

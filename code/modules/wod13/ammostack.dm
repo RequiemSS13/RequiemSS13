@@ -96,7 +96,7 @@
 	if(iscarbon(target) && . != BULLET_ACT_FORCE_PIERCE)
 		var/mob/living/carbon/hit_person = target
 		if(SSroll.storyteller_roll(
-			dice = hit_person.get_total_composure() + hit_person.get_total_stamina(),
+			dice = hit_person.get_composure() + hit_person.get_stamina(),
 			difficulty = 2,
 			mobs_to_show_output = target) <= 2)
 			hit_person.Knockdown(20)

@@ -492,7 +492,7 @@
 	if(ishuman(src))
 		if(ishuman(A) || isitem(A))
 			var/mob/living/carbon/human/ueban = src
-			if(!do_mob(src, src, max(1, 15-ueban.get_total_composure()*3)))
+			if(!do_mob(src, src, max(1, 15-ueban.get_composure()*3)))
 				return
 
 	if(isturf(A) && !(sight & SEE_TURFS) && !(A in view(client ? client.view : world.view, src)))

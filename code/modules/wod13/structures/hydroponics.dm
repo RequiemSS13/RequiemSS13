@@ -36,7 +36,7 @@
 		to_chat(user, "<span class='notice'>You pull the grown weed out of [src].</span>")
 		var/mob/living/carbon/human/user_human = user
 		var/amount
-		switch(SSroll.storyteller_roll(user_human.get_total_composure()*2, 1, user_human, src))
+		switch(SSroll.storyteller_roll(user_human.get_composure()*2, 1, user_human, src))
 			if(0 to 1)
 				amount = 1
 			if(1)

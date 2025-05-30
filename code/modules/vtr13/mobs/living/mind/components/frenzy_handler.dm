@@ -44,7 +44,7 @@
 	
 	SEND_SOUND(current, sound('code/modules/wod13/sounds/bloodneed.ogg', 0, 0, 50))
 
-	var/frenzy_dice = current.get_total_resolve() + current.get_total_composure() + situational_modifier - brain.tempted_mod
+	var/frenzy_dice = current.get_resolve() + current.get_composure() + situational_modifier - brain.tempted_mod
 
 	var/check = SSroll.storyteller_roll(frenzy_dice, 3)
 

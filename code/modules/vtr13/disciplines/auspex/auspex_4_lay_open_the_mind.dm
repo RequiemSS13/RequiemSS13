@@ -20,8 +20,8 @@
 	)
 
 /datum/discipline_power/vtr/auspex/lay_open_the_mind/pre_activation_checks(mob/living/carbon/human/target)
-	var/mypower = owner.get_total_wits() + discipline.level
-	var/theirpower = target.get_total_resolve() + target.blood_potency
+	var/mypower = owner.get_wits() + discipline.level
+	var/theirpower = target.get_resolve() + target.blood_potency
 
 	to_chat(owner, span_danger("You probe [target]'s mind..."))
 	var/trait_bonus = (HAS_TRAIT(target, TRAIT_EMERSONIAN)?TRAIT_EMERSONIAN_MOD:0) + (HAS_TRAIT(target, TRAIT_PREGNABLE_MIND)?TRAIT_PREGNABLE_MIND_MOD:0)

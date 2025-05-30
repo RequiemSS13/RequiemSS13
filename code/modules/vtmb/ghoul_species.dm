@@ -31,7 +31,7 @@
 	C.give_discipline(giving_bloodheal)
 
 	
-	C.maxbloodpool = 5 + C.get_total_stamina()
+	C.maxbloodpool = 5 + C.get_stamina()
 	C.adjustBloodPool(5, TRUE)
 	C.recalculate_max_health()
 

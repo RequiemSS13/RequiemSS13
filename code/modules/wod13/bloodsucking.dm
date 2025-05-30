@@ -130,7 +130,7 @@
 					AdjustHumanity(-1, 0)
 					adjustBruteLoss(-50, TRUE)
 					adjustFireLoss(-50, TRUE)
-					if(SSroll.storyteller_roll(src.humanity + src.get_total_resolve() - eaten_vampire.blood_potency, 4, list(src, eaten_vampire), eaten_vampire) <= 4)
+					if(SSroll.storyteller_roll(src.humanity + src.get_resolve() - eaten_vampire.blood_potency, 4, list(src, eaten_vampire), eaten_vampire) <= 4)
 						to_chat(src, span_warning("You fail to diablerize [eaten_vampire]."))
 						/*
 						to_chat(src, "<span class='userdanger'><b>[eaten_vampire]'s SOUL OVERCOMES YOURS AND GAINS CONTROL OF YOUR BODY.</b></span>")

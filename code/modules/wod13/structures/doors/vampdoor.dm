@@ -54,7 +54,7 @@
 	if(!H.is_holding_item_of_type(/obj/item/vamp/keys/hack))
 		return
 	var/message //So the code isn't flooded with . +=, it's just a visual thing
-	var/difference = H.get_total_wits() - lockpick_difficulty
+	var/difference = H.get_wits() - lockpick_difficulty
 	switch(difference)
 		if(-INFINITY to -6)
 			message = "<span class='warning'>This door looks extremely complicated. You figure you will have to be lucky to break it open."
@@ -170,8 +170,8 @@
 			for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
 				if(P)
 					P.Aggro(user)
-			if(do_mob(user, src, max((lockpick_timer - user.get_total_wits() * 3), 2) SECONDS))
-				switch(SSroll.storyteller_roll(user.get_total_wits() * 2 - lockpick_difficulty, 2, list(user), src))
+			if(do_mob(user, src, max((lockpick_timer - user.get_wits() * 3), 2) SECONDS))
+				switch(SSroll.storyteller_roll(user.get_wits() * 2 - lockpick_difficulty, 2, list(user), src))
 					if(0)
 						to_chat(user, "<span class='warning'>Your lockpick broke!</span>")
 						qdel(W)

@@ -63,7 +63,7 @@
 		difficulty_malus = 0
 		if (get_dist(hearer, target) > 3)
 			difficulty_malus += 1
-		if (SSroll.storyteller_roll(hearer.get_total_wits(), base_difficulty + difficulty_malus, mobs_to_show_output = hearer) > base_difficulty + difficulty_malus)
+		if (SSroll.storyteller_roll(hearer.get_wits(), base_difficulty + difficulty_malus, mobs_to_show_output = hearer) > base_difficulty + difficulty_malus)
 			if (masked)
 				to_chat(hearer, span_warning("[target]'s jaw isn't moving to match [target.p_their()] words."))
 			else

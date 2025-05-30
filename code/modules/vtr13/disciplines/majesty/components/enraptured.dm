@@ -179,8 +179,8 @@
 	if(SSroll.opposed_roll(
 		vip,
 		new_vip,
-		dice_a = vip.get_total_charisma() + new_source_power.discipline.level,
-		dice_b = new_vip.get_total_charisma() + source_power.discipline.level, 
+		dice_a = vip.get_charisma() + new_source_power.discipline.level,
+		dice_b = new_vip.get_charisma() + source_power.discipline.level, 
 		alert_atom = living_target,
 		draw_goes_to_b = FALSE))
 		return TRUE

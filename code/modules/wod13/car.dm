@@ -190,7 +190,7 @@ SUBSYSTEM_DEF(carpool)
 			if(!repairing)
 				repairing = TRUE
 				if(do_mob(user, src, 20 SECONDS))
-					switch(SSroll.storyteller_roll(user.get_total_wits()*2, 3, list(user), src))
+					switch(SSroll.storyteller_roll(user.get_wits()*2, 3, list(user), src))
 						if (0)
 							to_chat(user, "<span class='warning'>Your lockpick broke!</span>")
 							qdel(K)
