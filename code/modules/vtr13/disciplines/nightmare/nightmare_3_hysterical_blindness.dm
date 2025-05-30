@@ -18,8 +18,8 @@
 		target,
 		dice_a = owner.get_wits() + discipline.level,
 		dice_b = target.get_resolve() + target.blood_potency + trait_bonus, 
-		alert_atom = target)) //TODO HEX: Tie to blood_potency
-		return TRUE	
+		alert_atom = target))
+		return TRUE
 	to_chat(owner, span_warning("[target] keeps their eyes open!"))
 	if(target.mind)
 		to_chat(target, span_userdanger("The walls are pressing in- but you push back! You prevent the darkness from closing in!"))

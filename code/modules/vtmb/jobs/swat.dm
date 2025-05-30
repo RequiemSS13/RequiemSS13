@@ -25,11 +25,11 @@
 		H.remove_overlay(H.clane.accessories_layers[H.clane.current_accessory])
 		qdel(H.clane)
 	H.set_species(/datum/species/human)
-	H.physique = 3
-	H.wits = 4
-	H.resolve = 4
-	H.charisma = 2
-	H.composure = 2
+	H.stats.set_stat(3, STAT_PHYSIQUE)
+	H.stats.set_stat(4, STAT_WITS)
+	H.stats.set_stat(4, STAT_RESOLVE)
+	H.stats.set_stat(2, STAT_CHARISMA)
+	H.stats.set_stat(2, STAT_COMPOSURE)
 	H.ignores_warrant = TRUE
 	H.recalculate_max_health()
 	for(var/datum/action/A in H.actions)

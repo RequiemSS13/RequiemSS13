@@ -177,19 +177,7 @@
 
 	var/total_cleaned = 0
 
-	var/physique = 1
-	var/stamina = 1
-	var/charisma = 1
-	var/composure = 1
-	var/wits = 1
-	var/resolve = 1
-
-	var/additional_physique = 0
-	var/additional_stamina = 0
-	var/additional_charisma = 0
-	var/additional_composure = 0
-	var/additional_wits = 0
-	var/additional_resolve = 0
+	var/datum/attributes/stats
 
 	var/blood_potency = 0
 	var/additional_blood_potency = 0
@@ -217,7 +205,7 @@
 
 	var/temporis_visual = FALSE
 	var/temporis_blur = FALSE
-	
+
 	var/last_bloodpool_restore = 0
 
 	var/list/knowscontacts = list()

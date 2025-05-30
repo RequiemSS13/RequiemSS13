@@ -45,7 +45,7 @@
 				amount = 3
 			else
 				amount = 4
-				
+
 		for(var/i = 1 to amount)
 			new /obj/item/food/vampire/weed(get_turf(user))
 	update_weed_icon()

@@ -111,9 +111,9 @@
 			BD.dna.species.punchdamagehigh = BD.dna.species.punchdamagehigh+5
 			BD.physiology.armor.melee = BD.physiology.armor.melee+15
 			BD.physiology.armor.bullet = BD.physiology.armor.bullet+15
-			BD.additional_physique += 2
-			BD.additional_stamina += 2
-			
+			BD.add_physique_mod(2, "bloodpower")
+			BD.add_stamina_mod(2, "bloodpower")
+
 			if(!HAS_TRAIT(BD, TRAIT_IGNORESLOWDOWN))
 				ADD_TRAIT(BD, TRAIT_IGNORESLOWDOWN, SPECIES_TRAIT)
 			BD.update_blood_hud()
@@ -133,8 +133,8 @@
 			BD.physiology.armor.bullet = BD.physiology.armor.bullet-15
 			if(HAS_TRAIT(BD, TRAIT_IGNORESLOWDOWN))
 				REMOVE_TRAIT(BD, TRAIT_IGNORESLOWDOWN, SPECIES_TRAIT)
-		BD.additional_physique -= 2
-		BD.additional_stamina -= 2
+		BD.remove_physique_mod("bloodpower")
+		BD.remove_stamina_mod("bloodpower")
 
 /datum/action/give_vitae
 	name = "Give Vitae"
@@ -193,7 +193,7 @@
 							save_data_v = FALSE
 					BLOODBONDED.set_species(/datum/species/kindred)
 					BLOODBONDED.clane = new H.clane.type()
-					
+
 					BLOODBONDED.clane.on_gain(BLOODBONDED)
 					BLOODBONDED.clane.post_gain(BLOODBONDED)
 					BLOODBONDED.update_body()
@@ -247,13 +247,13 @@
 					if(H.reagents)
 						if(length(H.reagents.reagent_list))
 							H.reagents.trans_to(BLOODBONDED, min(10, H.reagents.total_volume), transfered_by = H, methods = VAMPIRE)
-					
+
 					BLOODBONDED.adjustBruteLoss(-25, TRUE)
-					
+
 					if(length(BLOODBONDED.all_wounds))
 						var/datum/wound/W = pick(BLOODBONDED.all_wounds)
 						W.remove_wound()
-					
+
 					BLOODBONDED.adjustFireLoss(-25, TRUE)
 					BLOODBONDED.adjustBloodPool(2)
 					

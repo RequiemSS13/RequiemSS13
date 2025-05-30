@@ -28,7 +28,7 @@
 	if(!current_command)
 		to_chat(owner, span_warning("You think better of dominating [target]."))
 		return FALSE
-	
+
 	return TRUE
 
 /datum/discipline_power/vtr/dominate/iron_edict/pre_activation_checks(mob/living/target)
@@ -56,13 +56,13 @@
 		do_cooldown(TRUE)
 		owner.update_action_buttons()
 		return FALSE
-	
+
 	return TRUE
 
 /datum/discipline_power/vtr/dominate/iron_edict/activate(mob/living/carbon/human/target)
 	. = ..()
 
-	
+
 	consent_ping(target)
 
 	var/the_command = current_command
@@ -75,7 +75,7 @@
 	log_admin("[target] was affected by Dominate [level] from [owner]. Command: '[the_command]'")
 
 	playsound(target, 'code/modules/wod13/sounds/dominate.ogg', 100, FALSE)
-	
+
 	to_chat(target, span_userdanger("You are compelled to obey the following command: [the_command]"))
-	
+
 	apply_discipline_affliction_overlay(target, "dominate", 2, 5 SECONDS)

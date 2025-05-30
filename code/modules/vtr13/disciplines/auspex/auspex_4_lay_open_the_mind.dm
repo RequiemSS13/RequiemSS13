@@ -63,7 +63,7 @@
 
 	for(var/datum/character_connection/connection in target.mind.character_connections)
 		to_chat(owner, span_notice("You hear [target]'s voice: \"[connection.connection_desc]\""))
-	
+
 
 /datum/discipline_power/vtr/auspex/lay_open_the_mind/proc/ask_prompt(mob/living/carbon/human/target, var/question)
 	if(!target.mind)

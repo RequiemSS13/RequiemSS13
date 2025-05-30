@@ -373,18 +373,19 @@
 
 	var/is_criminal = FALSE
 
-/mob/living/carbon/human/npc/proc/AssignSocialRole(var/datum/socialrole/S, var/dont_random = FALSE)
+/mob/living/carbon/human/npc/proc/AssignSocialRole(datum/socialrole/S, dont_random = FALSE)
 	if(!S)
 		return
-	physique = rand(1, max_stat)
-	stamina = rand(1, max_stat)
-	wits = rand(1, max_stat)
-	resolve = rand(1, max_stat)
-	charisma = rand(1, max_stat)
-	composure = rand(1, max_stat)
+	stats = new()
+	stats.set_stat(rand(1, max_stat), STAT_PHYSIQUE)
+	stats.set_stat(rand(1, max_stat), STAT_STAMINA)
+	stats.set_stat(rand(1, max_stat), STAT_CHARISMA)
+	stats.set_stat(rand(1, max_stat), STAT_COMPOSURE)
+	stats.set_stat(rand(1, max_stat), STAT_WITS)
+	stats.set_stat(rand(1, max_stat), STAT_RESOLVE)
 
 	recalculate_max_health(TRUE)
-	
+
 	last_health = health
 	socialrole = new S()
 

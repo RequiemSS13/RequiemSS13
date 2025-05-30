@@ -16,7 +16,7 @@
 				to_chat(src, span_warning("You were interrupted and failed to climb up."))
 				animate(src, pixel_y = 0, time = 0)
 				return
-      
+
 			animate(src, pixel_y = 0, time = 0)
 
 		var/success = 0

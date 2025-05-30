@@ -54,7 +54,7 @@
 	var/turf/destination_turf = get_turf(owner)
 
 	victim.AddComponent(/datum/component/summon_dial, destination_turf, owner, src)
-	
+
 	addtimer(CALLBACK(src, PROC_REF(trigger_summon_end), victim), majesty_duration)
 
 /datum/discipline_power/vtr/majesty/summon/proc/trigger_summon_end(mob/living/victim)

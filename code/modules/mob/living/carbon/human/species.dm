@@ -2145,7 +2145,7 @@ GLOBAL_LIST_EMPTY(selectable_races)
 	if(!A)
 		var/datum/action/fly_upper/DA = new()
 		DA.Grant(H)
-	
+
 	var/datum/action/fly_downer/fly_down_existing = locate() in H.actions
 	if(!fly_down_existing)
 		var/datum/action/fly_downer/fly_down = new()

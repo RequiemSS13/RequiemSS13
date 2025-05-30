@@ -32,13 +32,7 @@
 	character.diablerist = diablerist
 	character.headshot_link = headshot_link
 
-	character.physique = physique
-	character.stamina = stamina
-	character.charisma = charisma
-	character.composure = composure
-	character.wits = wits
-
-	character.resolve = resolve
+	character.stats = stats
 	character.info_known = info_known
 
 	character.recalculate_max_health(TRUE)
@@ -62,17 +56,17 @@
 		character.clane.current_accessory = clane_accessory
 		character.maxbloodpool = 9 + character.blood_potency
 		if(character.clane.name == "Revenant")
-			character.adjustBloodPool(character.composure, TRUE)
+			character.adjustBloodPool(character.get_composure(), TRUE)
 		else
-			character.adjustBloodPool(rand(character.composure, character.maxbloodpool), TRUE)
+			character.adjustBloodPool(rand(character.get_composure(), character.maxbloodpool), TRUE)
 		character.humanity = humanity
 		character.vtr_faction = vamp_faction
 	else if(pref_species.name == "Ghoul")
 		character.clane = null
 		var/datum/vampireclane/CLN = new regent_clan.type()
 		character.regent_clan = CLN
-		character.maxbloodpool = 5 + character.stamina
-		character.adjustBloodPool(rand(character.composure, character.maxbloodpool), TRUE)
+		character.maxbloodpool = 5 + character.get_stamina()
+		character.adjustBloodPool(rand(character.get_composure(), character.maxbloodpool), TRUE)
 		character.vtr_faction = vamp_faction
 	else if(pref_species.name == "Werewolf")
 		character.blood_potency = 5
@@ -178,21 +172,13 @@
 					character.transformator.crinos_form.name = real_name
 					character.transformator.lupus_form.name = real_name
 
-				character.transformator.crinos_form.physique = physique
-				character.transformator.crinos_form.stamina = stamina
-				character.transformator.crinos_form.wits = wits
-				character.transformator.crinos_form.resolve = resolve
-				character.transformator.crinos_form.composure = composure
+				// FIXME: This will probably need to be axed completely due to the instances likely being shared.
+				character.transformator.crinos_form.stats = stats
+				character.transformator.lupus_form.stats = stats
 
-				character.transformator.lupus_form.physique = physique
-				character.transformator.lupus_form.stamina = stamina
-				character.transformator.lupus_form.wits = wits
-				character.transformator.lupus_form.resolve = resolve
-				character.transformator.lupus_form.composure = composure
-
-				character.transformator.lupus_form.maxHealth = round((initial(character.transformator.lupus_form.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique )))+(character.auspice.level-1)*50
+				character.transformator.lupus_form.maxHealth = round((initial(character.transformator.lupus_form.maxHealth)+(initial(character.maxHealth)/4)*(character.get_physique())))+(character.auspice.level-1)*50
 				character.transformator.lupus_form.health = character.transformator.lupus_form.maxHealth
-				character.transformator.crinos_form.maxHealth = round((initial(character.transformator.crinos_form.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique )))+(character.auspice.level-1)*50
+				character.transformator.crinos_form.maxHealth = round((initial(character.transformator.crinos_form.maxHealth)+(initial(character.maxHealth)/4)*(character.get_physique())))+(character.auspice.level-1)*50
 				character.transformator.crinos_form.health = character.transformator.crinos_form.maxHealth
 	if(icon_updates)
 		character.update_body()

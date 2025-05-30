@@ -208,7 +208,6 @@
 		return
 
 	var/current_time = world.time
-	
 	var/adjusted_jump_delay = max(JUMP_DELAY - (1.4 * H.get_stamina()), 0)
 	if(current_time - last_jump_time < adjusted_jump_delay)
 		to_chat(src, "<span class='notice'>You can't jump so soon!")

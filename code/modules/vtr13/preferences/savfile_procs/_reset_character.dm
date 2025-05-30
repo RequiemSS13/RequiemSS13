@@ -6,12 +6,7 @@
 	flavor_text = null
 	headshot_link = null // TFN EDIT
 	info_known = INFO_KNOWN_UNKNOWN
-	physique = 1
-	stamina = 1
-	charisma = 1
-	composure = 1
-	wits = 1
-	resolve = 1
+	QDEL_NULL(stats)
 	ooc_bond_pref = "Ask"
 	ooc_ghoul_pref = "Ask"
 	ooc_embrace_pref = "Ask"

@@ -39,7 +39,7 @@
 				social_descriptor = (gender == MALE)?"handsome" : "beautiful"
 			if(5)
 				social_descriptor = "gorgeous"
-	
+
 	var/physical_descriptor = "inhuman"
 	switch(get_physique())
 		if(1)
@@ -63,7 +63,7 @@
 	var/cleanliness_note = ""
 	if(get_composure() == 1)
 		cleanliness_note = " [p_they(TRUE)] seems disheveled."
-	if(get_composure() == 5)
+	if(get_composure() >= 5)
 		cleanliness_note = " [p_they(TRUE)] [p_are()] immaculately well put-together."
 
 	return "This is <EM>[!obscure_name ? name : "Unknown"]</EM>, \a [total_descriptor] [my_gender]![cleanliness_note]"

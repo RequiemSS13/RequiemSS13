@@ -27,7 +27,7 @@
 	if(!current_command)
 		to_chat(owner, span_warning("You think better of dominating [target]."))
 		return FALSE
-	
+
 	return TRUE
 
 /datum/discipline_power/vtr/dominate/mesmerize/pre_activation_checks(mob/living/carbon/human/target)
@@ -54,7 +54,7 @@
 		do_cooldown(TRUE)
 		owner.update_action_buttons()
 		return FALSE
-	
+
 	return TRUE
 
 /datum/discipline_power/vtr/dominate/mesmerize/activate(mob/living/carbon/human/target)

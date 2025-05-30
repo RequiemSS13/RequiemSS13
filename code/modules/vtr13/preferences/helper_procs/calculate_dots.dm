@@ -22,13 +22,13 @@
 			character_dots = CHARACTER_DOTS_ELDER
 		else
 			character_dots = CHARACTER_DOTS_DEFAULT
-	
-	character_dots -= clamp(physique-1, 5, 0)
-	character_dots -= clamp(stamina-1, 5, 0)
-	character_dots -= clamp(charisma-1, 5, 0)
-	character_dots -= clamp(composure-1, 5, 0)
-	character_dots -= clamp(wits-1, 5, 0)
-	character_dots -= clamp(resolve-1, 5, 0)
+
+	character_dots -= clamp(get_physique()-1, 5, 0)
+	character_dots -= clamp(get_stamina()-1, 5, 0)
+	character_dots -= clamp(get_charisma()-1, 5, 0)
+	character_dots -= clamp(get_composure()-1, 5, 0)
+	character_dots -= clamp(get_wits()-1, 5, 0)
+	character_dots -= clamp(get_resolve()-1, 5, 0)
 	character_dots -= max(auspice_level - 1, 0)
 
 
@@ -51,7 +51,7 @@
 			discipline_dots = DISCIPLINE_DOTS_DEFAULT
 	for(var/discipline_level in discipline_levels)
 		discipline_dots -= discipline_level
-	
+
 	if(discipline_dots < 0)
 		CRASH("Error - More discipline dots have been taken than there are dots to have!")
 

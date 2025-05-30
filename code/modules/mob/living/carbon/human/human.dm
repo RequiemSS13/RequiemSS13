@@ -559,7 +559,7 @@
 				R.fields[text("com_[]", counter)] = text("Made by [] on [] [], []<BR>[]", allowed_access, station_time_timestamp(), time2text(world.realtime, "MMM DD"), GLOB.year_integer+540, t1)
 				to_chat(usr, "<span class='notice'>Successfully added comment.</span>")
 				return
-	
+
 	if(href_list["view_flavortext"])
 		tgui.holder = src
 		tgui.ui_interact(usr) //datum has a tgui component, here we open the window

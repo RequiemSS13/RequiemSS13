@@ -255,8 +255,8 @@
 		var/successes = SSroll.opposed_roll(
 			player_a = firer, 
 			player_b = L, 
-			dice_a = living_firer.get_wits() + 2, 
-			dice_b = L.get_resolve() + (HAS_TRAIT(L, TRAIT_SUPERNATURAL_DEXTERITY) ? 3 : 0), 
+			dice_a = living_firer.get_wits() + 2,
+			dice_b = L.get_resolve() + (HAS_TRAIT(L, TRAIT_SUPERNATURAL_DEXTERITY) ? 3 : 0),
 			show_player_a = TRUE, 
 			show_player_b = TRUE, 
 			alert_atom = L, 

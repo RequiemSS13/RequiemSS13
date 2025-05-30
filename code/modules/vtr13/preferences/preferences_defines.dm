@@ -37,33 +37,33 @@
 		"Vampiric 9" = VAMP_9,
 		"Vampiric 10" = VAMP_10,
 		"Vampiric 11" = VAMP_11)
-	
+
 	var/list/features = list(			//stuck around only by merit of DNA code needing it
-		"mcolor" = "FFF", 
-		"ethcolor" = "9c3030", 
-		"tail_lizard" = "Smooth", 
-		"tail_human" = "None", 
-		"snout" = "Round", "horns" = "None", 
-		"ears" = "None", "wings" = "None", 
-		"frills" = "None", "spines" = "None", 
-		"body_markings" = "None", 
-		"legs" = "Normal Legs", 
-		"moth_wings" = "Plain", 
-		"moth_antennae" = "Plain", 
+		"mcolor" = "FFF",
+		"ethcolor" = "9c3030",
+		"tail_lizard" = "Smooth",
+		"tail_human" = "None",
+		"snout" = "Round", "horns" = "None",
+		"ears" = "None", "wings" = "None",
+		"frills" = "None", "spines" = "None",
+		"body_markings" = "None",
+		"legs" = "Normal Legs",
+		"moth_wings" = "Plain",
+		"moth_antennae" = "Plain",
 		"moth_markings" = "None")
-	
+
 	var/list/randomise = list(			//randomizer list for bodyparts, lives by merit of being used for a single function
 		RANDOM_UNDERWEAR = TRUE,
-		RANDOM_UNDERWEAR_COLOR = TRUE, 
-		RANDOM_UNDERSHIRT = TRUE, 
-		RANDOM_SOCKS = TRUE, 
-		RANDOM_BACKPACK = TRUE, 
-		RANDOM_JUMPSUIT_STYLE = TRUE, 
-		RANDOM_HAIRSTYLE = TRUE, 
-		RANDOM_HAIR_COLOR = TRUE, 
-		RANDOM_FACIAL_HAIRSTYLE = TRUE, 
-		RANDOM_FACIAL_HAIR_COLOR = TRUE, 
-		RANDOM_SKIN_TONE = TRUE, 
+		RANDOM_UNDERWEAR_COLOR = TRUE,
+		RANDOM_UNDERSHIRT = TRUE,
+		RANDOM_SOCKS = TRUE,
+		RANDOM_BACKPACK = TRUE,
+		RANDOM_JUMPSUIT_STYLE = TRUE,
+		RANDOM_HAIRSTYLE = TRUE,
+		RANDOM_HAIR_COLOR = TRUE,
+		RANDOM_FACIAL_HAIRSTYLE = TRUE,
+		RANDOM_FACIAL_HAIR_COLOR = TRUE,
+		RANDOM_SKIN_TONE = TRUE,
 		RANDOM_EYE_COLOR = TRUE)
 	var/phobia = "spiders"				//Stuck around by merit of me not wanting to get rid of phobia code
 	var/hardcore_survival_score = 0		//Stores the amount of points for TG code stuff we need to get rid of eventually.
@@ -73,10 +73,11 @@
 	var/character_dots = 0				//Replacement for XP; calculated dynamically based on character choices
 	var/discipline_dots = 0
 	var/merit_dots = 0
-	var/loadout_dots = 0
+	
 	
 	var/show_loadout = TRUE
 	var/gear_tab = "General"
+	var/loadout_dots = 0
 	var/loadout_dots_max = 0
 
 	var/loadout_slots = 0
@@ -91,7 +92,7 @@
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
 	var/UI_style = null
 	var/hotkeys = TRUE
-	
+
 	///Runechat preference. If true, certain messages will be displayed on the map, not ust on the chat area. Boolean.
 	var/chat_on_map = TRUE
 	///Limit preference on the size of the message. Requires chat_on_map to have effect.
@@ -184,12 +185,7 @@
 	var/list/exp = list() //playtime tracker
 
 	//STATS
-	var/physique = 1
-	var/stamina = 1
-	var/charisma = 1
-	var/composure = 1
-	var/wits = 1
-	var/resolve = 1
+	var/datum/attributes/stats
 
 	var/list/equipped_gear = list()
 
@@ -240,7 +236,7 @@
 	if(istype(C))
 		if(!IsGuestKey(C.key))
 			load_path(C.ckey)
-	
+
 	//try to load preferences
 	var/loaded_preferences_successfully = load_preferences()
 	if(loaded_preferences_successfully)
@@ -253,7 +249,7 @@
 	//let's create a random character then - rather than a fat, bald and naked man.
 	random_character()
 	calculate_dots()
-	
+
 	key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
 	C?.set_macros()
 	real_name = pref_species.random_name(gender,1)
