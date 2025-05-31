@@ -51,7 +51,8 @@
 
 /obj/lombard/proc/generate_money(obj/item/sold, mob/living/user)
 	var/datum/component/selling/sold_sc = sold.GetComponent(/datum/component/selling)
-	var/real_value = (sold_sc.cost / 5) * (user.charisma + (user.additional_charisma * 0.1))
+	var/datum/attribute/charisma/cha = user.stats.get_attribute(STAT_CHARISMA)
+	var/real_value = (sold_sc.cost / 5) * cha.barter()
 	var/obj/item/stack/dollar/money_to_spawn = new() //Don't pass off the loc until we add up the money, or else it will merge too early and delete some money entities
 	//In case we ever add items that sell for more than the maximum amount of dollars in a stack and can be mass-sold, we use this code.
 	if(real_value > money_to_spawn.max_amount)

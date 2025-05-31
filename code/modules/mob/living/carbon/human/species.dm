@@ -1405,7 +1405,7 @@ GLOBAL_LIST_EMPTY(selectable_races)
 			else
 				user.do_attack_animation(target, ATTACK_EFFECT_PUNCH)
 
-		var/damage = (rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)/3)*(user.get_total_physique())
+		var/damage = (rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)/3)*(user.get_physique())
 		if(user.age < 16)
 			damage = round(damage/2)
 
@@ -1459,8 +1459,8 @@ GLOBAL_LIST_EMPTY(selectable_races)
 			if(SSroll.opposed_roll(
 				user,
 				target,
-				dice_a = user.get_total_physique(),
-				dice_b = target.get_total_stamina() + target.get_total_composure(), //better posture keeps u standing :)
+				dice_a = user.get_physique(),
+				dice_b = target.get_stamina() + target.get_composure(), //better posture keeps u standing :)
 				alert_atom = target))
 				target.visible_message("<span class='danger'>[user] knocks [target] down!</span>", "<span class='userdanger'>You're knocked down by [user]!</span>", "<span class='hear'>You hear aggressive shuffling followed by a loud thud!</span>", COMBAT_MESSAGE_RANGE, user)
 				to_chat(user, "<span class='danger'>You knock [target] down!</span>")
@@ -1533,7 +1533,7 @@ GLOBAL_LIST_EMPTY(selectable_races)
 		if(USR.age < 16)
 			modifikator = modifikator/2
 		if(ishuman(user))
-			modifikator = (modifikator/3)*(user.get_total_physique())
+			modifikator = (modifikator/3)*(user.get_physique())
 	if(user != H)
 		if(H.check_shields(I, I.force, "the [I.name]", MELEE_ATTACK, I.armour_penetration))
 			return FALSE
@@ -2145,7 +2145,7 @@ GLOBAL_LIST_EMPTY(selectable_races)
 	if(!A)
 		var/datum/action/fly_upper/DA = new()
 		DA.Grant(H)
-	
+
 	var/datum/action/fly_downer/fly_down_existing = locate() in H.actions
 	if(!fly_down_existing)
 		var/datum/action/fly_downer/fly_down = new()

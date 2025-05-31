@@ -10,7 +10,7 @@
 
 /datum/discipline_power/vtr/animalism/summon/activate()
 	. = ..()
-	var/limit = 1 + owner.charisma + owner.more_companions
+	var/limit = 1 + owner.get_charisma() + owner.more_companions
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()

@@ -1,7 +1,7 @@
 /datum/discipline_power/vtr/nightmare/phantom_trauma
 	name = "Phantom Trauma"
 	desc = "Cause the victim's whole body to tremble with fear."
-	
+
 	level = 2
 
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_SEE
@@ -17,10 +17,10 @@
 	if(SSroll.opposed_roll(
 		owner,
 		target,
-		dice_a = owner.get_total_wits() + discipline.level,
-		dice_b = target.get_total_resolve() + target.blood_potency + trait_bonus,
+		dice_a = owner.get_wits() + discipline.level,
+		dice_b = target.get_resolve() + target.blood_potency + trait_bonus,
 		alert_atom = target)) //TODO HEX: Tie to blood_potency
-		return TRUE	
+		return TRUE
 	to_chat(owner, span_warning("[target] resists the the chill going up their spine!"))
 	if(target.mind)
 		to_chat(target, span_userdanger("A dreadful cold overtakes you, but you suppress the urge to shiver!"))
@@ -39,7 +39,7 @@
 	if(target.mind)
 		target.AddElement(/datum/element/ui_button_shake_inventory_group, 16)
 		target.AddElement(/datum/element/ui_button_shake_wide_button_group, 1)
-	
+
 	do_cooldown(TRUE)
 	owner.update_action_buttons()
 

@@ -24,7 +24,7 @@
 
 /datum/discipline_power/animalism/summon_rat/activate()
 	. = ..()
-	var/limit = min(2, level) + owner.charisma + owner.more_companions - 1
+	var/limit = min(2, level) + owner.get_charisma() + owner.more_companions - 1
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()
@@ -53,7 +53,7 @@
 
 /datum/discipline_power/animalism/summon_cat/activate()
 	. = ..()
-	var/limit = min(2, level) + owner.charisma + owner.more_companions - 1
+	var/limit = min(2, level) + owner.get_charisma() + owner.more_companions - 1
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()
@@ -92,7 +92,7 @@
 
 /datum/discipline_power/animalism/summon_wolf/activate()
 	. = ..()
-	var/limit = min(2, level) + owner.charisma + owner.more_companions - 1
+	var/limit = min(2, level) + owner.get_charisma() + owner.more_companions - 1
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()
@@ -121,7 +121,7 @@
 
 /datum/discipline_power/animalism/summon_bat/activate()
 	. = ..()
-	var/limit = min(2, level) + owner.charisma + owner.more_companions - 1
+	var/limit = min(2, level) + owner.get_charisma() + owner.more_companions - 1
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()

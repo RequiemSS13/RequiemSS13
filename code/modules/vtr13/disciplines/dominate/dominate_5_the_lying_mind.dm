@@ -25,7 +25,7 @@
 	if(!current_command)
 		to_chat(owner, span_warning("You think better of dominating [target]."))
 		return FALSE
-	
+
 	return TRUE
 
 /datum/discipline_power/vtr/dominate/the_lying_mind/pre_activation_checks(mob/living/carbon/human/target)
@@ -41,8 +41,8 @@
 	if(!SSroll.opposed_roll(
 		owner,
 		target,
-		dice_a = owner.get_total_charisma() + discipline.level,
-		dice_b = target.get_total_composure() + target.blood_potency + trait_bonus,
+		dice_a = owner.get_charisma() + discipline.level,
+		dice_b = target.get_composure() + target.blood_potency + trait_bonus,
 		alert_atom = target,
 		show_player_a = FALSE,
 		show_player_b = FALSE))
@@ -55,7 +55,7 @@
 
 /datum/discipline_power/vtr/dominate/the_lying_mind/activate(mob/living/carbon/human/target)
 	. = ..()
-	
+
 	consent_ping(target)
 
 	var/the_command = current_command
@@ -69,5 +69,5 @@
 
 	playsound(target, 'code/modules/wod13/sounds/dominate.ogg', 100, FALSE)
 	to_chat(target, span_userdanger("Your mind has been altered: [the_command]"))
-	
+
 	apply_discipline_affliction_overlay(target, "dominate", 2, 5 SECONDS)

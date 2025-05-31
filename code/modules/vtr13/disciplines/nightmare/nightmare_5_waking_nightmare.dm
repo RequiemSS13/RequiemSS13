@@ -1,9 +1,9 @@
 /datum/discipline_power/vtr/nightmare/waking_nightmare
 	name = "Waking Nightmare"
 	desc = "Subject a victim to a horrendous, visceral experience."
-	
+
 	level = 5
-	
+
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_SEE
 	target_type = TARGET_HUMAN | TARGET_SELF
 	range = 7
@@ -21,8 +21,8 @@
 	if(SSroll.opposed_roll(
 		owner,
 		target,
-		dice_a = owner.get_total_wits() + discipline.level,
-		dice_b = target.get_total_resolve() + target.blood_potency + trait_bonus,
+		dice_a = owner.get_wits() + discipline.level,
+		dice_b = target.get_resolve() + target.blood_potency + trait_bonus,
 		alert_atom = target)) //TODO HEX: Tie to blood_potency
 		return TRUE
 	to_chat(owner, span_warning("[target] holds onto their senses!"))
@@ -38,7 +38,7 @@
 	. = ..()
 	if(!target.mind)
 		return
-	
+
 	apply_discipline_affliction_overlay(target, "dementation", 1, 5 SECONDS)
 	target.emote("scream")
 	target.Jitter(60)
@@ -46,13 +46,13 @@
 		return
 	ADD_TRAIT(target, TRAIT_ATTENDING_CARNIVAL, NIGHTMARE_4_TRAIT)
 	target.add_client_colour(/datum/client_colour/glass_colour/darkred)
-	
+
 	mounting_hallucinations(target)
 
 	target.AddComponent(/datum/component/meatworld_component, src)
 	target.AddElement(/datum/element/ui_button_shake_inventory_group, 1)
 	target.AddElement(/datum/element/ui_button_shake_wide_button_group, 1)
-	
+
 	to_chat(target, span_userdanger("The world has gone mad!"))
 	target.playsound_local(get_turf(target), 'sound/magic/ethereal_enter.ogg', 100, FALSE)
 
@@ -70,14 +70,14 @@
 	var/halpick = pickweight(GLOB.hallucination_list_unweighted)
 	new halpick(target, FALSE)
 	addtimer(CALLBACK(src, PROC_REF(mounting_hallucinations),target),hallucination_refresh)
-	
+
 
 /datum/discipline_power/vtr/nightmare/waking_nightmare/deactivate(mob/living/carbon/human/target)
 	. = ..()
 
 	if(!target.mind)
 		return
-	
+
 	REMOVE_TRAIT(target, TRAIT_ATTENDING_CARNIVAL, NIGHTMARE_4_TRAIT)
 	to_chat(target, span_warning("At long last, the horrors begin to fade."))
 	target.RemoveElement(/datum/element/ui_button_shake_inventory_group)

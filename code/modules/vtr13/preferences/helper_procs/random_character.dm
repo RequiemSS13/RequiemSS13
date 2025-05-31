@@ -42,6 +42,8 @@
 	if(!pref_species)
 		var/rando_race = pick(get_roundstart_species())
 		pref_species = new rando_race()
+	if(!stats)
+		stats = new()
 	features = random_features()
 	if(gender in list(MALE, FEMALE))
 		body_type = gender

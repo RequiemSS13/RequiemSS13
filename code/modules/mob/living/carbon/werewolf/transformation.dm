@@ -50,7 +50,7 @@ INITIALIZE_IMMEDIATE(/obj/werewolf_holder/transformation)
 			H.remove_overlay(PROTEAN_LAYER)
 			G.punchdamagelow = G.punchdamagelow-15
 			G.punchdamagehigh = G.punchdamagehigh-15
-			H.physique = H.physique-2
+			H.remove_physique_mod("glabro_form")
 			H.physiology.armor.melee = H.physiology.armor.melee-15
 			H.physiology.armor.bullet = H.physiology.armor.bullet-15
 			var/matrix/M = matrix()
@@ -143,7 +143,7 @@ INITIALIZE_IMMEDIATE(/obj/werewolf_holder/transformation)
 					crinos_form.nutrition = trans.nutrition
 					crinos_form.mind = trans.mind
 					crinos_form.update_blood_hud()
-					crinos_form.physique = crinos_form.physique+3
+					crinos_form.add_physique_mod(3, "crinos_form")
 					transfer_damage(trans, crinos_form)
 					crinos_form.add_movespeed_modifier(/datum/movespeed_modifier/crinosform)
 					trans.forceMove(src)

@@ -7,7 +7,7 @@
 	var/in_sight = TRUE
 
 /datum/component/enraptured_npc/Initialize(mob/living/new_vip, datum/discipline_power/vtr/new_source_power)
-	
+
 	source_power = new_source_power
 	if(!source_power)
 		return COMPONENT_INCOMPATIBLE
@@ -16,11 +16,11 @@
 	vip = new_vip
 	if(!living_target || !vip || !isliving(vip))
 		return COMPONENT_INCOMPATIBLE
-	
+
 
 	RegisterSignal(vip, COMSIG_MOVABLE_MOVED, PROC_REF(check_range))
 	RegisterSignal(vip, COMSIG_LIVING_DEATH, PROC_REF(destroy_component))
-	
+
 	RegisterSignal(source_power, COMSIG_COMPONENT_ENRAPTURE_REMOVE, PROC_REF(destroy_component))
 
 	living_target.setDir(get_vip_direction())
@@ -67,8 +67,8 @@
 	if(SSroll.opposed_roll(
 		vip,
 		new_vip,
-		dice_a = vip.get_total_charisma() + new_source_power.discipline.level,
-		dice_b = new_vip.get_total_charisma() + source_power.discipline.level, 
+		dice_a = vip.get_charisma() + new_source_power.discipline.level,
+		dice_b = new_vip.get_charisma() + source_power.discipline.level,
 		alert_atom = living_target,
 		draw_goes_to_b = FALSE))
 		return TRUE

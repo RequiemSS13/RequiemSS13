@@ -25,8 +25,8 @@
 		if(!SSroll.opposed_roll(
 			owner,
 			victim,
-			dice_a = owner.get_total_charisma() + discipline.level,
-			dice_b = victim.get_total_composure() + victim.blood_potency + trait_bonus, 
+			dice_a = owner.get_charisma() + discipline.level,
+			dice_b = victim.get_composure() + victim.blood_potency + trait_bonus, 
 			alert_atom = victim,
 			show_player_a = TRUE,
 			show_player_b = FALSE))
@@ -34,7 +34,7 @@
 				to_chat(victim, span_notice("An obsession for [owner] briefly sparks but you manage to suppress it."))
 			continue
 		affect_target(victim)
-	
+
 	if(owner.client)
 		owner.client.images += the_glow
 
@@ -45,10 +45,10 @@
 	for(var/client/affected_client in clients_affected)
 		affected_client.images -= the_glow
 		clients_affected -= affected_client
-	
+
 	for(var/mob/living/affected_target in mobs_affected)
 		remove_idol_regular(affected_target)
-	
+
 	if(owner.client)
 		owner.client.images -= the_glow
 
@@ -57,7 +57,7 @@
 	RegisterSignal(target, COMSIG_ATOM_BULLET_ACT, PROC_REF(check_bullet_act))
 	RegisterSignal(target, COMSIG_MOB_CLICKON, PROC_REF(check_click))
 	RegisterSignal(target, COMSIG_MOB_ATTACKED_BY_MELEE, PROC_REF(check_attacked))
-	
+
 	apply_discipline_affliction_overlay(target, "presence", 1, 5 SECONDS)
 	to_chat(target, "<span class='userlove'>[owner] is amazing. Resplendant. You are not worthy of their presence.</span>")
 	mobs_affected += target

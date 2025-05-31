@@ -41,8 +41,8 @@
 	if(!SSroll.opposed_roll(
 		owner,
 		victim,
-		dice_a = owner.get_total_charisma() + discipline.level,
-		dice_b = victim.get_total_composure() + victim.blood_potency + trait_bonus, 
+		dice_a = owner.get_charisma() + discipline.level,
+		dice_b = victim.get_composure() + victim.blood_potency + trait_bonus, 
 		alert_atom = owner,
 		show_player_a = TRUE,
 		show_player_b = FALSE))
@@ -54,7 +54,7 @@
 	var/turf/destination_turf = get_turf(owner)
 
 	victim.AddComponent(/datum/component/summon_dial, destination_turf, owner, src)
-	
+
 	addtimer(CALLBACK(src, PROC_REF(trigger_summon_end), victim), majesty_duration)
 
 /datum/discipline_power/vtr/majesty/summon/proc/trigger_summon_end(mob/living/victim)

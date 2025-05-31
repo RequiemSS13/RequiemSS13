@@ -27,7 +27,7 @@
 	if(!current_command)
 		to_chat(owner, span_warning("You think better of dominating [target]."))
 		return FALSE
-	
+
 	return TRUE
 
 /datum/discipline_power/vtr/dominate/mesmerize/pre_activation_checks(mob/living/carbon/human/target)
@@ -45,8 +45,8 @@
 	if(!SSroll.opposed_roll(
 		owner,
 		target,
-		dice_a = owner.get_total_charisma() + discipline.level + trait_bonus,
-		dice_b = target.get_total_composure() + target.blood_potency,
+		dice_a = owner.get_charisma() + discipline.level + trait_bonus,
+		dice_b = target.get_composure() + target.blood_potency,
 		alert_atom = target,
 		show_player_a = FALSE,
 		show_player_b = FALSE))
@@ -54,7 +54,7 @@
 		do_cooldown(TRUE)
 		owner.update_action_buttons()
 		return FALSE
-	
+
 	return TRUE
 
 /datum/discipline_power/vtr/dominate/mesmerize/activate(mob/living/carbon/human/target)

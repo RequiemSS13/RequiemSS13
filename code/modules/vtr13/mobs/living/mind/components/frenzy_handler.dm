@@ -7,7 +7,7 @@
 /datum/component/frenzy_handler/Initialize()
 	if(!istype(parent, /datum/mind))
 		return COMPONENT_INCOMPATIBLE
-	
+
 	var/datum/mind/brain = parent
 	if(!brain.current)
 		return COMPONENT_INCOMPATIBLE
@@ -21,7 +21,7 @@
 		return
 	to_chat(current, "<span class='userdanger'>You have lost control of the Beast within you, and it has taken your body. Be more humane next time.</span>")
 	current.ghostize(FALSE)
-	
+
 	is_draugr = TRUE
 	if(!HAS_TRAIT(parent, TRAIT_IN_FRENZY))
 		enter_frenzy()
@@ -41,10 +41,10 @@
 		to_chat(current, "I need <span class='danger'><b>BLOOD</b></span>. The <span class='danger'><b>BEAST</b></span> is calling. Rolling...")
 	else
 		to_chat(current, "I'm too <span class='danger'><b>AFRAID</b></span> to continue doing this. Rolling...")
-	
+
 	SEND_SOUND(current, sound('code/modules/wod13/sounds/bloodneed.ogg', 0, 0, 50))
 
-	var/frenzy_dice = current.get_total_resolve() + current.get_total_composure() + situational_modifier - brain.tempted_mod
+	var/frenzy_dice = current.get_resolve() + current.get_composure() + situational_modifier - brain.tempted_mod
 
 	var/check = SSroll.storyteller_roll(frenzy_dice, 3)
 
@@ -76,16 +76,18 @@
 
 	if(current.m_intent == MOVE_INTENT_WALK)
 		current.toggle_move_intent()
-	
-	current.additional_wits += current.blood_potency
-	current.additional_physique += current.blood_potency
-	current.additional_stamina += current.blood_potency
+
+	var/blood_potency = current.blood_potency
+	current.add_wits_mod(blood_potency, TRAIT_IN_FRENZY)
+	current.add_physique_mod(blood_potency, TRAIT_IN_FRENZY)
+	current.add_stamina_mod(blood_potency, TRAIT_IN_FRENZY)
+
 	if(ishuman(current))
 		var/mob/living/carbon/human/current_human = current
 		current_human.recalculate_max_health()
 
 	SEND_SOUND(current, sound('code/modules/wod13/sounds/frenzy.ogg', 0, 0, 50))
-	
+
 	current.balloon_alert(current, "<span style='color: #0000ff;'>+FRENZY</span>")
 	current.add_client_colour(/datum/client_colour/glass_colour/red)
 	SSfrenzypool.frenzy_list += src
@@ -107,9 +109,10 @@
 	UnregisterSignal(current, COMSIG_LIVING_DEATH)
 	UnregisterSignal(SSfrenzypool, COMSIG_HANDLE_AUTOMATED_FRENZY)
 
-	current.additional_wits -= current.blood_potency
-	current.additional_physique -= current.blood_potency
-	current.additional_stamina -= current.blood_potency
+	current.remove_wits_mod(TRAIT_IN_FRENZY)
+	current.remove_physique_mod(TRAIT_IN_FRENZY)
+	current.remove_stamina_mod(TRAIT_IN_FRENZY)
+
 	if(ishuman(current))
 		var/mob/living/carbon/human/current_human = current
 		current_human.recalculate_max_health()
@@ -142,7 +145,7 @@
 			for(var/i in 1 to reqsteps)
 				addtimer(CALLBACK(src, PROC_REF(frenzystep)), (i - 1)*current.total_multiplicative_slowdown())
 			return
-		
+
 		if(CheckFrenzyMove() && isturf(current.loc))
 			var/turf/next_turf = get_step(current.loc, pick(NORTH, SOUTH, WEST, EAST))
 			current.face_atom(next_turf)
@@ -165,7 +168,7 @@
 	if(length(targets))
 		frenzy_target = pick(targets)
 		return
-	
+
 	frenzy_target = null
 
 /datum/component/frenzy_handler/proc/frenzystep()
@@ -193,7 +196,7 @@
 			if(prob(25))
 				current.emote("scream")
 			return
-	
+
 	//if there's no target, stop doing things
 	if(!frenzy_target || frenzy_target.stat == DEAD)
 		return
@@ -220,7 +223,7 @@
 
 		if(human_current.CheckEyewitness(frenzy_target, current, 7, FALSE))
 			human_current.AdjustMasquerade(-1)
-		
+
 		human_current.vamp_bite()
 		return
 
@@ -229,7 +232,7 @@
 	if(last_rage_hit+5 < world.time)
 		last_rage_hit = world.time
 		current.UnarmedAttack(frenzy_target)
-	
+
 
 
 /datum/component/frenzy_handler/proc/handle_mind_transfer(datum/source, mob/living/new_character)
@@ -241,22 +244,25 @@
 	RegisterSignal(new_character, COMSIG_MOB_CLICKON, PROC_REF(cancel_click))
 	RegisterSignal(new_character, COMSIG_LIVING_DEATH, PROC_REF(handle_current_death))
 
-	current.additional_wits -= current.blood_potency
-	current.additional_physique -= current.blood_potency
-	current.additional_stamina -= current.blood_potency
+	var/blood_potency = current.blood_potency
+	current.remove_wits_mod(TRAIT_IN_FRENZY)
+	current.remove_physique_mod(TRAIT_IN_FRENZY)
+	current.remove_stamina_mod(TRAIT_IN_FRENZY)
+
 	if(ishuman(current))
 		var/mob/living/carbon/human/current_human = current
 		current_human.recalculate_max_health()
-	
-	new_character.additional_wits += new_character.blood_potency
-	new_character.additional_physique += new_character.blood_potency
-	new_character.additional_stamina += new_character.blood_potency
+
+	blood_potency = new_character.blood_potency
+	current.add_wits_mod(blood_potency, TRAIT_IN_FRENZY)
+	current.add_physique_mod(blood_potency, TRAIT_IN_FRENZY)
+	current.add_stamina_mod(blood_potency, TRAIT_IN_FRENZY)
+
 	if(ishuman(current))
 		var/mob/living/carbon/human/new_character_human = new_character
 		new_character_human.recalculate_max_health()
 
 	current = new_character
-	
 
 /datum/component/frenzy_handler/proc/cancel_click()
 	SIGNAL_HANDLER

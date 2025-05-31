@@ -122,15 +122,15 @@
 				var/mob/living/carbon/human/eaten_vampire = mob
 				if(iskindred(src))
 					var/datum/preferences/our_prefs = GLOB.preferences_datums[ckey(key)]
-					
+
 					var/datum/preferences/victim_prefs = GLOB.preferences_datums[ckey(mob.key)]
 					if(victim_prefs)
 						victim_prefs.reason_of_death =  "Diablerized by [true_real_name ? true_real_name : real_name] ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
-					
+
 					AdjustHumanity(-1, 0)
 					adjustBruteLoss(-50, TRUE)
 					adjustFireLoss(-50, TRUE)
-					if(SSroll.storyteller_roll(src.humanity + src.get_total_resolve() - eaten_vampire.blood_potency, 4, list(src, eaten_vampire), eaten_vampire) <= 4)
+					if(SSroll.storyteller_roll(src.humanity + src.get_resolve() - eaten_vampire.blood_potency, 4, list(src, eaten_vampire), eaten_vampire) <= 4)
 						to_chat(src, span_warning("You fail to diablerize [eaten_vampire]."))
 						/*
 						to_chat(src, "<span class='userdanger'><b>[eaten_vampire]'s SOUL OVERCOMES YOURS AND GAINS CONTROL OF YOUR BODY.</b></span>")

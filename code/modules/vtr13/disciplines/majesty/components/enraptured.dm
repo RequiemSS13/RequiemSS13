@@ -33,12 +33,12 @@
 	vip = new_vip
 	if(!parent_mind || !parent_mind.current || !isliving(parent_mind.current) || !vip || !isliving(vip))
 		return COMPONENT_INCOMPATIBLE
-	
+
 	living_target = parent_mind.current
 
 	if(!living_target.client)
 		return COMPONENT_INCOMPATIBLE
-	
+
 	ADD_TRAIT(living_target, TRAIT_ENRAPTURED, MAJESTY_1_TRAIT)
 
 	to_chat(living_target, "You can't take your eyes off of [new_vip]!")
@@ -65,16 +65,16 @@
 	spotlight_shadow.pixel_y = -384
 	spotlight_shadow.icon_state = "shadow"
 	parent_client.images += spotlight_shadow
-	
+
 	animate(spotlight_shadow, alpha=204, easing=CIRCULAR_EASING|EASE_IN, time=20)
-	
+
 	addtimer(CALLBACK(src, PROC_REF(turn_on_light)), 30, TIMER_CLIENT_TIME, TIMER_OVERRIDE)
 
 	living_target.setDir(get_vip_direction())
-	
+
 	RegisterSignal(vip, COMSIG_LIVING_DEATH, PROC_REF(destroy_component))
 	RegisterSignal(source_power, COMSIG_COMPONENT_ENRAPTURE_REMOVE, PROC_REF(destroy_component))
-	
+
 
 
 	if(vip != living_target)
@@ -128,13 +128,13 @@
 	parent_client.images -= actual_light
 	if(in_sight)
 		SEND_SOUND(living_target, 'sound/effects/clock_tick.ogg')
-	
+
 	return ..()
 
 /datum/component/enraptured/proc/check_range(datum/source)
 	SIGNAL_HANDLER
 	if(in_sight && ((get_dist(get_turf(vip), get_turf(living_target)) > 8) || !can_see(living_target, vip, 8)))
-		
+
 		if(parent_client.screen.Find(fake_shadow_plane))
 			parent_client.screen -= fake_shadow_plane
 			parent_client.images -= halogen_light
@@ -150,7 +150,7 @@
 
 		RegisterSignal(living_target, COMSIG_LIVING_DIR_CHANGE, PROC_REF(set_dir_override))
 		in_sight = TRUE
-	
+
 	if(!in_sight)
 		return
 
@@ -175,16 +175,16 @@
 /datum/component/enraptured/CheckDupeComponent(datum/component, mob/living/new_vip, datum/discipline_power/vtr/new_source_power)
 	if(!new_vip || !new_source_power)
 		return TRUE
-	
+
 	if(SSroll.opposed_roll(
 		vip,
 		new_vip,
-		dice_a = vip.get_total_charisma() + new_source_power.discipline.level,
-		dice_b = new_vip.get_total_charisma() + source_power.discipline.level, 
+		dice_a = vip.get_charisma() + new_source_power.discipline.level,
+		dice_b = new_vip.get_charisma() + source_power.discipline.level,
 		alert_atom = living_target,
 		draw_goes_to_b = FALSE))
 		return TRUE
-	
+
 	destroy_component()
-	
+
 	return FALSE

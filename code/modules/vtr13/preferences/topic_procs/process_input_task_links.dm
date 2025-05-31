@@ -1,5 +1,5 @@
 /datum/preferences/proc/process_input_task_links(mob/user, list/href_list)
-	
+
 	if(href_list["task"] != "input")
 		CRASH("process_tasks_input called on topic that was not an input task!")
 
@@ -213,17 +213,17 @@
 				var/newtype = GLOB.auspices_list[result]
 				var/datum/auspice/new_auspice = new newtype()
 				auspice = new_auspice
-		
+
 		if("auspice_level")
 			if (auspice_level >= 3)
 				return
 			auspice_level = max(1, auspice_level + 1)
-		
+
 		if("auspice_level_decrease")
 			if (auspice_level <= 1)
 				return
 			auspice_level = min(1, auspice_level + 1)
-	
+
 		if("tribe")
 			if(pref_species.id != "garou")
 				return
@@ -240,47 +240,14 @@
 			if (new_breed)
 				breed = new_breed
 
-		if("physique")
-			if(handle_upgrade(physique))
-				physique++
+		if("increase_stat")
+			var/datum/attribute/A = locate(href_list["attribute"])
+			if(handle_upgrade(A.score))
+				A.score++
 
-		if("stamina")
-			if(handle_upgrade(stamina))
-				stamina++
-
-		if("charisma")
-			if(handle_upgrade(charisma))
-				charisma++
-
-		if("composure")
-			if(handle_upgrade(composure))
-				composure++
-
-		if("wits")
-			if(handle_upgrade(wits))
-				wits++
-
-		if("resolve")
-			if(handle_upgrade(resolve))
-				resolve++
-		
-		if("physique_decrease")
-			physique--
-
-		if("stamina_decrease")
-			stamina--
-
-		if("charisma_decrease")
-			charisma--
-
-		if("composure_decrease")
-			composure--
-
-		if("wits_decrease")
-			wits--
-
-		if("resolve_decrease")
-			resolve--
+		if("decrease_stat")
+			var/datum/attribute/A = locate(href_list["attribute"])
+			A.score--
 
 		if("clane")
 			if(!(pref_species.id == "kindred"))
@@ -379,7 +346,7 @@
 		if("discipline")
 			if(pref_species.id != "kindred" && pref_species.id != "ghoul")
 				return
-		
+
 			var/i = text2num(href_list["upgradediscipline"])
 			var/discipline_level = discipline_levels[i]
 
@@ -477,7 +444,7 @@
 		if("species")
 			if (tgui_alert(user, "Are you sure you want to change species? This will reset your merits, flaws and banes.", "Confirmation", list("Yes", "No")) != "Yes")
 				return
-			
+
 			var/list/choose_species = list()
 			for (var/key in get_selectable_species())
 				var/newtype = GLOB.species_list[key]

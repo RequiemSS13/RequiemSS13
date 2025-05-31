@@ -25,8 +25,8 @@
 	var/success_count = SSroll.opposed_roll(
 		owner,
 		target,
-		dice_a = owner.get_total_wits() + discipline.level,
-		dice_b = target.get_total_resolve() + target.blood_potency + trait_bonus,
+		dice_a = owner.get_wits() + discipline.level,
+		dice_b = target.get_resolve() + target.blood_potency + trait_bonus,
 		alert_atom = target,
 		numerical = TRUE)
 

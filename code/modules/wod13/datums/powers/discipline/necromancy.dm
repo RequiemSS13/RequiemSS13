@@ -39,7 +39,7 @@
 
 /datum/discipline_power/necromancy/seal_of_abamixtra/activate(mob/living/target)
 	. = ..()
-	var/limit = 1 + owner.charisma + owner.more_companions - 1
+	var/limit = 1 + owner.get_charisma() + owner.more_companions - 1
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()
@@ -85,7 +85,7 @@
 
 /datum/discipline_power/necromancy/awaken_the_homuncular_servant/activate(mob/living/target)
 	. = ..()
-	var/limit = 2 + owner.charisma + owner.more_companions - 1
+	var/limit = 2 + owner.get_charisma() + owner.more_companions - 1
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()
@@ -187,7 +187,7 @@
 
 /datum/discipline_power/necromancy/shambling_hordes/activate(mob/living/target)
 	. = ..()
-	var/limit = 3 + owner.charisma + owner.more_companions - 1
+	var/limit = 3 + owner.get_charisma() + owner.more_companions - 1
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()
@@ -233,7 +233,7 @@
 
 /datum/discipline_power/necromancy/baleful_exorcism/activate(mob/living/target)
 	. = ..()
-	var/limit = 4 + owner.charisma + owner.more_companions - 1
+	var/limit = 4 + owner.get_charisma() + owner.more_companions - 1
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()
@@ -279,7 +279,7 @@
 
 /datum/discipline_power/necromancy/daemonic_possession/activate(mob/living/target)
 	. = ..()
-	var/limit = 5 + owner.charisma + owner.more_companions - 1
+	var/limit = 5 + owner.get_charisma() + owner.more_companions - 1
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()

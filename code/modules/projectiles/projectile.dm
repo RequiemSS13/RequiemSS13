@@ -253,14 +253,14 @@
 	if(isliving(firer))
 		var/mob/living/living_firer = firer
 		var/successes = SSroll.opposed_roll(
-			player_a = firer, 
-			player_b = L, 
-			dice_a = living_firer.get_total_wits() + 2, 
-			dice_b = L.get_total_resolve() + (HAS_TRAIT(L, TRAIT_SUPERNATURAL_DEXTERITY) ? 3 : 0), 
-			show_player_a = TRUE, 
-			show_player_b = TRUE, 
-			alert_atom = L, 
-			draw_goes_to_b = TRUE, 
+			player_a = firer,
+			player_b = L,
+			dice_a = living_firer.get_wits() + 2,
+			dice_b = L.get_resolve() + (HAS_TRAIT(L, TRAIT_SUPERNATURAL_DEXTERITY) ? 3 : 0),
+			show_player_a = TRUE,
+			show_player_b = TRUE,
+			alert_atom = L,
+			draw_goes_to_b = TRUE,
 			numerical = TRUE)
 		if(successes <= 0)
 			L.visible_message("<span class='danger'>[L] narrowly dodges \a [src]!</span>", \

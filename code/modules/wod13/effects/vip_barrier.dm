@@ -118,7 +118,7 @@
 
 
 /obj/effect/vip_barrier/proc/handle_unmask_bypass(mob/living/carbon/human/user, mob/bouncer)
-	if(!do_mob(user, bouncer, max(2 SECONDS, unmask_bypass_time - (user.get_total_composure() * 2 SECONDS))))
+	if(!do_mob(user, bouncer, max(2 SECONDS, unmask_bypass_time - (user.get_composure() * 2 SECONDS))))
 		return
 	if(check_entry_permission_base(user))
 		to_chat(user, "<span class='notice'>[bouncer] subtly nods, giving you permission to enter.</span>")
@@ -140,14 +140,14 @@
 			linked_perm.notify_guard_blocked_denial(user)
 		return
 
-	if(!do_mob(user, bouncer, max(5 SECONDS, social_bypass_time - (user.get_total_charisma() * 2 SECONDS))))
+	if(!do_mob(user, bouncer, max(5 SECONDS, social_bypass_time - (user.get_charisma() * 2 SECONDS))))
 		return
 
 	var/badge_bonus = 0
 	if(used_badge)
 		badge_bonus = 2
 
-	if(SSroll.storyteller_roll(user.get_total_charisma()*2 + badge_bonus, social_roll_difficulty, mobs_to_show_output = user, alert_atom = bouncer) >= social_roll_difficulty)
+	if(SSroll.storyteller_roll(user.get_charisma()*2 + badge_bonus, social_roll_difficulty, mobs_to_show_output = user, alert_atom = bouncer) >= social_roll_difficulty)
 		to_chat(user, "<span class='notice'>You manage to persuade your way past the guards.</span>")
 		linked_perm.allow_list += user
 		return

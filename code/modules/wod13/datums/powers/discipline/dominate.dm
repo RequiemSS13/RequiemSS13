@@ -50,8 +50,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/command/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_charisma()
-	var/theirpower = target.get_total_wits()
+	var/mypower = owner.get_charisma()
+	var/theirpower = target.get_wits()
 
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
@@ -89,8 +89,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/mesmerize/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_charisma()
-	var/theirpower = target.get_total_wits()
+	var/mypower = owner.get_charisma()
+	var/theirpower = target.get_wits()
 
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
@@ -130,8 +130,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/the_forgetful_mind/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_charisma()
-	var/theirpower = target.get_total_wits()
+	var/mypower = owner.get_charisma()
+	var/theirpower = target.get_wits()
 
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
@@ -170,8 +170,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/conditioning/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_charisma()
-	var/theirpower = target.get_total_wits()
+	var/mypower = owner.get_charisma()
+	var/theirpower = target.get_wits()
 
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
@@ -209,8 +209,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/possession/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_charisma()
-	var/theirpower = target.get_total_wits()
+	var/mypower = owner.get_charisma()
+	var/theirpower = target.get_wits()
 
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target

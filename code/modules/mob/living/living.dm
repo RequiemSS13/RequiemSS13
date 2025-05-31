@@ -949,8 +949,8 @@
 			altered_grab_state++
 		var/resist_chance = BASE_GRAB_RESIST_CHANCE /// see defines/combat.dm, this should be baseline 60%
 		var/mob/living/G = pulledby
-		var/grabber_physique = (G.get_total_physique()) * 10 // The one who is grabbing physique
-		var/resist_physique = (get_total_physique()) * 10 // The one who is  resisting physique
+		var/grabber_physique = (G.get_physique()) * 10 // The one who is grabbing physique
+		var/resist_physique = (get_physique()) * 10 // The one who is resisting physique
 		resist_chance = ((resist_chance + (resist_physique - grabber_physique))/altered_grab_state)
 		if(prob(resist_chance))
 			visible_message("<span class='danger'>[src] breaks free of [pulledby]'s grip!</span>", \

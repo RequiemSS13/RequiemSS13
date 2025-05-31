@@ -190,7 +190,7 @@ SUBSYSTEM_DEF(carpool)
 			if(!repairing)
 				repairing = TRUE
 				if(do_mob(user, src, 20 SECONDS))
-					switch(SSroll.storyteller_roll(user.get_total_wits()*2, 3, list(user), src))
+					switch(SSroll.storyteller_roll(user.get_wits()*2, 3, list(user), src))
 						if (0)
 							to_chat(user, "<span class='warning'>Your lockpick broke!</span>")
 							qdel(K)
@@ -209,7 +209,7 @@ SUBSYSTEM_DEF(carpool)
 							repairing = FALSE
 							to_chat(user, "<span class='notice'>You've managed to open [src]'s lock.</span>")
 							playsound(src, 'code/modules/wod13/sounds/open.ogg', 50, TRUE)
-							
+
 					if(initial(access) == "none") //Stealing a car with no keys assigned to it is basically robbing a random person and not an organization
 						if(ishuman(user))
 							var/mob/living/carbon/human/H = user
