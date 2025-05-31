@@ -1,6 +1,6 @@
 /datum/language/french
 	name = "French"
-	desc = "A romantic and refined language spoken in France and beyond."
+	desc = "The sixth most widely spoken language in the world, common in Africa, parts of North America and southeast Asia, and a couple countries in Europe."
 	key = "f"
 	flags = TONGUELESS_SPEECH
 	space_chance = 40

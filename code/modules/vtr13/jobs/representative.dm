@@ -37,7 +37,7 @@
 	glasses = /obj/item/clothing/glasses/vampire/sun
 	l_pocket = /obj/item/vamp/phone/representative
 	r_pocket = /obj/item/vamp/keys/representative
-	backpack_contents = list(/obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/rich=1)
+	backpack_contents = list(/obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/head=1)
 
 /datum/outfit/job/representative/pre_equip(mob/living/carbon/human/H)
 	..()

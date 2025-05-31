@@ -9,6 +9,7 @@
 	attack_verb_continuous = list("baps")
 	attack_verb_simple = list("bap")
 	resistance_flags = FLAMMABLE
+	var/activated = FALSE
 	var/image/map
 	var/image/pointer_overlay
 
@@ -19,18 +20,22 @@
 
 /obj/item/travel_brochure/attack_self(mob/user)
 	. = ..()
-
+	if(activated)
+		return
+	activated = TRUE
 	to_chat(user, span_notice("You begin reading the map..."))
 	if(!do_mob(user, user, 30)) //to prevent getflaticon spam
 		return
-
-	if(!user.x || !user.y || user.x > 200 || user.x < 11 || user.y > 190)
-		to_chat(user, span_notice("You don't know where you are..."))
-		return
+	activated = FALSE
 	
-	pointer_overlay.pixel_x = (2.8*user.x)-60
-	pointer_overlay.pixel_y = (2.8*user.y)+390
-	map.overlays+=pointer_overlay
+	var/render_pointer = TRUE
+	if(!user.x || !user.y || user.x > 200 || user.x < 11 || user.y > 190)
+		to_chat(user, span_notice("You're somewhere off the map."))
+		render_pointer = FALSE
+	if(render_pointer)
+		pointer_overlay.pixel_x = (2.8*user.x)-60
+		pointer_overlay.pixel_y = (2.8*user.y)+390
+		map.overlays+=pointer_overlay
 	var/dat = {"
 			<style type="text/css">
 
@@ -41,6 +46,7 @@
 			</style>
 			"}
 	dat += icon2html(getFlatIcon(map), user)
-	map.overlays-=pointer_overlay
+	if(render_pointer)
+		map.overlays-=pointer_overlay
 	user << browse(dat, "window=map;size=550x1060;border=1;can_resize=0;can_minimize=0")
 	onclose(user, "map", src)

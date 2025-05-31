@@ -177,7 +177,7 @@
 			if(do_after(H, 3 SECONDS * max(1, 5 - H.get_wits()), H))
 				drawing = FALSE
 				new ritual(H.loc)
-				H.bloodpool = max(H.bloodpool - 2, 0)
+				H.adjustBloodPool(-2)
 				if(H.CheckEyewitness(H, H, 7, FALSE))
 					H.AdjustMasquerade(-1)
 			else
@@ -196,7 +196,7 @@
 				drawing = FALSE
 				var/rune = pick(shit)
 				new rune(H.loc)
-				H.bloodpool = max(H.bloodpool - 2, 0)
+				H.adjustBloodPool(-2)
 				if(H.CheckEyewitness(H, H, 7, FALSE))
 					H.AdjustMasquerade(-1)
 			else

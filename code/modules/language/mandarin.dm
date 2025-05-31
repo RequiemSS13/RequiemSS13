@@ -1,6 +1,6 @@
 /datum/language/mandarin
 	name = "Mandarin"
-	desc = "A dialect commonly spoken in China."
+	desc = "Mandarin is the most widely spoken language on the planet, and the third-most spoken language in Los Angeles."
 	key = "m"
 	flags = TONGUELESS_SPEECH
 	space_chance = 70

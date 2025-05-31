@@ -64,7 +64,7 @@
 		if(CheckEyewitness(src, src, 7, FALSE))
 			AdjustMasquerade(-1)
 	if(do_after(src, 30, target = mob, timed_action_flags = NONE, progress = FALSE))
-		mob.bloodpool = max(0, mob.bloodpool-1)
+		mob.adjustBloodPool(-1)
 		suckbar.icon_state = "[round(14*(mob.bloodpool/mob.maxbloodpool))]"
 		if(ishuman(mob))
 			var/mob/living/carbon/human/H = mob
@@ -75,20 +75,48 @@
 				if(length(H.reagents.reagent_list))
 					if(prob(50))
 						H.reagents.trans_to(src, min(10, H.reagents.total_volume), transfered_by = mob, methods = VAMPIRE)
-		if(iskindred(mob))
+		
+		
+		if(!ishuman(mob) && vamp_rank > VAMP_RANK_NEONATE)
+			to_chat(src, "<span class='warning'>You drink the blood of the creature. Like sea water, it can be drank, but will not sustain you.</span>")
+		else if(iskindred(mob) || HAS_TRAIT(mob, TRAIT_HONEYPOT))
 			to_chat(src, "<span class='userlove'>[mob]'s blood tastes HEAVENLY...</span>")
+		else if(HAS_TRAIT(src, TRAIT_METHUSELAHS_THIRST) && !iskindred(mob))
+			to_chat(src, "<span class='warning'>You drink [mob]'s blood, but it is like eating air. It is not enough. You need the blood of your own kind; no other will do.</span>")
+		else
+			to_chat(src, "<span class='warning'>You sip some <b>BLOOD</b> from your victim. It feels good.</span>")
+		
+		
+		if(iskindred(mob))
 			adjustBruteLoss(-25, TRUE)
 			adjustFireLoss(-25, TRUE)
 			if(first_drink)
 				SScharacter_connection.add_connection(CONNECTION_BLOOD_BOND, src, mob)
-		else
-			to_chat(src, "<span class='warning'>You sip some <b>BLOOD</b> from your victim. It feels good.</span>")
-		bloodpool = min(maxbloodpool, bloodpool+1*max(1, mob.bloodquality-1))
-		adjustBruteLoss(-10, TRUE)
-		adjustFireLoss(-10, TRUE)
-		update_damage_overlays()
-		update_health_hud()
-		update_blood_hud()
+		
+
+		var/drink_mod = 1
+		if(!ishuman(mob) && vamp_rank > VAMP_RANK_NEONATE)
+			drink_mod = 0
+		if(HAS_TRAIT(src, TRAIT_METHUSELAHS_THIRST) && !iskindred(mob))
+			drink_mod = 0
+
+		if(HAS_TRAIT(src, TRAIT_HUNGRY))
+			drink_mod *= 0.5
+		if(vamp_rank == VAMP_RANK_ELDER && !iskindred(mob))
+			drink_mod *= 0.5
+		
+		if(HAS_TRAIT(mob, TRAIT_HONEYPOT))
+			drink_mod *= 2
+
+		if(drink_mod)
+			adjustBloodPool(drink_mod*max(1, mob.bloodquality-1))
+
+			adjustBruteLoss(-10, TRUE)
+			adjustFireLoss(-10, TRUE)
+			update_damage_overlays()
+			update_health_hud()
+			update_blood_hud()
+		
 		if(mob.bloodpool <= 0)
 			if(iskindred(mob))
 				var/mob/living/carbon/human/eaten_vampire = mob

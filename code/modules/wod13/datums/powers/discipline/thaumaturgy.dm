@@ -73,25 +73,22 @@
 			var/mob/living/VL = target
 			if(isgarou(VL))
 				if(VL.bloodpool >= 1 && VL.stat != DEAD)
-					var/sucked = min(VL.bloodpool, 2)
-					VL.bloodpool = max(VL.bloodpool - sucked, 0)
+					VL.adjustBloodPool(-2)
 					VL.apply_damage(45, BURN)
 					VL.visible_message(span_danger("[target]'s wounds spray boiling hot blood!"), "<span class='userdanger'>Your blood boils!</span>")
 					VL.add_splatter_floor(get_turf(target))
 					VL.add_splatter_floor(get_turf(get_step(target, target.dir)))
 				if(!iskindred(target))
 					if(VL.bloodpool >= 1 && VL.stat != DEAD)
-						var/sucked = min(VL.bloodpool, 2)
-						VL.bloodpool = max(VL.bloodpool - sucked, 0)
+						VL.adjustBloodPool(-2)
 					if(ishuman(VL))
 						if(VL.bloodpool >= 1 && VL.stat != DEAD)
 							var/mob/living/carbon/human/VHL = VL
-							VHL.bloodpool = max(VHL.bloodpool - 1, 0)
+							VHL.adjustBloodPool(-1)
 			else
 				if(VL.bloodpool >= 1)
-					var/sucked = min(VL.bloodpool, level)
-					VL.bloodpool = max(VL.bloodpool - sucked, 0)
-					VH.bloodpool = min(VH.bloodpool + sucked, VH.maxbloodpool)
+					VL.adjustBloodPool(-1*level)
+					VH.adjustBloodPool(level)
 
 /datum/discipline_power/thaumaturgy/a_taste_for_blood
 	name = "A Taste for Blood"
@@ -204,7 +201,8 @@
 		target.add_splatter_floor(get_turf(target))
 		target.add_splatter_floor(get_turf(get_step(target, target.dir)))
 	else
-		owner.bloodpool = min(owner.bloodpool + target.bloodpool, owner.maxbloodpool)
+		
+		owner.adjustBloodPool(target.bloodpool)
 		if(!istype(target, /mob/living/simple_animal/hostile/megafauna))
 			target.tremere_gib()
 
@@ -232,7 +230,7 @@
 		target.add_splatter_floor(get_turf(target))
 		target.add_splatter_floor(get_turf(get_step(target, target.dir)))
 	else
-		owner.bloodpool = min(owner.bloodpool + target.bloodpool, owner.maxbloodpool)
+		owner.adjustBloodPool(target.bloodpool)
 		if(!istype(target, /mob/living/simple_animal/hostile/megafauna))
 			target.tremere_gib()
 
@@ -268,7 +266,7 @@
 			if(do_after(H, 3 SECONDS * max(1, 5 - H.get_wits()), H))
 				drawing = FALSE
 				new ritual(H.loc)
-				H.bloodpool = max(H.bloodpool - 2, 0)
+				H.adjustBloodPool(-2)
 				if(H.CheckEyewitness(H, H, 7, FALSE))
 					H.AdjustMasquerade(-1)
 			else
@@ -287,7 +285,7 @@
 				drawing = FALSE
 				var/rune = pick(shit)
 				new rune(H.loc)
-				H.bloodpool = max(H.bloodpool - 2, 0)
+				H.adjustBloodPool(-2)
 				if(H.CheckEyewitness(H, H, 7, FALSE))
 					H.AdjustMasquerade(-1)
 			else
@@ -309,7 +307,7 @@
 	if(H.bloodpool < 2)
 		to_chat(owner, span_warning("You don't have enough <b>BLOOD</b> to do that!"))
 		return
-	H.bloodpool = max(H.bloodpool - 2, 0)
+	H.adjustBloodPool(-2)
 	playsound(H.loc, 'code/modules/wod13/sounds/thaum.ogg', 50, FALSE)
 	abuse_fix = world.time
 	H.physiology.damage_resistance += 60

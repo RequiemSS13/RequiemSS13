@@ -1867,7 +1867,7 @@
 					var/mob/living/cursing_mob = caster.lastattacked
 					to_chat(cursing_mob, "<span class='warning'>You feel bigger hunger than usual.</span>")
 					if(iskindred(cursing_mob))
-						cursing_mob.bloodpool = max(0, cursing_mob.bloodpool-3)
+						cursing_mob.adjustBloodPool(-3)
 					else if(iscathayan(cursing_mob))
 						cursing_mob.yang_chi = max(0, cursing_mob.yang_chi-2)
 						cursing_mob.yin_chi = max(0, cursing_mob.yin_chi-2)

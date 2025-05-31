@@ -729,7 +729,12 @@ SUBSYSTEM_DEF(job)
 	// By default, just place the mob on the same turf as the marker or whatever.
 	M.forceMove(get_turf(src))
 	if(M.taxist)
-		new /obj/vampire_car/taxi(M.loc)
+		var/taxi_spawn_location = M.loc
+		var/mob/living/living_m = M
+		if(living_m && living_m.breaks_masquerade_on_join())
+			var/atom/new_start = pick(SSjob.latejoin_trackers)
+			taxi_spawn_location = new_start.loc
+		new /obj/vampire_car/taxi(taxi_spawn_location)
 
 /obj/structure/chair/JoinPlayerHere(mob/M, buckle)
 	// Placing a mob in a chair will attempt to buckle it, or else fall back to default.
@@ -746,52 +751,16 @@ SUBSYSTEM_DEF(job)
 
 	if(latejoin_trackers.len)
 		destination = pick(latejoin_trackers)
-		var/mob/living/carbon/human/H = M
-		if(H.clane)
-			if(H.clane.violating_appearance)
-				destination = pick(GLOB.masquerade_latejoin)
-		if(isgarou(H))
-			for(var/obj/structure/werewolf_totem/W in GLOB.totems)
-				if(W)
-					if(W.tribe == H.auspice.tribe)
-						destination = W
+		var/mob/living/living_m = M
+		if(living_m && living_m.breaks_masquerade_on_join())
+			destination = pick(GLOB.masquerade_latejoin)
 		destination.JoinPlayerHere(M, buckle)
 		return TRUE
 
-	//bad mojo
-	var/area/shuttle/arrival/A = GLOB.areas_by_type[/area/shuttle/arrival]
-	if(A)
-		//first check if we can find a chair
-		var/obj/structure/chair/C = locate() in A
-		if(C)
-			C.JoinPlayerHere(M, buckle)
-			return TRUE
-
-		//last hurrah
-		var/list/avail = list()
-		for(var/turf/T in A)
-			if(!T.is_blocked_turf(TRUE))
-				avail += T
-		if(avail.len)
-			destination = pick(avail)
-			destination.JoinPlayerHere(M, FALSE)
-			return TRUE
-
-	//pick an open spot on arrivals and dump em
-	var/list/arrivals_turfs = shuffle(get_area_turfs(/area/shuttle/arrival))
-	if(arrivals_turfs.len)
-		for(var/turf/T in arrivals_turfs)
-			if(!T.is_blocked_turf(TRUE))
-				T.JoinPlayerHere(M, FALSE)
-				return TRUE
-		//last chance, pick ANY spot on arrivals and dump em
-		destination = arrivals_turfs[1]
-		destination.JoinPlayerHere(M, FALSE)
-		return TRUE
-	else
-		var/msg = "Unable to send mob [M] to late join!"
-		message_admins(msg)
-		CRASH(msg)
+	
+	var/msg = "Unable to send mob [M] to late join!"
+	message_admins(msg)
+	CRASH(msg)
 
 
 ///////////////////////////////////

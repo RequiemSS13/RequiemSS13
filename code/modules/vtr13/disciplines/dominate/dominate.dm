@@ -9,4 +9,3 @@
 	name = "Dominate power name"
 	desc = "Dominate power description"
 	activate_sound = 'code/modules/wod13/sounds/dominate.ogg'
-

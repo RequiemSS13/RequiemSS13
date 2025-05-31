@@ -132,10 +132,16 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 		radio.callsign = null
 
 /obj/machinery/p25transceiver/attack_hand(mob/user)
+	if(HAS_TRAIT(user, TRAIT_ARCHAIC))
+		to_chat(user, span_notice("You have no idea how to operate this contraption."))
+		return
 	ui_interact(user)
 
 /obj/machinery/p25transceiver/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/p25radio))
+		if(HAS_TRAIT(user, TRAIT_ARCHAIC))
+			to_chat(user, span_notice("You have no idea how to operate any of this. It doesn't make sense."))
+			return
 		if(!active)
 			to_chat(user, "<span class='warning'>[src] needs to be powered on first!</span>")
 			return
@@ -685,6 +691,10 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 
 /obj/item/p25radio/police/AltClick(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE))
+		return
+	
+	if(HAS_TRAIT(user, TRAIT_ARCHAIC))
+		to_chat(user, span_notice("You fiddle with \the [src] to no avail. This technology is just too new."))
 		return
 
 	var/list/choices = list(

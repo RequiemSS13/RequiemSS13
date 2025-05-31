@@ -11,7 +11,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 //Tab definitions - KEEP SEQUENTIAL
 #define PREFS_CHARACTER_SETTINGS_TAB 1
-#define PREFS_QUIRKS_TAB 2
+#define PREFS_MERITS_TAB 2
 #define PREFS_ATTRIBUTES_TAB 3
 #define PREFS_LOADOUT_TAB 4
 #define PREFS_CONNECTIONS_TAB 5
@@ -85,3 +85,15 @@ GLOBAL_LIST_INIT(vampire_faction_list, list(
 	"Circle of the Crone",
 	"Carthian Movement",
 	"Unaligned"))
+
+
+#define PREFS_MERITS_SUB_TAB 1
+#define PREFS_FLAWS_SUB_TAB 2
+#define PREFS_BANES_SUB_TAB 3
+#define PREFS_LANGUAGES_SUB_TAB 4
+
+#define LOADOUT_MAX_SLOTS 8
+#define LOADOUT_MAX_DOTS 10
+
+#define LOADOUT_LOADED_DOT_BONUS 5
+#define LOADOUT_LOADED_SLOT_BONUS 3

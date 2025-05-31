@@ -5,5 +5,7 @@
 	var/t_is = p_are(temp_gender)
 	if(iskindred(src) && (iskindred(user) || HAS_TRAIT(user, TRAIT_USING_AUSPEX)))
 		return span_danger("You sense the Beast within [t_him] - [t_He] [t_is] Kindred.")
+	else if(iskindred(src) && HAS_TRAIT(user, TRAIT_UNSEEN_SENSE))
+		return span_danger("You sense something deeply unnatural about [t_him].")
 	else if(isghoul(src) && HAS_TRAIT(user, TRAIT_USING_AUSPEX))
 		return span_danger("You sense the faint dregs of the Beast within [t_him] - [t_He] [t_is] a Ghoul.")

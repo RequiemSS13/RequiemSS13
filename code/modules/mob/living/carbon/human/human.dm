@@ -1031,6 +1031,27 @@
 					remove_quirk(T)
 				else
 					add_quirk(T,TRUE)
+	if(href_list[VV_HK_MOD_MERITS])
+		if(!check_rights(R_SPAWN))
+			return
+
+		var/list/options = list("Clear"="Clear")
+		for(var/x in subtypesof(/datum/merit))
+			var/datum/merit/merit = x
+			var/qname = initial(merit.name)
+			options[has_merit(merit) ? "[qname] (Remove)" : "[qname] (Add)"] = merit
+
+		var/result = input(usr, "Choose merit to add/remove","Merit Mod") as null|anything in sortList(options)
+		if(result)
+			if(result == "Clear")
+				for(var/datum/quirk/q in roundstart_quirks)
+					remove_merit(q.type)
+			else
+				var/selection = options[result]
+				if(has_quirk(selection))
+					remove_merit(selection)
+				else
+					add_merit(selection,TRUE)
 	if(href_list[VV_HK_MAKE_MONKEY])
 		if(!check_rights(R_SPAWN))
 			return

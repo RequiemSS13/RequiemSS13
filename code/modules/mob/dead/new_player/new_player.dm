@@ -438,7 +438,7 @@
 						SSticker.mode.make_antag_chance(humanc)
 
 	if(humanc && CONFIG_GET(flag/roundstart_traits))
-		SSquirks.AssignQuirks(humanc, humanc.client, TRUE)
+		SSmerits.AssignMerits(humanc, humanc.client, TRUE)
 
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
 
@@ -553,13 +553,17 @@
 			if(H.client)
 				H.true_real_name = H.client.prefs.real_name
 				H.create_disciplines()
-				if(isgarou(H))
-					for(var/obj/structure/werewolf_totem/S in GLOB.totems)
-						if(S.tribe == H.auspice.tribe)
-							H.forceMove(get_turf(S))
 				GLOB.fucking_joined |= H.client.prefs.real_name
+			if(H.roundstart_vampire && H.breaks_masquerade_on_join())
+				if(length(GLOB.masquerade_latejoin))
+					var/obj/effect/landmark/latejoin_masquerade/LM = pick(GLOB.masquerade_latejoin)
+					if(LM)
+						H.forceMove(LM.loc)
 		if(new_character.mind)
 			new_character.mind.character_connections = SScharacter_connection.get_character_connections(ckey, new_character.true_real_name)
+		
+		
+
 		new_character = null
 		qdel(src)
 

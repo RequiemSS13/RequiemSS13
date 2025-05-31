@@ -39,7 +39,7 @@
 	uniform = /obj/item/clothing/under/vampire/archivist
 	r_pocket = /obj/item/vamp/keys/hierophant
 	l_pocket = /obj/item/vamp/phone/hierophant
-	backpack_contents = list(/obj/item/phone_book=1, /obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/arcane_tome=1, /obj/item/vamp/creditcard/elder=1, /obj/item/melee/vampirearms/katana/kosa=1)
+	backpack_contents = list(/obj/item/phone_book=1, /obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/arcane_tome=1, /obj/item/vamp/creditcard/head=1, /obj/item/melee/vampirearms/katana/kosa=1)
 
 /datum/outfit/job/hierophant/pre_equip(mob/living/carbon/human/H)
 	..()

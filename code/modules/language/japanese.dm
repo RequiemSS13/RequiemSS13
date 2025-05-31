@@ -1,6 +1,6 @@
 /datum/language/japanese
 	name = "Japanese"
-	desc = "A language spoken in the land of the rising sun."
+	desc = "Japanese is the defacto national language of Japan, and the 12th most widely spoken language in Los Angeles."
 	key = "j"
 	flags = TONGUELESS_SPEECH
 	space_chance = 20

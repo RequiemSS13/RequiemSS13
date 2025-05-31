@@ -1,6 +1,6 @@
 /datum/language/espanol
 	name = "Español"
-	desc = "A romantic and widely spoken world language."
+	desc = "The second most commonly spoken language in the world, the United States, and Los Angeles county."
 	key = "e"
 	flags = TONGUELESS_SPEECH
 	space_chance = 40

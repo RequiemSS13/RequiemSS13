@@ -1,6 +1,6 @@
 /datum/language/italian
 	name = "Italian"
-	desc = "A melodic and expressive language spoken across Italy."
+	desc = "Italian is the language they speak in Italy."
 	flags = TONGUELESS_SPEECH
 	key = "i"
 	space_chance = 40

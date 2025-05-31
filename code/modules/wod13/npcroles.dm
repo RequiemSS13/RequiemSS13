@@ -931,8 +931,8 @@
 		var/mob/living/carbon/human/H = A
 		if(H.bloodpool)
 			if(prob(10))
-				H.bloodpool = max(0, H.bloodpool-1)
-				beastmaster.bloodpool = min(beastmaster.maxbloodpool, beastmaster.bloodpool+1)
+				H.adjustBloodPool(-1)
+				beastmaster.adjustBloodPool(1)
 
 /datum/socialrole/shop
 	s_tones = list("albino",

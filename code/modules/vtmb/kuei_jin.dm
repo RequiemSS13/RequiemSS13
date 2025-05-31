@@ -201,53 +201,8 @@
 	if(!victim)
 		return
 
-	drain_breath(kueijin, victim)
-
 	button.color = "#970000"
 	animate(button, color = "#ffffff", time = cooldown)
-
-/datum/action/breathe_chi/proc/drain_breath(mob/living/carbon/human/kueijin, mob/living/victim)
-	//this one is on carbon instead of living which means it needs some annoying extra code
-	var/has_gnosis = FALSE
-	if (iscarbon(victim))
-		var/mob/living/carbon/werewolf_victim = victim
-		if (werewolf_victim.auspice?.gnosis > 0)
-			has_gnosis = TRUE
-
-	//this method of feeding targets splat-specific Quintessence sources first
-	if ((iskindred(victim) || isghoul(victim)) && (victim.bloodpool > 0)) //drain vitae bloodpool
-		victim.bloodpool = max(0, victim.bloodpool - 1)
-		kueijin.yin_chi = min(kueijin.yin_chi + 1, kueijin.max_yin_chi)
-		to_chat(kueijin, "<span class='medradio'>Some bitter <b>Yin</b> Chi enters you...</span>")
-	else if ((isgarou(victim) || iswerewolf(victim)) && has_gnosis) //drain gnosis
-		adjust_gnosis(-1, victim, sound = TRUE)
-		kueijin.yang_chi = min(kueijin.yang_chi + 1, kueijin.max_yang_chi)
-		to_chat(kueijin, "<span class='engradio'>Some fiery <b>Yang</b> Chi enters you...</span>")
-	else if ((victim.yin_chi > 0) || (victim.yang_chi > 0)) //normally drain chi from humans and simplemobs and kuei-jin
-		if ((prob(50) || victim.yang_chi == 0) && (victim.yin_chi > 0))
-			victim.yin_chi = max(0, victim.yin_chi - 1)
-			kueijin.yin_chi = min(kueijin.yin_chi + 1, kueijin.max_yin_chi)
-			to_chat(kueijin, "<span class='medradio'>Some <b>Yin</b> Chi enters you...</span>")
-		else if ((victim.yang_chi > 0))
-			victim.yang_chi = max(0, victim.yang_chi - 1)
-			kueijin.yang_chi = min(kueijin.yang_chi + 1, kueijin.max_yang_chi)
-			to_chat(kueijin, "<span class='engradio'>Some <b>Yang</b> Chi enters you...</span>")
-	else
-		return
-
-	//it would be nice for this to be invisible at a SEE_INVISIBLE_QUINTESSENCE or SEE_INVISIBLE_SPIRITUAL level, but that can come later...
-	var/atom/movable/chi_particle = new (get_turf(victim))
-	chi_particle.density = FALSE
-	chi_particle.anchored = TRUE
-	chi_particle.icon = 'code/modules/wod13/UI/kuei_jin.dmi'
-	chi_particle.icon_state = "drain"
-	var/matrix/face_kueijin = matrix()
-	face_kueijin.Turn(get_angle_raw(victim.x, victim.y, 0, 0, owner.x, owner.y, 0, 0))
-	chi_particle.transform = face_kueijin
-
-	kueijin.update_chi_hud()
-
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), chi_particle), 3 SECONDS)
 
 /datum/action/area_chi
 	name = "Area Chi"

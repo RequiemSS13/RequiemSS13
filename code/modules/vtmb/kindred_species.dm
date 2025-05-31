@@ -101,15 +101,12 @@
 		var/mob/living/carbon/human/BD = usr
 		if(world.time < BD.last_bloodpower_use+110)
 			return
-		var/plus = 0
-		if(HAS_TRAIT(BD, TRAIT_HUNGRY))
-			plus = 1
-		if(BD.bloodpool >= 2+plus)
+		if(BD.bloodpool >= 2)
 			playsound(usr, 'code/modules/wod13/sounds/bloodhealing.ogg', 50, FALSE)
 			button.color = "#970000"
 			animate(button, color = "#ffffff", time = 20, loop = 1)
 			BD.last_bloodpower_use = world.time
-			BD.bloodpool = max(0, BD.bloodpool-(2+plus))
+			BD.adjustBloodPool(-2)
 			to_chat(BD, "<span class='notice'>You use blood to become more powerful.</span>")
 			BD.dna.species.punchdamagehigh = BD.dna.species.punchdamagehigh+5
 			BD.physiology.armor.melee = BD.physiology.armor.melee+15
@@ -155,8 +152,8 @@
 			return
 		if(istype(H.pulling, /mob/living/simple_animal))
 			var/mob/living/L = H.pulling
-			L.bloodpool = min(L.maxbloodpool, L.bloodpool+2)
-			H.bloodpool = max(0, H.bloodpool-2)
+			L.adjustBloodPool(2)
+			H.adjustBloodPool(-2)
 			L.adjustBruteLoss(-25)
 			L.adjustFireLoss(-25)
 		if(istype(H.pulling, /mob/living/carbon/human))
@@ -174,7 +171,7 @@
 			giving = TRUE
 			owner.visible_message("<span class='warning'>[owner] tries to feed [BLOODBONDED] with their own blood!</span>", "<span class='notice'>You started to feed [BLOODBONDED] with your own blood.</span>")
 			if(do_mob(owner, BLOODBONDED, 10 SECONDS))
-				H.bloodpool = max(0, H.bloodpool-2)
+				H.adjustBloodPool(-2)
 				giving = FALSE
 				BLOODBONDED.drunked_of |= "[H.dna.real_name]"
 
@@ -258,8 +255,8 @@
 						W.remove_wound()
 
 					BLOODBONDED.adjustFireLoss(-25, TRUE)
-					BLOODBONDED.bloodpool = min(BLOODBONDED.maxbloodpool, BLOODBONDED.bloodpool+2)
-
+					BLOODBONDED.adjustBloodPool(2)
+					
 					giving = FALSE
 					if (iskindred(BLOODBONDED))
 						var/datum/species/kindred/species = BLOODBONDED.dna.species

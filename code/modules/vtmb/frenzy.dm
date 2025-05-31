@@ -55,9 +55,6 @@
 										H.last_nonraid = world.time
 										H.killed_count = H.killed_count+1
 										H.set_warrant(H.killed_count >= 5, "SUSPICIOUS ACTION (equipment)")
-	if(H.hearing_ghosts)
-		H.bloodpool = max(0, H.bloodpool-1)
-		to_chat(H, "<span class='warning'>Necromancy Vision reduces your blood points too sustain itself.</span>")
 
 	if(H.key && (H.stat <= HARD_CRIT))
 		var/datum/preferences/P = GLOB.preferences_datums[ckey(H.key)]

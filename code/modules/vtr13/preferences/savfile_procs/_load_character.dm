@@ -110,10 +110,32 @@
 				if(!(alt_titles_preferences[job.title] in job.alt_titles))
 					alt_titles_preferences.Remove(job.title)
 
-	//QUIRKS
-	READ_FILE(S["all_quirks"], all_quirks)
-	all_quirks = SANITIZE_LIST(all_quirks)
-	validate_quirks()
+	READ_FILE(S["all_merits"], all_merits)
+	all_merits = SANITIZE_LIST(all_merits)
+	if(SSmerits?.initialized)
+		for(var/merit_name in all_merits)
+			if(!SSmerits.merits[merit_name])
+				all_merits -= merit_name
+
+	READ_FILE(S["merit_custom_settings"], merit_custom_settings)
+	merit_custom_settings = SANITIZE_LIST(merit_custom_settings)
+	if(SSmerits?.initialized)
+		for(var/merit_setting_name in merit_custom_settings)
+			if(!SSmerits.all_merit_settings[merit_setting_name])
+				merit_custom_settings -= merit_setting_name
+				continue
+
+			var/datum/merit_setting/merit_setting = SSmerits.all_merit_settings[merit_setting_name]
+
+			var/datum/merit/merit_type = initial(merit_setting.parent_merit)
+			if(!initial(merit_type.custom_setting_types))
+				merit_custom_settings -= merit_setting_name
+				break
+
+			var/list/allowed_setting_types = SSmerits.merit_setting_keys[initial(merit_type.name)]
+			if(!allowed_setting_types.Find(initial(merit_setting.name)))
+				merit_custom_settings -= merit_setting_name
+				break
 
 	//STATS
 	if(!stats)
@@ -145,9 +167,6 @@
 
 	READ_FILE(S["equipped_gear"], equipped_gear)
 	if(!equipped_gear)
-		equipped_gear = list()
-	else if(config && (length(equipped_gear) > CONFIG_GET(number/max_loadout_items)))
-		to_chat(parent, span_userdanger("Loadout maximum items exceeded in loaded slot, Your loadout has been cleared! You had [length(equipped_gear)]/[CONFIG_GET(number/max_loadout_items)] equipped items!"))
 		equipped_gear = list()
 	else
 		equipped_gear = sanitize_each_inlist(equipped_gear, SSloadout.gear_datums)
