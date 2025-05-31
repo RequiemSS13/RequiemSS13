@@ -87,7 +87,7 @@
 		for(var/mob/charmer in owner.status_traits[TRAIT_CHARMED])
 			dat += "I find myself trusting [charmer]."
 
-	dat += "<b>Physique</b>: [owner.get_total_physique()]"
+	dat += "<b>Physique</b>: [owner.get_physique()]"
 	dat += "<b>Stamina</b>: [owner.get_stamina()]"
 	dat += "<b>Charisma</b>: [owner.get_charisma()]"
 	dat += "<b>Composure</b>: [owner.get_composure()]"

@@ -6,4 +6,4 @@
 /datum/merit_setting/expertise_stat/populate_new_custom_value(mob/user)
 	var/response = tgui_input_list(user, "Choose an area of expertise:", "Custom Merit Settings", stat_options, "Wits")
 	if(response)
-		return lowertext(response)
+		return response
