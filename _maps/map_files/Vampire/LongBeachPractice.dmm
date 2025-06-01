@@ -13160,8 +13160,8 @@
 /area/vtm/vtr/masquerade/interior/floor_two/northwest/police_station)
 "lYH" = (
 /obj/effect/landmark/latejoin_masquerade,
-/turf/open/water/la_river,
-/area/vtm/vtr/masquerade/exterior/basement/river/la_river)
+/turf/open/floor/plating/vampbeach,
+/area/vtm/vtr/masquerade/exterior/basement/southeast/alamitos_beach)
 "lZc" = (
 /obj/effect/decal/wallpaper/paper/rich/low,
 /turf/closed/wall/vampwall/metal/glass,
@@ -21656,6 +21656,10 @@
 /obj/structure/bookcase/random/reference,
 /turf/open/floor/plating/parquetry,
 /area/vtm/vtr/masquerade/interior/ground_floor/northwest/police_station)
+"tjy" = (
+/obj/effect/landmark/latejoin_masquerade,
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm/vtr/masquerade/exterior/basement/river/la_river)
 "tjC" = (
 /obj/effect/decal/bordur,
 /mob/living/carbon/human/npc/police,
@@ -31126,7 +31130,7 @@ unS
 jyZ
 unS
 unS
-unS
+tjy
 unS
 unS
 unS
@@ -32153,7 +32157,7 @@ bWl
 bWl
 gvB
 bWl
-lYH
+bWl
 bWl
 bWl
 bWl
@@ -33182,7 +33186,7 @@ unS
 jyZ
 unS
 unS
-unS
+tjy
 unS
 unS
 unS
@@ -92630,7 +92634,7 @@ ejL
 mGk
 rIj
 oyZ
-oyZ
+lYH
 oyZ
 oyZ
 mJK

@@ -536,6 +536,8 @@ SUBSYSTEM_DEF(job)
 					continue
 				sloc.used = TRUE
 				break
+		if(living_mob.breaks_masquerade_on_join())
+			S = pick(GLOB.masquerade_latejoin)
 		if(S)
 			S.JoinPlayerHere(living_mob, FALSE)
 		if(!S) //if there isn't a spawnpoint send them to latejoin, if there's no latejoin go yell at your mapper
