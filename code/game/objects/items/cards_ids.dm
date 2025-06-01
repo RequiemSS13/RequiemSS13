@@ -87,7 +87,7 @@
 	var/obj/machinery/paystand/my_store
 	var/uses_overlays = TRUE
 	var/icon/cached_flat_icon
-	var/registered_age = 13 // default age for ss13 players
+	var/registered_age = 24 // default age for ss13 players
 
 /obj/item/card/id/Initialize(mapload)
 	. = ..()
