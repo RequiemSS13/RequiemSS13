@@ -8,7 +8,7 @@
 	if(HAS_TRAIT(src, TRAIT_UNMASQUERADE))
 		check_dist = 7
 	
-	if(!check_dist && HAS_TRAIT(src, TRAIT_UGLY))
+	if(!check_dist && is_face_visible() && HAS_TRAIT(src, TRAIT_UGLY))
 		check_dist = 7
 		check_type = INFRACTION_TYPE_UGLY
 
