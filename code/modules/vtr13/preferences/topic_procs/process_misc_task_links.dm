@@ -298,6 +298,9 @@
 			character_connections = null
 
 		if("changeslot")
+			if(merit_sub_tab==PREFS_BANES_SUB_TAB)
+				merit_sub_tab = PREFS_MERITS_SUB_TAB
+			
 			if(!load_character(text2num(href_list["num"])))
 				reset_character()
 

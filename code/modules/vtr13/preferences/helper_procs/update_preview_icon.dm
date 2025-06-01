@@ -28,8 +28,10 @@
 	MAMA.pixel_x = -16
 	mannequin.add_overlay(MAMA)
 	copy_to(mannequin, 1, TRUE, TRUE, loadout = show_loadout)
-	if(clane?.alt_sprite)
-		mannequin.dna.species.limbs_id = clane.alt_sprite
+	if(all_merits.Find("Childe of Orlok"))
+		mannequin.unique_body_sprite = "nosferatu"
+	else
+		mannequin.unique_body_sprite = null
 	mannequin.update_body()
 	mannequin.update_body_parts()
 	mannequin.update_icon()

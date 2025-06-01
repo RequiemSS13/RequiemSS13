@@ -14,8 +14,11 @@
 		if(VAMP_RANK_ELDER)
 			. = 5
 		else
-			. = 0
+			. = 1
 
 /datum/preferences/proc/adjust_blood_potency()
 	var/max_blood_potency = get_max_blood_potency()
-	set_potency(min(max_blood_potency, get_potency()))
+	if(pref_species.name == "Vampire")
+		set_potency(clamp(get_potency(), 1, max_blood_potency))
+	else
+		set_potency(0)

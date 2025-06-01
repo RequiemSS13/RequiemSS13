@@ -1,7 +1,7 @@
 /datum/merit/bane/childe_of_orlok
 	name = "Childe of Orlok"
 	desc = "The Nosferatu curse has changed you to the point where your appearance alone violates the masquerade."
-	mob_trait = TRAIT_NONMASQUERADE
+	mob_trait = TRAIT_UGLY
 	clan_flags = MERIT_CLAN_NOSFERATU
 	human_only = TRUE
 
@@ -11,8 +11,8 @@
 	var/mob/living/carbon/human/human_merit_holder = merit_holder
 	if(!human_merit_holder?.dna?.species?.limbs_id)
 		return
-	human_merit_holder.dna.species.limbs_id = "nosferatu"
-	human_merit_holder.update_body_parts()
+	human_merit_holder.unique_body_sprite = "nosferatu"
+	human_merit_holder.update_body()
 	human_merit_holder.update_body()
 	human_merit_holder.update_icon()
 
@@ -21,7 +21,7 @@
 	var/mob/living/carbon/human/human_merit_holder = merit_holder
 	if(!human_merit_holder?.dna?.species?.limbs_id)
 		return
-	human_merit_holder.dna.species.limbs_id = initial(human_merit_holder.dna.species.limbs_id)
+	human_merit_holder.unique_body_sprite = initial(human_merit_holder.unique_body_sprite)
 	human_merit_holder.update_body_parts()
 	human_merit_holder.update_body()
 	human_merit_holder.update_icon()

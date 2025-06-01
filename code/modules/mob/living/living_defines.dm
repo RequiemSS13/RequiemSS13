@@ -177,7 +177,7 @@
 
 	var/total_cleaned = 0
 
-	var/datum/attributes/stats
+	var/datum/attributes/stats = new()
 
 	var/more_companions = 0
 	var/melee_professional = FALSE

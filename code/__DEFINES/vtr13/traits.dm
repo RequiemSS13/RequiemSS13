@@ -76,3 +76,5 @@
 
 #define TRAIT_PRODUCER "producer"
 #define TRAIT_FACE_OF_HUNGER "face_of_hunger"
+
+#define TRAIT_UGLY "ugly"

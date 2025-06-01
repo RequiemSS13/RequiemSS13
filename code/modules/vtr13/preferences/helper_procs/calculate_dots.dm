@@ -3,6 +3,7 @@
 	calculate_discipline_dots()
 	calculate_loadout_dots()
 	calculate_merit_dots()
+	adjust_blood_potency()
 
 
 /datum/preferences/proc/calculate_character_dots()

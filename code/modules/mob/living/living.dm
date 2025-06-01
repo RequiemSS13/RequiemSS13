@@ -943,16 +943,30 @@
 
 /mob/living/resist_grab(moving_resist)
 	. = TRUE
+
 	if(pulledby.grab_state || resting || HAS_TRAIT(src, TRAIT_GRABWEAKNESS))
-		var/altered_grab_state = pulledby.grab_state
-		if((resting || HAS_TRAIT(src, TRAIT_GRABWEAKNESS)) && pulledby.grab_state < GRAB_KILL) //If resting, resisting out of a grab is equivalent to 1 grab state higher. won't make the grab state exceed the normal max, however
-			altered_grab_state++
-		var/resist_chance = BASE_GRAB_RESIST_CHANCE /// see defines/combat.dm, this should be baseline 60%
 		var/mob/living/G = pulledby
-		var/grabber_physique = (G.get_physique()) * 10 // The one who is grabbing physique
-		var/resist_physique = (get_physique()) * 10 // The one who is resisting physique
-		resist_chance = ((resist_chance + (resist_physique - grabber_physique))/altered_grab_state)
-		if(prob(resist_chance))
+
+		//resist dice is the higher of physique and wits
+		var/resist_dice = get_physique() * 2
+		if(resist_dice < get_wits() * 2)
+			resist_dice = get_wits() * 2
+		
+		//If resting, give aggressor bonus dice.
+		if((resting || HAS_TRAIT(src, TRAIT_GRABWEAKNESS)) && pulledby.grab_state < GRAB_KILL)
+			resist_dice--
+		
+		var/success = SSroll.opposed_roll(
+			player_a = G,
+			player_b = src,
+			dice_a = G.get_physique()*2,
+			dice_b = resist_dice,
+			show_player_a = TRUE,
+			show_player_b = TRUE,
+			alert_atom = src,
+			draw_goes_to_b = TRUE)
+		
+		if(!success)
 			visible_message("<span class='danger'>[src] breaks free of [pulledby]'s grip!</span>", \
 							"<span class='danger'>You break free of [pulledby]'s grip!</span>", null, null, pulledby)
 			to_chat(pulledby, "<span class='warning'>[src] breaks free of your grip!</span>")

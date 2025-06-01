@@ -29,6 +29,7 @@
 	grab_ghost(force = TRUE)
 	to_chat(src, span_userdanger("You rise with a start, you're alive! Or not... You feel your soul going somewhere, as you realize you are embraced by a vampire..."))
 
+	add_potency_mod(1, "Embrace")
 	set_species(/datum/species/kindred)
 	clane = new sire.clane.type()
 	clane.on_gain(src)
@@ -54,11 +55,10 @@
 		prefs.vamp_rank = VAMP_RANK_FLEDGLING
 		prefs.discipline_types.Cut()
 		prefs.discipline_levels.Cut()
+		remove_potency_mod("Embrace")
 		set_potency(1)
 		for (var/i in 1 to length(prefs.clane.clane_disciplines))
 			prefs.discipline_types += prefs.clane.clane_disciplines[i]
 			prefs.discipline_levels.Add(0)
 		prefs.save_character()
-	else
-		add_potency_mod(1, "Embrace")
 	

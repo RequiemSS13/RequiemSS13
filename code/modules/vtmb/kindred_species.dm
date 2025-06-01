@@ -47,7 +47,7 @@
 	vitae.Grant(C)
 
 	//this needs to be adjusted to be more accurate for blood spending rates
-	var/datum/discipline/bloodheal/giving_bloodheal = new(C.get_potency())
+	var/datum/discipline/bloodheal/giving_bloodheal = new(C.get_potency()?C.get_potency():1)
 	C.give_discipline(giving_bloodheal)
 
 	var/datum/action/blood_power/bloodpower = new()

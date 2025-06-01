@@ -184,7 +184,7 @@
 	var/list/exp = list() //playtime tracker
 
 	//STATS
-	var/datum/attributes/stats
+	var/datum/attributes/stats = new()
 
 	var/list/equipped_gear = list()
 
