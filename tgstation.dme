@@ -3929,6 +3929,7 @@
 #include "code\modules\vtr13\preferences\merits\languages\latin.dm"
 #include "code\modules\vtr13\preferences\merits\languages\mandarin.dm"
 #include "code\modules\vtr13\preferences\merits\languages\russian.dm"
+#include "code\modules\vtr13\preferences\merits\merits\acute_senses.dm"
 #include "code\modules\vtr13\preferences\merits\merits\bloody_lover.dm"
 #include "code\modules\vtr13\preferences\merits\merits\clear_eyes.dm"
 #include "code\modules\vtr13\preferences\merits\merits\direction_sense.dm"
