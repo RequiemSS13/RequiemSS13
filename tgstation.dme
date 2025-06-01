@@ -3856,6 +3856,7 @@
 #include "code\modules\vtr13\preferences\global_procs\sanitize_keybindings.dm"
 #include "code\modules\vtr13\preferences\global_procs\valid_character_link.dm"
 #include "code\modules\vtr13\preferences\global_procs\valid_headshot_link.dm"
+#include "code\modules\vtr13\preferences\helper_procs\adjust_blood_potency.dm"
 #include "code\modules\vtr13\preferences\helper_procs\build_attribute_score.dm"
 #include "code\modules\vtr13\preferences\helper_procs\build_blood_potency_score.dm"
 #include "code\modules\vtr13\preferences\helper_procs\calculate_dots.dm"
