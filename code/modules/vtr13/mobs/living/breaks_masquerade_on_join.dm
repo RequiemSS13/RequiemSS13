@@ -4,8 +4,6 @@
 		return TRUE
 	if(HAS_TRAIT(src, TRAIT_METHUSELAHS_THIRST) &&  src.bloodpool <= 5)
 		return TRUE
-	if(HAS_TRAIT(src, TRAIT_NONMASQUERADE))
-		return TRUE
-	if(HAS_TRAIT(src, TRAIT_UNMASQUERADE))
+	if(HAS_TRAIT(src, TRAIT_UGLY))
 		return TRUE
 	return FALSE
