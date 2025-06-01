@@ -32,6 +32,7 @@ PROCESSING_SUBSYSTEM_DEF(merits)
 							list("Hardy","Frail"), \
 							list("Wealthy","Destitute"), \
 							list("Indomitable","Susceptible"), \
+							list("Childe of Orlok","Face of Hunger"), \
 							list("Passenger Princess","Experienced Driver"), \
 							list("Emersonian Mind", "Pregnable Mind"))
 	return ..()
