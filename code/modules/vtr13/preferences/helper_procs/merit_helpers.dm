@@ -24,11 +24,12 @@
 		. += POLYGLOT_LANGUAGE_BONUS
 
 /datum/preferences/proc/AddBanesUntilItIsDone()
+	if(pref_species.name != "Vampire" )
+		return
+
 	var/banes_needed = GetRequiredBanes()
 	var/current_banes = GetMeritCount(MERIT_BANE)
 
-	if(pref_species.name != "Vampire" )
-		return
 
 	if(current_banes >= banes_needed)
 		return
