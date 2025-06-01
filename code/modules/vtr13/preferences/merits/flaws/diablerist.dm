@@ -4,6 +4,7 @@
 	mob_trait = TRAIT_DIABLERIE
 	dots = 0
 	splat_flags = MERIT_SPLAT_KINDRED
+	clan_flags = MERIT_CLAN_DAEVA|MERIT_CLAN_GANGREL|MERIT_CLAN_MEKHET|MERIT_CLAN_NOSFERATU|MERIT_CLAN_VENTRUE
 
 /datum/merit/flaw/diablerist/add()
 	merit_holder.add_potency_mod(1, TRAIT_DIABLERIE)
