@@ -29,7 +29,6 @@
 	character.real_name = real_name
 	character.true_real_name = real_name
 	character.name = character.real_name
-	character.diablerist = diablerist
 	character.headshot_link = headshot_link
 
 	character.stats = stats
@@ -37,24 +36,14 @@
 
 	character.recalculate_max_health(TRUE)
 
-	character.blood_potency = 0
 	character.vamp_rank = vamp_rank
-	switch(vamp_rank)
-		if(VAMP_RANK_FLEDGLING)
-			character.blood_potency = 1
-		if(VAMP_RANK_NEONATE)
-			character.blood_potency = 1
-		if(VAMP_RANK_ANCILLAE)
-			character.blood_potency = 3
-		if(VAMP_RANK_ELDER)
-			character.blood_potency = 5
 
 	if(pref_species.name == "Vampire")
 		var/datum/vampireclane/CLN = new clane.type()
 		character.clane = CLN
 		qdel(character.regent_clan)
 		character.clane.current_accessory = clane_accessory
-		character.maxbloodpool = 9 + character.blood_potency
+		character.maxbloodpool = 9 + character.get_potency()
 		if(character.clane.name == "Revenant")
 			character.adjustBloodPool(character.get_composure(), TRUE)
 		else
@@ -69,7 +58,7 @@
 		character.adjustBloodPool(rand(character.get_composure(), character.maxbloodpool), TRUE)
 		character.vtr_faction = vamp_faction
 	else if(pref_species.name == "Werewolf")
-		character.blood_potency = 5
+		character.set_potency(5)
 	else
 		character.clane = null
 		qdel(character.regent_clan)

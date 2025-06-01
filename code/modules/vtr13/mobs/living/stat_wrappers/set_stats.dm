@@ -16,3 +16,5 @@
 /mob/living/proc/set_resolve(amount)
 	stats.set_stat(amount, STAT_RESOLVE)
 
+/mob/living/proc/set_potency(amount)
+	stats.set_stat(amount, STAT_POTENCY)

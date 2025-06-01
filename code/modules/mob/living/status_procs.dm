@@ -500,35 +500,20 @@
 			var/mob/living/carbon/human/vampire = src
 			var/datum/species/kindred/vampire_species = vampire.dna.species
 			var/torpor_length = 0 SECONDS
-			switch(humanity)
-				if(10)
-					torpor_length = 1 MINUTES
-				if(9)
-					torpor_length = 3 MINUTES
-				if(8)
-					torpor_length = 4 MINUTES
-				if(7)
-					torpor_length = 5 MINUTES
-				if(6)
-					torpor_length = 10 MINUTES
-				if(5)
-					torpor_length = 15 MINUTES
-				if(4)
-					torpor_length = 30 MINUTES
-				if(3)
-					torpor_length = 1 HOURS
-				if(2)
-					torpor_length = 2 HOURS
+			switch(get_potency())
 				if(1)
-					torpor_length = 3 HOURS
+					torpor_length = 10 MINUTES
+				if(2)
+					torpor_length = 15 MINUTES
+				if(3)
+					torpor_length = 30 MINUTES
+				if(4)
+					torpor_length = 150 MINUTES
+				if(5)
+					torpor_length = 6 HOURS
 				else
-					torpor_length = 5 HOURS
+					torpor_length = 100 HOURS
 			COOLDOWN_START(vampire_species, torpor_timer, torpor_length)
-		if (iscathayan(src))
-			var/mob/living/carbon/human/cathayan = src
-			var/datum/dharma/dharma = cathayan.mind.dharma
-			var/torpor_length = 1 MINUTES * max_yin_chi
-			COOLDOWN_START(dharma, torpor_timer, torpor_length)
 
 ///Unignores all slowdowns that lack the IGNORE_NOSLOW flag.
 /mob/living/proc/unignore_slowdown(source)

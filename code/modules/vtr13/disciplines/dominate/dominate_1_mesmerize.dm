@@ -46,7 +46,7 @@
 		owner,
 		target,
 		dice_a = owner.get_charisma() + discipline.level + trait_bonus,
-		dice_b = target.get_composure() + target.blood_potency,
+		dice_b = target.get_composure() + target.get_potency(),
 		alert_atom = target,
 		show_player_a = FALSE,
 		show_player_b = FALSE))

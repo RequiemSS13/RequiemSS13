@@ -248,6 +248,14 @@
 		if("decrease_stat")
 			var/datum/attribute/A = locate(href_list["attribute"])
 			A.score--
+		
+		if("increase_potency")
+			set_potency(get_potency() + 1)
+			adjust_blood_potency()
+
+		if("decrease_potency")
+			set_potency(get_potency() - 1)
+			adjust_blood_potency()
 
 		if("clane")
 			if(!(pref_species.id == "kindred"))
@@ -272,6 +280,7 @@
 				var/newtype = GLOB.clanes_list[result]
 				clane = new newtype()
 				vamp_rank = VAMP_RANK_NEONATE
+				adjust_blood_potency()
 				all_merits.Cut()
 				discipline_types = list()
 				discipline_levels = list()
@@ -289,6 +298,7 @@
 					qdel(vamp_faction)
 					vamp_faction = new /datum/vtr_faction/vamp_faction/unaligned()
 					vamp_rank = VAMP_RANK_HALF_DAMNED
+					adjust_blood_potency()
 				
 				if(clane.name == "Mekhet")
 					AddBanesUntilItIsDone()
@@ -383,6 +393,7 @@
 			if(new_vamp_rank && check_vamp_rank_allowed(GLOB.vampire_rank_list[new_vamp_rank]))
 				vamp_rank = GLOB.vampire_rank_list[new_vamp_rank]
 			AddBanesUntilItIsDone()
+			adjust_blood_potency()
 		
 		if("vamp_faction")
 			if((clane?.name == "Revenant"))
@@ -494,6 +505,7 @@
 						for (var/disc_type in clane.clane_disciplines)
 							discipline_types.Add(disc_type)
 							discipline_levels.Add(0)
+				adjust_blood_potency()
 
 		if("s_tone")
 			var/new_s_tone = input(user, "Choose your character's skin-tone:", "Character Preference","#"+skin_tone) as color|null

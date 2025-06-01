@@ -77,6 +77,7 @@ GLOBAL_LIST_INIT(vampire_rank_desc_list, list(
 #define RESOLVE_DESCRIPTION "Mental shrewdness, discernment, and willpower."
 #define CHARISMA_DESCRIPTION "Social skills and presence."
 #define COMPOSURE_DESCRIPTION "Emotional stability and self-control."
+#define POTENCY_DESCRIPTION "The concentration of your vampiric blood."
 
 GLOBAL_LIST_INIT(vampire_faction_list, list(
 	"Invictus",

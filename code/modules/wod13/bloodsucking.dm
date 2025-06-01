@@ -121,8 +121,6 @@
 			if(iskindred(mob))
 				var/mob/living/carbon/human/eaten_vampire = mob
 				if(iskindred(src))
-					var/datum/preferences/our_prefs = GLOB.preferences_datums[ckey(key)]
-
 					var/datum/preferences/victim_prefs = GLOB.preferences_datums[ckey(mob.key)]
 					if(victim_prefs)
 						victim_prefs.reason_of_death =  "Diablerized by [true_real_name ? true_real_name : real_name] ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
@@ -130,13 +128,13 @@
 					AdjustHumanity(-1, 0)
 					adjustBruteLoss(-50, TRUE)
 					adjustFireLoss(-50, TRUE)
-					if(SSroll.storyteller_roll(src.humanity + src.get_resolve() - eaten_vampire.blood_potency, 4, list(src, eaten_vampire), eaten_vampire) <= 4)
+					if(SSroll.storyteller_roll(src.humanity + src.get_resolve() - eaten_vampire.get_potency(), 4, list(src, eaten_vampire), eaten_vampire) <= 4)
 						to_chat(src, span_warning("You fail to diablerize [eaten_vampire]."))
 						/*
 						to_chat(src, "<span class='userdanger'><b>[eaten_vampire]'s SOUL OVERCOMES YOURS AND GAINS CONTROL OF YOUR BODY.</b></span>")
 						message_admins("[ADMIN_LOOKUPFLW(src)] tried to Diablerize [ADMIN_LOOKUPFLW(mob)] and was overtaken.")
 						log_attack("[key_name(src)] tried to Diablerize [key_name(mob)] and was overtaken.")
-						blood_potency = eaten_vampire.blood_potency
+						blood_potency = eaten_vampire.get_potency()
 						recalculate_max_health()
 						if(our_prefs)
 							our_prefs.reason_of_death = "Failed the Diablerie ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
@@ -149,14 +147,8 @@
 					else
 						message_admins("[ADMIN_LOOKUPFLW(src)] successfully Diablerized [ADMIN_LOOKUPFLW(mob)]")
 						log_attack("[key_name(src)] successfully Diablerized [key_name(mob)].")
-
-						blood_potency = eaten_vampire.blood_potency
-
-						diablerist = 1
-						if(key && our_prefs && !our_prefs.diablerist)
-							our_prefs.diablerist = 1
-							our_prefs.save_character()
-
+						set_potency(max(eaten_vampire.get_potency(), get_potency()))
+						ADD_TRAIT(src, TRAIT_DIABLERIE, eaten_vampire)
 						recalculate_max_health()
 						if(eaten_vampire.client)
 							var/datum/brain_trauma/special/imaginary_friend/trauma = gain_trauma(/datum/brain_trauma/special/imaginary_friend)

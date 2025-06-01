@@ -24,7 +24,7 @@
 		owner,
 		target,
 		dice_a = owner.get_wits() + discipline.level,
-		dice_b = target.get_resolve() + target.blood_potency + trait_bonus, 
+		dice_b = target.get_resolve() + target.get_potency() + trait_bonus, 
 		alert_atom = target)) //TODO HEX: Tie to blood_potency
 		return TRUE
 	to_chat(owner, span_warning("[target] resists the horror of what they see!"))

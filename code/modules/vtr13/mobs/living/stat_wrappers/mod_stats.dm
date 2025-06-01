@@ -17,6 +17,9 @@
 /mob/living/proc/add_resolve_mod(amount, source)
 	stats.add_modifier(amount, STAT_RESOLVE, source)
 
+/mob/living/proc/add_potency_mod(amount, source)
+	stats.add_modifier(amount, STAT_POTENCY, source)
+
 
 /mob/living/proc/remove_physique_mod(source)
 	stats.remove_modifier(STAT_PHYSIQUE, source)
@@ -35,3 +38,6 @@
 
 /mob/living/proc/remove_resolve_mod(source)
 	stats.remove_modifier(STAT_RESOLVE, source)
+
+/mob/living/proc/remove_potency_mod(source)
+	stats.remove_modifier(STAT_POTENCY, source)

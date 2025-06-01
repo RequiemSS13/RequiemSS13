@@ -29,3 +29,4 @@
 			discipline_levels.Add(0)
 		vamp_rank = VAMP_RANK_NEONATE
 		vamp_faction = new /datum/vtr_faction/vamp_faction/unaligned()
+	adjust_blood_potency()

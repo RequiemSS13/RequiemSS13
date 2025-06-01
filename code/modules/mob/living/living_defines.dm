@@ -179,9 +179,6 @@
 
 	var/datum/attributes/stats
 
-	var/blood_potency = 0
-	var/additional_blood_potency = 0
-
 	var/more_companions = 0
 	var/melee_professional = FALSE
 

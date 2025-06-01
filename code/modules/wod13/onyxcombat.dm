@@ -31,7 +31,6 @@
 	GLOB.sabbatites -= src
 
 	if(iskindred(src))
-		can_be_embraced = FALSE
 		var/obj/item/organ/brain/brain = getorganslot(ORGAN_SLOT_BRAIN) //NO REVIVAL EVER
 		if (brain)
 			brain.organ_flags |= ORGAN_FAILING

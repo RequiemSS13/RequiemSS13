@@ -4,3 +4,4 @@
 #define STAT_COMPOSURE /datum/attribute/composure
 #define STAT_WITS /datum/attribute/wits
 #define STAT_RESOLVE /datum/attribute/resolve
+#define STAT_POTENCY /datum/attribute/potency

@@ -19,4 +19,6 @@
 	dat += "<td width ='50%' valign='top'>"
 	if(pref_species.name == "Vampire" || pref_species.name == "Ghoul")
 		generate_discipline_menu(user, dat)
+	if(pref_species.name == "Vampire")
+		build_blood_potency_menu(dat)
 	dat += "</td></tr></table>"

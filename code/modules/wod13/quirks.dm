@@ -510,9 +510,6 @@ Dancer
 	value = 0
 	allowed_species = list("Vampire")
 
-/datum/quirk/diablerist/on_spawn()
-	var/mob/living/carbon/human/H = quirk_holder
-	H.diablerist = TRUE
 
 /datum/quirk/tower
 	name = "Tower"

@@ -16,3 +16,5 @@
 /datum/preferences/proc/set_resolve(amount)
 	stats.set_stat(amount, STAT_RESOLVE)
 
+/datum/preferences/proc/set_potency(amount)
+	stats.set_stat(amount, STAT_POTENCY)

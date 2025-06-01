@@ -77,7 +77,7 @@
 	if(current.m_intent == MOVE_INTENT_WALK)
 		current.toggle_move_intent()
 
-	var/blood_potency = current.blood_potency
+	var/blood_potency = current.get_potency()
 	current.add_wits_mod(blood_potency, TRAIT_IN_FRENZY)
 	current.add_physique_mod(blood_potency, TRAIT_IN_FRENZY)
 	current.add_stamina_mod(blood_potency, TRAIT_IN_FRENZY)
@@ -244,7 +244,7 @@
 	RegisterSignal(new_character, COMSIG_MOB_CLICKON, PROC_REF(cancel_click))
 	RegisterSignal(new_character, COMSIG_LIVING_DEATH, PROC_REF(handle_current_death))
 
-	var/blood_potency = current.blood_potency
+	var/blood_potency = current.get_potency()
 	current.remove_wits_mod(TRAIT_IN_FRENZY)
 	current.remove_physique_mod(TRAIT_IN_FRENZY)
 	current.remove_stamina_mod(TRAIT_IN_FRENZY)
@@ -253,7 +253,7 @@
 		var/mob/living/carbon/human/current_human = current
 		current_human.recalculate_max_health()
 
-	blood_potency = new_character.blood_potency
+	blood_potency = new_character.get_potency()
 	current.add_wits_mod(blood_potency, TRAIT_IN_FRENZY)
 	current.add_physique_mod(blood_potency, TRAIT_IN_FRENZY)
 	current.add_stamina_mod(blood_potency, TRAIT_IN_FRENZY)

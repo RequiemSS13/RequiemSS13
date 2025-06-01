@@ -54,3 +54,8 @@
 	name = "Resolve"
 	description = RESOLVE_DESCRIPTION
 	score = 1
+
+/datum/attribute/potency
+	name = "Blood Potency"
+	description = POTENCY_DESCRIPTION
+	score = 1

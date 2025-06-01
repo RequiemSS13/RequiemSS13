@@ -15,3 +15,6 @@
 
 /mob/living/proc/get_resolve(include_bonus = TRUE)
 	return stats.get_stat(STAT_RESOLVE, include_bonus)
+
+/mob/living/proc/get_potency(include_bonus = TRUE)
+	return stats.get_stat(STAT_POTENCY, include_bonus)

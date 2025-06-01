@@ -104,7 +104,7 @@
 		if (HAS_TRAIT(owner, TRAIT_TORPOR))
 			return
 		var/mob/living/carbon/human/H = owner
-		level = clamp(H.blood_potency, 1, 4)
+		level = clamp(H.get_potency(), 1, 4)
 		if(HAS_TRAIT(H, TRAIT_COFFIN_THERAPY))
 			if(!istype(H.loc, /obj/structure/closet/crate/coffin))
 				to_chat(usr, "<span class='warning'>You need to be in a coffin to use that!</span>")

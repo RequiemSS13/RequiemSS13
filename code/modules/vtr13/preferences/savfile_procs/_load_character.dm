@@ -165,6 +165,7 @@
 	READ_FILE(S["resolve"], resolve.score)
 	resolve.score = sanitize_integer(resolve.score, 1, 5, 1)
 
+
 	READ_FILE(S["equipped_gear"], equipped_gear)
 	if(!equipped_gear)
 		equipped_gear = list()
@@ -199,9 +200,6 @@
 	if(humanity <= 0)
 		humanity = 1
 
-	READ_FILE(S["diablerist"], diablerist)
-	diablerist = sanitize_integer(diablerist, 0, 1, initial(diablerist))
-
 	READ_FILE(S["masquerade"], masquerade)
 	masquerade = sanitize_integer(masquerade, 0, 5, initial(masquerade))
 
@@ -220,7 +218,12 @@
 
 	//-----------NEW ITEMS-----------
 	READ_FILE(S["vamp_rank"], vamp_rank)
-	vamp_rank = sanitize_integer(vamp_rank, VAMP_RANK_GHOUL, VAMP_RANK_ELDER, VAMP_RANK_GHOUL)
+	vamp_rank = sanitize_integer(vamp_rank, 0, VAMP_RANK_ELDER, VAMP_RANK_GHOUL)
+
+	var/datum/attribute/potency/blood_potency = stats.get_attribute(STAT_POTENCY)
+	READ_FILE(S["potency"], blood_potency.score)
+	blood_potency.score = sanitize_integer(blood_potency.score, 0, 5, 0)
+	adjust_blood_potency()
 
 	READ_FILE(S["actual_age"], actual_age)
 	actual_age = sanitize_integer(actual_age, age, 6000, age)
