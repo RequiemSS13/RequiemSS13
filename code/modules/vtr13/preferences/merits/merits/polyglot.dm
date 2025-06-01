@@ -1,5 +1,5 @@
 /datum/merit/polyglot
 	name = "Polyglot" 
-	desc = "Elge write this thanks"
-	dots = 0
+	desc = "You know additional languages."
+	dots = 2
 	categories_reset_on_remove = MERIT_LANGUAGE

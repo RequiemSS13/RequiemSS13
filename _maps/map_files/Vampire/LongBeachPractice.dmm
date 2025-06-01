@@ -13158,6 +13158,10 @@
 /obj/structure/chair/office,
 /turf/open/floor/plating/parquetry,
 /area/vtm/vtr/masquerade/interior/floor_two/northwest/police_station)
+"lYH" = (
+/obj/effect/landmark/latejoin_masquerade,
+/turf/open/water/la_river,
+/area/vtm/vtr/masquerade/exterior/basement/river/la_river)
 "lZc" = (
 /obj/effect/decal/wallpaper/paper/rich/low,
 /turf/closed/wall/vampwall/metal/glass,
@@ -32149,7 +32153,7 @@ bWl
 bWl
 gvB
 bWl
-bWl
+lYH
 bWl
 bWl
 bWl
