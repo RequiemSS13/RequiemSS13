@@ -37,7 +37,7 @@
 
 	original_name = parent_human.real_name
 	parent_human.real_name = disguise_mob.real_name
-	
+	ADD_TRAIT(parent_human, DISGUISE_TRAIT, DISGUISE_TRAIT)
 	//handle masquerade breaks
 	if(HAS_TRAIT(disguise_mob, TRAIT_NONMASQUERADE))
 		ADD_TRAIT(parent, TRAIT_NONMASQUERADE, DISGUISE_TRAIT)
@@ -76,6 +76,7 @@
 		parent_human.remove_alt_appearance("obfuscate")
 	parent_human.real_name = original_name
 	parent_human.update_body()
+	REMOVE_TRAIT(parent_human, DISGUISE_TRAIT, DISGUISE_TRAIT)
 	REMOVE_TRAIT(parent_human, TRAIT_NONMASQUERADE, DISGUISE_TRAIT)
 	REMOVE_TRAIT(parent_human, TRAIT_UNMASQUERADE, DISGUISE_TRAIT)
 	REMOVE_TRAIT(parent_human, TRAIT_EYES_VIOLATING_MASQUERADE, DISGUISE_TRAIT)

@@ -146,5 +146,4 @@
 	var/datum/vampireclane/regent_clan
 	var/vamp_rank = 0
 	var/datum/examine_panel_fake/examine_panel_fake = new()
-	var/disguised = FALSE
 	//VTR EDIT END

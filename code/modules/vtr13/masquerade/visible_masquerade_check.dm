@@ -1,7 +1,7 @@
 /mob/living/carbon/human/proc/visible_masquerade_check()
 	var/check_dist = 0
 	var/check_type = INFRACTION_TYPE_DEFAULT
-	if(disguised)
+	if(HAS_TRAIT(src, DISGUISE_TRAIT))
 		if(HAS_TRAIT_FROM(src, TRAIT_EYES_VIOLATING_MASQUERADE, DISGUISE_TRAIT))
 			check_dist = 2
 		if(HAS_TRAIT_FROM(src, TRAIT_NONMASQUERADE, DISGUISE_TRAIT))
