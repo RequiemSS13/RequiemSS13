@@ -41,11 +41,11 @@
 		to_chat(sire, span_notice("[src] is totally <b>DEAD</b>!"))
 		return FALSE
 	
-	INVOKE_ASYNC(src, PROC_REF(embrace_save_prompt))
+	INVOKE_ASYNC(src, PROC_REF(embrace_save_prompt), sire)
 	
 	return TRUE
 
-/mob/living/carbon/human/proc/embrace_save_prompt()
+/mob/living/carbon/human/proc/embrace_save_prompt(mob/living/carbon/human/sire)
 	var/response_v = input(src, "Do you wish to keep being a vampire on your save slot?") in list("Yes", "No")
 	if(response_v == "Yes")
 		var/datum/preferences/prefs = client.prefs
@@ -60,5 +60,6 @@
 		for (var/i in 1 to length(prefs.clane.clane_disciplines))
 			prefs.discipline_types += prefs.clane.clane_disciplines[i]
 			prefs.discipline_levels.Add(0)
+		SScharacter_connection.add_connection(CONNECTION_EMBRACE, src, sire)
 		prefs.save_character()
 	
