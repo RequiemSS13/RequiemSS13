@@ -3,28 +3,30 @@
 		return
 	if(!GLOB.canon_event)
 		return
-	if(!is_special_character(src) || forced)
+	if(!is_special_character(src))
 		var/mod = 1
 		if(clane)
 			mod = clane.humanitymod
+		var/new_humanity = humanity
 		if(value < 0)
 			if((humanity > limit) || forced)
 				if (forced)
-					humanity = max(0, humanity+(value * mod))
+					new_humanity = max(0, humanity+(value * mod))
 				else
-					humanity = max(limit, humanity+(value*mod))
-				SEND_SOUND(src, sound('code/modules/wod13/sounds/humanity_loss.ogg', 0, 0, 75))
-				to_chat(src, "<span class='userdanger'><b>HUMANITY DECREASED!</b></span>")
-				if(humanity == limit)
-					to_chat(src, "<span class='userdanger'><b>If I don't stop, I will succumb to the Beast.</b></span>")
+					new_humanity = max(limit, humanity+(value*mod))
+				if(humanity != new_humanity)
+					SEND_SOUND(src, sound('code/modules/wod13/sounds/humanity_loss.ogg', 0, 0, 75))
+					to_chat(src, "<span class='userdanger'><b>HUMANITY DECREASED!</b></span>")
 		if(value > 0)
 			if((humanity < limit) || forced)
 				if (forced)
-					humanity = min(10, humanity+(value))
+					new_humanity = min(10, humanity+(value))
 				else
-					humanity = min(limit, humanity+(value))
-				SEND_SOUND(src, sound('code/modules/wod13/sounds/humanity_gain.ogg', 0, 0, 75))
-				to_chat(src, "<span class='userhelp'><b>HUMANITY INCREASED!</b></span>")
+					new_humanity = min(limit, humanity+(value))
+				if(humanity != new_humanity)
+					SEND_SOUND(src, sound('code/modules/wod13/sounds/humanity_gain.ogg', 0, 0, 75))
+					to_chat(src, "<span class='userhelp'><b>HUMANITY INCREASED!</b></span>")
+		humanity = new_humanity
 
 /mob/living/carbon/human/proc/AdjustMasquerade(var/value, var/forced = FALSE)
 	if(!iskindred(src) && !isghoul(src) && !iscathayan(src))
