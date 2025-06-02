@@ -10,6 +10,9 @@
 
 	examine_result = examine_beast(user)
 	examine_result ? return_list.Add(examine_result) : null
+	
+	examine_result = examine_humanity(user)
+	examine_result ? return_list.Add(examine_result) : null
 
 	examine_result = examine_reputation(user)
 	examine_result ? return_list.Add(examine_result) : null

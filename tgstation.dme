@@ -3811,6 +3811,7 @@
 #include "code\modules\vtr13\mobs\human\examine\examine_health.dm"
 #include "code\modules\vtr13\mobs\human\examine\examine_health_no_disguise.dm"
 #include "code\modules\vtr13\mobs\human\examine\examine_hud_info.dm"
+#include "code\modules\vtr13\mobs\human\examine\examine_humanity.dm"
 #include "code\modules\vtr13\mobs\human\examine\examine_mood.dm"
 #include "code\modules\vtr13\mobs\human\examine\examine_outfit.dm"
 #include "code\modules\vtr13\mobs\human\examine\examine_reputation.dm"

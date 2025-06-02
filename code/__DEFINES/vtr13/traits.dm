@@ -22,6 +22,8 @@
 #define MAJESTY_2_TRAIT "majesty_2_trait"
 #define MAJESTY_5_TRAIT "majesty_5_trait"
 
+#define DISGUISE_TRAIT "disguise_trait"
+
 
 //frenzy traits
 #define TRAIT_IN_FRENZY "in_frenzy"

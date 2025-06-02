@@ -17,12 +17,12 @@
 				to_chat(src, "<span class='userdanger'><b>HUMANITY DECREASED!</b></span>")
 				if(humanity == limit)
 					to_chat(src, "<span class='userdanger'><b>If I don't stop, I will succumb to the Beast.</b></span>")
-		if(value > 0)				  // so please, do not say about that, they're in safety after they're humanity drops to limit
+		if(value > 0)
 			if((humanity < limit) || forced)
 				if (forced)
-					humanity = min(10, humanity+(value * mod))
+					humanity = min(10, humanity+(value))
 				else
-					humanity = min(limit, humanity+(value*mod))
+					humanity = min(limit, humanity+(value))
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/humanity_gain.ogg', 0, 0, 75))
 				to_chat(src, "<span class='userhelp'><b>HUMANITY INCREASED!</b></span>")
 

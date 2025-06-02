@@ -9,6 +9,8 @@
 	
 	var/disguise_title_cache
 
+	var/disguise_humanity_cache
+
 	var/disguise_outfit_cache
 
 	var/disguise_health_cache
@@ -36,15 +38,27 @@
 	original_name = parent_human.real_name
 	parent_human.real_name = disguise_mob.real_name
 	
+	//handle masquerade breaks
+	if(HAS_TRAIT(disguise_mob, TRAIT_NONMASQUERADE))
+		ADD_TRAIT(parent, TRAIT_NONMASQUERADE, DISGUISE_TRAIT)
+	if(HAS_TRAIT(disguise_mob, TRAIT_UNMASQUERADE))
+		ADD_TRAIT(parent, TRAIT_UNMASQUERADE, DISGUISE_TRAIT)
+	
+	var/mob/living/carbon/human/disguise_human = disguise_mob
+	if(HAS_TRAIT(disguise_mob, TRAIT_EYES_VIOLATING_MASQUERADE) && (!disguise_human || disguise_human.is_eyes_covered()))
+		ADD_TRAIT(parent, TRAIT_EYES_VIOLATING_MASQUERADE, DISGUISE_TRAIT)
+
+	if(HAS_TRAIT(disguise_mob, TRAIT_UGLY) && (!disguise_human || disguise_human.is_face_visible()))
+		ADD_TRAIT(parent, TRAIT_UGLY, DISGUISE_TRAIT)
+	
+	parent_human.disguised = TRUE
 
 	var/image/obfuscate_overlay = image(disguise_mob, loc=parent_human, layer = ABOVE_MOB_LAYER)
 	obfuscate_overlay.setDir(null)
 	obfuscate_overlay.override = TRUE
 	parent_human.add_alt_appearance(/datum/atom_hud/alternate_appearance/basic/everyone, "obfuscate", obfuscate_overlay)
 	parent_human.update_body()
-	
 	handle_examine_cache(disguise_mob)
-	
 
 
 /datum/component/disguise/proc/remove_disguise()
@@ -62,6 +76,11 @@
 		parent_human.remove_alt_appearance("obfuscate")
 	parent_human.real_name = original_name
 	parent_human.update_body()
+	REMOVE_TRAIT(parent_human, TRAIT_NONMASQUERADE, DISGUISE_TRAIT)
+	REMOVE_TRAIT(parent_human, TRAIT_UNMASQUERADE, DISGUISE_TRAIT)
+	REMOVE_TRAIT(parent_human, TRAIT_EYES_VIOLATING_MASQUERADE, DISGUISE_TRAIT)
+	REMOVE_TRAIT(parent_human, TRAIT_UGLY, DISGUISE_TRAIT)
+	parent_human.disguised = FALSE
 	. = ..()
 
 /datum/component/disguise/proc/handle_examine_cache()
@@ -71,6 +90,7 @@
 	
 	var/mob/living/carbon/human/disguise_human = disguise_mob
 	disguise_title_cache = disguise_human.examine_title(parent)
+	disguise_humanity_cache = disguise_human.examine_humanity(parent)
 	disguise_outfit_cache = disguise_human.examine_outfit(parent)
 	disguise_health_cache = disguise_human.examine_health(parent)
 	disguise_drunkenness_cache = disguise_human.examine_drunkenness(parent)
@@ -99,6 +119,9 @@
 	examine_result = disguise.examine_beast(user)
 	examine_result ? return_list.Add(examine_result) : null
 
+	//the disguise's Humanity, when it was taken
+	examine_result = disguise_humanity_cache
+	examine_result ? return_list.Add(examine_result) : null
 
 	//The disguise target's fame
 	examine_result = disguise.examine_reputation(user)
