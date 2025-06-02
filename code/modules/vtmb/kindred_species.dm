@@ -161,6 +161,7 @@
 	giving = TRUE
 	if(!do_mob(owner, living_target, 10 SECONDS))
 		to_chat(owner, span_notice("You think better of giving \the [living_target] your vitae."))
+		return
 	living_target.drunked_of |= "[human_owner.dna.real_name]"
 	human_owner.adjustBloodPool(-2)
 	living_target.recieve_vitae(human_owner)
