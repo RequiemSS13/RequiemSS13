@@ -390,9 +390,9 @@ SUBSYSTEM_DEF(ticker)
 			if(player.mind.assigned_role == "Seneschal")
 				captainless=0
 			if(player.mind.assigned_role != player.mind.special_role)
-				SSjob.EquipRank(N, player.mind.assigned_role, 0)
 				if(CONFIG_GET(flag/roundstart_traits) && ishuman(N.new_character))
 					SSmerits.AssignMerits(N.new_character, N.client, TRUE)
+				SSjob.EquipRank(N, player.mind.assigned_role, 0)
 		CHECK_TICK
 	if(captainless)
 		for(var/i in GLOB.new_player_list)
