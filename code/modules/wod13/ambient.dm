@@ -7,9 +7,7 @@
 	var/fire_controled = FALSE
 	var/fire_controling = FALSE
 	var/zone_type = "masquerade"
-	//Chi stuff
-	var/yang_chi = 1
-	var/yin_chi = 1
+
 	var/wall_rating = VERY_HIGH_WALL_RATING
 
 /area/vtm
@@ -62,8 +60,6 @@
 	upper = FALSE
 	zone_type = "elysium"
 	fire_controled = TRUE
-	yang_chi = 0
-	yin_chi = 2
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/interior/techshop
@@ -107,8 +103,6 @@
 	icon_state = "mansion"
 	upper = FALSE
 	zone_type = "battle"
-	yang_chi = 0
-	yin_chi = 2
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/financialdistrict
@@ -235,8 +229,6 @@
 	ambience_index = AMBIENCE_INTERIOR
 	upper = FALSE
 	fire_controled = TRUE
-	yang_chi = 2
-	yin_chi = 0
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/supply
@@ -281,8 +273,6 @@
 	music = /datum/vampiremusic/hollywood
 	upper = TRUE
 	zone_type = "battle"
-	yang_chi = 0
-	yin_chi = 2
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/graveyard/interior
@@ -290,8 +280,6 @@
 	icon_state = "interior"
 	upper = FALSE
 	zone_type = "battle"
-	yang_chi = 0
-	yin_chi = 2
 
 /area/vtm/park
 	name = "Park"
@@ -299,8 +287,6 @@
 	ambience_index = AMBIENCE_NATURE
 	music = /datum/vampiremusic/downtown
 	upper = TRUE
-	yang_chi = 2
-	yin_chi = 0
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/sewer
@@ -310,8 +296,6 @@
 	music = /datum/vampiremusic/sewer
 	upper = FALSE
 	zone_type = "battle"
-	yang_chi = 0
-	yin_chi = 2
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/sewer/nosferatu_town
@@ -320,8 +304,6 @@
 	upper = FALSE
 	music = /datum/vampiremusic/nosferatu
 	zone_type = "elysium"
-	yang_chi = 0
-	yin_chi = 2
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/elevator
@@ -339,8 +321,6 @@
 	upper = TRUE
 	zone_type = "battle"
 	music = /datum/vampiremusic/forest
-	yang_chi = 2
-	yin_chi = 0
 	wall_rating = LOW_WALL_RATING	//for werewolves in future
 
 /area/vtm/interior/glasswalker
@@ -358,8 +338,6 @@
 	zone_type = "battle"
 	music = /datum/vampiremusic/forest
 	fire_controled = FALSE
-	yang_chi = 0
-	yin_chi = 1
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/interior/penumbra
@@ -377,8 +355,6 @@
 	icon_state = "theatre"
 	zone_type = "elysium"
 	fire_controled = TRUE
-	yang_chi = 0
-	yin_chi = 2
 
 /area/vtm/interior/chantry/basement
 	name = "Chantry Basement"
@@ -405,8 +381,6 @@
 	zone_type = "battle"
 	music = /datum/vampiremusic/forest
 	fire_controled = FALSE
-	yang_chi = 0
-	yin_chi = 2
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/interior/wyrm_corrupted
@@ -415,8 +389,6 @@
 	zone_type = "battle"
 	music = /datum/vampiremusic/forest
 	fire_controled = FALSE
-	yang_chi = 0
-	yin_chi = 2
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/interior/old_clan_tzimisce_manor

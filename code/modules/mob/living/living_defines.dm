@@ -196,12 +196,7 @@
 	var/thaum_damage_plus = 0
 
 	var/resistant_to_disciplines = FALSE
-	var/auspex_examine = FALSE
-
 	var/dancing = FALSE
-
-	var/temporis_visual = FALSE
-	var/temporis_blur = FALSE
 
 	var/last_bloodpool_restore = 0
 
@@ -211,9 +206,7 @@
 
 	var/thaumaturgy_knowledge = FALSE
 
-	var/elysium_checks = 0
 	var/bloodhunted = FALSE
-
 
 	var/stakeimmune = FALSE
 
@@ -254,25 +247,11 @@
 	var/ischildren = FALSE
 	var/istower = FALSE
 
-	var/total_contracted = 0
-
 	///Whether the mob currently has the JUMP button selected
 	var/prepared_to_jump = FALSE
 	///If this mob can strip people from range with a delay of 0.1 seconds. Currently only activated by Mytherceria 2.
 	var/enhanced_strip = FALSE
 
-	//Kuei Jin stuff
-	var/yang_chi = 2
-	var/max_yang_chi = 2
-	var/yin_chi = 1
-	var/max_yin_chi = 1
-	var/demon_chi = 0
-	var/max_demon_chi = 0
-	COOLDOWN_DECLARE(chi_restore)
-	var/datum/action/chi_discipline/chi_ranged
-
 	//If we are currently leaning on something, and what that object is
 	var/atom/leaned_object
 
-	//Target is under the effects of dominate
-	var/is_dominated = FALSE

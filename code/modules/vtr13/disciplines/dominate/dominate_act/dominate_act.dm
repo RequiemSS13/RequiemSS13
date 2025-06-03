@@ -14,7 +14,7 @@
 		return FALSE
 
 	var/mob/living/living_victim = target
-	if(!living_victim || living_victim.stat >= UNCONSCIOUS || living_victim.IsSleeping() || living_victim.is_dominated)
+	if(!living_victim || living_victim.stat >= UNCONSCIOUS || living_victim.IsSleeping() || HAS_TRAIT(living_victim, TRAIT_DOMINATED) )
 		return FALSE
 
 	return TRUE
@@ -34,7 +34,7 @@
 	if(no_remove)
 		return
 
-	target.is_dominated = TRUE
+	ADD_TRAIT(target, TRAIT_DOMINATED, DOMINATE_ACT_TRAIT)
 
 	if(linked_trait)
 		ADD_TRAIT(target, linked_trait, DOMINATE_ACT_TRAIT)
@@ -56,13 +56,13 @@
 
 	if(!isliving(source))
 		CRASH("Are You trying to remove a dominate_act from a person who doesn't exist? What???")
-	
-	var/mob/living/source_mob = source
-	source_mob.is_dominated = FALSE
+
+	REMOVE_TRAIT(source, TRAIT_DOMINATED, DOMINATE_ACT_TRAIT)
 	
 	if(linked_trait && !HAS_TRAIT(source, linked_trait))
 		return FALSE
 	
+	var/mob/living/source_mob = source
 	if(source_mob.mind)
 		to_chat(source_mob, span_notice("You no longer need to [activate_verb]."))
 	
