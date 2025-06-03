@@ -6,10 +6,10 @@
 	var/t_do = p_do(temp_gender)
 
 	if(ishuman(user))
-		if(iskindred(src) && clane?.name == "Nosferatu" && prob(3))
+		if(HAS_TRAIT(src, TRAIT_LONELY_CURSE) && prob(3))
 			return span_userdanger("You realize that [t_he] [t_is] an enemy. A predator. A psychopath. Something. Something that should be avoided; reviled.")
-		if(iskindred(src) && clane?.name == "Ventrue" && prob(5))
-			return span_userdanger("You realize [t_he] [t_do] not care about you. Not really. You do not matter.")
+		if(HAS_TRAIT(src, TRAIT_ALOOF_CURSE) && prob(5))
+			return span_userdanger("You realize [t_he] [t_do] not care about you. Not really. You do not matter to [t_him].")
 
 	else
 		if(iskindred(src) && (iskindred(user) || HAS_TRAIT(user, TRAIT_USING_AUSPEX)))

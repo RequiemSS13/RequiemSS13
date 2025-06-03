@@ -7,3 +7,4 @@
 		/datum/discipline/vtr/celerity,
 		/datum/discipline/vtr/majesty
 	)
+	bane_trait = TRAIT_WANTON_CURSE

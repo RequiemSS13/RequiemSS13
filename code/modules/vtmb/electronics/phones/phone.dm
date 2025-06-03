@@ -260,9 +260,6 @@
 
 			.= TRUE
 		if("call")
-//			if((iskindred(V) && V.clane.name == "Lasombra"))
-//				return
-//			else
 			choosed_number = replacetext(choosed_number, " ", "")
 			for(var/obj/item/vamp/phone/PHN in GLOB.phones_list)
 			//Loop through the Phone Global List

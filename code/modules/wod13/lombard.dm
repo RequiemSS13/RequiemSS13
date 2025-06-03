@@ -111,7 +111,7 @@
 		return
 
 	var/humanity_penalty_limit = sold_sc.humanity_loss_limit
-	if(sold_sc.humanity_loss && !seller.clane?.enlightenment) //Do the prompt if the user cares about humanity.
+	if(sold_sc.humanity_loss) //Do the prompt if the user cares about humanity.
 		//We use these variable to determine whether a prospective seller should be notified about their humanity hit, prompting them if they're gonna lose it.
 		var/humanity_loss_modifier = seller.clane ? seller.clane.humanitymod : 1
 		var/humanity_loss_risk = length(item_list_to_sell) * humanity_loss_modifier * sold_sc.humanity_loss

@@ -53,11 +53,6 @@
 	var/mypower = owner.get_charisma()
 	var/theirpower = target.get_wits()
 
-	if(ishuman(target))
-		var/mob/living/carbon/human/human_target = target
-		if(human_target.clane?.name == "Gargoyle")
-			return TRUE
-
 	if((theirpower >= mypower))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to dominate!"))
 		return FALSE
@@ -91,11 +86,6 @@
 /datum/discipline_power/dominate/mesmerize/pre_activation_checks(mob/living/target)
 	var/mypower = owner.get_charisma()
 	var/theirpower = target.get_wits()
-
-	if(ishuman(target))
-		var/mob/living/carbon/human/human_target = target
-		if(human_target.clane?.name == "Gargoyle")
-			return TRUE
 
 	if((theirpower >= mypower))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to dominate!"))
@@ -133,11 +123,6 @@
 	var/mypower = owner.get_charisma()
 	var/theirpower = target.get_wits()
 
-	if(ishuman(target))
-		var/mob/living/carbon/human/human_target = target
-		if(human_target.clane?.name == "Gargoyle")
-			return TRUE
-
 	if((theirpower >= mypower))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to dominate!"))
 		return FALSE
@@ -173,11 +158,6 @@
 	var/mypower = owner.get_charisma()
 	var/theirpower = target.get_wits()
 
-	if(ishuman(target))
-		var/mob/living/carbon/human/human_target = target
-		if(human_target.clane?.name == "Gargoyle")
-			return TRUE
-
 	if((theirpower >= mypower))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to dominate!"))
 		return FALSE
@@ -211,11 +191,6 @@
 /datum/discipline_power/dominate/possession/pre_activation_checks(mob/living/target)
 	var/mypower = owner.get_charisma()
 	var/theirpower = target.get_wits()
-
-	if(ishuman(target))
-		var/mob/living/carbon/human/human_target = target
-		if(human_target.clane?.name == "Gargoyle")
-			return TRUE
 
 	if((theirpower >= mypower))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to dominate!"))

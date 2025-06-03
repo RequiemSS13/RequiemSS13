@@ -5,14 +5,11 @@
 	the embrace did not occur.
 */
 /mob/living/carbon/human/proc/handle_embrace(mob/living/carbon/human/sire)
-	if(!iskindred(sire) || sire.clane?.name == "Revenant")
-		return FALSE
-
 	if(!mind)
 		to_chat(sire, "<span class='warning'>You need [src]'s mind to Embrace!</span>")
 		return FALSE
 
-	if((src.timeofdeath + 5 MINUTES) < world.time || sire.clane?.name == "Revenant")
+	if((src.timeofdeath + 5 MINUTES) < world.time || HAS_TRAIT(sire, TRAIT_HALF_DAMNED_CURSE))
 		to_chat(sire, "<span class='notice'>[src] doesn't respond to your Vitae.</span>")
 		return FALSE
 	

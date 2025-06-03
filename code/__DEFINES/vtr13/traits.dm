@@ -80,3 +80,13 @@
 #define TRAIT_FACE_OF_HUNGER "face_of_hunger"
 
 #define TRAIT_UGLY "ugly"
+
+
+
+//Clane Bane Traits
+#define CLAN_BANE_TRAIT "clan_bane"
+#define TRAIT_WANTON_CURSE "wanton_curse"
+#define TRAIT_LONELY_CURSE "lonely_curse"
+#define TRAIT_ALOOF_CURSE "aloof_curse"
+#define TRAIT_FERAL_CURSE "feral_curse"
+#define TRAIT_HALF_DAMNED_CURSE "half_damned_curse"

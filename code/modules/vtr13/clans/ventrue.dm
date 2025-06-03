@@ -8,3 +8,4 @@
 		/datum/discipline/vtr/dominate
 	)
 	humanitymod = 2
+	bane_trait = TRAIT_ALOOF_CURSE

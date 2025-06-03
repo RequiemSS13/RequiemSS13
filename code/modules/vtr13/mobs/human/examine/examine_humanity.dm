@@ -7,7 +7,7 @@
 	var/t_is = p_are(temp_gender)
 	var/t_s = p_s(temp_gender)
 	var/adjusted_humanity = humanity
-	if(clane?.name == "Nosferatu")
+	if(HAS_TRAIT(src, TRAIT_LONELY_CURSE))
 		adjusted_humanity = min(0, (adjusted_humanity-2))
 
 	if(adjusted_humanity <= 3)

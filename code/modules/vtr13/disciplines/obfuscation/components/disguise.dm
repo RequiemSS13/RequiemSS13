@@ -50,8 +50,7 @@
 
 	if(HAS_TRAIT(disguise_mob, TRAIT_UGLY) && (!disguise_human || disguise_human.is_face_visible()))
 		ADD_TRAIT(parent, TRAIT_UGLY, DISGUISE_TRAIT)
-	
-	parent_human.disguised = TRUE
+
 
 	var/image/obfuscate_overlay = image(disguise_mob, loc=parent_human, layer = ABOVE_MOB_LAYER)
 	obfuscate_overlay.setDir(null)
@@ -81,7 +80,6 @@
 	REMOVE_TRAIT(parent_human, TRAIT_UNMASQUERADE, DISGUISE_TRAIT)
 	REMOVE_TRAIT(parent_human, TRAIT_EYES_VIOLATING_MASQUERADE, DISGUISE_TRAIT)
 	REMOVE_TRAIT(parent_human, TRAIT_UGLY, DISGUISE_TRAIT)
-	parent_human.disguised = FALSE
 	. = ..()
 
 /datum/component/disguise/proc/handle_examine_cache()

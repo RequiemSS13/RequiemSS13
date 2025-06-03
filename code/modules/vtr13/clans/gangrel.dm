@@ -7,3 +7,5 @@
 		/datum/discipline/vtr/resilience,
 		/datum/discipline/vtr/protean
 	)
+	bane_trait = TRAIT_FERAL_CURSE
+	

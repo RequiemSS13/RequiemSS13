@@ -6,11 +6,11 @@
 		to_chat(giver, "<span class='warning'>You need [src]'s attention to do that!</span>")
 		return
 
-	if(stat == DEAD && (!iskindred(src) || clane?.name == "Revenant"))
+	if(stat == DEAD && (!iskindred(src) || HAS_TRAIT(src, TRAIT_HALF_DAMNED_CURSE)))
 		handle_embrace(giver)
 		return
 	
-	if(giver.clane?.name == "Revenant")
+	if(HAS_TRAIT(giver, TRAIT_HALF_DAMNED_CURSE))
 		to_chat(giver, span_notice("[src] does not respond to your vitae.</span>"))
 		return
 	

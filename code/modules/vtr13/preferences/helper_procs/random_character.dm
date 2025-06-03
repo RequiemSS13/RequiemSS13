@@ -22,12 +22,7 @@
 	if(randomise[RANDOM_BACKPACK])
 		backpack = random_backpack()
 	if(randomise[RANDOM_HAIRSTYLE])
-		if(clane?.no_hair)
-			hairstyle = "Bald"
-		else if(clane?.haircuts)
-			hairstyle = pick(clane?.haircuts)
-		else
-			hairstyle = random_hairstyle(gender)
+		hairstyle = random_hairstyle(gender)
 	if(randomise[RANDOM_FACIAL_HAIRSTYLE])
 		facial_hairstyle = random_facial_hairstyle(gender)
 

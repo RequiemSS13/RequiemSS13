@@ -293,7 +293,6 @@
 						clane_accessory = "none"
 					else
 						clane_accessory = pick(clane.accessories)
-
 				if(clane.name == "Revenant")
 					qdel(vamp_faction)
 					vamp_faction = new /datum/vtr_faction/vamp_faction/unaligned()

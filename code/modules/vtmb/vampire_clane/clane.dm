@@ -34,6 +34,8 @@ And it also helps for the character set panel
 	var/current_accessory
 	var/clan_keys //Keys to your hideout
 
+	var/bane_trait
+
 /datum/vampireclane/proc/on_gain(var/mob/living/carbon/human/H)
 	SHOULD_CALL_PARENT(TRUE)
 
@@ -50,6 +52,9 @@ And it also helps for the character set panel
 		H.update_body_parts()
 		H.update_body()
 		H.update_icon()
+	
+	if(bane_trait)
+		ADD_TRAIT(H, bane_trait, CLAN_BANE_TRAIT)
 
 /datum/vampireclane/proc/post_gain(var/mob/living/carbon/human/H)
 	SHOULD_CALL_PARENT(TRUE)
