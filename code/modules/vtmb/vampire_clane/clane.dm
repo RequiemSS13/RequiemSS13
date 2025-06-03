@@ -1,5 +1,3 @@
-//Additional game logic should be stored in the component
-GLOBAL_LIST_INIT(basic_disciplines, list(/datum/discipline/animalism)) //write here the main disciplines when I do them [Lucia] - god fucking damn it flavrius
 /*
 This datum stores a declarative description of clans, in order to make an instance of the clan component from this implementation in runtime
 And it also helps for the character set panel

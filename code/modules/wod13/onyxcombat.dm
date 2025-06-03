@@ -36,10 +36,6 @@
 			brain.organ_flags |= ORGAN_FAILING
 		SEND_SOUND(src, sound('code/modules/wod13/sounds/final_death.ogg', 0, 0, 50))
 
-		//annoying code that depends on clan doesn't work for Kuei-jin
-		if (iscathayan(src))
-			return
-
 		var/years_undead = chronological_age - age
 		switch (years_undead)
 			if (-INFINITY to 10) //normal corpse
@@ -67,8 +63,6 @@
 			if (200 to INFINITY)
 				if (iskindred(src))
 					playsound(src, 'code/modules/wod13/sounds/burning_death.ogg', 80, TRUE)
-				else if (iscathayan(src))
-					playsound(src, 'code/modules/wod13/sounds/vicissitude.ogg', 80, TRUE)
 				lying_fix()
 				dir = SOUTH
 				spawn(1 SECONDS)
@@ -410,7 +404,7 @@
 	//update_auspex_hud_vtr()
 
 /mob/living/carbon/human/Life()
-	if(!iskindred(src) && !iscathayan(src))
+	if(!iskindred(src))
 		if(prob(5))
 			adjustCloneLoss(-5, TRUE)
 	update_blood_hud()

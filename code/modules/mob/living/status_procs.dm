@@ -487,8 +487,6 @@
 	REMOVE_TRAIT(src, TRAIT_TORPOR, source)
 	if(iskindred(src))
 		to_chat(src, "<span class='notice'>You have awoken from your Torpor.</span>")
-	if(iscathayan(src))
-		to_chat(src, "<span class='notice'>You have awoken from your Little Death.</span>")
 
 /mob/living/proc/torpor(source)
 	if (HAS_TRAIT(src, TRAIT_TORPOR))

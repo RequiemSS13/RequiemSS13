@@ -395,14 +395,16 @@
 		to_chat(src, text="You are unable to succumb to death! This life continues.", type=MESSAGE_TYPE_INFO)
 		return
 	log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health!", LOG_ATTACK)
-	if((iskindred(src) || iscathayan(src)) && !HAS_TRAIT(src, TRAIT_TORPOR))
+	
+	if(HAS_TRAIT(src, TRAIT_TORPOR))
+		adjustOxyLoss(health - HEALTH_THRESHOLD_VAMPIRE_DEAD)
+	else if(iskindred(src))
 		adjustOxyLoss(health - HEALTH_THRESHOLD_VAMPIRE_TORPOR)
 		updatehealth()
-	if((iskindred(src) || iscathayan(src)) && HAS_TRAIT(src, TRAIT_TORPOR))
-		adjustOxyLoss(health - HEALTH_THRESHOLD_VAMPIRE_DEAD)
-	if(!iskindred(src) && !iscathayan(src))
+	else
 		adjustOxyLoss(health - HEALTH_THRESHOLD_DEAD)
 		updatehealth()
+	
 	if(!whispered)
 		to_chat(src, "<span class='notice'>You have given up life and succumbed to death.</span>")
 
@@ -1041,7 +1043,6 @@
 				if(NPC.stat < SOFT_CRIT)
 					if(istype(what, /obj/item/clothing) || istype(what, /obj/item/vamp/keys) || istype(what, /obj/item/stack/dollar))
 						H.AdjustHumanity(-1, 6)
-						call_dharma("steal", H)
 			if(islist(where))
 				var/list/L = where
 				if(what == who.get_item_for_held_index(L[2]))

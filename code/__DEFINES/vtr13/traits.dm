@@ -90,3 +90,8 @@
 #define TRAIT_ALOOF_CURSE "aloof_curse"
 #define TRAIT_FERAL_CURSE "feral_curse"
 #define TRAIT_HALF_DAMNED_CURSE "half_damned_curse"
+
+
+//Temporary Humanity Traits
+#define HUMANITY_TRAIT "saved_life"
+#define TRAIT_SAVED_LIFE "saved_life"

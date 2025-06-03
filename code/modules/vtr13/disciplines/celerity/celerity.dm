@@ -11,7 +11,7 @@
 	activate_sound = 'code/modules/wod13/sounds/celerity_activate.ogg'
 	deactivate_sound = 'code/modules/wod13/sounds/celerity_deactivate.ogg'
 
-/datum/discipline_power/vtr/celerity/proc/celerity_visual(datum/discipline_power/celerity/source, atom/newloc, dir)
+/datum/discipline_power/vtr/celerity/proc/celerity_visual(atom/newloc, dir)
 	SIGNAL_HANDLER
 	var/obj/effect/celerity/C = new(owner.loc)
 	C.name = owner.name

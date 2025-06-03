@@ -29,7 +29,7 @@
 		humanity = new_humanity
 
 /mob/living/carbon/human/proc/AdjustMasquerade(var/value, var/forced = FALSE)
-	if(!iskindred(src) && !isghoul(src) && !iscathayan(src))
+	if(!iskindred(src) && !isghoul(src))
 		return
 	if(!GLOB.canon_event)
 		return

@@ -9,10 +9,10 @@
 
 /datum/dominate_act/compel/slow_down/apply(mob/living/target)
 	..()
-	target.add_movespeed_modifier(/datum/movespeed_modifier/dominate)
+	target.add_movespeed_modifier(/datum/movespeed_modifier/vtr_dominate)
 
 /datum/dominate_act/compel/slow_down/remove(mob/living/target)
 	. = ..()
 	if(!.)
 		return
-	target.remove_movespeed_modifier(/datum/movespeed_modifier/dominate)
+	target.remove_movespeed_modifier(/datum/movespeed_modifier/vtr_dominate)

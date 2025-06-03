@@ -772,7 +772,6 @@
 
 /obj/item/molotov/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
-	call_dharma("grief", throwingdatum.thrower)
 	explode()
 
 /obj/item/molotov/attackby(obj/item/I, mob/user, params)
@@ -846,7 +845,6 @@
 		if(target_turf)
 			var/turflist = getline(user, target_turf)
 			log_combat(user, target, "flamethrowered", src)
-			call_dharma("grief", user)
 			for(var/turf/open/floor/F in turflist)
 				if(F)
 					if(F != user.loc)

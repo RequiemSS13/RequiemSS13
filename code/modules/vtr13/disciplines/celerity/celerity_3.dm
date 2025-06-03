@@ -19,7 +19,7 @@
 
 /datum/discipline_power/vtr/celerity/three/activate()
 	. = ..()
-	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(celerity_visual))
+	RegisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(celerity_visual))
 
 	ADD_TRAIT(owner, TRAIT_NONMASQUERADE, CELERITY_TRAIT)
 	ADD_TRAIT(owner, TRAIT_QUICK_JUMP, CELERITY_TRAIT)
@@ -27,7 +27,7 @@
 
 /datum/discipline_power/vtr/celerity/three/deactivate()
 	. = ..()
-	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE)
 	REMOVE_TRAIT(owner, TRAIT_NONMASQUERADE, CELERITY_TRAIT)
 	REMOVE_TRAIT(owner, TRAIT_QUICK_JUMP, CELERITY_TRAIT)
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/vtr/celerity3)

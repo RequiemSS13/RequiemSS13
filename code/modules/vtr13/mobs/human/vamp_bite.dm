@@ -15,11 +15,11 @@
 					SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
 					to_chat(src, "<span class='warning'>Eww, that is <b>GROSS</b>.</span>")
 					return
-			if(!isghoul(src) && !iskindred(src) && !iscathayan(src))
+			if(!isghoul(src) && !iskindred(src))
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
 				to_chat(src, "<span class='warning'>Eww, that is <b>GROSS</b>.</span>")
 				return
-			if(PB.stat == DEAD && !HAS_TRAIT(src, TRAIT_GULLET) && !iscathayan(src))
+			if(PB.stat == DEAD && !HAS_TRAIT(src, TRAIT_GULLET))
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
 				to_chat(src, "<span class='warning'>This creature is <b>DEAD</b>.</span>")
 				return
@@ -33,7 +33,7 @@
 				PB.emote("scream")
 			PB.add_bite_animation()
 		if(isliving(src.pulling))
-			if(!iskindred(src) && !iscathayan(src))
+			if(!iskindred(src))
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
 				to_chat(src, "<span class='warning'>Eww, that is <b>GROSS</b>.</span>")
 				return
@@ -42,7 +42,7 @@
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
 				to_chat(src, "<span class='warning'>There is no <b>BLOOD</b> in this creature.</span>")
 				return
-			if(LV.stat == DEAD && !HAS_TRAIT(src, TRAIT_GULLET) && !iscathayan(src))
+			if(LV.stat == DEAD && !HAS_TRAIT(src, TRAIT_GULLET))
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
 				to_chat(src, "<span class='warning'>This creature is <b>DEAD</b>.</span>")
 				return

@@ -726,21 +726,14 @@
 			return FALSE
 
 		visible_message("<span class='notice'>[src] performs CPR on [target.name]!</span>", "<span class='notice'>You perform CPR on [target.name].</span>")
-		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "saved_life", /datum/mood_event/saved_life)
-		if(last_cpr_exp+1200 < world.time)
-			last_cpr_exp = world.time
+
+		if(!HAS_TRAIT(src, TRAIT_SAVED_LIFE))
 			if(isnpc(target))
 				var/mob/living/carbon/human/npc/N = target
 				if(N.last_damager != src)
 					AdjustHumanity(1, 10)
-					call_dharma("savelife", src)
-//			if(key)
-//				var/datum/preferences/P = GLOB.preferences_datums[ckey(key)]
-//				if(P)
-//					var/mode = 1
-//					if(HAS_TRAIT(src, TRAIT_NON_INT))
-//						mode = 2
-//					P.exper = min(calculate_mob_max_exper(src), P.exper+(20/mode))
+					ADD_TRAIT(src, TRAIT_SAVED_LIFE, HUMANITY_TRAIT)
+
 		log_combat(src, target, "CPRed")
 
 		if (HAS_TRAIT(target, TRAIT_NOBREATH))

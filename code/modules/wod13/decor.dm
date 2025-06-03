@@ -1195,29 +1195,6 @@
 	icon = 'code/modules/wod13/64x64.dmi'
 	icon_state = "kopatich"
 
-/obj/effect/decal/baalirune
-	name = "satanic rune"
-	pixel_w = -16
-	pixel_z = -16
-	icon = 'code/modules/wod13/64x64.dmi'
-	icon_state = "baali"
-	var/total_corpses = 0
-
-/obj/effect/decal/baalirune/attack_hand(mob/living/user)
-	. = ..()
-	var/mob/living/carbon/human/H = locate() in get_turf(src)
-	if(H)
-		if(H.stat == DEAD)
-			H.gib()
-			total_corpses += 1
-			if(total_corpses >= 20)
-				total_corpses = 0
-				playsound(get_turf(src), 'sound/magic/demon_dies.ogg', 100, TRUE)
-				new /mob/living/simple_animal/hostile/baali_guard(get_turf(src))
-//			var/datum/preferences/P = GLOB.preferences_datums[ckey(user.key)]
-//			if(P)
-//				P.exper = min(calculate_mob_max_exper(user), P.exper+15)
-
 
 /obj/structure/vampstatue
 	name = "statue"
@@ -1383,25 +1360,17 @@
 					var/dead_amongst = FALSE
 					for(var/mob/living/L in get_turf(src))
 						L.forceMove(src)
-						if(L.stat == DEAD)
-							dead_amongst = TRUE
 						icon_state = "pit1"
+						dead_amongst = TRUE
 						user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
-						if(dead_amongst)
-							call_dharma("respect", user)
 					if(!dead_amongst)
 						user.visible_message("<span class='warning'>[user] refills [src].</span>", "<span class='warning'>You refill [src].</span>")
 						qdel(src)
 				else
-					var/dead_amongst = FALSE
 					for(var/mob/living/L in src)
 						L.forceMove(get_turf(src))
-						if(L.stat == DEAD)
-							dead_amongst = TRUE
 					icon_state = "pit0"
 					user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
-					if(dead_amongst)
-						call_dharma("disrespect", user)
 			else
 				burying = FALSE
 
