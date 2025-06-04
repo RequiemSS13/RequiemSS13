@@ -1,7 +1,7 @@
 /obj/structure/window_frame
 	name = "window frame"
 	desc = "A frame. For a window. If a window is missing you can likely replace it with an apropriate kit."
-	icon = 'code/modules/wod13/lowwalls.dmi'
+	icon = 'icons/wod13/lowwalls.dmi'
 	icon_state = "wall-window"
 	base_icon_state = "wall"
 	var/climbable = 1 //Climbable. As in can by climbed through and past. Done if dragged onto in not-hostile intent.

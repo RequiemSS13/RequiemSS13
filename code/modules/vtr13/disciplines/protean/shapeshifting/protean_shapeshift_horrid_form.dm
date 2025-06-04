@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/protean
 	name = "Apex Predator"
 	desc = "The peak of abominations armor. Unbelievably undamagable..."
-	icon = 'code/modules/wod13/32x48.dmi'
+	icon = 'icons/wod13/32x48.dmi'
 	icon_state = "gangrel_f"
 	icon_living = "gangrel_f"
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID

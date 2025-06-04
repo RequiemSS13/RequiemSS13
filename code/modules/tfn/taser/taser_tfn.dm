@@ -2,7 +2,7 @@
 	name = "V26 taser"
 	desc = "A less-than-lethal stun gun. Fires an electrode pair that will impale and electrocute noncompliant suspects. Holds two rechargable cartridges."
 	icon = 'icons/tfn/items/taser.dmi'
-	onflooricon = 'code/modules/wod13/onfloor.dmi'
+	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "taser_wod"
 	inhand_icon_state = null
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode/expensive)

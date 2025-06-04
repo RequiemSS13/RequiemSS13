@@ -1,7 +1,7 @@
 /obj/machinery/mineral/equipment_vendor/fastfood
 	name = "Clerk Catalogue"
 	desc = "Order some fastfood here."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "menu"
 	icon_deny = "menu"
 	prize_list = list()
@@ -10,7 +10,7 @@
 /obj/machinery/mineral/equipment_vendor/fastfood/sodavendor
 	name = "Drink Vendor"
 	desc = "Order drinks here."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "vend_r"
 	anchored = TRUE
 	density = TRUE
@@ -29,7 +29,7 @@
 /obj/machinery/mineral/equipment_vendor/fastfood/coffeevendor
 	name = "Coffee Vendor"
 	desc = "For those sleepy mornings."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "vend_g"
 	anchored = TRUE
 	density = TRUE

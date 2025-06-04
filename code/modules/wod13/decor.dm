@@ -1,6 +1,6 @@
 /obj/effect/decal/rugs
 	name = "rugs"
-	icon = 'code/modules/wod13/tiles.dmi'
+	icon = 'icons/wod13/tiles.dmi'
 	icon_state = "rugs"
 
 /obj/effect/decal/rugs/Initialize()
@@ -10,7 +10,7 @@
 /obj/structure/vampfence
 	name = "\improper fence"
 	desc = "Protects places from walking in."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "fence"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -21,10 +21,10 @@
 	icon_state = "fence_corner"
 
 /obj/structure/vampfence/rich
-	icon = 'code/modules/wod13/32x48.dmi'
+	icon = 'icons/wod13/32x48.dmi'
 
 /obj/structure/vampfence/corner/rich
-	icon = 'code/modules/wod13/32x48.dmi'
+	icon = 'icons/wod13/32x48.dmi'
 
 /obj/structure/vampfence/Initialize()
 	.=..()
@@ -38,7 +38,7 @@
 /obj/structure/gargoyle
 	name = "\improper gargoyle"
 	desc = "Some kind of gothic architecture."
-	icon = 'code/modules/wod13/32x48.dmi'
+	icon = 'icons/wod13/32x48.dmi'
 	icon_state = "gargoyle"
 	pixel_z = 8
 	plane = GAME_PLANE
@@ -47,7 +47,7 @@
 
 /obj/effect/decal/litter
 	name = "litter"
-	icon = 'code/modules/wod13/tiles.dmi'
+	icon = 'icons/wod13/tiles.dmi'
 	icon_state = "paper1"
 
 /obj/effect/decal/litter/Initialize()
@@ -56,7 +56,7 @@
 
 /obj/effect/decal/cardboard
 	name = "cardboard"
-	icon = 'code/modules/wod13/tiles.dmi'
+	icon = 'icons/wod13/tiles.dmi'
 	icon_state = "cardboard1"
 
 /obj/effect/decal/cardboard/Initialize()
@@ -69,7 +69,7 @@
 /obj/structure/clothingrack
 	name = "clothing rack"
 	desc = "Have some clothes."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "rack"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -86,7 +86,7 @@
 /obj/structure/clothinghanger
 	name = "clothing hanger"
 	desc = "Have some clothes."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "hanger1"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -100,7 +100,7 @@
 /obj/structure/foodrack
 	name = "food rack"
 	desc = "Have some food."
-	icon = 'code/modules/wod13/64x64.dmi'
+	icon = 'icons/wod13/64x64.dmi'
 	icon_state = "rack2"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -115,7 +115,7 @@
 /obj/structure/trashcan
 	name = "trash can"
 	desc = "Holds garbage inside."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "garbage"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -135,7 +135,7 @@
 /obj/structure/trashbag
 	name = "trash bag"
 	desc = "Holds garbage inside."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "garbage1"
 	anchored = TRUE
 
@@ -149,7 +149,7 @@
 /obj/structure/hotelsign
 	name = "sign"
 	desc = "It says H O T E L."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "hotel"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -167,7 +167,7 @@
 /obj/structure/hotelbanner
 	name = "banner"
 	desc = "It says H O T E L."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "banner"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -185,7 +185,7 @@
 /obj/structure/milleniumsign
 	name = "sign"
 	desc = "It says M I L L E N I U M."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "millenium"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -198,7 +198,7 @@
 /obj/structure/anarchsign
 	name = "sign"
 	desc = "It says B A R."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "bar"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -216,7 +216,7 @@
 /obj/structure/chinesesign
 	name = "sign"
 	desc = "雨天和血的机会."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "chinese1"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -239,7 +239,7 @@
 /obj/structure/arc
 	name = "chinatown arc"
 	desc = "Cool chinese architecture."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "ark1"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -259,7 +259,7 @@
 /obj/structure/trad
 	name = "traditional lamp"
 	desc = "Cool chinese lamp."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "trad"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -267,7 +267,7 @@
 
 /obj/structure/vampipe
 	name = "pipes"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "piping1"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -275,7 +275,7 @@
 
 /obj/structure/vamproofwall
 	name = "wall"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "the_wall"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -284,7 +284,7 @@
 /obj/structure/hydrant
 	name = "hydrant"
 	desc = "Used for firefighting."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "hydrant"
 	anchored = TRUE
 
@@ -306,7 +306,7 @@
 /obj/structure/vampcar
 	name = "car"
 	desc = "It drives."
-	icon = 'code/modules/wod13/cars.dmi'
+	icon = 'icons/wod13/cars.dmi'
 	icon_state = "taxi"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -324,7 +324,7 @@
 /obj/structure/roadblock
 	name = "\improper road block"
 	desc = "Protects places from walking in."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "roadblock"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -335,7 +335,7 @@
 	icon_state = "barrier"
 
 /obj/machinery/light/prince
-	icon = 'code/modules/wod13/icons.dmi'
+	icon = 'icons/wod13/icons.dmi'
 
 /obj/machinery/light/prince/ghost
 
@@ -356,7 +356,7 @@
 
 /obj/effect/decal/painting
 	name = "painting"
-	icon = 'code/modules/wod13/icons.dmi'
+	icon = 'icons/wod13/icons.dmi'
 	icon_state = "painting1"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -370,7 +370,7 @@
 /obj/structure/jesuscross
 	name = "crucifix"
 	desc = "Jesus said, “Father, forgive them, for they do not know what they are doing.” And they divided up his clothes by casting lots (Luke 23:34)."
-	icon = 'code/modules/wod13/64x64.dmi'
+	icon = 'icons/wod13/64x64.dmi'
 	icon_state = "cross"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -382,7 +382,7 @@
 /obj/structure/roadsign
 	name = "road sign"
 	desc = "Do not drive your car cluelessly."
-	icon = 'code/modules/wod13/32x48.dmi'
+	icon = 'icons/wod13/32x48.dmi'
 	icon_state = "stop"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -435,7 +435,7 @@
 /obj/structure/barrels
 	name = "barrel"
 	desc = "Storage some liquids."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "barrel1"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -452,7 +452,7 @@
 /obj/structure/bricks
 	name = "bricks"
 	desc = "Building material."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "bricks"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -461,7 +461,7 @@
 
 /obj/effect/decal/pallet
 	name = "pallet"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "under1"
 
 /obj/effect/decal/pallet/Initialize()
@@ -470,7 +470,7 @@
 
 /obj/effect/decal/trash
 	name = "trash"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "trash1"
 
 /obj/effect/decal/trash/Initialize()
@@ -480,7 +480,7 @@
 /obj/cargotrain
 	name = "cargocrate"
 	desc = "It delivers a lot of things."
-	icon = 'code/modules/wod13/containers.dmi'
+	icon = 'icons/wod13/containers.dmi'
 	icon_state = "1"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -507,7 +507,7 @@
 /obj/cargocrate
 	name = "cargocrate"
 	desc = "It delivers a lot of things."
-	icon = 'code/modules/wod13/containers.dmi'
+	icon = 'icons/wod13/containers.dmi'
 	icon_state = "1"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -564,7 +564,7 @@
 /obj/structure/marketplace
 	name = "stock market"
 	desc = "Recent stocks visualization."
-	icon = 'code/modules/wod13/stonks.dmi'
+	icon = 'icons/wod13/stonks.dmi'
 	icon_state = "marketplace"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -576,7 +576,7 @@
 /obj/structure/fuelstation
 	name = "fuel station"
 	desc = "Fuel your car here. 50 dollars per 1000 units."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "fuelstation"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -617,7 +617,7 @@
 /obj/structure/bloodextractor
 	name = "blood extractor"
 	desc = "Extract blood in packs."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "bloodextractor"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -657,7 +657,7 @@
 
 /obj/structure/rack/tacobell
 	name = "table"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "tacobell"
 
 /obj/structure/rack/tacobell/attack_hand(mob/living/user)
@@ -683,7 +683,7 @@
 
 /obj/structure/rack/bubway
 	name = "table"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "bubway"
 
 /obj/structure/rack/bubway/attack_hand(mob/living/user)
@@ -710,7 +710,7 @@
 /obj/bacotell
 	name = "Baco Tell"
 	desc = "Eat some precious tacos and pizza!"
-	icon = 'code/modules/wod13/fastfood.dmi'
+	icon = 'icons/wod13/fastfood.dmi'
 	icon_state = "bacotell"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -720,7 +720,7 @@
 /obj/bubway
 	name = "BubWay"
 	desc = "Eat some precious burgers and pizza!"
-	icon = 'code/modules/wod13/fastfood.dmi'
+	icon = 'icons/wod13/fastfood.dmi'
 	icon_state = "bubway"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -730,7 +730,7 @@
 /obj/gummaguts
 	name = "Gumma Guts"
 	desc = "Eat some precious chicken nuggets and donuts!"
-	icon = 'code/modules/wod13/fastfood.dmi'
+	icon = 'icons/wod13/fastfood.dmi'
 	icon_state = "gummaguts"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -739,7 +739,7 @@
 
 /obj/underplate
 	name = "underplate"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "underplate"
 	plane = GAME_PLANE
 	layer = TABLE_LAYER
@@ -750,7 +750,7 @@
 
 /obj/order
 	name = "order sign"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "order"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -758,7 +758,7 @@
 
 /obj/order1
 	name = "order screen"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "order1"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -766,7 +766,7 @@
 
 /obj/order2
 	name = "order screen"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "order2"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -774,7 +774,7 @@
 
 /obj/order3
 	name = "order screen"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "order3"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -782,7 +782,7 @@
 
 /obj/order4
 	name = "order screen"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "order4"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -791,7 +791,7 @@
 /obj/matrix
 	name = "matrix"
 	desc = "Suicide is no exit..."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "matrix"
 	plane = GAME_PLANE
 	layer = ABOVE_NORMAL_TURF_LAYER
@@ -860,7 +860,7 @@
 /obj/structure/billiard_table
 	name = "billiard table"
 	desc = "Come here, play some BALLS. I know you want it so much..."
-	icon = 'code/modules/wod13/32x48.dmi'
+	icon = 'icons/wod13/32x48.dmi'
 	icon_state = "billiard1"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -874,7 +874,7 @@
 /obj/police_department
 	name = "San Francisco Police Department"
 	desc = "Stop right there you criminal scum! Nobody can break the law on my watch!!"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "police"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -884,7 +884,7 @@
 /obj/structure/pole
 	name = "stripper pole"
 	desc = "A pole fastened to the ceiling and floor, used to show of ones goods to company."
-	icon = 'code/modules/wod13/64x64.dmi'
+	icon = 'icons/wod13/64x64.dmi'
 	icon_state = "pole"
 	density = TRUE
 	anchored = TRUE
@@ -943,7 +943,7 @@
 /obj/structure/strip_club
 	name = "sign"
 	desc = "It says DO RA. Maybe it's some kind of strip club..."
-	icon = 'code/modules/wod13/48x48.dmi'
+	icon = 'icons/wod13/48x48.dmi'
 	icon_state = "dora"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -984,7 +984,7 @@
 /obj/structure/fire_barrel
 	name = "barrel"
 	desc = "Some kind of light and warm source..."
-	icon = 'code/modules/wod13/icons.dmi'
+	icon = 'icons/wod13/icons.dmi'
 	icon_state = "barrel"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -998,7 +998,7 @@
 /obj/structure/fountain
 	name = "fountain"
 	desc = "Gothic water structure."
-	icon = 'code/modules/wod13/fountain.dmi'
+	icon = 'icons/wod13/fountain.dmi'
 	icon_state = "fountain"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -1010,7 +1010,7 @@
 /obj/structure/coclock
 	name = "clock"
 	desc = "See the time."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "clock"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -1022,7 +1022,7 @@
 	to_chat(user, "<b>[SScity_time.timeofnight]</b>")
 
 /obj/structure/coclock/grandpa
-	icon = 'code/modules/wod13/grandpa_cock.dmi'
+	icon = 'icons/wod13/grandpa_cock.dmi'
 	icon_state = "cock"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -1033,7 +1033,7 @@
 /turf/open/floor/plating/bloodshit
 	gender = PLURAL
 	name = "blood"
-	icon = 'code/modules/wod13/tiles.dmi'
+	icon = 'icons/wod13/tiles.dmi'
 	icon_state = "blood"
 	flags_1 = NONE
 	attachment_holes = FALSE
@@ -1056,7 +1056,7 @@
 /obj/american_flag
 	name = "american flag"
 	desc = "PATRIOTHICC!!!"
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "flag_usa"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -1067,7 +1067,7 @@
 /obj/flag
 	name = "DO NOT USE"
 	desc = "This shouldn't be used. If you see this in-game, someone has fucked up."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "flag_usa"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -1140,7 +1140,7 @@
 
 /obj/effect/decal/graffiti
 	name = "graffiti"
-	icon = 'code/modules/wod13/32x48.dmi'
+	icon = 'icons/wod13/32x48.dmi'
 	icon_state = "graffiti1"
 	pixel_z = 32
 	plane = GAME_PLANE
@@ -1150,7 +1150,7 @@
 
 /obj/effect/decal/graffiti/large
 	pixel_w = -16
-	icon = 'code/modules/wod13/64x64.dmi'
+	icon = 'icons/wod13/64x64.dmi'
 	large = TRUE
 
 /obj/effect/decal/graffiti/Initialize()
@@ -1163,7 +1163,7 @@
 /obj/structure/roofstuff
 	name = "roof ventilation"
 	desc = "Air to inside."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "roof1"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -1192,7 +1192,7 @@
 	name = "hide carpet"
 	pixel_w = -16
 	pixel_z = -16
-	icon = 'code/modules/wod13/64x64.dmi'
+	icon = 'icons/wod13/64x64.dmi'
 	icon_state = "kopatich"
 
 
@@ -1210,19 +1210,19 @@
 /obj/structure/vampstatue/angel
 	name = "angel statue"
 	desc = "An angel stands before you. You're glad it's only stone."
-	icon = 'code/modules/wod13/64x64.dmi'
+	icon = 'icons/wod13/64x64.dmi'
 	icon_state = "angelstatue"
 
 /obj/structure/vampstatue/cloaked
 	name = "cloaked figure"
 	desc = "He appears to be sitting."
-	icon = 'code/modules/wod13/32x48.dmi'
+	icon = 'icons/wod13/32x48.dmi'
 	icon_state = "cloakedstatue"
 
 /obj/structure/bath
 	name = "bath"
 	desc = "Not big enough for hiding in."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "tub"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -1233,7 +1233,7 @@
 /obj/weapon_showcase
 	name = "weapon showcase"
 	desc = "Look, a gun."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "showcase"
 	density = TRUE
 	anchored = TRUE
@@ -1249,13 +1249,13 @@
 	name = "carpet"
 	pixel_w = -16
 	pixel_z = -16
-	icon = 'code/modules/wod13/64x64.dmi'
+	icon = 'icons/wod13/64x64.dmi'
 	icon_state = "kover"
 
 /obj/structure/vamprocks
 	name = "rock"
 	desc = "Rokk."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "rock1"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -1270,7 +1270,7 @@
 /obj/structure/small_vamprocks
 	name = "rock"
 	desc = "Rokk."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "smallrock1"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -1284,7 +1284,7 @@
 /obj/structure/big_vamprocks
 	name = "rock"
 	desc = "Rokk."
-	icon = 'code/modules/wod13/64x64.dmi'
+	icon = 'icons/wod13/64x64.dmi'
 	icon_state = "rock1"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -1304,7 +1304,7 @@
 /obj/structure/stalagmite
 	name = "stalagmite"
 	desc = "Rokk."
-	icon = 'code/modules/wod13/64x64.dmi'
+	icon = 'icons/wod13/64x64.dmi'
 	icon_state = "stalagmite1"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -1323,7 +1323,7 @@
 /obj/were_ice
 	name = "ice block"
 	desc = "Stores some precious organs..."
-	icon = 'code/modules/wod13/werewolf_lupus.dmi'
+	icon = 'icons/wod13/werewolf_lupus.dmi'
 	icon_state = "ice_man"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -1333,14 +1333,14 @@
 	icon_state = "ice_wolf"
 
 /obj/were_ice/crinos
-	icon = 'code/modules/wod13/werewolf.dmi'
+	icon = 'icons/wod13/werewolf.dmi'
 	icon_state = "ice"
 	pixel_w = -8
 
 /obj/structure/bury_pit
 	name = "bury pit"
 	desc = "You can bury someone here."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "pit0"
 	plane = GAME_PLANE
 	layer = ABOVE_OPEN_TURF_LAYER

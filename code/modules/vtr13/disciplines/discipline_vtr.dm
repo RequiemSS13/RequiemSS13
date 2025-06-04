@@ -13,7 +13,7 @@
 	if(!target)
 		return FALSE
 	target.remove_overlay(MUTATIONS_LAYER)
-	var/mutable_appearance/dominate_overlay = mutable_appearance('code/modules/wod13/icons.dmi', icon_state, -MUTATIONS_LAYER)
+	var/mutable_appearance/dominate_overlay = mutable_appearance('icons/wod13/icons.dmi', icon_state, -MUTATIONS_LAYER)
 	dominate_overlay.pixel_z = pixel_z_offset
 	target.overlays_standing[MUTATIONS_LAYER] = dominate_overlay
 	target.apply_overlay(MUTATIONS_LAYER)

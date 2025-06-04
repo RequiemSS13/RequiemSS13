@@ -1,12 +1,12 @@
 /obj/item/delivery_contract
 	name = "delivery contract"
 	desc = "A delivery contract issued by a delivery company. Use it in your hand to scan it for details. If your name is on the contract, use it on someone else to add them to it."
-	icon = 'code/modules/wod13/onfloor.dmi'
+	icon = 'icons/wod13/onfloor.dmi'
 	icon_state = "masquerade"
 	color = "#bbb95c"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
-	onflooricon = 'code/modules/wod13/onfloor.dmi'
+	onflooricon = 'icons/wod13/onfloor.dmi'
 
 	var/datum/delivery_datum/delivery
 	var/datum/delivery_manifest/manifest
@@ -216,7 +216,7 @@
 	desc = "A chute used to handle bulk deliveries. A standard shipping crate should slide right in."
 	anchored = 1
 	density = 0
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "box_put"
 	var/chute_name = "default"
 	var/delivery_in_use = 0
@@ -289,7 +289,7 @@
 	desc = "A chute used to handle bulk deliveries. There is a visible keyhole and a small button to push."
 	anchored = 1
 	density = 0
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "box_take"
 	var/chute_name = "default"
 	var/dispenser_active = 0

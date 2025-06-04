@@ -235,17 +235,17 @@
 /obj/item/vtm/dwelling_alarm_card
 	name = "alarm disabler card"
 	desc = "A small card with a magnetic strip. Can be used to disable triggered security systems. Does not work on systems that have not sent an alarm signal yet."
-	icon = 'code/modules/wod13/items.dmi'
+	icon = 'icons/wod13/items.dmi'
 	icon_state = "card3"
 	inhand_icon_state = "card3"
-	lefthand_file = 'code/modules/wod13/lefthand.dmi'
-	righthand_file = 'code/modules/wod13/righthand.dmi'
+	lefthand_file = 'icons/wod13/lefthand.dmi'
+	righthand_file = 'icons/wod13/righthand.dmi'
 	item_flags = NOBLUDGEON
 	flags_1 = HEAR_1
 	w_class = WEIGHT_CLASS_SMALL
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	onflooricon = 'code/modules/wod13/onfloor.dmi'
+	onflooricon = 'icons/wod13/onfloor.dmi'
 
 /obj/structure/vtm/dwelling_alarm
 	name = "A home alarm console"

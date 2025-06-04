@@ -1,7 +1,7 @@
 /obj/structure/vamptree
 	name = "tree"
 	desc = "Cute and tall flora."
-	icon = 'code/modules/wod13/trees.dmi'
+	icon = 'icons/wod13/trees.dmi'
 	icon_state = "tree1"
 	plane = GAME_PLANE
 	layer = SPACEVINE_LAYER

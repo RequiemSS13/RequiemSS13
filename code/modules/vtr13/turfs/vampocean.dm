@@ -1,7 +1,7 @@
 /turf/open/floor/plating/vampocean
 	gender = PLURAL
 	name = "water"
-	icon = 'code/modules/wod13/tiles.dmi'
+	icon = 'icons/wod13/tiles.dmi'
 	icon_state = "ocean"
 	flags_1 = NONE
 	attachment_holes = FALSE

@@ -1,7 +1,7 @@
 /obj/cargotruck
 	name = "cargo truck"
 	desc = "It delivers a lot of things."
-	icon = 'code/modules/wod13/cars.dmi'
+	icon = 'icons/wod13/cars.dmi'
 	icon_state = "track"
 	plane = GAME_PLANE
 	layer = CAR_LAYER

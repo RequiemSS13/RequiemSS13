@@ -7,12 +7,12 @@
 /obj/item/clothing/shoes/vampire
 	name = "shoes"
 	desc = "Comfortable-looking shoes."
-	icon = 'code/modules/wod13/clothing.dmi'
-	worn_icon = 'code/modules/wod13/worn.dmi'
+	icon = 'icons/wod13/clothing.dmi'
+	worn_icon = 'icons/wod13/worn.dmi'
 	icon_state = "shoes"
 	gender = PLURAL
 	can_be_tied = FALSE
-	onflooricon = 'code/modules/wod13/onfloor.dmi'
+	onflooricon = 'icons/wod13/onfloor.dmi'
 	body_worn = TRUE
 
 /obj/item/clothing/shoes/vampire/Initialize()

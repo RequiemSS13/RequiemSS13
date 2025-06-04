@@ -3,7 +3,7 @@ GLOBAL_LIST_EMPTY(retail_products)
 /obj/structure/retail
 	name = "retail outlet"
 	desc = "A counter for partaking in wretched capitalism. Takes cash or card."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "menu"
 	density = FALSE
 	anchored = TRUE

@@ -5,9 +5,9 @@
 //GLASSES
 
 /obj/item/clothing/glasses/vampire
-	icon = 'code/modules/wod13/clothing.dmi'
-	worn_icon = 'code/modules/wod13/worn.dmi'
-	onflooricon = 'code/modules/wod13/onfloor.dmi'
+	icon = 'icons/wod13/clothing.dmi'
+	worn_icon = 'icons/wod13/worn.dmi'
+	onflooricon = 'icons/wod13/onfloor.dmi'
 	body_worn = TRUE
 
 /obj/item/clothing/glasses/vampire/yellow

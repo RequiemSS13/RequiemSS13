@@ -1,7 +1,7 @@
 /obj/effect/decal/grave_soil
 	name = "pile of dirt"
 	desc = "This dirt has been returned to the earth."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "pit1"
 
 /obj/effect/decal/grave_soil/New(loc, atom/movable/created_from)

@@ -1,6 +1,6 @@
 /datum/action/gift
-	icon_icon = 'code/modules/wod13/werewolf_abilities.dmi'
-	button_icon = 'code/modules/wod13/werewolf_abilities.dmi'
+	icon_icon = 'icons/wod13/werewolf_abilities.dmi'
+	button_icon = 'icons/wod13/werewolf_abilities.dmi'
 	check_flags = AB_CHECK_IMMOBILE|AB_CHECK_CONSCIOUS
 	var/rage_req = 0
 	var/gnosis_req = 0
@@ -9,8 +9,8 @@
 	var/allowed_to_proceed = FALSE
 
 /datum/action/gift/ApplyIcon(atom/movable/screen/movable/action_button/current_button, force = FALSE)
-	icon_icon = 'code/modules/wod13/werewolf_abilities.dmi'
-	button_icon = 'code/modules/wod13/werewolf_abilities.dmi'
+	icon_icon = 'icons/wod13/werewolf_abilities.dmi'
+	button_icon = 'icons/wod13/werewolf_abilities.dmi'
 	. = ..()
 
 /datum/action/gift/Trigger()
@@ -388,7 +388,7 @@
 	name = "Change Apparel"
 	desc = "Choose the clothes of your Crinos form."
 	button_icon_state = "choose_apparel"
-	icon_icon = 'code/modules/wod13/werewolf_abilities.dmi'
+	icon_icon = 'icons/wod13/werewolf_abilities.dmi'
 	check_flags = AB_CHECK_IMMOBILE|AB_CHECK_CONSCIOUS
 
 /datum/action/change_apparel/Trigger()
@@ -411,7 +411,7 @@
 		var/mob/living/carbon/werewolf/lupus/H = owner
 		playsound(get_turf(owner), 'code/modules/wod13/sounds/transform.ogg', 50, FALSE)
 		if(H.hispo)
-			H.icon = 'code/modules/wod13/werewolf_lupus.dmi'
+			H.icon = 'icons/wod13/werewolf_lupus.dmi'
 			H.pixel_w = 0
 			H.pixel_z = 0
 			H.melee_damage_lower = initial(H.melee_damage_lower)
@@ -421,7 +421,7 @@
 			H.remove_movespeed_modifier(/datum/movespeed_modifier/crinosform)
 			H.add_movespeed_modifier(/datum/movespeed_modifier/lupusform)
 		else
-			H.icon = 'code/modules/wod13/hispo.dmi'
+			H.icon = 'icons/wod13/hispo.dmi'
 			H.pixel_w = -16
 			H.pixel_z = -16
 			H.melee_damage_lower = 35
@@ -456,7 +456,7 @@
 			H.update_icons()
 		else
 			H.remove_overlay(PROTEAN_LAYER)
-			var/mutable_appearance/glabro_overlay = mutable_appearance('code/modules/wod13/werewolf_abilities.dmi', H.transformator.crinos_form?.sprite_color, -PROTEAN_LAYER)
+			var/mutable_appearance/glabro_overlay = mutable_appearance('icons/wod13/werewolf_abilities.dmi', H.transformator.crinos_form?.sprite_color, -PROTEAN_LAYER)
 			H.overlays_standing[PROTEAN_LAYER] = glabro_overlay
 			H.apply_overlay(PROTEAN_LAYER)
 			G.punchdamagelow += 15

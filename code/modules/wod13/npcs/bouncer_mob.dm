@@ -164,7 +164,7 @@
 
 		var/mob/living/carbon/human/user_human = user
 		if(user_human?.wear_mask?.flags_inv&HIDEFACE || user_human?.head?.flags_inv&HIDEFACE)
-			interact_options["Show Face"] = image(icon = 'code/modules/wod13/clothing.dmi', icon_state = "balaclava")
+			interact_options["Show Face"] = image(icon = 'icons/wod13/clothing.dmi', icon_state = "balaclava")
 
 		var/picked_option = show_radial_menu(user, src, interact_options, radius = 38, require_near = TRUE)
 		switch(picked_option)

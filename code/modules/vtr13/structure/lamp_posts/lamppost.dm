@@ -2,7 +2,7 @@
 /obj/structure/lamppost
 	name = "lamppost"
 	desc = "Gives some light to the streets."
-	icon = 'code/modules/wod13/lamppost.dmi'
+	icon = 'icons/wod13/lamppost.dmi'
 	base_icon_state = "base"
 	plane = GAME_PLANE
 	layer = SPACEVINE_LAYER

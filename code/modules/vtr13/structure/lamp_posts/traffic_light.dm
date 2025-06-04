@@ -1,7 +1,7 @@
 /obj/structure/trafficlight
 	name = "traffic light"
 	desc = "Shows when road is free or not."
-	icon = 'code/modules/wod13/lamppost.dmi'
+	icon = 'icons/wod13/lamppost.dmi'
 	icon_state = "traffic"
 	plane = GAME_PLANE
 	layer = SPACEVINE_LAYER

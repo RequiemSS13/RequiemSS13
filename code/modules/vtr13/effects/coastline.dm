@@ -1,7 +1,7 @@
 
 /obj/effect/decal/coastline
 	name = "water"
-	icon = 'code/modules/wod13/tiles.dmi'
+	icon = 'icons/wod13/tiles.dmi'
 	icon_state = "coastline"
 
 /obj/effect/decal/coastline/corner

@@ -1,7 +1,7 @@
 /obj/structure/retail/coffee_vendor
 	name = "Coffee Vendor"
 	desc = "For those sleepy mornings."
-	icon = 'code/modules/wod13/props.dmi'
+	icon = 'icons/wod13/props.dmi'
 	icon_state = "vend_g"
 	anchored = TRUE
 	density = TRUE

@@ -13,7 +13,7 @@
 	owner.remove_overlay(MARKS_LAYER)
 	if(owner.overlays_standing[MARKS_LAYER])
 		old_overlay = owner.overlays_standing[MARKS_LAYER]
-	acc_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "beast_legs", -MARKS_LAYER)
+	acc_overlay = mutable_appearance('icons/wod13/icons.dmi', "beast_legs", -MARKS_LAYER)
 	owner.overlays_standing[MARKS_LAYER] = acc_overlay
 	owner.apply_overlay(MARKS_LAYER)
 	owner.update_body()
