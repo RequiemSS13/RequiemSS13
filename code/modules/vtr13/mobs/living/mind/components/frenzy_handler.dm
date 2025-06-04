@@ -44,7 +44,8 @@
 
 	SEND_SOUND(current, sound('code/modules/wod13/sounds/bloodneed.ogg', 0, 0, 50))
 
-	var/frenzy_dice = current.get_resolve() + current.get_composure() + situational_modifier - brain.tempted_mod
+	var/roll_modifiers = situational_modifier - brain.tempted_mod - (HAS_TRAIT(current, TRAIT_FERAL_CURSE) ? 2 : 0)
+	var/frenzy_dice = current.get_resolve() + current.get_composure() + roll_modifiers
 
 	var/check = SSroll.storyteller_roll(frenzy_dice, 3)
 
