@@ -22,11 +22,7 @@ SUBSYSTEM_DEF(whitelists)
 			possible_whitelists += clan.name
 		qdel(clan)
 
-	for (var/key in subtypesof(/datum/species))
-		var/datum/species/species = new key
-		if (species.selectable && species.whitelisted)
-			possible_whitelists += species.id
-		qdel(species)
+	possible_whitelists += "Elder"
 
 	//placeholder until a proper morality system is added
 	//possible_whitelists += "enlightenment"

@@ -9,13 +9,13 @@
 
 	if(!victim || !victim.mind)
 		return 0
-	
+
 	if(!HAS_TRAIT(daeva, TRAIT_WANTON_CURSE))
 		return 0
 
 	if(!daeva || !daeva.mind)
 		return 0
-	
+
 	if(!daeva.true_real_name || !victim.true_real_name)
 		return 0
 

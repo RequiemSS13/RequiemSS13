@@ -3842,7 +3842,6 @@
 #include "code\modules\vtr13\preferences\helper_procs\calculate_dots.dm"
 #include "code\modules\vtr13\preferences\helper_procs\can_be_random_hardcore.dm"
 #include "code\modules\vtr13\preferences\helper_procs\capture_keybinding.dm"
-#include "code\modules\vtr13\preferences\helper_procs\check_vamp_rank_allowed.dm"
 #include "code\modules\vtr13\preferences\helper_procs\handle_upgrade.dm"
 #include "code\modules\vtr13\preferences\helper_procs\merit_helpers.dm"
 #include "code\modules\vtr13\preferences\helper_procs\random_character.dm"

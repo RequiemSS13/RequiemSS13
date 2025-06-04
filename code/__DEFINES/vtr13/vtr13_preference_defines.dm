@@ -39,6 +39,12 @@ GLOBAL_LIST_INIT(vampire_rank_list, list(
 	"Ancillae" = VAMP_RANK_ANCILLAE,
 	"Elder" = VAMP_RANK_ELDER))
 
+GLOBAL_LIST_INIT(vampire_rank_list_unwhitelisted, list(
+	"Fledgling" = VAMP_RANK_FLEDGLING,
+	"Neonate" = VAMP_RANK_NEONATE,
+	"Ancillae" = VAMP_RANK_ANCILLAE))
+
+
 GLOBAL_LIST_INIT(vampire_rank_names, list(
 	VAMP_RANK_GHOUL = "Ghoul",
 	VAMP_RANK_HALF_DAMNED = "Half-Damned",

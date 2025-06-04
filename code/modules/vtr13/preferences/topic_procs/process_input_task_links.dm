@@ -388,7 +388,15 @@
 		if("vamp_rank")
 			if((clane?.name == "Revenant"))
 				return
-			var/new_vamp_rank = tgui_input_list(user, "Choose a vampire rank:", "Character Preference", GLOB.vampire_rank_list, GLOB.vampire_rank_names[vamp_rank])
+
+			var/list/age_selection = GLOB.vampire_rank_list
+			if(!SSwhitelists.is_whitelisted(parent.ckey, "Elder"))
+				age_selection = GLOB.vampire_rank_list_unwhitelisted
+				if(vamp_rank == VAMP_RANK_ELDER)
+					vamp_rank = VAMP_RANK_ANCILLAE
+
+			var/new_vamp_rank = tgui_input_list(user, "Choose a vampire rank:", "Character Preference", age_selection, age_selection[vamp_rank])
+
 			if(new_vamp_rank && check_vamp_rank_allowed(GLOB.vampire_rank_list[new_vamp_rank]))
 				vamp_rank = GLOB.vampire_rank_list[new_vamp_rank]
 			AddBanesUntilItIsDone()
