@@ -93,6 +93,8 @@
 			if(first_drink)
 				SScharacter_connection.add_connection(CONNECTION_BLOOD_BOND, src, mob)
 		
+		if(ishumanbasic(mob) && first_drink && HAS_TRAIT(src, TRAIT_WANTON_CURSE))
+			SScharacter_connection.add_connection(CONNECTION_DAEVA_ADDITION, src, mob)
 
 		var/drink_mod = 1
 		if(!ishuman(mob) && vamp_rank > VAMP_RANK_NEONATE)

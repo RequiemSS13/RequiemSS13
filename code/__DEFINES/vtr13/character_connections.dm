@@ -34,3 +34,9 @@
 #define MEMBER_TYPE_CHILDE "childe"
 #define MEMBER_TYPE_SIRE "sire"
 
+#define CONNECTION_DAEVA_ADDITION "daeva addiction"
+#define CONNECTION_DAEVA_ADDITION_1 "first taste"
+#define CONNECTION_DAEVA_ADDITION_2 "cursed addiction"
+
+#define MEMBER_TYPE_DAEVA_VAMPIRE "daeva vampire"
+#define MEMBER_TYPE_DAEVA_VICTIM "daeva victim"
