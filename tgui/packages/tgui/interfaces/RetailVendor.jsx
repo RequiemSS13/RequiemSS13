@@ -52,12 +52,11 @@ export const RetailVendor = (props) => {
                       }}
                       disabled={!data.user || (product.price > data.user.money && data.user.is_card == 0) || product.stock == 0}
                       content={product.price + ' dollars'}
-                      onClick={() => {
+                      onClick={() =>
                         act('purchase', {
                           ref: product.ref,
                           payment_item: data.user.payment_item,
                         })
-                      }
                       }
                     />
                   </Table.Cell>
