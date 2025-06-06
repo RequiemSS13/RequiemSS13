@@ -1,6 +1,3 @@
-//WHEN WE DO KEYS, FIGURE OUT WHAT GOES WHERE
-
-
 /obj/item/vamp/keys/seneschal_vtr
 	name = "Seneschal's keys"
 	accesslocks = list(
