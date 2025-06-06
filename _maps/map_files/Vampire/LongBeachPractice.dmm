@@ -1208,10 +1208,10 @@
 /turf/open/floor/carpet/green,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/old_house)
 "bgD" = (
-/obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/structure/vampdoor/vtr_hotel/room22,
 /turf/open/floor/sepia,
 /area/vtm/vtr/masquerade/interior/floor_two/northeast/hotel)
 "bgT" = (
@@ -2840,6 +2840,7 @@
 /area/vtm/vtr/masquerade/exterior/ground_floor/northwest/northwest_long_beach)
 "cCa" = (
 /obj/structure/table/wood,
+/obj/structure/retail/hotel_desk,
 /turf/open/floor/carpet/green,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/hotel)
 "cCe" = (
@@ -3604,11 +3605,11 @@
 /turf/open/floor/eighties,
 /area/vtm/vtr/masquerade/interior/ground_floor/northwest/apartment)
 "dnn" = (
-/obj/structure/vampdoor/wood{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
+	},
+/obj/structure/vampdoor/vtr_hotel/room24{
+	dir = 4
 	},
 /turf/open/floor/sepia,
 /area/vtm/vtr/masquerade/interior/floor_two/northeast/hotel)
@@ -4484,11 +4485,11 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/church)
 "eay" = (
-/obj/structure/vampdoor/wood{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
+	},
+/obj/structure/vampdoor/vtr_hotel/room14{
+	dir = 4
 	},
 /turf/open/floor/sepia,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/hotel)
@@ -5604,6 +5605,13 @@
 "eWG" = (
 /turf/closed/wall/vampwall/painted/low/window,
 /area/vtm/vtr/masquerade/interior/ground_floor/northwest/apartment)
+"eWP" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/vampdoor/vtr_hotel/room23,
+/turf/open/floor/sepia,
+/area/vtm/vtr/masquerade/interior/floor_two/northeast/hotel)
 "eXb" = (
 /obj/effect/landmark/npcwall,
 /turf/open/floor/plating/sidewalk/rich,
@@ -12332,6 +12340,13 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/floor_two/central/library)
+"lkG" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/vampdoor/vtr_hotel/room12,
+/turf/open/floor/sepia,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/hotel)
 "lkI" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/plating/parquetry/old,
@@ -20298,10 +20313,10 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/vtr/masquerade/exterior/ground_floor/northeast/northeast_long_beach)
 "sdJ" = (
-/obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/structure/vampdoor/vtr_hotel/room13,
 /turf/open/floor/sepia,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/hotel)
 "sek" = (
@@ -21710,7 +21725,7 @@
 /turf/open/floor/plating/vampplating,
 /area/vtm/vtr/masquerade/exterior/ground_floor/northeast/graveyard)
 "tlL" = (
-/obj/structure/vampdoor/wood,
+/obj/structure/vampdoor/vtr_hotel/room25,
 /turf/open/floor/sepia,
 /area/vtm/vtr/masquerade/interior/floor_two/northeast/hotel)
 "tlN" = (
@@ -21797,10 +21812,10 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/vtr/masquerade/exterior/floor_two/northwest/northwest_long_beach/inaccessible)
 "tri" = (
-/obj/structure/vampdoor/wood{
+/obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/obj/effect/turf_decal/siding/wood{
+/obj/structure/vampdoor/vtr_hotel/room11{
 	dir = 4
 	},
 /turf/open/floor/sepia,
@@ -25639,10 +25654,10 @@
 /turf/closed/wall/vampwall/old/low/window/reinforced,
 /area/vtm/vtr/masquerade/interior/ground_floor/northwest/police_station)
 "wEP" = (
-/obj/structure/vampdoor/wood{
+/obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/obj/effect/turf_decal/siding/wood{
+/obj/structure/vampdoor/vtr_hotel/room21{
 	dir = 4
 	},
 /turf/open/floor/sepia,
@@ -131156,7 +131171,7 @@ sxf
 oMt
 oMt
 wyb
-sdJ
+lkG
 cpX
 cpX
 mMf
@@ -195664,7 +195679,7 @@ gfV
 qHb
 qHb
 tXZ
-bgD
+eWP
 hMQ
 hMQ
 rNK
