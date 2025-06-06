@@ -83,6 +83,7 @@ GLOBAL_LIST_EMPTY(retail_products)
 			path = replacetext(replacetext("[product.equipment_path]", "/obj/item/", ""), "/", "-"),
 			name = product.equipment_name,
 			price = product.cost,
+			stock = product.stock,
 			dimensions = product.icon_dimension,
 			ref = REF(product)
 		)
@@ -99,7 +100,7 @@ GLOBAL_LIST_EMPTY(retail_products)
 		held_items += user.get_active_held_item()
 	if(user.get_inactive_held_item())
 		held_items += user.get_inactive_held_item()
-	
+
 	for(var/obj/item/held_item in held_items)
 		if(istype(held_item, /obj/item/vamp/creditcard))
 			.["user"]["is_card"] = 1
@@ -132,13 +133,16 @@ GLOBAL_LIST_EMPTY(retail_products)
 			if(!product)
 				to_chat(usr, span_alert("Error: Invalid choice!"))
 				return
-			
+
 			var/obj/item/held_item = locate(params["payment_item"]) in user
 			if(!product)
 				to_chat(usr, span_alert("Error: Payment method not found!"))
 				return
 
-			
+			if(product.stock == 0)
+				to_chat(usr, span_alert("Error: Product is out of stock!"))
+				return
+
 			//get the money
 			if(istype(held_item, /obj/item/vamp/creditcard))
 				var/obj/item/vamp/creditcard/creditcard = held_item
@@ -157,5 +161,8 @@ GLOBAL_LIST_EMPTY(retail_products)
 				return
 			playsound(get_turf(src), 'sound/effects/cashregister.ogg', 50, TRUE)
 			new product.equipment_path(loc)
+			if(product.stock > 0)
+				--product.stock
+				update_static_data(usr)
 			SSblackbox.record_feedback("nested tally", "retail_item_bought", 1, list("[type]", "[product.equipment_path]"))
 			. = TRUE

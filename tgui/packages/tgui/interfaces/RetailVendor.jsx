@@ -50,15 +50,19 @@ export const RetailVendor = (props) => {
                         'min-width': '95px',
                         'text-align': 'center',
                       }}
-                      disabled={!data.user || (product.price > data.user.money && data.user.is_card == 0)}
+                      disabled={!data.user || (product.price > data.user.money && data.user.is_card == 0) || product.stock == 0}
                       content={product.price + ' dollars'}
-                      onClick={() =>
+                      onClick={() => {
                         act('purchase', {
                           ref: product.ref,
-                          payment_item: data.user.payment_item
+                          payment_item: data.user.payment_item,
                         })
                       }
+                      }
                     />
+                  </Table.Cell>
+                  <Table.Cell>
+                    {(product.stock > -1) && (<b>Stock: {product.stock}</b>)}
                   </Table.Cell>
                 </Table.Row>
               );

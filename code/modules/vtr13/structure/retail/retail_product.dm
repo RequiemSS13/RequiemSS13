@@ -2,12 +2,14 @@
 	var/equipment_name = "generic"
 	var/equipment_path = null
 	var/cost = 0
+	var/stock = -1
 	var/icon_dimension
 
-/datum/data/retail_product/New(name, path, cost)
+/datum/data/retail_product/New(name, path, cost, stock = -1)
 	src.equipment_name = name
 	src.equipment_path = path
 	src.cost = cost
+	src.stock = stock
 
 	var/atom/item = equipment_path
 	if(!item)
