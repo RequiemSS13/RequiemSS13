@@ -6,3 +6,7 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	density = 1
 	anchored = TRUE
+
+
+/obj/structure/column/ComponentInitialize()
+	add_object_fade_zone(1,1,0,1)

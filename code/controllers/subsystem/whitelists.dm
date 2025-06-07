@@ -37,11 +37,6 @@ SUBSYSTEM_DEF(whitelists)
 	if (!whitelists_enabled)
 		return TRUE
 
-	//enable all whitelists for admins
-	for (var/client/admin in GLOB.admins)
-		if (admin.ckey == checked_ckey)
-			return TRUE
-
 	//return as whitelisted if the given whitelist doesn't exist
 	if (!possible_whitelists.Find(checked_whitelist))
 		return TRUE

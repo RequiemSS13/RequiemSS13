@@ -395,7 +395,7 @@
 				if(vamp_rank == VAMP_RANK_ELDER)
 					vamp_rank = VAMP_RANK_ANCILLAE
 
-			var/new_vamp_rank = tgui_input_list(user, "Choose a vampire rank:", "Character Preference", age_selection, age_selection[vamp_rank])
+			var/new_vamp_rank = tgui_input_list(user, "Choose a vampire rank:", "Character Preference", age_selection, null)
 
 			if(new_vamp_rank)
 				vamp_rank = GLOB.vampire_rank_list[new_vamp_rank]
