@@ -13,7 +13,7 @@
 
 /obj/effect/addwall/ComponentInitialize()
 	. = ..()
-	add_object_fade_zone(1,1,0,0, 127)
+	add_object_fade_zone(3,1,-1,0, 127)
 
 
 /turf/closed/wall/vampwall
