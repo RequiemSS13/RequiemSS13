@@ -78,7 +78,7 @@ PROCESSING_SUBSYSTEM_DEF(merits)
 
 		var/datum/merit/parent_merit = initial(merit_setting_type.parent_merit)
 
-		if(!initial(initial(parent_merit.custom_setting_types)))
+		if(!initial(parent_merit.custom_setting_types))
 			CRASH("Merit setting [initial(merit_setting_type.name)] has a parent ([initial(parent_merit.name)]) with no existing setting types!")
 
 		var/list/parent_setting_names = splittext(initial(parent_merit.custom_setting_types), ",")
