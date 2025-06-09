@@ -11,27 +11,10 @@
 	mouse_opacity = 0
 //	vis_flags = VIS_HIDE
 
-/obj/effect/addwall/Crossed(atom/movable/AM, oldloc)
+/obj/effect/addwall/ComponentInitialize()
 	. = ..()
-	var/someoneshere = FALSE
-	for(var/mob/living/L in get_turf(src))
-		if(L)
-			someoneshere = TRUE
-	if(!someoneshere)
-		alpha = 255
-	else
-		alpha = 128
+	add_object_fade_zone(1,1,0,0, 127)
 
-/obj/effect/addwall/Uncrossed(atom/movable/AM)
-	. = ..()
-	var/someoneshere = FALSE
-	for(var/mob/living/L in get_turf(src))
-		if(L)
-			someoneshere = TRUE
-	if(!someoneshere)
-		alpha = 255
-	else
-		alpha = 128
 
 /turf/closed/wall/vampwall
 	name = "old brick wall"
