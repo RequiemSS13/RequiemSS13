@@ -104,6 +104,10 @@
 	var/shape_to_use = shapeshift_types[desired_form]
 	GA.shapeshift_type = shape_to_use
 	shapeshifted_creature = GA.Shapeshift(owner)
+
+	if(istype(shapeshifted_creature, /mob/living/simple_animal/hostile))
+		var/mob/living/simple_animal/hostile/simple_shapeshift = shapeshifted_creature
+		simple_shapeshift.my_creator = owner
 	
 	if(!shapeshifted_creature)
 		return
@@ -118,6 +122,7 @@
 	. = ..()
 	owner.Stun(1.5 SECONDS)
 	owner.do_jitter_animation(30)
+	deactivate_shape_action.Remove(owner)
 	qdel(deactivate_shape_action)
 	UnregisterSignal(shapeshifted_creature, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH))
 	UnregisterSignal(owner, COMSIG_POWER_TRY_ACTIVATE)

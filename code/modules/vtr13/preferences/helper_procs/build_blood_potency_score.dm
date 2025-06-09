@@ -15,7 +15,7 @@
 	var/leftover_circles = max_blood_potency - get_potency() - diablerie_bonus
 	for(var/c in 1 to leftover_circles)
 		dat += "<font size=5>○</font>"
-	
+	dat += " "
 	if(get_potency(FALSE) != max_blood_potency)
 		dat += "<a href='byond://?_src_=prefs;preference=increase_potency;task=input'>+</a> "
 	if(get_potency(FALSE) > 1)

@@ -11,6 +11,8 @@
 	var/datum/mind/brain = parent
 	if(!brain.current)
 		return COMPONENT_INCOMPATIBLE
+	
+	current = brain.current
 
 	RegisterSignal(parent, COMSIG_MIND_TRY_FRENZY, PROC_REF(rollfrenzy))
 	RegisterSignal(parent, COMSIG_MIND_TRANSFERRED, PROC_REF(handle_mind_transfer))
@@ -77,7 +79,6 @@
 
 	if(current.m_intent == MOVE_INTENT_WALK)
 		current.toggle_move_intent()
-
 	var/blood_potency = current.get_potency()
 	current.add_wits_mod(blood_potency, TRAIT_IN_FRENZY)
 	current.add_physique_mod(blood_potency, TRAIT_IN_FRENZY)
@@ -238,8 +239,9 @@
 
 /datum/component/frenzy_handler/proc/handle_mind_transfer(datum/source, mob/living/new_character)
 	SIGNAL_HANDLER
-	if(is_draugr)
+	if(!HAS_TRAIT(source, TRAIT_IN_FRENZY))
 		return
+
 	UnregisterSignal(current, COMSIG_LIVING_DEATH)
 	UnregisterSignal(current, COMSIG_MOB_CLICKON)
 	RegisterSignal(new_character, COMSIG_MOB_CLICKON, PROC_REF(cancel_click))
