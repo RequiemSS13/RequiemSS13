@@ -3593,6 +3593,7 @@
 #include "code\modules\vtr13\controllers\configuration\game_options.dm"
 #include "code\modules\vtr13\datums\action_fly.dm"
 #include "code\modules\vtr13\datums\socialrole_boris.dm"
+#include "code\modules\vtr13\datums\status_effect_kiss.dm"
 #include "code\modules\vtr13\datums\subtle.dm"
 #include "code\modules\vtr13\datums\vtr_bank_account.dm"
 #include "code\modules\vtr13\datums\storytelling_system\attribute.dm"
