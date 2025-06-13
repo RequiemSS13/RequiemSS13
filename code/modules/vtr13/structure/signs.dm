@@ -34,3 +34,27 @@
 	anchored = TRUE
 	density = 1
 	bound_width = 64
+
+/obj/structure/vtrsign
+	name = "Vampire Sign"
+	desc = "A sign for vampires. It shouldn't be here."
+	icon = 'icons/vtr13/structure/signs.dmi'
+	plane = GAME_PLANE
+	layer = ABOVE_ALL_MOB_LAYER
+	anchored = TRUE
+
+/obj/structure/vtrsign/hardware
+	name = "Aro Hardware"
+	desc = "A sign for a local hardware store."
+	icon_state = "aro"
+
+/obj/structure/vtrsign/pawn
+	name = "pawn shop sign"
+	desc = "A sign for a local pawn shop."
+	icon_state = "pawn"
+
+/obj/structure/vtrsign/hot_ishu
+	name = "Hot Ishu"
+	desc = "A sign for Hot Ishu. This one's not in a mall."
+	icon = 'icons/vtr13/structure/64x64.dmi'
+	icon_state = "hot_ishu"
