@@ -10,3 +10,23 @@
 	icon_state = "maid"
 	inhand_icon_state = "maid"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+
+/obj/item/clothing/under/vampire/vtr/sceneleopard
+	name = "revealing outfit"
+	desc = "You never thought you needed spaghetti straps."
+	icon_state = "scenetop_leopard"
+
+/obj/item/clothing/under/vampire/vtr/scenemoody
+	name = "moody attire"
+	desc = "A classic My Laboratory Romance top."
+	icon_state = "scenetop_moody"
+
+/obj/item/clothing/under/vampire/vtr/scenezim
+	name = "pim attire"
+	desc = "A top from your favorite show, Intruder Pim"
+	icon_state = "scenetop_zim"
+
+/obj/item/clothing/under/vampire/vtr/scenepink
+	name = "popular outfit"
+	desc = "It almost makes you feel like a mean girl"
+	icon_state = "scenetop_pink"
