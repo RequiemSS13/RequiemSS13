@@ -1158,7 +1158,7 @@
 	if(!large)
 		icon_state = "graffiti[rand(1, 15)]"
 	else
-		icon_state = "graffiti[rand(1, 3)]"
+		icon_state = "graffiti[rand(1, 5)]"
 
 /obj/structure/roofstuff
 	name = "roof ventilation"
