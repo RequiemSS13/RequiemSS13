@@ -356,7 +356,7 @@
 
 /obj/effect/decal/painting
 	name = "painting"
-	icon = 'icons/wod13/icons.dmi'
+	icon = 'icons/vtr13/effect/paintings.dmi'
 	icon_state = "painting1"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
