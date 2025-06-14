@@ -36,7 +36,7 @@
 
 /obj/structure/window/proc/create_curtain()
 	var/obj/structure/curtain/dwelling/new_curtain = new(get_turf(src))
-	if(curtain_dir) new_curtain.use_restrict_dir = curtain_dir
+	if(curtain_dir) new_curtain.use_restrict_dir = DIRFLIP(curtain_dir)
 
 /obj/structure/window/proc/process_break_in(severity) // For dependancies
 	return

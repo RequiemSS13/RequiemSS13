@@ -107,6 +107,8 @@
 			dat += "<b>I've made some connections in the city:</b>"
 		if(length(owner.mind.character_connections))
 			for(var/datum/character_connection/connection in owner.mind.character_connections)
+				if(connection.hidden)
+					continue
 				dat += "<b>[connection.connection_desc]</b> <a style='white-space:nowrap;' href='byond://?src=[REF(source)];delete_connection=[connection.group_id]'>Delete</a>"
 		if(length(owner.mind.fake_character_connections))
 			for(var/datum/character_connection/connection in owner.mind.fake_character_connections)

@@ -36,7 +36,7 @@
 		"major" = 0,
 		)
 
-/area/vtm/vtr/Initialize(mapload)
+/area/vtm/vtr/New()
 	. = ..()
 	if(is_loot_dwelling)
 		cased_by = list()

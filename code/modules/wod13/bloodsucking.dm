@@ -75,8 +75,10 @@
 				if(length(H.reagents.reagent_list))
 					if(prob(50))
 						H.reagents.trans_to(src, min(10, H.reagents.total_volume), transfered_by = mob, methods = VAMPIRE)
-		
-		
+		if(!(SEND_SIGNAL(mob, COMSIG_MOB_VAMPIRE_SUCKED, mob) & COMPONENT_RESIST_VAMPIRE_KISS))
+			mob.apply_status_effect(/datum/status_effect/kissed)
+
+
 		if(!ishuman(mob) && get_potency() > 1)
 			to_chat(src, "<span class='warning'>You drink the blood of the creature. Like sea water, it can be drank, but will not sustain you.</span>")
 		else if(iskindred(mob) || (!HAS_TRAIT(src, TRAIT_METHUSELAHS_THIRST) && HAS_TRAIT(mob, TRAIT_HONEYPOT)))
@@ -85,27 +87,27 @@
 			to_chat(src, "<span class='warning'>You drink [mob]'s blood, but it is like eating air. It is not enough. You need the blood of your own kind; no other will do.</span>")
 		else
 			to_chat(src, "<span class='warning'>You sip some <b>BLOOD</b> from your victim. It feels good.</span>")
-		
-		
+
+
 		if(iskindred(mob))
 			adjustBruteLoss(-25, TRUE)
 			adjustFireLoss(-25, TRUE)
 			if(first_drink)
 				SScharacter_connection.add_connection(CONNECTION_BLOOD_BOND, src, mob)
-		
+
 		if(ishumanbasic(mob) && first_drink && HAS_TRAIT(src, TRAIT_WANTON_CURSE))
 			SScharacter_connection.add_connection(CONNECTION_DAEVA_ADDITION, src, mob)
 
 		var/drink_mod = 1
 		if(!ishuman(mob) && get_potency() > 1)
 			drink_mod = 0
-		
+
 		if(HAS_TRAIT(src, TRAIT_METHUSELAHS_THIRST) && !iskindred(mob))
 			drink_mod = 0
 
 		if(HAS_TRAIT(src, TRAIT_HUNGRY))
 			drink_mod *= 0.5
-		
+
 		if(get_potency() >= 4 && !iskindred(mob))
 			drink_mod *= 0.5
 
@@ -120,7 +122,7 @@
 			update_damage_overlays()
 			update_health_hud()
 			update_blood_hud()
-		
+
 		if(mob.bloodpool <= 0)
 			if(iskindred(mob))
 				var/mob/living/carbon/human/eaten_vampire = mob
@@ -196,4 +198,4 @@
 		qdel(suckbar)
 		stop_sound_channel(CHANNEL_BLOOD)
 		if(!(SEND_SIGNAL(mob, COMSIG_MOB_VAMPIRE_SUCKED, mob) & COMPONENT_RESIST_VAMPIRE_KISS))
-			mob.SetSleeping(50)
+			mob.remove_status_effect(/datum/status_effect/kissed)

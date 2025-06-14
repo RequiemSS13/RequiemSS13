@@ -1,6 +1,6 @@
 /datum/merit/bane/childe_of_orlok
 	name = "Childe of Orlok"
-	desc = "The Nosferatu curse has changed you to the point where your appearance alone violates the masquerade."
+	desc = "The Nosferatu curse has changed you to the point where your appearance alone violates the masquerade. WARNING: If you take this bane, you should pick something to cover your face in the loadout section."
 	mob_trait = TRAIT_UGLY
 	clan_flags = MERIT_CLAN_NOSFERATU
 	human_only = TRUE
