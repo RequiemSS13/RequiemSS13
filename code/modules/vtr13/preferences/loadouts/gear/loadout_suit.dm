@@ -34,6 +34,11 @@
 	display_name = "coat, red"
 	path = /obj/item/clothing/suit/vampire/coat/winter/alt
 
+/datum/gear/suit/coat/leopard
+	display_name = "coat, leopard print"
+	description = "A warm and heavy leopard-print coat."
+	path = /obj/item/clothing/suit/vampire/vtr/coat/leopard
+
 // Jackets
 /datum/gear/suit/jacket
 	subtype_path = /datum/gear/suit/jacket
@@ -86,6 +91,18 @@
 /datum/gear/suit/trenchcoat/burgundy
 	display_name = "trenchcoat, burgundy"
 	path = /obj/item/clothing/suit/vampire/trench/archive
+
+// Hoodies
+/datum/gear/suit/hoodie
+	subtype_path = /datum/gear/suit/hoodie
+
+/datum/gear/suit/hoodie/plain
+	display_name = "hoodie, plain"
+	path = /obj/item/clothing/suit/hooded/hoodie
+
+/datum/gear/suit/hoodie/pim
+	display_name = "hoodie, intruder pim"
+	path = /obj/item/clothing/suit/hooded/hoodie/hoodie_pim
 
 // Misc
 

@@ -44,6 +44,10 @@
 	display_name = "sneakers, red"
 	path = /obj/item/clothing/shoes/vampire/sneakers/red
 
+/datum/gear/footwear/sneakers/pumped
+	display_name = "sneakers, high"
+	path = /obj/item/clothing/shoes/vampire/vtr/pumped
+
 // Misc
 
 /datum/gear/footwear/jackboots
@@ -53,6 +57,14 @@
 /datum/gear/footwear/jackboots_work
 	display_name = "boots, work"
 	path = /obj/item/clothing/shoes/vampire/jackboots/work
+
+/datum/gear/footwear/blackfur
+	display_name = "boots, black fur"
+	path = /obj/item/clothing/shoes/vampire/vtr/blackfur
+
+/datum/gear/footwear/brownfur
+	display_name = "boots, brown fur"
+	path = /obj/item/clothing/shoes/vampire/vtr/brownfur
 
 /datum/gear/footwear/high_heels_black
 	display_name = "high heels, black"

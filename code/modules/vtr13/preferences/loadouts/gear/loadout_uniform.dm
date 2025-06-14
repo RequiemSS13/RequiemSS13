@@ -233,6 +233,14 @@
 	display_name = "outfit, burlesque"
 	path = /obj/item/clothing/under/vampire/burlesque
 
+/datum/gear/uniform/scenepink
+	display_name = "outfit, popular"
+	path = /obj/item/clothing/under/vampire/vtr/scenepink
+
+/datum/gear/uniform/leopard
+	display_name = "outfit, revealing"
+	path = /obj/item/clothing/under/vampire/vtr/sceneleopard
+
 /datum/gear/uniform/daisyd
 	display_name = "daisy dukes"
 	path = /obj/item/clothing/under/vampire/burlesque/daisyd
@@ -269,3 +277,12 @@
 /datum/gear/uniform/gray_attire
 	display_name = "grey attire (female)"
 	path = /obj/item/clothing/under/vampire/salubri/female
+
+/datum/gear/uniform/moody
+	display_name = "moody attire"
+	path = /obj/item/clothing/under/vampire/vtr/scenemoody
+
+/datum/gear/uniform/pim
+	display_name = "pim attire"
+	path = /obj/item/clothing/under/vampire/vtr/scenezim
+
