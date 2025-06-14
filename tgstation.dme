@@ -3474,6 +3474,7 @@
 #include "code\modules\vtmb\werewolf\gifts.dm"
 #include "code\modules\vtmb\werewolf\totems.dm"
 #include "code\modules\vtmb\werewolf\tribes.dm"
+#include "code\modules\vtr13\areas\ambiant_music.dm"
 #include "code\modules\vtr13\areas\battle.dm"
 #include "code\modules\vtr13\areas\elysium.dm"
 #include "code\modules\vtr13\areas\masquerade.dm"
