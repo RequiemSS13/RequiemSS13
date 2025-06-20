@@ -3793,6 +3793,10 @@
 	},
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/vtr/elysium/interior/ground_floor/central/castle_elysium)
+"dmu" = (
+/mob/living/carbon/human/npc/shop,
+/turf/open/floor/plating/bacotell,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/record_store)
 "dmv" = (
 /obj/structure/column{
 	pixel_x = 4;
@@ -18547,6 +18551,7 @@
 	pixel_y = 10;
 	pixel_x = -37
 	},
+/obj/structure/retail/pizzaria_menu,
 /turf/open/floor/plating/bacotell,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/record_store)
 "pEU" = (
@@ -136346,7 +136351,7 @@ oql
 ubd
 ubd
 fsp
-ubd
+dmu
 pES
 ubd
 rwa

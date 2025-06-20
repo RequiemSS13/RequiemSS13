@@ -4006,6 +4006,7 @@
 #include "code\modules\vtr13\structure\retail\stores\junkfood_menu.dm"
 #include "code\modules\vtr13\structure\retail\stores\library.dm"
 #include "code\modules\vtr13\structure\retail\stores\pharmacy.dm"
+#include "code\modules\vtr13\structure\retail\stores\pizzaria_menu.dm"
 #include "code\modules\vtr13\structure\retail\stores\smoke_menu.dm"
 #include "code\modules\vtr13\structure\retail\stores\snack_vendor.dm"
 #include "code\modules\vtr13\structure\trees\palm_trees.dm"
