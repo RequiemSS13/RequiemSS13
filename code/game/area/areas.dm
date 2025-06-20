@@ -142,7 +142,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  */
 /area/Initialize(mapload)
 	icon_state = ""
-	if(!ambientsounds)
+	if(!ambientsounds && ambience_index)
 		ambientsounds = GLOB.ambience_assoc[ambience_index]
 	if(requires_power)
 		luminosity = 0
@@ -652,7 +652,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!(L.client && (L.client.prefs.toggles & SOUND_AMBIENCE)))
 		return //General ambience check is below the ship ambience so one can play without the other
 
-	if(prob(50))
+	if(prob(50) && ambientsounds)
 		var/sound = pick(ambientsounds)
 
 		if(!L.client.played)
