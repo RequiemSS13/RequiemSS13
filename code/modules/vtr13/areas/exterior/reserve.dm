@@ -3,7 +3,6 @@
 	icon_state = "park"
 
 	ambience_index = AMBIENCE_NATURE
-	music = /datum/vampiremusic/forest
 	ambiance_message = "this could also have been a golf course. elge fix dis or nix dis"
 	id = "street_level"
 
@@ -12,7 +11,6 @@
 	icon_state = "park"
 	inaccessible = TRUE
 	ambience_index = AMBIENCE_NATURE
-	music = /datum/vampiremusic/forest
 	ambiance_message = "this could also have been a golf course. elge fix dis or nix dis"
 
 /area/vtm/vtr/masquerade/exterior/floor_three/reserve/rose_reserve
@@ -20,5 +18,4 @@
 	icon_state = "park"
 	inaccessible = TRUE
 	ambience_index = AMBIENCE_NATURE
-	music = /datum/vampiremusic/forest
 	ambiance_message = "this could also have been a golf course. elge fix dis or nix dis"

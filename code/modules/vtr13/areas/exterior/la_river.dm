@@ -2,7 +2,6 @@
 	name = "LA River"
 	icon_state = "sewer"
 	ambience_index = AMBIENCE_NATURE
-	music = /datum/vampiremusic/downtown
 	ambiance_message = "As you enter this oversized culvert, you feel like it is practically its own ecosystem. Elge fix dis or nix dis."
 	id = "beach"
 
@@ -10,7 +9,6 @@
 	name = "LA River (Sky)"
 	icon_state = "sewer"
 	ambience_index = AMBIENCE_NATURE
-	music = /datum/vampiremusic/downtown
 	ambiance_message = "As you enter this oversized culvert, you feel like it is practically its own ecosystem. Elge fix dis or nix dis."
 	inaccessible = TRUE
 
@@ -18,7 +16,6 @@
 	name = "LA River (Sky)"
 	icon_state = "sewer"
 	ambience_index = AMBIENCE_NATURE
-	music = /datum/vampiremusic/downtown
 	ambiance_message = "As you enter this oversized culvert, you feel like it is practically its own ecosystem. Elge fix dis or nix dis."
 	inaccessible = TRUE
 
@@ -26,6 +23,5 @@
 	name = "LA River (Sky)"
 	icon_state = "sewer"
 	ambience_index = AMBIENCE_NATURE
-	music = /datum/vampiremusic/downtown
 	ambiance_message = "As you enter this oversized culvert, you feel like it is practically its own ecosystem. Elge fix dis or nix dis."
 	inaccessible = TRUE

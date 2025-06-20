@@ -3,7 +3,6 @@
 
 /area/vtm/vtr/masquerade/interior/ground_floor
 	name = "Masquerade Interior"
-	ambience_index = AMBIENCE_INTERIOR
 	upper = FALSE
 
 /area/vtm/vtr/masquerade/interior/ground_floor
