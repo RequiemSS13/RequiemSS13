@@ -40,7 +40,7 @@
 
 /obj/item/clothing/under/dress/redeveninggown
 	name = "red evening gown"
-	desc = "Fancy dress for space bar singers."
+	desc = "Fancy dress for lounge singers."
 	icon_state = "red_evening_gown"
 	inhand_icon_state = "red_evening_gown"
 

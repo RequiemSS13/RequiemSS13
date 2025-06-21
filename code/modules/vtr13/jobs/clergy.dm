@@ -18,7 +18,7 @@
 
 	allowed_species = list("Human")
 
-	duty = "you are a human priest in a very human house of god, no evil - such as vampires or bad descriptions elge has not gotten to - could ever taint this place"
+	duty = "You are low-ranking clergy at St. Catherine's Church, a confessor of its bizzare, heretical Catholicism. Minister to the souls of those in need and defer to your superiors."
 	known_contacts = list("Bishop")
 
 /datum/outfit/job/clergy

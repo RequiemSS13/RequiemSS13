@@ -18,12 +18,12 @@
 
 /obj/item/clothing/under/vampire/vtr/scenemoody
 	name = "moody attire"
-	desc = "A classic My Laboratory Romance top."
+	desc = "A classic alt-rock top. If you know, you know."
 	icon_state = "scenetop_moody"
 
 /obj/item/clothing/under/vampire/vtr/scenezim
-	name = "pim attire"
-	desc = "A top from your favorite show, Intruder Pim"
+	name = "zim attire"
+	desc = "A top from your favorite show, the one with the green dog."
 	icon_state = "scenetop_zim"
 
 /obj/item/clothing/under/vampire/vtr/scenepink

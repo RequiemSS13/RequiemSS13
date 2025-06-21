@@ -539,9 +539,9 @@
 	name = "Armor (3 civilian)"
 	desc = "Contains 3 types of body clothing and 3 types of light head protection."
 	cost = 1000
-	contains = list(/obj/item/clothing/suit/vampire/trench,
-					/obj/item/clothing/suit/vampire/trench/alt,
-					/obj/item/clothing/suit/vampire/trench/archive,
+	contains = list(/obj/item/clothing/suit/vampire/trench/armored,
+					/obj/item/clothing/suit/vampire/trench/armored,
+					/obj/item/clothing/suit/vampire/trench/alt/armored,
 					/obj/item/clothing/head/vampire/police,
 					/obj/item/clothing/head/vampire/cowboy,
 					/obj/item/clothing/head/vampire/british)

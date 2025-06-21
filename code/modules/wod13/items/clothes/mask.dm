@@ -17,7 +17,7 @@
 
 /obj/item/clothing/mask/vampire/balaclava
 	name = "balaclava"
-	desc = "LOADSAMONEY"
+	desc = "Put the money... in the bag!"
 	icon_state = "balaclava"
 	inhand_icon_state = "balaclava"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT

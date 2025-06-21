@@ -5,7 +5,7 @@
 
 /obj/item/clothing/suit/vampire/vtr/nun
 	name = "nun robe"
-	desc = "Maximum piety in this star system."
+	desc = "Finally, an outfit nobody can sexualize."
 	icon_state = "nun"
 	inhand_icon_state = "nun"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -40,12 +40,12 @@
 	body_worn = TRUE
 
 /obj/item/clothing/suit/hooded/hoodie/hoodie_pim
-	name = "intruder pim hoodie"
-	desc = "A hoodie of your favourite Intruder Pim character, Grr."
+	name = "scene character hoodie"
+	desc = "A hoodie of your favourite cartoon character-- you know, the green dog from the thing?"
 	icon_state = "hoodie_zim"
 	hoodtype = /obj/item/clothing/head/hooded/hood_hood/hood_pim
 
 /obj/item/clothing/head/hooded/hood_hood/hood_pim
 	name = "intruder pim hoodie hood"
-	desc = "A hood resembling your favourite Intruder Pim character, Grr."
+	desc = "A hood of your favourite cartoon character-- you know, the green dog from the thing?"
 	icon_state = "hoodie_zim_hood"

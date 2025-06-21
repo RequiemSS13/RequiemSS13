@@ -107,7 +107,7 @@
 
 /obj/item/clothing/under/costume/maid
 	name = "maid costume"
-	desc = "Maid in China."
+	desc = "Maid in China. Sold at Spirit Halloween."
 	icon_state = "maid"
 	inhand_icon_state = "maid"
 	body_parts_covered = CHEST|GROIN

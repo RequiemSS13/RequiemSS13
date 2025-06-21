@@ -211,11 +211,12 @@
 
 /obj/item/clothing/suit/vampire/coat/winter
 	name = "black fur coat"
-	desc = "Warm and heavy clothing."
+	desc = "A warm and heavy black coat."
 	icon_state = "winter1"
 
 /obj/item/clothing/suit/vampire/coat/winter/alt
-	name = "brown fur coat"
+	name = "red fur coat"
+	desc = "A warm and heavy red coat. Santa vibes."
 	icon_state = "winter2"
 
 /obj/item/clothing/suit/vampire/slickbackcoat
@@ -247,19 +248,29 @@
 
 /obj/item/clothing/suit/vampire/trench
 	name = "trenchcoat"
-	desc = "Best noir clothes for night. Provides some kind of protection."
+	desc = "Best noir clothes for a long, long night."
 	icon_state = "trench1"
+
+/obj/item/clothing/suit/vampire/trench/armored
+	name = "reinforced trenchcoat"
+	desc = "Best noir clothes for a long, long night. This one is reinforced and will stand up to punishment."
 	armor = list(MELEE = 25, BULLET = 25, LASER = 10, ENERGY = 10, BOMB = 25, BIO = 0, RAD = 0, FIRE = 25, ACID = 10, WOUND = 25)
 
 /obj/item/clothing/suit/vampire/trench/alt
 	name = "brown trenchcoat"
+	desc = "Second-best noir clothes, for when your other trenchcoat is in the wash."
 	icon_state = "trench2"
+
+/obj/item/clothing/suit/vampire/trench/alt/armored
+	name = "reinforced brown trenchcoat"
+	desc = "Second-best noir clothes, for when your other trenchcoat is in the wash. This one is reinforced and will stand up to punishment."
+	armor = list(MELEE = 25, BULLET = 25, LASER = 10, ENERGY = 10, BOMB = 25, BIO = 0, RAD = 0, FIRE = 25, ACID = 10, WOUND = 25)
+
 
 /obj/item/clothing/suit/vampire/trench/archive
 	name = "rich trenchcoat"
-	desc = "Best choice for pleasant life... or not."
+	desc = "A burgundy trenchcoat with a furred collar. Gaudy."
 	icon_state = "trench3"
-	armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
 
 /obj/item/clothing/suit/vampire/trench/strauss
 	name = "red trenchcoat"
