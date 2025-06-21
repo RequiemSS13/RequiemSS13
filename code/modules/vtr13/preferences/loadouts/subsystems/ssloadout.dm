@@ -24,8 +24,12 @@ SUBSYSTEM_DEF(loadout)
 		if(!loadout_categories[use_category])
 			loadout_categories[use_category] = new /datum/loadout_category(use_category)
 		var/datum/loadout_category/loadout_category = loadout_categories[use_category]
+
 		gear_datums[use_name] = new geartype
+		gear_datums = sortAssoc(gear_datums)
+
 		loadout_category.gear[use_name] = gear_datums[use_name]
+		loadout_category.gear = sortAssoc(loadout_category.gear)
 
 	loadout_categories = sortAssoc(loadout_categories)
 	for(var/datum/loadout_category/loadout_category in loadout_categories)
