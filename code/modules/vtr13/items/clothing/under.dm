@@ -237,3 +237,8 @@
 	name = "striped dress"
 	desc = "Fashion in space."
 	icon_state = "striped_dress"
+
+/obj/item/clothing/under/vampire/vtr/dress/sailordress
+	name = "sailor dress"
+	desc = "Formal wear for a leading lady."
+	icon_state = "sailor_dress"
