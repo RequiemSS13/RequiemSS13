@@ -177,7 +177,7 @@
 
 /obj/item/clothing/under/vampire/slickback
 	name = "slick suit"
-	desc = "A tan jacket with a blue undershirt and checkered pants. Call it 'avant-guarde'."
+	desc = "A tan jacket with a blue undershirt and checkered pants. Call it 'avant-garde'."
 	icon_state = "slickback"
 
 /obj/item/clothing/under/vampire/burlesque

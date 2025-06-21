@@ -43,7 +43,7 @@
 	path = /obj/item/clothing/under/vampire/suit/female
 
 /datum/gear/uniform/suit/formal_white
-	display_name = "plain suit, discheveled"
+	display_name = "plain suit, disheveled"
 	path = /obj/item/clothing/under/vampire/office
 
 /datum/gear/uniform/suit/plain_red
