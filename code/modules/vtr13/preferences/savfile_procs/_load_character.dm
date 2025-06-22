@@ -57,22 +57,22 @@
 
 	//ICON FEATURES
 	READ_FILE(S["hair_color"], hair_color)
-	hair_color = sanitize_hexcolor(hair_color, 3, 0)
+	hair_color = sanitize_hexcolor(hair_color)
 	READ_FILE(S["facial_hair_color"], facial_hair_color)
-	facial_hair_color = sanitize_hexcolor(facial_hair_color, 3, 0)
+	facial_hair_color = sanitize_hexcolor(facial_hair_color)
 	READ_FILE(S["hairstyle_name"], hairstyle)
 	hairstyle = sanitize_inlist(hairstyle, GLOB.hairstyles_list)
 	READ_FILE(S["facial_style_name"], facial_hairstyle)
 	facial_hairstyle = sanitize_inlist(facial_hairstyle, GLOB.facial_hairstyles_list)
 
 	READ_FILE(S["eye_color"], eye_color)
-	eye_color = sanitize_hexcolor(eye_color, 3, 0)
+	eye_color = sanitize_hexcolor(eye_color)
 	READ_FILE(S["skin_tone"], skin_tone)
-	skin_tone = sanitize_hexcolor(skin_tone, 3, 0)
+	skin_tone = sanitize_hexcolor(skin_tone)
 
 	//UNDERCLOTHES
 	READ_FILE(S["underwear_color"], underwear_color)
-	underwear_color = sanitize_hexcolor(underwear_color, 3, 0)
+	underwear_color = sanitize_hexcolor(underwear_color)
 
 	READ_FILE(S["underwear"], underwear)
 	underwear = sanitize_inlist(underwear, GLOB.underwear_list)
