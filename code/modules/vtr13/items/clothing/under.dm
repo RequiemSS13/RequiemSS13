@@ -155,6 +155,11 @@
 	desc = "A professional-looking white shirt with a tan skirt."
 	icon_state = "tanskirt"
 
+/obj/item/clothing/under/vampire/vtr/suit/blackfem
+	name = "black pantsuit"
+	desc = "A sharp black women's suit."
+	icon_state = "black_suit_fem"
+
 /obj/item/clothing/under/vampire/vtr/dress/black_corset
 	name = "black corset"
 	desc = "A black corset and skirt for those fancy nights out."
