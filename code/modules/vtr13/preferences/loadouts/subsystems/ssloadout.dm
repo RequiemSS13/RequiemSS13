@@ -12,7 +12,7 @@ SUBSYSTEM_DEF(loadout)
 
 		var/use_name = initial(gear.display_name)
 		var/use_category = initial(gear.sort_category)
-
+ 
 		if(gear.type == initial(gear.subtype_path))
 			continue
 

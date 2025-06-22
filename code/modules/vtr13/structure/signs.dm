@@ -58,3 +58,4 @@
 	desc = "A sign for Hot Ishu. This one's not in a mall."
 	icon = 'icons/vtr13/structure/64x64.dmi'
 	icon_state = "hot_ishu"
+	pixel_x = 32

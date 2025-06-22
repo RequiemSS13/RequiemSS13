@@ -3,5 +3,5 @@
 	icon_state = "sewer"
 	ambience_index = AMBIENCE_SEWER
 	music = /datum/vampiremusic/sewer
-	ambiance_message = "you smell a smelly smell that smells smelly. elge write dis or nix dis"
+	ambiance_message = "While technically a rainwater sewer, the smells and grime certainly seem to contain everything under the sun. Mice chase echoes all down the deep, dark tunnels, and gleaming eyes loom from the shadows of maintenance lights."
 	id = "beach"
