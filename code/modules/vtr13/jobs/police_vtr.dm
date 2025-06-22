@@ -23,6 +23,7 @@
 	alt_titles = list(
 		"Police Cadet",
 		"Senior Police Officer",
+		"Detective"
 	)
 
 /datum/outfit/job/police_officer_vtr
