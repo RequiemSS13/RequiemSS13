@@ -79,3 +79,23 @@
 /datum/gear/neck/tie/horrible
 	display_name = "tie, horrible"
 	path = /obj/item/clothing/neck/vtr/tie/horrible
+
+/datum/gear/neck/choker
+	display_name = "choker, black"
+	path = /obj/item/clothing/neck/vtr/choker
+
+/datum/gear/neck/choker/metal
+	display_name = "choker, silver"
+	path = /obj/item/clothing/neck/vtr/choker/silver
+
+/datum/gear/neck/choker/collar
+	display_name = "collar, leather"
+	path = /obj/item/clothing/neck/vtr/choker/collar
+
+/datum/gear/neck/choker/collar/steel
+	display_name = "collar, stainless steel"
+	path = /obj/item/clothing/neck/vtr/choker/collar/steel
+
+/datum/gear/neck/choker/collar/leatherg
+	display_name = "collar, fancy leather"
+	path = /obj/item/clothing/neck/vtr/choker/collar/leatherg
