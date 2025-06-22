@@ -68,7 +68,7 @@
 	READ_FILE(S["eye_color"], eye_color)
 	eye_color = sanitize_hexcolor(eye_color, 3, 0)
 	READ_FILE(S["skin_tone"], skin_tone)
-	skin_tone = sanitize_hexcolor(convert_old_skintone(skin_tone), 3, 0)
+	skin_tone = sanitize_hexcolor(skin_tone, 3, 0)
 
 	//UNDERCLOTHES
 	READ_FILE(S["underwear_color"], underwear_color)

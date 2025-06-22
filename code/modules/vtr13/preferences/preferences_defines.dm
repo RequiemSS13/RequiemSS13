@@ -13,30 +13,40 @@
 	var/allow_midround_antag = 1
 	var/slot_randomized					//keeps track of round-to-round randomization of the character slot, prevents overwriting
 	var/list/skin_tone_presets = list(	//Preset skintones for character selection
-		"Alabaster" = ALBINO,
-		"Caucasian 1" = CAUCASIAN_1,
-		"Caucasian 2" = CAUCASIAN_2,
-		"Caucasian 3" = CAUCASIAN_3,
-		"Latino" = LATINO,
-		"Mediterranean" = MEDITERRANEAN,
-		"Asian 1" = ASIAN_1,
-		"Asian 2" = ASIAN_2,
-		"Arabian" = ARAB,
-		"Hindi" = INDIAN,
-		"African 1" = AFRICAN_1,
-		"African 2" = AFRICAN_2,
-		"Orange" = ORANGE,
-		"Vampiric 1" = VAMP_1,
-		"Vampiric 2" = VAMP_2,
-		"Vampiric 3" = VAMP_3,
-		"Vampiric 4" = VAMP_4,
-		"Vampiric 5" = VAMP_5,
-		"Vampiric 6" = VAMP_6,
-		"Vampiric 7" = VAMP_7,
-		"Vampiric 8" = VAMP_8,
-		"Vampiric 9" = VAMP_9,
-		"Vampiric 10" = VAMP_10,
-		"Vampiric 11" = VAMP_11)
+		"Warm Light 1" = WARMLIGHT1,
+		"Warm Light 2" = WARMLIGHT2,
+		"Warm Light 3" = WARMLIGHT3,
+		"Warm Medium 1" = WARMMED1,
+		"Warm Medium 2" = WARMMED2,
+		"Warm Medium 3" = WARMMED3,
+		"Warm Dark 1" = WARMDARK1,
+		"Warm Dark 2" = WARMDARK2,
+		"Warm Dark 3" = WARMDARK3,
+		"Neutral Light 1" = NEUTRALLIGHT1,
+		"Neutral Light 2" = NEUTRALLIGHT2,
+		"Neutral Light 3" = NEUTRALLIGHT3,
+		"Neutral Medium 1" = NEUTRALMED1,
+		"Neutral Medium 2" = NEUTRALMED2,
+		"Neutral Medium 3" = NEUTRALMED3,
+		"Neutral Dark 1" = NEUTRALDARK1,
+		"Neutral Dark 2" = NEUTRALDARK2,
+		"Neutral Dark 3" = NEUTRALDARK3,
+		"Cool Light 1" = COOLLIGHT1,
+		"Cool Light 2" = COOLLIGHT2,
+		"Cool Light 3" = COOLLIGHT3,
+		"Cool Medium 1" = COOLMED1,
+		"Cool Medium 2" = COOLMED2,
+		"Cool Medium 3" = COOLMED3,
+		"Cool Dark 1" = COOLDARK1,
+		"Cool Dark 2" = COOLDARK2,
+		"Cool Dark 3" = COOLDARK3,
+		"Unnatural Alabaster" = UNNATURALALABASTER,
+		"Unnatural Smoke" = UNNATURALSMOKE,
+		"Unnatural Ash" = UNNATURALASH,
+		"Unnatural Light Green" = UNNATURALLGREEN,
+		"Unnatural Dark Green" = UNNATURALDGREEN,
+		"Unnatural Light Blue" = UNNATURALLBLUE,
+		"Unnatural Dark Blue" = UNNATURALDBLUE)
 
 	var/list/features = list(			//stuck around only by merit of DNA code needing it
 		"mcolor" = "FFF",
@@ -74,7 +84,7 @@
 	var/discipline_dots = 0
 	var/merit_dots = 0
 	var/loadout_dots = 0
-	
+
 	var/show_loadout = TRUE
 	var/gear_tab = "General"
 	var/loadout_dots_max = 0
@@ -162,7 +172,7 @@
 	var/hairstyle = "Bald"				//Hair type
 	var/facial_hairstyle = "Shaved"		//Face hair type
 	var/eye_color = "000"				//Eye color
-	var/skin_tone = LATINO				//Skin color
+	var/skin_tone = NEUTRALMED2			//Skin color
 	var/underwear = "Nude"				//underwear type
 	var/underwear_color = "000"			//underwear color
 	var/undershirt = "Nude"				//undershirt type
@@ -175,7 +185,7 @@
 	var/list/job_preferences = list()	//Job preferences 2.0 - indexed by job title , no key or value implies never
 	var/list/alt_titles_preferences = list()
 
-	
+
 
 	//Merits list
 	var/list/all_merits = list()

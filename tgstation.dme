@@ -1934,7 +1934,6 @@
 #include "code\modules\client\verbs\reset_held_keys.dm"
 #include "code\modules\client\verbs\suicide.dm"
 #include "code\modules\client\verbs\who.dm"
-#include "code\modules\client\vtr13\convert_old_skintone.dm"
 #include "code\modules\clothing\chameleon.dm"
 #include "code\modules\clothing\clothing.dm"
 #include "code\modules\clothing\ears\_ears.dm"
