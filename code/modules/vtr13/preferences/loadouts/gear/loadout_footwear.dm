@@ -48,6 +48,38 @@
 	display_name = "sneakers, high"
 	path = /obj/item/clothing/shoes/vampire/vtr/pumped
 
+// Flats
+/datum/gear/footwear/flats
+	subtype_path = /datum/gear/footwear/flats
+
+/datum/gear/footwear/flats/black
+	display_name = "flats, black"
+	path = /obj/item/clothing/shoes/vampire/vtr/flats
+
+/datum/gear/footwear/flats/brown
+	display_name = "flats, brown"
+	path = /obj/item/clothing/shoes/vampire/vtr/flats/brown
+
+/datum/gear/footwear/flats/white
+	display_name = "flats, white"
+	path = /obj/item/clothing/shoes/vampire/vtr/flats/white
+
+/datum/gear/footwear/flats/red
+	display_name = "flats, red"
+	path = /obj/item/clothing/shoes/vampire/vtr/flats/red
+
+/datum/gear/footwear/flats/orange
+	display_name = "flats, orange"
+	path = /obj/item/clothing/shoes/vampire/vtr/flats/orange
+
+/datum/gear/footwear/flats/purple
+	display_name = "flats, purple"
+	path = /obj/item/clothing/shoes/vampire/vtr/flats/purple
+
+/datum/gear/footwear/flats/blue
+	display_name = "flats, blue"
+	path = /obj/item/clothing/shoes/vampire/vtr/flats/blue
+
 // Misc
 
 /datum/gear/footwear/jackboots

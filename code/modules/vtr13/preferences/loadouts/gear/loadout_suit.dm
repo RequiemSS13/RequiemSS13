@@ -39,6 +39,10 @@
 	description = "A warm and heavy leopard-print coat."
 	path = /obj/item/clothing/suit/vampire/vtr/coat/leopard
 
+/datum/gear/suit/coat/greatcoat
+	display_name = "coat, greatcoat"
+	path = /obj/item/clothing/suit/vampire/vtr/greatcoat
+
 // Jackets
 /datum/gear/suit/jacket
 	subtype_path = /datum/gear/suit/jacket
@@ -70,9 +74,37 @@
 	description = "A canvas jacket styled after classical American military garb."
 	path = /obj/item/clothing/suit/jacket/miljacket
 
-/datum/gear/suit/jacket/black_suit
-	display_name = "jacket, black suit"
-	path = /obj/item/clothing/suit/toggle/lawyer/black
+/datum/gear/suit/jacket/suitjacket_blue
+	display_name = "suit jacket, blue"
+	path = /obj/item/clothing/suit/toggle/vtr/suitjacket/blue
+
+/datum/gear/suit/jacket/suitjacket_purp
+	display_name = "suit jacket, purple"
+	path = /obj/item/clothing/suit/toggle/vtr/suitjacket/purple
+
+/datum/gear/suit/jacket/suitjacket_black
+	display_name = "suit jacket, black"
+	path = /obj/item/clothing/suit/toggle/vtr/suitjacket/black
+
+/datum/gear/suit/jacket/suitjacket_charcoal
+	display_name = "suit jacket, charcoal"
+	path = /obj/item/clothing/suit/vampire/vtr/charcoalsuit
+
+/datum/gear/suit/jacket/suitjacket_navy
+	display_name = "suit jacket, navy"
+	path = /obj/item/clothing/suit/vampire/vtr/navysuit
+
+/datum/gear/suit/jacket/suitjacket_burgundy
+	display_name = "suit jacket, burgundy"
+	path = /obj/item/clothing/suit/vampire/vtr/burgundysuit
+
+/datum/gear/suit/jacket/suitjacket_checkered
+	display_name = "suit jacket, checkered"
+	path = /obj/item/clothing/suit/vampire/vtr/checkeredsuit
+
+/datum/gear/suit/jacket/suitjacket_tan
+	display_name = "suit jacket, tan"
+	path = /obj/item/clothing/suit/vampire/vtr/tansuit
 
 // Trenchcoats
 /datum/gear/suit/trenchcoat
@@ -92,6 +124,14 @@
 	display_name = "trenchcoat, burgundy"
 	path = /obj/item/clothing/suit/vampire/trench/archive
 
+/datum/gear/suit/trenchcoat/classic
+	display_name = "trenchcoat, classic"
+	path = /obj/item/clothing/suit/vampire/vtr/det_trench
+
+/datum/gear/suit/trenchcoat/grey
+	display_name = "trenchcoat, grey"
+	path = /obj/item/clothing/suit/vampire/vtr/det_trench_grey
+
 // Hoodies
 /datum/gear/suit/hoodie
 	subtype_path = /datum/gear/suit/hoodie
@@ -104,8 +144,27 @@
 	display_name = "hoodie, intruder pim"
 	path = /obj/item/clothing/suit/hooded/hoodie/hoodie_pim
 
-// Misc
+// Flannels
+/datum/gear/suit/flannel
+	subtype_path = /datum/gear/suit/flannel
 
+/datum/gear/suit/flannel/grey
+	display_name = "flannel, grey"
+	path = /obj/item/clothing/suit/vampire/vtr/flannel
+
+/datum/gear/suit/flannel/red
+	display_name = "flannel, red"
+	path = /obj/item/clothing/suit/vampire/vtr/flannel/red
+
+/datum/gear/suit/flannel/aqua
+	display_name = "flannel, aqua"
+	path = /obj/item/clothing/suit/vampire/vtr/flannel/aqua
+
+/datum/gear/suit/flannel/brown
+	display_name = "flannel, brown"
+	path = /obj/item/clothing/suit/vampire/vtr/flannel/brown
+
+// Misc
 /datum/gear/suit/kasaya
 	display_name = "kasaya"
 	path = /obj/item/clothing/suit/vampire/kasaya
@@ -121,7 +180,6 @@
 /datum/gear/suit/nun
 	display_name = "nun frock"
 	path = /obj/item/clothing/suit/vampire/vtr/nun
-
 
 /datum/gear/suit/hawaiian
 	display_name = "hawaiian overshirt"

@@ -82,6 +82,94 @@
 	path = /obj/item/clothing/under/vampire/prince/female
 	allowed_roles = list("Prince")
 
+/datum/gear/uniform/suit/suit_grey
+	display_name = "suit slacks, grey"
+	path = /obj/item/clothing/under/vampire/vtr/suit
+
+/datum/gear/uniform/suit/suit_grey_waistcoat
+	display_name = "shirt, white with waistcoat"
+	path = /obj/item/clothing/under/vampire/vtr/suit/waistcoat
+
+/datum/gear/uniform/suit/suit_tan_shirt
+	display_name = "suit slacks, black with tan shirt"
+	path = /obj/item/clothing/under/vampire/vtr/suit/tanshirt
+
+/datum/gear/uniform/suit/suit_tan_waistcoat
+	display_name = "shirt, tan with waistcoat"
+	path = /obj/item/clothing/under/vampire/vtr/suit/tanshirtwaistcoat
+
+/datum/gear/uniform/suit/suit_greyskirt
+	display_name = "suit skirt, grey"
+	path = /obj/item/clothing/under/vampire/vtr/suit/greyskirt
+
+/datum/gear/uniform/suit/suit_black
+	display_name = "suit slacks, black"
+	path = /obj/item/clothing/under/vampire/vtr/suit/black
+
+/datum/gear/uniform/suit/suit_blackskirt
+	display_name = "suit skirt, black"
+	path = /obj/item/clothing/under/vampire/vtr/suit/blackskirt
+
+/datum/gear/uniform/suit/suit_purple
+	display_name = "suit slacks, purple"
+	path = /obj/item/clothing/under/vampire/vtr/suit/purple
+
+/datum/gear/uniform/suit/suit_charcoal
+	display_name = "suit slacks, charcoal"
+	path = /obj/item/clothing/under/vampire/vtr/suit/charcoal
+
+/datum/gear/uniform/suit/suit_navy
+	display_name = "suit slacks, navy"
+	path = /obj/item/clothing/under/vampire/vtr/suit/navy
+
+/datum/gear/uniform/suit/suit_burgundy
+	display_name = "suit slacks, burgundy"
+	path = /obj/item/clothing/under/vampire/vtr/suit/burgundy
+
+/datum/gear/uniform/suit/suit_blue
+	display_name = "suit slacks, blue"
+	path = /obj/item/clothing/under/vampire/vtr/suit/blue
+
+/datum/gear/uniform/suit/suit_checkered
+	display_name = "suit slacks, checkered"
+	path = /obj/item/clothing/under/vampire/vtr/suit/checkered
+
+/datum/gear/uniform/suit/suit_tan
+	display_name = "suit slacks, tan"
+	path = /obj/item/clothing/under/vampire/vtr/suit/tan
+
+/datum/gear/uniform/suit/suit_purpleskirt
+	display_name = "suit skirt, purple"
+	path = /obj/item/clothing/under/vampire/vtr/suit/purpleskirt
+
+/datum/gear/uniform/suit/suit_charcoalskirt
+	display_name = "suit skirt, charcoal"
+	path = /obj/item/clothing/under/vampire/vtr/suit/charcoalskirt
+
+/datum/gear/uniform/suit/suit_navyskirt
+	display_name = "suit skirt, navy"
+	path = /obj/item/clothing/under/vampire/vtr/suit/navyskirt
+
+/datum/gear/uniform/suit/suit_burgundyskirt
+	display_name = "suit skirt, burgundy"
+	path = /obj/item/clothing/under/vampire/vtr/suit/burgundyskirt
+
+/datum/gear/uniform/suit/suit_blueskirt
+	display_name = "suit skirt, blue"
+	path = /obj/item/clothing/under/vampire/vtr/suit/blueskirt
+
+/datum/gear/uniform/suit/suit_checkeredskirt
+	display_name = "suit skirt, checkered"
+	path = /obj/item/clothing/under/vampire/vtr/suit/checkeredskirt
+
+/datum/gear/uniform/suit/suit_tanskirt
+	display_name = "suit skirt, tan"
+	path = /obj/item/clothing/under/vampire/vtr/suit/tanskirt
+
+/datum/gear/uniform/suit/blacksuitfem
+	display_name = "suit, black pantsuit"
+	path = /obj/item/clothing/under/vampire/vtr/suit/blackfem
+
 // Skirt
 /datum/gear/uniform/skirt
 	subtype_path = /datum/gear/uniform/skirt
@@ -90,6 +178,22 @@
 	display_name = "outfit, skirt pentagram"
 	description = "A red pentagram on a black t-shirt." // Shortened, as we don't want to bloat the menu with long descriptions
 	path = /obj/item/clothing/under/vampire/baali/female
+
+/datum/gear/uniform/skirt/black_skirt
+	display_name = "skirt, black"
+	path = /obj/item/clothing/under/vampire/vtr/skirt/outfit
+
+/datum/gear/uniform/skirt/plaid_blue
+	display_name = "skirt, blue plaid"
+	path = /obj/item/clothing/under/vampire/vtr/skirt/outfit/plaid_blue
+
+/datum/gear/uniform/skirt/plaid_red
+	display_name = "skirt, red plaid"
+	path = /obj/item/clothing/under/vampire/vtr/skirt/outfit/plaid_red
+
+/datum/gear/uniform/skirt/plaid_blue
+	display_name = "skirt, blue plaid"
+	path = /obj/item/clothing/under/vampire/vtr/skirt/outfit/plaid_purple
 
 // Turtleneck
 /datum/gear/uniform/turtleneck
@@ -125,6 +229,46 @@
 /datum/gear/uniform/pants/grimey
 	display_name = "pants, grimey"
 	path = /obj/item/clothing/under/vampire/malkavian
+
+// Dresses
+/datum/gear/uniform/dress
+	subtype_path = /datum/gear/uniform/dress
+
+/datum/gear/uniform/dress/black_corset
+	display_name = "dress, black corset"
+	path = /obj/item/clothing/under/vampire/vtr/dress/black_corset
+
+/datum/gear/uniform/dress/darkred
+	display_name = "dress, dark red"
+	path = /obj/item/clothing/under/vampire/vtr/dress/darkred
+
+/datum/gear/uniform/dress/gothic_dress
+	display_name = "dress, gothic"
+	path = /obj/item/clothing/under/vampire/vtr/dress/gothic
+
+/datum/gear/uniform/dress/pentagram_dress
+	display_name = "dress, pentagram"
+	path = /obj/item/clothing/under/vampire/vtr/dress/pentagram
+
+/datum/gear/uniform/dress/littleblackdress
+	display_name = "dress, little black"
+	path = /obj/item/clothing/under/vampire/vtr/dress/littleblackdress
+
+/datum/gear/uniform/dress/yellowswoop
+	display_name = "dress, yellow swoop"
+	path = /obj/item/clothing/under/vampire/vtr/dress/yellowswoop
+
+/datum/gear/uniform/dress/blacktango
+	display_name = "dress, black tango"
+	path = /obj/item/clothing/under/vampire/vtr/dress/blacktango
+
+/datum/gear/uniform/dress/stripeddress
+	display_name = "dress, striped"
+	path = /obj/item/clothing/under/vampire/vtr/dress/stripeddress
+
+/datum/gear/uniform/dress/sailordress
+	display_name = "dress, sailor"
+	path = /obj/item/clothing/under/vampire/vtr/dress/sailordress
 
 // Misc
 /datum/gear/uniform/dress
@@ -250,7 +394,6 @@
 	cost = 2 // And your dignity.
 	path = /obj/item/clothing/under/costume/maid
 
-
 /datum/gear/uniform/maid
 	display_name = "maid uniform (authentic)"
 	cost = 4
@@ -286,3 +429,18 @@
 	display_name = "pim attire"
 	path = /obj/item/clothing/under/vampire/vtr/scenezim
 
+/datum/gear/uniform/hightrousers
+	display_name = "high-waisted trousers"
+	path = /obj/item/clothing/under/vampire/vtr/hightrousers
+
+/datum/gear/uniform/highskirt
+	display_name = "high-waisted skirt"
+	path = /obj/item/clothing/under/vampire/vtr/highskirt
+
+/datum/gear/uniform/rippedpunk
+	display_name = "outfit, ripped punk"
+	path = /obj/item/clothing/under/vampire/vtr/rippedpunk
+
+/datum/gear/uniform/qipao2
+	display_name = "qipao"
+	path = /obj/item/clothing/under/vampire/vtr/dress/qipao2

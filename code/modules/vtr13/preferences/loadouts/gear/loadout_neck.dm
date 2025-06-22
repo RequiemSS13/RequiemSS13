@@ -34,12 +34,48 @@
 
 /datum/gear/neck/tie/black
 	display_name = "tie, black"
-	path = /obj/item/clothing/neck/tie/black
+	path = /obj/item/clothing/neck/vtr/tie
 
 /datum/gear/neck/tie/red
 	display_name = "tie, red"
-	path = /obj/item/clothing/neck/tie/red
+	path = /obj/item/clothing/neck/vtr/tie/red
+
+/datum/gear/neck/tie/redclip
+	display_name = "tie, red with clip"
+	path = /obj/item/clothing/neck/vtr/tie/redclip
+
+/datum/gear/neck/tie/redlong
+	display_name = "tie, long red"
+	path = /obj/item/clothing/neck/vtr/tie/redlong
 
 /datum/gear/neck/tie/blue
 	display_name = "tie, blue"
-	path = /obj/item/clothing/neck/tie/blue
+	path = /obj/item/clothing/neck/vtr/tie/blue
+
+/datum/gear/neck/tie/blueclip
+	display_name = "tie, blue with clip"
+	path = /obj/item/clothing/neck/vtr/tie/blueclip
+
+/datum/gear/neck/tie/bluelong
+	display_name = "tie, blue long"
+	path = /obj/item/clothing/neck/vtr/tie/bluelong
+
+/datum/gear/neck/tie/navy
+	display_name = "tie, navy"
+	path = /obj/item/clothing/neck/vtr/tie/navy
+
+/datum/gear/neck/tie/yellow
+	display_name = "tie, yellow"
+	path = /obj/item/clothing/neck/vtr/tie/yellow
+
+/datum/gear/neck/tie/white
+	display_name = "tie, white"
+	path = /obj/item/clothing/neck/vtr/tie/white
+
+/datum/gear/neck/tie/darkgreen
+	display_name = "tie, dark green"
+	path = /obj/item/clothing/neck/vtr/tie/darkgreen
+
+/datum/gear/neck/tie/horrible
+	display_name = "tie, horrible"
+	path = /obj/item/clothing/neck/vtr/tie/horrible
