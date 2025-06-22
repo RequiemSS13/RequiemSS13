@@ -29,11 +29,11 @@
 #define MARKS_LAYER				28
 #define SHOES_LAYER				27
 #define EARS_LAYER				26
-#define SUIT_LAYER				25
-#define GLASSES_LAYER			24
-#define BELT_LAYER				23		//Possible make this an overlay of somethign required to wear a belt?
-#define SUIT_STORE_LAYER		22
-#define NECK_LAYER				21
+#define NECK_LAYER				25
+#define SUIT_LAYER				24
+#define GLASSES_LAYER			23
+#define BELT_LAYER				22		//Possible make this an overlay of somethign required to wear a belt?
+#define SUIT_STORE_LAYER		21
 #define BACK_LAYER				20
 #define HAIR_LAYER				19		//TODO: make part of head layer?
 #define UPPER_EARS_LAYER		18
