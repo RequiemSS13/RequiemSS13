@@ -33,7 +33,7 @@
 	ears = /obj/item/p25radio
 	id = /obj/item/card/id/invictus
 	uniform = /obj/item/clothing/under/vampire/suit
-	suit = /obj/item/clothing/suit/vampire/trench
+	suit = /obj/item/clothing/suit/vampire/trench/armored
 	shoes = /obj/item/clothing/shoes/vampire
 	l_pocket = /obj/item/vamp/phone/invictus
 	backpack_contents = list(/obj/item/vampire_stake=1, /obj/item/vamp/creditcard=1, /obj/item/vamp/keys/hound=1)

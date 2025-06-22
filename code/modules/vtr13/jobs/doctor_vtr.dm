@@ -20,7 +20,7 @@
 	bounty_types = CIV_JOB_MED
 
 	v_duty = "Help your fellow kindred in all matters medicine related. Sell blood. Keep your human colleagues ignorant."
-	duty = "Collect blood by helping mortals at the Clinic. elge look here YOU WANTED THIS YOU BROUGHT THIS UPON YOURSELF"
+	duty = "First, do no harm. Heal the sick and the injured. Try and keep your blood supplies well-stocked; you go through it shockingly fast."
 	experience_addition = 15
 
 	known_contacts = list("Clinic Director")

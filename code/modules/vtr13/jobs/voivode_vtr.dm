@@ -4,7 +4,7 @@
 	faction = "Vampire"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Vlad Dracula"
+	supervisors = "The Brides of Dracula, probably"
 	selection_color = "#790656"
 
 	outfit = /datum/outfit/job/voivode_vtr
@@ -34,10 +34,9 @@
 	jobtype = /datum/job/vamp/vtr/voivode_vtr
 	id = /obj/item/card/id/voivode_vtr
 	uniform = /obj/item/clothing/under/vampire/voivode
-	suit = /obj/item/clothing/suit/vampire/trench/voivode
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	l_pocket = /obj/item/vamp/phone
-	backpack_contents = list(/obj/item/vamp/creditcard/head=1)
+	backpack_contents = list(/obj/item/vamp/creditcard/head=1, /obj/item/vamp/keys/voivode_vtr=1)
 
 /obj/effect/landmark/start/vtr/voivode_vtr
 	name = "Voivode"

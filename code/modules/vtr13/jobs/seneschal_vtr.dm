@@ -49,7 +49,7 @@
 	ears = /obj/item/p25radio
 	id = /obj/item/card/id/seneschal_vtr
 	uniform =  /obj/item/clothing/under/vampire/prince
-	suit = /obj/item/clothing/suit/vampire/trench/alt
+	suit = /obj/item/clothing/suit/vampire/trench/alt/armored
 	shoes = /obj/item/clothing/shoes/vampire
 	l_pocket = /obj/item/vamp/phone/seneschal_vtr
 	backpack_contents = list(/obj/item/gun/ballistic/automatic/vampire/deagle=1, /obj/item/masquerade_contract=1, /obj/item/vamp/creditcard/seneschal=1, /obj/item/vamp/keys/seneschal_vtr=1, /obj/item/melee/chainofcommand=1)

@@ -14,13 +14,13 @@
 
 /obj/item/clothing/gloves/vampire/leather
 	name = "leather gloves"
-	desc = "Looks dangerous. Provides some kind of protection."
+	desc = "Short leather gloves."
 	icon_state = "leather"
 	transfer_prints = TRUE
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
 	resistance_flags = NONE
-	armor = list(MELEE = 15, BULLET = 15, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 30)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 30)
 
 /obj/item/clothing/gloves/vampire/work
 	name = "work gloves"
@@ -32,7 +32,7 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
-	armor = list(MELEE = 30, BULLET = 15, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 0, RAD = 0, FIRE = 70, ACID = 30)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 0, RAD = 0, FIRE = 70, ACID = 30)
 
 /obj/item/clothing/gloves/vampire/investigator
 	name = "investigator gloves"

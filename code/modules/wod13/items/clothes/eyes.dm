@@ -12,19 +12,19 @@
 
 /obj/item/clothing/glasses/vampire/yellow
 	name = "yellow aviators"
-	desc = "For working in dark environment."
+	desc = "Fuck it, Dude, let's go bowling."
 	icon_state = "yellow"
 	inhand_icon_state = "glasses"
 
 /obj/item/clothing/glasses/vampire/red
 	name = "red aviators"
-	desc = "For working in dark environment."
+	desc = "Absolutely do not make you look like a vampire."
 	icon_state = "redg"
 	inhand_icon_state = "glasses"
 
 /obj/item/clothing/glasses/vampire/sun
 	name = "sunglasses"
-	desc = "For looking cool."
+	desc = "Wearing sunglasses at night makes you look cool."
 	icon_state = "sun"
 	inhand_icon_state = "glasses"
 	darkness_view = 1

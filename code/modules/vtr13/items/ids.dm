@@ -68,7 +68,7 @@
 /obj/item/card/id/barista
 	name = "barista badge"
 	id_type_name = "barista badge"
-	desc = "A nametag and ID identifying the wearer as a barista at Elge's yet-to-be-named Coffee Shop."
+	desc = "A nametag and ID identifying the wearer as a barista at the local coffee shop."
 	icon = 'icons/wod13/items.dmi'
 	icon_state = "id2"
 	inhand_icon_state = "card-id"

@@ -26,10 +26,6 @@
 	display_name = "luxury suitskirt, black"
 	path = /obj/item/clothing/under/vampire/ventrue/female
 
-/datum/gear/uniform/suit/formal_white
-	display_name = "plain suit, white"
-	path = /obj/item/clothing/under/vampire/office
-
 /datum/gear/uniform/suit/formal_burgundy
 	display_name = "plain suit, burgundy"
 	path = /obj/item/clothing/under/vampire/tremere
@@ -45,6 +41,10 @@
 /datum/gear/uniform/suit/plain_black_skirt
 	display_name = "plain suitskirt, black"
 	path = /obj/item/clothing/under/vampire/suit/female
+
+/datum/gear/uniform/suit/formal_white
+	display_name = "plain suit, disheveled"
+	path = /obj/item/clothing/under/vampire/office
 
 /datum/gear/uniform/suit/plain_red
 	display_name = "plain suit, red"
@@ -68,19 +68,17 @@
 	path = /obj/item/clothing/under/vampire/archivist
 
 /datum/gear/uniform/suit/plain_brown_skirt
-	display_name = "plain suit, brown"
+	display_name = "plain suitskirt, brown"
 	description = "Some business clothes." // Consistency!
 	path = /obj/item/clothing/under/vampire/archivist/female
 
 /datum/gear/uniform/suit/prince
 	display_name = "prince suit"
 	path = /obj/item/clothing/under/vampire/prince
-	allowed_roles = list("Prince")
 
 /datum/gear/uniform/suit/prince_skirt
 	display_name = "prince suitskirt"
 	path = /obj/item/clothing/under/vampire/prince/female
-	allowed_roles = list("Prince")
 
 // Skirt
 /datum/gear/uniform/skirt
@@ -97,7 +95,6 @@
 
 /datum/gear/uniform/turtleneck/black
 	display_name = "turtleneck, black"
-	description = "A black turtleneck" // Consistency!
 	path = /obj/item/clothing/under/vampire/turtleneck_black
 
 /datum/gear/uniform/turtleneck/navy
@@ -110,7 +107,7 @@
 
 /datum/gear/uniform/turtleneck/white
 	display_name = "turtleneck, white"
-	description = "A white turtleneck" // Consistency!
+	description = "A white turtleneck with black pants." // Consistency!
 	path = /obj/item/clothing/under/vampire/turtleneck_white
 
 // Pants
@@ -145,7 +142,6 @@
 
 /datum/gear/uniform/flamboyant_female
 	display_name = "outfit, flamboyant female"
-	description = "	Some sexy clothes." // Consistency!
 	path = /obj/item/clothing/under/vampire/toreador/female
 
 /datum/gear/uniform/sexy
@@ -263,18 +259,16 @@
 /datum/gear/uniform/baron
 	display_name = "red shirt"
 	path = /obj/item/clothing/under/vampire/bar
-	allowed_roles = list("Baron")
 
 /datum/gear/uniform/baron_female
 	display_name = "red skirt"
 	path = /obj/item/clothing/under/vampire/bar/female
-	allowed_roles = list("Baron")
 
 /datum/gear/uniform/gray_attire
 	display_name = "grey attire"
 	path = /obj/item/clothing/under/vampire/salubri
 
-/datum/gear/uniform/gray_attire
+/datum/gear/uniform/gray_attire_female
 	display_name = "grey attire (female)"
 	path = /obj/item/clothing/under/vampire/salubri/female
 
@@ -282,7 +276,7 @@
 	display_name = "moody attire"
 	path = /obj/item/clothing/under/vampire/vtr/scenemoody
 
-/datum/gear/uniform/pim
-	display_name = "pim attire"
+/datum/gear/uniform/zim
+	display_name = "zim attire"
 	path = /obj/item/clothing/under/vampire/vtr/scenezim
 

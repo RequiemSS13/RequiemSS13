@@ -27,7 +27,6 @@
 
 /datum/gear/suit/coat/black
 	display_name = "coat, black"
-	description = "A warm and heavy brown coat." // Consistency!
 	path = /obj/item/clothing/suit/vampire/coat/winter
 
 /datum/gear/suit/coat/red
@@ -80,12 +79,10 @@
 
 /datum/gear/suit/trenchcoat/black
 	display_name = "trenchcoat, black"
-	description = "Best noir clothes for night."
 	path = /obj/item/clothing/suit/vampire/trench
 
 /datum/gear/suit/trenchcoat/brown
 	display_name = "trenchcoat, brown"
-	description = "Best noir clothes for night."
 	path = /obj/item/clothing/suit/vampire/trench/alt
 
 /datum/gear/suit/trenchcoat/burgundy
@@ -101,7 +98,7 @@
 	path = /obj/item/clothing/suit/hooded/hoodie
 
 /datum/gear/suit/hoodie/pim
-	display_name = "hoodie, intruder pim"
+	display_name = "hoodie, scene character"
 	path = /obj/item/clothing/suit/hooded/hoodie/hoodie_pim
 
 // Misc
