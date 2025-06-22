@@ -25,7 +25,7 @@
 	inhand_icon_state = "black_coat"
 
 /obj/item/clothing/suit/vampire/vtr/det_trench
-	name = "brown trenchcoat"
+	name = "classic trenchcoat"
 	desc = "A rugged brown trenchcoat for the less-than-modern investigator."
 	icon_state = "detective"
 	inhand_icon_state = "detective"

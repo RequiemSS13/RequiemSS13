@@ -172,11 +172,11 @@
 	inhand_icon_state = "darkreddress"
 
 /obj/item/clothing/under/vampire/vtr/skirt/outfit
-	name = "black skirt"
-	desc = "A black skirt, very fancy!"
+	name = "red skirt"
+	desc = "A red skirt with a black jacket, very fancy!"
 	lefthand_file = 'icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/clothing_righthand.dmi'
-	icon_state = "blackskirt"
+	icon_state = "redskirt_jacket"
 	inhand_icon_state = "blackskirt"
 	body_parts_covered = CHEST|GROIN|ARMS
 
