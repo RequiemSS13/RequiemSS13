@@ -34,5 +34,10 @@
 		new /datum/data/retail_product("popular outfit", /obj/item/clothing/under/vampire/vtr/scenepink, 20),
 		new /datum/data/retail_product("punk outfit",	/obj/item/clothing/under/vampire/emo,	20),
 		new /datum/data/retail_product("red hipster outfit",	/obj/item/clothing/under/vampire/red,	20),
-		new /datum/data/retail_product("revealing outfit", /obj/item/clothing/under/vampire/vtr/sceneleopard, 20)
+		new /datum/data/retail_product("revealing outfit", /obj/item/clothing/under/vampire/vtr/sceneleopard, 20),
+		new /datum/data/retail_product("black choker", /obj/item/clothing/neck/vtr/choker, 20),
+		new /datum/data/retail_product("silver choker", /obj/item/clothing/neck/vtr/choker/silver, 20),
+		new /datum/data/retail_product("leather collar", /obj/item/clothing/neck/vtr/choker/collar, 50),
+		new /datum/data/retail_product("fancy leather collar", /obj/item/clothing/neck/vtr/choker/collar/leatherg, 75),
+		new /datum/data/retail_product("stainless steel collar", /obj/item/clothing/neck/vtr/choker/collar/steel, 100)
 	)
