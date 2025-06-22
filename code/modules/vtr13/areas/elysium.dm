@@ -3,7 +3,6 @@
 
 /area/vtm/vtr/elysium/interior
 	name = "Elysium Interior"
-	ambience_index = AMBIENCE_INTERIOR
 	upper = FALSE
 
 /area/vtm/vtr/elysium/interior/ground_floor

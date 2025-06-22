@@ -616,7 +616,7 @@
 	desc = "More instrument, than a weapon. Instrumentally cuts heads..."
 	icon = 'icons/wod13/weapons.dmi'
 	icon_state = "kosa"
-	force = 50
+	force = 30
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = null
 	block_chance = 12

@@ -3,5 +3,5 @@
 	icon_state = "camarilla"
 	music=/datum/vampiremusic/elysium_bar
 
-	ambiance_message = "this place GOTTA have a hot description. Elge fix dis or nix dis."
+	ambiance_message = "At the crown of The Kiss lies a den of monsters, masquerading as lords above the masses below. For a supposed sancturary, the gentle jazz does little to soothe the nerves, the tension in the air as thick as the smell of leather and potpourri."
 	id = "club_2"

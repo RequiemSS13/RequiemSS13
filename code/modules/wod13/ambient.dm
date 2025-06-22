@@ -11,7 +11,7 @@
 	var/wall_rating = VERY_HIGH_WALL_RATING
 
 /area/vtm
-	name = "San Francisco"
+	name = "Long Beach"
 	icon = 'icons/wod13/tiles.dmi'
 	icon_state = "sewer"
 	requires_power = FALSE

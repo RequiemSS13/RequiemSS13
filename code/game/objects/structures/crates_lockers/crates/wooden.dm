@@ -27,7 +27,7 @@
 	name = "community garden tools"
 	icon_state = "crate"
 	color = "#184e24"
-	desc = "It's marked with the San Francisco City Council stamp."
+	desc = "It's marked with the Long Beach City Council stamp."
 
 /obj/structure/closet/crate/wooden/communitygardens/tools/PopulateContents()
 	. = ..()
@@ -52,7 +52,7 @@
 	name = "community garden seeds"
 	icon_state = "crate"
 	color = "#184e24"
-	desc = "It's marked with the San Francisco City Council stamp."
+	desc = "It's marked with the Long Beach City Council stamp."
 
 /obj/structure/closet/crate/wooden/communitygardens/seeds/PopulateContents()
 	. = ..()
@@ -75,7 +75,7 @@
 	name = "community garden flower seeds"
 	icon_state = "crate"
 	color = "#184e24"
-	desc = "It's marked with the San Francisco City Council stamp."
+	desc = "It's marked with the Long Beach City Council stamp."
 
 /obj/structure/closet/crate/wooden/communitygardens/flower_seeds/PopulateContents()
 	. = ..()

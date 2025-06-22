@@ -3,7 +3,7 @@
 	icon_state = "anarch"
 	music = /datum/vampiremusic/forest
 
-	ambiance_message = "You enter the remains of a busisness that isn't one anymore. elge fix dis or nix dis"
+	ambiance_message = "Dust clings thick in the air, here, and to old lounge chairs and splintered wood. Somehow, even now, it smells faintly of coffee beans and old leather."
 	id = "street_level"
 
 
@@ -12,4 +12,4 @@
 	icon_state = "anarch"
 	music = /datum/vampiremusic/forest
 
-	ambiance_message = "You enter the remains of a busisness that isn't one anymore. elge fix dis or nix dis"
+	ambiance_message = "Dust clings thick in the air, here, and to old lounge chairs and splintered wood. Somehow, even now, it smells faintly of coffee beans and old leather."

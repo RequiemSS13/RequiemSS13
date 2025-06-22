@@ -22,9 +22,9 @@
 
 		if(!sender_override)
 			if(title == "")
-				GLOB.news_network.submit_article(text, "San Francisco City Council Update", "City Announcements", null)
+				GLOB.news_network.submit_article(text, "Long Beach City Council Update", "City Announcements", null)
 			else
-				GLOB.news_network.submit_article(title + "<br><br>" + text, "San Francisco City Council", "City Announcements", null)
+				GLOB.news_network.submit_article(title + "<br><br>" + text, "Long Beach City Council", "City Announcements", null)
 
 	announcement += "<br><span class='alert'>[html_encode(text)]</span><br>"
 	announcement += "<br>"

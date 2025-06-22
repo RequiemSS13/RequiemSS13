@@ -22,24 +22,26 @@
 	icon_state = "brujah_m"
 
 /obj/item/clothing/under/vampire/brujah/female
-	desc = "A sports bra and someblack sweat pants. Classy."
+	desc = "A sports bra and some black sweat pants. Classy."
 	icon_state = "brujah_f"
 
 /obj/item/clothing/under/vampire/gangrel
 	name = "Rugged attire"
-	desc = "Some hobo clothes."
+	desc = "An old sports jersey and some pants that were probably black when you bought them."
 	icon_state = "gangrel_m"
 
 /obj/item/clothing/under/vampire/gangrel/female
+	desc = "An old band tee-shirt and some thrifted purple jeans."
 	icon_state = "gangrel_f"
 
 /obj/item/clothing/under/vampire/malkavian
-	name = "Grimey pants"
-	desc = "Some macho-man pants."
+	name = "grimey pants"
+	desc = "Some worn, gross pants."
 	icon_state = "malkavian_m"
 
 /obj/item/clothing/under/vampire/malkavian/female
 	name = "schoolgirl attire"
+	desc = "You'd do numbers at ComiCon in this."
 	icon_state = "malkavian_f"
 
 /obj/item/clothing/under/vampire/nosferatu
@@ -53,35 +55,37 @@
 
 /obj/item/clothing/under/vampire/toreador
 	name = "flamboyant outfit"
-	desc = "Some sexy clothes."
+	desc = "A bright red button-up and gray jeans, great for a night at the right kind of club."
 	icon_state = "toreador_m"
 
 /obj/item/clothing/under/vampire/toreador/female
 	name = "dancer's offwear"
-	desc = "Do I look like your girlfriend?"
+	desc = "A purple croptop with purple sequined pants, great for a night at the right kind of club."
 	icon_state = "toreador_f"
 
 /obj/item/clothing/under/vampire/tremere
-	name = "burgundy suit"
-	desc = "Some weirdly tidy clothing."
+	name = "scarlet casual suit"
+	desc = "A provocative red jacket with black slacks."
 	icon_state = "tremere_m"
 
 /obj/item/clothing/under/vampire/tremere/female
-	name = "burgundy suit skirt"
+	name = "crushed velvet skirt"
+	desc = "A deeply questionable burgundy skirt with matching top."
 	icon_state = "tremere_f"
 
 /obj/item/clothing/under/vampire/ventrue
 	name = "brown luxury shirt"
-	desc = "Some rich clothes."
+	desc = "Some well-tailored clothes in a questionable brown-on-brown."
 	icon_state = "ventrue_m"
 
 /obj/item/clothing/under/vampire/ventrue/female
 	name = "brown luxury suit skirt"
+	desc = "A low-cut white shirt with a brown vest and most of a brown skirt. Should probably get that fixed."
 	icon_state = "ventrue_f"
 
 /obj/item/clothing/under/vampire/baali
 	name = "edgy outfit"
-	desc = "A red pentagram on a black t-shirt. If this doesn't protect your virginity, nothing will."
+	desc = "A red pentagram on a black t-shirt. Guarenteed to scare suburban moms."
 	icon_state = "baali_m"
 
 /obj/item/clothing/under/vampire/baali/female
@@ -107,17 +111,17 @@
 
 /obj/item/clothing/under/vampire/turtleneck_black
 	name = "black turtleneck"
-	desc = "By those in the know, it's called the Tactleneck, the premier clothing for secret agents."
+	desc = "A black turtleneck with khakis."
 	icon_state = "turtleneck_black"
 
 /obj/item/clothing/under/vampire/turtleneck_red
 	name = "red turtleneck"
-	desc = "A red turtleneck"
+	desc = "A red turtleneck with black pants."
 	icon_state = "turtleneck_red"
 
 /obj/item/clothing/under/vampire/turtleneck_navy
 	name = "navy turtleneck"
-	desc = "A navy turtleneck"
+	desc = "A navy turtleneck with dark gray pants."
 	icon_state = "turtleneck_navy"
 
 /obj/item/clothing/under/vampire/napoleon
@@ -136,7 +140,7 @@
 
 /obj/item/clothing/under/vampire/larry
 	name = "yellow tanktop"
-	desc = "I know I got a weight problem an' I just don't give a fuck!"
+	desc = "A faded yellow tank-top and jeans."
 	icon_state = "larry"
 
 /obj/item/clothing/under/vampire/bandit
@@ -146,7 +150,7 @@
 
 /obj/item/clothing/under/vampire/biker
 	name = "biker attire"
-	desc = "Some dirty clothes."
+	desc = "A tattered leather vest and rugged canvas pants."
 	icon_state = "biker"
 
 //USUAL
@@ -158,66 +162,66 @@
 
 /obj/item/clothing/under/vampire/sport
 	name = "red tracksuit"
-	desc = "Cheeki Breeki!"
+	desc = "A red tracksuit, great for working out or popping a squat outside the club."
 	icon_state = "sport"
 
 /obj/item/clothing/under/vampire/office
-	name = "white shirt"
-	desc = "Fuck off clean shirt."
+	name = "unprofessional clothing"
+	desc = "You look like you've had a rough night."
 	icon_state = "office"
 
 /obj/item/clothing/under/vampire/sexy
 	name = "purple outfit"
-	desc = "Some usual clothes."
+	desc = "A bright purple shirt with dark pants. Very stylish, three decades ago."
 	icon_state = "sexy"
 
 /obj/item/clothing/under/vampire/slickback
 	name = "slick suit"
-	desc = "Some slick-looking clothes."
+	desc = "A tan jacket with a blue undershirt and checkered pants. Call it 'avant-garde'."
 	icon_state = "slickback"
 
 /obj/item/clothing/under/vampire/burlesque
 	name = "burlesque outfit"
-	desc = "Some burlesque clothes."
+	desc = "Really doesn't leave much to the imagination."
 	icon_state = "burlesque"
 
 /obj/item/clothing/under/vampire/burlesque/daisyd
 	name = "daisy dukes"
-	desc = "Some short shorts."
+	desc = "Some really, really, really short shorts. Janties, more like."
 	icon_state = "daisyd"
 
 /obj/item/clothing/under/vampire/emo
 	name = "uncolorful attire"
-	desc = "Some usual clothes."
+	desc = "A black button-up and black pants. Too sad to have any color."
 	icon_state = "emo"
 
 //WOMEN
 
 /obj/item/clothing/under/vampire/black
 	name = "black croptop"
-	desc = "Some usual clothes."
+	desc = "A black crop-top with black pants."
 	icon_state = "black"
 
 /obj/item/clothing/under/vampire/red
 	name = "red croptop"
-	desc = "Some usual clothes."
+	desc = "A red crop-top with black pants."
 	icon_state = "red"
 
 /obj/item/clothing/under/vampire/gothic
 	name = "gothic getup"
-	desc = "Torn jeans and a black sweatshirt. Goth. Apperently."
+	desc = "Torn jeans and a black vest. Goth, apperently."
 	icon_state = "gothic"
 
 //PATRICK BATEMAN (High Society)
 
 /obj/item/clothing/under/vampire/rich
-	desc = "Some rich clothes."
-	name = "rich suit"
+	name = "black overcoat"
+	desc = "A black overcoat worn with black pants and a black undershirt. Stylish AND edgy!"
 	icon_state = "rich"
 
 /obj/item/clothing/under/vampire/business
 	name = "black dress"
-	desc = "Lesson number one, spelling the word business."
+	desc = "Most of a black dress. Can't you afford a tailor?"
 	icon_state = "business"
 
 //Homeless
@@ -260,38 +264,42 @@
 
 /obj/item/clothing/under/vampire/suit
 	name = "suit"
-	desc = "Some business clothes."
+	desc = "A black formal suit with red tie."
 	icon_state = "suit"
 
 /obj/item/clothing/under/vampire/suit/female
 	name = "suitskirt"
+	desc = "A black formal suit with red tie, worn with a skirt."
 	icon_state = "suit_f"
 
 /obj/item/clothing/under/vampire/sheriff
 	name = "red suit"
-	desc = "Some business clothes."
+	desc = "A dark red formal suit with black tie."
 	icon_state = "sheriff"
 
 /obj/item/clothing/under/vampire/sheriff/female
 	name = "red suitskirt"
+	desc = "A dark red formal suit with black tie, worn with a skirt."
 	icon_state = "sheriff_f"
 
 /obj/item/clothing/under/vampire/clerk
 	name = "blue suit"
-	desc = "Some business clothes."
+	desc = "A navy blue formal suit with black tie."
 	icon_state = "clerk"
 
 /obj/item/clothing/under/vampire/clerk/female
 	name = "blue suitskirt"
+	desc = "A navy blue formal suit with black tie, worn with a skirt."
 	icon_state = "clerk_f"
 
 /obj/item/clothing/under/vampire/prince
 	name = "fancy black suit"
-	desc = "It's not enough to attain power, one must also maintain power."
+	desc = "An incredibly well-tailored black suit. Compensates for receding hairlines."
 	icon_state = "prince"
 
 /obj/item/clothing/under/vampire/prince/female
 	name = "fancy black suitskirt"
+	desc = "An incredibly well-tailored black suit, for women. Progressive!"
 	icon_state = "prince_f"
 
 /obj/item/clothing/under/vampire/hound
@@ -301,20 +309,22 @@
 
 /obj/item/clothing/under/vampire/archivist
 	name = "brown and red suit"
-	desc = "I sure hope that a silly, poorly written series of events doesn't cause the Pyramid to blow up!"
+	desc = "A brown suit worn with a red undershirt and a black tie."
 	icon_state = "archivist"
 
 /obj/item/clothing/under/vampire/archivist/female
 	name = "brown and red suitskirt"
+	desc = "A brown suit worn with a red undershirt and a black tie. Also, a skirt."
 	icon_state = "archivist_f"
 
 /obj/item/clothing/under/vampire/bar
 	name = "red shirt"
-	desc = "Some maid clothes."
+	desc = "A dark red canvas jacket with grey slacks."
 	icon_state = "bar"
 
 /obj/item/clothing/under/vampire/bar/female
 	name = "red skirt"
+	desc = "A dark red canvas jacket with a pair of booty shorts. Unprogressive."
 	icon_state = "bar_f"
 
 /obj/item/clothing/under/vampire/bouncer
@@ -324,7 +334,7 @@
 
 /obj/item/clothing/under/vampire/supply
 	name = "cargo jumpsuit"
-	desc = "Caine lives? Nonono. Cargonia lives."
+	desc = "In every time, in every place: Cargonia remains."
 	icon_state = "supply"
 
 //PRIMOGEN
@@ -361,22 +371,22 @@
 
 /obj/item/clothing/under/vampire/primogen_toreador/female
 	name = "crimson red dress"
-	desc = "Some sexy rich lady clothes."
+	desc = "Most of a bright red dress. Can't you afford a tailor?"
 	icon_state = "toreador_female"
 
 /obj/item/clothing/under/vampire/fancy_gray
 	name = "fancy red suit"
-	desc = "A suit for a real business."
+	desc = "A red suit jacket, worn with jeans. You definitely look professional in this."
 	icon_state = "fancy_gray"
 
 /obj/item/clothing/under/vampire/fancy_red
 	name = "Fancy grey suit"
-	desc = "A suit for a real business."
+	desc = "A white shirt with bright red pants. You definitely look professional in this."
 	icon_state = "fancy_red"
 
 /obj/item/clothing/under/vampire/leatherpants
 	name = "leather pants"
-	desc = "A suit for a TRULY REAL business."
+	desc = "Shiny leather pants with no shirt. Kinky."
 	icon_state = "leather_pants"
 
 

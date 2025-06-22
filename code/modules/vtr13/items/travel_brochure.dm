@@ -34,7 +34,7 @@
 		render_pointer = FALSE
 	if(render_pointer)
 		pointer_overlay.pixel_x = (2.8*user.x)-60
-		pointer_overlay.pixel_y = (2.8*user.y)+390
+		pointer_overlay.pixel_y = (2.8*user.y)+460
 		map.overlays+=pointer_overlay
 	var/dat = {"
 			<style type="text/css">
@@ -48,5 +48,5 @@
 	dat += icon2html(getFlatIcon(map), user)
 	if(render_pointer)
 		map.overlays-=pointer_overlay
-	user << browse(dat, "window=map;size=550x1060;border=1;can_resize=0;can_minimize=0")
+	user << browse(dat, "window=map;size=550x1130;border=1;can_resize=0;can_minimize=0")
 	onclose(user, "map", src)

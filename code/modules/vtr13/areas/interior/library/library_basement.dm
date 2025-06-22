@@ -3,4 +3,4 @@
 	icon_state = "anarch"
 	music = /datum/vampiremusic/penumbra
 
-	ambiance_message = "spooky science. kine should know they're not supposed to be here. Elge fix dis or nix dis."
+	ambiance_message = "There are secrets that are not meant for you, and they wink at you here. These books are so ancient they crack at the touch, reflected in factory-fresh stainless steel."

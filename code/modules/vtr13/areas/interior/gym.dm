@@ -2,5 +2,5 @@
 	name = "Gym"
 	icon_state = "anarch"
 
-	ambiance_message = "GETTING CRUNKED NOISES, elge write or nix this"
+	ambiance_message = "The gym remained incredibly bright, all twenty-four hours of its operation. An incredibly strong scent of sweat from the day's patrons lingers even now, long into the night."
 	id = "street_level"

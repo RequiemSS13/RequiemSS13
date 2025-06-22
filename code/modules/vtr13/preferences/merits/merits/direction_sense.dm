@@ -40,7 +40,7 @@
 		to_chat(owner, span_notice("You recall where you are."))
 	if(render_pointer)
 		pointer_overlay.pixel_x = (2.8*owner.x)-60
-		pointer_overlay.pixel_y = (2.8*owner.y)+390
+		pointer_overlay.pixel_y = (2.8*owner.y)+460
 		map.overlays+=pointer_overlay
 	var/dat = {"
 			<style type="text/css">
@@ -54,5 +54,5 @@
 	dat += icon2html(getFlatIcon(map), owner)
 	if(render_pointer)
 		map.overlays-=pointer_overlay
-	owner << browse(dat, "window=map;size=550x1060;border=1;can_resize=0;can_minimize=0")
+	owner << browse(dat, "window=map;size=550x1130;border=1;can_resize=0;can_minimize=0")
 	onclose(owner, "map", src)

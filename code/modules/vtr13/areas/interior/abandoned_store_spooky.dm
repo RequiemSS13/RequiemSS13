@@ -3,7 +3,7 @@
 	icon_state = "anarch"
 	music = /datum/vampiremusic/forest
 
-	ambiance_message = "You enter the remains of a scorched kinkos. elge fix dis or nix dis"
+	ambiance_message = "Another foreclosure, barely paid enough mind to be boarded up properly. Perhaps they might give it more attention if they caught a whiff of the rot coming from below."
 	id = "street_level"
 
 /area/vtm/vtr/masquerade/interior/basement/northwest/abandoned_store_spooky
@@ -11,4 +11,4 @@
 	icon_state = "anarch"
 	music = /datum/vampiremusic/forest
 
-	ambiance_message = "You enter the remains of a scorched kinkos. elge fix dis or nix dis"
+	ambiance_message = "Another foreclosure, barely paid enough mind to be boarded up properly. Perhaps they might give it more attention if they caught a whiff of the rot coming from below."

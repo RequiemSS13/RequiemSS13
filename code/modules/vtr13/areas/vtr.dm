@@ -1,4 +1,6 @@
 /area/vtm/vtr
+
+	ambience_index = null
 	var/sector
 	var/ambiance_message
 

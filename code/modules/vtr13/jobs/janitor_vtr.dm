@@ -19,7 +19,7 @@
 
 	allowed_species = list("Vampire", "Ghoul", "Human")
 
-	v_duty = "Clean up all traces of Masquerade violations as the Camarilla has instructed you to. Elgeon fix this"
+	v_duty = "Clean up all traces of Masquerade violations on behalf of the Invictus."
 	duty = "Keep the streets clean. You are paid to keep your mouth shut about the things you see."
 
 /datum/outfit/job/janitor_vtr
