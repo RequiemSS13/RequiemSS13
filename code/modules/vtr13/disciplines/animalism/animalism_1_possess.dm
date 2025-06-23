@@ -37,13 +37,13 @@
 	possessed_creature = target
 	unpossess_datum = new(target, src)
 	unpossess_datum.Grant(target)
-	RegisterSignal(possessed_creature, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), PROC_REF(deactivate_trigger))
+	RegisterSignal(possessed_creature, list(COMSIG_PARENT_QDELETING, COMSIG_PARENT_PREQDELETED, COMSIG_LIVING_DEATH), PROC_REF(deactivate_trigger))
 	RegisterSignal(owner, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), PROC_REF(deactivate_trigger))
 	RegisterSignal(owner, COMSIG_POWER_TRY_ACTIVATE, PROC_REF(prevent_other_powers))
 
 /datum/discipline_power/vtr/animalism/possess/proc/deactivate_trigger(datum/source)
 	SIGNAL_HANDLER
-	try_deactivate()
+	deactivate()
 
 /datum/discipline_power/vtr/animalism/possess/deactivate()
 	. = ..()
