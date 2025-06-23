@@ -51,7 +51,7 @@
 	UnregisterSignal(possessed_creature, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH))
 	UnregisterSignal(owner, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH, COMSIG_POWER_TRY_ACTIVATE))
 	if(possessed_creature.mind)
-		possessed_creature.mind.transfer_to(owner)
+		possessed_creature.mind.transfer_to(owner, TRUE)
 
 	unpossess_datum.Remove(possessed_creature)
 	qdel(unpossess_datum)
