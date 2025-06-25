@@ -9,7 +9,7 @@
 	var/mob/living/simple_animal/possessed_creature = null
 
 	var/datum/action/unpossess/unpossess_datum = null
-
+	var/datum/mind/tracked_mind = null
 	range = 7
 
 /datum/discipline_power/vtr/animalism/possess/can_activate(mob/living/simple_animal/target, alert = FALSE)
@@ -33,6 +33,8 @@
 	if(istype(target, /mob/living/simple_animal/pet/rat))
 		var/mob/living/simple_animal/pet/rat/never_despawn_rat = target
 		never_despawn_rat.should_despawn = FALSE
+	
+	tracked_mind = owner.mind
 	owner.mind.transfer_to(target)
 	possessed_creature = target
 	unpossess_datum = new(target, src)
@@ -50,9 +52,9 @@
 
 	UnregisterSignal(possessed_creature, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH))
 	UnregisterSignal(owner, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH, COMSIG_POWER_TRY_ACTIVATE))
-	if(possessed_creature.mind)
-		possessed_creature.mind.transfer_to(owner, TRUE)
-
+	if(tracked_mind)
+		tracked_mind.transfer_to(owner, TRUE)
+	tracked_mind = null
 	unpossess_datum.Remove(possessed_creature)
 	qdel(unpossess_datum)
 	possessed_creature = null
