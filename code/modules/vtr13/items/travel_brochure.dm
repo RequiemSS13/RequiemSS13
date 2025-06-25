@@ -25,6 +25,7 @@
 	activated = TRUE
 	to_chat(user, span_notice("You begin reading the map..."))
 	if(!do_mob(user, user, 30)) //to prevent getflaticon spam
+		activated = FALSE
 		return
 	activated = FALSE
 	

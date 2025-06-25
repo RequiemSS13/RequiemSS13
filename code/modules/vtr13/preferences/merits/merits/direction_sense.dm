@@ -30,6 +30,7 @@
 		return
 	activated = TRUE
 	if(!do_mob(owner, owner, 3)) //to prevent getflaticon spam
+		activated = FALSE
 		return
 	activated = FALSE
 	var/render_pointer = TRUE
