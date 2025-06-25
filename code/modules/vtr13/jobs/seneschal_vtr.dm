@@ -45,8 +45,6 @@
 /datum/outfit/job/seneschal_vtr
 	name = "Seneschal"
 	jobtype = /datum/job/vamp/vtr/seneschal_vtr
-
-	ears = /obj/item/p25radio
 	id = /obj/item/card/id/seneschal_vtr
 	uniform =  /obj/item/clothing/under/vampire/prince
 	suit = /obj/item/clothing/suit/vampire/trench/alt/armored

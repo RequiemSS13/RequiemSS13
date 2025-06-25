@@ -43,9 +43,10 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 	sortTim(sorted_callsigns, /proc/cmp_numeric_asc)
 
 	for(var/callsign in sorted_callsigns)
+		var/obj/item/p25radio/radio = registered_callsigns[callsign]
 		data["registered_callsigns"] += list(list(
 			"callsign" = callsign,
-			"name" = registered_callsigns[callsign]
+			"name" = radio.alias
 		))
 
 	return data
@@ -86,7 +87,8 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 					sorted_callsigns += num
 			sortTim(sorted_callsigns, /proc/cmp_numeric_asc)
 			for(var/num in sorted_callsigns)
-				dat += "[num] - [registered_callsigns["[num]"]]<BR>"
+				var/obj/item/p25radio/radio = registered_callsigns["[num]"]
+				dat += "[num] - [radio.alias]<BR>"
 		else
 			dat += "No callsigns registered.<BR>"
 		dat += "</div>"
@@ -97,8 +99,8 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 
 	updateDialog()
 
-/obj/machinery/p25transceiver/proc/register_callsign(obj/item/p25radio/radio, callsign, mob/user)
-	if(!callsign || !istext(callsign))
+/obj/machinery/p25transceiver/proc/register_callsign(obj/item/p25radio/radio, callsign, alias, mob/user)
+	if(!callsign || !istext(callsign) || !alias || !istext(alias) || !length(alias))
 		return "Invalid callsign format"
 
 	var/validation_result = radio.register_callsign(callsign)
@@ -108,28 +110,24 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 	if(callsign in registered_callsigns)
 		return "Callsign [callsign] is already registered"
 
-	registered_callsigns[callsign] = user.real_name
+	registered_callsigns[callsign] = radio
 	radio.callsign = callsign
+	radio.alias = alias
 
 	if(istype(src, /obj/machinery/p25transceiver/police))
 		var/obj/machinery/p25transceiver/police/P = src
 		P.announce_status(radio, user, TRUE)
 
-	return "Successfully registered callsign [callsign]"
+	return "Successfully registered callsign [callsign], alias [alias]"
 
 /obj/machinery/p25transceiver/proc/unregister_callsign(obj/item/p25radio/radio)
 	if(radio.callsign)
 		if(istype(src, /obj/machinery/p25transceiver/police))
 			var/obj/machinery/p25transceiver/police/P = src
-			var/mob/user = null
-			for(var/mob/M in get_hearers_in_view(1, get_turf(radio)))
-				if(M.real_name == registered_callsigns[radio.callsign])
-					user = M
-					break
-			if(user)
-				P.announce_status(radio, user, FALSE)
-		registered_callsigns -= radio.callsign
+			P.announce_status(radio, FALSE)
+		registered_callsigns -= radio
 		radio.callsign = null
+		radio.alias = null
 
 /obj/machinery/p25transceiver/attack_hand(mob/user)
 	if(HAS_TRAIT(user, TRAIT_ARCHAIC))
@@ -154,11 +152,14 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 			to_chat(user, "<span class='notice'>You unlink [W] from [src].</span>")
 			return
 
-		var/new_callsign = input(user, "Enter a callsign for this radio:", "Register Callsign") as text|null
+		var/new_callsign = tgui_input_text(user, "Enter a callsign for this radio:", "Register Callsign", null, 3, FALSE, FALSE)
+		var/new_alias = tgui_input_text(user, "Enter an alias for this radio:", "Register Alias", null, 10, FALSE, TRUE)
 		if(!new_callsign)
 			return
-		var/registration_result = register_callsign(radio, new_callsign, user)
-		if(registration_result != "Successfully registered callsign [new_callsign]")
+		if(!new_alias)
+			return
+		var/registration_result = register_callsign(radio, new_callsign, new_alias, user)
+		if(registration_result != "Successfully registered callsign [new_callsign], alias [new_alias]")
 			to_chat(user, "<span class='warning'>[registration_result]</span>")
 			return
 
@@ -248,12 +249,15 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 			to_chat(user, "<span class='notice'>You unlink [W] from [src].</span>")
 			return
 
-		var/new_callsign = input(user, "Enter a callsign for this radio:", "Register Callsign") as text|null
+		var/new_callsign = tgui_input_text(user, "Enter a callsign for this radio:", "Register Callsign", null, 3, FALSE, FALSE)
+		var/new_alias = tgui_input_text(user, "Enter an alias for this radio:", "Register Alias", null, 10, FALSE, TRUE)
 		if(!new_callsign)
 			return
+		if(!new_alias)
+			return
 		var/registration_result = transceiver.register_callsign(radio, new_callsign, user)
-		if(registration_result != "Successfully registered callsign [new_callsign]")
-			to_chat(user, "<span class='warning'>[registration_result]</span>")
+		if(registration_result != "Successfully registered callsign [new_callsign], alias [new_alias]")
+			to_chat(user, "<span class='warning'>Failure: [registration_result]</span>")
 			return
 
 		radio.linked_network = transceiver.p25_network
@@ -315,42 +319,48 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 			dat += "<B>Command (1-9):</B><BR>"
 			sortTim(command_signs, /proc/cmp_numeric_asc)
 			for(var/num in command_signs)
-				dat += "[num] - [registered_callsigns["[num]"]]<BR>"
+				var/obj/item/p25radio/radio = registered_callsigns["[num]"]
+				dat += "[num] - [radio.alias]<BR>"
 			dat += "<BR>"
 
 		if(length(supervisor_signs))
 			dat += "<B>Supervisors (10-99):</B><BR>"
 			sortTim(supervisor_signs, /proc/cmp_numeric_asc)
 			for(var/num in supervisor_signs)
-				dat += "[num] - [registered_callsigns["[num]"]]<BR>"
+				var/obj/item/p25radio/radio = registered_callsigns["[num]"]
+				dat += "[num] - [radio.alias]<BR>"
 			dat += "<BR>"
 
 		if(length(patrol_signs))
 			dat += "<B>Patrol (100-499):</B><BR>"
 			sortTim(patrol_signs, /proc/cmp_numeric_asc)
 			for(var/num in patrol_signs)
-				dat += "[num] - [registered_callsigns["[num]"]]<BR>"
+				var/obj/item/p25radio/radio = registered_callsigns["[num]"]
+				dat += "[num] - [radio.alias]<BR>"
 			dat += "<BR>"
 
 		if(length(dispatch_signs))
 			dat += "<B>Dispatch (500-599):</B><BR>"
 			sortTim(dispatch_signs, /proc/cmp_numeric_asc)
 			for(var/num in dispatch_signs)
-				dat += "[num] - [registered_callsigns["[num]"]]<BR>"
+				var/obj/item/p25radio/radio = registered_callsigns["[num]"]
+				dat += "[num] - [radio.alias]<BR>"
 			dat += "<BR>"
 
 		if(length(tactical_signs))
 			dat += "<B>Tactical (600-699):</B><BR>"
 			sortTim(tactical_signs, /proc/cmp_numeric_asc)
 			for(var/num in tactical_signs)
-				dat += "[num] - [registered_callsigns["[num]"]]<BR>"
+				var/obj/item/p25radio/radio = registered_callsigns["[num]"]
+				dat += "[num] - [radio.alias]<BR>"
 			dat += "<BR>"
 
 		if(length(government_signs))
 			dat += "<B>Government (700-799):</B><BR>"
 			sortTim(government_signs, /proc/cmp_numeric_asc)
 			for(var/num in government_signs)
-				dat += "[num] - [registered_callsigns["[num]"]]<BR>"
+				var/obj/item/p25radio/radio = registered_callsigns["[num]"]
+				dat += "[num] - [radio.alias]<BR>"
 			dat += "<BR>"
 
 		if(!length(registered_callsigns))
@@ -416,7 +426,7 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 		var/formatted = "[icon2html(src, world)]\[<b>DISPATCH</b>\]: <span class='robot'>[message]</span>"
 		broadcast_to_network(formatted, "police", 'sound/effects/radioclick.ogg', 10, TRUE)
 
-/obj/machinery/p25transceiver/police/proc/announce_status(obj/item/p25radio/radio, mob/user, connecting)
+/obj/machinery/p25transceiver/police/proc/announce_status(obj/item/p25radio/radio, connecting)
 	if(!active || !radio.callsign)
 		return
 
@@ -429,7 +439,7 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 	else
 		return
 
-	var/status_message = "[icon2html(src, world)]\[<b>DISPATCH</b>\]: <span class='robot'>[radio.callsign], [user.real_name], is [connecting ? "10-8" : "10-7"].</span>"
+	var/status_message = "[icon2html(src, world)]\[<b>DISPATCH</b>\]: <span class='robot'>[radio.callsign], [radio.alias] is [connecting ? "10-8" : "10-7"].</span>"
 	broadcast_to_network(status_message, "police")
 
 // ==============================
@@ -445,6 +455,7 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_EARS
 	worn_icon = "blank" // needed so that weird pink default thing doesn't show up
 	worn_icon_state = "blank" // needed so that weird pink default thing doesn't show up
+	var/alias //name you are using the radio as
 	var/linked_network = null
 	var/obj/machinery/p25transceiver/linked_transceiver = null
 	var/callsign = null
@@ -487,6 +498,8 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 			return "Clinic Radio Transceiver"
 		if("tower")
 			return "Tower Radio Transceiver"
+		if("kiss")
+			return "Kiss Nightclub Radio Transceiver"
 		else
 			return "Radio Transceiver"
 
@@ -522,7 +535,7 @@ GLOBAL_LIST_EMPTY(p25_tranceivers)
 	if(!callsign)
 		return "[icon2html(src, world)] \[UNREGISTERED\]: <span class='robot'>\"[message]\"</span>"
 	var/prefix = get_prefix()
-	return "[icon2html(src, world)] \[<b>[prefix]-[callsign]</b>\]: <span class='robot'>\"[message]\"</span>"
+	return "[icon2html(src, world)] \[<b>[prefix]-[callsign]-[alias]</b>\]: <span class='robot'>\"[message]\"</span>"
 
 /obj/item/p25radio/proc/can_receive(atom/movable/speaker, message_mods)
 	if(!powered)

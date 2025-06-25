@@ -5,7 +5,6 @@
 	var/t_his = p_their()
 	var/t_has = p_have()
 	var/t_is = p_are()
-	var/t_him = p_them()
 	var/obscured = check_obscured_slots()
 	. = list()
 	//uniform

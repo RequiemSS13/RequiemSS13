@@ -29,7 +29,7 @@
 /datum/outfit/job/keeper
 	name = "Keeper of Elysium"
 	jobtype = /datum/job/vamp/vtr/keeper
-
+	ears = /obj/item/p25radio
 	id = /obj/item/card/id/keeper
 	uniform = /obj/item/clothing/under/vampire/suit
 	shoes = /obj/item/clothing/shoes/vampire

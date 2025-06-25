@@ -31,7 +31,6 @@
 	name = "Page"
 	jobtype = /datum/job/vamp/vtr/page
 
-	ears = /obj/item/p25radio
 	id = /obj/item/card/id/page
 	uniform = /obj/item/clothing/under/vampire/clerk
 	shoes = /obj/item/clothing/shoes/vampire/brown
