@@ -324,6 +324,8 @@
 			if(result)
 				var/newtype = GLOB.clanes_list[result]
 				regent_clan = new newtype()
+				discipline_types.Cut()
+				discipline_levels.Cut()
 				for (var/disc_type in regent_clan.clane_disciplines)
 					discipline_types.Add(disc_type)
 					discipline_levels.Add(0)
