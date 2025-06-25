@@ -283,7 +283,10 @@
 				clane = new newtype()
 				vamp_rank = VAMP_RANK_NEONATE
 				adjust_blood_potency()
+				
 				all_merits.Cut()
+				merit_custom_settings.Cut()
+
 				discipline_types = list()
 				discipline_levels = list()
 				for (var/disc_type in clane.clane_disciplines)
@@ -483,7 +486,10 @@
 			qdel(choose_species)
 
 			if(result && result != pref_species.id)
+				
 				all_merits.Cut()
+				merit_custom_settings.Cut()
+				
 				auspice_level = 0
 				qdel(clane)
 				clane = null
