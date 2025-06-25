@@ -45,8 +45,15 @@ SUBSYSTEM_DEF(city_time)
 		SSticker.declare_completion(SSticker.force_ending)
 		Master.SetRunLevel(RUNLEVEL_POSTGAME)
 		for(var/mob/living/carbon/human/H in GLOB.human_list)
+			if(!iskindred(H))
+				continue
+
 			var/area/vtm/V = get_area(H)
 			if(!V?.upper)
 				continue
-			if(iskindred(H))
-				H.death()
+
+			var/turf/ceiling = get_step_multiz(src, UP)
+			if(ceiling && !istransparentturf(ceiling))
+				continue
+
+			H.death()
