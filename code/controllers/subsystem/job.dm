@@ -71,8 +71,9 @@ SUBSYSTEM_DEF(job)
 	var/datum/job/job = GetJob(rank)
 	if(!job)
 		return FALSE
-	if (mob?.dna?.species && job.species_slots[mob.dna.species.name] >= 0)
-		job.species_slots[mob.dna?.species.name]++
+	var/species_name = mob?.client?.prefs?.pref_species?.name
+	if (species_name && (job.species_slots_base[species_name]) && job.species_slots[species_name] >= 0)
+		job.species_slots[species_name] = min(job.species_slots_base[species_name], job.species_slots[species_name] + 1)
 	job.current_positions = max(0, job.current_positions - 1)
 
 /datum/controller/subsystem/job/proc/GetJob(rank)
@@ -89,8 +90,10 @@ SUBSYSTEM_DEF(job)
 	JobDebug("Running AR, Player: [player], Rank: [rank], LJ: [latejoin]")
 	if(player?.mind && rank)
 		var/bypass = FALSE
+		/*
 		if (check_rights_for(player.client, R_ADMIN))
 			bypass = TRUE
+			*/
 		var/datum/job/vamp/vtr/job = GetJob(rank)
 		if(!job)
 			return FALSE
@@ -106,7 +109,7 @@ SUBSYSTEM_DEF(job)
 			return FALSE
 		if(!job.allowed_species.Find(player.client.prefs.pref_species.name) && !bypass)
 			return FALSE
-		if ((job.species_slots[player.client.prefs.pref_species.name] == 0) && !bypass)
+		if ((job.species_slots_base[player.client.prefs.pref_species.name]) && (job.species_slots[player.client.prefs.pref_species.name] == 0) && !bypass)
 			return FALSE
 		var/position_limit = job.total_positions
 		if(!latejoin)
@@ -114,7 +117,7 @@ SUBSYSTEM_DEF(job)
 		JobDebug("Player: [player] is now Rank: [rank], JCP:[job.current_positions], JPL:[position_limit]")
 		player.mind.assigned_role = rank
 		unassigned -= player
-		if ((job.species_slots[player.client.prefs.pref_species.name] > 0) && !bypass)
+		if ((job.species_slots_base[player.client.prefs.pref_species.name]) && (job.species_slots[player.client.prefs.pref_species.name] > 0) && !bypass)
 			job.species_slots[player.client.prefs.pref_species.name]--
 		job.current_positions++
 		return TRUE
@@ -147,7 +150,7 @@ SUBSYSTEM_DEF(job)
 		if(!job.allowed_species.Find(player.client.prefs.pref_species.name) && !bypass)
 			JobDebug("FOC player species not allowed, Player: [player]")
 			continue
-		if((job.species_slots[player.client.prefs.pref_species.name] == 0) && !bypass)
+		if((job.species_slots_base[player.client.prefs.pref_species.name]) && (job.species_slots[player.client.prefs.pref_species.name] == 0) && !bypass)
 			JobDebug("FOC player species limit overrun, Player: [player]")
 			continue
 
@@ -202,7 +205,7 @@ SUBSYSTEM_DEF(job)
 			JobDebug("GRJ player species not allowed, Player: [player]")
 			continue
 
-		if(job.species_slots[player.client.prefs.pref_species.name] == 0)
+		if((job.species_slots_base[player.client.prefs.pref_species.name]) && job.species_slots[player.client.prefs.pref_species.name] == 0)
 			JobDebug("GRJ player species limit overrun, Player: [player]")
 			continue
 
@@ -402,7 +405,7 @@ SUBSYSTEM_DEF(job)
 					JobDebug("DO player species not allowed, Player: [player]")
 					continue
 
-				if((job.species_slots[player.client.prefs.pref_species.name] == 0) && !bypass)
+				if((job.species_slots_base[player.client.prefs.pref_species.name]) && (job.species_slots[player.client.prefs.pref_species.name] == 0) && !bypass)
 					JobDebug("DO player species limit overrun, Player: [player]")
 					continue
 

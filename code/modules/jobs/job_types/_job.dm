@@ -78,10 +78,10 @@
 
 	///List of species that are allowed to do this job.
 	var/list/allowed_species = list("Vampire")
+
 	///List of species that are limited to a certain amount of that species doing this job.
-	var/list/species_slots = list()
-	///List of Bloodlines that are allowed to do this job.
-	var/list/allowed_bloodlines = null
+	var/list/species_slots_base = list()
+	var/list/species_slots
 
 	// List for phone shit
 	var/my_contact_is_important = FALSE
@@ -105,6 +105,8 @@
 		spawn_positions = jobs_changes["spawn_positions"]
 	if(isnum(jobs_changes["total_positions"]))
 		total_positions = jobs_changes["total_positions"]
+	
+	species_slots = species_slots_base.Copy()
 
 //Only override this proc
 //H is usually a human unless an /equip override transformed it

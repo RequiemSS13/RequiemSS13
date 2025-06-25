@@ -15,7 +15,7 @@
 	exp_type_department = EXP_TYPE_POLICE
 
 	allowed_species = list("Ghoul", "Human")
-	species_slots = list("Ghoul" = 1)
+	species_slots_base = list("Ghoul" = 1)
 
 	duty = "Enforce the Law."
 	my_contact_is_important = FALSE
