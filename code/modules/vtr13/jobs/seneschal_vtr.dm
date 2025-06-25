@@ -27,8 +27,6 @@
 
 	minimum_vamp_rank = VAMP_RANK_ANCILLAE
 	allowed_species = list("Vampire")
-	allowed_bloodlines = list("Ventrue", "Daeva", "Mekhet", "Nosferatu", "Gangrel")
-
 	my_contact_is_important = TRUE
 	known_contacts = list(
 		"Page",

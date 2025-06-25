@@ -2,7 +2,7 @@
 	var/minimum_vamp_rank = 0	//minimum vampire rank for a position
 	var/endorsement_required = FALSE	//does this job work with the endorsement system
 
-/datum/job/after_spawn(mob/living/H, mob/M, latejoin = FALSE)
+/datum/job/vamp/vtr/after_spawn(mob/living/H, mob/M, latejoin = FALSE)
 	. = ..()
 	var/list/gear_leftovers
 
