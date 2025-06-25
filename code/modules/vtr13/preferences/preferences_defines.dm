@@ -181,7 +181,7 @@
 	var/persistent_scars = TRUE			/// If we have persistent scars enabled
 	var/reason_of_death = "None"
 
-	var/joblessrole = BERANDOMJOB		//defaults to BERANDOMJOB for fewer assistants
+	var/joblessrole = RETURNTOLOBBY		//defaults to BERANDOMJOB for fewer assistants
 	var/list/job_preferences = list()	//Job preferences 2.0 - indexed by job title , no key or value implies never
 	var/list/alt_titles_preferences = list()
 
