@@ -50,12 +50,12 @@
 /datum/discipline_power/vtr/animalism/possess/deactivate()
 	. = ..()
 
-	UnregisterSignal(possessed_creature, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH))
+	UnregisterSignal(possessed_creature, list(COMSIG_PARENT_QDELETING, COMSIG_PARENT_PREQDELETED, COMSIG_LIVING_DEATH))
 	UnregisterSignal(owner, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH, COMSIG_POWER_TRY_ACTIVATE))
 	if(tracked_mind)
 		tracked_mind.transfer_to(owner, TRUE)
 	tracked_mind = null
-	unpossess_datum.Remove(possessed_creature)
+
 	qdel(unpossess_datum)
 	possessed_creature = null
 
