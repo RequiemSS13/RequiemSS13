@@ -105,7 +105,7 @@
 		layer = OPEN_DOOR_LAYER
 		to_chat(user, "<span class='notice'>You open [src].</span>")
 		closed = FALSE
-		door_moving = FALSE
+	door_moving = FALSE
 
 /obj/structure/vaultdoor/proc/close_door(mob/user)
 	for(var/atom/movable/door_blocker in src.loc)
@@ -121,7 +121,7 @@
 		layer = ABOVE_ALL_MOB_LAYER
 		to_chat(user, "<span class='notice'>You close [src].</span>")
 		closed = TRUE
-		door_moving = FALSE
+	door_moving = FALSE
 
 /obj/structure/vaultdoor/proc/is_locked()
 	return combination_locked || pincode_locked
