@@ -103,7 +103,7 @@ SUBSYSTEM_DEF(job)
 			return FALSE
 		if(job.required_playtime_remaining(player.client) && !bypass)
 			return FALSE
-		if(job.minimum_vamp_rank && (player.client.prefs.vamp_rank >= job.minimum_vamp_rank) && !bypass)
+		if(job.minimum_vamp_rank && (player.client.prefs.vamp_rank < job.minimum_vamp_rank) && !bypass)
 			return FALSE
 		if((player.client.prefs.masquerade < job.minimal_masquerade) && !bypass)
 			return FALSE
