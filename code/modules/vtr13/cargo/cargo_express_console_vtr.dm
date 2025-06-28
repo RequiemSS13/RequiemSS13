@@ -210,7 +210,7 @@
 
 
 /obj/machinery/computer/cargo/express_vtr/proc/deliver_cargo()
-
+	processing_order = FALSE
 	var/LZ = get_turf(beacon)
 	
 
@@ -248,7 +248,6 @@
 			spawn(trackLength * 1.2)
 				qdel(truck)
 		order_queue = list()
-		processing_order = FALSE
 	return
 
 
