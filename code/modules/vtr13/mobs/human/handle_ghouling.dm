@@ -31,6 +31,7 @@
 				BLOODBONDED_prefs_g.discipline_levels.Cut(index, index + 1)
 	BLOODBONDED_prefs_g.pref_species.name = "Ghoul"
 	BLOODBONDED_prefs_g.pref_species.id = "ghoul"
+	BLOODBONDED_prefs_g.vamp_rank = VAMP_RANK_GHOUL
 	BLOODBONDED_prefs_g.save_character()
 
 	return TRUE

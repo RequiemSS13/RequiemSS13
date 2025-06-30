@@ -49,5 +49,5 @@
 	dat += icon2html(getFlatIcon(map), user)
 	if(render_pointer)
 		map.overlays-=pointer_overlay
-	user << browse(dat, "window=map;size=550x1130;border=1;can_resize=0;can_minimize=0")
+	user << browse(dat, "window=map;size=550x550;border=1;can_resize=0;can_minimize=0")
 	onclose(user, "map", src)
