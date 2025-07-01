@@ -16834,7 +16834,7 @@
 "nZX" = (
 /obj/structure/bonfire/prelit{
 	burn_icon = "campfire_on";
-	icon = 'code/modules/wod13/props.dmi';
+	icon = 'icons/wod13/props.dmi';
 	icon_state = "campfire_off"
 	},
 /turf/open/floor/plating/vampbeach,
@@ -22699,9 +22699,7 @@
 /turf/open/floor/plating/vampplating/stone,
 /area/vtm/vtr/elysium/interior/ground_floor/central/castle_elysium)
 "sJu" = (
-/obj/structure/vampdoor/glass{
-	icon_state = s
-	},
+/obj/structure/vampdoor/glass,
 /turf/open/floor/sepia,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/bakery)
 "sJP" = (
