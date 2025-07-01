@@ -6036,10 +6036,7 @@
 /turf/open/floor/plating/vampplating,
 /area/vtm/vtr/masquerade/exterior/ground_floor/northeast/graveyard)
 "eVh" = (
-/obj/structure/window_frame/theater/reinforced{
-	curtain_dir = 2
-	},
-/turf/open/floor/plating/vampplating,
+/turf/closed/wall/vampwall/rust/porthole,
 /area/vtm/vtr/masquerade/interior/basement/southeast/queen_lilith)
 "eVi" = (
 /obj/effect/turf_decal/siding/wideplating{
@@ -9493,12 +9490,6 @@
 /obj/structure/dresser,
 /turf/open/floor/plating/parquetry,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/hotel)
-"hNQ" = (
-/obj/structure/window_frame/theater/reinforced{
-	curtain_dir = 1
-	},
-/turf/open/floor/plating/vampplating,
-/area/vtm/vtr/masquerade/interior/basement/southeast/queen_lilith)
 "hNR" = (
 /obj/machinery/light/prince{
 	dir = 8
@@ -14100,9 +14091,8 @@
 /turf/open/floor/plating/vampplating,
 /area/vtm/vtr/elysium/interior/ground_floor/central/castle_elysium)
 "lUf" = (
-/obj/effect/decal/wallpaper/red/low,
-/obj/structure/window_frame/theater/reinforced,
-/turf/open/floor/carpet,
+/obj/effect/decal/wallpaper/red/porthole,
+/turf/closed/wall/vampwall/metal/porthole,
 /area/vtm/vtr/masquerade/interior/floor_two/southeast/queen_lilith)
 "lUj" = (
 /obj/effect/turf_decal/siding/wood{
@@ -14220,9 +14210,8 @@
 /turf/open/floor/plating/vampbeach,
 /area/vtm/vtr/masquerade/exterior/basement/southeast/alamitos_beach)
 "lZc" = (
-/obj/effect/decal/wallpaper/paper/rich/low,
-/obj/structure/window_frame/theater/reinforced,
-/turf/open/floor/plating/parquetry/old,
+/obj/effect/decal/wallpaper/paper/rich/porthole,
+/turf/closed/wall/vampwall/metal/porthole,
 /area/vtm/vtr/masquerade/interior/ground_floor/southeast/queen_lilith)
 "lZp" = (
 /turf/closed/wall/vampwall/rich/low/window/reinforced,
@@ -14999,7 +14988,7 @@
 /turf/open/floor/sepia,
 /area/vtm/vtr/masquerade/interior/ground_floor/southeast/baco_tell)
 "mGg" = (
-/obj/structure/window_frame/theater/reinforced,
+/turf/closed/wall/vampwall/metal/porthole,
 /turf/open/floor/carpet,
 /area/vtm/vtr/masquerade/interior/floor_two/southeast/queen_lilith)
 "mGB" = (
@@ -23263,9 +23252,8 @@
 /turf/closed/wall/vampwall/city/low,
 /area/vtm/vtr/masquerade/exterior/ground_floor/northeast/graveyard)
 "tiK" = (
-/obj/effect/decal/wallpaper/paper/rich/low,
-/obj/structure/window_frame/theater/reinforced,
-/turf/open/floor/plating/parquetry/old,
+/obj/effect/decal/wallpaper/paper/rich/porthole,
+/turf/closed/wall/vampwall/metal/porthole,
 /area/vtm/vtr/masquerade/interior/floor_two/southeast/queen_lilith)
 "tiW" = (
 /obj/structure/toilet{
@@ -27481,8 +27469,8 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/vtr/masquerade/exterior/ground_floor/park/shoreline_park)
 "wBM" = (
-/obj/structure/window_frame/theater/reinforced,
-/turf/open/floor/plating/toilet,
+/obj/effect/decal/wallpaper/porthole,
+/turf/closed/wall/vampwall/metal/porthole,
 /area/vtm/vtr/masquerade/interior/ground_floor/southeast/queen_lilith)
 "wBP" = (
 /obj/effect/decal/bordur{
@@ -42665,7 +42653,7 @@ fsH
 pDl
 fJY
 rfo
-hNQ
+eVh
 dDe
 kxV
 kxV
@@ -43436,7 +43424,7 @@ wYN
 pDl
 wYN
 fsH
-hNQ
+eVh
 dDe
 kxV
 kxV
@@ -44207,7 +44195,7 @@ fsH
 fJY
 pDl
 wEr
-hNQ
+eVh
 dDe
 kxV
 kxV
@@ -49596,7 +49584,7 @@ rbb
 fsH
 uZa
 mrs
-hNQ
+eVh
 dDe
 kxV
 kxV
@@ -50367,7 +50355,7 @@ kqN
 loT
 loT
 cnE
-hNQ
+eVh
 dDe
 kxV
 kxV
