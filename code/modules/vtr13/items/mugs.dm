@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/food/drinks/mug
 	name = "mug"
 	desc = "A plain white coffee mug."
-	icon = 'icons/obj/drinks_mugs.dmi'
+	icon = 'icons/vtr13/obj/drinks_mugs.dmi'
 	icon_state = "coffeecup"
 	inhand_icon_state = "coffee"
 	spillable = TRUE
