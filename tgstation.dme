@@ -3940,6 +3940,7 @@
 #include "code\modules\vtr13\preferences\merits\merits\producer.dm"
 #include "code\modules\vtr13\preferences\merits\merits\unseen_sense.dm"
 #include "code\modules\vtr13\preferences\merits\merits\wealthy.dm"
+#include "code\modules\vtr13\preferences\merits\settings\alt_sprite.dm"
 #include "code\modules\vtr13\preferences\merits\settings\expertise_stat.dm"
 #include "code\modules\vtr13\preferences\merits\settings\missing_arm.dm"
 #include "code\modules\vtr13\preferences\merits\subsystems\ssmerits.dm"
