@@ -275,6 +275,8 @@ GLOBAL_LIST_EMPTY(species_list)
 
 	if(HAS_TRAIT(user, TRAIT_LAZY))
 		delay = delay*2
+	else if (HAS_TRAIT(user, TRAIT_EXPEDIENT))
+		delay = delay*0.75
 
 	if(!interaction_key && target)
 		interaction_key = target //Use the direct ref to the target
@@ -350,6 +352,8 @@ GLOBAL_LIST_EMPTY(species_list)
 
 	if(HAS_TRAIT(user, TRAIT_LAZY))
 		time = time*2
+	else if (HAS_TRAIT(user, TRAIT_EXPEDIENT))
+		time = time*0.75
 
 	time *= user.cached_multiplicative_actions_slowdown
 
