@@ -21896,7 +21896,7 @@
 /turf/open/openspace,
 /area/vtm/vtr/masquerade/interior/floor_two/central/library)
 "shO" = (
-/obj/structure/vampdoor/old{
+/obj/structure/vampdoor/vtr_crone/basement/unlocked{
 	dir = 4
 	},
 /obj/structure/vampipe{
