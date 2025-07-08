@@ -38,3 +38,9 @@
 	locked = TRUE
 	lock_id = "house"
 	lockpick_difficulty = 4
+
+/obj/structure/vampdoor/vtr_generic/ship
+	icon_state = "ship-1"
+	baseicon = "ship"
+	burnable = FALSE
+	locked = FALSE

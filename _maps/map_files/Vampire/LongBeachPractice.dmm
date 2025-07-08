@@ -12310,7 +12310,7 @@
 /turf/open/floor/plating/vampplating/stone,
 /area/vtm/vtr/elysium/interior/floor_three/central/castle_elysium)
 "kpz" = (
-/obj/structure/vampdoor/old,
+/obj/structure/vampdoor/vtr_crone/basement/unlocked,
 /obj/structure/vampipe{
 	icon_state = "piping38"
 	},
@@ -14760,7 +14760,7 @@
 /turf/open/floor/plating/vampcanalplating,
 /area/vtm/vtr/masquerade/interior/basement/southeast/sewers_beach)
 "mwd" = (
-/obj/structure/vampdoor/old,
+/obj/structure/vampdoor/vtr_crone/basement/unlocked,
 /turf/open/floor/plating/vampplating,
 /area/vtm/vtr/masquerade/interior/basement/southeast/queen_lilith)
 "mxk" = (
