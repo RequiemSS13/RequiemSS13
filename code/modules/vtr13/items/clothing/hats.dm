@@ -11,6 +11,11 @@
 	icon_state = "nun_hood"
 	inhand_icon_state = "nun_hood"
 
+/obj/item/clothing/head/vampire/vtr/frillyheadband
+	name = "frilly headband"
+	desc = "A headband made of white frills, and black bows. Maidenly!"
+	icon_state = "frilly_headband"
+
 
 //OTHER
 /obj/item/clothing/head/pagecap

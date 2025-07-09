@@ -3783,6 +3783,7 @@
 #include "code\modules\vtr13\machines\vendors\coffee_vendor.dm"
 #include "code\modules\vtr13\masquerade\visible_masquerade_check.dm"
 #include "code\modules\vtr13\mobs\carbon\CheckFrenzyMove.dm"
+#include "code\modules\vtr13\mobs\dead\new_player\sprite_accessories_vtr.dm"
 #include "code\modules\vtr13\mobs\human\climb.dm"
 #include "code\modules\vtr13\mobs\human\dounequip.dm"
 #include "code\modules\vtr13\mobs\human\handle_embrace.dm"

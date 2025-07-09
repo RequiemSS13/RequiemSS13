@@ -76,3 +76,7 @@
 /datum/gear/hat/habit
 	display_name = "habit"
 	path = /obj/item/clothing/head/vampire/vtr/nun
+
+/datum/gear/hat/frillyheadband
+	display_name = "frilly headband"
+	path = /obj/item/clothing/head/vampire/vtr/frillyheadband
