@@ -24,7 +24,7 @@
 
 /obj/item/gun/ballistic/vampire/revolver
 	name = "\improper magnum revolver"
-	desc = "Feelin' lucky, punk?"
+	desc = "Fires six shots of .44 magnum. More than enough to kill anything that moves. Probably."
 	icon_state = "revolver"
 	inhand_icon_state = "revolver"
 	worn_icon_state = "revolver"
@@ -108,7 +108,7 @@
 
 /obj/item/gun/ballistic/vampire/revolver/snub
 	name = "\improper snub-nosed revolver"
-	desc = "a cheap Saturday night special revolver. Sometimes called a 'purse gun'. It takes 9mm rounds."
+	desc = "A cheap and compact revolver. Sometimes called a 'purse gun'. Takes 9mm rounds."
 	icon_state = "revolver_snub"
 	inhand_icon_state = "revolver_snub"
 	worn_icon_state = "revolver_snub"
@@ -138,7 +138,7 @@
 	icon_state = "deagle"
 	ammo_type = /obj/item/ammo_casing/vampire/c44
 	caliber = CALIBER_44
-	max_ammo = 7
+	max_ammo = 7 //8 rounds IRL - Ram
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/vampire/deagle
@@ -184,8 +184,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/vampire/deagle/c50
-	name = "\improper McLusky .50 caliber "
-	desc = "An extremely powerful, and rare, handcannon."
+	name = "\improper Desert Eagle (.50 cal)"
+	desc = "An extremely powerful firearm, bordering on the excessive."
 	icon_state = "deagle50"
 	inhand_icon_state = "deagle"
 	worn_icon_state = "deagle"
@@ -247,7 +247,7 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/vampire/glock19
-	name = "\improper Brokk 19"
+	name = "\improper Glock 19"
 	desc = "Very fast 9mm handgun."
 	icon_state = "glock19"
 	inhand_icon_state = "glock19"
@@ -282,14 +282,14 @@
 	worn_icon = 'icons/wod13/worn.dmi'
 	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "glock21"
-	ammo_type = /obj/item/ammo_casing/vampire/c9mm
+	ammo_type = /obj/item/ammo_casing/vampire/c9mm //This feels incorrect but too scared to fix it (should be 45) - Ram
 	caliber = CALIBER_45
 	max_ammo = 12
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/vampire/glock21
-	name = "\improper Brokk 21"
-	desc = "Very fast 45 ACP handgun."
+	name = "\improper Glock 21"
+	desc = "Rapid-firing .45 ACP handgun."
 	icon_state = "glock19"
 	inhand_icon_state = "glock19"
 	worn_icon_state = "glock19"
@@ -316,8 +316,8 @@
 	AddComponent(/datum/component/selling, 150, "glock21", FALSE)
 
 /obj/item/gun/ballistic/automatic/vampire/beretta
-	name = "\improper Elite 92G"
-	desc = "A 9mm pistol favored among law enforcement and criminal alike due to it's use in action movies. Often, it is wielded in pairs."
+	name = "\improper Beretta 92"
+	desc = "A 9mm pistol favored among both law enforcement and criminals. It is often wielded in pairs in action movies."
 	icon_state = "beretta"
 	inhand_icon_state = "beretta"
 	worn_icon_state = "beretta"
@@ -345,8 +345,8 @@
 	AddComponent(/datum/component/selling, 70, "beretta", FALSE)
 
 /obj/item/gun/ballistic/automatic/vampire/beretta/toreador
-	name = "\improper Sword Series S 9mm"
-	desc = "A handgun that has been heavily decorated and customized. The improvements seem almost supernaturally good, you feel like the engravings have given you a tactical advantage."
+	name = "\improper Engraved Beretta"
+	desc = "A handgun that has been heavily decorated and customized. Performs well over it's 9mm weight class."
 	icon_state = "beretta_toreador"
 	inhand_icon_state = "beretta_toreador"
 	worn_icon_state = "beretta"
@@ -388,8 +388,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/vampire/uzi
-	name = "\improper Killamatic Uzi"
-	desc = "A lightweight, burst-fire submachine gun, for when you really want someone dead. Uses 9mm rounds."
+	name = "\improper Uzi"
+	desc = "A burst-fire submachine gun boasting high rate of fire in a small package. Uses 9mm rounds."
 	icon_state = "uzi"
 	inhand_icon_state = "uzi"
 	worn_icon_state = "uzi"
@@ -422,7 +422,7 @@
 
 /obj/item/gun/ballistic/automatic/vampire/mp5
 	name = "\improper HK MP5"
-	desc = "A lightweight, burst-fire submachine gun, for when you really want to do some dirty cool job. Uses 9mm rounds."
+	desc = "A lightweight, burst-fire submachine gun. Uses 9mm rounds."
 	icon_state = "mp5"
 	icon = 'icons/wod13/48x32weapons.dmi'
 	inhand_icon_state = "mp5"
@@ -460,7 +460,7 @@
 
 /obj/item/gun/ballistic/automatic/vampire/ar15
 	name = "\improper AR-15 Carbine"
-	desc = "A two-round burst 5.56 toploading carbine, designated 'AR-15'."
+	desc = "A two-round burst 5.56 toploading carbine, the little sister of the M16."
 	icon = 'icons/wod13/48x32weapons.dmi'
 	icon_state = "rifle"
 	inhand_icon_state = "rifle"
@@ -483,7 +483,7 @@
 
 /obj/item/gun/ballistic/automatic/vampire/huntrifle
 	name = "hunting rifle"
-	desc = "A semi-automatic hunting rifle, just like what your dad used to shoot. If your dad didn't go out to get milk, anyways."
+	desc = "A semi-automatic hunting rifle, the American classic."
 	icon = 'icons/wod13/48x32weapons.dmi'
 	icon_state = "huntrifle"
 	inhand_icon_state = "huntrifle"
@@ -518,8 +518,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/vampire/ak74
-	name = "\improper Kalashnikov's Automatic Rifle 74"
-	desc = "Pretty old, but also easy fireable and cleanable by vodka.Uses 5.45 rounds."
+	name = "\improper AK-74"
+	desc = "An older rifle, but easy to operate and maintain. Uses 5.45mm rounds."
 	icon = 'icons/wod13/48x32weapons.dmi'
 	icon_state = "ak74"
 	inhand_icon_state = "ak74"
@@ -555,8 +555,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/vampire/aug
-	name = "\improper Steyr AUG-77"
-	desc = "A three-round burst 5.56 bullpup design, designated 'Steyr AUG-77'."
+	name = "\improper Steyr AUG"
+	desc = "A three-round burst 5.56 bullpup rifle, notable for it's futuristic design."
 	icon = 'icons/wod13/48x32weapons.dmi'
 	icon_state = "aug"
 	inhand_icon_state = "aug"
@@ -593,7 +593,7 @@
 
 /obj/item/gun/ballistic/automatic/vampire/thompson
 	name = "\improper Thompson Submachine Gun"
-	desc = "\"Mamma-mia, Mercurio! Yu shot 'im in da head, he can't speek now! Yu guappo, Mercurio, yu naturale guappo!\""
+	desc = "An older submachine gun, famously associated with Prohibition-era organized crime. Fires .45 ACP"
 	icon = 'icons/wod13/48x32weapons.dmi'
 	icon_state = "thompson"
 	inhand_icon_state = "thompson"
@@ -625,7 +625,7 @@
 
 /obj/item/gun/ballistic/automatic/vampire/sniper
 	name = "sniper rifle"
-	desc = "A long ranged weapon that does significant damage. No, you can't quickscope."
+	desc = "A bulky weapon that does significant damage at long range with .50 cal."
 	icon = 'icons/wod13/48x32weapons.dmi'
 	icon_state = "sniper"
 	inhand_icon_state = "sniper"
@@ -667,7 +667,7 @@
 
 /obj/item/gun/ballistic/shotgun/vampire
 	name = "shotgun"
-	desc = "A traditional shotgun with wood furniture and a six-round tube magazine."
+	desc = "A traditional shotgun with wood furnishing and a six-round internal 12g magazine."
 	icon = 'icons/wod13/48x32weapons.dmi'
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
@@ -701,8 +701,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/vampire/autoshotgun
-	name = "\improper Jaegerspas-XV"
-	desc = "A semi-automatic shotgun. It looks more like an assault rifle than a shotgun and fires at a deadly pace."
+	name = "\improper SPAS-15"
+	desc = "A semi-automatic shotgun. Fires 12g buckshot."
 	icon = 'icons/wod13/48x32weapons.dmi'
 	icon_state = "spas15"
 	inhand_icon_state = "spas15"
@@ -728,7 +728,7 @@
 
 /obj/item/gun/ballistic/shotgun/toy/crossbow/vampire
 	name = "crossbow"
-	desc = "Welcome to the Middle Ages!"
+	desc = "Welcome to the Middle Ages!" //not changing this because it's not used - Ram
 	icon = 'icons/wod13/48x32weapons.dmi'
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
@@ -761,7 +761,7 @@
 
 /obj/item/molotov
 	name = "molotov cocktail"
-	desc = "Well fire weapon."
+	desc = "A homemade incediary grenade, the symbol of the revolution."
 	icon_state = "molotov"
 	icon = 'icons/wod13/weapons.dmi'
 	onflooricon = 'icons/wod13/onfloor.dmi'
@@ -801,7 +801,7 @@
 
 /obj/item/vampire_flamethrower
 	name = "flamethrower"
-	desc = "Well fire weapon."
+	desc = "Well fire weapon." //Do not expect this to be used - Ram
 	icon_state = "flamethrower4"
 	icon = 'icons/wod13/weapons.dmi'
 	onflooricon = 'icons/wod13/onfloor.dmi'
