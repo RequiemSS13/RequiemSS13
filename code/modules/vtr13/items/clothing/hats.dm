@@ -2,6 +2,8 @@
 /obj/item/clothing/head/vampire/vtr
 	name = "generic vamp hat"
 	icon = 'icons/vtr13/obj/clothing/hats.dmi'
+	worn_icon = 'icons/vtr13/obj/clothing/worn.dmi'
+	onflooricon = 'icons/vtr13/obj/clothing/onfloor.dmi'
 	worn_icon = 'icons/vtr13/obj/clothing/worn_hat.dmi'
 	onflooricon = 'icons/vtr13/obj/clothing/onfloor_hat.dmi'
 
@@ -178,3 +180,8 @@
 	icon_state = "hopcap"
 	desc = "The symbol of true bureaucratic micromanagement."
 	dog_fashion = /datum/dog_fashion/head/hop
+
+/obj/item/clothing/head/vampire/vtr/frillyheadband
+	name = "frilly headband"
+	desc = "A headband made of white frills, and black bows. Maidenly!"
+	icon_state = "frilly_headband"

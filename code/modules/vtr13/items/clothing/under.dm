@@ -247,3 +247,8 @@
 	name = "sailor dress"
 	desc = "Formal wear for a leading lady."
 	icon_state = "sailor_dress"
+
+/obj/item/clothing/under/vampire/vtr/dress/blackfrilly
+	name = "black frilly dress"
+	desc = "A cute, black dress decorated with white frills and lace. Feels expensive."
+	icon_state = "blackfrills"

@@ -13,4 +13,5 @@ SUBSYSTEM_DEF(dwelling)
 		if(!dwelling_area.is_loot_dwelling)
 			continue
 		dwelling_area.setup_loot()
+	..()
 

@@ -30,7 +30,6 @@
 	var/list/custom_settings
 
 /datum/merit/New(mob/living/merit_mob, spawn_effects)
-	..()
 	if(!merit_mob || (human_only && !ishuman(merit_mob)) || merit_mob.has_merit(type) || !SSmerits.CanAddMerit(merit_mob?.client?.prefs, src.type))
 		qdel(src)
 		return
@@ -58,6 +57,8 @@
 		post_add()
 	else
 		RegisterSignal(merit_holder, COMSIG_MOB_LOGIN, PROC_REF(on_merit_holder_first_login))
+	
+	return ..()
 
 
 /**

@@ -2,7 +2,7 @@
 
 	if(href_list["preference"] != "loadout")
 		CRASH("process_loadout_links called when preferences href not set to loadout!")
-	
+	calculate_loadout_dots()
 	switch(href_list["task"])
 		if("clear_loadout")
 			if(tgui_alert(user, "Are you sure you want to reset your loadout?", "Confirmation", list("Yes", "No")) == "Yes")
@@ -27,4 +27,5 @@
 
 		if("remove_gear")
 			equipped_gear -= href_list["gear"]
+	calculate_loadout_dots()
 	return TRUE
