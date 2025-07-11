@@ -214,6 +214,7 @@
 	icon_state = "fedora"
 	inhand_icon_state = "fedora"
 	desc = "A really cool hat if you're a mobster. A really lame hat if you're not."
+	flags_cover = HEADCOVERSEYES
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/small/fedora
 
 /obj/item/clothing/head/fedora/white
@@ -269,6 +270,7 @@
 	desc = "A working man's cap."
 	icon_state = "flat_cap"
 	inhand_icon_state = "detective"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/hunter
 	name = "bounty hunting hat"
