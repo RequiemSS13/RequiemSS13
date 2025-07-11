@@ -15,48 +15,56 @@
 	name = "dark red cap"
 	desc = "It's a baseball hat in a tasteful dark red colour."
 	icon_state = "dredsoft"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/vampire/vtr/cowboyhat
 	name = "brown cowboy hat"
 	desc = "The prevailing style of the Old West."
 	icon_state = "cowboyhat"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/vampire/vtr/cowboy_black
 	name = "black cowboy hat"
 	desc = "For the villainous stranger."
 	icon_state = "cowboy_black"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/vampire/vtr/cowboy_wide
 	name = "wide-brimmed cowboy hat"
 	desc = "For the nameless stranger."
 	icon_state = "cowboy_wide"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/vampire/vtr/cowboy_white
 
 	name = "white cowboy hat"
 	desc = "For the heroic stranger."
 	icon_state = "cowboy_white"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/vampire/vtr/cowboy_white_wide
 	name = "white wide cowboy hat"
 	desc = "For the jovial stranger."
 	icon_state = "cowboy_white_wide"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/vampire/vtr/gent_cap
 	name = "grey flat cap"
 	desc = "A checkered gray flat cap woven from tweed."
 	icon_state = "gentcap"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/vampire/vtr/flatcap
 	name = "black flat cap"
 	desc = "A working man's cap, in black."
 	icon_state = "flat_cap_black"
 	inhand_icon_state = "detective"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/vampire/vtr/flatcap/white
 	name = "white flat cap"
 	desc = "A working man's cap, in white."
-	icon_state = "flat_cap_white"
+	icon_state = "flat_capw"
 
 /obj/item/clothing/head/vampire/vtr/fez
 	name = "fez"
@@ -87,6 +95,7 @@
 	name = "mariner's cap"
 	desc = "For sailors, fiddlers, and revolutionaries."
 	icon_state = "mariner"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/vampire/vtr/greenutil
 	name = "green utility cap"
@@ -102,16 +111,19 @@
 	name = "white peaked cap"
 	desc = "A formal cap worn by soldiers, sailors, firefighters, milkmen, and the president of the local yacht club."
 	icon_state = "whitepeakcap"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/vampire/vtr/biker
 	name = "biker cap"
 	desc = "So masculine, so... Finnish."
 	icon_state = "bikercap"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/vampire/vtr/captain
 	name = "captain's hat"
 	desc = "A formal hat for seafarers."
 	icon_state = "sailorcap"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/vampire/vtr/cowboy_small
 	name = "small cowboy hat"
@@ -135,8 +147,9 @@
 
 /obj/item/clothing/head/vampire/vtr/buckethat
 	name = "bucket hat"
-	desc = "Music festival fashion."
+	desc = "Music festival high fashion."
 	icon_state = "buckethat"
+	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/vampire/vtr/boater_hat
 	name = "boater hat"

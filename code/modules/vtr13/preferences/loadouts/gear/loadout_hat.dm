@@ -25,22 +25,22 @@
 
 /datum/gear/hat/baseball_cap
 	display_name = "baseball cap, red and white"
-	description = "A soft hat with a rounded crown and a stiff bill projecting in front." // Shortened
+	description = "A soft hat with a stiff bill wide enough to hide your eyes." // Shortened
 	path = /obj/item/clothing/head/vampire/baseballcap
 
 /datum/gear/hat/cap_black
 	display_name = "baseball cap, black"
-	description = "A soft hat with a rounded crown and a stiff bill projecting in front." // Consistency
+	description = "A soft hat with a stiff bill wide enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/soft/black
 
 /datum/gear/hat/cap_grey
 	display_name = "baseball cap, grey"
-	description = "A soft hat with a rounded crown and a stiff bill projecting in front." // Consistency
+	description = "A soft hat with a stiff bill wide enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/soft/grey
 
 /datum/gear/hat/cap_red
 	display_name = "baseball cap, dark red"
-	description = "A soft hat with a rounded crown and a stiff bill projecting in front." // Consistency
+	description = "A soft hat with a stiff bill wide enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/vampire/vtr/redsoft
 
 
@@ -88,27 +88,27 @@
 
 /datum/gear/hat/cowboy
 	display_name = "cowboy hat, brown"
-	description = "The prevailing style of the Old West." // Consistency
+	description = "The prevailing style of the Old West. The brim is wide enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/vampire/vtr/cowboyhat
 
 /datum/gear/hat/cowboyblack
 	display_name = "cowboy hat, black"
-	description = "The prevailing style of the Old West." // Consistency
+	description = "The prevailing style of the Old West. The brim is wide enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/vampire/vtr/cowboy_black
 
 /datum/gear/hat/cowboywide
 	display_name = "cowboy hat, wide"
-	description = "The prevailing style of the Old West." // Consistency
+	description = "The prevailing style of the Old West. The brim is wide enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/vampire/vtr/cowboy_wide
 
 /datum/gear/hat/cowboywhite
 	display_name = "cowboy hat, white"
-	description = "The prevailing style of the Old West." // Consistency
+	description = "The prevailing style of the Old West. The brim is wide enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/vampire/vtr/cowboy_white
 
 /datum/gear/hat/cowboywhitewide
 	display_name = "cowboy hat, brown"
-	description = "The prevailing style of the Old West." // Consistency
+	description = "The prevailing style of the Old West. The brim is wide enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/vampire/vtr/cowboy_white_wide
 
 /datum/gear/hat/cowboywhitewide
@@ -120,22 +120,22 @@
 
 /datum/gear/hat/fedora_brown
 	display_name = "fedora, brown"
-	description = "The height of mid-century style." // Consistency
+	description = "The height of mid-century style. The brim is wide enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/fedora/det_hat
 
 /datum/gear/hat/fedora_grey
 	display_name = "fedora, grey"
-	description = "The height of mid-century style." // Consistency
+	description = "The height of mid-century style. The brim is wide enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/fedora
 
 /datum/gear/hat/fedora_white
 	display_name = "fedora, white"
-	description = "The height of mid-century style." // Consistency
+	description = "The height of mid-century style. The brim is wide enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/fedora/white
 
 /datum/gear/hat/fedora_beige
 	display_name = "fedora, beige"
-	description = "The height of mid-century style." // Consistency
+	description = "The height of mid-century style. The brim is wide enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/fedora/beige
 
 /datum/gear/hat/fedora_feather
@@ -159,23 +159,23 @@
 // Flat Caps
 
 /datum/gear/hat/flatcap
-	display_name = "flap cap, brown"
-	description = "The flat woven cap of the working class." // Consistency
+	display_name = "flat cap, brown"
+	description = "The flat woven cap of the working class. The visor is low  enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/flatcap
 
 /datum/gear/hat/flatcapgrey
-	display_name = "flap cap, grey"
-	description = "The flat woven cap of the working class." // Consistency
+	display_name = "flat cap, grey"
+	description = "The flat woven cap of the working class. The visor is low enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/vampire/vtr/gent_cap
 
 /datum/gear/hat/flatcapblack
-	display_name = "flap cap, black"
-	description = "The flat woven cap of the working class." // Consistency
+	display_name = "flat cap, black"
+	description = "The flat woven cap of the working class. The visor is low  enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/vampire/vtr/flatcap
 
 /datum/gear/hat/flatcapwhite
-	display_name = "flap cap, white"
-	description = "The flat woven cap of the working class." // Consistency
+	display_name = "flat cap, white"
+	description = "The flat woven cap of the working class. The visor is low  enough to hide your eyes." // Consistency
 	path = /obj/item/clothing/head/vampire/vtr/flatcap/white
 
 
@@ -202,11 +202,12 @@
 
 /datum/gear/hat/peakedwhite
 	display_name = "peaked cap, white"
-	description = "A formal military-style cap." // Shortened.
+	description = "A formal military-style cap. The bill is low enough to hide your eyes."
 	path = /obj/item/clothing/head/vampire/vtr/whitepeakcap
 
 /datum/gear/hat/nautical
 	display_name = "nautical cap, white"
+	description = "A white captain's cap. The bill is low enough to hide your eyes."
 	path = /obj/item/clothing/head/vampire/vtr/captain
 
 /datum/gear/hat/tanker
@@ -227,10 +228,12 @@
 
 /datum/gear/hat/biker
 	display_name = "biker cap"
+	description = "So masculine, so... Finnish? The visor is low enough to hide your eyes."
 	path = /obj/item/clothing/head/vampire/vtr/biker
 
 /datum/gear/hat/buckethat
 	display_name = "bucket hat, white"
+	description = "Music festival high fashion. The brim is low enough to hide your eyes."
 	path = /obj/item/clothing/head/vampire/vtr/buckethat
 
 /datum/gear/hat/fez
@@ -244,6 +247,7 @@
 
 /datum/gear/hat/marinercap
 	display_name = "mariners cap"
+	description = "For sailors, fiddlers, and revolutionaries. The visor is low enough to hide your eyes."
 	path = /obj/item/clothing/head/vampire/vtr/mariner
 
 /datum/gear/hat/ushanka
