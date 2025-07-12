@@ -10,8 +10,11 @@
 /obj/item/reagent_containers/food/drinks/mug/update_overlays()
 	. = ..()
 	var/mutable_appearance/fill_overlay = mutable_appearance(icon, filled_overlay)
-	fill_overlay.color = mix_color_from_reagents(reagents.reagent_list)
-	. += fill_overlay
+	if(reagents.total_volume > 0)
+		fill_overlay.color = mix_color_from_reagents(reagents.reagent_list)
+		. += fill_overlay
+	else
+		. -= fill_overlay
 
 /obj/item/reagent_containers/food/drinks/mug/bloody
 	desc = "A novelty black coffee cup with spilling blood printed on the side."
@@ -115,7 +118,8 @@
 /obj/item/reagent_containers/food/drinks/mug/cup
 	name = "cup"
 	desc = "A plain white coffee cup."
-	icon_state = "coffeecup"
+	icon_state = "cup"
+
 	filled_overlay = "cup_filled"
 	inhand_icon_state = "coffee"
 
