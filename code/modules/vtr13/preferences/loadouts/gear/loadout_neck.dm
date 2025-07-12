@@ -4,6 +4,12 @@
 	sort_category = "Accessories"
 	cost = 1
 
+//Headphones
+
+/datum/gear/neck/headphones
+	display_name = "headphones"
+	path = /obj/item/instrument/piano_synth/headphones
+
 // Scarf
 /datum/gear/neck/scarf
 	subtype_path = /datum/gear/neck/scarf
