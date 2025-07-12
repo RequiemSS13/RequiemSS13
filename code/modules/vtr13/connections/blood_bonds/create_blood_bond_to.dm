@@ -39,7 +39,7 @@
 			to_chat(thrall, "<span class='userlove'>You lose yourself in your devotion to [domitor]!</span>")
 
 	if(purge_other_blood_bonds && !artificial)
-		artificial = tgui_alert(thrall, "Do you wish to permanently enter into a third stage blood bond? This will remove all lower level blood bonds.", "Confirmation", list("Yes", "No")) == "Yes"
+		artificial = tgui_alert(thrall, "Do you wish to permanently enter into a third stage blood bond? This will remove all lower level blood bonds.", "Confirmation", list("Yes", "No")) != "Yes"
 
 	if(!artificial && tgui_alert(thrall, "You have been blood bonded by [domitor]! Would you like to keep the blood bond permanently?", "Confirmation", list("Yes", "No")) == "Yes")
 		handle_insert_blood_bond_db(thrall, domitor, bond_type, thrall_description, domitor_description, existing_connection, purge_other_blood_bonds)

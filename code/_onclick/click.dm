@@ -143,7 +143,7 @@
 		MiddleClickOn(A, params)
 		return
 	if(modifiers["shift"])
-		ShiftClickOn(A)
+		ShiftClickOn(A, params)
 		return
 	if(modifiers["alt"]) // alt and alt-gr (rightalt)
 		AltClickOn(A)
@@ -472,13 +472,14 @@
  * For most mobs, examine.
  * This is overridden in ai.dm
  */
-/mob/proc/ShiftClickOn(atom/A)
-	A.ShiftClick(src)
+/mob/proc/ShiftClickOn(atom/A, params)
+	A.ShiftClick(src, params)
 	return
 
-/atom/proc/ShiftClick(mob/user)
+/atom/proc/ShiftClick(mob/user, params)
 	var/flags = SEND_SIGNAL(src, COMSIG_CLICK_SHIFT, user)
-	if(user.client && (user.client.eye == user || user.client.eye == user.loc || flags & COMPONENT_ALLOW_EXAMINATE))
+	var/list/modifiers = params2list(params)
+	if(!modifiers["right"] && user.client && (user.client.eye == user || user.client.eye == user.loc || flags & COMPONENT_ALLOW_EXAMINATE))
 		user.examinate(src)
 	return
 

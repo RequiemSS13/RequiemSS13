@@ -267,6 +267,11 @@
 	display_name = "dress, sailor"
 	path = /obj/item/clothing/under/vampire/vtr/dress/sailordress
 
+/datum/gear/uniform/dress/blackfrilly
+	display_name = "black frilly dress"
+	path = /obj/item/clothing/under/vampire/vtr/dress/blackfrilly
+	cost = 3 //spensive
+
 // Misc
 /datum/gear/uniform/dress
 	display_name = "dress, black"

@@ -1,6 +1,6 @@
 
 /datum/preferences/proc/ShowChoices(mob/user)
-	if(!SSatoms.initialized)
+	if(!SSatoms.initialized || !SSloadout?.initialized || !SSmerits?.initialized)
 		to_chat(user, span_warning("Please wait for the game to do a little more setup first...!"))
 		return
 	if(!user?.client) // Without a client in control, you can't do anything.

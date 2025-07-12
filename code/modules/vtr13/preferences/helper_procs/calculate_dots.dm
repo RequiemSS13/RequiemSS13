@@ -57,6 +57,9 @@
 		CRASH("Error - More discipline dots have been taken than there are dots to have!")
 
 /datum/preferences/proc/calculate_loadout_dots(second_attempt = FALSE)
+	if(!SSloadout?.initialized)
+		return
+
 	loadout_slots_max = LOADOUT_MAX_SLOTS
 	loadout_slots = length(equipped_gear)
 

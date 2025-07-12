@@ -5,7 +5,7 @@
 	dat += "<table align='center' width='100%'>"
 	dat += "<tr><td colspan=5><b><center>Slots Used: [loadout_slots]/[loadout_slots_max].<br>"
 	dat += "Remaining Dots: [loadout_dots]/[loadout_dots_max].<br>"
-	dat += "<a href='?_src_=prefs;preference=gear;task=clear_loadout;'>Clear Loadout</a> | <a href='?_src_=prefs;preference=gear;task=toggle_loadout;'>Toggle Loadout</a></center></b></td></tr>"
+	dat += "<a href='?_src_=prefs;preference=loadout;task=clear_loadout;'>Clear Loadout</a> | <a href='?_src_=prefs;preference=loadout;task=toggle_loadout;'>Toggle Loadout</a></center></b></td></tr>"
 	dat += "<tr><td colspan=5><center><b>"
 
 	var/firstcat = 1

@@ -11,6 +11,7 @@ SUBSYSTEM_DEF(tides)
 /datum/controller/subsystem/tides/Initialize()
 	if(!coastline_turfs.len)
 		CRASH("SStides initialized without any coastline! That's not good!")
+	return ..()
 
 /datum/controller/subsystem/tides/proc/send_to_shore(atom/movable/flotsam)
 	if(surfers.Find(flotsam))

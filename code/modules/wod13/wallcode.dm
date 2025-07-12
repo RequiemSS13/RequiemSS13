@@ -359,6 +359,22 @@
 	icon_state = "redbrick-0"
 	base_icon_state = "redbrick"
 
+
+/turf/closed/wall/vampwall/metal/porthole
+	name = "porthole"
+	desc = "To gaze upon - or from - the oceans dark."
+	icon_state = "porthole"
+	base_icon_state = "porthole"
+	opacity = FALSE
+
+/turf/closed/wall/vampwall/rust/porthole
+
+	name = "porthole"
+	desc = "To gaze upon - or from - the oceans dark."
+	icon_state = "portholerust"
+	base_icon_state = "portholerust"
+	opacity = FALSE
+
 //TURFS
 
 /obj/effect/decal/asphalt
@@ -999,11 +1015,17 @@
 /obj/effect/decal/wallpaper/low
 	icon_state = "wallpaper_low"
 
+/obj/effect/decal/wallpaper/porthole
+	icon_state = "wallpaper-porthole"
+
 /obj/effect/decal/wallpaper/grey
 	icon_state = "wallpaper-grey"
 
 /obj/effect/decal/wallpaper/grey/low
 	icon_state = "wallpaper-grey_low"
+
+/obj/effect/decal/wallpaper/grey/porthole
+	icon_state = "wallpaper-grey-porthole"
 
 /obj/effect/decal/wallpaper/light
 	icon_state = "wallpaper-light"
@@ -1011,11 +1033,17 @@
 /obj/effect/decal/wallpaper/light/low
 	icon_state = "wallpaper-light_low"
 
+/obj/effect/decal/wallpaper/light/porthole
+	icon_state = "wallpaper-light-porthole"
+
 /obj/effect/decal/wallpaper/red
 	icon_state = "wallpaper-asylum"
 
 /obj/effect/decal/wallpaper/red/low
 	icon_state = "wallpaper-asylum_low"
+
+/obj/effect/decal/wallpaper/red/porthole
+	icon_state = "wallpaper-asylum-porthole"
 
 /obj/effect/decal/wallpaper/blue
 	icon_state = "wallpaper-club"
@@ -1023,12 +1051,17 @@
 /obj/effect/decal/wallpaper/blue/low
 	icon_state = "wallpaper-club_low"
 
+/obj/effect/decal/wallpaper/blue/porthole
+	icon_state = "wallpaper-club-porthole"
+
 /obj/effect/decal/wallpaper/paper
 	name = "wallpapers"
 	icon_state = "wallpaper-cheap"
 
 /obj/effect/decal/wallpaper/paper/low
-	icon_state = "wallpaper-cheap_low"
+
+/obj/effect/decal/wallpaper/paper/low
+	icon_state = "wallpaper-cheap-porthole"
 
 /obj/effect/decal/wallpaper/paper/green
 	icon_state = "wallpaper-green"
@@ -1036,11 +1069,17 @@
 /obj/effect/decal/wallpaper/paper/green/low
 	icon_state = "wallpaper-green_low"
 
+/obj/effect/decal/wallpaper/paper/green/porthole
+	icon_state = "wallpaper-green-porthole"
+
 /obj/effect/decal/wallpaper/paper/stripe
 	icon_state = "wallpaper-stripe"
 
 /obj/effect/decal/wallpaper/paper/stripe/low
 	icon_state = "wallpaper-stripe_low"
+
+/obj/effect/decal/wallpaper/paper/stripe/porthole
+	icon_state = "wallpaper-stripe-porthole"
 
 /obj/effect/decal/wallpaper/paper/rich
 	icon_state = "wallpaper-rich"
@@ -1048,11 +1087,17 @@
 /obj/effect/decal/wallpaper/paper/rich/low
 	icon_state = "wallpaper-rich_low"
 
+/obj/effect/decal/wallpaper/paper/rich/porthole
+	icon_state = "wallpaper-rich-porthole"
+
 /obj/effect/decal/wallpaper/paper/darkred
 	icon_state = "wallpaper-dred"
 
 /obj/effect/decal/wallpaper/paper/darkred/low
 	icon_state = "wallpaper-dred_low"
+
+/obj/effect/decal/wallpaper/paper/darkred/porthole
+	icon_state = "wallpaper-dred-porthole"
 
 /obj/effect/decal/wallpaper/paper/darkgreen
 	icon_state = "wallpaper-dgreen"
@@ -1060,12 +1105,18 @@
 /obj/effect/decal/wallpaper/paper/darkgreen/low
 	icon_state = "wallpaper-dgreen_low"
 
+/obj/effect/decal/wallpaper/paper/darkgreen/porthole
+	icon_state = "wallpaper-dgreen-porthole"
+
 /obj/effect/decal/wallpaper/stone
 	name = "wall decoration"
 	icon_state = "wallpaper-stone"
 
 /obj/effect/decal/wallpaper/stone/low
 	icon_state = "wallpaper-stone_low"
+
+/obj/effect/decal/wallpaper/stone/porthole
+	icon_state = "wallpaper-stone-porthole"
 
 /obj/effect/decal/wallpaper/gold
 	icon_state = "wallpaper-gold"
@@ -1075,6 +1126,9 @@
 
 /obj/effect/decal/wallpaper/gold/low
 	icon_state = "wallpaper-gold_low"
+
+/obj/effect/decal/wallpaper/gold/porthole
+	icon_state = "wallpaper-gold-porthole"
 
 /obj/effect/decal/wallpaper/papers
 	name = "papers"

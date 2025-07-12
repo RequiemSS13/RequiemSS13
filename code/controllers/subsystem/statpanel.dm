@@ -17,7 +17,7 @@ SUBSYSTEM_DEF(statpanels)
 	///how many subsystem fires between updates of the MC tab
 	var/mc_wait = 5
 	/// how many subsystem fires between updates of the turf examine tab
-	var/turf_wait = 2
+	var/turf_wait = 10
 	///how many full runs this subsystem has completed. used for variable rate refreshes.
 	var/num_fires = 0
 

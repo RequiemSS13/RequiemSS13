@@ -119,6 +119,7 @@
 	name = "cup"
 	desc = "A plain white coffee cup."
 	icon_state = "cup"
+
 	filled_overlay = "cup_filled"
 	inhand_icon_state = "coffee"
 

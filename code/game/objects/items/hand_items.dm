@@ -524,12 +524,23 @@
 	// people with the social anxiety quirk can get flustered when hit by a kiss
 	if((living_target.stat > SOFT_CRIT) || living_target.is_blind())
 		return
-	if(HAS_TRAIT(living_target, TRAIT_FEARLESS) || prob(50)) // 50% chance for it to apply, also immune while on meds
+
+	if(!HAS_TRAIT_FROM(living_target, TRAIT_CHARMED, firer))
+		return
+
+	if(HAS_TRAIT(living_target, TRAIT_FEARLESS))
+		return
+
+	var/mob/living/firer_living = firer
+	if(!firer_living)
 		return
 
 	var/other_msg
 	var/self_msg
-	var/roll = rand(1, 3)
+	var/roll = SSroll.opposed_roll(firer_living, living_target, firer_living.get_charisma()*2, living_target.get_composure()*2, TRUE, TRUE, living_target, numerical= TRUE)
+	if(roll <= 0)
+		return
+
 	switch(roll)
 		if(1)
 			other_msg = "stumbles slightly, turning a bright red!"
@@ -540,12 +551,11 @@
 			self_msg = "You feel your tongue disappear down your throat as you fight to remember how to make words!"
 			addtimer(CALLBACK(living_target, TYPE_PROC_REF(/atom/movable, say), pick("Uhhh...", "O-oh, uhm...", "I- uhhhhh??", "You too!!", "What?")), rand(0.5 SECONDS, 1.5 SECONDS))
 			living_target.stuttering = (rand(10 SECONDS, 30 SECONDS))
-		if(3)
+		else
 			other_msg = "locks up with a stunned look on [living_target.p_their()] face, staring at [firer ? firer : "the ceiling"]!"
 			self_msg = "Your brain completely fails to process what just happened, leaving you rooted in place staring at [firer ? "[firer]" : "the ceiling"] for what feels like an eternity!"
 			living_target.face_atom(firer)
 			living_target.Stun(rand(3 SECONDS, 8 SECONDS))
-
 	living_target.visible_message("<b>[living_target]</b> [other_msg]", span_userdanger("Whoa! [self_msg]"))
 
 /obj/projectile/kiss/on_hit(atom/target, blocked, pierce_hit)

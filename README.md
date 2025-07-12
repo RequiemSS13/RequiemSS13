@@ -1,17 +1,17 @@
 
 * **Website:** TO_BE_DECLARED
-* **Code:** https://github.com/WorldOfDarknessXIII/World-of-Darkness-13
+* **Code:** https://github.com/RequiemSS13/RequiemSS13
 * **Wiki:** UNDER_CONSTRUCTION
 * **Codedocs:** https://codedocs.tgstation13.org/ + For the time being +
-* **World of Darkness 13 Discord:** https://discord.gg/WBktth6Z8j
+* **Requiem 13 Discord:** https://discord.gg/uPbGj2K2HZ
 * **Coderbus Discord:** https://discord.gg/Vh8TJp9
 * ~~**IRC:** irc://irc.rizon.net/coderbus~~ (dead)
 
-This is the codebase for the World of Darkness 13, a build of a fork of a downstream of a-- in any case...
+This is the codebase for the Requiem 13, a build of a fork of a downstream of a-- basically it's a /tg
+downstream with generational trauma baked in.
 
 We are based on the Paradox Interactive World of Darkness(c) gamelines, with administrative oversight determining what we add to our game. Please see below for our guides on contributing.
 
-If you'd like to contribute to this codebase, consider uncommenting line 1 @ _maps\_basemap.dm for faster initialization.
 
 ## Attribution: tgstation
 ## The vast majority of our code was written by the maintainers and members of the /tg/station community up to February 3rd, 2021. We regularly pull and port features from /tg/station as well. We would like to officially recognize and pay our respect to the thousands of development hours that created the foundation and continue to create the function of our server.

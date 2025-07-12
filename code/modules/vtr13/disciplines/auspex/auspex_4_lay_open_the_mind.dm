@@ -66,6 +66,9 @@
 		return
 
 	for(var/datum/character_connection/connection in target.mind.character_connections)
+		if(connection.hidden)
+			continue
+
 		to_chat(owner, span_notice("You hear [target]'s voice: \"[connection.connection_desc]\""))
 
 

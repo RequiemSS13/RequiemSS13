@@ -7,6 +7,7 @@ SUBSYSTEM_DEF(loadout)
 	var/list/loadout_categories = list()
 
 /datum/controller/subsystem/loadout/Initialize()
+
 	for(var/geartype in subtypesof(/datum/gear))
 		var/datum/gear/gear = geartype
 
@@ -34,3 +35,5 @@ SUBSYSTEM_DEF(loadout)
 	loadout_categories = sortAssoc(loadout_categories)
 	for(var/datum/loadout_category/loadout_category in loadout_categories)
 		loadout_category.gear = sortAssoc(loadout_category.gear)
+	
+	return ..()

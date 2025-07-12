@@ -215,7 +215,7 @@
 //	Formatting is the same as food.
 
 /obj/item/reagent_containers/food/drinks/coffee
-	name = "robust coffee"
+	name = "coffee"
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
 	icon_state = "coffee"
 	list_reagents = list(/datum/reagent/consumable/coffee = 30)
@@ -228,40 +228,15 @@
 	name = "ice cup"
 	desc = "Careful, cold ice, do not chew."
 	custom_price = PAYCHECK_PRISONER * 0.6
-	icon_state = "coffee"
+	icon_state = "icecup"
 	list_reagents = list(/datum/reagent/consumable/ice = 30)
 	spillable = TRUE
 	isGlass = FALSE
 
 /obj/item/reagent_containers/food/drinks/ice/prison
 	name = "dirty ice cup"
-	desc = "Either Nanotrasen's water supply is contaminated, or this machine actually vends lemon, chocolate, and cherry snow cones."
+	desc = "Either the water supply is contaminated, or this machine actually vends lemon, chocolate, and cherry snow cones."
 	list_reagents  = list(/datum/reagent/consumable/ice = 25, /datum/reagent/liquidgibs = 5)
-
-/obj/item/reagent_containers/food/drinks/mug // parent type is literally just so empty mug sprites are a thing
-	name = "mug"
-	desc = "A drink served in a classy mug."
-	icon_state = "tea"
-	inhand_icon_state = "coffee"
-	spillable = TRUE
-
-/obj/item/reagent_containers/food/drinks/mug/update_icon_state()
-	. = ..()
-	icon_state = reagents.total_volume ? "tea" : "tea_empty"
-
-/obj/item/reagent_containers/food/drinks/mug/tea
-	name = "Earl Grey tea"
-	desc = "A black tea with subtle notes of bergamot. Very relaxing."
-	list_reagents = list(/datum/reagent/consumable/tea = 30)
-
-/obj/item/reagent_containers/food/drinks/mug/coco
-	name = "Dutch hot coco"
-	desc = "Clearly made from the packets, but sweet nonetheless."
-	list_reagents = list(/datum/reagent/consumable/hot_coco = 15, /datum/reagent/consumable/sugar = 5)
-	foodtype = SUGAR
-	resistance_flags = FREEZE_PROOF
-	custom_price = PAYCHECK_ASSISTANT * 1.2
-
 
 /obj/item/reagent_containers/food/drinks/dry_ramen
 	name = "cup ramen"

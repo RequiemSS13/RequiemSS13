@@ -57,7 +57,7 @@
  * Run to equally share the blood between us and a decal
  */
 /datum/component/bloodysoles/proc/share_blood(obj/effect/decal/cleanable/pool)
-	if(!pool)
+	if(!pool || pool.type == /obj/effect/decal/cleanable/blood/footprints)
 		return
 	last_blood_state = pool.blood_state
 

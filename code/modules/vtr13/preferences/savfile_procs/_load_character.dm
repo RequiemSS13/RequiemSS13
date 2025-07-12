@@ -169,7 +169,7 @@
 	READ_FILE(S["equipped_gear"], equipped_gear)
 	if(!equipped_gear)
 		equipped_gear = list()
-	else
+	else if (SSloadout?.initialized)
 		equipped_gear = sanitize_each_inlist(equipped_gear, SSloadout.gear_datums)
 
 	READ_FILE(S["ooc_bond_pref"], ooc_bond_pref)

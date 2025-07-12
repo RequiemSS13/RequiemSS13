@@ -29,7 +29,17 @@
 	mannequin.add_overlay(MAMA)
 	copy_to(mannequin, 1, TRUE, TRUE, loadout = show_loadout)
 	if(all_merits.Find("Childe of Orlok"))
-		mannequin.unique_body_sprite = "nosferatu"
+		switch(merit_custom_settings["alt_sprite"])
+			if("Otherworldly")
+				mannequin.unique_body_sprite = "kiasyd"
+			if("Rotten")
+				mannequin.unique_body_sprite = "rotten1"
+			if("Very Rotten")
+				mannequin.unique_body_sprite = "rotten2"
+			if("Extremely Rotten")
+				mannequin.unique_body_sprite = "rotten3"
+			else
+				mannequin.unique_body_sprite = "nosferatu"
 	else
 		mannequin.unique_body_sprite = null
 	mannequin.update_body()
