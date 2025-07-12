@@ -18,6 +18,7 @@
 		new /datum/data/retail_product("milk",	/obj/item/reagent_containers/food/condiment/vampiremilk,	5),
 		new /datum/data/retail_product("beer bottle",	/obj/item/reagent_containers/food/drinks/beer/vampire,	10),
 		new /datum/data/retail_product("candle pack",	/obj/item/storage/fancy/candle_box,	12),
+		new /datum/data/retail_product("prepaid cell phone", /obj/item/vamp/phone, 120),
 		new /datum/data/retail_product("bruise pack", /obj/item/stack/medical/bruise_pack, 100)
 
 

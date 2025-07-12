@@ -583,6 +583,7 @@
 			online = null
 	if(!talking && online)
 		if(online.silence == FALSE)
+			online.audible_message("<span class='notice'>Someone's phone is ringing!</span>")
 			playsound(src, 'code/modules/wod13/sounds/phone.ogg', 10, FALSE)
 			playsound(online, online.call_sound, 25, FALSE)
 		addtimer(CALLBACK(src, PROC_REF(Recall), online, usar), 20)
