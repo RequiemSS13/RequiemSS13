@@ -443,3 +443,40 @@
 /datum/gear/uniform/qipao2
 	display_name = "qipao"
 	path = /obj/item/clothing/under/vampire/vtr/dress/qipao2
+
+/datum/gear/uniform/wedding_gothic
+	display_name = "dress, gothic wedding"
+	path = /obj/item/clothing/under/vampire/vtr/dress/wedding_gothic
+	cost = 4
+
+/datum/gear/uniform/old_wench_dress
+	display_name = "dress, old wench"
+	path = /obj/item/clothing/under/vampire/vtr/dress/old_wench_dress
+	cost = 4
+
+/datum/gear/uniform/countess
+	display_name = "dress, countess"
+	path = /obj/item/clothing/under/vampire/vtr/dress/countess
+	cost = 4
+
+/datum/gear/uniform/goddess
+	display_name = "dress, divine silk"
+	path = /obj/item/clothing/under/vampire/vtr/dress/goddess
+	cost = 4
+
+/datum/gear/uniform/white_dress
+	display_name = "dress, white and black mesh"
+	path = /obj/item/clothing/under/vampire/vtr/dress/white_dress
+
+/datum/gear/uniform/sermon
+	display_name = "dress, golden embroidered black"
+	path = /obj/item/clothing/under/vampire/vtr/dress/sermon
+	cost = 4
+
+/datum/gear/uniform/skater_boy
+	display_name = "outfit, skater boy cargo pants"
+	path = /obj/item/clothing/under/vampire/vtr/skater_boy
+
+/datum/gear/uniform/skater_skirt
+	display_name = "outfit, skater skirt"
+	path = /obj/item/clothing/under/vampire/vtr/skater_skirt

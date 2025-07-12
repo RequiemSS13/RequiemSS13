@@ -252,3 +252,43 @@
 	name = "black frilly dress"
 	desc = "A cute, black dress decorated with white frills and lace. Feels expensive."
 	icon_state = "blackfrills"
+
+/obj/item/clothing/under/vampire/vtr/dress/wedding_gothic
+	name = "gothic wedding dress"
+	desc = "A pale white dress that wouldn't go amiss at a wedding."
+	icon_state = "wedding_gothic"
+
+/obj/item/clothing/under/vampire/vtr/dress/old_wench_dress
+	name = "old wench dress"
+	desc = "A dress with a fitted corset and a few dangling baubles of jewelry."
+	icon_state = "old_wench_dress"
+
+/obj/item/clothing/under/vampire/vtr/dress/countess
+	name = "countess dress"
+	desc = "A fancy, formal dress fit for a queen. Off with their heads!"
+	icon_state = "countess"
+
+/obj/item/clothing/under/vampire/vtr/dress/goddess
+	name = "divine silk dress"
+	desc = "A draped blue and orange dress that clings to the form."
+	icon_state = "goddess"
+
+/obj/item/clothing/under/vampire/vtr/dress/white_dress
+	name = "white and black mesh dress"
+	desc = "A white dress with black mesh details."
+	icon_state = "white_dress"
+
+/obj/item/clothing/under/vampire/vtr/dress/sermon
+	name = "golden embroidered black dress"
+	desc = "A black gown with draping sleeves and golden embroidery."
+	icon_state = "sermon"
+
+/obj/item/clothing/under/vampire/vtr/skater_boy
+	name = "skater boy cargo pants"
+	desc = "A tank top, tie, and cargo pants. How familiar..."
+	icon_state = "skater_boy"
+
+/obj/item/clothing/under/vampire/vtr/skater_skirt
+	name = "skater skirt"
+	desc = "A sporty black skirt and top."
+	icon_state = "skater_skirt"

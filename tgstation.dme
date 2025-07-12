@@ -3738,6 +3738,7 @@
 #include "code\modules\vtr13\items\ids.dm"
 #include "code\modules\vtr13\items\mugs.dm"
 #include "code\modules\vtr13\items\travel_brochure.dm"
+#include "code\modules\vtr13\items\clothing\glasses.dm"
 #include "code\modules\vtr13\items\clothing\hats.dm"
 #include "code\modules\vtr13\items\clothing\neck.dm"
 #include "code\modules\vtr13\items\clothing\shoes.dm"

@@ -16,6 +16,10 @@
 	display_name = "sunglasses"
 	path = /obj/item/clothing/glasses/vampire/sun
 
+/datum/gear/eyewear/white_veil
+	display_name = "white veil"
+	path = /obj/item/clothing/glasses/vampire/vtr/white_veil
+
 //Prescription glasses
 /datum/gear/eyewear/glasses
 	display_name = "glasses, prescription"
