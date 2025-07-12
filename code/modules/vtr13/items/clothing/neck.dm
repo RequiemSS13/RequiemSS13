@@ -71,8 +71,8 @@
 	icon_state = "leathercollar"
 
 /obj/item/clothing/neck/vtr/choker/collar/steel
-	name = "stainless steel collar"
-	desc = "A locking metal bondage collar made of shiny stainless steel. Hardcore."
+	name = "silver-plated collar"
+	desc = "A locking metal bondage collar plated in tarnish-resistant, hypoallergenic silver. Hardcore."
 	icon_state = "steelcollar"
 
 /obj/item/clothing/neck/vtr/choker/collar/steel/Initialize()

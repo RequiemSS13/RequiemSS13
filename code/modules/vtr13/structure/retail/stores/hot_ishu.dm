@@ -41,5 +41,5 @@
 		new /datum/data/retail_product("silver choker", /obj/item/clothing/neck/vtr/choker/silver, 20),
 		new /datum/data/retail_product("leather collar", /obj/item/clothing/neck/vtr/choker/collar, 50),
 		new /datum/data/retail_product("fancy leather collar", /obj/item/clothing/neck/vtr/choker/collar/leatherg, 75),
-		new /datum/data/retail_product("stainless steel collar", /obj/item/clothing/neck/vtr/choker/collar/steel, 100)
+		new /datum/data/retail_product("silver-plated collar", /obj/item/clothing/neck/vtr/choker/collar/steel, 200)
 	)
