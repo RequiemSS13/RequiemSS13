@@ -1359,22 +1359,15 @@
 
 /mob/living/carbon/human/npc/walkby/club/Life()
 	. = ..()
-	if(staying && stat < 2)
-		if(prob(5))
-			var/hasjukebox = FALSE
-			for(var/obj/machinery/jukebox/J in range(5, src))
-				if(J)
-					hasjukebox = TRUE
-					if(J.active)
-						if(prob(50))
-							dancefirst(src)
-						else
-							dancesecond(src)
-			if(!hasjukebox)
-				staying = FALSE
+	if(turns_to_turn == 0)
+		setDir(pick(GLOB.cardinals))
+		turns_to_turn = rand(1,4)
+	else
+		--turns_to_turn
 
 /mob/living/carbon/human/npc/walkby/club
 	staying = TRUE
+	var/turns_to_turn = 0
 
 /datum/socialrole/stripfemale
 	s_tones = list("albino",
