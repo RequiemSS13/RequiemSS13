@@ -1,7 +1,7 @@
 /datum/adaptation/unnatural/claws
 	name = "Wicked Claws"
-	var/obj/item/melee/vampirearms/knife/protean/left_weapon
-	var/obj/item/melee/vampirearms/knife/protean/right_weapon
+	var/obj/item/melee/vampirearms/knife/protean/feral_claws/wicked_claws/left_weapon
+	var/obj/item/melee/vampirearms/knife/protean/feral_claws/wicked_claws/right_weapon
 
 /datum/adaptation/unnatural/claws/activate(mob/living/carbon/owner)
 	. = ..()
