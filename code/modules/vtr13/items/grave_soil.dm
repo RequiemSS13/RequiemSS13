@@ -4,10 +4,8 @@
 	var/full_desc = "An ornate jar of dirt..."
 	icon_state = "urn_empty"
 	var/icon_state_full = "urn"
-	
+
 	icon = 'icons/vtr13/obj/items.dmi'
-	onflooricon = 'icons/vtr13/obj/items_onfloor.dmi'
-	onflooricon_state = "urn"
 	var/fragile = TRUE
 	var/filled = FALSE
 	w_class = WEIGHT_CLASS_SMALL
@@ -29,7 +27,7 @@
 	if(!do_mob(user, user, 10 SECONDS))
 		user.visible_message(span_warning("[user]'s stops pouring out \the [src]."))
 		return
-	
+
 	new /obj/effect/decal/grave_soil(get_turf(user), src)
 	filled = FALSE
 	desc = initial(desc)
@@ -86,6 +84,5 @@
 	full_desc = "An unseemly bag of dirt..."
 	icon_state = "sack_empty"
 	icon_state_full = "sack"
-	onflooricon_state = "sack"
 	empty_icon
 	fragile = FALSE

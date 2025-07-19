@@ -3,7 +3,6 @@
 	desc = "The secrets of Blood Magic..."
 	icon_state = "arcane"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	is_magic = TRUE
 	var/list/rituals = list()

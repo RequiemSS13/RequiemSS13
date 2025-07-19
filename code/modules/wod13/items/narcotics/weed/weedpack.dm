@@ -4,7 +4,6 @@
 	icon_state = "package_weed"
 	icon = 'icons/wod13/items.dmi'
 	w_class = WEIGHT_CLASS_SMALL
-	onflooricon = 'icons/wod13/onfloor.dmi'
 
 /obj/item/weedpack/Initialize(mapload)
 	. = ..()

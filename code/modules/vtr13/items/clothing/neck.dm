@@ -1,7 +1,6 @@
 /obj/item/clothing/neck/vtr
 	icon = 'icons/vtr13/obj/clothing/neck.dmi'
 	worn_icon = 'icons/vtr13/obj/clothing/worn.dmi'
-	onflooricon = 'icons/vtr13/obj/clothing/onfloor.dmi'
 
 /obj/item/clothing/neck/vtr/tie
 	name = "black tie"

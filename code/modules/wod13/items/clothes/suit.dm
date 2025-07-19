@@ -7,7 +7,6 @@
 /obj/item/clothing/suit/vampire
 	icon = 'icons/wod13/clothing.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 
 	body_parts_covered = CHEST
 	cold_protection = CHEST|GROIN
@@ -31,7 +30,6 @@
 	desc = "A costume made for chemical protection."
 	icon = 'icons/wod13/clothing.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "heisenberg"
 	inhand_icon_state = "heisenberg"
 	body_parts_covered = CHEST | GROIN | ARMS
@@ -47,7 +45,6 @@
 	icon_state = "heisenberg_helm"
 	icon = 'icons/wod13/clothing.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	body_parts_covered = HEAD
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
@@ -62,7 +59,6 @@
 	icon_state = "robes"
 	icon = 'icons/wod13/clothing.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	inhand_icon_state = "robes"
 	flags_inv = HIDEJUMPSUIT
 	body_parts_covered = CHEST | GROIN | LEGS | ARMS
@@ -76,7 +72,6 @@
 	icon_state = "robes_hood"
 	icon = 'icons/wod13/clothing.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	body_parts_covered = HEAD
 	cold_protection = HEAD
 	flags_inv = HIDEHAIR | HIDEEARS
@@ -432,7 +427,6 @@
 /obj/item/clothing/suit/pentex
 	icon = 'icons/wod13/clothing.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	body_parts_covered = CHEST
 	cold_protection = CHEST|GROIN
 	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT

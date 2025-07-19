@@ -136,7 +136,6 @@
 
 /obj/item/ammo_casing/vampire
 	icon = 'icons/wod13/ammo.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	var/base_iconstate
 
 /obj/item/ammo_casing/vampire/c9mm
@@ -245,7 +244,6 @@
 
 /obj/item/ammo_box/vampire
 	icon = 'icons/wod13/ammo.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 
 ///9mm/////////////

@@ -580,7 +580,6 @@
 	icon = 'icons/wod13/items.dmi'
 	lefthand_file = null
 	righthand_file = null
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	max_amount = 1000
 	merge_type = /obj/item/stack/dollar

@@ -2,7 +2,6 @@
 	name = "generic vamp shoes"
 	icon = 'icons/vtr13/obj/clothing/shoes.dmi'
 	worn_icon = 'icons/vtr13/obj/clothing/worn.dmi'
-	onflooricon = 'icons/vtr13/obj/clothing/onfloor.dmi'
 
 /obj/item/clothing/shoes/vampire/vtr/blackfur
 	name = "black fur boots"

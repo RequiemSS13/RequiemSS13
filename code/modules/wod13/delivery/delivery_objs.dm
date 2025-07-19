@@ -6,7 +6,6 @@
 	color = "#bbb95c"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 
 	var/datum/delivery_datum/delivery
 	var/datum/delivery_manifest/manifest

@@ -3,7 +3,6 @@
 	desc = "Voiding..."
 	icon_state = "argemia"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/argemia/microwave_act(obj/machinery/microwave/M)

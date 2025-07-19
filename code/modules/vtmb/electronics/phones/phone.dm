@@ -32,7 +32,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	onflooricon = 'icons/wod13/onfloor.dmi'
 
 	var/exchange_num = 513
 	var/list/contacts = list()
@@ -738,7 +737,6 @@
 /obj/item/vamp/phone/street
 	desc = "An ordinary street payphone"
 	icon = 'icons/wod13/props.dmi'
-	onflooricon = 'icons/wod13/props.dmi'
 	icon_state = "payphone"
 	anchored = TRUE
 	number = "1447"

@@ -3,7 +3,6 @@
 	desc = "See the actual numbers in the city."
 	icon_state = "phonebook"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/phone_book/attack_self(mob/user)

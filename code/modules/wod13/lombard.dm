@@ -65,12 +65,10 @@
 				extra_money_stack -= 1
 			else
 				extra_money_to_spawn.amount = floor(extra_money_to_spawn.max_amount/extra_money_stack)
-			extra_money_to_spawn.icon = extra_money_to_spawn.onflooricon
 			extra_money_to_spawn.update_icon_state()
 			extra_money_to_spawn.forceMove(loc)
 	else
 		money_to_spawn.amount = real_value
-	money_to_spawn.icon = money_to_spawn.onflooricon //The nullspace workaround causes the money to show up in an unintentional way. Manually fix the icon.
 	money_to_spawn.update_icon_state()
 	money_to_spawn.forceMove(loc)
 

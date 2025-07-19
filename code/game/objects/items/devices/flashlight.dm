@@ -3,7 +3,6 @@
 	desc = "A hand-held emergency light."
 	custom_price = PAYCHECK_EASY
 	icon = 'icons/obj/lighting.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "flashlight"
 	inhand_icon_state = "flashlight"
 	worn_icon_state = "flashlight"

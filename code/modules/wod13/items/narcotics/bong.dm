@@ -4,7 +4,6 @@
 	icon = 'icons/wod13/items.dmi'
 	icon_state = "bulbulator"
 	inhand_icon_state = "bulbulator"
-	onflooricon = 'icons/wod13/onfloor.dmi'
 
 	///The icon state when the bong is lit
 	var/icon_on = "bulbulator"

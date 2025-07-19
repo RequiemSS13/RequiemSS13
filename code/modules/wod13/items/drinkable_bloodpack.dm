@@ -10,7 +10,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	onflooricon = 'icons/wod13/onfloor.dmi'
 
 	var/empty = FALSE
 	var/feeding = FALSE
@@ -37,7 +36,7 @@
 			blood_mod = 0
 		else if(human_user?.vamp_rank == VAMP_RANK_ELDER && !vitae)
 			blood_mod *= 0.5
-		
+
 		if(blood_mod)
 			M.adjustBloodPool(blood_mod * amount_of_bloodpoints)
 			M.adjustBruteLoss(-20 * blood_mod, TRUE)

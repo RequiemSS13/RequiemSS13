@@ -382,7 +382,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id2"
 

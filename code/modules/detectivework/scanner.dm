@@ -7,7 +7,6 @@
 	desc = "Used to remotely scan objects and biomass for DNA and fingerprints. Can show a report of the findings."
 	icon = 'icons/wod13/items.dmi'
 	icon_state = "magnifier"
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	flags_1 = CONDUCT_1
 	item_flags = NOBLUDGEON

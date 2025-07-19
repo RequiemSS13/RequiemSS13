@@ -6,7 +6,6 @@
 	inhand_icon_state = "vaultdrill"
 	lefthand_file = 'icons/wod13/lefthand.dmi'
 	righthand_file = 'icons/wod13/righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_HUGE
 	force = 8
 	throwforce = 10

@@ -8,7 +8,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id1"
 
@@ -22,7 +21,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id4"
 
@@ -35,7 +33,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id7_regent"
 
@@ -48,7 +45,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id2"
 
@@ -61,7 +57,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id2"
 
@@ -74,7 +69,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id2"
 
@@ -87,7 +81,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id8"
 
@@ -100,7 +93,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id6"
 
@@ -113,7 +105,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id9"
 
@@ -126,7 +117,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id12"
 
@@ -139,7 +129,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id12"
 
@@ -152,7 +141,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id12"
 
@@ -166,7 +154,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id3"
 
@@ -179,7 +166,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id10"
 
@@ -192,7 +178,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id11"
 
@@ -210,7 +195,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id7"
 
@@ -223,7 +207,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id8"
 
@@ -236,7 +219,6 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id9"
 	registered_age = null

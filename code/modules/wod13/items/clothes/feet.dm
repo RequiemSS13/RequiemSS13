@@ -12,7 +12,6 @@
 	icon_state = "shoes"
 	gender = PLURAL
 	can_be_tied = FALSE
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	body_worn = TRUE
 
 /obj/item/clothing/shoes/vampire/Initialize()

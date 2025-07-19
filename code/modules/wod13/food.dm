@@ -1,6 +1,5 @@
 /obj/item/food/vampire
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	eatsound = 'code/modules/wod13/sounds/eat.ogg'
 	var/biten = FALSE
@@ -54,7 +53,6 @@
 	name = "chicken wing bone"
 	icon_state = "nugget0"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 
 /obj/item/food/vampire/nugget
 	name = "chicken wing"
@@ -73,7 +71,6 @@
 	name = "chocolate bar wrapper"
 	icon_state = "bar0"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 
 /obj/item/food/vampire/bar
 	name = "chocolate bar"
@@ -107,7 +104,6 @@
 	name = "chips wrapper"
 	icon_state = "crisps0"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 
 /obj/item/food/vampire/crisps
 	name = "chips"
@@ -164,7 +160,6 @@
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
 	icon_state = "coffee"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	list_reagents = list(/datum/reagent/consumable/coffee = 30)
 	spillable = TRUE
 	resistance_flags = FREEZE_PROOF
@@ -180,7 +175,6 @@
 	desc = "Beer."
 	icon_state = "beer"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	list_reagents = list(/datum/reagent/consumable/ethanol/beer = 30)
 	foodtype = GRAIN | ALCOHOL
 	custom_price = PAYCHECK_EASY
@@ -196,7 +190,6 @@
 	desc = "Coca cola espuma..."
 	icon_state = "colared"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	isGlass = FALSE
 	list_reagents = list(/datum/reagent/consumable/space_cola = 100)
 	foodtype = SUGAR
@@ -225,7 +218,6 @@
 	desc = "H2O."
 	icon_state = "water1"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	isGlass = FALSE
 	list_reagents = list(/datum/reagent/water = 100)
 	age_restricted = FALSE
@@ -235,7 +227,6 @@
 	desc = "Coca cola espuma..."
 	icon_state = "colared2"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	list_reagents = list(/datum/reagent/consumable/space_cola = 50)
 	foodtype = SUGAR
 
@@ -249,7 +240,6 @@
 	desc = "More water..."
 	icon_state = "soda"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	list_reagents = list(/datum/reagent/consumable/sodawater = 50)
 	foodtype = SUGAR
 
@@ -258,7 +248,6 @@
 	desc = "More milk..."
 	icon_state = "milk"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	list_reagents = list(/datum/reagent/consumable/milk = 50)
 	fill_icon_thresholds = null
 

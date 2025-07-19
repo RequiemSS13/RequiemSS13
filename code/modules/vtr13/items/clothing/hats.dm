@@ -3,9 +3,7 @@
 	name = "generic vamp hat"
 	icon = 'icons/vtr13/obj/clothing/hats.dmi'
 	worn_icon = 'icons/vtr13/obj/clothing/worn.dmi'
-	onflooricon = 'icons/vtr13/obj/clothing/onfloor.dmi'
 	worn_icon = 'icons/vtr13/obj/clothing/worn_hat.dmi'
-	onflooricon = 'icons/vtr13/obj/clothing/onfloor_hat.dmi'
 
 /obj/item/clothing/head/vampire/vtr/nun
 	name = "Sisterly Habit"

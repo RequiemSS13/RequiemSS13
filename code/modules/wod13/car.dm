@@ -41,7 +41,6 @@ SUBSYSTEM_DEF(carpool)
 	desc = "Stores gasoline or pure fire death."
 	icon_state = "gasoline"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
@@ -511,7 +510,7 @@ SUBSYSTEM_DEF(carpool)
 				E.Grant(src)
 				var/datum/action/carr/beep/B = new()
 				B.Grant(src)
-				
+
 				if(!HAS_TRAIT(src, TRAIT_NO_DRIVE))
 					to_chat(src, span_notice("You have no idea how any of this works..."))
 					var/datum/action/carr/fari_vrubi/F = new()

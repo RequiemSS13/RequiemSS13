@@ -6,7 +6,6 @@
 	inhand_icon_state = "blood4"
 	lefthand_file = 'icons/wod13/lefthand.dmi'
 	righthand_file = 'icons/wod13/righthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	list_reagents = list(/datum/reagent/drug/methamphetamine/cocaine = 15) //some of the source chemicals are lost in the process
 	resistance_flags = FREEZE_PROOF
 	item_flags = NOBLUDGEON
@@ -40,7 +39,7 @@
 			blood_mod = 0
 		else if(human_user?.vamp_rank == VAMP_RANK_ELDER && !vitae)
 			blood_mod *= 0.5
-		
+
 		if(blood_mod)
 			M.adjustBloodPool(blood_mod * amount_of_bloodpoints)
 			M.adjustBruteLoss(-20 * blood_mod, TRUE)

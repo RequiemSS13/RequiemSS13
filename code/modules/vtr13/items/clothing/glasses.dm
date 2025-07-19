@@ -3,7 +3,6 @@
 /obj/item/clothing/glasses/vampire/vtr
 	icon = 'icons/vtr13/obj/clothing/glasses.dmi'
 	worn_icon = 'icons/vtr13/obj/clothing/worn_glasses.dmi'
-	onflooricon = 'icons/vtr13/obj/clothing/glasses.dmi'
 
 /obj/item/clothing/glasses/vampire/vtr/white_veil
 	name = "white veil"

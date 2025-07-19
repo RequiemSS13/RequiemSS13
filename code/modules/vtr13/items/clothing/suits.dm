@@ -1,7 +1,6 @@
 /obj/item/clothing/suit/vampire/vtr
 	icon = 'icons/vtr13/obj/clothing/suits.dmi'
 	worn_icon = 'icons/vtr13/obj/clothing/worn.dmi'
-	onflooricon = 'icons/vtr13/obj/clothing/onfloor.dmi'
 	lefthand_file = 'icons/vtr13/obj/clothing/inhand_left/suit_left.dmi'
 	righthand_file = 'icons/vtr13/obj/clothing/inhand_right/suit_right.dmi'
 
@@ -20,7 +19,6 @@
 /obj/item/clothing/suit/vampire/vtr/greatcoat
 	name = "greatcoat"
 	desc = "A heavy greatcoat."
-	onflooricon = 'icons/vtr13/obj/clothing/suits.dmi'
 	icon_state = "gentlecoat"
 	inhand_icon_state = "black_coat"
 
@@ -73,7 +71,6 @@
 	icon_state = "hoodie"
 	icon = 'icons/vtr13/obj/clothing/suits.dmi'
 	worn_icon = 'icons/vtr13/obj/clothing/worn.dmi'
-	onflooricon = 'icons/vtr13/obj/clothing/onfloor.dmi'
 	body_parts_covered = CHEST | GROIN | ARMS
 	cold_protection = CHEST | GROIN | ARMS
 	hoodtype = /obj/item/clothing/head/hooded/hood_hood
@@ -85,7 +82,6 @@
 	icon_state = "hoodie_hood"
 	icon = 'icons/vtr13/obj/clothing/suits.dmi'
 	worn_icon = 'icons/vtr13/obj/clothing/worn.dmi'
-	onflooricon = 'icons/vtr13/obj/clothing/onfloor.dmi'
 	body_parts_covered = HEAD
 	cold_protection = HEAD
 	flags_inv = HIDEHAIR | HIDEEARS
@@ -106,7 +102,6 @@
 /obj/item/clothing/suit/toggle/vtr
 	icon = 'icons/vtr13/obj/clothing/suits.dmi'
 	worn_icon = 'icons/vtr13/obj/clothing/worn.dmi'
-	onflooricon = 'icons/vtr13/obj/clothing/onfloor.dmi'
 	lefthand_file = 'icons/vtr13/obj/clothing/inhand_left/suit_left.dmi'
 	righthand_file = 'icons/vtr13/obj/clothing/inhand_right/suit_right.dmi'
 
@@ -136,7 +131,6 @@
 /obj/item/clothing/suit/vampire/vtr/flannel
 	name = "grey flannel shirt"
 	desc = "A comfy, grey flannel shirt. Unleash your inner hipster."
-	onflooricon = 'icons/vtr13/obj/clothing/suits.dmi'
 	icon_state = "flannel"
 	inhand_icon_state = "black_coat"
 	var/rolled = 0

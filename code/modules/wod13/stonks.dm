@@ -3,7 +3,6 @@
 	desc = "Contains tons of information about broker's marketplace account."
 	icon_state = "card1"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = NOBLUDGEON
 	resistance_flags = FIRE_PROOF | ACID_PROOF

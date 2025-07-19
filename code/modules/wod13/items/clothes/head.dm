@@ -7,7 +7,6 @@
 /obj/item/clothing/head/vampire
 	icon = 'icons/wod13/clothing.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
 	body_worn = TRUE
 
@@ -271,7 +270,6 @@
 /obj/item/clothing/head/pentex
 	icon = 'icons/wod13/clothing.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
 	body_worn = TRUE
 

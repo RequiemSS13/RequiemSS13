@@ -7,7 +7,6 @@
 /obj/item/clothing/gloves/vampire
 	icon = 'icons/wod13/clothing.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	inhand_icon_state = "fingerless"
 	undyeable = TRUE
 	body_worn = TRUE

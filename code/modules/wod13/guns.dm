@@ -3,7 +3,6 @@
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	can_suppress = FALSE
 	recoil = 2
 
@@ -12,7 +11,6 @@
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	can_suppress = FALSE
 	recoil = 2
 
@@ -134,7 +132,6 @@
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "deagle"
 	ammo_type = /obj/item/ammo_casing/vampire/c44
 	caliber = CALIBER_44
@@ -176,7 +173,6 @@
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "deagle"
 	ammo_type = /obj/item/ammo_casing/vampire/c50
 	caliber = CALIBER_50
@@ -198,7 +194,6 @@
 //	lefthand_file = 'icons/wod13/righthand.dmi'
 //	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "m1911"
 	ammo_type = /obj/item/ammo_casing/vampire/c45acp
 	caliber = CALIBER_45
@@ -239,7 +234,6 @@
 //	lefthand_file = 'icons/wod13/righthand.dmi'
 //	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "glock19"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
 	caliber = CALIBER_9MM
@@ -280,7 +274,6 @@
 //	lefthand_file = 'icons/wod13/righthand.dmi'
 //	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "glock21"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm //This feels incorrect but too scared to fix it (should be 45) - Ram
 	caliber = CALIBER_45
@@ -363,7 +356,6 @@
 //	lefthand_file = 'icons/wod13/righthand.dmi'
 //	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "semi9mm"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
 	caliber = CALIBER_9MM
@@ -380,7 +372,6 @@
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "uzi"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
 	caliber = CALIBER_9MM
@@ -413,7 +404,6 @@
 //	lefthand_file = 'icons/wod13/righthand.dmi'
 //	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "mp5"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
 	caliber = CALIBER_9MM
@@ -446,7 +436,6 @@
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "rifle"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm
 	caliber = CALIBER_556
@@ -510,7 +499,6 @@
 //	lefthand_file = 'icons/wod13/righthand.dmi'
 //	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "ak"
 	ammo_type = /obj/item/ammo_casing/vampire/c545mm
 	caliber = CALIBER_545
@@ -547,7 +535,6 @@
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "aug"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm
 	caliber = CALIBER_556
@@ -585,7 +572,6 @@
 //	lefthand_file = 'icons/wod13/righthand.dmi'
 //	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	ammo_type = /obj/item/ammo_casing/vampire/c45acp
 	caliber = CALIBER_45
 	max_ammo = 50
@@ -672,7 +658,6 @@
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_MEDIUM
 	icon_state = "pomp"
@@ -693,7 +678,6 @@
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "spas15"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g/buck
 	caliber = CALIBER_12G
@@ -732,7 +716,6 @@
 	icon = 'icons/wod13/48x32weapons.dmi'
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	icon_state = "crossbow0"
 	inhand_icon_state = "crossbow0"
 	fire_delay = 16
@@ -756,7 +739,6 @@
 	caliber = CALIBER_FOAM
 	icon_state = "arrow"
 	icon = 'icons/wod13/ammo.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	harmful = TRUE
 
 /obj/item/molotov
@@ -764,7 +746,6 @@
 	desc = "A homemade incediary grenade, the symbol of the revolution."
 	icon_state = "molotov"
 	icon = 'icons/wod13/weapons.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	masquerade_violating = TRUE
 	var/active = FALSE
@@ -804,7 +785,6 @@
 	desc = "Well fire weapon." //Do not expect this to be used - Ram
 	icon_state = "flamethrower4"
 	icon = 'icons/wod13/weapons.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
 	w_class = WEIGHT_CLASS_NORMAL

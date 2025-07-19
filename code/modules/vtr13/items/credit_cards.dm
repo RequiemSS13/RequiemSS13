@@ -11,7 +11,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	onflooricon = 'icons/wod13/onfloor.dmi'
 
 	var/owner = ""
 	var/datum/vtr_bank_account/account
@@ -68,6 +67,6 @@
 		account.balance = rand(9000, 11000)
 	else
 		account.balance = rand(600, 1000)
-	
+
 	if(HAS_TRAIT(user, TRAIT_WEALTHY))
 		account.balance = round(account.balance * 1.5)

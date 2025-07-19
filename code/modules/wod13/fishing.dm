@@ -1,7 +1,6 @@
 /obj/item/food/fish
 	desc = "Marine life."
 	icon = 'icons/wod13/48x32weapons.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	eatsound = 'code/modules/wod13/sounds/eat.ogg'
 	tastes = list("fish" = 1)
@@ -44,7 +43,6 @@
 	name = "fishing rod"
 	icon_state = "fishing"
 	icon = 'icons/wod13/items.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
@@ -54,7 +52,6 @@
 	. = ..()
 	if(isturf(user.loc))
 		forceMove(user.loc)
-		onflooricon = 'icons/wod13/64x64.dmi'
 		icon = 'icons/wod13/64x64.dmi'
 		dir = user.dir
 		anchored = TRUE
@@ -66,8 +63,6 @@
 			if(get_dist(src, over_object) < 2)
 				if(anchored)
 					anchored = FALSE
-					onflooricon = initial(onflooricon)
-					icon = onflooricon
 
 /obj/item/fishing_rod/attack_hand(mob/living/user)
 	if(anchored)

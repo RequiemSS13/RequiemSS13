@@ -186,10 +186,6 @@
 		if(casing_ejector || !from_firing)
 			AC.forceMove(drop_location()) //Eject casing onto ground.
 			AC.bounce_away(TRUE)
-			if(AC.onflooricon && isturf(AC.loc))
-				AC.icon = AC.onflooricon
-				if(AC.onflooricon_state)
-					AC.icon_state = AC.onflooricon_state
 			AC.update_icon()
 			chambered = null
 		else if(empty_chamber)

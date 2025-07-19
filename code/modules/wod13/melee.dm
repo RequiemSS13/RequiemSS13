@@ -2,7 +2,6 @@
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	var/quieted = FALSE
 
 /obj/item/melee/vampirearms/Initialize()
@@ -247,7 +246,6 @@
 	lefthand_file = 'icons/wod13/righthand.dmi'
 	righthand_file = 'icons/wod13/lefthand.dmi'
 	worn_icon = 'icons/wod13/worn.dmi'
-	onflooricon = 'icons/wod13/onfloor.dmi'
 	component_type = /datum/component/storage/concrete/vtm/sheathe
 
 /obj/item/storage/belt/vampire/sheathe/longsword

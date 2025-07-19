@@ -3,7 +3,6 @@
 	desc = "A spray to dye your hair any gradients you'd like."
 	icon = 'icons/obj/dyespray.dmi'
 	icon_state = "dyespray"
-	onflooricon = 'icons/wod13/onfloor.dmi'
 
 /obj/item/dyespray/attack_self(mob/user)
 	dye(user)

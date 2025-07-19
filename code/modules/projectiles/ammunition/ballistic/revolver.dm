@@ -5,8 +5,6 @@
 	desc = "A .44 bullet casing."
 	icon = 'icons/wod13/ammo.dmi'
 	icon_state = "44"
-	onflooricon = 'icons/wod13/onfloor.dmi'
-	onflooricon_state = "44-1"
 	caliber = CALIBER_357
 	projectile_type = /obj/projectile/bullet/a357
 

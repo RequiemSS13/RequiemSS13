@@ -1,7 +1,6 @@
 /obj/item/clothing/under/vampire/vtr
 	icon = 'icons/vtr13/obj/clothing/under.dmi'
 	worn_icon = 'icons/vtr13/obj/clothing/worn.dmi'
-	onflooricon = 'icons/vtr13/obj/clothing/onfloor.dmi'
 	lefthand_file = 'icons/vtr13/obj/clothing/inhand_left/under_left.dmi'
 	righthand_file = 'icons/vtr13/obj/clothing/inhand_right/under_right.dmi'
 
