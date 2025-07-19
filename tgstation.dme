@@ -3824,6 +3824,7 @@
 #include "code\modules\vtr13\mobs\living\dance.dm"
 #include "code\modules\vtr13\mobs\living\merit_procs.dm"
 #include "code\modules\vtr13\mobs\living\recieve_vitae.dm"
+#include "code\modules\vtr13\mobs\living\refresh_character_connections.dm"
 #include "code\modules\vtr13\mobs\living\setDir.dm"
 #include "code\modules\vtr13\mobs\living\status_effect_examines.dm"
 #include "code\modules\vtr13\mobs\living\mind\invade_mind.dm"
