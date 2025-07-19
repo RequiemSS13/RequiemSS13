@@ -719,9 +719,11 @@
 	worn_icon = 'icons/wod13/worn.dmi'
 	icon_state = "crossbow0"
 	inhand_icon_state = "crossbow0"
+	worn_icon_state = "crossbow0"
 	fire_delay = 16
 	mag_type = /obj/item/ammo_box/magazine/internal/vampcrossbow
 	fire_sound = 'sound/items/syringeproj.ogg'
+	rack_sound = 'sound/weapons/draw_bow.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
