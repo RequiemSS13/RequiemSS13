@@ -1,6 +1,6 @@
 
 /mob/living/carbon/human/proc/vamp_bite()
-	//the code below is directly imported from onyxcombat.dm's /atom/movable/screen/drinkblood/Click() proc	
+	//the code below is directly imported from onyxcombat.dm's /atom/movable/screen/drinkblood/Click() proc
 	src.update_blood_hud()
 	if(world.time < src.last_drinkblood_use+30)
 		return
@@ -13,19 +13,23 @@
 			if(isghoul(src))
 				if(!iskindred(PB))
 					SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
-					to_chat(src, "<span class='warning'>Eww, that is <b>GROSS</b>.</span>")
+					to_chat(src, "<span class='warning'>You're not desperate enough to try <i>that</i>.</span>")
 					return
 			if(!isghoul(src) && !iskindred(src))
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
-				to_chat(src, "<span class='warning'>Eww, that is <b>GROSS</b>.</span>")
+				to_chat(src, "<span class='warning'>You're not desperate enough to try <i>that</i>.</span>")
 				return
 			if(PB.stat == DEAD && !HAS_TRAIT(src, TRAIT_GULLET))
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
-				to_chat(src, "<span class='warning'>This creature is <b>DEAD</b>.</span>")
+				to_chat(src, "<span class='warning'>Your Beast requires life, not the tepid swill of corpses.</span>")
+				return
+			if(PB.blood_volume <= 50 && (!iskindred(src.pulling) || !iskindred(src)))
+				SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
+				to_chat(src, "<span class='warning'>This vessel is empty. You'll have to find another.</span>")
 				return
 			if(PB.bloodpool <= 0 && (!iskindred(src.pulling) || !iskindred(src)))
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
-				to_chat(src, "<span class='warning'>There is no <b>BLOOD</b> in this creature.</span>")
+				to_chat(src, "<span class='warning'>This vessel is empty. You'll have to find another.</span>")
 				return
 			if(iskindred(src))
 				PB.emote("groan")
@@ -35,16 +39,19 @@
 		if(isliving(src.pulling))
 			if(!iskindred(src))
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
-				to_chat(src, "<span class='warning'>Eww, that is <b>GROSS</b>.</span>")
+				to_chat(src, "<span class='warning'>You're not desperate enough to try <i>that</i>.</span>")
 				return
 			var/mob/living/LV = src.pulling
+			if(LV.blood_volume <= 50 && (!iskindred(src.pulling) || !iskindred(src)))
+				SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
+				to_chat(src, "<span class='warning'>This vessel is empty. You'll have to find another.</span>")
 			if(LV.bloodpool <= 0 && (!iskindred(src.pulling) || !iskindred(src)))
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
-				to_chat(src, "<span class='warning'>There is no <b>BLOOD</b> in this creature.</span>")
+				to_chat(src, "<span class='warning'>This vessel is empty. You'll have to find another.</span>")
 				return
 			if(LV.stat == DEAD && !HAS_TRAIT(src, TRAIT_GULLET))
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
-				to_chat(src, "<span class='warning'>This creature is <b>DEAD</b>.</span>")
+				to_chat(src, "<span class='warning'>Your Beast requires life, not the tepid swill of corpses.</span>")
 				return
 			var/skipface = (src.wear_mask && (src.wear_mask.flags_inv & HIDEFACE)) || (src.head && (src.head.flags_inv & HIDEFACE))
 			if(!skipface)

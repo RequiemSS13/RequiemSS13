@@ -1,5 +1,5 @@
 /*
-	Handles all related code for turning a human, 
+	Handles all related code for turning a human,
 	ghoul or revenant into a vampire. Will return
 	TRUE if the Embrace Occurred, and FALSE if
 	the embrace did not occur.
@@ -9,12 +9,12 @@
 		to_chat(sire, "<span class='warning'>You need [src]'s mind to Embrace!</span>")
 		return FALSE
 
-	if((src.timeofdeath + 5 MINUTES) < world.time || HAS_TRAIT(sire, TRAIT_HALF_DAMNED_CURSE))
+	if((src.timeofdeath + 5 HOURS) < world.time || HAS_TRAIT(sire, TRAIT_HALF_DAMNED_CURSE))
 		to_chat(sire, "<span class='notice'>[src] doesn't respond to your Vitae.</span>")
 		return FALSE
-	
+
 	sire.visible_message(
-		span_warning("[sire] tries to feed [src] with their own blood!"), 
+		span_warning("[sire] tries to feed [src] with their own blood!"),
 		span_notice("You started to feed [src] with your own blood."))
 
 	if(!revive(full_heal = TRUE, admin_revive = TRUE))
@@ -24,7 +24,7 @@
 	message_admins("[ADMIN_LOOKUPFLW(sire)] is Embracing [ADMIN_LOOKUPFLW(src)]!")
 
 	grab_ghost(force = TRUE)
-	to_chat(src, span_userdanger("You rise with a start, you're alive! Or not... You feel your soul going somewhere, as you realize you are embraced by a vampire..."))
+	to_chat(src, span_userdanger("Like a heart attack in reverse, you claw your way back to life... of a sort. An empty feeling in your chest heralds the loss of your soul to a ravenous Beast."))
 
 	add_potency_mod(1, "Embrace")
 	set_species(/datum/species/kindred)
@@ -37,9 +37,9 @@
 	if(!iskindred(src))
 		to_chat(sire, span_notice("[src] is totally <b>DEAD</b>!"))
 		return FALSE
-	
+
 	INVOKE_ASYNC(src, PROC_REF(embrace_save_prompt), sire)
-	
+
 	return TRUE
 
 /mob/living/carbon/human/proc/embrace_save_prompt(mob/living/carbon/human/sire)
@@ -59,4 +59,3 @@
 			prefs.discipline_levels.Add(0)
 		SScharacter_connection.add_connection(CONNECTION_EMBRACE, src, sire)
 		prefs.save_character()
-	

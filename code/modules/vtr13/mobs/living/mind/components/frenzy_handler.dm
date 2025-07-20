@@ -11,7 +11,7 @@
 	var/datum/mind/brain = parent
 	if(!brain.current)
 		return COMPONENT_INCOMPATIBLE
-	
+
 	current = brain.current
 
 	RegisterSignal(parent, COMSIG_MIND_TRY_FRENZY, PROC_REF(rollfrenzy))
@@ -158,13 +158,13 @@
 	if(frenzy_target && \
 		get_dist(frenzy_target, current) <= 7 && \
 		frenzy_target.z == current.z && \
-		(!iskindred(current) || frenzy_target.bloodpool) && \
+		(!iskindred(current) || frenzy_target.blood_volume) && \
 		frenzy_target.stat != DEAD)
 		return
 
 	var/list/targets = list()
 	for(var/mob/living/living_victim in oviewers(7, current))
-		if((!iskindred(current) || living_victim.bloodpool) && living_victim.stat != DEAD)
+		if((!iskindred(current) || living_victim.blood_volume) && living_victim.stat != DEAD)
 			targets += living_victim
 
 	if(length(targets))
@@ -211,7 +211,7 @@
 		return
 
 	//get sum bloood
-	if(iskindred(current) && current.bloodpool <= 5 && frenzy_target.bloodpool && current.last_drinkblood_use+95 <= world.time)
+	if(iskindred(current) && current.bloodpool <= 5 && frenzy_target.blood_volume && current.last_drinkblood_use+95 <= world.time)
 		current.a_intent = INTENT_GRAB
 		var/mob/living/carbon/human/human_current = current
 

@@ -6,7 +6,7 @@
 	var/t_has = p_have()
 	var/t_is = p_are()
 
-	
+
 
 	var/temp = getBruteLoss() //no need to calculate each of these twice
 
@@ -105,9 +105,13 @@
 		if(DISGUST_LEVEL_DISGUSTED to INFINITY)
 			. += "[t_He] look[p_s()] extremely disgusted."
 
-	if(ishumanbasic(src) && (bloodpool >= 1) && (bloodpool < round(maxbloodpool/2)))
-		. += "[t_He] look[p_s()] a little anemic."
-	else if(bloodpool <= 0)
-		. += "<span class='deadsay'><b>[t_He] resemble[p_s()] a crushed, empty juice pouch.</b></span>"
-
+	switch(blood_volume)
+		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
+			. += "[t_He] look[p_s()] a little anemic."
+		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
+			. += "[t_He] look[p_s()] anemic."
+		if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
+			. += "[t_He] look[p_s()] incredibly anemic."
+		if(-INFINITY to BLOOD_VOLUME_SURVIVE)
+			. += "[t_He] [t_is] deathly pale."
 	return length(.) ? . : null

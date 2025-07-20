@@ -9,10 +9,13 @@
 		return
 	if(ishuman(inhaling_mob))
 		var/mob/living/carbon/human/human_inhaler = inhaling_mob
-		if(human_inhaler.bloodpool && prob(50))
-			human_inhaler.bloodpool = max(0, human_inhaler.bloodpool-1)
-			to_chat(inhaling_mob, "You feel blood leave your body!")
-	
+		if(human_inhaler.bloodpool && (isghoul(human_inhaler) || iskindred(human_inhaler)) && prob(25))
+			human_inhaler.adjustBloodPool(-1)
+			to_chat(inhaling_mob, "The mist drinks the life from your breath!")
+		if(!iskindred(inhaling_mob) && prob(25))
+			human_inhaler.blood_volume = max(0, human_inhaler.blood_volume-50)
+			to_chat(human_inhaler, "The mist drinks your blood through your skin!")
+
 	inhaling_mob.adjustBruteLoss(5)
 	inhaling_mob.emote("cough")
 

@@ -147,10 +147,10 @@
 	if(!istype(owner, /mob/living/carbon/human))
 		return
 	var/mob/living/carbon/human/human_owner = owner
-	if(human_owner.bloodpool < 2)
+	if(human_owner.bloodpool < 1)
 		to_chat(owner, "<span class='warning'>You don't have enough <b>BLOOD</b> to do that!</span>")
 		return
-	
+
 	if(!human_owner.pulling || !isliving(human_owner.pulling))
 		to_chat(owner, "<span class='warning'>You must be grabbing someone to give them your <b>BLOOD</b>!</span>")
 		return
@@ -164,11 +164,11 @@
 		giving = FALSE
 		return
 	giving = FALSE
-	
+
 	living_target.drunked_of |= "[human_owner.dna.real_name]"
-	human_owner.adjustBloodPool(-2)
+	human_owner.adjustBloodPool(-1)
 	living_target.recieve_vitae(human_owner)
-	
+
 
 /**
  * Initialises Disciplines for new vampire mobs, applying effects and creating action buttons.

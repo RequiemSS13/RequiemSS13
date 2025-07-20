@@ -21,7 +21,8 @@
 		client.images -= suckbar
 	qdel(suckbar)
 	suckbar_loc = mob
-	suckbar = image('icons/wod13/bloodcounter.dmi', suckbar_loc, "[round(14*(mob.bloodpool/mob.maxbloodpool))]", HUD_LAYER)
+	if(mob.blood_volume)
+		suckbar = image('icons/wod13/bloodcounter.dmi', suckbar_loc, "[round(14*(mob.blood_volume/BLOOD_VOLUME_NORMAL))]", HUD_LAYER)
 	suckbar.pixel_z = 40
 	suckbar.plane = ABOVE_HUD_PLANE
 	suckbar.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
@@ -37,8 +38,10 @@
 		NPC.danger_source = null
 		mob.Stun(40) //NPCs don't get to resist
 
-	if(mob.bloodpool <= 1 && mob.maxbloodpool > 1)
-		to_chat(src, "<span class='warning'>You feel small amount of <b>BLOOD</b> in your victim.</span>")
+	if(mob.blood_volume <= BLOOD_VOLUME_BAD)
+		to_chat(src, "<span class='warning'>Your victim's heart beats only weakly. Death comes for them.</span>")
+
+	if(mob.bloodpool <= 0)
 		if(iskindred(mob) && iskindred(src))
 			if(!mob.client)
 				to_chat(src, "<span class='warning'>You need [mob]'s attention to do that...</span>")
@@ -64,34 +67,51 @@
 		if(CheckEyewitness(src, src, 7, FALSE))
 			AdjustMasquerade(-1)
 	if(do_after(src, 30, target = mob, timed_action_flags = NONE, progress = FALSE))
-		mob.adjustBloodPool(-1)
-		suckbar.icon_state = "[round(14*(mob.bloodpool/mob.maxbloodpool))]"
+		if(!iskindred(mob)) // vampires give vitae directly
+			if(mob.maxbloodpool < 2) // very small animals just die instantly if you drink from them
+				mob.blood_volume = 0
+			else
+				var/blood_coefficient = 1 //(mob.bloodpool / 5) //most animals give less blood; very large animals/misc supernaturals/unusual humans give more
+				if(isghoul(mob)) // ghouls don't give more blood just because of their high bloodpool
+					blood_coefficient = 1
+				if(isnpc(mob))
+					blood_coefficient *= 2 // NPC blood is less valuable; totally extradiagetic but makes ghouls/blooddolls more valuable
+				if(HAS_TRAIT(mob, TRAIT_HONEYPOT))
+					blood_coefficient *= 0.5 // Honeypot blood is twice as valuable
+				mob.blood_volume = max(0, (mob.blood_volume - (50*blood_coefficient)))
+		else
+			mob.adjustBloodPool(-1)
+		suckbar.icon_state = "[round(14*(mob.blood_volume/BLOOD_VOLUME_NORMAL))]"
 		if(ishuman(mob))
 			var/mob/living/carbon/human/H = mob
 			drunked_of |= "[H.dna.real_name]"
-			if(!iskindred(mob))
-				H.blood_volume = max(H.blood_volume-50, 150)
 			if(H.reagents)
 				if(length(H.reagents.reagent_list))
 					if(prob(50))
 						H.reagents.trans_to(src, min(10, H.reagents.total_volume), transfered_by = mob, methods = VAMPIRE)
 		if(!(SEND_SIGNAL(mob, COMSIG_MOB_VAMPIRE_SUCKED, mob) & COMPONENT_RESIST_VAMPIRE_KISS))
 			mob.apply_status_effect(/datum/status_effect/kissed)
-
-
-		if(!ishuman(mob) && get_potency() > 1)
-			to_chat(src, "<span class='warning'>You drink the blood of the creature. Like sea water, it can be drank, but will not sustain you.</span>")
-		else if(iskindred(mob) || (!HAS_TRAIT(src, TRAIT_METHUSELAHS_THIRST) && HAS_TRAIT(mob, TRAIT_HONEYPOT)))
-			to_chat(src, "<span class='userlove'>[mob]'s blood tastes HEAVENLY...</span>")
+		if(!ishuman(mob))
+			if(get_potency() > 1)
+				to_chat(src, "<span class='warning'>You drink the seawater blood of the creature, only sharpening the thirst at the back of your mind. It will not sustain you.</span>")
+			else
+				to_chat(src, "<span class='warning'The thin, acrid blood of this creature can sustain you, for now, but your Beast howls its complaints.</span>")
+		else if(!HAS_TRAIT(src, TRAIT_METHUSELAHS_THIRST) && HAS_TRAIT(mob, TRAIT_HONEYPOT))
+			to_chat(src, "<span class='userlove'>You drink deeply of rich-tasting, powerful blood. There's something special about this vessel.</span>")
+		else if(iskindred(mob))
+			if (HAS_TRAIT(src, TRAIT_METHUSELAHS_THIRST))
+				to_chat(src, "<span class='userlove'>The rich, sweet Vitae of your fellow monsters saturates your tongue, silencing your ancient thirst... for now.</span>")
+			else
+				to_chat(src, "<span class='userlove'>As you fill yourself with second-hand life, your Beast sings out a sickly, cannibalistic note.</span>")
 		else if(HAS_TRAIT(src, TRAIT_METHUSELAHS_THIRST))
 			to_chat(src, "<span class='warning'>You drink [mob]'s blood, but it is like eating air. It is not enough. You need the blood of your own kind; no other will do.</span>")
 		else
-			to_chat(src, "<span class='warning'>You sip some <b>BLOOD</b> from your victim. It feels good.</span>")
+			to_chat(src, "<span class='userlove'>Stolen life flows down your throat, as your thirst subsides...</span>")
 
 
 		if(iskindred(mob))
-			adjustBruteLoss(-25, TRUE)
-			adjustFireLoss(-25, TRUE)
+			adjustBruteLoss(-10, TRUE)
+			adjustFireLoss(-5, TRUE)
 			if(first_drink)
 				SScharacter_connection.add_connection(CONNECTION_BLOOD_BOND, src, mob)
 
@@ -118,7 +138,7 @@
 			adjustBloodPool(drink_mod*max(1, mob.bloodquality-1))
 
 			adjustBruteLoss(-10, TRUE)
-			adjustFireLoss(-10, TRUE)
+			adjustFireLoss(-5, TRUE)
 			update_damage_overlays()
 			update_health_hud()
 			update_blood_hud()

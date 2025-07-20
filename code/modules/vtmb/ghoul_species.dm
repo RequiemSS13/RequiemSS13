@@ -30,9 +30,9 @@
 	var/datum/discipline/bloodheal/giving_bloodheal = new(1)
 	C.give_discipline(giving_bloodheal)
 
-	
+
 	C.maxbloodpool = 5 + C.get_stamina()
-	C.adjustBloodPool(5, TRUE)
+	C.adjustBloodPool(rand(C.get_composure(), C.maxbloodpool), TRUE)
 	C.recalculate_max_health()
 
 /datum/species/ghoul/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
@@ -42,7 +42,7 @@
 			if(A.vampiric)
 				A.Remove(C)
 
-/datum/action/take_vitae
+/datum/action/take_vitae //unused
 	name = "Take Vitae"
 	desc = "Take vitae from a Vampire by force."
 	button_icon_state = "ghoul"
@@ -184,17 +184,6 @@
 				P.save_preferences()
 				P.save_character()
 
-			if(H.humanity <= 2)
-				if(prob(5))
-					if(prob(50))
-						H.Stun(20)
-						to_chat(H, "<span class='warning'>You stop in fear and remember your crimes against humanity...</span>")
-						H.emote("cry")
-					else
-						to_chat(H, "<span class='warning'>You feel the rage rising as your last sins come to your head...</span>")
-						H.drop_all_held_items()
-						H.emote("scream")
-
 /datum/species/human/spec_life(mob/living/carbon/human/H)
 	. = ..()
 	if(istype(get_area(H), /area/vtm))
@@ -222,13 +211,14 @@
 									H.last_nonraid = world.time
 									H.killed_count = H.killed_count+1
 									H.set_warrant(H.killed_count >= 5, "SUSPICIOUS ACTION (equipment)")
+/*
 	if((H.last_bloodpool_restore + 60 SECONDS) <= world.time)
 		H.last_bloodpool_restore = world.time
 		var/amount_of_blood = 1
 		if(HAS_TRAIT(H, TRAIT_PRODUCER))
 			amount_of_blood = 2
 		H.adjustBloodPool(amount_of_blood)
-
+*/
 /datum/species/garou/spec_life(mob/living/carbon/human/H)
 	. = ..()
 	if(HAS_TRAIT(H, TRAIT_UNMASQUERADE))

@@ -68,7 +68,7 @@
 	if(all_merits.Find("Loaded"))
 		loadout_slots_max += LOADOUT_LOADED_SLOT_BONUS
 		loadout_dots_max += LOADOUT_LOADED_DOT_BONUS
-		
+
 
 	loadout_dots = loadout_dots_max
 	if(!equipped_gear || !length(equipped_gear))
@@ -90,7 +90,7 @@
 
 /datum/preferences/proc/calculate_merit_dots()
 	merit_dots = MERIT_DOTS_BASE
-	
+
 	for(var/merit_name in all_merits)
 		merit_dots -= SSmerits.merit_points[merit_name]
 
