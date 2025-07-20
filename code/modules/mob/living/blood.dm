@@ -81,26 +81,7 @@
 		return
 	if(!iskindred(src))
 		blood_volume = max(blood_volume - amt, 0)
-/*
-	var/timing = 100
-	if(blood_volume >= BLOOD_VOLUME_SURVIVE)
-		timing = 10
-	if(blood_volume >= BLOOD_VOLUME_BAD)
-		timing = 25
-	if(blood_volume >= BLOOD_VOLUME_OKAY)
-		timing = 50
-	if(blood_volume >= BLOOD_VOLUME_SAFE)
-		timing = 100
 
-	if(iskindred(src))
-		timing = 100
-		if(!bloodpool)
-			return
-
-	if(last_bloodpool_restore+timing <= world.time)
-		last_bloodpool_restore = world.time
-		adjustBloodPool(-1)
-*/
 	//Blood loss still happens in locker, floor stays clean
 	if(isturf(loc) && prob(sqrt(amt)*BLOOD_DRIP_RATE_MOD))
 		add_splatter_floor(loc, (amt >= 10))
