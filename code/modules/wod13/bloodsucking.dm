@@ -71,14 +71,12 @@
 			if(mob.maxbloodpool < 2) // very small animals just die instantly if you drink from them
 				mob.blood_volume = 0
 			else
-				var/blood_coefficient = 1 //(mob.bloodpool / 5) //most animals give less blood; very large animals/misc supernaturals/unusual humans give more
+				var/blood_coefficient = (5 / mob.bloodpool) //most animals give less blood; very large animals/misc supernaturals/unusual humans give more
 				if(isghoul(mob)) // ghouls don't give more blood just because of their high bloodpool
 					blood_coefficient = 1
-				if(isnpc(mob))
-					blood_coefficient *= 2 // NPC blood is less valuable; totally extradiagetic but makes ghouls/blooddolls more valuable
 				if(HAS_TRAIT(mob, TRAIT_HONEYPOT))
 					blood_coefficient *= 0.5 // Honeypot blood is twice as valuable
-				mob.blood_volume = max(0, (mob.blood_volume - (50*blood_coefficient)))
+				mob.blood_volume = max(0, (mob.blood_volume - (100*blood_coefficient)))
 		else
 			mob.adjustBloodPool(-1)
 		suckbar.icon_state = "[round(14*(mob.blood_volume/BLOOD_VOLUME_NORMAL))]"
@@ -95,7 +93,7 @@
 			if(get_potency() > 1)
 				to_chat(src, "<span class='warning'>You drink the seawater blood of the creature, only sharpening the thirst at the back of your mind. It will not sustain you.</span>")
 			else
-				to_chat(src, "<span class='warning'The thin, acrid blood of this creature can sustain you, for now, but your Beast howls its complaints.</span>")
+				to_chat(src, "<span class='warning'>The thin, acrid blood of this creature can sustain you, for now, but your Beast howls its complaints.</span>")
 		else if(!HAS_TRAIT(src, TRAIT_METHUSELAHS_THIRST) && HAS_TRAIT(mob, TRAIT_HONEYPOT))
 			to_chat(src, "<span class='userlove'>You drink deeply of rich-tasting, powerful blood. There's something special about this vessel.</span>")
 		else if(iskindred(mob))

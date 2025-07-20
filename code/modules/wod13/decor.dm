@@ -639,20 +639,19 @@
 			var/obj/structure/bloodextractor/V = over_object
 			if(!buckled)
 				V.visible_message("<span class='warning'>Buckle [src] fist!</span>")
-			if(bloodpool < 2)
+			if(blood_volume < BLOOD_VOLUME_BAD)
 				V.visible_message("<span class='warning'>[V] can't find enough blood in [src]!</span>")
 				return
 			if(iskindred(src))
-				if(bloodpool < 4)
-					V.visible_message("<span class='warning'>[V] can't find enough blood in [src]!</span>")
-					return
+				V.visible_message("<span class='warning'>[src]'s blood recoils away from [V], as though possessed of a mind of its own!</span>")
+				return
 			if(V.last_extracted+1200 > world.time)
 				V.visible_message("<span class='warning'>[V] isn't ready!</span>")
 				return
 			V.last_extracted = world.time
 			if(!iskindred(src))
 				new /obj/item/drinkable_bloodpack(get_step(V, SOUTH))
-				adjustBloodPool(-2)
+				blood_volume = max(0, blood_volume - 100)
 
 
 /obj/structure/rack/tacobell
