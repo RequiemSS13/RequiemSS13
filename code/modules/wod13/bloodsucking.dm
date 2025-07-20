@@ -143,7 +143,7 @@
 			update_health_hud()
 			update_blood_hud()
 
-		if(mob.bloodpool <= 0)
+		if(mob.bloodpool <= 0 || mob.blood_volume <= 50)
 			if(iskindred(mob))
 				var/mob/living/carbon/human/eaten_vampire = mob
 				if(iskindred(src))
