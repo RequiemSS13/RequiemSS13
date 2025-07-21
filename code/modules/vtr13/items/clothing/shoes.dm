@@ -1,3 +1,15 @@
+/obj/item/clothing/shoes
+	var/shoes_under_pants = FALSE
+
+/obj/item/clothing/shoes/AltClick(mob/user)
+	if(!ishuman(user) || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
+		return ..()
+	var/mob/living/carbon/human/wearer = user
+	if(wearer?.shoes && src == wearer.shoes && wearer.w_uniform)
+		wearer.shoes.shoes_under_pants = !wearer.shoes.shoes_under_pants
+		wearer.update_inv_shoes()
+
+
 /obj/item/clothing/shoes/vampire/vtr
 	name = "generic vamp shoes"
 	icon = 'icons/vtr13/obj/clothing/shoes.dmi'

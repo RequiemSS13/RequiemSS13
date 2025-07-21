@@ -310,20 +310,24 @@ There are several things that need to be remembered:
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_FEET) + 1]
 		inv.update_icon()
 
+	var/current_shoe_layer = SHOES_LAYER
+
 	if(shoes)
 		shoes.screen_loc = ui_shoes					//move the item to the appropriate screen loc
+		if(shoes?.shoes_under_pants == TRUE)
+			current_shoe_layer = UNDER_UNIFORM_LAYER
 		if(client && hud_used?.hud_shown)
 			if(hud_used.inventory_shown)			//if the inventory is open
 				client.screen += shoes					//add it to client's screen
 		update_observer_view(shoes,1)
-		overlays_standing[SHOES_LAYER] = shoes.build_worn_icon(default_layer = SHOES_LAYER, default_icon_file = 'icons/mob/clothing/feet.dmi')
-		var/mutable_appearance/shoes_overlay = overlays_standing[SHOES_LAYER]
+		overlays_standing[current_shoe_layer] = shoes.build_worn_icon(default_layer = current_shoe_layer, default_icon_file = 'icons/mob/clothing/feet.dmi')
+		var/mutable_appearance/shoes_overlay = overlays_standing[current_shoe_layer]
 		if(OFFSET_SHOES in dna.species.offset_features)
 			shoes_overlay.pixel_x += dna.species.offset_features[OFFSET_SHOES][1]
 			shoes_overlay.pixel_y += dna.species.offset_features[OFFSET_SHOES][2]
-		overlays_standing[SHOES_LAYER] = shoes_overlay
+		overlays_standing[current_shoe_layer] = shoes_overlay
 
-	apply_overlay(SHOES_LAYER)
+	apply_overlay(current_shoe_layer)
 
 
 /mob/living/carbon/human/update_inv_s_store()
