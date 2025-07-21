@@ -13,15 +13,16 @@
 #define REVERSE_DIR(dir) ( ((dir & 85) << 1) | ((dir & 170) >> 1) )
 
 //Human Overlays Indexes/////////
-#define LUZHA_LAYER				41
-#define UNDERSHADOW_LAYER		40
-#define MUTATIONS_LAYER			39		//mutations. Tk headglows, cold resistance glow, etc
-#define BODY_BEHIND_LAYER		38		//certain mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODYPARTS_LAYER			37		//Initially "AUGMENTS", this was repurposed to be a catch-all bodyparts flag
-#define BODY_ADJ_LAYER			36		//certain mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_LAYER				35		//underwear, undershirts, socks, eyes, lips(makeup)
-#define FRONT_MUTATIONS_LAYER	34		//mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
-#define DAMAGE_LAYER			33		//damage indicators (cuts and burns)
+#define LUZHA_LAYER				42
+#define UNDERSHADOW_LAYER		41
+#define MUTATIONS_LAYER			40		//mutations. Tk headglows, cold resistance glow, etc
+#define BODY_BEHIND_LAYER		39		//certain mutantrace features (tail when looking south) that must appear behind the body parts
+#define BODYPARTS_LAYER			38		//Initially "AUGMENTS", this was repurposed to be a catch-all bodyparts flag
+#define BODY_ADJ_LAYER			37		//certain mutantrace features (snout, body markings) that must appear above the body parts
+#define BODY_LAYER				36		//underwear, undershirts, socks, eyes, lips(makeup)
+#define FRONT_MUTATIONS_LAYER	35		//mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
+#define DAMAGE_LAYER			34		//damage indicators (cuts and burns)
+#define ALT_SHOE_LAYER			33
 #define UNIFORM_LAYER			32
 #define ID_LAYER				31 //lmao at the idiot who put both ids and hands on the same layer
 #define HANDS_PART_LAYER		30
@@ -61,7 +62,6 @@
 //IT DOESN'T OK, IT MEANS "UNDER"
 #define UNDER_SUIT_LAYER			(SUIT_LAYER+1)
 #define UNDER_HEAD_LAYER			(HEAD_LAYER+1)
-#define UNDER_UNIFORM_LAYER			(UNIFORM_LAYER+1)
 
 //AND -1 MEANS "ABOVE", OK?, OK!?!
 #define ABOVE_SHOES_LAYER			(SHOES_LAYER-1)

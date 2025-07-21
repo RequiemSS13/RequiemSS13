@@ -302,6 +302,7 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_inv_shoes()
 	remove_overlay(SHOES_LAYER)
+	remove_overlay(ALT_SHOE_LAYER)
 
 	if(num_legs < 2)
 		return
@@ -315,7 +316,7 @@ There are several things that need to be remembered:
 	if(shoes)
 		shoes.screen_loc = ui_shoes					//move the item to the appropriate screen loc
 		if(shoes?.shoes_under_pants == TRUE)
-			current_shoe_layer = UNDER_UNIFORM_LAYER
+			current_shoe_layer = ALT_SHOE_LAYER
 		if(client && hud_used?.hud_shown)
 			if(hud_used.inventory_shown)			//if the inventory is open
 				client.screen += shoes					//add it to client's screen
