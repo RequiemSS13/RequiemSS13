@@ -149,4 +149,7 @@
 		new /datum/data/retail_product("duffelbag",	/obj/item/storage/backpack/duffelbag,	100),
 		new /datum/data/retail_product("satchel",		/obj/item/storage/backpack/satchel,		100),
 		new /datum/data/retail_product("leather satchel",		/obj/item/storage/backpack/satchel/leather,		150),
+		new /datum/data/retail_product("royal red suit",	/obj/item/clothing/under/vampire/vtr/royalredsuit,	75),
+		new /datum/data/retail_product("sheer lace black dress",	/obj/item/clothing/under/vampire/vtr/dress/laceblack,	100),
+		new /datum/data/retail_product("loose open-front silk shirt",	/obj/item/clothing/under/vampire/vtr/novella,	50)
 	)

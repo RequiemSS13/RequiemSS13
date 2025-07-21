@@ -292,3 +292,33 @@
 	name = "skater skirt"
 	desc = "A sporty black skirt and top."
 	icon_state = "skater_skirt"
+
+/obj/item/clothing/under/vampire/vtr/dress/strawberrylolita
+	name = "strawberry lolita dress"
+	desc = "A red lolita dress with white polkadots and a stylish pink apron."
+	icon_state = "strawberrylolita"
+
+/obj/item/clothing/under/vampire/vtr/novella
+	name = "loose open-front silk shirt"
+	desc = "A loosely fit, open-front silk shirt in a nice black. Looks a bit like a cover for one of those romance novellas..."
+	icon_state = "novella"
+
+/obj/item/clothing/under/vampire/vtr/dress/laceblack
+	name = "sheer black lace dress"
+	desc = "A fancy black, lace dress with lot of sheer mesh to enhance the look."
+	icon_state = "laceblack"
+
+/obj/item/clothing/under/vampire/vtr/royalredsuit
+	name = "royal red suit"
+	desc = "A fine looking red suit in a more feminine fashion. For the business-minded."
+	icon_state = "royalredsuit"
+
+/obj/item/clothing/under/vampire/vtr/bandshirt_dark
+	name = "dark band t-shirt"
+	desc = "A cool band t-shirt, just in case you needed a conversation starter."
+	icon_state = "bandshirt_dark"
+
+/obj/item/clothing/under/vampire/vtr/bandshirt_light
+	name = "light band t-shirt"
+	desc = "A cool band t-shirt, just in case you needed a conversation starter."
+	icon_state = "bandshirt_light"

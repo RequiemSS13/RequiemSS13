@@ -480,3 +480,30 @@
 /datum/gear/uniform/skater_skirt
 	display_name = "outfit, skater skirt"
 	path = /obj/item/clothing/under/vampire/vtr/skater_skirt
+
+/datum/gear/uniform/strawberrylolita
+	display_name = "dress, strawberry lolita"
+	path = /obj/item/clothing/under/vampire/vtr/dress/strawberrylolita
+	cost = 4
+
+/datum/gear/uniform/novella
+	display_name = "outfit, loose open-front silk shirt"
+	path = /obj/item/clothing/under/vampire/vtr/novella
+
+/datum/gear/uniform/laceblack
+	display_name = "dress, sheer black lace"
+	path = /obj/item/clothing/under/vampire/vtr/dress/laceblack
+	cost = 4
+
+/datum/gear/uniform/royalredsuit
+	display_name = "suit slacks, royal red"
+	path = /obj/item/clothing/under/vampire/vtr/royalredsuit
+	cost = 4
+
+/datum/gear/uniform/bandshirt_dark
+	display_name = "outfit, dark band shirt"
+	path = /obj/item/clothing/under/vampire/vtr/bandshirt_dark
+
+/datum/gear/uniform/bandshirt_light
+	display_name = "outfit, light band shirt"
+	path = /obj/item/clothing/under/vampire/vtr/bandshirt_light
