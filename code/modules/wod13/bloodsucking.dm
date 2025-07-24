@@ -74,9 +74,7 @@
 				var/blood_coefficient = (5 / mob.bloodpool) //most animals give less blood; very large animals/misc supernaturals/unusual humans give more
 				if(isghoul(mob)) // ghouls don't give more blood just because of their high bloodpool
 					blood_coefficient = 1
-				if(HAS_TRAIT(mob, TRAIT_HONEYPOT))
-					blood_coefficient *= 0.5 // Honeypot blood is twice as valuable
-				mob.blood_volume = max(0, (mob.blood_volume - (100*blood_coefficient)))
+				mob.blood_volume = max(0, (mob.blood_volume - (70*blood_coefficient)))
 		else
 			mob.adjustBloodPool(-1)
 		suckbar.icon_state = "[round(14*(mob.blood_volume/BLOOD_VOLUME_NORMAL))]"
