@@ -171,6 +171,11 @@
 	desc = "Knitted for those chilly nights."
 	icon_state = "woolhat_blue"
 
+/obj/item/clothing/head/vampire/vtr/picture_hat
+	name = "picture hat"
+	desc = "An old-fashioned black hat with a low enough brim to cover your eyes."
+	flags_cover = HEADCOVERSEYES
+	icon_state = "picture"
 
 //OTHER
 /obj/item/clothing/head/pagecap

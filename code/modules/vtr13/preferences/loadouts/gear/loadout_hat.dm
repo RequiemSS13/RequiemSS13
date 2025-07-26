@@ -156,6 +156,10 @@
 	description = "The height of mid-century style." // Consistency
 	path = /obj/item/clothing/head/bowler
 
+/datum/gear/hat/picture
+	display_name = "picture hat"
+	path = /obj/item/clothing/head/vampire/vtr/picture_hat
+
 // Flat Caps
 
 /datum/gear/hat/flatcap
