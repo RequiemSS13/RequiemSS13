@@ -540,7 +540,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/value = input(usr, "Enter the Humanity adjustment value for [M.key]:", "Humanity Adjustment", 0) as num|null
+	var/value = input(usr, "Enter the Humanity adjustment value for [M.key]. Their current humanity is [M.humanity].", "Humanity Adjustment", 0) as num|null
 	if(value == null)
 		return
 
