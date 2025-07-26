@@ -14,7 +14,7 @@
 		to_chat(giver, span_notice("[src] does not respond to your vitae.</span>"))
 		return
 
-	to_chat(giver, span_notice("You successfuly fed [giver] with vitae."))
+	to_chat(giver, span_notice("You successfully fed [src] with vitae."))
 	if(iskindred(src))
 		to_chat(src, "<span class='userlove'>As you fill yourself with second-hand life, your Beast sings out a sickly, cannibalistic note.</span>")
 	else
