@@ -6,10 +6,6 @@
 	if(!job)
 		return
 
-	if(GLOB.vampire_factions_list.Find(job.exp_type_department) && job.exp_type_department != vamp_faction?.name)
-		to_chat(user, "<span class='danger'>update_job_preference - character is not part of the job's faction.</span>")
-		return
-
 	if (!isnum(desiredLvl))
 		to_chat(user, "<span class='danger'>update_job_preference - desired level was not a number. Please notify coders!</span>")
 		return
