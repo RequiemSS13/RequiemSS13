@@ -1,6 +1,6 @@
 /datum/merit/bane/face_of_hunger
 	name = "Face of Hunger"
-	desc = "Your appearence violates the masquerade when you are starving (5 hunger or below)."
+	desc = "Your appearance violates the masquerade when you are starving (5 hunger or below)."
 	mob_trait = TRAIT_FACE_OF_HUNGER
 
 
