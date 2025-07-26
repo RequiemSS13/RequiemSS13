@@ -13,8 +13,6 @@
 		LOCATION_HANDS = ITEM_SLOT_HANDS
 	)
 	H.equip_in_one_of_slots(proxy_writ, slots, FALSE)
-	add_verb(merit_holder, /datum/controller/subsystem/character_connection/verb/request_boon)
-	add_verb(merit_holder, /datum/controller/subsystem/character_connection/verb/offer_boon)
 
 /datum/merit/proxy/post_add()
 	var/mob/living/carbon/human/human_holder = merit_holder
