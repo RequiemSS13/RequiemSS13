@@ -4,12 +4,12 @@
 
 /datum/character_connection_type/boon/add_connection(mob/living/recipient, mob/living/granter)
 
-	if(!iskindred(granter))
+	if(!(iskindred(granter) || HAS_TRAIT(granter, TRAIT_PROXY)))
 		to_chat(recipient, span_notice("[granter] cannot give you a boon if they aren't a vampire."))
 		to_chat(granter, span_notice("You are not a vampire; you cannot grant boons!"))
 		return FALSE
 
-	if(!iskindred(recipient))
+	if(!(iskindred(recipient) || HAS_TRAIT(recipient, TRAIT_PROXY)))
 		to_chat(recipient, span_notice("You are not a vampire; there is no expectation for [granter] to uphold any boon they may claim to grant."))
 		to_chat(granter, span_notice("[recipient] is not a vampire; giving [recipient.p_them()] a boon is a humiliation for you and worthless to them."))
 		return FALSE

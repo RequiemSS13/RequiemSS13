@@ -1,4 +1,5 @@
 #define TRAIT_NOTARY "notary"
+#define TRAIT_PROXY "proxy"
 
 #define MERIT_MERIT "merit"
 #define MERIT_FLAW "flaw"
