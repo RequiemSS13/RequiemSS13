@@ -133,7 +133,7 @@
 
 			if(I.flags_inv & HIDEJUMPSUIT)
 				update_inv_w_uniform()
-			if(wear_suit.breakouttime) //when equipping a straightjacket
+			if(wear_suit.escape_difficulty) //when equipping a straightjacket
 				ADD_TRAIT(src, TRAIT_RESTRAINED, SUIT_TRAIT)
 				stop_pulling() //can't pull if restrained
 				update_action_buttons_icon() //certain action buttons will no longer be usable.
@@ -184,7 +184,7 @@
 	if(I == wear_suit)
 		if(s_store && invdrop)
 			dropItemToGround(s_store, TRUE) //It makes no sense for your suit storage to stay on you if you drop your suit.
-		if(wear_suit.breakouttime) //when unequipping a straightjacket
+		if(wear_suit.escape_difficulty) //when unequipping a straightjacket
 			REMOVE_TRAIT(src, TRAIT_RESTRAINED, SUIT_TRAIT)
 			drop_all_held_items() //suit is restraining
 			update_action_buttons_icon() //certain action buttons may be usable again.

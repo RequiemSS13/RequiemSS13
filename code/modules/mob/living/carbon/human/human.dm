@@ -754,14 +754,6 @@
 
 #undef CPR_PANIC_SPEED
 
-/mob/living/carbon/human/cuff_resist(obj/item/I)
-	if(dna?.check_mutation(HULK))
-		say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ), forced = "hulk")
-		if(..(I, cuff_break = FAST_CUFFBREAK))
-			dropItemToGround(I)
-	else
-		if(..())
-			dropItemToGround(I)
 
 /**
  * Wash the hands, cleaning either the gloves if equipped and not obscured, otherwise the hands themselves if they're not obscured.
@@ -861,7 +853,7 @@
 	cut_overlay(MA)
 
 /mob/living/carbon/human/resist_restraints()
-	if(wear_suit?.breakouttime)
+	if(wear_suit?.escape_difficulty)
 		changeNext_move(CLICK_CD_BREAKOUT)
 		last_special = world.time + CLICK_CD_BREAKOUT
 		cuff_resist(wear_suit)

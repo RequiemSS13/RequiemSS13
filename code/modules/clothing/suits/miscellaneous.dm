@@ -362,7 +362,7 @@
 	clothing_flags = DANGEROUS_OBJECT
 	equip_delay_self = 50
 	strip_delay = 60
-	breakouttime = 3000
+	escape_difficulty = 7
 
 /obj/item/clothing/suit/ianshirt
 	name = "worn shirt"

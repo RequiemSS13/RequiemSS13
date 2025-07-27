@@ -82,7 +82,7 @@
 			else
 				to_chat(owner, "<span class='warning'>You don't sense the <b>VITAE</b> in [VIT].</span>")
 				return
-
+/*
 /datum/action/blood_heal
 	name = "Blood Heal"
 	desc = "Use vitae in your blood to heal your wounds."
@@ -125,7 +125,7 @@
 		H.adjustFireLoss(-2.5*level, TRUE)
 		H.adjustOxyLoss(-20*level, TRUE)
 		H.adjustToxLoss(-20*level, TRUE)
-		H.blood_volume = min(H.blood_volume + 56, 560)
+		H.blood_volume = min((H.blood_volume + 50), BLOOD_VOLUME_NORMAL)
 		button.color = "#970000"
 		animate(button, color = "#ffffff", time = 20, loop = 1)
 		if(length(H.all_wounds))
@@ -146,6 +146,7 @@
 		H.update_blood_hud()
 		H.visible_message("<span class='warning'>Some of [H]'s visible injuries disappear!</span>", "<span class='warning'>Some of your injuries disappear!</span>")
 
+*/
 /datum/species/ghoul/check_roundstart_eligible()
 	return TRUE
 
@@ -213,14 +214,7 @@
 									H.last_nonraid = world.time
 									H.killed_count = H.killed_count+1
 									H.set_warrant(H.killed_count >= 5, "SUSPICIOUS ACTION (equipment)")
-/*
-	if((H.last_bloodpool_restore + 60 SECONDS) <= world.time)
-		H.last_bloodpool_restore = world.time
-		var/amount_of_blood = 1
-		if(HAS_TRAIT(H, TRAIT_PRODUCER))
-			amount_of_blood = 2
-		H.adjustBloodPool(amount_of_blood)
-*/
+
 /datum/species/garou/spec_life(mob/living/carbon/human/H)
 	. = ..()
 	if(HAS_TRAIT(H, TRAIT_UNMASQUERADE))

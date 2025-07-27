@@ -486,6 +486,16 @@
 	path = /obj/item/clothing/under/vampire/vtr/dress/strawberrylolita
 	cost = 4
 
+/datum/gear/uniform/matron
+	display_name = "dress, matronly"
+	path = /obj/item/clothing/under/vampire/vtr/dress/matron
+	cost = 4
+
+/datum/gear/uniform/maiden
+	display_name = "dress, maidenly"
+	path = /obj/item/clothing/under/vampire/vtr/dress/maiden
+	cost = 3
+
 /datum/gear/uniform/novella
 	display_name = "outfit, loose open-front silk shirt"
 	path = /obj/item/clothing/under/vampire/vtr/novella

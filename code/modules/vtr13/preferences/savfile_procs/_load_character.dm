@@ -138,8 +138,7 @@
 				break
 
 	//STATS
-	if(!stats)
-		stats = new()
+	stats = new()
 
 	var/datum/attribute/physique/physique = stats.get_attribute(STAT_PHYSIQUE)
 	READ_FILE(S["physique"], physique.score)

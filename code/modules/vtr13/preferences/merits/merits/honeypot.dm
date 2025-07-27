@@ -3,4 +3,4 @@
 	desc = "Your blood tastes wonderful to vampires. It restores their blood pool twice as fast."
 	dots = 1
 	mob_trait = TRAIT_HONEYPOT
-	splat_flags = MERIT_SPLAT_HUMAN
+	splat_flags = MERIT_SPLAT_HUMAN|MERIT_SPLAT_GHOUL

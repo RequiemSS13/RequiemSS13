@@ -64,13 +64,12 @@
 		if(do_mob(usr, src, POCKET_STRIP_DELAY * 0.5))
 			dropItemToGround(r_store)
 			dropItemToGround(l_store)
-
 	..()
 
 
 /mob/living/carbon/alien/humanoid/cuff_resist(obj/item/I)
 	playsound(src, 'sound/voice/hiss5.ogg', 40, TRUE, TRUE)  //Alien roars when starting to break free
-	..(I, cuff_break = INSTANT_CUFFBREAK)
+	..(I)
 
 /mob/living/carbon/alien/humanoid/resist_grab(moving_resist)
 	if(pulledby.grab_state)

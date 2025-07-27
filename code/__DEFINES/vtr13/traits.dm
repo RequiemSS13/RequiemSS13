@@ -84,6 +84,7 @@
 
 #define TRAIT_UGLY "ugly"
 
+#define TRAIT_ESCAPE_ARTIST "escape_artist"
 
 
 //Clane Bane Traits

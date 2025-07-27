@@ -29,6 +29,7 @@
 				var/index = BLOODBONDED_prefs_g.discipline_types.Find(removing_discipline)
 				BLOODBONDED_prefs_g.discipline_types.Cut(index, index + 1)
 				BLOODBONDED_prefs_g.discipline_levels.Cut(index, index + 1)
+	BLOODBONDED_prefs_g.regent_clan = domitor.clane
 	BLOODBONDED_prefs_g.pref_species.name = "Ghoul"
 	BLOODBONDED_prefs_g.pref_species.id = "ghoul"
 	BLOODBONDED_prefs_g.vamp_rank = VAMP_RANK_GHOUL

@@ -297,6 +297,16 @@
 	desc = "A red lolita dress with white polkadots and a stylish pink apron."
 	icon_state = "strawberrylolita"
 
+/obj/item/clothing/under/vampire/vtr/dress/matron
+	name = "matronly dress"
+	desc = "An curve-flattering black dress with a plunging neckline and sheer lace sleeves."
+	icon_state = "matron"
+
+/obj/item/clothing/under/vampire/vtr/dress/maiden
+	name = "maidenly dress"
+	desc = "A short gothic dress with draping mesh sleeves."
+	icon_state = "maiden"
+
 /obj/item/clothing/under/vampire/vtr/novella
 	name = "loose open-front silk shirt"
 	desc = "A loosely fit, open-front silk shirt in a nice black. Looks a bit like a cover for one of those romance novellas..."

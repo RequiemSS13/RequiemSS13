@@ -24,12 +24,12 @@
 		else
 			character_dots = CHARACTER_DOTS_DEFAULT
 
-	character_dots -= clamp(get_physique()-1, 5, 0)
-	character_dots -= clamp(get_stamina()-1, 5, 0)
-	character_dots -= clamp(get_charisma()-1, 5, 0)
-	character_dots -= clamp(get_composure()-1, 5, 0)
-	character_dots -= clamp(get_wits()-1, 5, 0)
-	character_dots -= clamp(get_resolve()-1, 5, 0)
+	character_dots -= clamp(get_physique(FALSE)-1, 5, 0)
+	character_dots -= clamp(get_stamina(FALSE)-1, 5, 0)
+	character_dots -= clamp(get_charisma(FALSE)-1, 5, 0)
+	character_dots -= clamp(get_composure(FALSE)-1, 5, 0)
+	character_dots -= clamp(get_wits(FALSE)-1, 5, 0)
+	character_dots -= clamp(get_resolve(FALSE)-1, 5, 0)
 	character_dots -= max(auspice_level - 1, 0)
 
 

@@ -19,6 +19,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/stop_sounds,
 	/client/proc/mark_datum_mapview,
 	/client/proc/debugstatpanel,
+	/client/proc/transfer_connection,
 	#ifdef AREA_GROUPER_DEBUGGING
 	/client/proc/grouper_set_start,
 	/client/proc/grouper_set_end,
@@ -283,7 +284,8 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_display_del_log,
 	/client/proc/toggle_combo_hud,
 	/client/proc/debug_huds,
-	/client/proc/toggle_RMB
+	/client/proc/toggle_RMB,
+	/client/proc/transfer_connection
 	))
 GLOBAL_PROTECT(admin_verbs_hideable)
 

@@ -128,7 +128,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	///In deciseconds, how long an item takes to remove from another person
 	var/strip_delay = 40
 	///How long it takes to resist out of the item (cuffs and such)
-	var/breakouttime = 0
+	var/escape_difficulty = 0
 
 	///Used in [atom/proc/attackby] to say how something was attacked `"[x] has been [z.attack_verb] by [y] with [z]"`
 	var/list/attack_verb_continuous
