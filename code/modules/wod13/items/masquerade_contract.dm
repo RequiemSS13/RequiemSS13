@@ -14,6 +14,6 @@
 		for(var/mob/living/carbon/human/H in GLOB.masquerade_breakers_list)
 			var/turf/TT = get_turf(H)
 			if(TT)
-				to_chat(user, "[H.true_real_name], Masquerade: [H.masquerade], last seen: [get_area_sector(H)]")
+				to_chat(user, "[H.real_name], Masquerade: [H.masquerade], last seen: [get_area_sector(H)]")
 	else
 		to_chat(user, "No available Masquerade breakers in city...")

@@ -1,5 +1,5 @@
 /datum/controller/subsystem/character_connection/proc/get_existing_daeva_addiction(mob/living/victim, mob/living/daeva)
-	if(!daeva || !victim || !daeva.ckey || !daeva.true_real_name || !victim.ckey || !victim.true_real_name)
+	if(!daeva || !victim || !daeva.ckey || !daeva.real_name || !victim.ckey || !victim.real_name)
 		return FALSE
 	var/datum/db_query/query = SSdbcore.NewQuery(
 		"SELECT \
@@ -21,13 +21,13 @@
 					character_name = :char_name_victim AND \
 					member_type = :member_type_victim AND \
 					date_ended IS NULL ) \
-		LIMIT 1", 
+		LIMIT 1",
 		list(
 			"ckey_daeva" = daeva.ckey,
-			"char_name_daeva" = daeva.true_real_name,
+			"char_name_daeva" = daeva.real_name,
 			"member_type_daeva" = MEMBER_TYPE_DAEVA_VAMPIRE,
 			"ckey_victim" = victim.ckey,
-			"char_name_victim" = victim.true_real_name,
+			"char_name_victim" = victim.real_name,
 			"member_type_victim" = MEMBER_TYPE_DAEVA_VICTIM,
 		)
 	)

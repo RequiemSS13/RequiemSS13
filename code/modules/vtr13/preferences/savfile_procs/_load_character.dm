@@ -37,6 +37,7 @@
 	real_name = reject_bad_name(real_name)
 	if(!real_name)
 		real_name = random_unique_name(gender)
+		true_real_name = real_name
 
 	READ_FILE(S["true_real_name"], true_real_name)
 	true_real_name = reject_bad_name(true_real_name)

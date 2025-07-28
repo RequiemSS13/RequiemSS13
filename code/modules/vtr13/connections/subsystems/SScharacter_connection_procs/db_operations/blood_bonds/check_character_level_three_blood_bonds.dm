@@ -11,10 +11,10 @@
 			date_ended IS NULL AND \
 			group_type = :bb3 AND \
 			member_type = :member_type \
-		LIMIT 1", 
+		LIMIT 1",
 		list(
 			"ckey" = target.ckey,
-			"char_name" = target.true_real_name,
+			"char_name" = target.real_name,
 			"bb3" = CONNECTION_BLOOD_BOND_3,
 			"member_type" = MEMBER_TYPE_THRALL
 		)

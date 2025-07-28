@@ -5,6 +5,7 @@
 		random_species()
 	else if(randomise[RANDOM_NAME])
 		real_name = pref_species.random_name(gender,1)
+		true_real_name = real_name
 	if(gender_override && !(randomise[RANDOM_GENDER] || randomise[RANDOM_GENDER_ANTAG] && antag_override))
 		gender = gender_override
 	else

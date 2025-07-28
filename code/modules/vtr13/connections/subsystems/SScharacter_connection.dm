@@ -1,6 +1,6 @@
 /*
-	Subsystem for handling character connections. 
-	All character connection stuff should try to use this subsystem and its 
+	Subsystem for handling character connections.
+	All character connection stuff should try to use this subsystem and its
 	multitude of procs as an intermediary.
 */
 SUBSYSTEM_DEF(character_connection)
@@ -17,7 +17,7 @@ SUBSYSTEM_DEF(character_connection)
 
 	//List of connection types that do not need to be loaded into our global list
 	var/list/exception_types = list(
-		/datum/character_connection_type, 
+		/datum/character_connection_type,
 		/datum/character_connection_type/endorsement,
 		/datum/character_connection_type/boon)
 
@@ -36,7 +36,7 @@ SUBSYSTEM_DEF(character_connection)
 				if(!endorsement_connection_list["[endorsement_connection.required_faction]"])
 					endorsement_connection_list["[endorsement_connection.required_faction]"] = list()
 				endorsement_connection_list["[endorsement_connection.required_faction]"]["[endorsement_connection.name]"] = endorsement_connection
-			else 
+			else
 				if(!endorsement_connection_list["Other"])
 					endorsement_connection_list["Other"] = list()
 				endorsement_connection_list["Other"]["[endorsement_connection.name]"] = endorsement_connection
@@ -55,14 +55,14 @@ SUBSYSTEM_DEF(character_connection)
 	var/datum/character_connection_type/connection_type = get_character_connection_type(connection_type_name)
 	if(!connection_type)
 		CRASH("Tried to create a connection of type [connection_type_name] and it wasn't loaded!")
-	
+
 	var/response = connection_type.add_connection(arglist(args.Copy(2)))
-	
+
 	if(player_a.mind)
-		player_a.mind.character_connections = SScharacter_connection.get_character_connections(player_a.ckey, player_a.true_real_name)
+		player_a.mind.character_connections = SScharacter_connection.get_character_connections(player_a.ckey, player_a.real_name)
 
 	if(player_b.mind)
-		player_b.mind.character_connections = SScharacter_connection.get_character_connections(player_b.ckey, player_b.true_real_name)
+		player_b.mind.character_connections = SScharacter_connection.get_character_connections(player_b.ckey, player_b.real_name)
 
 	return response
 

@@ -3,8 +3,8 @@
 		return 0
 
 	var/bond_type = CONNECTION_BLOOD_BOND_1
-	var/thrall_description = "I am bound by a first-stage blood bond to [domitor.true_real_name]."
-	var/domitor_description = "I have put a first-stage blood bond upon [thrall.true_real_name]."
+	var/thrall_description = "I am bound by a first-stage blood bond to [domitor.real_name]."
+	var/domitor_description = "I have put a first-stage blood bond upon [thrall.real_name]."
 	var/resulting_bond = 1
 
 	var/datum/character_connection/existing_connection = SScharacter_connection.get_existing_mutual_blood_bond(thrall, domitor)
@@ -12,13 +12,13 @@
 		switch(existing_connection.group_type)
 			if(CONNECTION_BLOOD_BOND_1)
 				bond_type = CONNECTION_BLOOD_BOND_2
-				thrall_description = "I am enraptured by a second-stage blood bond to [domitor.true_real_name]."
-				domitor_description = "I have caught [thrall.true_real_name] in a second-stage blood bond."
+				thrall_description = "I am enraptured by a second-stage blood bond to [domitor.real_name]."
+				domitor_description = "I have caught [thrall.real_name] in a second-stage blood bond."
 				resulting_bond = 2
 			if(CONNECTION_BLOOD_BOND_2)
 				bond_type = CONNECTION_BLOOD_BOND_3
-				thrall_description = "I am a Thrall, transfixed by a third-stage blood bond to [domitor.true_real_name], my Regent."
-				domitor_description = "I have trapped [thrall.true_real_name] in a third-stage blood bond. I am their Regent and they are my Thrall."
+				thrall_description = "I am a Thrall, transfixed by a third-stage blood bond to [domitor.real_name], my Regent."
+				domitor_description = "I have trapped [thrall.real_name] in a third-stage blood bond. I am their Regent and they are my Thrall."
 				resulting_bond = 3
 			if(CONNECTION_BLOOD_BOND_3)
 				return 3 //A blood bond can not go higher than stage 3
@@ -30,7 +30,7 @@
 	switch(bond_type)
 		if(CONNECTION_BLOOD_BOND_1)
 			to_chat(thrall, "<span class='userlove'>You feel a deep sense of familiarity with [domitor].</span>")
-		
+
 		if(CONNECTION_BLOOD_BOND_2)
 			to_chat(thrall, "<span class='userlove'>You begin to long for [domitor]'s presence.</span>")
 

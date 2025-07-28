@@ -20,11 +20,11 @@
 
 /datum/action/memory_button/Topic(href, href_list)
 	if(href_list["delete_connection"])
-		
+
 		var/mob/living/living_owner = owner
 		if(!living_owner)
 			return
 
-		if(!SScharacter_connection.retire_connection(living_owner, living_owner.ckey, living_owner.true_real_name, text2num(href_list["delete_connection"])))
+		if(!SScharacter_connection.retire_connection(living_owner, living_owner.ckey, living_owner.real_name, text2num(href_list["delete_connection"])))
 			return
 		Trigger()

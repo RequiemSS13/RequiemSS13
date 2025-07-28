@@ -9,5 +9,7 @@
 	return
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
+	if(current_version <= 43)
+		true_real_name = real_name
 	return
 

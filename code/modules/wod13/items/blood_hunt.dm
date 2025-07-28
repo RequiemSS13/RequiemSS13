@@ -18,7 +18,7 @@
 			reason = "No reason necessary."
 		var/name_in_list = FALSE
 		for(var/mob/living/carbon/human/H in GLOB.player_list)
-			if(H?.true_real_name == chosen_name)
+			if(H?.real_name == chosen_name)
 				if(H in SSbloodhunt.hunted)
 					if(HAS_TRAIT(src, TRAIT_HUNTED))
 						to_chat(user, span_warning("You can't remove [chosen_name] from the list!"))
@@ -29,7 +29,7 @@
 					to_chat(user, span_warning("You remove [chosen_name] from the Hunted list."))
 					for(var/mob/living/carbon/human/R in GLOB.player_list)
 						if(R && iskindred(R) && R.client)
-							to_chat(R, "<b>The Blood Hunt after <span class='green'>[H.true_real_name]</span> is over!</b>")
+							to_chat(R, "<b>The Blood Hunt after <span class='green'>[H.real_name]</span> is over!</b>")
 							SEND_SOUND(R, sound('code/modules/wod13/sounds/announce.ogg'))
 				else
 					SSbloodhunt.announce_hunted(H, reason)

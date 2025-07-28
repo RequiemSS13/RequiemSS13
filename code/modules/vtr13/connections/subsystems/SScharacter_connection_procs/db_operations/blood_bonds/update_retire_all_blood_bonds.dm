@@ -13,11 +13,11 @@
 						member_type = :m_type AND \
 						group_type IN (:bb1,:bb2,:bb3)\
 				)",
-		list("ckey" = target.ckey, 
-			"char_name" = target.true_real_name, 
-			"m_type" = MEMBER_TYPE_THRALL, 
-			"bb1" = CONNECTION_BLOOD_BOND_1, 
-			"bb2" = CONNECTION_BLOOD_BOND_2, 
+		list("ckey" = target.ckey,
+			"char_name" = target.real_name,
+			"m_type" = MEMBER_TYPE_THRALL,
+			"bb1" = CONNECTION_BLOOD_BOND_1,
+			"bb2" = CONNECTION_BLOOD_BOND_2,
 			"bb3" = CONNECTION_BLOOD_BOND_3)
 	)
 	query.Execute()
