@@ -162,6 +162,7 @@
 	var/info_known = INFO_KNOWN_UNKNOWN
 	var/gender = MALE					//gender of character (well duh)
 	var/real_name						//our character's name
+	var/true_real_name
 	var/body_type 						// Agendered spessmen can choose whether to have a male or female bodytype
 	var/age = 30						//biological age of character
 	var/flavor_text
@@ -262,6 +263,7 @@
 	key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
 	C?.set_macros()
 	real_name = pref_species.random_name(gender,1)
+	true_real_name = real_name
 	if(!loaded_preferences_successfully)
 		save_preferences()
 	save_character()		//let's save this new random character so it doesn't keep generating new ones.

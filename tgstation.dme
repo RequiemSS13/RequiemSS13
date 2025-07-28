@@ -3647,6 +3647,7 @@
 #include "code\modules\vtr13\disciplines\dominate\dominate_act\compel\break_it_down.dm"
 #include "code\modules\vtr13\disciplines\dominate\dominate_act\compel\clap.dm"
 #include "code\modules\vtr13\disciplines\dominate\dominate_act\compel\say_my_name.dm"
+#include "code\modules\vtr13\disciplines\dominate\dominate_act\compel\say_your_true_name.dm"
 #include "code\modules\vtr13\disciplines\dominate\dominate_act\compel\slow_down.dm"
 #include "code\modules\vtr13\disciplines\dominate\elements\compulsion.dm"
 #include "code\modules\vtr13\disciplines\dominate\subsystems\SSdominate_compulsion.dm"

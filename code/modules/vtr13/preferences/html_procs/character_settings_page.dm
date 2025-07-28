@@ -10,6 +10,8 @@
 	dat += "<a href='byond://?_src_=prefs;preference=name;task=random'>Random Name</A> "
 	dat += "<br><b>Name:</b> "
 	dat += "<a href='byond://?_src_=prefs;preference=name;task=input'>[real_name]</a><BR>"
+	dat += "<br><b>True Name:</b> "
+	dat += "<a href='byond://?_src_=prefs;preference=true_name;task=input'>[true_real_name]</a><BR>"
 
 	if(!(AGENDER in pref_species.species_traits))
 		dat += "<b>Gender:</b> <a href='byond://?_src_=prefs;preference=gender'>[gender == MALE ? "Male" : gender == FEMALE ? "Female" : "Other"]</a>"
@@ -30,10 +32,10 @@
 	dat += "<b>Embracing Preference:</b> <a href='byond://?_src_=prefs;preference=ooc_embrace_pref;task=input'>[ooc_embrace_pref]</a><BR><BR>"
 	dat += "<b>Unprovoked Violence:</b> <a href='byond://?_src_=prefs;preference=ooc_escalation_pref;task=input'>[ooc_escalation_pref]</a>"
 	dat += "</td></tr></table>"
-	
+
 	dat += "<h2>[make_font_cool("Splat")]</h2>"
 
-	
+
 
 	dat += "<b>Splat:</b> <a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a><BR>"
 	if(pref_species.name == "Vampire")
@@ -161,7 +163,7 @@
 			dat += "<b>Covenant: </b><a href='byond://?_src_=prefs;preference=vamp_faction;task=input'>[vamp_faction.name]</A><BR>"
 			dat += "<b>Description:</b> [vamp_faction.desc]<BR>"
 		dat += "</td></tr></table>"
-		
+
 	else if(pref_species.name == "Ghoul")
 		dat += "<table width='100%'><tr><td width='50%' valign='top'>"
 		dat += "<h2>[make_font_cool("CLAN")]</h2>"
@@ -190,7 +192,7 @@
 
 	dat += "</td>"
 	dat += "<td width ='20%' valign='top'>"
-	
+
 	dat += "<h2>[make_font_cool("EQUIP")]</h2>"
 
 	dat += "<b>Underwear:</b><BR><a href ='byond://?_src_=prefs;preference=underwear;task=input'>[underwear]</a>"
