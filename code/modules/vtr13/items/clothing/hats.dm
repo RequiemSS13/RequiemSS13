@@ -189,3 +189,8 @@
 	name = "frilly headband"
 	desc = "A headband made of white frills, and black bows. Maidenly!"
 	icon_state = "frilly_headband"
+
+/obj/item/clothing/head/vampire/vtr/black_headdress
+	name = "black headdress"
+	desc = "A fancy black headdress. Mysterious!"
+	icon_state = "blackngoldheaddress"

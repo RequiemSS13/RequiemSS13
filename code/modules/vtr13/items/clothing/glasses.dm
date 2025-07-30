@@ -8,3 +8,8 @@
 	name = "white veil"
 	desc = "A white lace veil that covers the eyes."
 	icon_state = "white_veil"
+
+/obj/item/clothing/glasses/vampire/vtr/black_veil
+	name = "black veil"
+	desc = "A dark veil that obscures the wearer's face."
+	icon_state = "black_veil"

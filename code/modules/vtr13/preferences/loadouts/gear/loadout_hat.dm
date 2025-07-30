@@ -281,3 +281,7 @@
 /datum/gear/hat/frillyheadband
 	display_name = "frilly headband"
 	path = /obj/item/clothing/head/vampire/vtr/frillyheadband
+
+/datum/gear/hat/black_headdress
+	display_name = "black headdress"
+	path = /obj/item/clothing/head/vampire/vtr/black_headdress
