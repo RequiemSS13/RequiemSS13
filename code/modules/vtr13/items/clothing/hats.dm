@@ -178,6 +178,13 @@
 	flags_cover = HEADCOVERSEYES
 	dynamic_hair_suffix = ""
 
+/obj/item/clothing/head/vampire/vtr/picture_red
+	name = "picture hat, red"
+	desc = "An old-fashioned red hat with a low enough brim to cover your eyes."
+	icon_state = "picture_red"
+	flags_cover = HEADCOVERSEYES
+	dynamic_hair_suffix = ""
+
 //OTHER
 /obj/item/clothing/head/pagecap
 	name = "Page's cap"

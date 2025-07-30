@@ -58,3 +58,8 @@
 /obj/item/clothing/shoes/vampire/vtr/flats/blue
 	name = "blue flats"
 	icon_state = "flatsblue"
+
+/obj/item/clothing/shoes/vampire/vtr/sneakers_blue
+	name = "blue sneakers"
+	desc = "A pair of blue sneakers."
+	icon_state = "sneakers_blue"

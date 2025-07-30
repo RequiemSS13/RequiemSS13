@@ -88,3 +88,7 @@
 	display_name = "flashlight"
 	path = /obj/item/flashlight
 
+/datum/gear/general/cross
+	display_name = "cross"
+	description = "A simple Christian cross on a necklace."
+	path = /obj/item/card/id/hunter

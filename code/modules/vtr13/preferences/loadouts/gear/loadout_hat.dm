@@ -258,6 +258,9 @@
 	display_name = "ushanka"
 	path = /obj/item/clothing/head/vampire/ushanka
 
+/datum/gear/hat/floppy_red
+	display_name = "floppy hat, red"
+	path = /obj/item/clothing/head/vampire/vtr/picture_red
 
 
 // Religious

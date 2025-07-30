@@ -212,3 +212,8 @@
 	name = "brown flannel shirt"
 	desc = "A comfy, brown flannel shirt.  Unleash your inner hipster."
 	icon_state = "flannel_brown"
+
+/obj/item/clothing/suit/vampire/vtr/letterman_c
+	name = "letterman jacket, UCLA"
+	desc = "A blue and gold UCLA varsity jacket."
+	icon_state = "letterman_c"

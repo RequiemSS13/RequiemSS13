@@ -517,3 +517,12 @@
 /datum/gear/uniform/bandshirt_light
 	display_name = "outfit, light band shirt"
 	path = /obj/item/clothing/under/vampire/vtr/bandshirt_light
+
+/datum/gear/uniform/suspenders
+	display_name = "suspenders outfit, plain"
+	path = /obj/item/clothing/under/vampire/vtr/suspenders
+
+/datum/gear/uniform/suspenders_fancy
+	display_name = "suspenders outfit, fancy"
+	path = /obj/item/clothing/under/vampire/vtr/suspenders_fancy
+	cost = 4

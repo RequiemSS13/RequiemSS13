@@ -331,3 +331,14 @@
 	name = "light band t-shirt"
 	desc = "A cool band t-shirt, just in case you needed a conversation starter."
 	icon_state = "bandshirt_light"
+
+/obj/item/clothing/under/vampire/vtr/suspenders
+	name = "suspenders outfit"
+	desc = "Grey slacks, white button-up, and a pair of old-timey suspenders."
+	icon_state = "suspenders"
+
+/obj/item/clothing/under/vampire/vtr/suspenders_fancy
+	name = "suspenders outfit"
+	desc = "Black slacks, white button-up, a pair of old-timey suspenders, and some very fancy gold cuff-links."
+	icon_state = "suspenders_fancy"
+

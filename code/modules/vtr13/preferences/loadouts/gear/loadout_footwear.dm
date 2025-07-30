@@ -44,6 +44,10 @@
 	display_name = "sneakers, red"
 	path = /obj/item/clothing/shoes/vampire/sneakers/red
 
+/datum/gear/footwear/sneakers/blue
+	display_name = "sneakers, blue"
+	path = /obj/item/clothing/shoes/vampire/vtr/sneakers_blue
+	
 /datum/gear/footwear/sneakers/pumped
 	display_name = "sneakers, high"
 	path = /obj/item/clothing/shoes/vampire/vtr/pumped

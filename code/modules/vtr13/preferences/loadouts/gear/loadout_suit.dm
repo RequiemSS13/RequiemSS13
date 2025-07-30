@@ -186,6 +186,14 @@
 	display_name = "striped sweater"
 	path = /obj/item/clothing/suit/striped_sweater
 
-/datum/gear/suit/letterman_red
-	display_name = "letterman, red"
-	path = /obj/item/clothing/suit/jacket/letterman_syndie
+/datum/gear/suit/letterman
+	display_name = "letterman jacket"
+	path = /obj/item/clothing/suit/jacket/letterman
+	
+/datum/gear/suit/letterman/red
+	display_name = "letterman jacket, red"
+	path = /obj/item/clothing/suit/jacket/letterman_red
+
+/datum/gear/suit/letterman/UCLA
+	display_name = "letterman jacket, UCLA"
+	path = /obj/item/clothing/suit/vampire/vtr/letterman_c
