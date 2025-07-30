@@ -44,7 +44,7 @@
 		qdel(character.regent_clan)
 		character.clane.current_accessory = clane_accessory
 		character.maxbloodpool = 9 + character.get_potency()
-		if(HAS_TRAIT(character, TRAIT_HALF_DAMNED_CURSE))
+		if(character.clane.name == "Revenant")
 			character.adjustBloodPool(character.get_composure(), TRUE)
 		else
 			character.adjustBloodPool(rand(character.get_composure(), character.maxbloodpool), TRUE)
