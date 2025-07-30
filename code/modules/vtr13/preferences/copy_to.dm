@@ -39,6 +39,35 @@
 	character.vamp_rank = vamp_rank
 
 
+	if(pref_species.name == "Vampire")
+		var/datum/vampireclane/CLN = new clane.type()
+		character.clane = CLN
+		character.clane.on_gain(character)
+		qdel(character.regent_clan)
+		character.clane.current_accessory = clane_accessory
+		character.maxbloodpool = 9 + character.get_potency()
+		if(HAS_TRAIT(character, TRAIT_HALF_DAMNED_CURSE))
+			character.adjustBloodPool(character.get_composure(), TRUE)
+		else
+			character.adjustBloodPool(rand(character.get_composure(), character.maxbloodpool), TRUE)
+		character.humanity = humanity
+		character.vtr_faction = vamp_faction
+
+		
+	else if(pref_species.name == "Ghoul")
+		character.clane = null
+		var/datum/vampireclane/CLN = new regent_clan.type()
+		character.regent_clan = CLN
+		character.maxbloodpool = 5 + character.get_stamina()
+		character.adjustBloodPool(rand(character.get_composure(), character.maxbloodpool), TRUE)
+		character.vtr_faction = vamp_faction
+	else if(pref_species.name == "Werewolf")
+		character.set_potency(5)
+	else
+		character.clane = null
+		qdel(character.regent_clan)
+		character.adjustBloodPool(character.maxbloodpool, TRUE)
+
 
 	character.masquerade = masquerade
 
@@ -97,35 +126,6 @@
 	character.set_species(chosen_species, icon_update = FALSE, pref_load = TRUE)
 
 	character.dna.real_name = character.real_name
-
-	if(character.clane)
-		character.clane.on_gain(character)
-
-	if(pref_species.name == "Vampire")
-		var/datum/vampireclane/CLN = new clane.type()
-		character.clane = CLN
-		qdel(character.regent_clan)
-		character.clane.current_accessory = clane_accessory
-		character.maxbloodpool = 9 + character.get_potency()
-		if(HAS_TRAIT(character, TRAIT_HALF_DAMNED_CURSE))
-			character.adjustBloodPool(character.get_composure(), TRUE)
-		else
-			character.adjustBloodPool(rand(character.get_composure(), character.maxbloodpool), TRUE)
-		character.humanity = humanity
-		character.vtr_faction = vamp_faction
-	else if(pref_species.name == "Ghoul")
-		character.clane = null
-		var/datum/vampireclane/CLN = new regent_clan.type()
-		character.regent_clan = CLN
-		character.maxbloodpool = 5 + character.get_stamina()
-		character.adjustBloodPool(rand(character.get_composure(), character.maxbloodpool), TRUE)
-		character.vtr_faction = vamp_faction
-	else if(pref_species.name == "Werewolf")
-		character.set_potency(5)
-	else
-		character.clane = null
-		qdel(character.regent_clan)
-		character.adjustBloodPool(character.maxbloodpool, TRUE)
 
 	if(pref_species.name == "Werewolf")
 		var/datum/auspice/CLN = new auspice.type()
