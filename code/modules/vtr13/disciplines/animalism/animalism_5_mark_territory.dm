@@ -64,7 +64,11 @@
 		return
 
 	LAZYADD(notified_tresspassers_list, mover)
-	to_chat(owner, "You sense [mover] crossing your territorial line...")
+	if(istype(mover,/mob/living))
+		var/mob/living/player = mover
+		to_chat(owner, "You sense [player?.true_real_name ? player.true_real_name : player.real_name] crossing your territorial line...")
+	else
+		to_chat(owner, "You sense [mover] crossing your territorial line...")
 	addtimer(CALLBACK(src, PROC_REF(notify_timeout), mover), notify_cooldown)
 
 /datum/discipline_power/vtr/animalism/mark_territory/proc/notify_timeout(mob/mover)

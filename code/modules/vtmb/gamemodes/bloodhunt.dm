@@ -6,7 +6,7 @@
 	for(var/mob/living/carbon/human/H in SSbloodhunt.hunted)
 		if(H)
 			var/area/A = get_area(H)
-			to_chat(usr, "[icon2html(getFlatIcon(H), usr)][H.true_real_name], [H.mind ? H.mind.assigned_role : "Citizen"]. Was last seen at [A.name]")
+			to_chat(usr, "[icon2html(getFlatIcon(H), usr)][H.real_name], [H.mind ? H.mind.assigned_role : "Citizen"]. Was last seen at [A.name]")
 
 SUBSYSTEM_DEF(bloodhunt)
 	name = "Blood Hunt"
@@ -40,7 +40,7 @@ SUBSYSTEM_DEF(bloodhunt)
 		H.bloodhunted = TRUE
 		for(var/mob/living/carbon/human/R in GLOB.player_list)
 			if(R && iskindred(R) && R.client)
-				to_chat(R, "<b>The Blood Hunt after <span class='warning'>[H.true_real_name]</span> has been announced! <br> Reason: [reason]</b>")
+				to_chat(R, "<b>The Blood Hunt after <span class='warning'>[H.real_name]</span> has been announced! <br> Reason: [reason]</b>")
 				SEND_SOUND(R, sound('code/modules/wod13/sounds/announce.ogg'))
 		hunted += H
 		update_shit()

@@ -753,20 +753,9 @@
 		to_chat(usr, "<span class='boldnotice'>You must be dead to use this!</span>")
 		return
 
-//	if(SSmasquerade.total_level <= 250)
-//		to_chat(usr, "<span class='boldnotice'>Global Masquerade level is too low!</span>")
-//		if(check_rights_for(usr.client, R_ADMIN))
-//			if(alert(usr, "Do you want to respawn faster than usual player? (only admins can)", "Respawn", "Yes", "No") != "Yes")
-//				return
-//		else
-//			return
-
 	if(!usr.can_respawn())
 		if(istype(usr.client.mob, /mob/dead/observer))
 			var/mob/dead/observer/obs = usr.client.mob
-			if(obs.auspex_ghosted)
-				to_chat(usr, "<span class='notice'>You cannot respawn while astrally projecting!</span>")
-				return
 
 		to_chat(usr, "<span class='notice'>You need to wait [DisplayTimeText(GLOB.respawn_timers[usr.client.ckey] + 10 MINUTES - world.time)] before you can respawn.</span>")
 

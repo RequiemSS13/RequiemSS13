@@ -6,6 +6,7 @@
 	switch(href_list["preference"])
 		if("name")
 			real_name = pref_species.random_name(gender,1)
+			true_real_name = real_name
 		if("all")
 			random_character(gender)
 	return TRUE

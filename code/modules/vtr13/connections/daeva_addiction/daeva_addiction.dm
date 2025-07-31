@@ -16,7 +16,7 @@
 	if(!daeva || !daeva.mind)
 		return 0
 
-	if(!daeva.true_real_name || !victim.true_real_name)
+	if(!daeva.real_name || !victim.real_name)
 		return 0
 
 	if(!iskindred(daeva))
@@ -42,19 +42,19 @@
 		to_chat(daeva, "<span class='userlove'>As you drink, the Wanton Curse has its due. You become deeply obsessed with [victim].</span>")
 		SScharacter_connection.update_retire_character_connection_by_group_id(existing_addiction.group_id)
 		group_type = CONNECTION_DAEVA_ADDITION_2
-	
+
 	var/daeva_connection_desc = ""
 	var/victim_connection_desc = ""
 	var/hidden = FALSE
 	var/return_val = 1
 	switch(group_type)
 		if(CONNECTION_DAEVA_ADDITION_1)
-			daeva_connection_desc = "You have drank from [victim.true_real_name] once."
-			victim_connection_desc = "[daeva.true_real_name] has drank your blood once."
+			daeva_connection_desc = "You have drank from [victim.real_name] once."
+			victim_connection_desc = "[daeva.real_name] has drank your blood once."
 			hidden = TRUE
 		if(CONNECTION_DAEVA_ADDITION_2)
-			daeva_connection_desc = "You are obsessed with [victim.true_real_name]."
-			victim_connection_desc = "[daeva.true_real_name] is obsessed with you."
+			daeva_connection_desc = "You are obsessed with [victim.real_name]."
+			victim_connection_desc = "[daeva.real_name] is obsessed with you."
 			return_val = 2
 
 	//insert victim connection

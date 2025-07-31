@@ -13,6 +13,7 @@
 	WRITE_FILE(S["info_known"], info_known)
 	WRITE_FILE(S["gender"], gender)
 	WRITE_FILE(S["real_name"], real_name)
+	WRITE_FILE(S["true_real_name"], true_real_name)
 	WRITE_FILE(S["body_type"], body_type)
 	WRITE_FILE(S["age"], age)
 	WRITE_FILE(S["flavor_text"], flavor_text)
@@ -51,7 +52,7 @@
 	WRITE_FILE(S["wits"], get_wits(FALSE))
 	WRITE_FILE(S["resolve"], get_resolve(FALSE))
 	WRITE_FILE(S["potency"], get_potency(FALSE))
-	
+
 
 	WRITE_FILE(S["equipped_gear"], equipped_gear)
 

@@ -19,13 +19,13 @@
 	UnregisterSignal(source, COMSIG_MEMORY_NAME_OVERRIDE)
 	UnregisterSignal(source, COMSIG_MEMORY_SPLAT_TEXT)
 	UnregisterSignal(source, COMSIG_MEMORY_DISCIPLINE_TEXT)
-	
+
 
 
 /datum/element/ghoul_memory_modifier/proc/name_override(datum/source, mob/living/carbon/human/owner, is_own_memories)
 	SIGNAL_HANDLER
 	var/datum/component/base_memory/base_memory = source
-	base_memory.dat += "[icon2html(getFlatIcon(owner), owner)]I am [owner.true_real_name], a Ghoul."
+	base_memory.dat += "[icon2html(getFlatIcon(owner), owner)]I am [owner.real_name], a Ghoul."
 	return COMPONENT_MEMORY_OVERRIDE
 
 /datum/element/ghoul_memory_modifier/proc/splat_text(datum/source, mob/living/carbon/human/owner, is_own_memories)

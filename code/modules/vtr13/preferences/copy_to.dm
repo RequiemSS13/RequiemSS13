@@ -27,7 +27,7 @@
 				real_name += "[pick(GLOB.last_names)]"
 
 	character.real_name = real_name
-	character.true_real_name = real_name
+	character.true_real_name = true_real_name
 	character.name = character.real_name
 	character.headshot_link = headshot_link
 

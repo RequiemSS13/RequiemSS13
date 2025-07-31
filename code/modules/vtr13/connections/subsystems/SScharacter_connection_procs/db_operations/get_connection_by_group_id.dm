@@ -15,8 +15,8 @@
 			character_name = :char_name AND \
 			group_id = :grp_id \
 			date_ended IS NULL \
-		LIMIT 1", 
-		list("ckey" = target.ckey, "char_name" = target.true_real_name, "grp_id" = group_id)
+		LIMIT 1",
+		list("ckey" = target.ckey, "char_name" = target.real_name, "grp_id" = group_id)
 	)
 
 	if(!query.Execute(async = TRUE))
@@ -39,5 +39,5 @@
 		)
 
 	qdel(query)
-	
+
 	return connection

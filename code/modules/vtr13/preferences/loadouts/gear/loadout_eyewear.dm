@@ -25,3 +25,7 @@
 	display_name = "glasses, prescription"
 	path = /obj/item/clothing/glasses/vampire/perception
 	cost = 1
+
+/datum/gear/eyewear/black_veil
+	display_name = "black veil"
+	path = /obj/item/clothing/glasses/vampire/vtr/black_veil

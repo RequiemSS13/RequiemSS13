@@ -75,7 +75,7 @@
 
 	output += "</center>"
 
-	
+
 
 
 	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>[make_font_cool("NEW PLAYER")]</div>", 265, 280)
@@ -536,7 +536,7 @@
 		mind.original_character = H
 		mind.character_connections = SScharacter_connection.get_character_connections(ckey, real_name)
 		mind.transfer_to(H)					//won't transfer key since the mind is not active
-		
+
 	H.name = real_name
 	client.init_verbs()
 	. = H
@@ -552,7 +552,7 @@
 		if(ishuman(new_character))
 			var/mob/living/carbon/human/H = new_character
 			if(H.client)
-				H.true_real_name = H.client.prefs.real_name
+				H.true_real_name = H.client.prefs.true_real_name
 				H.create_disciplines()
 				GLOB.fucking_joined |= H.client.prefs.real_name
 			if(H.roundstart_vampire && H.breaks_masquerade_on_join())

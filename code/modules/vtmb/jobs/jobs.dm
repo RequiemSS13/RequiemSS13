@@ -10,7 +10,7 @@
 			for(var/obj/item/vamp/creditcard/a_card in b.contents)
 				if(a_card)
 					H.bank_id = a_card.account.bank_id
-					a_card.account.account_owner = H.true_real_name
+					a_card.account.account_owner = H.real_name
 					a_card.account.tracked_owner_mob = WEAKREF(H)
 					a_card.has_checked = TRUE
 

@@ -1,31 +1,28 @@
 /mob/living/carbon/human/proc/AdjustHumanity(var/value, var/limit, var/forced = FALSE)
-	if(!iskindred(src))
-		return
-	if(!GLOB.canon_event)
-		return
-	if(!is_special_character(src))
+	if(iskindred(src) && GLOB.canon_event && !is_special_character(src)) // combined checks into one
 		var/mod = 1
-		if(clane)
+		if(clane && value < 0)
 			mod = clane.humanitymod
 		var/new_humanity = humanity
-		if(value < 0)
-			if((humanity > limit) || forced)
-				if (forced)
-					new_humanity = max(0, humanity+(value * mod))
-				else
-					new_humanity = max(limit, humanity+(value*mod))
-				if(humanity != new_humanity)
-					SEND_SOUND(src, sound('code/modules/wod13/sounds/humanity_loss.ogg', 0, 0, 75))
-					to_chat(src, "<span class='userdanger'><b>HUMANITY DECREASED!</b></span>")
-		if(value > 0)
-			if((humanity < limit) || forced)
-				if (forced)
-					new_humanity = min(10, humanity+(value))
-				else
-					new_humanity = min(limit, humanity+(value))
-				if(humanity != new_humanity)
-					SEND_SOUND(src, sound('code/modules/wod13/sounds/humanity_gain.ogg', 0, 0, 75))
-					to_chat(src, "<span class='userhelp'><b>HUMANITY INCREASED!</b></span>")
+		var/adjustedvalue = clamp(humanity+(value * mod), 0, 10) // Clamp into valid range
+		if(forced)
+			new_humanity = adjustedvalue
+		else if(value < 0 && adjustedvalue < limit || value > 0 && adjustedvalue > limit) // Don't move humanity past the action's adjustment limit
+			new_humanity = limit
+		else
+			new_humanity = adjustedvalue
+		if(new_humanity < 1 && !forced) // Only admins should be able to trigger a 0 humanity. Alert them if it almost happened.
+			message_admins("[src?.key] on [src?.real_name] triggered a humanity loss that would place them at 0. The value has instead been set to 1.")
+			SEND_SOUND(src, sound('code/modules/wod13/sounds/humanity_loss.ogg', 0, 0, 75))
+			to_chat(src, "<span class='userdanger'><b>Your humanity hangs on by threads...!</b></span>")
+			humanity = 1
+			return
+		if(new_humanity > humanity)
+			SEND_SOUND(src, sound('code/modules/wod13/sounds/humanity_gain.ogg', 0, 0, 75))
+			to_chat(src, "<span class='userhelp'><b>HUMANITY INCREASED!</b></span>")
+		if(new_humanity < humanity)
+			SEND_SOUND(src, sound('code/modules/wod13/sounds/humanity_loss.ogg', 0, 0, 75))
+			to_chat(src, "<span class='userdanger'><b>HUMANITY DECREASED!</b></span>")
 		humanity = new_humanity
 
 /mob/living/carbon/human/proc/AdjustMasquerade(var/value, var/forced = FALSE)
@@ -81,7 +78,7 @@
 				return TRUE
 	return FALSE
 
-/mob/living/proc/CheckEyewitness(var/mob/living/source, var/mob/attacker, var/range = 0, var/affects_source = FALSE, var/type_of_infraction = INFRACTION_TYPE_DEFAULT)	
+/mob/living/proc/CheckEyewitness(var/mob/living/source, var/mob/attacker, var/range = 0, var/affects_source = FALSE, var/type_of_infraction = INFRACTION_TYPE_DEFAULT)
 	if(attacker.invisibility)
 		return
 
@@ -98,41 +95,41 @@
 	for(var/mob/living/carbon/human/npc/NPC in oviewers(1, source))
 		if(NPC.CheckMove())
 			continue
-		
+
 		if(get_turf(src) == turn(NPC.dir, 180))
 			continue
-		
+
 		if(!infraction_matters_to_npc(NPC, type_of_infraction))
 			continue
-		
+
 		seenby |= NPC
 		NPC.Aggro(attacker, FALSE)
 
 	for(var/mob/living/carbon/human/npc/NPC in viewers(actual_range, source))
 		if(NPC.CheckMove())
 			continue
-		
+
 		if(affects_source && NPC == source)
 			NPC.Aggro(attacker, TRUE)
 			seenby |= NPC
 			continue
-		
+
 		if(NPC.pulledby)
 			continue
-		
+
 		var/turf/LC = get_turf(attacker)
 		if(LC.get_lumcount() <= 0.25 && get_dist(NPC, attacker) >= 1)
 			continue
-		
+
 		if(!NPC.backinvisible(attacker))
 			continue
 
 		if(!infraction_matters_to_npc(NPC, type_of_infraction))
 			continue
-		
+
 		seenby |= NPC
 		NPC.Aggro(attacker, FALSE)
-	
+
 	if(length(seenby) >= 1)
 		return TRUE
 	return FALSE

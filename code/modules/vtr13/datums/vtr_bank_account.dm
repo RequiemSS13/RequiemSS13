@@ -21,7 +21,7 @@
 /datum/vtr_bank_account/proc/modify_balance(amount, mob/living/user = null)
 	if(!amount)
 		return TRUE
-	
+
 	if((-1 * amount) > balance)
 		if(user?.mind)
 			to_chat(user, span_alert("The transaction is declined - Insufficient funds."))
@@ -44,14 +44,14 @@
 
 
 /datum/vtr_bank_account/proc/process_credit_fraud(mob/living/carbon/human/user, stolen_amt)
-	if(!user || !user.mind || !user.true_real_name || !user.ckey)
+	if(!user || !user.mind || !user.real_name || !user.ckey)
 		return
-	
+
 	if(tracked_owner_mob)
 		var/mob/owner = tracked_owner_mob.resolve()
 		if(owner && user == owner)
 			return
-	
+
 	if(!credit_thieves)
 		credit_thieves = list()
 

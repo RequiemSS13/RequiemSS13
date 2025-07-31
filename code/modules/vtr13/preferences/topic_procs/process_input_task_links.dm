@@ -36,7 +36,7 @@
 
 //=======CHARACTER_PAGE=======
 		if("name")
-			if(real_name && alert(user, "WARNING: Changing your name will dissociate any existing character connections from this slot!", "WARNING", "Okay", "Cancel") == "Cancel")
+			if(real_name && alert(user, "WARNING: Changing your name will dissociate any existing character connections from this slot! You will need to ask an admin to reassign your connections if this is an in character change!", "WARNING", "Okay", "Cancel") == "Cancel")
 				return
 
 			var/new_name = tgui_input_text(user, "Choose your character's name:", "Character Preference", max_length = MAX_NAME_LEN)
@@ -53,6 +53,19 @@
 			if(new_name != real_name)
 				SScharacter_connection.retire_all_endorsements(user.ckey, real_name)
 				real_name = new_name
+
+		if("true_name")
+			var/new_true_name = tgui_input_text(user, "Choose your character's true name, if separate from their public-facing name:", "Character Preference", max_length = MAX_NAME_LEN)
+
+			if(!new_true_name)
+				new_true_name = real_name
+			new_true_name = reject_bad_name(new_true_name)
+
+			if(!new_true_name)
+				to_chat(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and . It must not contain any words restricted by IC chat and name filters.</font>")
+				return
+			if(new_true_name != true_real_name)
+				true_real_name = new_true_name
 
 		if("age")
 			var/new_age = tgui_input_number(user, "Choose your character's biological age:\n([AGE_MIN]-[AGE_MAX])", "Character Preference", age, AGE_MAX, AGE_MIN, round_value = TRUE)
@@ -250,7 +263,7 @@
 		if("decrease_stat")
 			var/datum/attribute/A = locate(href_list["attribute"])
 			A.score--
-		
+
 		if("increase_potency")
 			set_potency(get_potency() + 1)
 			adjust_blood_potency()
@@ -283,7 +296,7 @@
 				clane = new newtype()
 				vamp_rank = VAMP_RANK_NEONATE
 				adjust_blood_potency()
-				
+
 				all_merits.Cut()
 				merit_custom_settings.Cut()
 
@@ -303,7 +316,7 @@
 					vamp_faction = new /datum/vtr_faction/vamp_faction/unaligned()
 					vamp_rank = VAMP_RANK_HALF_DAMNED
 					adjust_blood_potency()
-				
+
 				if(clane.name == "Mekhet")
 					AddBanesUntilItIsDone()
 
@@ -408,7 +421,7 @@
 				vamp_rank = GLOB.vampire_rank_list[new_vamp_rank]
 			AddBanesUntilItIsDone()
 			adjust_blood_potency()
-		
+
 		if("vamp_faction")
 			if(clane?.name == "Revenant")
 				return
@@ -488,10 +501,10 @@
 			qdel(choose_species)
 
 			if(result && result != pref_species.id)
-				
+
 				all_merits.Cut()
 				merit_custom_settings.Cut()
-				
+
 				auspice_level = 0
 				qdel(clane)
 				clane = null

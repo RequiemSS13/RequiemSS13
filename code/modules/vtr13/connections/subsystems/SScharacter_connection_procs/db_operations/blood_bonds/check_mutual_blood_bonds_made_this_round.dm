@@ -23,12 +23,12 @@
 		LIMIT 1",
 		list(
 			"ckey" = thrall.ckey,
-			"char_name" = thrall.true_real_name,
+			"char_name" = thrall.real_name,
 			"bb2" = CONNECTION_BLOOD_BOND_2,
 			"bb1" = CONNECTION_BLOOD_BOND_1,
 			"member_type" = MEMBER_TYPE_THRALL,
 			"domitor_ckey" = domitor.ckey,
-			"domitor_name" = domitor.true_real_name,
+			"domitor_name" = domitor.real_name,
 			"round_id" = GLOB.round_id
 		)
 	)

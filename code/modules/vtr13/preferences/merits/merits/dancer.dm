@@ -1,7 +1,7 @@
 
 /datum/merit/dancer
 	name = "Dancer"
-	desc = "You can dance to lower your humanity. NOTE: This merit is NOT a permanent fixture, and will be REMOVED during the humanity rework."
+	desc = "You can dance to increase your humanity. NOTE: This merit is NOT a permanent fixture, and will be REMOVED during the humanity rework."
 	dots = 4
 	mob_trait = TRAIT_DANCER
 	gain_text = "<span class='notice'>You want to dance.</span>"

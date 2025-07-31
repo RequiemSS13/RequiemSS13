@@ -1,4 +1,8 @@
 /datum/preferences/proc/process_link(mob/user, list/href_list)
+	if(istype(user.client.mob, /mob/dead/observer/avatar))
+		to_chat(user, "<span class='notice'>You can't modify preferences while auspex ghosted!</span>")
+		return
+
 	if(href_list["bancheck"])
 		var/list/ban_details = is_banned_from_with_details(user.ckey, user.client.address, user.client.computer_id, href_list["bancheck"])
 		var/admin = FALSE

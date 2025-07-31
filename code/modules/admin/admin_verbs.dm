@@ -380,7 +380,6 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 					log_admin("[key_name(usr)] re-entered corpse")
 					message_admins("[key_name_admin(usr)] re-entered corpse")
 				ghost.can_reenter_corpse = TRUE //force re-entering even when otherwise not possible
-				ghost.client.show_popup_menus = 0
 				ghost.reenter_corpse()
 
 				SSblackbox.record_feedback("tally", "admin_verb", 1, "Admin Reenter") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -542,7 +541,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/value = input(usr, "Enter the Humanity adjustment value for [M.key]:", "Humanity Adjustment", 0) as num|null
+	var/value = input(usr, "Enter the Humanity adjustment value for [M.key]. Their current humanity is [M.humanity].", "Humanity Adjustment", 0) as num|null
 	if(value == null)
 		return
 

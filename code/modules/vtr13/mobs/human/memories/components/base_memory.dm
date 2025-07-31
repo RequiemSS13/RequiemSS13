@@ -52,7 +52,7 @@
 	dat += "<center><h2>Memories</h2></center>"
 
 	if(!(SEND_SIGNAL(src, COMSIG_MEMORY_NAME_OVERRIDE, owner, is_own_memories) & COMPONENT_MEMORY_OVERRIDE))
-		dat += "[icon2html(getFlatIcon(owner, SOUTH), owner)]I am [owner.true_real_name]."
+		dat += "[icon2html(getFlatIcon(owner, SOUTH), owner)]I am [owner.real_name]."
 	dat += "Tonight, I have taken the role of \a [owner.mind.assigned_role]."
 
 	if(is_own_memories && istype(owner, /mob/living/carbon/human))
