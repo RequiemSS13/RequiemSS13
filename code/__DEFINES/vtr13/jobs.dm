@@ -44,53 +44,67 @@ GLOBAL_LIST_INIT(police_positions, list(
 	"Police Officer"
 ))
 
-#define JOB_DISPLAY_ORDER_SENESCHAL_VTR 10
-#define JOB_DISPLAY_ORDER_KEEPER 11
-#define JOB_DISPLAY_ORDER_SHERIFF_VTR 12
-#define JOB_DISPLAY_ORDER_PAGE 13
-#define JOB_DISPLAY_ORDER_HOUND_VTR 14
-#define JOB_DISPLAY_ORDER_BARTENDER_VTR 15
-#define JOB_DISPLAY_ORDER_COURTIER 16
+#define JOB_DISPLAY_ORDER_SENESCHAL_VTR		10
+#define JOB_DISPLAY_ORDER_KEEPER			11
+#define JOB_DISPLAY_ORDER_SHERIFF_VTR		12
+#define JOB_DISPLAY_ORDER_JUDGE				13
+#define JOB_DISPLAY_ORDER_HOST				14
+#define JOB_DISPLAY_ORDER_DEPUTY			15
+#define JOB_DISPLAY_ORDER_PAGE				16
+#define JOB_DISPLAY_ORDER_HOUND_VTR			17
+#define JOB_DISPLAY_ORDER_BARTENDER_VTR		18
+#define JOB_DISPLAY_ORDER_COURTIER			19
 GLOBAL_LIST_INIT(command_positions, list(
 	"Seneschal",
 	"Keeper of Elysium",
 	"Sheriff",
+	"Judge",
+	"Host",
+	"Deputy",
 	"Page",
 	"Hound",
 	"Bartender",
 	"Courtier"
 ))
 
-#define JOB_DISPLAY_ORDER_BISHOP 17
-#define JOB_DISPLAY_ORDER_SANCTIFIED 18
-#define JOB_DISPLAY_ORDER_CLERGY 19
+#define JOB_DISPLAY_ORDER_BISHOP 			20
+#define JOB_DISPLAY_ORDER_VICAR			21
+#define JOB_DISPLAY_ORDER_SANCTIFIED 		22
+#define JOB_DISPLAY_ORDER_CLERGY 			23
 GLOBAL_LIST_INIT(lancea_positions, list(
 	"Bishop",
+	"Vicar",
 	"Sanctified",
 	"Clergy"
 ))
 
-#define JOB_DISPLAY_ORDER_VOIVODE_VTR 20
-#define JOB_DISPLAY_ORDER_SWORN 21
-#define JOB_DISPLAY_ORDER_LIBRARIAN_VTR 22
+#define JOB_DISPLAY_ORDER_VOIVODE_VTR		24
+#define JOB_DISPLAY_ORDER_CLAW				25
+#define JOB_DISPLAY_ORDER_SWORN				26
+#define JOB_DISPLAY_ORDER_LIBRARIAN_VTR		27
 GLOBAL_LIST_INIT(ordo_positions, list(
 	"Voivode",
+	"Claw",
 	"Sworn",
 	"Librarian"
 ))
 
-#define JOB_DISPLAY_ORDER_HIEROPHANT 23
-#define JOB_DISPLAY_ORDER_ACOLYTE 24
+#define JOB_DISPLAY_ORDER_HIEROPHANT		28
+#define JOB_DISPLAY_ORDER_HARUSPEX			29
+#define JOB_DISPLAY_ORDER_ACOLYTE			30
 GLOBAL_LIST_INIT(crone_positions, list(
 	"Hierophant",
+	"Haruspex",
 	"Acolyte"
 ))
 
 
-#define JOB_DISPLAY_ORDER_REPRESENTATIVE 25
-#define JOB_DISPLAY_ORDER_CARTHIAN 26
+#define JOB_DISPLAY_ORDER_REPRESENTATIVE	31
+#define JOB_DISPLAY_ORDER_WHIP				32
+#define JOB_DISPLAY_ORDER_CARTHIAN			33
 GLOBAL_LIST_INIT(carthian_positions, list(
 	"Carthian Representative",
+	"Whip",
 	"Carthian"
 ))
 

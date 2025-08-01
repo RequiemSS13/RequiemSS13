@@ -754,8 +754,6 @@
 		return
 
 	if(!usr.can_respawn())
-		if(istype(usr.client.mob, /mob/dead/observer))
-			var/mob/dead/observer/obs = usr.client.mob
 
 		to_chat(usr, "<span class='notice'>You need to wait [DisplayTimeText(GLOB.respawn_timers[usr.client.ckey] + 10 MINUTES - world.time)] before you can respawn.</span>")
 

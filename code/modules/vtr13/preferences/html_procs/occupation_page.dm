@@ -62,7 +62,12 @@
 			if(masquerade < job.minimal_masquerade && !bypass)
 				HTML += "<font color=#290204><b>[rank]</b></font></td><td width='75%' align='center'><b><font color=#290204> \[[job.minimal_masquerade] MASQUERADE REQUIRED\]</font></b></td></tr>"
 			if(job.endorsement_required && endorsement_roles_eligable && !endorsement_roles_eligable.Find(job.title) && !bypass)
-				HTML += "<font color=#290204><b>[rank]</b></font></td><td width='75%' align='center'><b><font color=#290204> \[[job.title == "Seneschal"? "[SENESCHAL_SPECIAL_ENDORSEMENT_MIN + FACTION_HEAD_ENDORSEMENT_MIN]": "[FACTION_HEAD_ENDORSEMENT_MIN]"] ENDORSEMENTS NEEDED\]</font></b></td></tr>"
+				var/endorsements_needed_count = FACTION_HEAD_ENDORSEMENT_MIN
+				if(job.title == "Seneschal")
+					endorsements_needed_count = SENESCHAL_SPECIAL_ENDORSEMENT_MIN + FACTION_HEAD_ENDORSEMENT_MIN
+				else if(job.is_deputy)
+					endorsements_needed_count = DEPUTY_ENDORSEMENT_MIN
+				HTML += "<font color=#290204><b>[rank]</b></font></td><td width='75%' align='center'><b><font color=#290204> \[[endorsements_needed_count] ENDORSEMENT[endorsements_needed_count > 1 ? "S" : ""] NEEDED\]</font></b></td></tr>"
 				continue
 			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
 				HTML += "<font color=orange><b>[rank]</b></font></td><td width='75%' align='center'></td></tr>"

@@ -15,10 +15,11 @@
 
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_LANCEA
+	known_contacts = list("Bishop")
 
 	allowed_species = list("Vampire", "Ghoul")
 	duty = "You're a ghoul belonging to one of the Sanctified, or to the Lancea et Sanctum itself. Help the Sanctified with their work. Dispose of corpses in the crematorium. Find salvation in the blood."
-	v_duty = "You're one of the Sacntified, the clergy of the Lancea et Sanctum. Bear up the Lance and keep the Chapel. Keep the kine faithful. Advise your fellow Kindred on matters of faith and morality. Discretely dispose of any unfortunate lapses in judgement."
+	v_duty = "You're one of the Sanctified, the clergy of the Lancea et Sanctum. Bear up the Lance and keep the Chapel. Keep the kine faithful. Advise your fellow Kindred on matters of faith and morality. Discretely dispose of any unfortunate lapses in judgement."
 
 /datum/outfit/job/sanctified
 	name = "Sanctified"

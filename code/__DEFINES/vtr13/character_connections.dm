@@ -7,6 +7,7 @@
 
 #define FACTION_HEAD_ENDORSEMENT_MIN 3 //how many endorsements the faction head needs in order to have their role.
 #define SENESCHAL_SPECIAL_ENDORSEMENT_MIN 2 //how many endorsements a seneschal needs from other faction heads to possess their role.
+#define DEPUTY_ENDORSEMENT_MIN 1 //how many endorsements a deputy needs from a faction head role to do their job
 #define ENDORSEMENT_STALE_OFFSET_MONTHS 2 //how many months before an endorsement becomes stale from inactivity
 
 #define CONNECTION_ENDORSEMENT "endorsement"
@@ -18,6 +19,17 @@
 #define CONNECTION_ENDORSEMENT_VOIVODE "Endorsement for Voivode"
 #define CONNECTION_ENDORSEMENT_BISHOP "Endorsement for Bishop"
 #define CONNECTION_ENDORSEMENT_REPRESENTATIVE "Endorsement for Representative"
+
+//deputies
+#define CONNECTION_ENDORSEMENT_JUDGE "Endorsement for Judge"
+#define CONNECTION_ENDORSEMENT_HOST "Endorsement for Host"
+#define CONNECTION_ENDORSEMENT_DEPUTY "Endorsement for Deputy"
+#define CONNECTION_ENDORSEMENT_VICAR "Endorsement for Vicar"
+#define CONNECTION_ENDORSEMENT_HARUSPEX "Endorsement for Haruspex"
+#define CONNECTION_ENDORSEMENT_CLAW "Endorsement for Claw"
+#define CONNECTION_ENDORSEMENT_WHIP "Endorsement for Whip"
+
+
 #define MEMBER_TYPE_ENDORSER "endorser"
 #define MEMBER_TYPE_CANDIDATE "candidate"
 
