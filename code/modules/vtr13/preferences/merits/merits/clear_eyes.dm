@@ -5,7 +5,11 @@
 	splat_flags = MERIT_SPLAT_HUMAN
 
 /datum/merit/clear_eyes/post_add()
-	merit_holder.see_invisible += AUSPEX_LEVEL_5
+	var/obj/item/organ/eyes/E = merit_holder.getorganslot(ORGAN_SLOT_EYES)
+	E.see_invisible = AUSPEX_LEVEL_5
+	merit_holder.see_invisible = AUSPEX_LEVEL_5
 
 /datum/merit/clear_eyes/remove()
-	merit_holder.see_invisible -= AUSPEX_LEVEL_5
+	var/obj/item/organ/eyes/E = merit_holder.getorganslot(ORGAN_SLOT_EYES)
+	E.see_invisible = initial(E.see_invisible)
+	merit_holder.see_invisible = E.see_invisible
