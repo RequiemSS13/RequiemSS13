@@ -7,7 +7,7 @@
 					SELECT group_id \
 					FROM [format_table_name("character_connection")] \
 					WHERE \
-						ckey = :ckey AND \
+						player_ckey = :ckey AND \
 						character_name = :char_name AND \
 						date_ended IS NULL AND \
 						member_type = :m_type AND \

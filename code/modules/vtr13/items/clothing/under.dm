@@ -347,3 +347,4 @@
 	desc = "A risque yet classy formal gown, made of lace with draping chains. For the modern princess."
 	icon_state = "chain_dress"
 	
+	
