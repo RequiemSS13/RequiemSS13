@@ -526,3 +526,11 @@
 	display_name = "suspenders outfit, fancy"
 	path = /obj/item/clothing/under/vampire/vtr/suspenders_fancy
 	cost = 4
+	
+/datum/gear/uniform/chain_dress
+	display_name = "dress, chain"
+	path = /obj/item/clothing/under/vampire/vtr/chain_dress
+	cost = 4
+	
+	
+	

@@ -342,3 +342,8 @@
 	desc = "Black slacks, white button-up, a pair of old-timey suspenders, and some very fancy gold cuff-links."
 	icon_state = "suspenders_fancy"
 
+/obj/item/clothing/under/vampire/vtr/chain_dress
+	name = "chain dress"
+	desc = "A risque yet classy formal gown, made of lace with draping chains. For the modern princess."
+	icon_state = "chain_dress"
+	
