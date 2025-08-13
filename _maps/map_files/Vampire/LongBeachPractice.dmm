@@ -3010,7 +3010,7 @@
 /turf/open/openspace,
 /area/vtm/vtr/masquerade/exterior/ground_floor/southeast/southeast_long_beach/inaccessible)
 "ctX" = (
-/obj/structure/vampdoor/vtr_generic/apartment,
+/obj/structure/vampdoor/vtr_generic/barista,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/ground_floor/northwest/coffee_shop)
 "cut" = (
@@ -16077,9 +16077,9 @@
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/church)
 "nmg" = (
-/obj/machinery/mineral/equipment_vendor/fastfood/coffeevendor{
+/obj/structure/retail/coffee_vendor{
 	pixel_x = 0;
-	pixel_y = 9
+	pixel_y = 10
 	},
 /turf/open/floor/plating/vampplating/stone,
 /area/vtm/vtr/masquerade/interior/ground_floor/central/bank)
@@ -17109,6 +17109,11 @@
 /obj/item/phone,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/basement/northeast/church)
+"nYd" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/landmark/npcwall,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/vtr/masquerade/exterior/ground_floor/northeast/northeast_long_beach)
 "nYe" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -18620,6 +18625,10 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/vtr/masquerade/exterior/ground_floor/southwest/southwest_long_beach)
+"pkn" = (
+/obj/effect/landmark/npcwall,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/vtr/masquerade/exterior/ground_floor/northeast/northeast_long_beach)
 "pkq" = (
 /turf/open/floor/plating/vampdirt,
 /area/vtm/vtr/masquerade/exterior/basement/river/la_river)
@@ -21797,6 +21806,11 @@
 	},
 /turf/open/floor/plating/parquetry,
 /area/vtm/vtr/elysium/interior/floor_three/central/seneschal_office)
+"rKz" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/effect/landmark/npcwall,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/vtr/masquerade/exterior/ground_floor/northeast/northeast_long_beach)
 "rKX" = (
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/vtr/masquerade/exterior/floor_two/northwest/northwest_long_beach/inaccessible)
@@ -137173,7 +137187,7 @@ bYo
 bYo
 bYo
 bYo
-asp
+pkn
 cMx
 edU
 vrE
@@ -137430,7 +137444,7 @@ xUY
 pkI
 dZp
 bYo
-yiN
+rKz
 mWW
 asp
 vrE
@@ -137687,7 +137701,7 @@ rYW
 bYo
 bYo
 bYo
-asp
+pkn
 cMx
 asp
 hyi
@@ -137944,7 +137958,7 @@ xUY
 pkI
 dZp
 bYo
-asp
+pkn
 cMx
 asp
 vrE
@@ -138201,7 +138215,7 @@ myW
 bYo
 bYo
 bYo
-pqZ
+nYd
 bAd
 asp
 vrE
@@ -139486,7 +139500,7 @@ myW
 bYo
 bYo
 bYo
-asp
+pkn
 lTL
 asp
 vrE
@@ -139743,7 +139757,7 @@ xUY
 xUY
 pRr
 bYo
-yiN
+rKz
 cMx
 asp
 vrE
@@ -140000,7 +140014,7 @@ xUY
 xUY
 xUY
 bYo
-asp
+pkn
 cMx
 asp
 vrE
@@ -140257,7 +140271,7 @@ xUY
 xUY
 xUY
 bYo
-asp
+pkn
 mWW
 asp
 vrE
@@ -140514,7 +140528,7 @@ bYo
 bYo
 bYo
 bYo
-asp
+pkn
 cMx
 asp
 vrE
