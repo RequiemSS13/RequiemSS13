@@ -126,6 +126,122 @@
 	icon_state = "suitjacket_black"
 	inhand_icon_state = "suit_black"
 
+/obj/item/clothing/suit/toggle/vtr/leather
+	name = "black leather jacket"
+	desc = "True clothing for any punk."
+	icon_state = "leather_jacket"
+
+/obj/item/clothing/suit/toggle/vtr/leather_brown
+	name = "brown leather jacket"
+	desc = "True clothing for any biker."
+	icon_state = "brown_jacket"
+
+/obj/item/clothing/suit/toggle/vtr/leather_sleeveless
+	name = "black leather vest"
+	desc = "True clothing for any punk."
+	icon_state = "leather_jacket_sleeveless"
+
+/obj/item/clothing/suit/toggle/vtr/leather_brown_sleeveless
+	name = "brown leather vest"
+	desc = "True clothing for any biker."
+	icon_state = "brown_jacket_sleeveless"
+
+/obj/item/clothing/suit/toggle/vtr/hoodie_grey
+	name = "grey zipper hoodie"
+	desc = "A simple grey hoodie."
+	icon_state = "grey_hoodie"
+
+/obj/item/clothing/suit/toggle/vtr/hoodie_black
+	name = "black zipper hoodie"
+	desc = "A simple black hoodie."
+	icon_state = "black_hoodie"
+
+/obj/item/clothing/suit/toggle/vtr/hoodie_red
+	name = "red zipper hoodie"
+	desc = "A simple red hoodie."
+	icon_state = "red_hoodie"
+
+/obj/item/clothing/suit/toggle/vtr/hoodie_blue
+	name = "blue zipper hoodie"
+	desc = "A simple blue hoodie."
+	icon_state = "blue_hoodie"
+
+/obj/item/clothing/suit/toggle/vtr/hoodie_orange
+	name = "orange zipper hoodie"
+	desc = "A simple orange hoodie."
+	icon_state = "orange_hoodie"
+
+/obj/item/clothing/suit/toggle/vtr/hoodie_pink
+	name = "pink zipper hoodie"
+	desc = "A simple pink hoodie."
+	icon_state = "pink_hoodie"
+
+/obj/item/clothing/suit/toggle/vtr/trackjacket
+	name = "black track jacket"
+	desc = "A light, breathable athletic jacket."
+	icon_state = "trackjacket"
+
+/obj/item/clothing/suit/toggle/vtr/trackjacketblue
+	name = "blue track jacket"
+	desc = "A light, breathable athletic jacket."
+	icon_state = "trackjacketblue"
+
+/obj/item/clothing/suit/toggle/vtr/trackjacketgreen
+	name = "green track jacket"
+	desc = "A light, breathable athletic jacket."
+	icon_state = "trackjacketgreen"
+
+/obj/item/clothing/suit/toggle/vtr/trackjacketred
+	name = "red track jacket"
+	desc = "A light, breathable athletic jacket."
+	icon_state = "trackjacketred"
+
+/obj/item/clothing/suit/toggle/vtr/trackjacketwhite
+	name = "white track jacket"
+	desc = "A light, breathable athletic jacket."
+	icon_state = "trackjacketwhite"
+
+/obj/item/clothing/suit/toggle/vtr/yellow_dep_jacket
+	name = "yellow fur-lined jacket"
+	desc = "A warm wool-lined jacket."
+	icon_state = "engi_dep_jacket"
+
+/obj/item/clothing/suit/toggle/vtr/red_dep_jacket
+	name = "red fur-lined jacket"
+	desc = "A warm wool-lined jacket."
+	icon_state = "sec_dep_jacket"
+
+/obj/item/clothing/suit/toggle/vtr/white_dep_jacket
+	name = "white fur-lined jacket"
+	desc = "A warm wool-lined jacket."
+	icon_state = "med_dep_jacket"
+
+/obj/item/clothing/suit/toggle/vtr/brown_dep_jacket
+	name = "brown fur-lined jacket"
+	desc = "A warm wool-lined jacket."
+	icon_state = "supply_dep_jacket"
+
+/obj/item/clothing/suit/toggle/vtr/grey_dep_jacket
+	name = "grey fur-lined jacket"
+	desc = "A warm wool-lined jacket."
+	icon_state = "grey_dep_jacket"
+
+/obj/item/clothing/suit/toggle/vtr/blue_dep_jacket
+	name = "blue fur-lined jacket"
+	desc = "A warm wool-lined jacket."
+	icon_state = "blue_dep_jacket"
+
+/obj/item/clothing/suit/toggle/vtr/bomber
+	name = "bomber jacket"
+	desc = "A classic leather and wool jacket popular in WW2."
+	icon_state = "bomber"
+
+/obj/item/clothing/suit/toggle/vtr/retro_bomber
+	name = "asymmetical aviator jacket"
+	desc = "A classic leather and wool jacket in the style of early aviators."
+	icon_state = "retro_bomber"
+
+
 //FLANNELS
 //these use a different system from other toggles bc they have three different things you can toggle
 /obj/item/clothing/suit/vampire/vtr/flannel
@@ -213,7 +329,114 @@
 	desc = "A comfy, brown flannel shirt.  Unleash your inner hipster."
 	icon_state = "flannel_brown"
 
+//Letterman jackets
+
 /obj/item/clothing/suit/vampire/vtr/letterman_c
 	name = "letterman jacket, UCLA"
 	desc = "A blue and gold UCLA varsity jacket."
 	icon_state = "letterman_c"
+
+/obj/item/clothing/suit/vampire/vtr/letterman_black
+	name = "black letterman jacket"
+	desc = "A letterman jacket in a moody black and white."
+	icon_state = "varsity"
+
+/obj/item/clothing/suit/vampire/vtr/letterman_purple
+	name = "purple letterman jacket"
+	desc = "A letterman jacket in a deep purple."
+	icon_state = "varsity_purple"
+
+//Military jacket
+
+/obj/item/clothing/suit/vampire/vtr/military_white
+	name = "white military jacket"
+	desc = "A white canvas jacket styled after classic American military garb. Feels sturdy, yet comfortable."
+	icon_state = "militaryjacket_white"
+
+/obj/item/clothing/suit/vampire/vtr/military_tan
+	name = "tan military jacket"
+	desc = "A tan canvas jacket styled after classic American military garb. Feels sturdy, yet comfortable."
+	icon_state = "militaryjacket_tan"
+
+/obj/item/clothing/suit/vampire/vtr/military_navy
+	name = "navy military jacket"
+	desc = "A navy canvas jacket styled after classic American military garb. Feels sturdy, yet comfortable."
+	icon_state = "militaryjacket_navy"
+
+/obj/item/clothing/suit/vampire/vtr/military_grey
+	name = "grey military jacket"
+	desc = "A grey canvas jacket styled after classic American military garb. Feels sturdy, yet comfortable."
+	icon_state = "militaryjacket_grey"
+
+/obj/item/clothing/suit/vampire/vtr/military_black
+	name = "black military jacket"
+	desc = "A black canvas jacket styled after classic American military garb. Feels sturdy, yet comfortable."
+	icon_state = "militaryjacket_black"
+
+
+/obj/item/clothing/suit/hooded/hoodie/parka_yellow
+	name = "yellow parka"
+	desc = "A heavy fur-lined winter coat, for all the snow in LA."
+	icon_state = "yellowpark"
+	hoodtype = /obj/item/clothing/head/hooded/hood_hood/parka_yellow
+
+/obj/item/clothing/head/hooded/hood_hood/parka_yellow
+	name = "yellow parka hood"
+	desc = "A heavy fur-lined hood, for all the snow in LA."
+	icon_state = "yellowpark_hood"
+
+/obj/item/clothing/suit/hooded/hoodie/parka_red
+	name = "red parka"
+	desc = "A heavy fur-lined winter coat, for all the snow in LA."
+	icon_state = "redpark"
+	hoodtype = /obj/item/clothing/head/hooded/hood_hood/parka_red
+
+/obj/item/clothing/head/hooded/hood_hood/parka_red
+	name = "red parka hood"
+	desc = "A heavy fur-lined hood, for all the snow in LA."
+	icon_state = "redpark_hood"
+
+/obj/item/clothing/suit/hooded/hoodie/parka_purple
+	name = "purple parka"
+	desc = "A heavy fur-lined winter coat, for all the snow in LA."
+	icon_state = "purplepark"
+	hoodtype = /obj/item/clothing/head/hooded/hood_hood/parka_purple
+
+/obj/item/clothing/head/hooded/hood_hood/parka_purple
+	name = "purple parka hood"
+	desc = "A heavy fur-lined hood, for all the snow in LA."
+	icon_state = "purplepark_hood"
+
+/obj/item/clothing/suit/hooded/hoodie/parka_green
+	name = "green parka"
+	desc = "A heavy fur-lined winter coat, for all the snow in LA."
+	icon_state = "greenpark"
+	hoodtype = /obj/item/clothing/head/hooded/hood_hood/parka_green
+
+/obj/item/clothing/head/hooded/hood_hood/parka_green
+	name = "green parka hood"
+	desc = "A heavy fur-lined hood, for all the snow in LA."
+	icon_state = "greenpark_hood"
+
+/obj/item/clothing/suit/hooded/hoodie/parka_blue
+	name = "blue parka"
+	desc = "A heavy fur-lined winter coat, for all the snow in LA."
+	icon_state = "bluepark"
+	hoodtype = /obj/item/clothing/head/hooded/hood_hood/parka_blue
+
+/obj/item/clothing/head/hooded/hood_hood/parka_blue
+	name = "blue parka hood"
+	desc = "A heavy fur-lined hood, for all the snow in LA."
+	icon_state = "bluepark_hood"
+
+/obj/item/clothing/suit/hooded/hoodie/parka_vintage
+	name = "vintage parka"
+	desc = "A heavy fur-lined winter coat, for all the snow in LA."
+	icon_state = "vintagepark"
+	hoodtype = /obj/item/clothing/head/hooded/hood_hood/parka_vintage
+
+/obj/item/clothing/head/hooded/hood_hood/parka_vintage
+	name = "vintage parka hood"
+	desc = "A heavy fur-lined hood, for all the snow in LA."
+	icon_state = "vintagepark_hood"
+

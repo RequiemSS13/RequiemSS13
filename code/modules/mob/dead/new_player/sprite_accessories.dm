@@ -1446,7 +1446,7 @@
 
 /datum/sprite_accessory/facial_hair
 	icon = 'icons/mob/human_face.dmi'
-	gender = MALE // barf (unless you're a dorf, dorfs dig chix w/ beards :P)
+	gender = NEUTER
 
 // please make sure they're sorted alphabetically and categorized
 
@@ -1604,7 +1604,7 @@
 	use_static = FALSE
 
 
-//MALE UNDERWEAR
+//UNDERWEAR
 /datum/sprite_accessory/underwear/nude
 	name = "Nude"
 	icon_state = null
@@ -1613,163 +1613,173 @@
 /datum/sprite_accessory/underwear/male_briefs
 	name = "Men's Briefs"
 	icon_state = "male_briefs"
-	gender = MALE
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/male_boxers
 	name = "Men's Boxer"
 	icon_state = "male_boxers"
-	gender = MALE
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/male_stripe
 	name = "Men's Striped Boxer"
 	icon_state = "male_stripe"
-	gender = MALE
-/*
+	gender = NEUTER
+
 /datum/sprite_accessory/underwear/male_midway
 	name = "Men's Midway Boxer"
 	icon_state = "male_midway"
-	gender = MALE
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/male_longjohns
 	name = "Men's Long Johns"
 	icon_state = "male_longjohns"
-	gender = MALE
-*/
+	gender = NEUTER
+
 /datum/sprite_accessory/underwear/male_kinky
 	name = "Men's Kinky"
 	icon_state = "male_kinky"
-	gender = MALE
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/male_mankini
 	name = "Mankini"
 	icon_state = "male_mankini"
-	gender = MALE
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/male_hearts
 	name = "Men's Hearts Boxer"
 	icon_state = "male_hearts"
-	gender = MALE
+	gender = NEUTER
 	use_static = TRUE
-/*
+
 /datum/sprite_accessory/underwear/male_commie
-	name = "Men's Striped Commie Boxer"
+	name = "Men's Striped Red And Yellow Boxer"
 	icon_state = "male_commie"
-	gender = MALE
+	gender = NEUTER
 	use_static = TRUE
 
 /datum/sprite_accessory/underwear/male_usastripe
 	name = "Men's Striped Freedom Boxer"
 	icon_state = "male_assblastusa"
-	gender = MALE
+	gender = NEUTER
 	use_static = TRUE
 
 /datum/sprite_accessory/underwear/male_uk
 	name = "Men's Striped UK Boxer"
 	icon_state = "male_uk"
-	gender = MALE
+	gender = NEUTER
 	use_static = TRUE
-*/
+
 
 //FEMALE UNDERWEAR
 /datum/sprite_accessory/underwear/female_bikini
 	name = "Ladies' Bikini"
 	icon_state = "female_bikini"
-	gender = FEMALE
-
-/datum/sprite_accessory/underwear/female_lace
-	name = "Ladies' Lace"
-	icon_state = "female_lace"
-	gender = FEMALE
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/female_bralette
 	name = "Ladies' Bralette"
 	icon_state = "female_bralette"
-	gender = FEMALE
+	gender = NEUTER
+
+/datum/sprite_accessory/underwear/female_boyshorts
+	name = "Ladies' boyshorts"
+	icon_state = "boyshorts"
+	gender = NEUTER
+
+/datum/sprite_accessory/underwear/female_lace
+	name = "Ladies' Lace"
+	icon_state = "female_lace"
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/female_sport
 	name = "Ladies' Sport"
 	icon_state = "female_sport"
-	gender = FEMALE
+	gender = NEUTER
+
+/datum/sprite_accessory/underwear/female_striped
+	name = "Ladies' Striped"
+	icon_state = "striped"
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/female_thong
 	name = "Ladies' Thong"
 	icon_state = "female_thong"
-	gender = FEMALE
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/female_strapless
 	name = "Ladies' Strapless"
 	icon_state = "female_strapless"
-	gender = FEMALE
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/female_babydoll
 	name = "Babydoll"
 	icon_state = "female_babydoll"
-	gender = FEMALE
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/swimsuit_onepiece
 	name = "Ladies' One Piece Swimsuit"
 	icon_state = "swim_onepiece"
-	gender = FEMALE
-/*
+	gender = NEUTER
+
 /datum/sprite_accessory/underwear/swimsuit_strapless_onepiece
 	name = "Ladies' Strapless One Piece Swimsuit"
 	icon_state = "swim_strapless_onepiece"
-	gender = FEMALE
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/swimsuit_twopiece
 	name = "Ladies' Two Piece Swimsuit"
 	icon_state = "swim_twopiece"
-	gender = FEMALE
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/swimsuit_strapless_twopiece
 	name = "Ladies' Strapless Two Piece Swimsuit"
 	icon_state = "swim_strapless_twopiece"
-	gender = FEMALE
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/swimsuit_stripe
 	name = "Ladies' Stripe Swimsuit"
 	icon_state = "swim_stripe"
-	gender = FEMALE
+	gender = NEUTER
 
 /datum/sprite_accessory/underwear/swimsuit_halter
 	name = "Ladies' Halter Swimsuit"
 	icon_state = "swim_halter"
-	gender = FEMALE
+	gender = NEUTER
+
+/datum/sprite_accessory/underwear/female_commie
+	name = "Ladies' Red And Yellow"
+	icon_state = "female_commie"
+	gender = NEUTER
+	use_static = TRUE
+
+/datum/sprite_accessory/underwear/female_usastripe
+	name = "Ladies' USA"
+	icon_state = "female_assblastusa"
+	gender = NEUTER
+	use_static = TRUE
+
+/datum/sprite_accessory/underwear/female_uk
+	name = "Ladies' Stars and Stripes"
+	icon_state = "female_uk"
+	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/underwear/female_white_neko
 	name = "Ladies' White Neko"
 	icon_state = "female_neko_white"
-	gender = FEMALE
+	gender = NEUTER
 	use_static = TRUE
 
 /datum/sprite_accessory/underwear/female_black_neko
 	name = "Ladies' Black Neko"
 	icon_state = "female_neko_black"
-	gender = FEMALE
+	gender = NEUTER
 	use_static = TRUE
 
-/datum/sprite_accessory/underwear/female_commie
-	name = "Ladies' Commie"
-	icon_state = "female_commie"
-	gender = FEMALE
-	use_static = TRUE
-
-/datum/sprite_accessory/underwear/female_usastripe
-	name = "Ladies' Freedom"
-	icon_state = "female_assblastusa"
-	gender = FEMALE
-	use_static = TRUE
-
-/datum/sprite_accessory/underwear/female_uk
-	name = "Ladies' UK"
-	icon_state = "female_uk"
-	gender = FEMALE
-	use_static = TRUE
-*/
 /datum/sprite_accessory/underwear/female_kinky
 	name = "Ladies' Kinky"
 	icon_state = "female_kinky"
-	gender = FEMALE
+	gender = NEUTER
 	use_static = TRUE
 
 ////////////////////////////
@@ -1778,6 +1788,7 @@
 
 /datum/sprite_accessory/undershirt
 	icon = 'icons/mob/clothing/underwear.dmi'
+	use_static = FALSE
 
 /datum/sprite_accessory/undershirt/nude
 	name = "Nude"
@@ -1785,96 +1796,212 @@
 	gender = NEUTER
 
 // please make sure they're sorted alphabetically and categorized
-/*
+
+/datum/sprite_accessory/undershirt/binder
+	name = "Binder (Black)"
+	icon_state = "binder"
+	gender = NEUTER
+	use_static = TRUE
+
+
+/datum/sprite_accessory/undershirt/bowlingred
+	name = "Bowling Shirt (Red)"
+	icon_state = "bowling"
+	gender = NEUTER
+	use_static = TRUE
+
+/datum/sprite_accessory/undershirt/bowlingpink
+	name = "Bowling Shirt (Pink)"
+	icon_state = "bowlingp"
+	gender = NEUTER
+	use_static = TRUE
+
+/datum/sprite_accessory/undershirt/bowlingblue
+	name = "Bowling Shirt (Turquoise)"
+	icon_state = "bowlinga"
+	gender = NEUTER
+	use_static = TRUE
+
+/datum/sprite_accessory/undershirt/bowling
+	name = "Bowling Shirt (White)"
+	icon_state = "bowlingw"
+	gender = NEUTER
+
+/datum/sprite_accessory/undershirt/dressshirt
+	name = "Dress shirt (White)"
+	icon_state = "undershirt_dress"
+	gender = NEUTER
+
+/datum/sprite_accessory/undershirt/dressshirt_fem
+	name = "Dress shirt, feminine (White)"
+	icon_state = "undershirt_dress_fem"
+	gender = NEUTER
+
+/datum/sprite_accessory/undershirt/fishnetbody
+	name = "Fishnet Bodysuit"
+	icon_state = "fishnet_body"
+	gender = NEUTER
+
+/datum/sprite_accessory/undershirt/fishnetshirt
+	name = "Fishnet Shirt"
+	icon_state = "fishnet_simple"
+	gender = NEUTER
+	use_static = TRUE
+
+/datum/sprite_accessory/undershirt/fishnetshirtglove
+	name = "Fishnet Shirt (With Glove Sleeves)"
+	icon_state = "fishnet_gloves_simple"
+	gender = NEUTER
+	use_static = TRUE
+
+/datum/sprite_accessory/undershirt/fishnetshirtbra
+	name = "Fishnet Shirt (With Bra)"
+	icon_state = "fishnet_sleeves"
+	gender = NEUTER
+	use_static = TRUE
+
+/datum/sprite_accessory/undershirt/fishnetshirtgloves
+	name = "Fishnet Shirt (With Bra and Glove Sleeves)"
+	icon_state = "fishnet_gloves"
+	gender = NEUTER
+	use_static = TRUE
+
+/datum/sprite_accessory/undershirt/fishnetshorts
+	name = "Fishnet Shorts"
+	icon_state = "fishnet_lower"
+	gender = NEUTER
+	use_static = TRUE
+
 /datum/sprite_accessory/undershirt/bluejersey
 	name = "Jersey (Blue)"
 	icon_state = "shirt_bluejersey"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/redjersey
 	name = "Jersey (Red)"
 	icon_state = "shirt_redjersey"
 	gender = NEUTER
-*/
+	use_static = TRUE
+
+/datum/sprite_accessory/undershirt/shirt_stripe
+	name = "Long-sleeved Shirt (Black stripes)"
+	icon_state = "longstripe"
+	gender = NEUTER
+	use_static = TRUE
+
+/datum/sprite_accessory/undershirt/shirt_stripe_blue
+	name = "Long-sleeved Shirt (Blue stripes)"
+	icon_state = "longstripe_blue"
+	gender = NEUTER
+
 /datum/sprite_accessory/undershirt/bluepolo
 	name = "Polo Shirt (Blue)"
 	icon_state = "bluepolo"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/grayyellowpolo
 	name = "Polo Shirt (Gray-Yellow)"
 	icon_state = "grayyellowpolo"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/redpolo
 	name = "Polo Shirt (Red)"
 	icon_state = "redpolo"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/whitepolo
 	name = "Polo Shirt (White)"
 	icon_state = "whitepolo"
 	gender = NEUTER
 
+/datum/sprite_accessory/undershirt/chamise
+	name = "Sheer Chemise"
+	icon_state = "chemise"
+	gender = NEUTER
+	use_static = TRUE
+
 /datum/sprite_accessory/undershirt/alienshirt
 	name = "Shirt (Alien)"
 	icon_state = "shirt_alien"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/mondmondjaja
 	name = "Shirt (Band)"
 	icon_state = "band"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/shirt_black
 	name = "Shirt (Black)"
 	icon_state = "shirt_black"
 	gender = NEUTER
-/*
+	use_static = TRUE
+
+/datum/sprite_accessory/undershirt/shirt_blackpink
+	name = "Shirt (Black and Pink)"
+	icon_state = "wing_shirt"
+	gender = NEUTER
+	use_static = TRUE
+
 /datum/sprite_accessory/undershirt/blueshirt
 	name = "Shirt (Blue)"
 	icon_state = "shirt_blue"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/clownshirt
 	name = "Shirt (Clown)"
 	icon_state = "shirt_clown"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/commie
 	name = "Shirt (Commie)"
 	icon_state = "shirt_commie"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/greenshirt
 	name = "Shirt (Green)"
 	icon_state = "shirt_green"
 	gender = NEUTER
-*/
+	use_static = TRUE
+
 /datum/sprite_accessory/undershirt/shirt_grey
 	name = "Shirt (Grey)"
 	icon_state = "shirt_grey"
 	gender = NEUTER
+	use_static = TRUE
+
 /*
 /datum/sprite_accessory/undershirt/ian
 	name = "Shirt (Ian)"
 	icon_state = "ian"
 	gender = NEUTER
-
+*/
 /datum/sprite_accessory/undershirt/ilovent
-	name = "Shirt (I Love NT)"
+	name = "Shirt (I Love LA)"
 	icon_state = "ilovent"
 	gender = NEUTER
-*/
+	use_static = TRUE
+
 /datum/sprite_accessory/undershirt/lover
 	name = "Shirt (Lover)"
 	icon_state = "lover"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/matroska
 	name = "Shirt (Matroska)"
 	icon_state = "matroska"
 	gender = NEUTER
+	use_static = TRUE
+
 /*
 /datum/sprite_accessory/undershirt/meat
 	name = "Shirt (Meat)"
@@ -1885,47 +2012,62 @@
 	name = "Shirt (Nanotrasen)"
 	icon_state = "shirt_nano"
 	gender = NEUTER
-
+*/
 /datum/sprite_accessory/undershirt/peace
 	name = "Shirt (Peace)"
 	icon_state = "peace"
 	gender = NEUTER
+	use_static = TRUE
+
+/datum/sprite_accessory/undershirt/pinkblack
+	name = "Shirt (Pink and Black)"
+	icon_state = "pinkblack_tshirt"
+	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/pacman
 	name = "Shirt (Pogoman)"
 	icon_state = "pogoman"
 	gender = NEUTER
-*/
+	use_static = TRUE
+
 /datum/sprite_accessory/undershirt/question
 	name = "Shirt (Question)"
 	icon_state = "shirt_question"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/redshirt
 	name = "Shirt (Red)"
 	icon_state = "shirt_red"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/skull
 	name = "Shirt (Skull)"
 	icon_state = "shirt_skull"
 	gender = NEUTER
+	use_static = TRUE
+
 /*
 /datum/sprite_accessory/undershirt/ss13
 	name = "Shirt (SS13)"
 	icon_state = "shirt_ss13"
 	gender = NEUTER
-
+*/
 /datum/sprite_accessory/undershirt/stripe
 	name = "Shirt (Striped)"
 	icon_state = "shirt_stripes"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/tiedye
 	name = "Shirt (Tie-dye)"
 	icon_state = "shirt_tiedye"
 	gender = NEUTER
+	use_static = TRUE
 
+/*
 /datum/sprite_accessory/undershirt/uk
 	name = "Shirt (UK)"
 	icon_state = "uk"
@@ -1940,26 +2082,30 @@
 	name = "Shirt (White)"
 	icon_state = "shirt_white"
 	gender = NEUTER
-/*
+
 /datum/sprite_accessory/undershirt/blackshortsleeve
 	name = "Short-sleeved Shirt (Black)"
 	icon_state = "blackshortsleeve"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/blueshortsleeve
 	name = "Short-sleeved Shirt (Blue)"
 	icon_state = "blueshortsleeve"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/greenshortsleeve
 	name = "Short-sleeved Shirt (Green)"
 	icon_state = "greenshortsleeve"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/purpleshortsleeve
 	name = "Short-sleeved Shirt (Purple)"
 	icon_state = "purpleshortsleeve"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/whiteshortsleeve
 	name = "Short-sleeved Shirt (White)"
@@ -1980,82 +2126,127 @@
 	name = "Sports Shirt (Blue)"
 	icon_state = "blueshirtsport"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/greenshirtsport
 	name = "Sports Shirt (Green)"
 	icon_state = "greenshirtsport"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/redshirtsport
 	name = "Sports Shirt (Red)"
 	icon_state = "redshirtsport"
 	gender = NEUTER
-*/
+	use_static = TRUE
+
 /datum/sprite_accessory/undershirt/tank_black
 	name = "Tank Top (Black)"
 	icon_state = "tank_black"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/tankfire
 	name = "Tank Top (Fire)"
 	icon_state = "tank_fire"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/tank_grey
 	name = "Tank Top (Grey)"
 	icon_state = "tank_grey"
 	gender = NEUTER
-/*
+	use_static = TRUE
+
 /datum/sprite_accessory/undershirt/female_midriff
 	name = "Tank Top (Midriff)"
 	icon_state = "tank_midriff"
-	gender = FEMALE
-*/
+	gender = NEUTER
+
 /datum/sprite_accessory/undershirt/tank_red
 	name = "Tank Top (Red)"
 	icon_state = "tank_red"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/tankstripe
 	name = "Tank Top (Striped)"
 	icon_state = "tank_stripes"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/tank_white
 	name = "Tank Top (White)"
 	icon_state = "tank_white"
 	gender = NEUTER
-/*
+
+/datum/sprite_accessory/undershirt/tank_alt
+	name = "Tank Top, alt (White)"
+	icon_state = "tanktop"
+	gender = NEUTER
+
+/datum/sprite_accessory/undershirt/tank_fem
+	name = "Tank Top, feminine (White)"
+	icon_state = "tank_alt_fem"
+	gender = NEUTER
+
+/datum/sprite_accessory/undershirt/tank_fem
+	name = "Tank Top, feminine v-neck (White)"
+	icon_state = "tanktop_alt_fem_vneck"
+	gender = NEUTER
+
 /datum/sprite_accessory/undershirt/redtop
 	name = "Top (Red)"
 	icon_state = "redtop"
-	gender = FEMALE
+	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/whitetop
 	name = "Top (White)"
 	icon_state = "whitetop"
-	gender = FEMALE
+	gender = NEUTER
 
 /datum/sprite_accessory/undershirt/tshirt_blue
 	name = "T-Shirt (Blue)"
 	icon_state = "blueshirt"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/tshirt_green
 	name = "T-Shirt (Green)"
 	icon_state = "greenshirt"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/tshirt_red
 	name = "T-Shirt (Red)"
 	icon_state = "redshirt"
 	gender = NEUTER
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/yellowshirt
 	name = "T-Shirt (Yellow)"
 	icon_state = "yellowshirt"
 	gender = NEUTER
-*/
+	use_static = TRUE
+
+/datum/sprite_accessory/undershirt/tubetop
+	name = "Tube Top"
+	icon_state = "tubetop"
+	gender = NEUTER
+
+/datum/sprite_accessory/undershirt/turtleneck
+	name = "Turtleneck (grey)"
+	icon_state = "turtleneck"
+	gender = NEUTER
+
+/datum/sprite_accessory/undershirt/turtleneck_sleeveless
+	name = "Turtleneck, sleeveless (grey)"
+	icon_state = "sleevelessturtle"
+	gender = NEUTER
+
+
+
 ///////////////////////
 // Socks Definitions //
 ///////////////////////
@@ -2069,26 +2260,34 @@
 
 // please make sure they're sorted alphabetically and categorized
 
+/datum/sprite_accessory/socks/fishnet
+	name = "Fishnets"
+	icon_state = "fishnet"
+	use_static = TRUE
+
 /datum/sprite_accessory/socks/black_knee
 	name = "Knee-high (Black)"
 	icon_state = "black_knee"
-/*
-/datum/sprite_accessory/socks/commie_knee
-	name = "Knee-High (Commie)"
-	icon_state = "commie_knee"
 
+/datum/sprite_accessory/socks/commie_knee
+	name = "Knee-High (Red and Yellow)"
+	icon_state = "commie_knee"
+	use_static = TRUE
+/*
 /datum/sprite_accessory/socks/usa_knee
 	name = "Knee-High (Freedom)"
 	icon_state = "assblastusa_knee"
+*/
 
 /datum/sprite_accessory/socks/rainbow_knee
 	name = "Knee-high (Rainbow)"
 	icon_state = "rainbow_knee"
+	use_static = TRUE
 
 /datum/sprite_accessory/socks/striped_knee
 	name = "Knee-high (Striped)"
 	icon_state = "striped_knee"
-*/
+
 /datum/sprite_accessory/socks/thin_knee
 	name = "Knee-high (Thin)"
 	icon_state = "thin_knee"
@@ -2100,14 +2299,20 @@
 /datum/sprite_accessory/socks/white_knee
 	name = "Knee-high (White)"
 	icon_state = "white_knee"
-/*
+
 /datum/sprite_accessory/socks/bee_knee
 	name = "Knee-high (Bee)"
 	icon_state = "bee_knee"
-*/
+	use_static = TRUE
+
+/datum/sprite_accessory/socks/leggings
+	name = "Leggings"
+	icon_state = "leggings"
+
 /datum/sprite_accessory/socks/black_norm
 	name = "Normal (Black)"
 	icon_state = "black_norm"
+	use_static = TRUE
 
 /datum/sprite_accessory/socks/white_norm
 	name = "Normal (White)"
@@ -2116,10 +2321,12 @@
 /datum/sprite_accessory/socks/pantyhose
 	name = "Pantyhose"
 	icon_state = "pantyhose"
-/*
+	use_static = TRUE
+
 /datum/sprite_accessory/socks/black_short
 	name = "Short (Black)"
 	icon_state = "black_short"
+	use_static = TRUE
 
 /datum/sprite_accessory/socks/white_short
 	name = "Short (White)"
@@ -2128,38 +2335,48 @@
 /datum/sprite_accessory/socks/stockings_blue
 	name = "Stockings (Blue)"
 	icon_state = "stockings_blue"
+	use_static = TRUE
 
 /datum/sprite_accessory/socks/stockings_cyan
 	name = "Stockings (Cyan)"
 	icon_state = "stockings_cyan"
+	use_static = TRUE
 
 /datum/sprite_accessory/socks/stockings_dpink
 	name = "Stockings (Dark Pink)"
 	icon_state = "stockings_dpink"
+	use_static = TRUE
 
 /datum/sprite_accessory/socks/stockings_green
 	name = "Stockings (Green)"
 	icon_state = "stockings_green"
+	use_static = TRUE
 
 /datum/sprite_accessory/socks/stockings_orange
 	name = "Stockings (Orange)"
 	icon_state = "stockings_orange"
+	use_static = TRUE
 
 /datum/sprite_accessory/socks/stockings_programmer
-	name = "Stockings (Programmer)"
+	name = "Stockings (Light Pink)"
 	icon_state = "stockings_lpink"
+	use_static = TRUE
 
 /datum/sprite_accessory/socks/stockings_purple
 	name = "Stockings (Purple)"
 	icon_state = "stockings_purple"
+	use_static = TRUE
 
 /datum/sprite_accessory/socks/stockings_yellow
 	name = "Stockings (Yellow)"
 	icon_state = "stockings_yellow"
-*/
+	use_static = TRUE
+
 /datum/sprite_accessory/socks/black_thigh
 	name = "Thigh-high (Black)"
 	icon_state = "black_thigh"
+	use_static = TRUE
+
 /*
 /datum/sprite_accessory/socks/commie_thigh
 	name = "Thigh-high (Commie)"
@@ -2168,15 +2385,16 @@
 /datum/sprite_accessory/socks/usa_thigh
 	name = "Thigh-high (Freedom)"
 	icon_state = "assblastusa_thigh"
-
+*/
 /datum/sprite_accessory/socks/rainbow_thigh
 	name = "Thigh-high (Rainbow)"
 	icon_state = "rainbow_thigh"
+	use_static = TRUE
 
 /datum/sprite_accessory/socks/striped_thigh
 	name = "Thigh-high (Striped)"
 	icon_state = "striped_thigh"
-*/
+
 /datum/sprite_accessory/socks/thin_thigh
 	name = "Thigh-high (Thin)"
 	icon_state = "thin_thigh"
@@ -2188,11 +2406,13 @@
 /datum/sprite_accessory/socks/white_thigh
 	name = "Thigh-high (White)"
 	icon_state = "white_thigh"
-/*
+
 /datum/sprite_accessory/socks/bee_thigh
 	name = "Thigh-high (Bee)"
 	icon_state = "bee_thigh"
+	use_static = TRUE
 
+/*
 /datum/sprite_accessory/socks/thocks
 	name = "Thocks"
 	icon_state = "thocks"
