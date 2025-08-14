@@ -1,7 +1,7 @@
 /area/vtm/vtr/masquerade
 	zone_type = "masquerade"
 
-/area/vtm/vtr/masquerade/interior/ground_floor
+/area/vtm/vtr/masquerade/interior
 	name = "Masquerade Interior"
 	upper = FALSE
 
