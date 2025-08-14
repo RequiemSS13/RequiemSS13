@@ -496,7 +496,7 @@
 	name = "black shorts"
 	desc = "Black athletic shorts."
 	body_parts_covered = GROIN
-	icon_state = "black_shorts"
+	icon_state = "blackshorts"
 
 /obj/item/clothing/under/vampire/vtr/shorts/blackshortshort
 	name = "black jean short shorts"
@@ -521,7 +521,7 @@
 /obj/item/clothing/under/vampire/vtr/shorts/mustangjeanshortshort
 	name = "stonewashed jean short shorts"
 	desc = "Jorts, to the connoisseur. Janties to the wise."
-	icon_state = "jeansmustangshorts_f"
+	icon_state = "jeansmustang_shorts_f"
 
 /obj/item/clothing/under/vampire/vtr/shorts/khaki
 	name = "khaki shorts"
@@ -533,7 +533,7 @@
 	desc = "A leather skirt for a night on the town."
 	icon_state = "skirt_short_black"
 
-/obj/item/clothing/under/vampire/vtr/shorts/skirt
+/obj/item/clothing/under/vampire/vtr/shorts/skirtdenim
 	name = "short denim skirt"
 	desc = "Classic blue jean skirt."
 	icon_state = "skirt_short_denim"
