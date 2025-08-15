@@ -114,7 +114,7 @@
 	display_name ="jacket, military grey"
 	path = /obj/item/clothing/suit/vampire/vtr/military_grey
 
-
+/datum/gear/suit/jacket/military/black
 	display_name ="black military jacket"
 	path = /obj/item/clothing/suit/vampire/vtr/military_black
 
