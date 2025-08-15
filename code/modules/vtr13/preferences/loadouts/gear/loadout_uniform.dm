@@ -240,7 +240,7 @@
 	path = /obj/item/clothing/under/vampire/vtr/pants
 
 /datum/gear/uniform/pants/blackbaggy
-	display_name ="pants, black baggy"
+	display_name ="pants, baggy black"
 	path = /obj/item/clothing/under/vampire/vtr/pants/baggy
 
 /datum/gear/uniform/pants/blackjeans
@@ -296,7 +296,7 @@
 	path = /obj/item/clothing/under/vampire/vtr/pants/camo
 
 /datum/gear/uniform/pants/camobaggy
-	display_name ="pants, camo baggy"
+	display_name ="pants, baggy camo"
 	path = /obj/item/clothing/under/vampire/vtr/pants/camobaggy
 
 /datum/gear/uniform/pants/white
@@ -304,7 +304,7 @@
 	path = /obj/item/clothing/under/vampire/vtr/pants/white
 
 /datum/gear/uniform/pants/whitebaggy
-	display_name ="pants, white baggy"
+	display_name ="pants, baggy white"
 	path = /obj/item/clothing/under/vampire/vtr/pants/whitebaggy
 
 /datum/gear/uniform/pants/red
@@ -312,7 +312,7 @@
 	path = /obj/item/clothing/under/vampire/vtr/pants/red
 
 /datum/gear/uniform/pants/redbaggy
-	display_name ="pants, red baggy"
+	display_name ="pants, baggy red"
 	path = /obj/item/clothing/under/vampire/vtr/pants/redbaggy
 
 /datum/gear/uniform/pants/khaki
@@ -324,23 +324,23 @@
 	path = /obj/item/clothing/under/vampire/vtr/pants/khakibaggy
 
 /datum/gear/uniform/pants/track
-	display_name ="pants, black trackpants"
+	display_name ="pants, trackpants black"
 	path = /obj/item/clothing/under/vampire/vtr/pants/trackpants
 
 /datum/gear/uniform/pants/trackblue
-	display_name ="pants, blue trackpants"
+	display_name ="pants, trackpants blue"
 	path = /obj/item/clothing/under/vampire/vtr/pants/trackpants/blue
 
 /datum/gear/uniform/pants/trackgreen
-	display_name ="pants, green trackpants"
+	display_name ="pants, trackpants green"
 	path = /obj/item/clothing/under/vampire/vtr/pants/trackpants/green
 
 /datum/gear/uniform/pants/trackred
-	display_name ="pants, red trackpants"
+	display_name ="pants, trackpants red"
 	path = /obj/item/clothing/under/vampire/vtr/pants/trackpants/red
 
 /datum/gear/uniform/pants/trackwhite
-	display_name ="pants, white trackpants"
+	display_name ="pants, trackpants white"
 	path = /obj/item/clothing/under/vampire/vtr/pants/trackpants/white
 
 //Shorts

@@ -317,15 +317,15 @@
 	path = /obj/item/clothing/suit/toggle/vtr/white_dep_jacket
 
 /datum/gear/suit/furlined/brown
-	display_name ="jacket, brown fur-lined"
+	display_name ="jacket, fur-lined brown"
 	path = /obj/item/clothing/suit/toggle/vtr/brown_dep_jacket
 
 /datum/gear/suit/furlined/grey
-	display_name ="jacket, grey fur-lined"
+	display_name ="jacket, fur-lined grey"
 	path = /obj/item/clothing/suit/toggle/vtr/grey_dep_jacket
 
 /datum/gear/suit/furlined/grey
-	display_name ="jacket, blue fur-lined"
+	display_name ="jacket, fur-lined blue"
 	path = /obj/item/clothing/suit/toggle/vtr/blue_dep_jacket
 
 /datum/gear/suit/parka
