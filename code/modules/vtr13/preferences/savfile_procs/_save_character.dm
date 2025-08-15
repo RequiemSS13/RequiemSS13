@@ -28,6 +28,7 @@
 	WRITE_FILE(S["underwear"], underwear)
 	WRITE_FILE(S["underwear_color"], underwear_color)
 	WRITE_FILE(S["undershirt"], undershirt)
+	WRITE_FILE(S["undershirt_color"], undershirt_color)
 	WRITE_FILE(S["socks"], socks)
 	WRITE_FILE(S["backpack"], backpack)
 	WRITE_FILE(S["persistent_scars"], persistent_scars)

@@ -18,6 +18,8 @@
 		underwear_color = random_short_color()
 	if(randomise[RANDOM_UNDERSHIRT])
 		undershirt = random_undershirt(gender)
+	if(randomise[RANDOM_UNDERSHIRT_COLOR])
+		undershirt_color = random_short_color()
 	if(randomise[RANDOM_SOCKS])
 		socks = random_socks()
 	if(randomise[RANDOM_BACKPACK])

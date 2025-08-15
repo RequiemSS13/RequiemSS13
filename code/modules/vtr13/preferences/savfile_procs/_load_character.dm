@@ -83,6 +83,9 @@
 	READ_FILE(S["underwear"], underwear)
 	underwear = sanitize_inlist(underwear, GLOB.underwear_list)
 
+	READ_FILE(S["undershirt_color"], undershirt_color)
+	undershirt_color = sanitize_hexcolor(undershirt_color)
+
 	READ_FILE(S["undershirt"], undershirt)
 	undershirt = sanitize_inlist(undershirt, GLOB.undershirt_list)
 

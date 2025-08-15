@@ -758,6 +758,8 @@ GLOBAL_LIST_EMPTY(selectable_races)
 						undershirt_overlay = mutable_appearance('icons/mob/clothing/underwear_s_male.dmi', undershirt.icon_state, -BODY_LAYER)
 				if(H.base_body_mod == "f")
 					undershirt_overlay = mutable_appearance('icons/mob/clothing/underwear_f.dmi', undershirt.icon_state, -BODY_LAYER)
+				if(!undershirt.use_static)
+					undershirt_overlay.color = "#" + H.undershirt_color
 				standing += undershirt_overlay
 
 		if(H.socks && H.num_legs >= 2 && !(DIGITIGRADE in species_traits))

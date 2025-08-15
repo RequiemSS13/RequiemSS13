@@ -357,3 +357,183 @@
 	desc = "A dark red button-up shirt worn with dark jeans. Hides bloodstains pretty good."
 	icon_state = "redbutton"
 
+//Pants and Shorts and Skirts
+
+
+/obj/item/clothing/under/vampire/vtr/pants
+	name = "black pants"
+	desc = "These pants are dark, like your soul."
+	body_parts_covered = GROIN|LEGS
+	icon_state = "blackpants"
+
+/obj/item/clothing/under/vampire/vtr/pants/baggy
+	name = "black baggy pants"
+	icon_state = "baggy_blackpants"
+
+/obj/item/clothing/under/vampire/vtr/pants/blackjeans
+	name = "black jeans"
+	desc = "You feel cooler already."
+	icon_state = "jeansblack"
+
+/obj/item/clothing/under/vampire/vtr/pants/blackjeansbaggy
+	name = "baggy black jeans"
+	desc = "You feel cooler already."
+	icon_state = "baggy_jeansblack"
+
+/obj/item/clothing/under/vampire/vtr/pants/blackjeansripped
+	name = "ripped black jeans"
+	desc = "The holes cost extra."
+	icon_state = "jeansblackripped"
+
+/obj/item/clothing/under/vampire/vtr/pants/greyjeans
+	name = "grey jeans"
+	desc = "Only for those who can pull it off."
+	icon_state = "jeansgrey"
+
+/obj/item/clothing/under/vampire/vtr/pants/greyjeansbaggy
+	name = "baggy grey jeans"
+	desc = "You feel cooler already."
+	icon_state = "baggy_jeansgrey"
+
+/obj/item/clothing/under/vampire/vtr/pants/greyjeansripped
+	name = "ripped grey jeans"
+	desc = "The holes cost extra."
+	icon_state = "jeansgreyripped"
+
+/obj/item/clothing/under/vampire/vtr/pants/bluejeans
+	name = "classic jeans"
+	desc = "Classic blue jeans, rugged!"
+	icon_state = "jeansclassic"
+
+/obj/item/clothing/under/vampire/vtr/pants/bluejeansbaggy
+	name = "baggy classic jeans"
+	desc = "Classic blue jeans, rugged!"
+	icon_state = "baggy_jeansclassic"
+
+/obj/item/clothing/under/vampire/vtr/pants/bluejeansripped
+	name = "ripped classic jeans"
+	desc = "The holes cost extra."
+	icon_state = "jeansclassicripped"
+
+/obj/item/clothing/under/vampire/vtr/pants/mustangjeans
+	name = "stonewashed jeans"
+	desc = "Distressing."
+	icon_state = "jeansmustang"
+
+/obj/item/clothing/under/vampire/vtr/pants/mustangjeansbaggy
+	name = "baggy stonewashed jeans"
+	desc = "Distressing."
+	icon_state = "baggy_jeansmustang"
+
+/obj/item/clothing/under/vampire/vtr/pants/mustangjeansripped
+	name = "ripped stonewashed jeans"
+	desc = "The holes cost extra."
+	icon_state = "jeansmustangripped"
+
+/obj/item/clothing/under/vampire/vtr/pants/camo
+	name = "camo pants"
+	desc = "The military is SO in right now."
+	icon_state = "camopants"
+
+/obj/item/clothing/under/vampire/vtr/pants/camobaggy
+	name = "baggy camo pants"
+	desc = "The military is SO in right now."
+	icon_state = "baggy_camopants"
+
+/obj/item/clothing/under/vampire/vtr/pants/white
+	name = "white pants"
+	desc = "Good luck keeping these clean."
+	icon_state = "whitepants"
+
+/obj/item/clothing/under/vampire/vtr/pants/whitebaggy
+	name = "baggy white pants"
+	desc = "Good luck keeping these clean."
+	icon_state = "baggy_whitepants"
+
+/obj/item/clothing/under/vampire/vtr/pants/red
+	name = "red pants"
+	desc = "Extremely easy to keep clean."
+	icon_state = "redpants"
+
+/obj/item/clothing/under/vampire/vtr/pants/redbaggy
+	name = "baggy red pants"
+	desc = "Extremely easy to keep clean."
+	icon_state = "baggy_redpants"
+
+/obj/item/clothing/under/vampire/vtr/pants/khaki
+	name = "khaki pants"
+	desc = "Approaching the height of fashion."
+	icon_state = "khaki"
+
+/obj/item/clothing/under/vampire/vtr/pants/khakibaggy
+	name = "baggy khaki pants"
+	desc = "The absolute height of fashion."
+	icon_state = "baggy_khaki"
+
+/obj/item/clothing/under/vampire/vtr/pants/trackpants
+	name = "black trackpants"
+	desc = "A pair of track pants, for the athletic."
+	icon_state = "trackpants"
+
+/obj/item/clothing/under/vampire/vtr/pants/trackpants/blue
+	name = "blue trackpants"
+	icon_state = "trackpantsblue"
+
+/obj/item/clothing/under/vampire/vtr/pants/trackpants/green
+	name = "green trackpants"
+	icon_state = "trackpantsgreen"
+
+/obj/item/clothing/under/vampire/vtr/pants/trackpants/red
+	name = "red trackpants"
+	icon_state = "trackpantsred"
+
+/obj/item/clothing/under/vampire/vtr/pants/trackpants/white
+	name = "white trackpants"
+	icon_state = "trackpantswhite"
+
+
+/obj/item/clothing/under/vampire/vtr/shorts
+	name = "black shorts"
+	desc = "Black athletic shorts."
+	body_parts_covered = GROIN
+	icon_state = "blackshorts"
+
+/obj/item/clothing/under/vampire/vtr/shorts/blackshortshort
+	name = "black jean short shorts"
+	desc = "Jorts, to the connoisseur."
+	icon_state = "black_shorts_f"
+
+/obj/item/clothing/under/vampire/vtr/shorts/jeanshorts
+	name = "blue jean shorts"
+	desc = "Jorts, to the connoisseur."
+	icon_state = "jeansclassic_shorts"
+
+/obj/item/clothing/under/vampire/vtr/shorts/jeanshortshort
+	name = "blue jean short shorts"
+	desc = "Jorts, to the connoisseur. Janties to the wise."
+	icon_state = "jeansclassic_shorts_f"
+
+/obj/item/clothing/under/vampire/vtr/shorts/mustangjeanshorts
+	name = "stonewashed jean shorts"
+	desc = "Jorts, to the connoisseur."
+	icon_state = "jeansmustang_shorts"
+
+/obj/item/clothing/under/vampire/vtr/shorts/mustangjeanshortshort
+	name = "stonewashed jean short shorts"
+	desc = "Jorts, to the connoisseur. Janties to the wise."
+	icon_state = "jeansmustang_shorts_f"
+
+/obj/item/clothing/under/vampire/vtr/shorts/khaki
+	name = "khaki shorts"
+	desc = "Adventurous!"
+	icon_state = "khaki_shorts_f"
+
+/obj/item/clothing/under/vampire/vtr/shorts/skirt
+	name = "black leather skirt"
+	desc = "A leather skirt for a night on the town."
+	icon_state = "skirt_short_black"
+
+/obj/item/clothing/under/vampire/vtr/shorts/skirtdenim
+	name = "short denim skirt"
+	desc = "Classic blue jean skirt."
+	icon_state = "skirt_short_denim"

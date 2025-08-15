@@ -66,6 +66,7 @@
 		RANDOM_UNDERWEAR = TRUE,
 		RANDOM_UNDERWEAR_COLOR = TRUE,
 		RANDOM_UNDERSHIRT = TRUE,
+		RANDOM_UNDERSHIRT_COLOR = TRUE,
 		RANDOM_SOCKS = TRUE,
 		RANDOM_BACKPACK = TRUE,
 		RANDOM_JUMPSUIT_STYLE = TRUE,
@@ -177,6 +178,7 @@
 	var/underwear = "Nude"				//underwear type
 	var/underwear_color = "000"			//underwear color
 	var/undershirt = "Nude"				//undershirt type
+	var/undershirt_color = "000"		//undershirt color
 	var/socks = "Nude"					//socks type
 	var/backpack = DBACKPACK			//backpack type
 	var/persistent_scars = TRUE			/// If we have persistent scars enabled

@@ -141,6 +141,11 @@
 			if(new_undershirt)
 				undershirt = new_undershirt
 
+		if("undershirt_color")
+			var/new_undershirt_color = input(user, "Choose your character's undershirt color:", "Character Preference","#"+undershirt_color) as color|null
+			if(new_undershirt_color)
+				undershirt_color = sanitize_hexcolor(new_undershirt_color)
+
 		if("socks")
 			var/new_socks
 			new_socks = tgui_input_list(user, "Choose your character's socks:", "Character Preference", GLOB.socks_list)

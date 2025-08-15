@@ -193,6 +193,14 @@
 	display_name = "skirt, blue plaid"
 	path = /obj/item/clothing/under/vampire/vtr/skirt/outfit/plaid_purple
 
+/datum/gear/uniform/skirt/leather
+	display_name = "skirt, leather"
+	path = /obj/item/clothing/under/vampire/vtr/shorts/skirt
+
+/datum/gear/uniform/skirt/denim
+	display_name = "skirt, denim"
+	path = /obj/item/clothing/under/vampire/vtr/shorts/skirt
+
 // Turtleneck
 /datum/gear/uniform/turtleneck
 	subtype_path = /datum/gear/uniform/turtleneck
@@ -226,6 +234,148 @@
 /datum/gear/uniform/pants/grimey
 	display_name = "pants, grimey"
 	path = /obj/item/clothing/under/vampire/malkavian
+
+/datum/gear/uniform/pants/black
+	display_name = "pants, black"
+	path = /obj/item/clothing/under/vampire/vtr/pants
+
+/datum/gear/uniform/pants/blackbaggy
+	display_name ="pants, baggy black"
+	path = /obj/item/clothing/under/vampire/vtr/pants/baggy
+
+/datum/gear/uniform/pants/blackjeans
+	display_name ="pants, black jeans"
+	path = /obj/item/clothing/under/vampire/vtr/pants/blackjeans
+
+/datum/gear/uniform/pants/blackjeansbaggy
+	display_name ="pants, baggy black jeans"
+	path = /obj/item/clothing/under/vampire/vtr/pants/blackjeansbaggy
+
+/datum/gear/uniform/pants/blackjeansripped
+	display_name ="pants, ripped black jeans"
+	path = /obj/item/clothing/under/vampire/vtr/pants/blackjeansripped
+
+/datum/gear/uniform/pants/greyjeans
+	display_name ="pants, grey jeans"
+	path = /obj/item/clothing/under/vampire/vtr/pants/greyjeans
+
+/datum/gear/uniform/pants/greyjeansbaggy
+	display_name ="pants, baggy grey jeans"
+	path = /obj/item/clothing/under/vampire/vtr/pants/greyjeansbaggy
+
+/datum/gear/uniform/pants/greyjeansripped
+	display_name ="pants, ripped grey jeans"
+	path = /obj/item/clothing/under/vampire/vtr/pants/greyjeansripped
+
+/datum/gear/uniform/pants/bluejeans
+	display_name ="pants, blue jeans"
+	path = /obj/item/clothing/under/vampire/vtr/pants/bluejeans
+
+/datum/gear/uniform/pants/bluejeansbaggy
+	display_name ="pants, baggy blue jeans"
+	path = /obj/item/clothing/under/vampire/vtr/pants/bluejeansbaggy
+
+/datum/gear/uniform/pants/bluejeansripped
+	display_name ="pants, ripped blue jeans"
+	path = /obj/item/clothing/under/vampire/vtr/pants/bluejeansripped
+
+/datum/gear/uniform/pants/mustangjeans
+	display_name ="pants, stonewashed jeans"
+	path = /obj/item/clothing/under/vampire/vtr/pants/mustangjeans
+
+/datum/gear/uniform/pants/mustangbaggy
+	display_name ="pants, baggy stonewashed jeans"
+	path = /obj/item/clothing/under/vampire/vtr/pants/mustangjeansbaggy
+
+/datum/gear/uniform/pants/mustangripped
+	display_name ="pants, ripped stonewashed jeans"
+	path = /obj/item/clothing/under/vampire/vtr/pants/mustangjeansripped
+
+/datum/gear/uniform/pants/camo
+	display_name ="pants, camo"
+	path = /obj/item/clothing/under/vampire/vtr/pants/camo
+
+/datum/gear/uniform/pants/camobaggy
+	display_name ="pants, baggy camo"
+	path = /obj/item/clothing/under/vampire/vtr/pants/camobaggy
+
+/datum/gear/uniform/pants/white
+	display_name ="pants, white"
+	path = /obj/item/clothing/under/vampire/vtr/pants/white
+
+/datum/gear/uniform/pants/whitebaggy
+	display_name ="pants, baggy white"
+	path = /obj/item/clothing/under/vampire/vtr/pants/whitebaggy
+
+/datum/gear/uniform/pants/red
+	display_name ="pants, red"
+	path = /obj/item/clothing/under/vampire/vtr/pants/red
+
+/datum/gear/uniform/pants/redbaggy
+	display_name ="pants, baggy red"
+	path = /obj/item/clothing/under/vampire/vtr/pants/redbaggy
+
+/datum/gear/uniform/pants/khaki
+	display_name ="pants, khaki"
+	path = /obj/item/clothing/under/vampire/vtr/pants/khaki
+
+/datum/gear/uniform/pants/khakibaggy
+	display_name ="pants, baggy khaki"
+	path = /obj/item/clothing/under/vampire/vtr/pants/khakibaggy
+
+/datum/gear/uniform/pants/track
+	display_name ="pants, trackpants black"
+	path = /obj/item/clothing/under/vampire/vtr/pants/trackpants
+
+/datum/gear/uniform/pants/trackblue
+	display_name ="pants, trackpants blue"
+	path = /obj/item/clothing/under/vampire/vtr/pants/trackpants/blue
+
+/datum/gear/uniform/pants/trackgreen
+	display_name ="pants, trackpants green"
+	path = /obj/item/clothing/under/vampire/vtr/pants/trackpants/green
+
+/datum/gear/uniform/pants/trackred
+	display_name ="pants, trackpants red"
+	path = /obj/item/clothing/under/vampire/vtr/pants/trackpants/red
+
+/datum/gear/uniform/pants/trackwhite
+	display_name ="pants, trackpants white"
+	path = /obj/item/clothing/under/vampire/vtr/pants/trackpants/white
+
+//Shorts
+
+/datum/gear/uniform/daisyd
+	display_name = "daisy dukes"
+	path = /obj/item/clothing/under/vampire/burlesque/daisyd
+
+/datum/gear/uniform/shorts
+	display_name = "shorts, black"
+	path = /obj/item/clothing/under/vampire/vtr/shorts
+
+/datum/gear/uniform/shorts/blackjean
+	display_name = "shorts, short black jean"
+	path = /obj/item/clothing/under/vampire/vtr/shorts/blackshortshort
+
+/datum/gear/uniform/shorts/bluejean
+	display_name = "shorts, blue jean"
+	path = /obj/item/clothing/under/vampire/vtr/shorts/jeanshorts
+
+/datum/gear/uniform/shorts/bluejeanshort
+	display_name = "shorts, short blue jean"
+	path = /obj/item/clothing/under/vampire/vtr/shorts/jeanshortshort
+
+/datum/gear/uniform/shorts/stonewash
+	display_name = "shorts, stonewashed jean"
+	path = /obj/item/clothing/under/vampire/vtr/shorts/mustangjeanshorts
+
+/datum/gear/uniform/shorts/stonewashshort
+	display_name = "shorts, short stonewashed jean"
+	path = /obj/item/clothing/under/vampire/vtr/shorts/mustangjeanshortshort
+
+/datum/gear/uniform/shorts/khaki
+	display_name = "shorts, khaki"
+	path = /obj/item/clothing/under/vampire/vtr/shorts/khaki
 
 // Dresses
 /datum/gear/uniform/dress
@@ -399,10 +549,6 @@
 /datum/gear/uniform/redbutton
 	display_name = "outfit, red button-up"
 	path = /obj/item/clothing/under/vampire/vtr/buttonup_red
-
-/datum/gear/uniform/daisyd
-	display_name = "daisy dukes"
-	path = /obj/item/clothing/under/vampire/burlesque/daisyd
 
 /datum/gear/uniform/maid_costume
 	display_name = "maid uniform (costume)"
