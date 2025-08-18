@@ -73,11 +73,6 @@
 	icon_state = "eyepatch_white_1"
 
 /obj/item/clothing/glasses/vampire/vtr/aviator
-	name = "aviator sunglasses"
-	desc = "What's out vector, Victor?"
-	icon_state = "bigsunglasses"
-
-/obj/item/clothing/glasses/vampire/vtr/aviator
 	name = "aviators"
 	desc = "What's our vector, Victor?"
 	icon_state = "aviator"
