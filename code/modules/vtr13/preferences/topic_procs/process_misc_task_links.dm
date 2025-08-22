@@ -5,7 +5,7 @@
 
 	switch(href_list["preference"])
 		if("gender")
-			var/list/friendlyGenders = list("Masculine (He/Him)" = "male", "Feminine (She/Her)" = "female", "Other (They/Them)" = "plural")
+			var/list/friendlyGenders = list("Masculine (He/Him)" = "male", "Feminine (She/Her)" = "female", "Neutral (They/Them)" = "plural", "Other (It/Its)" = "neuter")
 			var/pickedGender = tgui_input_list(user, "Choose your gender.", "Character Preference", friendlyGenders, gender)
 			if(pickedGender && friendlyGenders[pickedGender] != gender)
 				gender = friendlyGenders[pickedGender]
@@ -285,7 +285,7 @@
 		if("changeslot")
 			if(merit_sub_tab==PREFS_BANES_SUB_TAB)
 				merit_sub_tab = PREFS_MERITS_SUB_TAB
-			
+
 			if(!load_character(text2num(href_list["num"])))
 				reset_character()
 
