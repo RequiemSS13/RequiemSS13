@@ -59,10 +59,35 @@
 	display_name = "fancy jacket, red"
 	path = /obj/item/clothing/suit/vampire/fancy_red
 
+//Leather jackets
+
 /datum/gear/suit/jacket/black_leather
-	display_name = "jacket, black leather"
-	description = "	True clothing for any punk."
+	display_name = "jacket, spiked black leather"
 	path = /obj/item/clothing/suit/vampire/jacket
+
+/datum/gear/suit/jacket/black_leather_plain
+	display_name = "jacket, black leather"
+	path = /obj/item/clothing/suit/toggle/vtr/leather
+
+/datum/gear/suit/jacket/brown_leather
+	display_name ="jacket, brown leather"
+	path = /obj/item/clothing/suit/toggle/vtr/leather_brown
+
+/datum/gear/suit/jacket/black_leather_vest
+	display_name ="jacket, black leather vest"
+	path = /obj/item/clothing/suit/toggle/vtr/leather_sleeveless
+
+/datum/gear/suit/jacket/brown_leather_vest
+	display_name ="jacket, brown leather vest"
+	path = /obj/item/clothing/suit/toggle/vtr/leather_brown_sleeveless
+
+/datum/gear/suit/jacket/bomber
+	display_name ="jacket, bomber"
+	path = /obj/item/clothing/suit/toggle/vtr/bomber
+
+/datum/gear/suit/jacket/bomber_alt
+	display_name ="jacket, aviator"
+	path = /obj/item/clothing/suit/toggle/vtr/retro_bomber
 
 /datum/gear/suit/jacket/dutch
 	display_name = "jacket, dutch"
@@ -72,6 +97,26 @@
 	display_name = "jacket, military"
 	description = "A canvas jacket styled after classical American military garb."
 	path = /obj/item/clothing/suit/jacket/miljacket
+
+/datum/gear/suit/jacket/military/white
+	display_name ="jacket, military white"
+	path = /obj/item/clothing/suit/vampire/vtr/military_white
+
+/datum/gear/suit/jacket/military/tan
+	display_name ="jacket, military tan"
+	path = /obj/item/clothing/suit/vampire/vtr/military_tan
+
+/datum/gear/suit/jacket/military/navy
+	display_name ="jacket, military navy"
+	path = /obj/item/clothing/suit/vampire/vtr/military_navy
+
+/datum/gear/suit/jacket/military/grey
+	display_name ="jacket, military grey"
+	path = /obj/item/clothing/suit/vampire/vtr/military_grey
+
+/datum/gear/suit/jacket/military/black
+	display_name ="black military jacket"
+	path = /obj/item/clothing/suit/vampire/vtr/military_black
 
 /datum/gear/suit/jacket/suitjacket_blue
 	display_name = "suit jacket, blue"
@@ -186,10 +231,12 @@
 	display_name = "striped sweater"
 	path = /obj/item/clothing/suit/striped_sweater
 
+//Letterman Jackets
+
 /datum/gear/suit/letterman
 	display_name = "letterman jacket"
 	path = /obj/item/clothing/suit/jacket/letterman
-	
+
 /datum/gear/suit/letterman/red
 	display_name = "letterman jacket, red"
 	path = /obj/item/clothing/suit/jacket/letterman_red
@@ -197,3 +244,110 @@
 /datum/gear/suit/letterman/UCLA
 	display_name = "letterman jacket, UCLA"
 	path = /obj/item/clothing/suit/vampire/vtr/letterman_c
+
+/datum/gear/suit/letterman/black
+	display_name = "letterman jacket, black"
+	path = /obj/item/clothing/suit/vampire/vtr/letterman_black
+
+/datum/gear/suit/letterman/purple
+	display_name = "letterman jacket, purple"
+	path = /obj/item/clothing/suit/vampire/vtr/letterman_purple
+
+//Zip Hoodies
+
+/datum/gear/suit/ziphoodie
+	display_name ="hoodie, zipper grey"
+	path = /obj/item/clothing/suit/toggle/vtr/hoodie_grey
+
+/datum/gear/suit/ziphoodie/black
+	display_name ="hoodie, zipper black"
+	path = /obj/item/clothing/suit/toggle/vtr/hoodie_black
+
+/datum/gear/suit/ziphoodie/red
+	display_name ="hoodie, zipper red"
+	path = /obj/item/clothing/suit/toggle/vtr/hoodie_red
+
+/datum/gear/suit/ziphoodie/blue
+	display_name ="hoodie, zipper blue"
+	path = /obj/item/clothing/suit/toggle/vtr/hoodie_blue
+
+/datum/gear/suit/ziphoodie/orange
+	display_name ="hoodie, zipper orange"
+	path = /obj/item/clothing/suit/toggle/vtr/hoodie_orange
+
+/datum/gear/suit/ziphoodie/pink
+	display_name ="hoodie, zipper pink"
+	path = /obj/item/clothing/suit/toggle/vtr/hoodie_pink
+
+//Track jackets
+
+/datum/gear/suit/tracksuit
+	display_name ="jacket, tracksuit black"
+	path = /obj/item/clothing/suit/toggle/vtr/trackjacket
+
+
+/datum/gear/suit/tracksuit/blue
+	display_name ="jacket, tracksuit blue"
+	path = /obj/item/clothing/suit/toggle/vtr/trackjacketblue
+
+/datum/gear/suit/tracksuit/green
+	display_name = "jacket, tracksuit green"
+	path = /obj/item/clothing/suit/toggle/vtr/trackjacketgreen
+
+/datum/gear/suit/tracksuit/red
+	display_name = "jacket, tracksuit red"
+	path = /obj/item/clothing/suit/toggle/vtr/trackjacketred
+
+/datum/gear/suit/tracksuit/white
+	display_name = "jacket, tracksuit white"
+	path = /obj/item/clothing/suit/toggle/vtr/trackjacketwhite
+
+//Fur-lined
+
+/datum/gear/suit/furlined
+	display_name ="jacket, fur-lined yellow"
+	path = /obj/item/clothing/suit/toggle/vtr/yellow_dep_jacket
+
+/datum/gear/suit/furlined/red
+	display_name ="jacket, fur-lined red"
+	path = /obj/item/clothing/suit/toggle/vtr/red_dep_jacket
+
+/datum/gear/suit/furlined/white
+	display_name ="jacket, fur-lined white"
+	path = /obj/item/clothing/suit/toggle/vtr/white_dep_jacket
+
+/datum/gear/suit/furlined/brown
+	display_name ="jacket, fur-lined brown"
+	path = /obj/item/clothing/suit/toggle/vtr/brown_dep_jacket
+
+/datum/gear/suit/furlined/grey
+	display_name ="jacket, fur-lined grey"
+	path = /obj/item/clothing/suit/toggle/vtr/grey_dep_jacket
+
+/datum/gear/suit/furlined/grey
+	display_name ="jacket, fur-lined blue"
+	path = /obj/item/clothing/suit/toggle/vtr/blue_dep_jacket
+
+/datum/gear/suit/parka
+	display_name ="parka, yellow"
+	path = /obj/item/clothing/suit/hooded/hoodie/parka_yellow
+
+/datum/gear/suit/parka/red
+	display_name ="parka, red"
+	path = /obj/item/clothing/suit/hooded/hoodie/parka_red
+
+/datum/gear/suit/parka/purple
+	display_name ="parka, purple"
+	path = /obj/item/clothing/suit/hooded/hoodie/parka_purple
+
+/datum/gear/suit/parka/green
+	display_name ="parka, green"
+	path = /obj/item/clothing/suit/hooded/hoodie/parka_green
+
+/datum/gear/suit/parka/blue
+	display_name ="parka, blue"
+	path = /obj/item/clothing/suit/hooded/hoodie/parka_blue
+
+/datum/gear/suit/parka/vintage
+	display_name ="parka, vintage green"
+	path = /obj/item/clothing/suit/hooded/hoodie/parka_vintage

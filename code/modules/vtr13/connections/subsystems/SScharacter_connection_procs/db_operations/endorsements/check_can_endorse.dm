@@ -1,4 +1,4 @@
-/datum/controller/subsystem/character_connection/proc/check_can_endorse(mob/living/endorser, mob/living/candidate, connection_type, endorser_must_be_faction_head)
+/datum/controller/subsystem/character_connection/proc/check_can_endorse(mob/living/endorser, mob/living/candidate, connection_type)
 	if(!endorser || !candidate)
 		return FALSE
 
@@ -63,12 +63,4 @@
 		qdel(query_2)
 		return FALSE
 	qdel(query_2)
-
-
-
-	if(endorser_must_be_faction_head)
-		if(!SScharacter_connection.check_is_eligible_for_faction_head(endorser.ckey, endorser.real_name))
-			to_chat(endorser, span_notice("Your character cannot give this endorsement without being an eligible faction head for the Lancea et Sanctum, Ordo Dracul, Circle of the Crone, or the Carthian Movement."))
-			to_chat(candidate, span_notice("[endorser] cannot endorse you."))
-			return FALSE
 	return TRUE

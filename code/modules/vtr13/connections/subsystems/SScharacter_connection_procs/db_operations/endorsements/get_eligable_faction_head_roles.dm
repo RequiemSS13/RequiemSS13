@@ -7,7 +7,7 @@
 			player_ckey = :ckey AND \
 			character_name = :char_name AND \
 			member_type = :mem_type AND \
-			group_type IN ( :grp_type_1 , :grp_type_2 , :grp_type_3, :grp_type_4, :grp_type_5, :grp_type_6, :grp_type_7, :grp_type_8 ) AND \
+			group_type IN ( :grp_type_1 , :grp_type_2 , :grp_type_3, :grp_type_4, :grp_type_5, :grp_type_6, :grp_type_7, :grp_type_8, :grp_type_9, :grp_type_10, :grp_type_11, :grp_type_12, :grp_type_13, :grp_type_14, :grp_type_15) AND \
 			date_ended IS NULL AND \
 			date_established >= DATE_SUB(NOW(), INTERVAL :stale_offset MONTH) \
 		GROUP BY \
@@ -25,6 +25,13 @@
 			"grp_type_6" = CONNECTION_ENDORSEMENT_KEEPER,
 			"grp_type_7" = CONNECTION_ENDORSEMENT_SENESCHAL,
 			"grp_type_8" = CONNECTION_ENDORSEMENT_FACTION_LEADER_SENESCHAL,
+			"grp_type_9" = CONNECTION_ENDORSEMENT_JUDGE,
+			"grp_type_10" = CONNECTION_ENDORSEMENT_HOST,
+			"grp_type_11" = CONNECTION_ENDORSEMENT_DEPUTY,
+			"grp_type_12" = CONNECTION_ENDORSEMENT_VICAR,
+			"grp_type_13" = CONNECTION_ENDORSEMENT_HARUSPEX,
+			"grp_type_14" = CONNECTION_ENDORSEMENT_CLAW,
+			"grp_type_15" = CONNECTION_ENDORSEMENT_WHIP,
 			"stale_offset" = ENDORSEMENT_STALE_OFFSET_MONTHS
 		)
 	)
@@ -64,6 +71,27 @@
 			if(CONNECTION_ENDORSEMENT_HIEROPHANT)
 				if(endorsement_count >= FACTION_HEAD_ENDORSEMENT_MIN)
 					LAZYADD(eligiable_roles, "Hierophant")
+			if(CONNECTION_ENDORSEMENT_JUDGE)
+				if(endorsement_count >= DEPUTY_ENDORSEMENT_MIN)
+					LAZYADD(eligiable_roles, "Judge")
+			if(CONNECTION_ENDORSEMENT_HOST)
+				if(endorsement_count >= DEPUTY_ENDORSEMENT_MIN)
+					LAZYADD(eligiable_roles, "Host")
+			if(CONNECTION_ENDORSEMENT_DEPUTY)
+				if(endorsement_count >= DEPUTY_ENDORSEMENT_MIN)
+					LAZYADD(eligiable_roles, "Deputy")
+			if(CONNECTION_ENDORSEMENT_VICAR)
+				if(endorsement_count >= DEPUTY_ENDORSEMENT_MIN)
+					LAZYADD(eligiable_roles, "Vicar")
+			if(CONNECTION_ENDORSEMENT_HARUSPEX)
+				if(endorsement_count >= DEPUTY_ENDORSEMENT_MIN)
+					LAZYADD(eligiable_roles, "Haruspex")
+			if(CONNECTION_ENDORSEMENT_CLAW)
+				if(endorsement_count >= DEPUTY_ENDORSEMENT_MIN)
+					LAZYADD(eligiable_roles, "Claw")
+			if(CONNECTION_ENDORSEMENT_WHIP)
+				if(endorsement_count >= DEPUTY_ENDORSEMENT_MIN)
+					LAZYADD(eligiable_roles, "Whip")
 
 	if(seneschal_faction_leader_endorsement && seneschal_popular_endorsement)
 		LAZYADD(eligiable_roles, "Seneschal")

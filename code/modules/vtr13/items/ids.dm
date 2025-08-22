@@ -60,6 +60,19 @@
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id2"
 
+/obj/item/card/id/host
+	name = "host badge"
+	id_type_name = "bartender badge"
+	desc = "A nametag and ID identifying the wearer as a host at the nightclub 'The Kiss'."
+	icon = 'icons/wod13/items.dmi'
+	icon_state = "id2"
+	inhand_icon_state = "card-id"
+	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
+	worn_icon = 'icons/wod13/worn.dmi'
+	worn_icon_state = "id2"
+
+
 /obj/item/card/id/barista
 	name = "barista badge"
 	id_type_name = "barista badge"
@@ -86,6 +99,18 @@
 
 /obj/item/card/id/page
 	name = "access pass"
+	id_type_name = "access pass"
+	desc = "A limited access pass to the Castille Building, for corporate cogs on various missions."
+	icon = 'icons/wod13/items.dmi'
+	icon_state = "id6"
+	inhand_icon_state = "card-id"
+	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
+	worn_icon = 'icons/wod13/worn.dmi'
+	worn_icon_state = "id6"
+
+/obj/item/card/id/judge
+	name = "senior access pass"
 	id_type_name = "access pass"
 	desc = "A limited access pass to the Castille Building, for corporate cogs on various missions."
 	icon = 'icons/wod13/items.dmi'
@@ -132,6 +157,18 @@
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id12"
 
+/obj/item/card/id/claw
+	name = "senior laboratory tech's ID"
+	id_type_name = "laboratory tech ID"
+	desc = "An ID issued to members of a local UCLA research lab."
+	icon = 'icons/wod13/items.dmi'
+	icon_state = "id12"
+	inhand_icon_state = "card-id"
+	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
+	worn_icon = 'icons/wod13/worn.dmi'
+	worn_icon_state = "id12"
+
 /obj/item/card/id/librarian
 	name = "librarian tech's ID"
 	id_type_name = "librarian ID"
@@ -157,8 +194,32 @@
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id3"
 
+/obj/item/card/id/deputy
+	name = "senior security badge"
+	id_type_name = "security badge"
+	desc = "An nondescript ID issued to the Castille Building's security team."
+	icon = 'icons/wod13/items.dmi'
+	icon_state = "id3"
+	inhand_icon_state = "card-id"
+	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
+	worn_icon = 'icons/wod13/worn.dmi'
+	worn_icon_state = "id3"
+
 /obj/item/card/id/carthian
 	name = "party badge"
+	id_type_name = "party badge"
+	desc = "A badge for some weird third-party political organization."
+	icon = 'icons/wod13/items.dmi'
+	icon_state = "id10"
+	inhand_icon_state = "card-id"
+	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
+	worn_icon = 'icons/wod13/worn.dmi'
+	worn_icon_state = "id10"
+
+/obj/item/card/id/whip
+	name = "cabinet member badge"
 	id_type_name = "party badge"
 	desc = "A badge for some weird third-party political organization."
 	icon = 'icons/wod13/items.dmi'
@@ -188,6 +249,18 @@
 
 /obj/item/card/id/acolyte
 	name = "crew badge"
+	id_type_name = "crew badge"
+	desc = "A badge denoting an employee of the Queen Lilith, casino and resort."
+	icon = 'icons/wod13/items.dmi'
+	icon_state = "id7"
+	inhand_icon_state = "card-id"
+	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
+	worn_icon = 'icons/wod13/worn.dmi'
+	worn_icon_state = "id7"
+
+/obj/item/card/id/haruspex
+	name = "senior crew badge"
 	id_type_name = "crew badge"
 	desc = "A badge denoting an employee of the Queen Lilith, casino and resort."
 	icon = 'icons/wod13/items.dmi'

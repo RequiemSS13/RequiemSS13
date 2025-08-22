@@ -6,7 +6,7 @@
 	lock_id = "shop"
 	lockpick_difficulty = 2
 
-/obj/structure/vampdoor/vtr_generic/apartment //all apartment hallway doors, also the coffee shop backdoor until hunters get added
+/obj/structure/vampdoor/vtr_generic/apartment //all apartment hallway doors
 	icon_state = "wood-1"
 	baseicon = "wood"
 	burnable = TRUE
@@ -44,3 +44,10 @@
 	baseicon = "ship"
 	burnable = FALSE
 	locked = FALSE
+
+/obj/structure/vampdoor/vtr_generic/barista
+	icon_state = "wood-1"
+	baseicon = "wood"
+	burnable = TRUE
+	lock_id = "barista"
+	lockpick_difficulty = 2

@@ -13,10 +13,13 @@
 	if(!human_src.vtr_faction || !SScharacter_connection.endorsement_connection_list[human_src.vtr_faction.name])
 		return
 
+	var/list/endorser_head_roles = SScharacter_connection.get_eligible_faction_head_roles(human_src.ckey, human_src.real_name)
 	var/list/connection_selection = list()
 	for(var/key in SScharacter_connection.endorsement_connection_list[human_src.vtr_faction.name])
 		var/datum/character_connection_type/endorsement/endorsement_type = SScharacter_connection.endorsement_connection_list[human_src.vtr_faction.name][key]
 		if(endorsement_type.minimum_endorser_rank > human_src.vamp_rank)
+			continue
+		if(endorsement_type.exact_faction_head_endorser && !LAZYFIND(endorser_head_roles, endorsement_type.exact_faction_head_endorser))
 			continue
 		connection_selection += key
 

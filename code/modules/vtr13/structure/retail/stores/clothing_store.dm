@@ -41,6 +41,9 @@
 		new /datum/data/retail_product("tan suit slacks", /obj/item/clothing/under/vampire/vtr/suit/tan, 50),
 		new /datum/data/retail_product("tan suit skirt", /obj/item/clothing/under/vampire/vtr/suit/tanskirt, 50),
 		new /datum/data/retail_product("black pantsuit", /obj/item/clothing/under/vampire/vtr/suit/blackfem, 50),
+		new /datum/data/retail_product("royal red suit",	/obj/item/clothing/under/vampire/vtr/royalredsuit,	75),
+		new /datum/data/retail_product("red button-up outfit", /obj/item/clothing/under/vampire/vtr/buttonup_red, 40),
+		new /datum/data/retail_product("loose open-front silk shirt",	/obj/item/clothing/under/vampire/vtr/novella,	50),
 		new /datum/data/retail_product("plain suspenders outfit", /obj/item/clothing/under/vampire/vtr/suspenders, 50),
 		new /datum/data/retail_product("fancy suspenders outfit", /obj/item/clothing/under/vampire/vtr/suspenders_fancy, 150),
 		new /datum/data/retail_product("flamboyant outfit",	/obj/item/clothing/under/vampire/toreador,	30),
@@ -50,6 +53,7 @@
 		new /datum/data/retail_product("high-waisted skirt", /obj/item/clothing/under/vampire/vtr/highskirt, 60),
 		new /datum/data/retail_product("black corset", /obj/item/clothing/under/vampire/vtr/dress/black_corset, 40),
 		new /datum/data/retail_product("dark red dress", /obj/item/clothing/under/vampire/vtr/dress/darkred, 60),
+		new /datum/data/retail_product("sheer lace black dress",	/obj/item/clothing/under/vampire/vtr/dress/laceblack,	100),
 		new /datum/data/retail_product("little black dress", /obj/item/clothing/under/vampire/vtr/dress/littleblackdress, 60),
 		new /datum/data/retail_product("yellow swoop dress", /obj/item/clothing/under/vampire/vtr/dress/yellowswoop, 60),
 		new /datum/data/retail_product("black tango dress", /obj/item/clothing/under/vampire/vtr/dress/blacktango, 60),
@@ -154,8 +158,5 @@
 		new /datum/data/retail_product("horrible tie", /obj/item/clothing/neck/vtr/tie/horrible, 10),
 		new /datum/data/retail_product("duffelbag",	/obj/item/storage/backpack/duffelbag,	100),
 		new /datum/data/retail_product("satchel",		/obj/item/storage/backpack/satchel,		100),
-		new /datum/data/retail_product("leather satchel",		/obj/item/storage/backpack/satchel/leather,		150),
-		new /datum/data/retail_product("royal red suit",	/obj/item/clothing/under/vampire/vtr/royalredsuit,	75),
-		new /datum/data/retail_product("sheer lace black dress",	/obj/item/clothing/under/vampire/vtr/dress/laceblack,	100),
-		new /datum/data/retail_product("loose open-front silk shirt",	/obj/item/clothing/under/vampire/vtr/novella,	50)
+		new /datum/data/retail_product("leather satchel",		/obj/item/storage/backpack/satchel/leather,		150)
 	)
