@@ -3598,6 +3598,7 @@
 #include "code\modules\vtr13\connections\subsystems\SScharacter_connection_procs\db_operations\endorsements\check_can_endorse.dm"
 #include "code\modules\vtr13\connections\subsystems\SScharacter_connection_procs\db_operations\endorsements\check_is_eligible_for_faction_head.dm"
 #include "code\modules\vtr13\connections\subsystems\SScharacter_connection_procs\db_operations\endorsements\get_eligable_faction_head_roles.dm"
+#include "code\modules\vtr13\connections\subsystems\SScharacter_connection_procs\db_operations\endorsements\update_date_on_endorsements.dm"
 #include "code\modules\vtr13\connections\subsystems\SScharacter_connection_procs\db_operations\endorsements\update_retire_all_endorsements.dm"
 #include "code\modules\vtr13\connections\subsystems\SScharacter_connection_procs\db_operations\endorsements\update_retire_all_stale_endorsements.dm"
 #include "code\modules\vtr13\connections\subsystems\SScharacter_connection_verbs\offer_boon_verb.dm"

@@ -561,6 +561,7 @@
 					if(LM)
 						H.forceMove(LM.loc)
 			H.refresh_character_connections()
+			SScharacter_connection.update_date_on_endorsements(H.ckey, H.real_name)
 		new_character = null
 		qdel(src)
 
