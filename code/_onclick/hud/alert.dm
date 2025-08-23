@@ -756,6 +756,10 @@ so as to remain in compliance with the most up-to-date laws."
 	name = "Legcuffed"
 	desc = "You're legcuffed, which slows you down considerably. Click the alert to free yourself."
 
+/atom/movable/screen/alert/restrained/muzzled
+	name = "Muzzled"
+	desc = "You're muzzled, which prevents you from biting. Click the alert to free yourself."
+
 /atom/movable/screen/alert/restrained/Click()
 	var/mob/living/L = usr
 	if(!istype(L) || !L.can_resist() || L != owner)

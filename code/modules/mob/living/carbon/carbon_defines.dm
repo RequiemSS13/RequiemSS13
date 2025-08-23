@@ -24,6 +24,8 @@
 	var/obj/item/handcuffed = null
 	///Same as handcuffs but for legs. Bear traps use this.
 	var/obj/item/legcuffed = null
+	///Same as handcuffs, but for your face
+	var/obj/item/muzzled = null
 
 	var/disgust = 0
 
@@ -128,7 +130,7 @@
 	var/last_frenzy_check = 0
 	var/last_experience = 0
 
-	
+
 
 	var/datum/auspice/auspice
 	var/obj/werewolf_holder/transformation/transformator

@@ -183,6 +183,8 @@
 		dat += "<tr><td><B>Handcuffed:</B> <A href='byond://?src=[REF(src)];item=[ITEM_SLOT_HANDCUFFED]'>Remove</A></td></tr>"
 	if(legcuffed)
 		dat += "<tr><td><B>Legcuffed:</B> <A href='byond://?src=[REF(src)];item=[ITEM_SLOT_LEGCUFFED]'>Remove</A></td></tr>"
+	if(muzzled)
+		dat += "<tr><td><B>Muzzled:</B> <A href='byond://?src=[REF(src)];item=[ITEM_SLOT_MUZZLED]'>Remove</A></td></tr>"
 
 	dat += {"</table>
 	<A href='byond://?src=[REF(user)];mach_close=mob[REF(src)]'>Close</A>
