@@ -568,6 +568,8 @@
 			return /obj/item/restraints/handcuffs
 		if(ITEM_SLOT_LEGCUFFED)
 			return /obj/item/restraints/legcuffs
+		if(ITEM_SLOT_MUZZLED)
+			return /obj/item/restraints/vampire
 		if(ITEM_SLOT_BELT)
 			return /obj/item/storage/belt
 		if(ITEM_SLOT_ID)

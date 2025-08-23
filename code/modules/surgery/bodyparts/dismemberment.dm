@@ -290,6 +290,11 @@
 		for(var/X in list(owner.glasses, owner.ears, owner.wear_mask, owner.head))
 			var/obj/item/I = X
 			owner.dropItemToGround(I, force = TRUE)
+		if(owner.muzzled)
+			owner.muzzled.forceMove(owner.drop_location()) //At this point bodypart is still in nullspace
+			owner.muzzled.dropped(owner)
+			owner.muzzled = null
+			owner.update_inv_muzzled()
 
 	qdel(owner.GetComponent(/datum/component/creamed)) //clean creampie overlay
 

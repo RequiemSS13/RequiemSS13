@@ -1169,6 +1169,12 @@ GLOBAL_LIST_EMPTY(selectable_races)
 			if(H.num_legs < 2)
 				return FALSE
 			return TRUE
+		if(ITEM_SLOT_MUZZLED)
+			if(!istype(I, /obj/item/restraints/vampire/muzzle))
+				return FALSE
+			if(!H.get_bodypart(BODY_ZONE_HEAD))
+				return FALSE
+			return TRUE
 		if(ITEM_SLOT_BACKPACK)
 			if(H.back && SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, TRUE))
 				return TRUE

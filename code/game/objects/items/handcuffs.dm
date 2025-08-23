@@ -17,6 +17,9 @@
 		if(M.legcuffed == src)
 			M.legcuffed = null
 			M.update_inv_legcuffed()
+		if(M.muzzled == src)
+			M.muzzled = null
+			M.update_inv_muzzled()
 	return ..()
 
 //Handcuffs

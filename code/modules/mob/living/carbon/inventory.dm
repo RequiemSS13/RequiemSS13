@@ -12,6 +12,8 @@
 			return handcuffed
 		if(ITEM_SLOT_LEGCUFFED)
 			return legcuffed
+		if(ITEM_SLOT_MUZZLED)
+			return muzzled
 	return null
 
 /mob/living/carbon/proc/equip_in_one_of_slots(obj/item/I, list/slots, qdel_on_fail = 1)
@@ -78,6 +80,9 @@
 		if(ITEM_SLOT_LEGCUFFED)
 			legcuffed = I
 			update_inv_legcuffed()
+		if(ITEM_SLOT_MUZZLED)
+			muzzled = I
+			update_inv_muzzled()
 		if(ITEM_SLOT_HANDS)
 			put_in_hands(I)
 			update_inv_hands()
@@ -127,6 +132,10 @@
 		legcuffed = null
 		if(!QDELETED(src))
 			update_inv_legcuffed()
+	else if(I == muzzled)
+		muzzled = null
+		if(!QDELETED(src))
+			update_inv_muzzled()
 	update_equipment_speed_mods()
 
 //handle stuff to update when a mob equips/unequips a mask.

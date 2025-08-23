@@ -291,6 +291,8 @@
 		dat += "<tr><td><B>Handcuffed:</B> <A href='byond://?src=[REF(src)];item=[ITEM_SLOT_HANDCUFFED]'>Remove</A></td></tr>"
 	if(legcuffed)
 		dat += "<tr><td><B>Legcuffed:</B> <A href='byond://?src=[REF(src)];item=[ITEM_SLOT_LEGCUFFED]'>Remove</A></td></tr>"
+	if(muzzled)
+		dat += "<tr><td><B>Muzzled:</B> <A href='byond://?src=[REF(src)];item=[ITEM_SLOT_MUZZLED]'>Remove</A></td></tr>"
 
 	dat += {"</table>
 	<A href='byond://?src=[REF(user)];mach_close=mob[REF(src)]'>Close</A>
@@ -386,6 +388,9 @@
 	else if(legcuffed)
 		I = legcuffed
 		type = 2
+	else if(muzzled)
+		I = muzzled
+		type = 1
 	if(I)
 		if(type == 1)
 			changeNext_move(CLICK_CD_BREAKOUT)
@@ -426,18 +431,30 @@
 				W.layer = initial(W.layer)
 				W.plane = initial(W.plane)
 		changeNext_move(0)
+	if (muzzled)
+		var/obj/item/W = muzzled
+		muzzled = null
+		update_inv_muzzled()
+		if (client)
+			client.screen -= W
+		if (W)
+			dropItemToGround(W, TRUE, drop_location())
+			W.dropped(src)
+			if (W)
+				W.layer = initial(W.layer)
+				W.plane = initial(W.plane)
 	update_equipment_speed_mods() // In case cuffs ever change speed
 
 /mob/living/carbon/proc/clear_cuffs(obj/item/I, cuff_break)
 	if(!I.loc || buckled)
 		return FALSE
-	if(I != handcuffed && I != legcuffed)
+	if(I != handcuffed && I != legcuffed && I != muzzled)
 		return FALSE
 	visible_message("<span class='danger'>[src] manages to [cuff_break ? "break" : "remove"] [I]!</span>")
 	to_chat(src, "<span class='notice'>You successfully [cuff_break ? "break" : "remove"] [I].</span>")
 
 	if(cuff_break)
-		. = !((I == handcuffed) || (I == legcuffed))
+		. = !((I == handcuffed) || (I == legcuffed) || (I == muzzled))
 		qdel(I)
 		return TRUE
 
@@ -455,6 +472,12 @@
 			legcuffed = null
 			I.dropped(src)
 			update_inv_legcuffed()
+			return TRUE
+		if(I == muzzled)
+			muzzled.forceMove(drop_location())
+			muzzled = null
+			I.dropped(src)
+			update_inv_muzzled()
 			return TRUE
 
 /mob/living/carbon/proc/accident(obj/item/I)

@@ -463,9 +463,17 @@ There are several things that need to be remembered:
 	remove_overlay(LEGCUFF_LAYER)
 	clear_alert("legcuffed")
 	if(legcuffed)
-		overlays_standing[LEGCUFF_LAYER] = mutable_appearance('icons/mob/mob.dmi', "legcuff1", -LEGCUFF_LAYER)
-		apply_overlay(LEGCUFF_LAYER)
+		overlays_standing[FACEMASK_LAYER] = mutable_appearance('icons/mob/mob.dmi', "legcuff1", -LEGCUFF_LAYER)
+		apply_overlay(FACEMASK_LAYER)
 		throw_alert("legcuffed", /atom/movable/screen/alert/restrained/legcuffed, new_master = src.legcuffed)
+
+/mob/living/carbon/human/update_inv_muzzled()
+	remove_overlay(FACEMASK_LAYER)
+	clear_alert("muzzled")
+	if(muzzled)
+		overlays_standing[FACEMASK_LAYER] = mutable_appearance('icons/vtr13/obj/clothing/worn_mask.dmi', "muzzle", -FACEMASK_LAYER)
+		apply_overlay(FACEMASK_LAYER)
+		throw_alert("muzzled", /atom/movable/screen/alert/restrained/muzzled, new_master = src.muzzled)
 
 /proc/wear_female_version(t_color, icon, layer, type)
 	var/index = t_color
