@@ -3,14 +3,16 @@
 	desc = "Mandarin is the most widely spoken language on the planet, and the third-most spoken language in Los Angeles."
 	key = "m"
 	flags = TONGUELESS_SPEECH
-	space_chance = 70
-	syllables = list("de","yī","shì","bù","le","zài","rén","yǒu", "wǒ", "tā","zhè", " gè","men","zhōng","lái","shàng","guó","wèi","zǐ",
-					 "nǐ","dì","chū","dào", "yě","shí","nián","de", "jiù", "nà", "yào", "xià", "yǐ","shēng", "huì","zì", "zhe",
-					"qù", "zhī", "guò","jiā","xué","duì","kě","tā"," lǐ","hòu","xiǎo", "me", "xīn", "duō", "tiān", "ér", "néng", "hǎo",
-					"dōu", "rán","méi", "rì","yú","qǐ","hái","fā","chéng","shì","zhǐ","zuò","dāng", "xiǎng","kàn", "wén", "wú", "kāi",
-					"shǒu","shí", "yòng", "zhǔ", "xíng","fāng","yòu","rú","qián", "suǒ","běn","jiàn","jīng","tóu", "miàn", "gōng", "tóng", "ā","ē",
-					"sān", "yǐ", "lǎo", "cóng", "dòng", "liǎng", "cháng", "wan","kuei", "guǐ","jin", "huáng", "sān", "cān", "shēn", "cēn","nǎo","péng",
-					"xiū","liào","zhù","jí", "lù", "xiàng"
+	syllables = list(
+	"yī","zài","yǒu","gè","wǒ","bù","zhè","tā","yě","jiù","rén","dōu","shuō","ér","nǐ",
+	"yào","huì","duì","jí","hé","yǔ","yǐ","hěn","zhǒng","de","dà","néng","zhe","tā",
+	"nà","shàng","dàn","nián","hái","kěyǐ","zuì","zìjǐ","wéi","lái","suǒ","tāmen",
+	"liǎng","gè","kě","hǎo","děng","yòu","jiāng","yīnwèi","yú","yóu","cóng","gèng",
+	"bèi","cái","měi","cì","bǎ","shénme","wèntí","qí","ràng","zuò","zài","biǎoshì",
+	"tiān","shǐ","gōngzuò","lǐ","rènwéi","xǔduō","fāngshì","gāo","tígōng","méi",
+	"zhèngzhì","nín","māmā","shídài","xīxuèguǐ","jiān yá","hàipà","sǐwáng","zhí","wǔyè",
+	"yǎo","táopǎo","biānfú","xuè","kěpà de","guǐ","yīnmóu","zhīfù","chē","chídào",
+	"shīxuè","wáng","quǎn","qīpiàn","běnrén"
 					)
 	icon_state = "chinese"
 	default_priority = 90

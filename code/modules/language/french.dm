@@ -3,14 +3,18 @@
 	desc = "The sixth most widely spoken language in the world, common in Africa, parts of North America and southeast Asia, and a couple countries in Europe."
 	key = "f"
 	flags = TONGUELESS_SPEECH
-	space_chance = 40
 	syllables = list(
-		"ou", "on", "an", "in", "un", "ai", "oi", "au", "eu", "ch",
-		"je", "tu", "il", "elle", "que", "qui", "me", "se", "te", "ve",
-		"ca", "ce", "ci", "co", "fa", "fe", "fi", "lo", "la", "li",
-		"ro", "ra", "re", "ri", "vo", "va", "ve", "po", "pe", "pi",
-		"no", "na", "ne", "mo", "ma", "ta", "te", "to", "so", "se",
-		"jo", "ja", "che", "tra", "ble", "tre", "clo", "cla", "cro", "fra"
+	"comme","je","son","que","il","était","pour","sur","le","sont","avec","ils","être","à","un",
+	"avoir","ce","à partir de","par","chaud","mot","mais","que","certains","est","il","vous","ou",
+	"eu","la","de","et","un","dans","nous","boîte","dehors","autre","étaient","qui","faire",
+	"leur","temps","si","volonté","comment","dit","un","chaque","dire","ne","ensemble","trois",
+	"bien","aussi","fin","petit","grand","ici","de","chasse","hommes","maison","ceux","lieu",
+	"moi","femmes","ombres","jour","la mort","vie","bon","tous","par","juste","chien","fantôme",
+	"beaucoup","personnes","minuit","sang","regarder","approche","effrayé","toujours jeune","droit",
+	"clair de lune","au revoir","dansante","amour","étranger","ans","crocs","vieux","église","là",
+	"travailler","rue","quand","soleil","ces","mère","père","attaqué","bonjour","batte","ville",
+	"c'est","voyager","vivants","obscurité","saignement","mordante","oiseau","pieu"
 	)
 	icon_state = "french"
 	default_priority = 90
+
