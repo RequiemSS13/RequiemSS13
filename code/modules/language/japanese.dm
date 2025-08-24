@@ -3,17 +3,20 @@
 	desc = "Japanese is the defacto national language of Japan, and the 12th most widely spoken language in Los Angeles."
 	key = "j"
 	flags = TONGUELESS_SPEECH
-	space_chance = 20
 	syllables = list(
-		"ka", "ki", "ku", "ke", "ko", "sa", "shi", "su", "se", "so",
-		"ta", "chi", "tsu", "te", "to", "na", "ni", "nu", "ne", "no",
-		"ha", "hi", "fu", "he", "ho", "ma", "mi", "mu", "me", "mo",
-		"ya", "yu", "yo", "ra", "ri", "ru", "re", "ro", "wa", "wo",
-		"ga", "gi", "gu", "ge", "go", "za", "ji", "zu", "ze", "zo",
-		"da", "de", "do", "ba", "bi", "bu", "be", "bo", "pa", "pi",
-		"pu", "pe", "po", "kya", "kyu", "kyo", "sha", "shu", "sho",
-		"cha", "chu", "cho", "nya", "nyu", "nyo", "hya", "hyu", "hyo",
-		"mya", "myu", "myo", "rya", "ryu", "ryo", "tsu", "n"
+	"no","ni","ka","to","te","de","mata","so","mo","ya","ne","nagara",
+	"tsutsu","soretomo","kamo","made","kara","demo","shika","shikashi",
+	"soreni","sae","nado","desu","desu ka","kono","sono","ano","dono",
+	"kore","sore","are","dore","hai","iie","shinu","naru","kamu","matte",
+	"nomu","kawaku","sameru","owaru","nagusameru","genzai","ima",
+	"kako","korosu","mirai","ii","warui","takai","ōkii","utsukushii",
+	"sabishii","kiru","tsurai","jōhō","shinbun","kugi","inu","okane",
+	"tsuki","taiyō","yonaka","andeddo","kyūketsuki","osore","kiba",
+	"aisuru","odoru","yokubō","anata","watashi","uchi","ore","boku",
+	"jibun","atashi","san","yama","omē ","domo","hito","otokonohito",
+	"onnanohito","kubi","bakemono","batto","bochi","akuma","ichi","omo",
+	"tosatsuba","himitsu","ureshī","shippai","benri","kuruma",
+	"shiharau","futatabi","nenreifutoi","furui","wakai","yūki"
 	)
 	icon_state = "japanese"
 	default_priority = 90
