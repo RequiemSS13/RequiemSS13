@@ -45,7 +45,7 @@
 		true_real_name = real_name
 
 	READ_FILE(S["body_type"], body_type)
-	body_type = sanitize_gender(body_type, FALSE, FALSE, gender)
+	body_type = sanitize_gender(body_type)
 
 	READ_FILE(S["age"], age)
 	age = sanitize_integer(age, AGE_MIN, AGE_MAX, initial(age))
