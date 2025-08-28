@@ -48,20 +48,14 @@
 			. += value
 
 //more specialised stuff
-/proc/sanitize_gender(gender,neuter=0,plural=1, default="male")
+/proc/sanitize_gender(gender, default="plural")
 	switch(gender)
 		if(MALE, FEMALE)
 			return gender
-		if(NEUTER)
-			if(neuter)
-				return gender
-			else
-				return default
 		if(PLURAL)
-			if(plural)
-				return gender
-			else
-				return default
+			return gender
+		if(NEUTER)
+			return gender
 	return default
 
 /proc/sanitize_hexcolor(color, desired_format = DEFAULT_HEX_COLOR_LEN, include_crunch = FALSE, default)
