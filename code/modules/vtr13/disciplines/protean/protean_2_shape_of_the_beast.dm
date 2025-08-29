@@ -10,8 +10,11 @@
 #define PROTEAN_ANIMAL_FORM_DEER "Deer (2 Vitae)"
 #define PROTEAN_ANIMAL_FORM_DEER_COST 2
 
-#define PROTEAN_ANIMAL_FORM_WOLF "Wolf (2 Vitae)"
-#define PROTEAN_ANIMAL_FORM_WOLF_COST 2
+#define PROTEAN_ANIMAL_FORM_DOG "Dog (2 Vitae)"
+#define PROTEAN_ANIMAL_FORM_DOG_COST 2
+
+#define PROTEAN_ANIMAL_FORM_WOLF "Wolf (3 Vitae)"
+#define PROTEAN_ANIMAL_FORM_WOLF_COST 3
 
 #define PROTEAN_ANIMAL_FORM_BEAR "A Fucking Bear (4 Vitae)"
 #define PROTEAN_ANIMAL_FORM_BEAR_COST 4
@@ -43,14 +46,15 @@
 	var/datum/action/deactivate_protean_shape/deactivate_shape_action
 
 	var/desired_form
-	
+
 /datum/discipline_power/vtr/protean/shape_of_the_beast/post_gain()
 	. = ..()
 	if(discipline.level >= 3)
 		shapeshift_types[PROTEAN_ANIMAL_FORM_BAT] = /mob/living/simple_animal/hostile/beastmaster/rat/flying
 		shapeshift_types[PROTEAN_ANIMAL_FORM_DEER] = /mob/living/simple_animal/deer
 	if(discipline.level >= 4)
-		shapeshift_types[PROTEAN_ANIMAL_FORM_WOLF] = /mob/living/simple_animal/hostile/beastmaster
+		shapeshift_types[PROTEAN_ANIMAL_FORM_DOG] = /mob/living/simple_animal/hostile/beastmaster
+		shapeshift_types[PROTEAN_ANIMAL_FORM_WOLF] = /mob/living/simple_animal/hostile/beastmaster/wolf
 	if(discipline.level == 5)
 		shapeshift_types[PROTEAN_ANIMAL_FORM_BEAR] = /mob/living/simple_animal/hostile/bear/wod13/protean_shapeshift_bear
 
@@ -74,6 +78,8 @@
 			cost = PROTEAN_ANIMAL_FORM_BAT_COST
 		if(PROTEAN_ANIMAL_FORM_DEER)
 			cost = PROTEAN_ANIMAL_FORM_DEER_COST
+		if(PROTEAN_ANIMAL_FORM_DOG)
+			cost = PROTEAN_ANIMAL_FORM_DOG_COST
 		if(PROTEAN_ANIMAL_FORM_WOLF)
 			cost = PROTEAN_ANIMAL_FORM_WOLF_COST
 		if(PROTEAN_ANIMAL_FORM_BEAR)
@@ -108,12 +114,12 @@
 	if(istype(shapeshifted_creature, /mob/living/simple_animal/hostile))
 		var/mob/living/simple_animal/hostile/simple_shapeshift = shapeshifted_creature
 		simple_shapeshift.my_creator = owner
-	
+
 	if(!shapeshifted_creature)
 		return
 	deactivate_shape_action = new(shapeshifted_creature, src)
 	deactivate_shape_action.Grant(shapeshifted_creature)
-	
+
 	RegisterSignal(shapeshifted_creature, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), PROC_REF(deactivate_trigger))
 	RegisterSignal(owner, COMSIG_POWER_TRY_ACTIVATE, PROC_REF(prevent_other_powers))
 
@@ -140,6 +146,9 @@
 
 #undef PROTEAN_ANIMAL_FORM_DEER
 #undef PROTEAN_ANIMAL_FORM_DEER_COST
+
+#undef PROTEAN_ANIMAL_FORM_DOG
+#undef PROTEAN_ANIMAL_FORM_DOG_COST
 
 #undef PROTEAN_ANIMAL_FORM_WOLF
 #undef PROTEAN_ANIMAL_FORM_WOLF_COST

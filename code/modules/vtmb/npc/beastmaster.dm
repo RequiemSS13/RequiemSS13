@@ -90,6 +90,8 @@ SUBSYSTEM_DEF(beastmastering)
 	melee_damage_upper = 25
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
 	attack_sound = 'code/modules/wod13/sounds/dog.ogg'
 	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
@@ -107,6 +109,18 @@ SUBSYSTEM_DEF(beastmastering)
 	var/mob/living/carbon/human/beastmaster
 	var/list/enemies = list()
 	var/mob/living/targa
+
+/mob/living/simple_animal/hostile/beastmaster/wolf
+	name = "wolf"
+	desc = "Awoo."
+	icon_state = "wolf"
+	icon_living = "wolf"
+	icon_dead = "wolf_dead"
+	maxHealth = 100
+	health = 100
+	melee_damage_lower = 15
+	melee_damage_upper = 30
+	speed = 0.4
 
 /mob/living/simple_animal/hostile/beastmaster/proc/handle_automated_beasting()
 	if(client || mind)
