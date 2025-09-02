@@ -465,6 +465,16 @@
 			popup.open(FALSE)
 			return
 
+		if("adjective")
+			var/new_adj_1 = tgui_alert(user, "Select an adjective:", "Adjective", list("foo", "bar", "meow"))
+			if(new_adj_1 != adjective)
+				adjective = new_adj_1
+
+		if("descriptor")
+			var/new_adj_2 = tgui_alert(user, "Select your primary descriptor:", "Descriptor", list("oof", "rab", "woem"))
+			if(new_adj_2 != descriptor)
+				descriptor = new_adj_2
+
 		if("headshot")
 			to_chat(user, span_notice("Please use a relatively SFW image of the head and shoulder area to maintain immersion level. Lastly, ["<b>do not use a real life photo or use any image that is less than serious.</b>"]"))
 			to_chat(user, span_notice("If the photo doesn't show up properly in-game, ensure that it's a direct image link that opens properly in a browser."))
