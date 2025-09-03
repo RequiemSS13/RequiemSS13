@@ -13,6 +13,16 @@
 	flags_cover = MASKCOVERSMOUTH | PEPPERPROOF
 	resistance_flags = NONE
 	body_worn = TRUE
+	var/allow_refit = TRUE
+
+/obj/item/clothing/mask/vampire/AltClick(mob/user)
+	..()
+	if(alternate_worn_layer != GLASSES_LAYER && allow_refit)
+		to_chat(user, "<span class='warning'>You re-fit the mask to not cover your hair.</span>")
+		alternate_worn_layer = GLASSES_LAYER
+	else if(allow_refit)
+		to_chat(user, "<span class='warning'>You re-fit the mask to wear it over your hair.</span>")
+		alternate_worn_layer = initial(alternate_worn_layer)
 
 /obj/item/clothing/mask/vampire/balaclava
 	name = "balaclava"
@@ -22,6 +32,7 @@
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
 	w_class = WEIGHT_CLASS_SMALL
+	allow_refit = FALSE
 
 /obj/item/clothing/mask/pentex/pentex_balaclava
 	name = "Thick balaclava"
