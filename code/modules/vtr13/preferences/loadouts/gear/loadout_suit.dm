@@ -174,6 +174,10 @@
 	display_name = "trenchcoat, grey"
 	path = /obj/item/clothing/suit/vampire/vtr/det_trench_grey
 
+/datum/gear/suit/shawl_white
+	display_name = "shawl, white"
+	path = /obj/item/clothing/suit/vampire/vtr/shawl_white
+
 // Hoodies
 /datum/gear/suit/hoodie
 	subtype_path = /datum/gear/suit/hoodie

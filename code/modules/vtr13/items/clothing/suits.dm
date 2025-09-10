@@ -34,6 +34,11 @@
 	icon_state = "detective2"
 	inhand_icon_state = "detective2"
 
+/obj/item/clothing/suit/vampire/vtr/shawl_white
+	name = "white shawl"
+	desc = "A long silk shawl, to be draped over the arms."
+	icon_state = "shawl_white"
+
 /obj/item/clothing/suit/vampire/vtr/charcoalsuit
 	name = "charcoal suit jacket"
 	desc = "A charcoal suit jacket."
