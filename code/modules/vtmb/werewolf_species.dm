@@ -14,7 +14,7 @@
 	burnmod = 1
 	dust_anim = "dust-h"
 	whitelisted = TRUE
-	selectable = FALSE
+	selectable = TRUE
 	var/glabro = FALSE
 
 /datum/species/garou/on_species_gain(mob/living/carbon/human/C)

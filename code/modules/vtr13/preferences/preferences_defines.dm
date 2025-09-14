@@ -236,7 +236,7 @@
 	var/werewolf_hair = 0
 	var/werewolf_hair_color = "#000000"
 	var/werewolf_eye_color = "#FFFFFF"
-	var/werewolf_name
+	var/werewolf_name = "werewolf"
 
 //===========Character Connections===========
 	var/list/character_connections = list() //All character connections

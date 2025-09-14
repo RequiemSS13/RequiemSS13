@@ -58,12 +58,14 @@
 	if(pref_species.name == "Werewolf")
 		dat += "<h2>[make_font_cool("TRIBE")]</h2>"
 		dat += "<br><b>Werewolf Name:</b> "
-		dat += "<a href='byond://?_src_=prefs;preference=werewolf_name;task=input'>[werewolf_name]</a><BR>"
+		dat += "<a href='byond://?_src_=prefs;preference=werewolf_name;task=input'> [werewolf_name]</a><BR>"
 		dat += "<b>Auspice:</b> <a href='byond://?_src_=prefs;preference=auspice;task=input'>[auspice.name]</a><BR>"
 		dat += "Description: [auspice.desc]<BR>"
 		dat += "<b>Power:</b> ●[auspice_level > 1 ? "●" : "○"][auspice_level > 2 ? "●" : "○"]([auspice_level])"
 		if(character_dots && auspice_level != 3)
-			dat += "<a href='byond://?_src_=prefs;preference=auspice_level;task=input'>+</a> <a href='byond://?_src_=prefs;preference=auspice_level_decrease;task=input'>-</a>"
+			dat += "<a href='byond://?_src_=prefs;preference=auspice_level;task=input'>+</a>"
+		if(character_dots && auspice_level > 1)
+			dat += "<a href='byond://?_src_=prefs;preference=auspice_level_decrease;task=input'>-</a>"
 		dat += "<b>Initial Rage:</b> ●[auspice.start_rage > 1 ? "●" : "○"][auspice.start_rage > 2 ? "●" : "○"][auspice.start_rage > 3 ? "●" : "○"][auspice.start_rage > 4 ? "●" : "○"]([auspice.start_rage])<BR>"
 		var/gifts_text = ""
 		var/num_of_gifts = 0
