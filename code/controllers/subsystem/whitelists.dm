@@ -24,8 +24,12 @@ SUBSYSTEM_DEF(whitelists)
 
 	possible_whitelists += "Elder"
 
-	//placeholder until a proper morality system is added
-	//possible_whitelists += "enlightenment"
+
+	for (var/key in subtypesof(/datum/species))
+		var/datum/species/species = new key
+		if (species.whitelisted)
+			possible_whitelists += species.name
+		qdel(species)
 
 	update_from_database()
 
