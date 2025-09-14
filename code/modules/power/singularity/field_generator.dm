@@ -347,7 +347,7 @@ no power level overlay is currently in the overlays list.
 	if(connected_gens.len < 2)
 		return
 	var/CGcounter
-	for(CGcounter = 1; CGcounter < connected_gens.len, CGcounter++)
+	for(CGcounter = 1; CGcounter < connected_gens.len; CGcounter++)
 
 		var/list/CGList = ((connected_gens[CGcounter].connected_gens & connected_gens[CGcounter+1].connected_gens)^src)
 		if(!CGList.len)

@@ -59,6 +59,7 @@
 	addtimer(CALLBACK(src, PROC_REF(drop_it_like_it_is_hot), holder), 5 SECONDS)
 
 /datum/element/silvered/Detach(datum/target)
+	. = ..()
 	UnregisterSignal(target, COMSIG_PROJECTILE_ON_HIT)
 	UnregisterSignal(target, COMSIG_ITEM_ATTACK)
 	UnregisterSignal(target, COMSIG_ITEM_PICKUP)
