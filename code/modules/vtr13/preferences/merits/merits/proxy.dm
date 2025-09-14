@@ -1,6 +1,6 @@
 /datum/merit/proxy
-	name = "Official Proxy"
-	desc = "You've been recognized as the official proxy of an established Kindred, capable of trading boons on their behalf."
+	name = "Procurator"
+	desc = "You've been recognized as the procurator of an established Kindred, a political agent capable of trading boons on their behalf and entering Elysium unattended."
 	splat_flags = MERIT_SPLAT_GHOUL
 	mob_trait = TRAIT_PROXY
 	dots = 3
