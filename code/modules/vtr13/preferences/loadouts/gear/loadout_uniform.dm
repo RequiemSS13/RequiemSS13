@@ -686,3 +686,13 @@
 	display_name = "suspenders outfit, fancy"
 	path = /obj/item/clothing/under/vampire/vtr/suspenders_fancy
 	cost = 4
+
+/datum/gear/uniform/matron_white
+	display_name = "dress, white matronly"
+	path = /obj/item/clothing/under/vampire/vtr/dress/matron_white
+	cost = 4
+
+/datum/gear/uniform/pinup
+	display_name = "outfit, pinup"
+	path = /obj/item/clothing/under/vampire/vtr/pinup
+	cost = 2

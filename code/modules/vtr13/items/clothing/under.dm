@@ -537,3 +537,13 @@
 	name = "short denim skirt"
 	desc = "Classic blue jean skirt."
 	icon_state = "skirt_short_denim"
+
+/obj/item/clothing/under/vampire/vtr/dress/matron_white
+	name = "white matronly dress"
+	desc = "An curve-flattering white dress with a plunging neckline and sheer lace sleeves."
+	icon_state = "matron_white"
+
+/obj/item/clothing/under/vampire/vtr/pinup
+	name = "pinup skirt"
+	desc = "A black skirt and red top fitting for a night on the town."
+	icon_state = "pinup"
