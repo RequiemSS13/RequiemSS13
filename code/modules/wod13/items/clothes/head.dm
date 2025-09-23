@@ -16,9 +16,9 @@
 
 /obj/item/clothing/head/vampire/malkav
 	name = "weirdo hat"
-	desc = "Can look dangerous or sexy despite the circumstances. Provides some kind of protection."
+	desc = "Can look dangerous or sexy despite the circumstances."
 	icon_state = "malkav_hat"
-	armor = list(MELEE = 25, BULLET = 25, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
+	//armor = list(MELEE = 25, BULLET = 25, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
 
 /obj/item/clothing/head/vampire/bandana
 	name = "brown bandana"
@@ -110,9 +110,9 @@
 
 /obj/item/clothing/head/vampire/cowboy
 	name = "cowboy hat"
-	desc = "Looks cool anyway. Provides some kind of protection."
+	desc = "Looks cool anyway."
 	icon_state = "cowboy"
-	armor = list(MELEE = 20, BULLET = 20, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
+	//armor = list(MELEE = 20, BULLET = 20, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
 
 /obj/item/clothing/head/vampire/cowboy/armorless
 	name = "cowboy hat"
@@ -133,7 +133,7 @@
 
 /obj/item/clothing/head/vampire/top
 	name = "top hat"
-	desc = "Want some tea? Provides some kind of protection."
+	desc = "Want some tea?"
 	icon_state = "top"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0, WOUND = 0)
 
@@ -157,7 +157,7 @@
 
 /obj/item/clothing/head/vampire/helmet/egorium
 	name = "strange mask"
-	desc = "Looks mysterious. Provides good protection."
+	desc = "Looks mysterious."
 	icon_state = "masque"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
@@ -252,7 +252,7 @@
 	name = "Noddist mask"
 	desc = "Shine black the sun! Shine blood the moon! Gehenna is coming soon."
 	icon_state = "noddist_mask"
-	armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
+	//armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
 
 /obj/item/clothing/head/vampire/kalimavkion
 	name = "Kalimavkion"

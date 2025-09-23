@@ -218,28 +218,28 @@
 	name = "opulent coat"
 	desc = "Lavish, luxurious, and deeply purple. Slickback Clothing Co. It exudes immense energy."
 	icon_state = "slickbackcoat"
-	armor = list(MELEE = 5, BULLET = 5, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0, WOUND = 5)
+	//armor = list(MELEE = 5, BULLET = 5, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0, WOUND = 5)
 
 /obj/item/clothing/suit/vampire/jacket
 	name = "black leather jacket"
-	desc = "True clothing for any punk. Provides some kind of protection."
+	desc = "True clothing for any punk."
 	icon_state = "jacket1"
-	armor = list(MELEE = 25, BULLET = 25, LASER = 10, ENERGY = 10, BOMB = 25, BIO = 0, RAD = 0, FIRE = 25, ACID = 10, WOUND = 25)
+	//armor = list(MELEE = 25, BULLET = 25, LASER = 10, ENERGY = 10, BOMB = 25, BIO = 0, RAD = 0, FIRE = 25, ACID = 10, WOUND = 25)
 
 /obj/item/clothing/suit/vampire/jacket/fbi
 	name = "Federal Bureau of Investigation jacket"
-	desc = "\"FBI OPEN UP!!\""
+	desc = "A tailored suit with some protection subtly added."
 	icon_state = "fbi"
 	armor = list(MELEE = 25, BULLET = 25, LASER = 10, ENERGY = 10, BOMB = 25, BIO = 0, RAD = 0, FIRE = 25, ACID = 10, WOUND = 25)
 
 /obj/item/clothing/suit/vampire/jacket/punk
 	icon_state = "punk"
-	armor = list(MELEE = 50, BULLET = 50, LASER = 10, ENERGY = 10, BOMB = 50, BIO = 0, RAD = 0, FIRE = 25, ACID = 10, WOUND = 25)
+	//armor = list(MELEE = 50, BULLET = 50, LASER = 10, ENERGY = 10, BOMB = 50, BIO = 0, RAD = 0, FIRE = 25, ACID = 10, WOUND = 25)
 
 /obj/item/clothing/suit/vampire/jacket/better
 	name = "brown leather jacket"
 	icon_state = "jacket2"
-	armor = list(MELEE = 35, BULLET = 35, LASER = 10, ENERGY = 10, BOMB = 35, BIO = 0, RAD = 0, FIRE = 35, ACID = 10, WOUND = 35)
+	//armor = list(MELEE = 35, BULLET = 35, LASER = 10, ENERGY = 10, BOMB = 35, BIO = 0, RAD = 0, FIRE = 35, ACID = 10, WOUND = 35)
 
 /obj/item/clothing/suit/vampire/trench
 	name = "trenchcoat"
@@ -271,7 +271,7 @@
 	name = "red trenchcoat"
 	desc = "True power lies not in wealth, but in the things it affords you."
 	icon_state = "strauss_coat"
-	armor = list(MELEE = 25, BULLET = 25, LASER = 10, ENERGY = 10, BOMB = 25, BIO = 0, RAD = 0, FIRE = 25, ACID = 10, WOUND = 25)
+	//armor = list(MELEE = 25, BULLET = 25, LASER = 10, ENERGY = 10, BOMB = 25, BIO = 0, RAD = 0, FIRE = 25, ACID = 10, WOUND = 25)
 
 /obj/item/clothing/suit/vampire/trench/tzi
 	name = "fleshcoat"
@@ -284,7 +284,7 @@
 	name = "regal coat"
 	desc = "A beautiful jacket. Whoever owns this must be important."
 	icon_state = "voicoat"
-	armor = list(MELEE = 60, BULLET = 60, LASER = 10, ENERGY = 10, BOMB = 55, BIO = 0, RAD = 0, FIRE = 45, ACID = 10, WOUND = 25)
+	//armor = list(MELEE = 60, BULLET = 60, LASER = 10, ENERGY = 10, BOMB = 55, BIO = 0, RAD = 0, FIRE = 45, ACID = 10, WOUND = 25)
 
 /obj/item/clothing/suit/vampire/vest
 	name = "bulletproof vest"
@@ -396,31 +396,31 @@
 	desc = "When I first tasted the fruit of the Trees,\
 			felt the seeds of Life and Knowledge, burn within me, I swore that day I would not turn back..."
 	icon_state = "bahari"
-	armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
+	//armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
 
 /obj/item/clothing/suit/vampire/kasaya
 	name = "kasaya"
 	desc = "A traditional robe worn by monks and nuns of the Buddhist faith."
 	icon_state = "kasaya"
-	armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
+	//armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
 
 /obj/item/clothing/suit/vampire/imam
 	name = "imam robe"
 	desc = "A traditional robe worn by imams of the Islamic faith."
 	icon_state = "imam"
-	armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
+	//armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
 
 /obj/item/clothing/suit/vampire/noddist
 	name = "noddist robe"
 	desc = "Shine black the sun! Shine blood the moon! Gehenna is coming soon."
 	icon_state = "noddist"
-	armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
+	//armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
 
 /obj/item/clothing/suit/vampire/orthodox
 	name = "orthodox robe"
 	desc = "A traditional robe worn by priests of the Orthodox faith."
 	icon_state = "vestments"
-	armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
+	//armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
 
 //Pentex Overwear
 
