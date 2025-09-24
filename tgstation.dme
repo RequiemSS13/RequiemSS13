@@ -3851,6 +3851,7 @@
 #include "code\modules\vtr13\mobs\living\adjustBloodPool.dm"
 #include "code\modules\vtr13\mobs\living\breaks_masquerade_on_join.dm"
 #include "code\modules\vtr13\mobs\living\dance.dm"
+#include "code\modules\vtr13\mobs\living\emote.dm"
 #include "code\modules\vtr13\mobs\living\merit_procs.dm"
 #include "code\modules\vtr13\mobs\living\recieve_vitae.dm"
 #include "code\modules\vtr13\mobs\living\refresh_character_connections.dm"
