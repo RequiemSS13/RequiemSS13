@@ -8,6 +8,8 @@
 	return
 
 /mob/living/simple_animal/hostile/say(message, bubble_type,list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
+	if(check_emote(message, forced) == TRUE)
+		. = ..()
 	if(capable_of_speech)
 		. = ..()
 	return
