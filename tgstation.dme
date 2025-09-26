@@ -4003,6 +4003,7 @@
 #include "code\modules\vtr13\preferences\topic_procs\process_random_task_links.dm"
 #include "code\modules\vtr13\preferences\topic_procs\process_trait_links.dm"
 #include "code\modules\vtr13\structure\bench.dm"
+#include "code\modules\vtr13\structure\catacombs.dm"
 #include "code\modules\vtr13\structure\chairs.dm"
 #include "code\modules\vtr13\structure\columns.dm"
 #include "code\modules\vtr13\structure\cratestack.dm"
