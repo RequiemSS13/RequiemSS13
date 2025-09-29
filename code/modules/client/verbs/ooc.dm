@@ -494,3 +494,33 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	set hidden = TRUE
 
 	init_verbs()
+
+/client/verb/call_stoplight()
+	set name = "Call Stoplight"
+	set category = "OOC"
+
+	if(!mob || isobserver(usr) || isnewplayer(usr))
+		to_chat(usr, "You must be a participant in the round to use the stoplight button.")
+		return
+
+	var selection = input("Announce a stoplight color to players around you to slow or halt the scene.", "Stoplight", "Cancel") in list("Red", "Yellow", "Green", "Cancel")
+
+	if(!selection)
+		return
+
+	switch(selection)
+		if("Red")
+			message_admins("[mob.name] has called a RED. [ADMIN_JMP(usr.loc)]")
+			for(var/mob/L in viewers(9, mob))
+				if(L.client)
+					to_chat(L, span_userdanger("[mob.name] has called RED. Halt the scene."))
+		if("Yellow")
+			for(var/mob/L in viewers(9, mob))
+				if(L.client)
+					to_chat(L, span_warning("[mob.name] has called YELLOW. Slow scene for LOOC discussion."))
+		if("Green")
+			for(var/mob/L in viewers(9, mob))
+				if(L.client)
+					to_chat(L, span_nicegreen("[mob.name] has confirmed GREEN. Please ensure all participants have agreed."))
+		if("Cancel")
+			return

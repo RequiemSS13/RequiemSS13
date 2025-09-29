@@ -7,4 +7,4 @@
 
 /obj/item/weedpack/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/selling, 150, "weed_pack", TRUE, -1, 7)
+	AddComponent(/datum/component/selling, 150, "weed_pack", TRUE)

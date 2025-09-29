@@ -5,4 +5,4 @@
 
 /obj/item/reagent_containers/food/drinks/meth/cocaine/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/selling, 300, "cocaine", TRUE, -1, 5)
+	AddComponent(/datum/component/selling, 300, "cocaine", TRUE)

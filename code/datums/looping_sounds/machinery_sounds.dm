@@ -119,3 +119,11 @@
 	volume = 70
 	falloff_distance = 5
 	falloff_exponent = 20
+
+/datum/looping_sound/printpress
+	start_sound = 'sound/machines/printpress/press_start.ogg'
+	start_length = 10
+	mid_sounds = list('sound/machines/printpress/press_mid1.ogg'=1, 'sound/machines/printpress/press_mid2.ogg'=1)
+	mid_length = 10
+	end_sound = 'sound/machines/printpress/press_end.ogg'
+	volume = 90
