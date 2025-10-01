@@ -19,6 +19,8 @@
 		new /datum/data/retail_product("beer bottle",	/obj/item/reagent_containers/food/drinks/beer/vampire,	10),
 		new /datum/data/retail_product("candle pack",	/obj/item/storage/fancy/candle_box,	12),
 		new /datum/data/retail_product("prepaid cell phone", /obj/item/vamp/phone, 120),
+		new /datum/data/retail_product("camera", /obj/item/camera, 200),
+		new /datum/data/retail_product("camera film", /obj/item/camera_film, 20),
 		new /datum/data/retail_product("bruise pack", /obj/item/stack/medical/bruise_pack, 100)
 
 
