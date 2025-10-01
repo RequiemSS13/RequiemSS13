@@ -15331,13 +15331,6 @@
 /obj/effect/landmark/npcability,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/exterior/ground_floor/southwest/southwest_long_beach)
-"lOC" = (
-/obj/machinery/light{
-	pixel_y = 32
-	},
-/obj/structure/bloodextractor,
-/turf/open/floor/plating/vampplating/stone,
-/area/vtm/vtr/masquerade/interior/basement/central/library_basement)
 "lOK" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/plasteel/cult{
@@ -57379,7 +57372,7 @@ sDB
 sDB
 sDB
 rto
-lOC
+cHe
 sDB
 sDB
 aNX
