@@ -102,6 +102,9 @@
 		if(!infraction_matters_to_npc(NPC, type_of_infraction))
 			continue
 
+		if(NPC.nonreporting)
+			continue
+
 		seenby |= NPC
 		NPC.Aggro(attacker, FALSE)
 
@@ -125,6 +128,9 @@
 			continue
 
 		if(!infraction_matters_to_npc(NPC, type_of_infraction))
+			continue
+
+		if(NPC.nonreporting)
 			continue
 
 		seenby |= NPC

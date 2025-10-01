@@ -77,6 +77,7 @@
 	var/list/drop_on_death_list = null
 
 	var/tolerates_ugly = FALSE
+	var/nonreporting = FALSE
 
 /mob/living/carbon/human/npc/LateInitialize()
 	. = ..()

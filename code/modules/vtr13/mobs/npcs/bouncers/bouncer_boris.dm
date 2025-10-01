@@ -1,6 +1,7 @@
 /mob/living/carbon/human/npc/bouncer/boris
 	our_role = /datum/socialrole/bouncer/boris
 	protected_zone_id = "kiss_front"
+	nonreporting = TRUE
 
 /mob/living/carbon/human/npc/bouncer/boris/RealisticSay(var/message)
 	walk(src,0)

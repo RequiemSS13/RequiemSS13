@@ -268,9 +268,14 @@
 	icon_state = "countess"
 
 /obj/item/clothing/under/vampire/vtr/dress/goddess
-	name = "divine silk dress"
-	desc = "A draped blue and orange dress that clings to the form."
+	name = "dark divine silk dress"
+	desc = "A draped black dress that clings to the form."
 	icon_state = "goddess"
+
+/obj/item/clothing/under/vampire/vtr/dress/goddess_white
+	name = "light divine silk dress"
+	desc = "A draped white dress that clings to the form."
+	icon_state = "goddess_white"
 
 /obj/item/clothing/under/vampire/vtr/dress/white_dress
 	name = "white and black mesh dress"
@@ -547,3 +552,8 @@
 	name = "pinup skirt"
 	desc = "A black skirt and red top fitting for a night on the town."
 	icon_state = "pinup"
+
+/obj/item/clothing/under/vampire/vtr/dress/turtleneck_dress
+	name = "turtleneck dress"
+	desc = "A long flowing skirt accompanied with a soft white turtleneck."
+	icon_state = "turtleneck_dress"

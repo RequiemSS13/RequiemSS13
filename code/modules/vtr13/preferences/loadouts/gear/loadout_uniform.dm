@@ -624,6 +624,11 @@
 	path = /obj/item/clothing/under/vampire/vtr/dress/goddess
 	cost = 4
 
+/datum/gear/uniform/goddess_white
+	display_name = "dress, lighter divine silk"
+	path = /obj/item/clothing/under/vampire/vtr/dress/goddess_white
+	cost = 4
+
 /datum/gear/uniform/white_dress
 	display_name = "dress, white and black mesh"
 	path = /obj/item/clothing/under/vampire/vtr/dress/white_dress
@@ -695,4 +700,9 @@
 /datum/gear/uniform/pinup
 	display_name = "outfit, pinup"
 	path = /obj/item/clothing/under/vampire/vtr/pinup
+	cost = 2
+
+/datum/gear/uniform/turtleneck_dress
+	display_name = "dress, turtleneck"
+	path = /obj/item/clothing/under/vampire/vtr/dress/turtleneck_dress
 	cost = 2

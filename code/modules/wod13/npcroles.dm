@@ -634,7 +634,16 @@
 /datum/socialrole/richmale
 	s_tones = list("albino",
 		"caucasian1",
-		"caucasian2")
+		"caucasian2",
+		"caucasian3",
+		"latino",
+		"mediterranean",
+		"asian1",
+		"asian2",
+		"arab",
+		"indian",
+		"african1",
+		"african2")
 
 	min_age = 18
 	max_age = 85
@@ -707,7 +716,16 @@
 /datum/socialrole/richfemale
 	s_tones = list("albino",
 		"caucasian1",
-		"caucasian2")
+		"caucasian2",
+		"caucasian3",
+		"latino",
+		"mediterranean",
+		"asian1",
+		"asian2",
+		"arab",
+		"indian",
+		"african1",
+		"african2")
 
 	min_age = 18
 	max_age = 85
@@ -798,7 +816,6 @@
 	AssignSocialRole(pick(/datum/socialrole/usualmale, /datum/socialrole/usualfemale))
 
 /mob/living/carbon/human/npc/hobo
-	bloodquality = BLOOD_QUALITY_LOW
 	old_movement = TRUE
 
 /mob/living/carbon/human/npc/hobo/Initialize()
@@ -808,13 +825,20 @@
 	AssignSocialRole(pick(/datum/socialrole/poormale, /datum/socialrole/poorfemale))
 
 /mob/living/carbon/human/npc/business
-	bloodquality = BLOOD_QUALITY_HIGH
 
 /mob/living/carbon/human/npc/business/Initialize()
 	. = ..()
 	if(prob(66))
 		base_body_mod = "s"
 	AssignSocialRole(pick(/datum/socialrole/richmale, /datum/socialrole/richfemale))
+
+/mob/living/carbon/human/npc/blooddoll
+	nonreporting = TRUE
+	staying = TRUE
+
+/mob/living/carbon/human/npc/blooddoll/Initialize()
+	. = ..()
+	AssignSocialRole(pick(/datum/socialrole/richmale, /datum/socialrole/richfemale, /datum/socialrole/usualmale, /datum/socialrole/usualfemale))
 
 /mob/living/simple_animal/pet/rat
 	name = "rat"
