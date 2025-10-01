@@ -11,6 +11,7 @@
 		new /datum/data/retail_product("Burlap Sack", /obj/item/grave_soil/bag, 300),
 		new /datum/data/retail_product("fishing rod",		/obj/item/fishing_rod,	200),
 		new /datum/data/retail_product("stake",	/obj/item/vampire_stake,	100),
+		new /datum/data/retail_product("labeler",	/obj/item/hand_labeler,	20),
 		new /datum/data/retail_product("baseball bat",	/obj/item/melee/vampirearms/baseball,	200),
 		new /datum/data/retail_product("knife",	/obj/item/melee/vampirearms/knife,	100),
 		new /datum/data/retail_product("scythe",		/obj/item/melee/vampirearms/katana/kosa,	700)

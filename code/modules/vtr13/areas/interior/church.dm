@@ -17,7 +17,7 @@
 	name = "St. Catherine's Church (2nd floor)"
 	icon_state = "church"
 	music = /datum/vampiremusic/church
-	inaccessible = TRUE
+	inaccessible = FALSE
 	holy_ground = TRUE
 	ambiance_message = "The age of St. Catherine's Church shows on every brick, every floorboard, every creak of every last door in the building. Every bit of wear tells a story, though only God knows what those stories actually are."
 
