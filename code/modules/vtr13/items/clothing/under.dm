@@ -322,6 +322,11 @@
 	desc = "A short gothic dress with draping mesh sleeves."
 	icon_state = "maiden"
 
+/obj/item/clothing/under/vampire/vtr/dress/bodycon
+	name = "bodycon dress"
+	desc = "A vivid green bodycon dress with off-the-shoulder sleeves."
+	icon_state = "bodycon"
+
 /obj/item/clothing/under/vampire/vtr/novella
 	name = "loose open-front silk shirt"
 	desc = "A loosely fit, open-front silk shirt in a nice black. Looks a bit like a cover for one of those romance novellas..."

@@ -661,6 +661,11 @@
 	path = /obj/item/clothing/under/vampire/vtr/dress/maiden
 	cost = 3
 
+/datum/gear/uniform/bodycon
+	display_name = "dress, bodycon"
+	path = /obj/item/clothing/under/vampire/vtr/dress/bodycon
+	cost = 3
+
 /datum/gear/uniform/novella
 	display_name = "outfit, loose open-front silk shirt"
 	path = /obj/item/clothing/under/vampire/vtr/novella
