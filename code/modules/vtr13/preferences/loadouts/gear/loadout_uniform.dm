@@ -661,9 +661,14 @@
 	path = /obj/item/clothing/under/vampire/vtr/dress/maiden
 	cost = 3
 
-/datum/gear/uniform/bodycon
-	display_name = "dress, bodycon"
-	path = /obj/item/clothing/under/vampire/vtr/dress/bodycon
+/datum/gear/uniform/bodycon_g
+	display_name = "dress, bodycon green"
+	path = /obj/item/clothing/under/vampire/vtr/dress/bodycon_g
+	cost = 3
+
+/datum/gear/uniform/bodycon_r
+	display_name = "dress, bodycon red"
+	path = /obj/item/clothing/under/vampire/vtr/dress/bodycon_r
 	cost = 3
 
 /datum/gear/uniform/novella
