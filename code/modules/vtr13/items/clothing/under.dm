@@ -14,6 +14,11 @@
 	inhand_icon_state = "maid"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
+/obj/item/clothing/under/vampire/vtr/maid_frills
+	name = "Frilly Maid Uniform"
+	desc = "A respectable but cute maid uniform, ankle length but keeping the lace and frills. The best of both worlds."
+	icon_state = "maid_frills"
+
 /obj/item/clothing/under/vampire/vtr/sceneleopard
 	name = "revealing outfit"
 	desc = "You never thought you needed spaghetti straps."

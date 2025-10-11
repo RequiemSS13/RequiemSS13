@@ -560,6 +560,11 @@
 	cost = 4
 	path = /obj/item/clothing/under/vampire/vtr/maid
 
+/datum/gear/uniform/maid_frills
+	display_name = "maid uniform (fancy)"
+	cost = 4
+	path = /obj/item/clothing/under/vampire/vtr/maid_frills
+
 /datum/gear/uniform/redeveninggown
 	display_name = "evening gown, red"
 	path = /obj/item/clothing/under/dress/redeveninggown
