@@ -407,7 +407,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 /obj/item/cane
 	name = "cane"
-	desc = "A cane used by a true gentleman. Or a clown."
+	desc = "A cane, usually used as an accessability device. Usually."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "cane"
 	inhand_icon_state = "stick"
