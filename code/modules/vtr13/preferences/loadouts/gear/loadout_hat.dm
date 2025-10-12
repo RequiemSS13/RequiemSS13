@@ -285,6 +285,38 @@
 	display_name = "frilly headband"
 	path = /obj/item/clothing/head/vampire/vtr/frillyheadband
 
+/datum/gear/hat/headband_red
+	display_name = "frilly red headband"
+	path = /obj/item/clothing/head/vampire/vtr/headband_red
+
+/datum/gear/hat/headband_blue
+	display_name = "frilly blue headband"
+	path = /obj/item/clothing/head/vampire/vtr/headband_blue
+
+/datum/gear/hat/headband_yellow
+	display_name = "frilly yellow headband"
+	path = /obj/item/clothing/head/vampire/vtr/headband_yellow
+
+/datum/gear/hat/headband_green
+	display_name = "frilly green headband"
+	path = /obj/item/clothing/head/vampire/vtr/headband_green
+
+/datum/gear/hat/headband_purple
+	display_name = "frilly purple headband"
+	path = /obj/item/clothing/head/vampire/vtr/headband_purple
+
+/datum/gear/hat/headband_pink
+	display_name = "frilly pink headband"
+	path = /obj/item/clothing/head/vampire/vtr/headband_pink
+
+/datum/gear/hat/hairclip
+	display_name = "hairclip"
+	path = /obj/item/clothing/head/vampire/vtr/hairclip
+
+/datum/gear/hat/hairbow
+	display_name = "hairbow"
+	path = /obj/item/clothing/head/vampire/vtr/hairbow
+
 /datum/gear/hat/black_headdress
 	display_name = "black headdress"
 	path = /obj/item/clothing/head/vampire/vtr/black_headdress

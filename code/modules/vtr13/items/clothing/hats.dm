@@ -196,6 +196,53 @@
 	name = "frilly headband"
 	desc = "A headband made of white frills, and black bows. Maidenly!"
 	icon_state = "frilly_headband"
+	dynamic_hair_suffix = ""
+
+/obj/item/clothing/head/vampire/vtr/headband_red
+	name = "frilly red headband"
+	desc = "A headband made of white frills, and red bows. Maidenly!"
+
+/obj/item/clothing/head/vampire/vtr/headband_blue
+	name = "frilly blue headband"
+	desc = "A headband made of white frills, and blue bows. Maidenly!"
+	icon_state = "headband_blue"
+	dynamic_hair_suffix = ""
+
+/obj/item/clothing/head/vampire/vtr/headband_yellow
+	name = "frilly yellow headband"
+	desc = "A headband made of white frills, and yellow bows. Maidenly!"
+	icon_state = "headband_yellow"
+	dynamic_hair_suffix = ""
+
+/obj/item/clothing/head/vampire/vtr/headband_green
+	name = "frilly green headband"
+	desc = "A headband made of white frills, and green bows. Maidenly!"
+	icon_state = "headband_green"
+	dynamic_hair_suffix = ""
+
+/obj/item/clothing/head/vampire/vtr/headband_purple
+	name = "frilly purple headband"
+	desc = "A headband made of white frills, and purple bows. Maidenly!"
+	icon_state = "headband_purple"
+	dynamic_hair_suffix = ""
+
+/obj/item/clothing/head/vampire/vtr/headband_pink
+	name = "frilly pink headband"
+	desc = "A headband made of white frills, and pink bows. Maidenly!"
+	icon_state = "headband_pink"
+	dynamic_hair_suffix = ""
+
+/obj/item/clothing/head/vampire/vtr/hairclip
+	name = "hairclip"
+	desc = "A simple white hairclip, to keep those strays in place."
+	icon_state = "hairclip"
+	dynamic_hair_suffix = ""
+
+/obj/item/clothing/head/vampire/vtr/hairbow
+	name = "hairbow"
+	desc = "A small white hairbow for a cute little touch."
+	icon_state = "hairbow"
+	dynamic_hair_suffix = ""
 
 /obj/item/clothing/head/vampire/vtr/black_headdress
 	name = "black headdress"
