@@ -201,6 +201,8 @@
 /obj/item/clothing/head/vampire/vtr/headband_red
 	name = "frilly red headband"
 	desc = "A headband made of white frills, and red bows. Maidenly!"
+	icon_state = "headband_red"
+	dynamic_hair_suffix = ""
 
 /obj/item/clothing/head/vampire/vtr/headband_blue
 	name = "frilly blue headband"
