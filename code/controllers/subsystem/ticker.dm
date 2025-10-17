@@ -675,7 +675,7 @@ SUBSYSTEM_DEF(ticker)
 		'sound/roundend/darkbidding2.ogg',
 		'sound/roundend/futurecars.ogg',
 		'sound/roundend/letseat.ogg',
-		'sound/roundend/mansamunsa.ogg',
+		'sound/roundend/mansamusa.ogg',
 		'sound/roundend/nosferatu.ogg',
 		'sound/roundend/shewolf.ogg',
 		'sound/roundend/shinto.ogg'\
