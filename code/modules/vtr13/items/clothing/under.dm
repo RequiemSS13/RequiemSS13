@@ -14,6 +14,11 @@
 	inhand_icon_state = "maid"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
+/obj/item/clothing/under/vampire/vtr/maid_frills
+	name = "Frilly Maid Uniform"
+	desc = "A respectable but cute maid uniform, ankle length but keeping the lace and frills. The best of both worlds."
+	icon_state = "maid_frills"
+
 /obj/item/clothing/under/vampire/vtr/sceneleopard
 	name = "revealing outfit"
 	desc = "You never thought you needed spaghetti straps."
@@ -321,6 +326,16 @@
 	name = "maidenly dress"
 	desc = "A short gothic dress with draping mesh sleeves."
 	icon_state = "maiden"
+
+/obj/item/clothing/under/vampire/vtr/dress/bodycon_r
+	name = "red bodycon dress"
+	desc = "A vivid red bodycon dress with off-the-shoulder sleeves."
+	icon_state = "bodycon_r"
+
+/obj/item/clothing/under/vampire/vtr/dress/bodycon_g
+	name = "green bodycon dress"
+	desc = "A vivid green bodycon dress with off-the-shoulder sleeves."
+	icon_state = "bodycon_g"
 
 /obj/item/clothing/under/vampire/vtr/novella
 	name = "loose open-front silk shirt"

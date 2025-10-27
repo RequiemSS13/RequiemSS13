@@ -560,6 +560,11 @@
 	cost = 4
 	path = /obj/item/clothing/under/vampire/vtr/maid
 
+/datum/gear/uniform/maid_frills
+	display_name = "maid uniform (fancy)"
+	cost = 4
+	path = /obj/item/clothing/under/vampire/vtr/maid_frills
+
 /datum/gear/uniform/redeveninggown
 	display_name = "evening gown, red"
 	path = /obj/item/clothing/under/dress/redeveninggown
@@ -659,6 +664,16 @@
 /datum/gear/uniform/maiden
 	display_name = "dress, maidenly"
 	path = /obj/item/clothing/under/vampire/vtr/dress/maiden
+	cost = 3
+
+/datum/gear/uniform/bodycon_g
+	display_name = "dress, bodycon green"
+	path = /obj/item/clothing/under/vampire/vtr/dress/bodycon_g
+	cost = 3
+
+/datum/gear/uniform/bodycon_r
+	display_name = "dress, bodycon red"
+	path = /obj/item/clothing/under/vampire/vtr/dress/bodycon_r
 	cost = 3
 
 /datum/gear/uniform/novella
