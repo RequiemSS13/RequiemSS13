@@ -23,10 +23,10 @@
 	var/theirpower = target.get_resolve() + target.get_potency()
 
 	to_chat(owner, span_danger("You probe [target]'s mind..."))
-	
+
 	if(!do_mob(owner, owner, 1 SECONDS))
 		return FALSE
-	
+
 	var/trait_bonus = (HAS_TRAIT(target, TRAIT_EMERSONIAN)?TRAIT_EMERSONIAN_MOD:0) + (HAS_TRAIT(target, TRAIT_PREGNABLE_MIND)?TRAIT_PREGNABLE_MIND_MOD:0)
 	if(!SSroll.opposed_roll(owner, target, mypower, theirpower+trait_bonus, show_player_b = FALSE, alert_atom = target))
 		do_cooldown(TRUE)
@@ -67,7 +67,8 @@
 	if(!target.mind)
 		to_chat(owner, span_notice("[target] doesn't have a particularly interesting response..."))
 		return
-	var/response = "You hear a response: "
+	var/response
 	response += tgui_input_text(target, question + " (Answer Honestly)", "Your mind has been read!", "", MAX_MESSAGE_LEN, TRUE, FALSE)
 	to_chat(owner, span_notice("You hear: \"[response]\""))
+	to_chat(target, span_notice("Your response: \"[response]\""))
 	log_admin("[owner] asked [target] an auspex command. Question: '[question]', Answer: '[response]'")

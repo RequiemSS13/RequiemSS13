@@ -76,7 +76,8 @@
 	if(!target.mind)
 		to_chat(owner, span_notice("[target] doesn't have a particularly interesting response..."))
 		return
-	var/response = "You hear a response: "
+	var/response
 	response += tgui_input_text(target, question+" (Answer Honestly)", "Your mind has been read!", "", MAX_MESSAGE_LEN, TRUE, FALSE)
 	to_chat(owner, span_notice("You hear: \"[response]\""))
+	to_chat(target, span_notice("Your response: \"[response]\""))
 	log_admin("[owner] asked [target] an auspex command. Question: '[question]', Answer: '[response]'")
