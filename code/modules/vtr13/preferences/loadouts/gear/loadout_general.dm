@@ -92,3 +92,11 @@
 	display_name = "cross"
 	description = "A simple Christian cross on a necklace."
 	path = /obj/item/card/id/hunter
+
+/datum/gear/general/cane
+	display_name = "cane"
+	path = /obj/item/cane
+
+/datum/gear/general/wheelchair
+	display_name = "wheelchair"
+	path = /obj/item/wheelchair
