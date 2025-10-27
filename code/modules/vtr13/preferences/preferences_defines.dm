@@ -246,6 +246,9 @@
 	parent = C
 	UI_style = GLOB.available_ui_styles[1]
 	if(istype(C))
+		if(!C.key)
+			logger.Log(LOG_CATEGORY_DEBUG, "Failed to initialize a save file due to a null ckey. Please report this to a developer.")
+			return
 		if(!IsGuestKey(C.key))
 			load_path(C.ckey)
 
