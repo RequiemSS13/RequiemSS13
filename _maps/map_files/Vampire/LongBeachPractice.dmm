@@ -867,6 +867,7 @@
 /obj/item/instrument/violin,
 /obj/item/instrument/banjo,
 /obj/item/vamp/keys/acolyte,
+/obj/item/instrument/eguitar,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/basement/southeast/queen_lilith)
 "aJR" = (
@@ -21549,6 +21550,7 @@
 /obj/item/clothing/shoes/vampire/jackboots/punk,
 /obj/item/clothing/shoes/vampire/jackboots,
 /obj/item/clothing/shoes/vampire/jackboots/work,
+/obj/item/instrument/eguitar,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/vtr/masquerade/interior/ground_floor/southwest/warehouse)
 "qmg" = (
