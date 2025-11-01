@@ -57,6 +57,12 @@
 	READ_FILE(S["ooc_notes"], ooc_notes)
 	ooc_notes = sanitize_text(ooc_notes)
 
+	READ_FILE(S["custom_desc"], custom_desc)
+	custom_desc = sanitize_text(custom_desc)
+
+	READ_FILE(S["custom_noun"], custom_noun)
+	custom_noun = sanitize_text(custom_noun)
+
 	READ_FILE(S["headshot_link"], headshot_link)
 	if(!valid_headshot_link(null, headshot_link, TRUE))
 		headshot_link = null

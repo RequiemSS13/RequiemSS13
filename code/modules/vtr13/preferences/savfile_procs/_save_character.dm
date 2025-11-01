@@ -18,6 +18,8 @@
 	WRITE_FILE(S["age"], age)
 	WRITE_FILE(S["flavor_text"], flavor_text)
 	WRITE_FILE(S["ooc_notes"], ooc_notes)
+	WRITE_FILE(S["custom_desc"], custom_desc)
+	WRITE_FILE(S["custom_noun"], custom_noun)
 	WRITE_FILE(S["headshot_link"], headshot_link) // TFN EDIT: headshot saving
 	WRITE_FILE(S["hair_color"], hair_color)
 	WRITE_FILE(S["facial_hair_color"], facial_hair_color)

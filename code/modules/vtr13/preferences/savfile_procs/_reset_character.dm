@@ -5,6 +5,8 @@
 	ooc_notes = null
 	flavor_text = null
 	headshot_link = null // TFN EDIT
+	custom_desc = "an off-putting"
+	custom_noun = "person"
 	info_known = INFO_KNOWN_UNKNOWN
 	QDEL_NULL(stats)
 	stats = new()

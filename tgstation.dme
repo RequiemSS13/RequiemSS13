@@ -3875,6 +3875,7 @@
 #include "code\modules\vtr13\objects\elements\silvered.dm"
 #include "code\modules\vtr13\panicbunker\panicbunker.dm"
 #include "code\modules\vtr13\preferences\copy_to.dm"
+#include "code\modules\vtr13\preferences\descriptions\compile_desc_terms.dm"
 #include "code\modules\vtr13\preferences\preferences_defines.dm"
 #include "code\modules\vtr13\preferences\preferences_setup.dm"
 #include "code\modules\vtr13\preferences\global_procs\make_font_cool.dm"
