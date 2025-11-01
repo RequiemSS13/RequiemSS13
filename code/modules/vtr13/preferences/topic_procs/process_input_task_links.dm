@@ -268,6 +268,9 @@
 		if("decrease_stat")
 			var/datum/attribute/A = locate(href_list["attribute"])
 			A.score--
+			if(A.name == "Charisma" && custom_desc != "a") //Only reset our current descriptor if we're lowering Charisma and we didn't already reset to "a"
+				custom_desc = "a"
+				to_chat(user, "<font color='red'>Your chosen descriptor has been reset.</font>")
 
 		if("increase_potency")
 			set_potency(get_potency() + 1)
@@ -465,15 +468,17 @@
 			popup.open(FALSE)
 			return
 
-		if("adjective")
-			var/new_adj_1 = tgui_alert(user, "Select an adjective:", "Adjective", list("foo", "bar", "meow"))
-			if(new_adj_1 != adjective)
-				adjective = new_adj_1
+		if("custom_desc")
+			var/list/desc_options = compile_adjectives()
+			var/new_desc = tgui_input_list(user, "Select an adjective:", "Adjective", desc_options)
+			if(new_desc != custom_desc)
+				custom_desc = new_desc
 
-		if("descriptor")
-			var/new_adj_2 = tgui_alert(user, "Select your primary descriptor:", "Descriptor", list("oof", "rab", "woem"))
-			if(new_adj_2 != descriptor)
-				descriptor = new_adj_2
+		if("custom_noun")
+			var/list/noun_options = compile_nouns()
+			var/new_noun = tgui_input_list(user, "Select your primary descriptor:", "Descriptor", noun_options)
+			if(new_noun != custom_noun)
+				custom_noun = new_noun
 
 		if("headshot")
 			to_chat(user, span_notice("Please use a relatively SFW image of the head and shoulder area to maintain immersion level. Lastly, ["<b>do not use a real life photo or use any image that is less than serious.</b>"]"))

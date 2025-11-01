@@ -75,8 +75,8 @@
 
 	character.flavor_text = sanitize_text(flavor_text)
 	character.ooc_notes = sanitize_text(ooc_notes)
-	character.adjective = adjective
-	character.descriptor = descriptor
+	character.custom_desc = custom_desc
+	character.custom_noun = custom_noun
 	character.gender = gender
 	character.age = age
 	character.chronological_age = actual_age

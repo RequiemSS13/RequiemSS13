@@ -7,8 +7,8 @@
 			obscure_name = TRUE
 
 
-	var/shown_adjective = adjective
-	var/shown_descriptor = descriptor
+	var/shown_adjective = custom_desc
+	var/shown_descriptor = custom_noun
 
 	if(!is_face_visible())
 		shown_adjective = "a shrouded"
@@ -19,4 +19,4 @@
 	if(get_composure() >= 5)
 		cleanliness_note = " [p_they(TRUE)] [p_are()] immaculately well put-together."
 
-	return "This is <EM>[!obscure_name ? name : "Unknown"]</EM>, [shown_descriptor] [shown_adjective]![cleanliness_note]"
+	return "This is <EM>[!obscure_name ? name : "Unknown"]</EM>, [shown_adjective] [shown_descriptor]![cleanliness_note]"

@@ -132,8 +132,8 @@
 
 	//VTR EDIT BEGIN
 	var/ooc_link
-	var/adjective
-	var/descriptor
+	var/custom_desc
+	var/custom_noun
 	var/datum/vtr_faction/vtr_faction
 	var/datum/vampireclane/clane
 	var/datum/vampireclane/regent_clan

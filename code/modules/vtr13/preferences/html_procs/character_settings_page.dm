@@ -188,10 +188,11 @@
 	if(headshot_link != null)
 		dat += " <a href='byond://?_src_=prefs;preference=view_headshot;task=input'>View</a>"
 	dat += "<br><br>"
-	dat += "<b>Adjective:</b> <a href='byond://?_src_=prefs;preference=adjective;task=input'>Change</a><br><i>[adjective]</i>"
+	dat += "<b>Adjective:</b> <a href='byond://?_src_=prefs;preference=custom_desc;task=input'>Change</a><br>"
 
-	dat += "<br><br>"
-	dat += "<b>Descriptor:</b> <a href='byond://?_src_=prefs;preference=descriptor;task=input'>Change</a><br><i>[descriptor]</i>"
+	dat += "<b>Descriptor:</b> <a href='byond://?_src_=prefs;preference=custom_noun;task=input'>Change</a><br>"
+
+	dat += "You look like [custom_desc] [custom_noun]."
 
 	dat += "<br><br>"
 	dat += "<b>Character Link:</b> <a href='byond://?_src_=prefs;preference=ooc_link;task=input'>Change</a><br><i>[ooc_link]</i>"
