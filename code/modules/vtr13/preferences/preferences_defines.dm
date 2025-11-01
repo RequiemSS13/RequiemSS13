@@ -169,7 +169,7 @@
 	var/flavor_text
 	var/ooc_notes
 	var/headshot_link
-	var/custom_desc = "a"				//Adjective shown on examine
+	var/custom_desc = "an off-putting"	//Adjective shown on examine
 	var/custom_noun = "person"			//Noun used to describe character on examine
 	var/hair_color = "000"				//Hair color
 	var/facial_hair_color = "000"		//Facial hair color
