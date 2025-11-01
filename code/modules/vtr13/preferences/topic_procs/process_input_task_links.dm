@@ -268,8 +268,8 @@
 		if("decrease_stat")
 			var/datum/attribute/A = locate(href_list["attribute"])
 			A.score--
-			if(A.name == "Charisma" && custom_desc != "a") //Only reset our current descriptor if we're lowering Charisma and we didn't already reset to "a"
-				custom_desc = "a"
+			if(A.name == "Charisma" && custom_desc != "an off-putting") //Only reset our current descriptor if we're lowering Charisma and we didn't already reset to "a"
+				custom_desc = "an off-putting"
 				to_chat(user, "<font color='red'>Your chosen descriptor has been reset.</font>")
 
 		if("increase_potency")
