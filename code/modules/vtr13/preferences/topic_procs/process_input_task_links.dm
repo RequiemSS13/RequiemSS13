@@ -471,13 +471,13 @@
 		if("custom_desc")
 			var/list/desc_options = compile_adjectives()
 			var/new_desc = tgui_input_list(user, "Select an adjective:", "Adjective", desc_options)
-			if(new_desc != custom_desc)
+			if(new_desc)
 				custom_desc = new_desc
 
 		if("custom_noun")
 			var/list/noun_options = compile_nouns()
 			var/new_noun = tgui_input_list(user, "Select your primary descriptor:", "Descriptor", noun_options)
-			if(new_noun != custom_noun)
+			if(new_noun)
 				custom_noun = new_noun
 
 		if("headshot")
