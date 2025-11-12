@@ -731,6 +731,11 @@
 	name = "Long Hair 4"
 	icon_state = "hair_long4"
 
+/datum/sprite_accessory/hair/longcurly
+	icon = 'icons/vtr13/mob/human_face.dmi'
+	name = "Long Hair (Curly)"
+	icon_state = "hair_longcurly"
+
 /datum/sprite_accessory/hair/long_over_eye
 	name = "Long Over Eye"
 	icon_state = "hair_longovereye"
