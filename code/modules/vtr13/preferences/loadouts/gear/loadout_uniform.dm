@@ -199,7 +199,7 @@
 
 /datum/gear/uniform/skirt/denim
 	display_name = "skirt, denim"
-	path = /obj/item/clothing/under/vampire/vtr/shorts/skirt
+	path = /obj/item/clothing/under/vampire/vtr/shorts/skirtdenim
 
 // Turtleneck
 /datum/gear/uniform/turtleneck
