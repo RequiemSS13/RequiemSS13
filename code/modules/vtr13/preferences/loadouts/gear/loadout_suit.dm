@@ -355,3 +355,13 @@
 /datum/gear/suit/parka/vintage
 	display_name ="parka, vintage green"
 	path = /obj/item/clothing/suit/hooded/hoodie/parka_vintage
+
+//APRONS
+/datum/gear/suit/apron_white
+	display_name ="apron, white"
+	path = /obj/item/clothing/suit/vampire/vtr/apron_white
+
+/datum/gear/suit/apron_black
+	display_name ="apron, black"
+	path = /obj/item/clothing/suit/vampire/vtr/apron_black
+	

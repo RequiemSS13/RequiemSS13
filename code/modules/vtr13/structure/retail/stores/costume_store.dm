@@ -20,5 +20,12 @@
 		new /datum/data/retail_product("jester mask",	/obj/item/clothing/mask/vampire/venetian_mask/jester,	50),
 		new /datum/data/retail_product("bloody mask",	/obj/item/clothing/mask/vampire/venetian_mask/scary,	30),
 		new /datum/data/retail_product("comedy mask", /obj/item/clothing/mask/vampire/comedy,	25),
-		new /datum/data/retail_product("tragedy mask", /obj/item/clothing/mask/vampire/tragedy,	25)
+		new /datum/data/retail_product("tragedy mask", /obj/item/clothing/mask/vampire/tragedy,	25),
+		new /datum/data/retail_product("motorcycle helmet, white", /obj/item/clothing/head/helmet/moto_helmet_basic, 50),
+		new /datum/data/retail_product("motorcycle helmet, black", /obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_black, 50),
+		new /datum/data/retail_product("motorcycle helmet, teal", /obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_teal, 50),
+		new /datum/data/retail_product("motorcycle helmet, red", /obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_red, 50),
+		new /datum/data/retail_product("motorcycle helmet, green", /obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_green, 50),
+		new /datum/data/retail_product("motorcycle helmet, blue", /obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_blue, 50),
+		new /datum/data/retail_product("motorcycle helmet, yellow", /obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_yellow, 50)
 	)

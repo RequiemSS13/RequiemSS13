@@ -123,6 +123,8 @@
 		new /datum/data/retail_product("letterman jacket", /obj/item/clothing/suit/jacket/letterman, 30),
 		new /datum/data/retail_product("letterman jacket, red", /obj/item/clothing/suit/jacket/letterman_red, 30),
 		new /datum/data/retail_product("letterman jacket, UCLA", /obj/item/clothing/suit/vampire/vtr/letterman_c, 30),
+		new /datum/data/retail_product("apron, white", /obj/item/clothing/suit/vampire/vtr/apron_white, 20),
+		new /datum/data/retail_product("apron, black", /obj/item/clothing/suit/vampire/vtr/apron_black, 20),
 		new /datum/data/retail_product("yellow aviators",	/obj/item/clothing/glasses/vampire/yellow,	20),
 		new /datum/data/retail_product("red aviators",	/obj/item/clothing/glasses/vampire/red,	20),
 		new /datum/data/retail_product("sunglasses",	/obj/item/clothing/glasses/vampire/sun,	20),

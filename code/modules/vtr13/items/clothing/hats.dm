@@ -185,6 +185,65 @@
 	flags_cover = HEADCOVERSEYES
 	dynamic_hair_suffix = ""
 
+//HELMETS 
+
+/* If helmets are moved to the VTR folder before rebase then please just make this a child of them instead */
+/obj/item/clothing/head/helmet/moto_helmet_basic
+	name = "motorcycle helmet"
+	desc = "A white motorcycle helmet. Does not make you any better at driving."
+	icon = 'icons/vtr13/obj/clothing/hats.dmi'
+	worn_icon = 'icons/vtr13/obj/clothing/worn_hat.dmi'
+	icon_state = "moto_helmet_white"
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0, WOUND = 0)
+	cold_protection = 0
+	min_cold_protection_temperature = 0
+	heat_protection = 0
+	max_heat_protection_temperature = 0
+
+	actions_types = list(/datum/action/item_action/toggle)
+	toggle_message = "You pull the visor down on"
+	alt_toggle_message = "You push the visor up on"
+	can_toggle = 1
+	toggle_cooldown = 0
+
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
+	flags_inv = HIDEEARS|HIDEHAIR|HIDEMASK|HIDEFACE|HIDEEYES
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	
+	visor_flags_cover = HEADCOVERSEYES
+	visor_flags_inv = HIDEEARS|HIDEMASK|HIDEFACE|HIDEEYES
+
+/obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_black
+	name = "motorcycle helmet"
+	desc = "A black motorcycle helmet."
+	icon_state = "moto_helmet_black"
+
+/obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_teal
+	name = "motorcycle helmet"
+	desc = "A retro teal motorcycle helmet. Ride like it's 1989."
+	icon_state = "moto_helmet_teal"
+
+/obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_blue
+	name = "motorcycle helmet"
+	desc = "A blue motorcycle helmet."
+	icon_state = "moto_helmet_blue"
+
+/obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_red
+	name = "motorcycle helmet"
+	desc = "A red motorcycle helmet."
+	icon_state = "moto_helmet_red"
+
+/obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_green
+	name = "motorcycle helmet"
+	desc = "A green motorcycle helmet."
+	icon_state = "moto_helmet_green"
+
+/obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_yellow
+	name = "motorcycle helmet"
+	desc = "A yellow motorcycle helmet."
+	icon_state = "moto_helmet_yellow"
+
 //OTHER
 /obj/item/clothing/head/pagecap
 	name = "Page's cap"
@@ -250,3 +309,4 @@
 	name = "black headdress"
 	desc = "A fancy black headdress. Mysterious!"
 	icon_state = "blackngoldheaddress"
+	
