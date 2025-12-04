@@ -189,8 +189,8 @@
 	display_name = "skirt, red plaid"
 	path = /obj/item/clothing/under/vampire/vtr/skirt/outfit/plaid_red
 
-/datum/gear/uniform/skirt/plaid_blue
-	display_name = "skirt, blue plaid"
+/datum/gear/uniform/skirt/plaid_purple
+	display_name = "skirt, purple plaid"
 	path = /obj/item/clothing/under/vampire/vtr/skirt/outfit/plaid_purple
 
 /datum/gear/uniform/skirt/leather
@@ -199,7 +199,7 @@
 
 /datum/gear/uniform/skirt/denim
 	display_name = "skirt, denim"
-	path = /obj/item/clothing/under/vampire/vtr/shorts/skirt
+	path = /obj/item/clothing/under/vampire/vtr/shorts/skirtdenim
 
 // Turtleneck
 /datum/gear/uniform/turtleneck
