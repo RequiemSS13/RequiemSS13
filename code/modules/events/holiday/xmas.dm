@@ -86,3 +86,40 @@
 
 		var/datum/antagonist/santa/A = new
 		santa.mind.add_antag_datum(A)
+
+//new VTR things
+
+/obj/structure/christmas/doorwreath
+	name = "wreaths"
+	desc = "Some festive wreaths."
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "doorwreath"
+
+/obj/structure/christmas/xmaslights
+	name = "christmas lights"
+	desc = "Some festive lights."
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "xmaslights"
+
+/obj/structure/christmas/festive_tree
+	name = "\"christmas tree\""
+	desc = "A rather flimsy \"christmas tree\". It looks like it could fall apart at any moment."
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "festive_tree"
+/*	var/broken == FALSE
+
+
+/obj/structure/christmas/festive_tree/attack_hand(mob/user)
+	. = ..()
+	if(.)
+		return
+	if(!can_be_reached(user))
+		return
+	user.changeNext_move(CLICK_CD_MELEE)
+
+	if(user.a_intent = INTENT_HARM && broken = FALSE)
+		user.visible_message("<span class='warning'>[user] snaps the [src]!</span>", \
+			"<span class='warning'>You snap the [src]!</span>")
+		broken == TRUE
+		return
+*/
