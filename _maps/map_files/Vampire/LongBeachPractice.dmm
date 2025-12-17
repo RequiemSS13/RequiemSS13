@@ -2201,6 +2201,9 @@
 /obj/item/p25radio,
 /obj/item/p25radio,
 /obj/item/vamp/keys/bartender_vtr,
+/obj/item/clothing/head/santa,
+/obj/item/clothing/head/santa,
+/obj/item/clothing/head/santa,
 /turf/open/floor/plating/vampwood,
 /area/vtm/vtr/masquerade/interior/ground_floor/central/nightclub)
 "bKQ" = (

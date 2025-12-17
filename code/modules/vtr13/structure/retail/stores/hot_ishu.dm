@@ -1,5 +1,6 @@
 /obj/structure/retail/hot_ishu
 	products_list = list(
+		new /datum/data/retail_product("santa hat",	/obj/item/clothing/head/santa,		15),
 		new /datum/data/retail_product("\"Vase\"",	/obj/item/bong,		50),
 		new /datum/data/retail_product("cross",	/obj/item/card/id/hunter,  25),
 		new /datum/data/retail_product("electric guitar", /obj/item/melee/vampirearms/eguitar, 400),

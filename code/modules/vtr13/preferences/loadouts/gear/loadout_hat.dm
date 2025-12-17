@@ -262,6 +262,11 @@
 	display_name = "floppy hat, red"
 	path = /obj/item/clothing/head/vampire/vtr/picture_red
 
+// Remove after christmas
+
+/datum/gear/hat/santa_hat
+	display_name = "santa hat"
+	path = /obj/item/clothing/head/santa
 
 // Religious
 
