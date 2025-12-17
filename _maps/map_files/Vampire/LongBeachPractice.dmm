@@ -10025,7 +10025,14 @@
 /area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "hlM" = (
 /obj/structure/table/glass,
-/obj/structure/christmas/xmaslights,
+/obj/structure/christmas/xmaslights{
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/obj/structure/christmas/xmaslights_lit{
+	pixel_x = 0;
+	pixel_y = 16
+	},
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/bright_house)
 "hlS" = (
@@ -14120,7 +14127,14 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
-/obj/structure/christmas/xmaslights,
+/obj/structure/christmas/xmaslights{
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/obj/structure/christmas/xmaslights_lit{
+	pixel_x = 0;
+	pixel_y = 16
+	},
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/bright_house)
 "kBo" = (
@@ -14828,7 +14842,14 @@
 /area/vtm/vtr/masquerade/exterior/basement/southeast/alamitos_beach)
 "leT" = (
 /obj/effect/landmark/npcwall,
-/obj/structure/christmas/xmaslights,
+/obj/structure/christmas/xmaslights{
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/obj/structure/christmas/xmaslights_lit{
+	pixel_x = 0;
+	pixel_y = 16
+	},
 /turf/open/floor/plating/vampgrass,
 /area/vtm/vtr/masquerade/exterior/ground_floor/reserve/rose_reserve)
 "leX" = (
@@ -20382,7 +20403,14 @@
 /turf/closed/wall/vampwall/rich,
 /area/vtm/vtr/elysium/interior/floor_two/central/castle_elysium)
 "oWY" = (
-/obj/structure/christmas/xmaslights,
+/obj/structure/christmas/xmaslights{
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/obj/structure/christmas/xmaslights_lit{
+	pixel_x = 0;
+	pixel_y = 16
+	},
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/bright_house)
 "oXe" = (
@@ -28533,7 +28561,14 @@
 /obj/structure/chair/plastic{
 	dir = 1
 	},
-/obj/structure/christmas/xmaslights,
+/obj/structure/christmas/xmaslights{
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/obj/structure/christmas/xmaslights_lit{
+	pixel_x = 0;
+	pixel_y = 16
+	},
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/bright_house)
 "uEI" = (
