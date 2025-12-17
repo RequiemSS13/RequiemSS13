@@ -95,31 +95,127 @@
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "doorwreath"
 
-/obj/structure/christmas/xmaslights
+/obj/structure/christmas/xmaslights //string lights, but they don't actually emit light
 	name = "christmas lights"
 	desc = "Some festive lights."
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "xmaslights"
 
+/obj/structure/christmas/xmaslights_lit //these are mostly for outdoor use
+	name = "christmas lights"
+	desc = "Some festive lights."
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "xmaslights_lit"
+	plane = EMISSIVE_PLANE
+	layer = LIGHTING_LAYER
+	blend_mode = BLEND_ADD
+
 /obj/structure/christmas/festive_tree
 	name = "\"christmas tree\""
-	desc = "A rather flimsy \"christmas tree\". It looks like it could fall apart at any moment."
+	desc = "A rather pathetic \"christmas tree\". Is this the best they could do?"
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "festive_tree"
-/*	var/broken == FALSE
 
+/obj/structure/christmas/xmas_sticker01
+	name = "festive decals"
+	desc = "Festive decals that spell out 'MERRY'."
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "xmas_sticker01"
 
-/obj/structure/christmas/festive_tree/attack_hand(mob/user)
+/obj/structure/christmas/xmas_sticker02
+	name = "festive decals"
+	desc = "Festive decals that spell out 'X-MAS'."
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "xmas_sticker02"
+
+/obj/structure/christmas/xmas_sticker03
+	name = "festive decals"
+	desc = "Festive decals depicting some snow-topped trees. Pretend you live somewhere that snows!"
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "xmas_sticker03"
+
+/obj/structure/christmas/xmas_sticker04
+	name = "festive decals"
+	desc = "Festive decals depicting Santa and three of his reindeer, including that red-nosed one."
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "xmas_sticker04"
+
+/obj/item/toy/talking/owl/owl_vtr
+	name = "owl figure"
+	desc = "A figure of an owl."
+	w_class = WEIGHT_CLASS_SMALL
+
+/obj/structure/christmas/giftpile
+	name = "gift pile"
+	desc = "A pile of gifts."
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "giftpile"
+
+//vtrgift and all associated things is basically just a_gift w/o the spaceman shit in it
+
+/obj/item/a_gift/vtrgift
+	name = "gift"
+	desc = "PRESENTS!!!! eek!"
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "gift1"
+
+var/obj/item/contains_type
+
+/obj/item/a_gift/vtrgift/Initialize()
 	. = ..()
-	if(.)
-		return
-	if(!can_be_reached(user))
-		return
-	user.changeNext_move(CLICK_CD_MELEE)
+	pixel_x = rand(-10,10)
+	pixel_y = rand(-10,10)
+	icon_state = "gift[rand(1,3)]"
 
-	if(user.a_intent = INTENT_HARM && broken = FALSE)
-		user.visible_message("<span class='warning'>[user] snaps the [src]!</span>", \
-			"<span class='warning'>You snap the [src]!</span>")
-		broken == TRUE
-		return
-*/
+	contains_type = get_gift_type_vtr()
+
+/obj/item/a_gift/vtrgift/proc/get_gift_type_vtr()
+	var/gift_type_list_vtr = list(/obj/item/storage/wallet,
+		/obj/item/storage/photo_album,
+		/obj/item/storage/box/snappops,
+		/obj/item/storage/crayons,
+		/obj/item/storage/belt/champion,
+		/obj/item/soap/deluxe,
+		/obj/item/pen/invisible,
+		/obj/item/lipstick/random,
+		/obj/item/grown/corncob,
+		/obj/item/bikehorn,
+		/obj/item/toy/beach_ball,
+		/obj/item/toy/beach_ball/holoball,
+		/obj/item/instrument/violin,
+		/obj/item/instrument/guitar,
+		/obj/item/storage/belt/utility/full,
+		/obj/item/clothing/neck/tie/horrible,
+		/obj/item/clothing/suit/toggle/vtr/leather,
+		/obj/item/clothing/suit/vampire/vtr/greatcoat,
+		/obj/item/clothing/suit/snowman,
+		/obj/item/clothing/head/snowman,
+		/obj/item/stack/sheet/mineral/coal,
+		/obj/item/toy/gun,
+		/obj/item/toy/sword,
+		/obj/item/dualsaber/toy,
+		/obj/item/toy/katana,
+		/obj/item/toy/snowball,
+		/obj/item/toy/toy_dagger,
+		/obj/item/toy/cattoy,
+		/obj/item/toy/seashell,
+		/obj/item/toy/braintoy,
+		/obj/item/toy/talking/owl/owl_vtr,
+		/obj/item/gun/ballistic/automatic/toy/pistol, //foam guns
+		/obj/item/gun/ballistic/shotgun/toy,
+		/obj/item/gun/ballistic/shotgun/toy/crossbow,
+		/obj/item/toy/plush/lizardplushie, //might be too spacey but i think it's fine
+		/obj/item/toy/plush/lizardplushie/space,
+		/obj/item/toy/plush/snakeplushie,
+		/obj/item/toy/plush/slimeplushie,
+		/obj/item/toy/plush/beeplushie,
+		/obj/item/toy/plush/moth,
+		/obj/item/clothing/head/santa, //santa gear. teehee
+		/obj/item/clothing/suit/vampire/coat/winter/alt
+		)
+
+	gift_type_list_vtr += subtypesof(/obj/item/clothing/head/collectable) - (list(/obj/item/clothing/head/collectable/slime, /obj/item/clothing/head/collectable/hos, /obj/item/clothing/head/collectable/hop)) //removing spaceman shit
+
+	var/gift_type_vtr = pick(gift_type_list_vtr)
+
+	return gift_type_vtr

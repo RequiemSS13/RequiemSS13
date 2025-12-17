@@ -1475,6 +1475,14 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating/vampplating,
 /area/vtm/vtr/masquerade/interior/basement/southeast/queen_lilith)
+"biF" = (
+/obj/structure/window_frame/bar,
+/obj/structure/christmas/xmas_sticker03{
+	pixel_y = 8;
+	layer = 5
+	},
+/turf/open/floor/sepia,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/bakery)
 "biI" = (
 /obj/structure/chair/pew/right{
 	dir = 4
@@ -1653,6 +1661,13 @@
 /obj/effect/landmark/npcability,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/exterior/ground_floor/southwest/southwest_long_beach)
+"bpu" = (
+/obj/structure/christmas/doorwreath{
+	pixel_y = -12;
+	layer = 5
+	},
+/turf/closed/wall/vampwall/redbrick,
+/area/vtm/vtr/masquerade/interior/ground_floor/central/bank)
 "bpI" = (
 /obj/structure/railing,
 /obj/structure/fluff/hedge{
@@ -1873,6 +1888,7 @@
 	pixel_y = -3
 	},
 /obj/machinery/light/floor,
+/obj/item/a_gift/vtrgift,
 /turf/open/floor/mineral/plastitanium/red,
 /area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
 "bzT" = (
@@ -2494,6 +2510,13 @@
 	},
 /turf/open/floor/plating/vampplating/stone,
 /area/vtm/vtr/masquerade/interior/basement/central/library_basement)
+"bVk" = (
+/obj/effect/decal/wallpaper/paper/rich,
+/obj/structure/christmas/doorwreath{
+	pixel_y = -17
+	},
+/turf/closed/wall/vampwall/metal/alt,
+/area/vtm/vtr/masquerade/interior/ground_floor/southeast/queen_lilith)
 "bVy" = (
 /obj/machinery/light/prince{
 	dir = 8
@@ -3054,6 +3077,18 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/ground_floor/southeast/queen_lilith)
+"cni" = (
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 4.6;
+	pixel_y = 1
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1;
+	layer = 4.7
+	},
+/turf/closed/wall/vampwall/junk,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/hotel)
 "cnp" = (
 /obj/structure/bed,
 /obj/item/bedsheet/brown,
@@ -3104,6 +3139,20 @@
 /obj/machinery/p25transceiver/clinic,
 /turf/open/floor/plating/vampplating/stone,
 /area/vtm/vtr/masquerade/interior/floor_two/southwest/clinic)
+"cpe" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/christmas/xmaslights{
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/obj/structure/christmas/xmaslights_lit{
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "cpf" = (
 /obj/vehicle/ridden/scooter{
 	dir = 4
@@ -3665,6 +3714,18 @@
 /area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "cNj" = (
 /obj/structure/window_frame/old,
+/obj/structure/christmas/xmas_sticker02{
+	pixel_y = -5;
+	layer = 5
+	},
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5;
+	pixel_y = 1
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/grocery)
 "cNr" = (
@@ -4140,6 +4201,15 @@
 	layer = 4.1;
 	pixel_y = 16
 	},
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5;
+	pixel_y = 1
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1;
+	pixel_y = 3
+	},
 /turf/open/openspace,
 /area/vtm/vtr/masquerade/exterior/floor_two/northeast/northeast_long_beach/inaccessible)
 "deG" = (
@@ -4226,6 +4296,9 @@
 /obj/structure/christmas/xmaslights{
 	dir = 1;
 	layer = 5
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1
 	},
 /turf/closed/wall/vampwall/painted,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/bright_house)
@@ -5822,6 +5895,22 @@
 	},
 /turf/open/floor/sepia,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/hotel)
+"esi" = (
+/obj/structure/window_frame/old,
+/obj/structure/christmas/xmas_sticker01{
+	pixel_y = -4;
+	layer = 5
+	},
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5;
+	pixel_y = 1
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/grocery)
 "esv" = (
 /obj/structure/chair/sofa/left{
 	dir = 4
@@ -6412,6 +6501,23 @@
 	},
 /turf/open/floor/plating/vampcanalplating,
 /area/vtm/vtr/masquerade/interior/basement/southeast/sewers_beach)
+"eMV" = (
+/obj/structure/fluff/hedge{
+	layer = 4.1;
+	pixel_x = 0;
+	pixel_y = 12
+	},
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5;
+	pixel_y = -3
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1;
+	pixel_y = -3
+	},
+/turf/closed/wall/vampwall/bar/low,
+/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "eMW" = (
 /obj/machinery/shower{
 	pixel_x = 1;
@@ -6977,11 +7083,26 @@
 /turf/open/floor/plating/vampwood,
 /area/vtm/vtr/masquerade/interior/ground_floor/southeast/abandoned_store)
 "fgg" = (
-/obj/structure/christmas/doorwreath{
-	dir = 4
+/obj/machinery/light/floor{
+	pixel_x = 0;
+	pixel_y = 1
 	},
-/turf/open/floor/plating/concrete,
-/area/vtm/vtr/masquerade/interior/ground_floor/central/nightclub)
+/obj/structure/fluff/hedge{
+	layer = 4.1;
+	pixel_x = 0;
+	pixel_y = 12
+	},
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5;
+	pixel_y = -3
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1;
+	pixel_y = -3
+	},
+/turf/closed/wall/vampwall/bar/low,
+/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "fgm" = (
 /obj/structure/gargoyle{
 	dir = 8;
@@ -7846,6 +7967,23 @@
 	},
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/vtr/masquerade/interior/floor_two/northwest/apartment_suite_4)
+"fMJ" = (
+/obj/structure/fluff/hedge{
+	layer = 4.1;
+	pixel_x = 0;
+	pixel_y = 12
+	},
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5;
+	pixel_y = -2
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1;
+	pixel_y = -2
+	},
+/turf/closed/wall/vampwall/bar/low,
+/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "fMM" = (
 /obj/structure/vampdoor/wood,
 /turf/open/floor/plating/parquetry/old,
@@ -7892,6 +8030,10 @@
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 5
 	},
+/obj/item/stack/wrapping_paper{
+	pixel_y = 5
+	},
+/obj/structure/table,
 /turf/open/floor/carpet/red,
 /area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
 "fNw" = (
@@ -8227,6 +8369,21 @@
 	},
 /turf/open/floor/plating/vampgrass,
 /area/vtm/vtr/masquerade/exterior/ground_floor/northeast/northeast_long_beach)
+"gbc" = (
+/obj/structure/table/wood/fancy/royalblack{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/obj/machinery/light/floor,
+/obj/item/toy/xmas_cracker{
+	pixel_y = -2;
+	pixel_x = 8
+	},
+/obj/item/toy/xmas_cracker{
+	pixel_y = 4
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
 "gbn" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -8277,6 +8434,9 @@
 /obj/structure/christmas/xmaslights{
 	dir = 4;
 	layer = 5
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 4
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
@@ -8404,6 +8564,17 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/floor_two/central/library)
+"ghX" = (
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5;
+	pixel_y = 1
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1
+	},
+/turf/closed/wall/vampwall/junk,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/hotel)
 "gic" = (
 /obj/structure/table/optable,
 /turf/open/floor/plating/vampplating,
@@ -10411,6 +10582,9 @@
 	dir = 1;
 	layer = 5
 	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1
+	},
 /turf/closed/wall/vampwall/bar/low,
 /area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "hLO" = (
@@ -10942,6 +11116,23 @@
 /obj/structure/bookcase/random/nonfiction,
 /turf/open/floor/plating/parquetry,
 /area/vtm/vtr/elysium/interior/floor_three/central/castle_elysium)
+"igK" = (
+/obj/structure/fluff/hedge{
+	layer = 4.1;
+	pixel_x = 0;
+	pixel_y = 12
+	},
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5;
+	pixel_y = -4
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1;
+	pixel_y = -4
+	},
+/turf/closed/wall/vampwall/bar/low,
+/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "ihf" = (
 /obj/structure/vampdoor/vtr_kiss{
 	dir = 4
@@ -12411,6 +12602,7 @@
 	pixel_y = -3
 	},
 /obj/machinery/light/floor,
+/obj/item/a_gift/vtrgift,
 /turf/open/floor/mineral/plastitanium/red,
 /area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
 "jpj" = (
@@ -12704,6 +12896,17 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/vtr/masquerade/exterior/ground_floor/southwest/southwest_long_beach)
+"jBh" = (
+/obj/structure/christmas/xmaslights{
+	pixel_x = -1;
+	pixel_y = 16
+	},
+/obj/structure/christmas/xmaslights_lit{
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "jBC" = (
 /obj/effect/decal/bordur,
 /turf/open/floor/plating/sidewalk/poor,
@@ -12781,7 +12984,11 @@
 	},
 /obj/structure/christmas/xmaslights{
 	dir = 1;
-	layer = 5
+	layer = 4.6
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1;
+	layer = 4.7
 	},
 /turf/closed/wall/vampwall/bar/low,
 /area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
@@ -13326,6 +13533,23 @@
 /obj/effect/landmark/npcwall,
 /turf/open/floor/plating/vampgrass,
 /area/vtm/vtr/masquerade/exterior/ground_floor/reserve/rose_reserve)
+"kaD" = (
+/obj/structure/window_frame/dwelling/old{
+	curtain_dir = 1
+	},
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5
+	},
+/obj/structure/christmas/xmas_sticker04{
+	pixel_y = 6;
+	layer = 5
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1
+	},
+/turf/open/floor/carpet,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/bright_house)
 "kbf" = (
 /obj/effect/decal/crosswalk{
 	dir = 1
@@ -13394,10 +13618,6 @@
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/structure/christmas/xmaslights{
-	dir = 4;
-	layer = 5
-	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
 "kdM" = (
@@ -13427,6 +13647,7 @@
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/floor_three/northwest/apartment_suite_4)
 "key" = (
+/obj/structure/christmas/doorwreath,
 /turf/closed/wall/vampwall/bar,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/bakery)
 "keC" = (
@@ -13732,6 +13953,21 @@
 /obj/effect/decal/pallet,
 /turf/open/floor/plating/vampwood,
 /area/vtm/vtr/masquerade/interior/ground_floor/southwest/warehouse)
+"krY" = (
+/obj/structure/table/wood/fancy/royalblack{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/machinery/light/floor,
+/obj/item/toy/xmas_cracker{
+	pixel_y = -2
+	},
+/obj/item/toy/xmas_cracker{
+	pixel_y = 3;
+	pixel_x = -10
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
 "ksp" = (
 /obj/structure/table/wood,
 /turf/open/floor/plating/vampplating/stone,
@@ -14405,13 +14641,25 @@
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/exterior/ground_floor/southwest/southwest_long_beach)
 "kVv" = (
-/obj/structure/table/wood/fancy/royalblack{
-	pixel_x = 0;
-	pixel_y = -3
+/obj/structure/window_frame/old,
+/obj/structure/christmas/xmas_sticker03{
+	pixel_y = 8;
+	layer = 5
 	},
-/obj/machinery/light/floor,
-/turf/open/floor/mineral/plastitanium/red,
-/area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
+/obj/structure/christmas/xmas_sticker04{
+	pixel_y = 10;
+	layer = 4.9
+	},
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5;
+	pixel_y = 1
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/grocery)
 "kVM" = (
 /turf/open/openspace,
 /area/vtm/vtr/elysium/interior/floor_two/central/castle_theater)
@@ -14596,10 +14844,6 @@
 	pixel_x = 2;
 	pixel_y = 6;
 	dir = 8
-	},
-/obj/structure/christmas/xmaslights{
-	dir = 4;
-	layer = 5
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
@@ -15021,10 +15265,6 @@
 "lxo" = (
 /obj/machinery/vending/boozeomat{
 	age_restrictions = 0
-	},
-/obj/structure/christmas/xmaslights{
-	dir = 8;
-	layer = 5
 	},
 /turf/open/floor/plating/vampplating,
 /area/vtm/vtr/masquerade/interior/ground_floor/central/nightclub)
@@ -16715,10 +16955,6 @@
 /obj/structure/table,
 /obj/effect/decal/wallpaper/stone/low,
 /obj/item/reagent_containers/food/drinks/shaker,
-/obj/structure/christmas/xmaslights{
-	dir = 8;
-	layer = 5
-	},
 /turf/open/floor/plating/vampplating,
 /area/vtm/vtr/masquerade/interior/ground_floor/central/nightclub)
 "mKD" = (
@@ -16800,6 +17036,23 @@
 "mMU" = (
 /turf/open/openspace,
 /area/vtm/vtr/masquerade/interior/floor_two/northwest/apartment)
+"mNo" = (
+/obj/structure/window_frame/dwelling/old{
+	curtain_dir = 1
+	},
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5
+	},
+/obj/structure/christmas/xmas_sticker02{
+	pixel_y = -5;
+	layer = 5
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1
+	},
+/turf/open/floor/carpet,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/bright_house)
 "mNu" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/light{
@@ -16975,6 +17228,23 @@
 	},
 /turf/open/floor/plating/vampplating/stone,
 /area/vtm/vtr/elysium/interior/floor_three/central/castle_elysium)
+"mSe" = (
+/obj/structure/window_frame/dwelling/old{
+	curtain_dir = 1
+	},
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5
+	},
+/obj/structure/christmas/xmas_sticker03{
+	pixel_y = 8;
+	layer = 5
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/bright_house)
 "mSD" = (
 /obj/structure/table,
 /obj/machinery/light{
@@ -17546,9 +17816,9 @@
 /area/vtm/vtr/masquerade/interior/ground_floor/northwest/coffee_shop)
 "noW" = (
 /obj/structure/window_frame/bar,
-/obj/structure/christmas/xmaslights{
-	dir = 1;
-	layer = 4
+/obj/structure/christmas/xmas_sticker02{
+	pixel_y = -2;
+	layer = 5
 	},
 /turf/open/floor/sepia,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/bakery)
@@ -18345,6 +18615,9 @@
 	layer = 5;
 	pixel_x = 0;
 	pixel_y = 0
+	},
+/obj/item/toy/xmas_cracker{
+	pixel_y = -2
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
@@ -19887,6 +20160,18 @@
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/vtr/masquerade/exterior/ground_floor/southwest/southwest_long_beach)
+"oNi" = (
+/obj/structure/window_frame/old/reinforced,
+/obj/structure/christmas/xmas_sticker03{
+	pixel_y = 7;
+	layer = 4.1
+	},
+/obj/structure/christmas/xmas_sticker04{
+	pixel_y = 7;
+	layer = 4
+	},
+/turf/open/floor/plating/vampplating/stone,
+/area/vtm/vtr/masquerade/interior/ground_floor/central/bank)
 "oNq" = (
 /mob/living/carbon/human/npc/bouncer/elysium/elysium_2,
 /turf/open/floor/plating/vampplating/stone,
@@ -20195,6 +20480,12 @@
 /obj/effect/decal/wallpaper/paper/rich,
 /turf/closed/wall/vampwall/metal/alt,
 /area/vtm/vtr/masquerade/interior/floor_two/southeast/queen_lilith)
+"pav" = (
+/obj/structure/chair/sofa/corp/corner{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
 "pbe" = (
 /obj/effect/decal/bordur{
 	dir = 1
@@ -21449,7 +21740,10 @@
 /area/vtm/vtr/masquerade/interior/ground_floor/southeast/baco_tell)
 "qbB" = (
 /obj/structure/curtain/cloth/fancy,
-/obj/structure/christmas/doorwreath,
+/obj/structure/christmas/doorwreath{
+	pixel_x = -7;
+	pixel_y = -5
+	},
 /turf/closed/wall/vampwall/bar,
 /area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
 "qbN" = (
@@ -22525,6 +22819,17 @@
 /obj/structure/window_frame/old,
 /turf/open/floor/plating/parquetry,
 /area/vtm/vtr/masquerade/interior/floor_two/northwest/police_station)
+"qTr" = (
+/obj/structure/christmas/xmaslights{
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/obj/structure/christmas/xmaslights_lit{
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "qTJ" = (
 /obj/structure/chair/plastic{
 	dir = 4
@@ -22536,10 +22841,6 @@
 /obj/machinery/chem_dispenser/drinks/coffee_master{
 	pixel_x = 0;
 	pixel_y = 13
-	},
-/obj/structure/christmas/xmaslights{
-	dir = 4;
-	layer = 5
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
@@ -23079,6 +23380,23 @@
 "rmo" = (
 /turf/open/floor/plating/toilet,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/old_house)
+"rmL" = (
+/obj/structure/fluff/hedge{
+	layer = 4.1;
+	pixel_x = 0;
+	pixel_y = 12
+	},
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5;
+	pixel_y = 1
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1;
+	pixel_y = 1
+	},
+/turf/closed/wall/vampwall/bar/low,
+/area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
 "rmM" = (
 /turf/open/floor/plating/vampplating/stone,
 /area/vtm/vtr/elysium/interior/floor_two/central/castle_elysium)
@@ -23428,6 +23746,13 @@
 /obj/structure/chair/wood,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/basement/central/library_basement)
+"rwH" = (
+/obj/structure/christmas/doorwreath{
+	pixel_y = -12;
+	layer = 5
+	},
+/turf/closed/wall/vampwall/city,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/church)
 "rwN" = (
 /obj/effect/decal/river_mouth,
 /turf/open/floor/plating/vampocean,
@@ -23714,6 +24039,9 @@
 	dir = 8;
 	layer = 5
 	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 8
+	},
 /turf/open/floor/plating/vampplating,
 /area/vtm/vtr/masquerade/interior/ground_floor/central/nightclub)
 "rGz" = (
@@ -23899,6 +24227,14 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/elysium/interior/floor_two/central/castle_elysium)
+"rMS" = (
+/obj/structure/window_frame/old/reinforced,
+/obj/structure/christmas/xmas_sticker03{
+	pixel_y = 8;
+	layer = 4
+	},
+/turf/open/floor/plating/vampplating/stone,
+/area/vtm/vtr/masquerade/interior/ground_floor/central/bank)
 "rNb" = (
 /obj/machinery/light{
 	pixel_y = 32
@@ -23917,6 +24253,13 @@
 /obj/structure/christmas/xmaslights{
 	dir = 1;
 	layer = 5
+	},
+/obj/structure/christmas/xmas_sticker01{
+	pixel_y = -4;
+	layer = 5
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1
 	},
 /turf/open/floor/carpet,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/bright_house)
@@ -23973,6 +24316,14 @@
 /obj/item/candle/infinite,
 /turf/open/floor/plating/rough/cave,
 /area/vtm/vtr/masquerade/interior/basement/northeast/church)
+"rOq" = (
+/obj/structure/curtain/cloth/fancy,
+/obj/structure/christmas/doorwreath{
+	pixel_y = -5;
+	pixel_x = 8
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
 "rOC" = (
 /obj/structure/trashcan{
 	pixel_x = 0;
@@ -24038,6 +24389,18 @@
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/vtr/masquerade/exterior/ground_floor/northeast/graveyard)
+"rTd" = (
+/obj/structure/window_frame/junk,
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5;
+	pixel_y = 1
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1
+	},
+/turf/open/floor/carpet/green,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/hotel)
 "rTp" = (
 /obj/structure/window_frame/junkalt,
 /turf/open/floor/plating/parquetry/old,
@@ -25148,9 +25511,13 @@
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/hotel)
 "sDX" = (
 /obj/structure/window_frame/bar,
-/obj/structure/christmas/xmaslights{
-	dir = 1;
-	layer = 2.04
+/obj/structure/christmas/xmas_sticker03{
+	pixel_y = 8;
+	layer = 5
+	},
+/obj/structure/christmas/xmas_sticker04{
+	pixel_y = 10;
+	layer = 4.9
 	},
 /turf/open/floor/sepia,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/bakery)
@@ -25476,11 +25843,6 @@
 	pixel_y = -3
 	},
 /obj/machinery/light/floor,
-/obj/structure/christmas/festive_tree{
-	pixel_x = 20;
-	pixel_y = 10;
-	layer = 4
-	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
 "sKG" = (
@@ -25809,6 +26171,9 @@
 /obj/structure/christmas/xmaslights{
 	dir = 8;
 	layer = 5
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 8
 	},
 /turf/open/floor/plating/vampplating,
 /area/vtm/vtr/masquerade/interior/ground_floor/central/nightclub)
@@ -26567,6 +26932,12 @@
 "tzN" = (
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/christmas/xmaslights{
+	pixel_y = 16
+	},
+/obj/structure/christmas/xmaslights_lit{
+	pixel_y = 16
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
@@ -27993,6 +28364,9 @@
 	dir = 8;
 	layer = 5
 	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 8
+	},
 /turf/open/floor/plating/vampplating,
 /area/vtm/vtr/masquerade/interior/ground_floor/central/nightclub)
 "uzm" = (
@@ -28737,6 +29111,15 @@
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 9
 	},
+/obj/structure/christmas/festive_tree{
+	pixel_x = 21;
+	pixel_y = 16;
+	layer = 4
+	},
+/obj/item/stack/package_wrap{
+	pixel_y = 11
+	},
+/obj/structure/table,
 /turf/open/floor/carpet/red,
 /area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
 "uZO" = (
@@ -29573,6 +29956,14 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/church)
+"vEC" = (
+/obj/structure/window_frame/bar,
+/obj/structure/christmas/xmas_sticker01{
+	pixel_y = -2;
+	layer = 5
+	},
+/turf/open/floor/sepia,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/bakery)
 "vFa" = (
 /obj/effect/decal/kopatich{
 	pixel_x = -15;
@@ -30119,6 +30510,14 @@
 /obj/manholedown,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/vtr/masquerade/exterior/floor_three/central/central_long_beach/inaccessible)
+"wag" = (
+/obj/structure/chair/wood/wings{
+	dir = 4;
+	pixel_x = 0;
+	pixel_y = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
 "wak" = (
 /obj/structure/vampdoor/vtr_library/lab,
 /turf/open/floor/plating/vampplating/stone,
@@ -31280,6 +31679,13 @@
 	dir = 1;
 	layer = 5
 	},
+/obj/structure/christmas/xmas_sticker03{
+	pixel_y = 7;
+	layer = 5
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1
+	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/vtr/masquerade/interior/ground_floor/northeast/bright_house)
 "wSZ" = (
@@ -31431,6 +31837,9 @@
 /obj/structure/christmas/xmaslights{
 	dir = 8;
 	layer = 4
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 8
 	},
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/vtr/masquerade/exterior/ground_floor/central/central_long_beach)
@@ -32567,13 +32976,21 @@
 /turf/open/floor/carpet/red,
 /area/vtm/vtr/masquerade/interior/ground_floor/southeast/queen_lilith)
 "xRn" = (
-/obj/structure/chair/wood/wings{
-	dir = 8;
-	pixel_x = 0;
-	pixel_y = 4
+/obj/structure/window_frame/old,
+/obj/structure/christmas/xmas_sticker03{
+	pixel_y = 8;
+	layer = 5
 	},
-/turf/open/floor/mineral/plastitanium,
-/area/vtm/vtr/elysium/interior/floor_two/central/nightclub_elysium)
+/obj/structure/christmas/xmaslights{
+	dir = 1;
+	layer = 5;
+	pixel_y = 1
+	},
+/obj/structure/christmas/xmaslights_lit{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/vtm/vtr/masquerade/interior/ground_floor/northeast/grocery)
 "xRu" = (
 /obj/machinery/light{
 	pixel_y = 32
@@ -106930,7 +107347,7 @@ smg
 ibW
 mHF
 mHF
-smg
+bVk
 sWK
 kTY
 iay
@@ -107958,7 +108375,7 @@ mHF
 mHF
 mHF
 mHF
-smg
+bVk
 sWK
 kTY
 cTF
@@ -117051,7 +117468,7 @@ iCL
 svB
 svB
 svB
-hLu
+rmL
 cpj
 irj
 sBh
@@ -117308,7 +117725,7 @@ iCL
 nAO
 nAO
 nAO
-hLu
+fMJ
 cpj
 irj
 sBh
@@ -117822,7 +118239,7 @@ xhj
 nAO
 nAO
 qcz
-hLu
+eMV
 cpj
 irj
 sBh
@@ -118336,7 +118753,7 @@ iCL
 agG
 nAO
 nAO
-jDG
+fgg
 cpj
 oxu
 sBh
@@ -118604,7 +119021,7 @@ sBh
 qSg
 irj
 avk
-nAO
+qTr
 cly
 cly
 pKb
@@ -118861,8 +119278,8 @@ sBh
 cpj
 irj
 gEI
-nAO
-cly
+qTr
+bpu
 ipJ
 iaD
 vrk
@@ -119889,7 +120306,7 @@ sBh
 cpj
 irj
 nAO
-nAO
+qTr
 cly
 wrM
 cbz
@@ -120146,8 +120563,8 @@ sBh
 cpj
 irj
 avk
-nAO
-pKb
+qTr
+oNi
 nmg
 cbz
 vbZ
@@ -120403,8 +120820,8 @@ sBh
 cpj
 irj
 gEI
-nAO
-pKb
+qTr
+rMS
 qtY
 cbz
 vbZ
@@ -120660,7 +121077,7 @@ sBh
 cpj
 irj
 nAO
-nAO
+qTr
 cly
 wrM
 cbz
@@ -120917,7 +121334,7 @@ sBh
 cpj
 irj
 meY
-tzN
+cpe
 cly
 xTi
 cbz
@@ -121677,7 +122094,7 @@ xhj
 nAO
 nAO
 cEv
-hLu
+eMV
 cpj
 irj
 sBh
@@ -121688,8 +122105,8 @@ sBh
 qSg
 irj
 avk
-nAO
-cly
+qTr
+bpu
 ipJ
 cqV
 iAj
@@ -121945,7 +122362,7 @@ sBh
 cpj
 irj
 gEI
-nAO
+jBh
 cly
 cly
 pKb
@@ -122191,7 +122608,7 @@ xhj
 nAO
 nAO
 iuh
-hLu
+igK
 cpj
 irj
 sBh
@@ -122448,7 +122865,7 @@ iCL
 nAO
 nAO
 nAO
-hLu
+fMJ
 cpj
 irj
 sBh
@@ -128060,7 +128477,7 @@ vro
 aCV
 vqa
 qtN
-noW
+vEC
 qFA
 poC
 dfD
@@ -129602,7 +130019,7 @@ vro
 pmq
 ozu
 pmq
-sDX
+biF
 qFA
 poC
 dfD
@@ -130948,10 +131365,10 @@ vis
 sVs
 mXL
 rEV
-fgg
 eYz
 eYz
-fgg
+eYz
+eYz
 vis
 bmz
 jxM
@@ -133461,7 +133878,7 @@ wQB
 agP
 wQB
 gWK
-cNj
+xRn
 qFA
 ure
 nQr
@@ -133718,7 +134135,7 @@ jXI
 xvN
 mBA
 gWK
-cNj
+esi
 qFA
 fKu
 nQr
@@ -133755,7 +134172,7 @@ bAz
 bAz
 bAz
 bAz
-bAz
+ghX
 mbf
 vrE
 jCH
@@ -134012,7 +134429,7 @@ knb
 bAz
 fNI
 ajo
-bAz
+cni
 chf
 vrE
 jCH
@@ -134232,7 +134649,7 @@ wQB
 agP
 wQB
 gWK
-cNj
+xRn
 qFA
 ure
 nQr
@@ -134269,7 +134686,7 @@ knb
 bAz
 xLe
 ghH
-bAz
+ghX
 asp
 hyi
 jCH
@@ -134526,7 +134943,7 @@ kDk
 bAz
 kDk
 bAz
-bAz
+ghX
 uPs
 vrE
 jCH
@@ -134783,7 +135200,7 @@ cIU
 rvw
 cIU
 qCq
-bAz
+ghX
 hIv
 vrE
 jCH
@@ -135040,7 +135457,7 @@ cIU
 cIU
 cIU
 lEO
-wNP
+rTd
 asp
 vrE
 dtA
@@ -135297,7 +135714,7 @@ cIU
 vyw
 cIU
 swP
-wNP
+rTd
 asp
 vrE
 jCH
@@ -135554,7 +135971,7 @@ gwC
 cCa
 cIU
 iGc
-wNP
+rTd
 asp
 vrE
 jCH
@@ -135774,7 +136191,7 @@ gWK
 keH
 gWK
 tcw
-cNj
+xRn
 qFA
 ure
 ido
@@ -135811,7 +136228,7 @@ dBZ
 rep
 cIU
 jWP
-bAz
+cni
 chf
 vrE
 jCH
@@ -136031,7 +136448,7 @@ gWK
 gWK
 gWK
 wQB
-cNj
+kVv
 qFA
 ure
 nQr
@@ -136068,7 +136485,7 @@ wNP
 bAz
 dTu
 bAz
-bAz
+ghX
 cfm
 vrE
 jCH
@@ -136288,7 +136705,7 @@ gWK
 jOM
 gWK
 rsW
-cNj
+xRn
 kHN
 ure
 nQr
@@ -136545,7 +136962,7 @@ gWK
 gWK
 gWK
 gWK
-cNj
+xRn
 oux
 ure
 nQr
@@ -141182,7 +141599,7 @@ ure
 nQr
 asp
 cMx
-bYo
+rwH
 nmb
 lcu
 xUY
@@ -142467,7 +142884,7 @@ ure
 nQr
 asp
 cMx
-bYo
+rwH
 tVr
 xUY
 pbr
@@ -155084,7 +155501,7 @@ lgn
 pLN
 iUO
 jzz
-wSg
+mSe
 gRn
 bVW
 bVW
@@ -156628,7 +157045,7 @@ tTZ
 krk
 xfE
 gjN
-rNh
+mNo
 asp
 vrE
 jCH
@@ -156885,7 +157302,7 @@ tGJ
 xfE
 fnt
 rxS
-rNh
+kaD
 asp
 vrE
 jCH
@@ -191080,7 +191497,7 @@ oXr
 oXr
 vRl
 oPg
-lpx
+wag
 aqR
 lpx
 pKq
@@ -191090,7 +191507,7 @@ qnY
 lFo
 gYk
 qnY
-lFo
+pav
 vRl
 cEx
 cEx
@@ -191346,7 +191763,7 @@ tRs
 jpa
 dTA
 uun
-jpa
+krY
 dTA
 vRl
 bOQ
@@ -191597,7 +192014,7 @@ eXi
 rAa
 rJO
 uws
-xRn
+lpx
 lpx
 xeW
 ato
@@ -191849,7 +192266,7 @@ oXr
 oXr
 oXr
 oXr
-qbB
+rOq
 eAB
 sKu
 rJO
@@ -192108,7 +192525,7 @@ oXr
 oXr
 qbB
 eAB
-kVv
+sKu
 rJO
 uws
 fNs
@@ -192628,7 +193045,7 @@ mjP
 lpx
 msA
 svl
-bzf
+gbc
 mnR
 qRE
 bzf
@@ -192889,7 +193306,7 @@ nOD
 arN
 jmm
 hQk
-arN
+dTA
 vRl
 mYf
 mYf

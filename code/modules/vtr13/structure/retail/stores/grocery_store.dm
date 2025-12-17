@@ -17,5 +17,9 @@
 		new /datum/data/retail_product("newport",		/obj/item/storage/fancy/cigarettes/cigpack_xeno,	30),
 		new /datum/data/retail_product("camel",	/obj/item/storage/fancy/cigarettes/dromedaryco,	30),
 		new /datum/data/retail_product("zippo lighter",	/obj/item/lighter,	20),
-		new /datum/data/retail_product("lighter",		/obj/item/lighter/greyscale,	10)
+		new /datum/data/retail_product("lighter",		/obj/item/lighter/greyscale,	10),
+		new /datum/data/retail_product("package wrap",		/obj/item/stack/package_wrap,	10),
+		new /datum/data/retail_product("decorative gift wrap",		/obj/item/stack/wrapping_paper,	10),
+		new /datum/data/retail_product("random gift",		/obj/item/a_gift/vtrgift,	25),
+		new /datum/data/retail_product("christmas cracker",		/obj/item/toy/xmas_cracker,	5)
 	)
