@@ -265,9 +265,11 @@
 		if(successes <= 0)
 			L.visible_message("<span class='danger'>[L] narrowly dodges \a [src]!</span>", \
 				"<span class='userdanger'>You're narrowly dodge \a [src]!</span>", null, COMBAT_MESSAGE_RANGE)
+			damage = 0
 			return BULLET_ACT_FORCE_PIERCE
 		else
-			damage = 1*successes
+			var/damage_mult = 1 + 0.1 * (living_firer.get_wits() - 2) //100% damage at 2 wits, +-10% for each point away from that
+			damage *= damage_mult
 
 	if(blocked != 100) // not completely blocked
 		if(damage && L.bloodpool && damage_type == BRUTE)
