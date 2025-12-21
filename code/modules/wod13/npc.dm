@@ -3,6 +3,8 @@
 
 /mob/living/carbon/human/npc
 	name = "Loh ebanii"
+	custom_desc = "an ordinary"
+	custom_noun = "person"
 	/// Until we do a full NPC refactor (see: rewriting every single bit of code)
 	/// use this to determine NPC weapons and their chances to spawn with them -- assuming you want the NPC to do that
 	/// Otherwise just set it under the NPC's type as
@@ -184,6 +186,8 @@
 	var/list/surnames = list("Durden",
 		"Polson",
 		"Singer")
+	var/list/stock_descs = list("a normal", "an ordinary", "a plain", "a regular", "a simple", "a typical", "an everyday", "an average", "an unremarkable")
+	var/list/stock_nouns = list("person","gentleperson","individual","figure")
 
 	//Hair shit
 	var/list/hair_colors = list("040404",	//Black
@@ -419,6 +423,8 @@
 			s_names = socialrole.surnames
 		else
 			s_names = GLOB.last_names
+		custom_desc = pick(socialrole.stock_descs)
+		custom_noun = pick(socialrole.stock_nouns)
 		age = rand(socialrole.min_age, socialrole.max_age)
 		if(socialrole.s_tones_force)
 			skin_tone = socialrole.s_tones_force

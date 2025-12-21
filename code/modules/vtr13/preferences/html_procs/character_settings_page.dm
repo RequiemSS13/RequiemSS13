@@ -14,7 +14,7 @@
 	dat += "<a href='byond://?_src_=prefs;preference=true_name;task=input'>[true_real_name]</a><BR>"
 
 	if(!(AGENDER in pref_species.species_traits))
-		dat += "<b>Gender:</b> <a href='byond://?_src_=prefs;preference=gender'>[gender == MALE ? "Male" : gender == FEMALE ? "Female" : "Other"]</a>"
+		dat += "<b>Gender:</b> <a href='byond://?_src_=prefs;preference=gender'>[gender == MALE ? "Male" : gender == FEMALE ? "Female" : gender == PLURAL ? "Other (They/Them)" : "Other (It/Its)"]</a>"
 	dat += "<BR><b>Body Type:</b> <a href='byond://?_src_=prefs;preference=body_type'>[body_type == MALE ? "Masculine" : body_type == FEMALE ? "Feminine" : "Other"]</a>"
 	if(pref_species.name == "Vampire" || pref_species.name == "Ghoul" || pref_species.name == "Werewolf")
 		dat += "<br><b>Biological Age:</b> <a href='byond://?_src_=prefs;preference=age;task=input'>[age]</a>"
@@ -187,6 +187,13 @@
 	dat += "<b>Headshot(1:1):</b> <a href='byond://?_src_=prefs;preference=headshot;task=input'>Change</a>"
 	if(headshot_link != null)
 		dat += " <a href='byond://?_src_=prefs;preference=view_headshot;task=input'>View</a>"
+	dat += "<br><br>"
+	dat += "<b>Adjective:</b> <a href='byond://?_src_=prefs;preference=custom_desc;task=input'>Change</a><br>"
+
+	dat += "<b>Descriptor:</b> <a href='byond://?_src_=prefs;preference=custom_noun;task=input'>Change</a><br>"
+
+	dat += "You look like [custom_desc] [custom_noun]."
+
 	dat += "<br><br>"
 	dat += "<b>Character Link:</b> <a href='byond://?_src_=prefs;preference=ooc_link;task=input'>Change</a><br><i>[ooc_link]</i>"
 
