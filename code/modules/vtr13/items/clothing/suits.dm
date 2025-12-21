@@ -445,3 +445,14 @@
 	desc = "A heavy fur-lined hood, for all the snow in LA."
 	icon_state = "vintagepark_hood"
 
+//APRONS
+/obj/item/clothing/suit/vampire/vtr/apron_white
+	name = "white apron"
+	desc = "It gets stained so you don't have to."
+	icon_state = "apron_white"
+
+/obj/item/clothing/suit/vampire/vtr/apron_black
+	name = "black apron"
+	desc = "Great for butchers or baristas."
+	icon_state = "apron_black"
+

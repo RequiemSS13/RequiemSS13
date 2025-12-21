@@ -320,3 +320,34 @@
 /datum/gear/hat/black_headdress
 	display_name = "black headdress"
 	path = /obj/item/clothing/head/vampire/vtr/black_headdress
+
+// Motorcycle Helmets
+
+/datum/gear/hat/moto_helmet_basic
+	display_name = "motorcycle helmet, white"
+	path = /obj/item/clothing/head/helmet/moto_helmet_basic
+
+/datum/gear/hat/moto_helmet_black
+	display_name = "motorcycle helmet, black"
+	path = /obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_black
+
+/datum/gear/hat/moto_helmet_teal
+	display_name = "motorcycle helmet, teal"
+	path = /obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_teal
+
+/datum/gear/hat/moto_helmet_red
+	display_name = "motorcycle helmet, red"
+	path = /obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_red
+
+/datum/gear/hat/moto_helmet_green
+	display_name = "motorcycle helmet, green"
+	path = /obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_green
+
+/datum/gear/hat/moto_helmet_blue
+	display_name = "motorcycle helmet, blue"
+	path = /obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_blue
+
+/datum/gear/hat/moto_helmet_yellow
+	display_name = "motorcycle helmet, yellow"
+	path = /obj/item/clothing/head/helmet/moto_helmet_basic/moto_helmet_yellow
+
