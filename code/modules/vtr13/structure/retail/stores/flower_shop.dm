@@ -18,6 +18,7 @@
 		new /datum/data/retail_product("Geranium seeds", /obj/item/seeds/geranium, 50),
 		new /datum/data/retail_product("Lily seeds", /obj/item/seeds/lily, 50),
 		new /datum/data/retail_product("Forget me not seeds", /obj/item/seeds/forgetmenot, 50),
+		new /datum/data/retail_product("Harebell seeds", /obj/item/seeds/harebell, 50),
 		new /datum/data/retail_product("Aloe seeds", /obj/item/seeds/aloe, 50),
 		new /datum/data/retail_product("Apple seeds", /obj/item/seeds/apple, 50),
 		new /datum/data/retail_product("Cabbage seeds", /obj/item/seeds/cabbage, 50),

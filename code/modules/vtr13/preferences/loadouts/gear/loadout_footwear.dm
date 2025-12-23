@@ -47,7 +47,7 @@
 /datum/gear/footwear/sneakers/blue
 	display_name = "sneakers, blue"
 	path = /obj/item/clothing/shoes/vampire/vtr/sneakers_blue
-	
+
 /datum/gear/footwear/sneakers/pumped
 	display_name = "sneakers, high"
 	path = /obj/item/clothing/shoes/vampire/vtr/pumped
@@ -109,3 +109,9 @@
 /datum/gear/footwear/high_heels_red
 	display_name = "high heels, red"
 	path = /obj/item/clothing/shoes/vampire/heels/red
+
+/datum/gear/footwear/wheelys
+	display_name = "wheelys"
+	path = /obj/item/clothing/shoes/wheelys
+	cost = 4
+

@@ -100,3 +100,8 @@
 /datum/gear/general/wheelchair
 	display_name = "wheelchair"
 	path = /obj/item/wheelchair
+
+/datum/gear/general/skateboard
+	display_name = "skateboard"
+	path = /obj/item/melee/skateboard/improvised
+	cost = 3
