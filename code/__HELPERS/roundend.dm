@@ -499,15 +499,19 @@
 	var/list/parts = list()
 	parts += "<span class='header'>City Economic Summary:</span>"
 	///This is the richest account on station at roundend.
-	var/datum/vtr_bank_account/mr_moneybags = GLOB.bank_account_list[1]
-	if(!istype(mr_moneybags))
+	var/datum/vtr_bank_account/mr_moneybags /* = GLOB.bank_account_list[1] */
+	if(!length(GLOB.bank_account_list))
 		CRASH("A bank account wasn't found in GLOB.bank_account_list for determining the richest player at round-end.")
 	///This is the station's total wealth at the end of the round.
 	var/station_vault = 0
 	///How many players joined the round.
 	var/total_players = GLOB.joined_player_list.len
+	var/firstpass = TRUE
 	for(var/datum/vtr_bank_account/account in GLOB.bank_account_list)
-		if(account && account.account_owner)
+		if(firstpass)
+			mr_moneybags = account
+			firstpass = FALSE
+		else if(account && account.account_owner)
 			station_vault += account.balance
 			if(mr_moneybags.balance < account.balance)
 				mr_moneybags = account

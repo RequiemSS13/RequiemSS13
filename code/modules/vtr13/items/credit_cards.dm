@@ -45,13 +45,11 @@
 /obj/item/vamp/creditcard/New(mob/user)
 	..()
 	if(!account || code == "")
-		account = new /datum/vtr_bank_account()
+		account = new /datum/vtr_bank_account(user)
 	if(user)
 		owner = user.ckey
 
-	if(HAS_TRAIT(user, TRAIT_DESTITUTE))
-		account.balance = rand(0, 100)
-	else if(istype(src, /obj/item/vamp/creditcard/police))
+	if(istype(src, /obj/item/vamp/creditcard/police))
 		account.balance = rand(800, 1200)
 	else if(istype(src, /obj/item/vamp/creditcard/police_chief))
 		account.balance = rand(1000, 1500)
@@ -67,6 +65,3 @@
 		account.balance = rand(9000, 11000)
 	else
 		account.balance = rand(600, 1000)
-
-	if(HAS_TRAIT(user, TRAIT_WEALTHY))
-		account.balance = round(account.balance * 1.5)

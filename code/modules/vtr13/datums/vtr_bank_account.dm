@@ -10,13 +10,15 @@
 	var/list/karmic_credit_deducted
 	var/list/credit_cards = list()
 
-/datum/vtr_bank_account/New()
+/datum/vtr_bank_account/New(mob/owner = null)
 	..()
 	if(!code || code == "")
 		code = create_bank_code()
 		var/random_id = rand(1, 999999)
 		bank_id = random_id
 		GLOB.bank_account_list += src
+		if(owner)
+			tracked_owner_mob = WEAKREF(owner)
 
 /datum/vtr_bank_account/proc/modify_balance(amount, mob/living/user = null)
 	if(!amount)
