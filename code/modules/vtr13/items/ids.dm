@@ -295,3 +295,23 @@
 	worn_icon = 'icons/wod13/worn.dmi'
 	worn_icon_state = "id9"
 	registered_age = null
+
+/obj/item/card/id/taxi
+	name = "Taxi Driver's ID"
+	id_type_name = "taxi license"
+	desc = "An ID identifying the wearer as a licensed taxicab driver."
+	icon = 'icons/wod13/items.dmi'
+	icon_state = "id8"
+	inhand_icon_state = "card-id"
+	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
+	
+/obj/item/card/id/generic
+	name = "Government ID"
+	id_type_name = "government ID"
+	desc = "A generic government ID with basic information about its holder."
+	icon = 'icons/wod13/items.dmi'
+	icon_state = "id8"
+	inhand_icon_state = "card-id"
+	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'

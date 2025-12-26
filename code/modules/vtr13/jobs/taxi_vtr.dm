@@ -26,6 +26,7 @@
 
 /datum/outfit/job/taxi_vtr
 	name = "Taxi Driver"
+	id = /obj/item/card/id/taxi
 	jobtype = /datum/job/vamp/vtr/taxi_vtr
 	uniform = /obj/item/clothing/under/vampire/sport
 	shoes = /obj/item/clothing/shoes/vampire
