@@ -8,11 +8,13 @@
 	name = "white veil"
 	desc = "A white lace veil that covers the eyes."
 	icon_state = "white_veil"
+	flags_inv = HIDEEYES
 
 /obj/item/clothing/glasses/vampire/vtr/black_veil
 	name = "black veil"
 	desc = "A dark veil that obscures the wearer's face."
 	icon_state = "black_veil"
+	flags_inv = HIDEEYES
 
 /obj/item/clothing/glasses/vampire/vtr/metalframe
 	name = "prescription aviators"
@@ -36,6 +38,7 @@
 	name = "bicolor sunglasses"
 	desc = "These let you see the whole world in 3D."
 	icon_state = "3d"
+	flags_inv = HIDEEYES
 
 /obj/item/clothing/glasses/vampire/vtr/safetygoggles
 	name = "safety goggles"
@@ -46,11 +49,13 @@
 	name = "oversized sunglasses"
 	desc = "Oversized visor sunglasses, extra cool at night."
 	icon_state = "bigsunglasses"
+	flags_inv = HIDEEYES
 
 /obj/item/clothing/glasses/vampire/vtr/thinsunglasses
 	name = "thin sunglasses"
 	desc = "Stay in Wonderland and I'll show you how deep the rabbit hole goes."
 	icon_state = "sun_thin"
+	flags_inv = HIDEEYES
 
 /obj/item/clothing/glasses/vampire/vtr/eyepatch
 	name = "right eyepatch"
@@ -76,18 +81,22 @@
 	name = "aviators"
 	desc = "What's our vector, Victor?"
 	icon_state = "aviator"
+	flags_inv = HIDEEYES
 
 /obj/item/clothing/glasses/vampire/vtr/aviator_green
 	name = "green aviators"
 	desc = "They're better for the environment."
 	icon_state = "aviator_green"
+	flags_inv = HIDEEYES
 
 /obj/item/clothing/glasses/vampire/vtr/aviator_blue
 	name = "blue aviators"
 	desc = "Gives you a more pessimistic view of the past."
 	icon_state = "aviator_blue"
+	flags_inv = HIDEEYES
 
 /obj/item/clothing/glasses/vampire/vtr/aviator_red
 	name = "red aviators"
 	desc = "Absolutely do not make you look like a vampire."
 	icon_state = "aviator_red"
+	flags_inv = HIDEEYES
