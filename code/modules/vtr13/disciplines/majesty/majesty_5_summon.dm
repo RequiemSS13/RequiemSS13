@@ -2,6 +2,7 @@
 	name = "Summon"
 	desc = "Call to the blood of another and compel them to come to you via the invocation of their True Name."
 	level = 5
+	vitae_cost = 4
 	cooldown_length = 1 MINUTES
 	var/majesty_duration = 15 MINUTES
 	var/power_in_use = FALSE
@@ -42,7 +43,7 @@
 		owner,
 		victim,
 		dice_a = owner.get_charisma() + discipline.level,
-		dice_b = victim.get_composure() + victim.get_potency() + trait_bonus, 
+		dice_b = victim.get_composure() + victim.get_potency() + trait_bonus,
 		alert_atom = owner,
 		show_player_a = TRUE,
 		show_player_b = FALSE))

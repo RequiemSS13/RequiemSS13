@@ -2,14 +2,15 @@
 	name = "Hysterical Blindness"
 	desc = "Make someone go blind and deaf temporarily from traumatic stress."
 	level = 3
+	vitae_cost = 2
 
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_SEE
 	target_type = TARGET_HUMAN | TARGET_SELF
 	range = 7
 
 	multi_activate = TRUE
-	cooldown_length = 10 SECONDS
-	duration_length = 10 SECONDS
+	cooldown_length = 15 SECONDS
+	duration_length = 1 MINUTES
 
 /datum/discipline_power/vtr/nightmare/hysterical_blindness/pre_activation_checks(mob/living/target)
 	var/trait_bonus = (HAS_TRAIT(target, TRAIT_EMERSONIAN)?TRAIT_EMERSONIAN_MOD:0) + (HAS_TRAIT(target, TRAIT_PREGNABLE_MIND)?TRAIT_PREGNABLE_MIND_MOD:0)
@@ -17,7 +18,7 @@
 		owner,
 		target,
 		dice_a = owner.get_wits() + discipline.level,
-		dice_b = target.get_resolve() + target.get_potency() + trait_bonus, 
+		dice_b = target.get_resolve() + target.get_potency() + trait_bonus,
 		alert_atom = target)) //TODO HEX: Tie to blood_potency
 		return TRUE
 	to_chat(owner, span_warning("[target] keeps their eyes open!"))

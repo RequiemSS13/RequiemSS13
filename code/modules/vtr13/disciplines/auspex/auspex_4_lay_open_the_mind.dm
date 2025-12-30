@@ -3,6 +3,7 @@
 	desc = "Allows you to discover the closely guarded secrets of another."
 
 	level = 4
+	vitae_cost = 3
 	target_type = TARGET_HUMAN | TARGET_SELF
 	range = 7
 	cooldown_length = 60 SECONDS
@@ -14,9 +15,9 @@
 		"What is your deepest desire?" = PROC_REF(ask_prompt),
 		"What is your biggest regret?" = PROC_REF(ask_prompt),
 		"Who did you last kill?" = PROC_REF(ask_prompt),
-		"Out of everyone, who do you hate the most?" = PROC_REF(ask_prompt),
-		"Out of everyone, who are you closest to?" = PROC_REF(ask_prompt),
-		"What mortal are you closest to?" = PROC_REF(ask_prompt)
+		"Out of everyone in your life, who do you hate the most?" = PROC_REF(ask_prompt),
+		"Out of everyone in your life, who are you closest to?" = PROC_REF(ask_prompt),
+		"Out of everyone in your life, what mortal are you closest to?" = PROC_REF(ask_prompt)
 	)
 
 /datum/discipline_power/vtr/auspex/lay_open_the_mind/pre_activation_checks(mob/living/carbon/human/target)

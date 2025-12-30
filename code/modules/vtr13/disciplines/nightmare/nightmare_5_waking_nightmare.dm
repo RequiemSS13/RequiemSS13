@@ -3,6 +3,7 @@
 	desc = "Subject a victim to a horrendous, visceral experience."
 
 	level = 5
+	vitae_cost = 4
 
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_SEE
 	target_type = TARGET_HUMAN | TARGET_SELF

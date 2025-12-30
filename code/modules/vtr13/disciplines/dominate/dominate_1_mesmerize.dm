@@ -7,9 +7,9 @@
 	check_flags = DISC_CHECK_CAPABLE|DISC_CHECK_SPEAK|DISC_CHECK_SEE
 	target_type = TARGET_PLAYER|TARGET_LIVING|TARGET_SELF
 
-	cooldown_length = 5 MINUTES
+	cooldown_length = 3 MINUTES
 	range = 7
-	vitae_cost = 2
+	vitae_cost = 0
 	var/word_limit = 4
 	var/max_retry_recursion = 15
 	var/guidelines = "On a successful roll, Mesmerize compels your target to follow a four-or-fewer word command until it is completed, the night ends, or they are injured. Their player decides how they interpret your command and when it is complete- please use clear, direct language for best effect. Their player can choose to reject your command for any reason- please ensure your command is not boring, uncomfortable, or against the rules. You cannot alter memories with this power. The text of your command is readable by staff, and attempts to circumvent the word limit are against the rules. Please keep our consent guidelines in mind while using this power."

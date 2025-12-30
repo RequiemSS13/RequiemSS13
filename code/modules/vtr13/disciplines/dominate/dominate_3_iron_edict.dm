@@ -7,9 +7,9 @@
 	check_flags = DISC_CHECK_CAPABLE|DISC_CHECK_SPEAK|DISC_CHECK_SEE
 	target_type = TARGET_PLAYER|TARGET_LIVING|TARGET_SELF
 
-	cooldown_length = 5 MINUTES
+	cooldown_length = 3 MINUTES
 	range = 7
-	vitae_cost = 3
+	vitae_cost = 2
 	var/max_retry_recursion = 15
 	var/guidelines = "On a successful roll, Iron Edict compels your target to follow a single command until it is completed, the night ends, or they are injured. Your command can be as long as you like within the character limit, and may be detailed and complex, but should be a single command. Their player decides how they interpret your command and when it is complete- please use clear, direct language for best effect. Their player can choose to reject your command for any reason- please ensure your command is not boring, uncomfortable, or against the rules. You cannot alter memories with this power, though you can force your target to act as though their memories were different. The text of your command is readable by staff. Please keep our consent guidelines in mind while using this power."
 	var/player_consent = "If you consent to the command below, your character will be compelled to obey it until they are injured or the command is complete. You decide how to interpret the command and when it is complete. Please only consent to this command if you are comfortable doing so and believe it would make for a more engaging roleplaying experience. If you do not consent to this command, it will appear as though it were a failed roll. You do not have to justify rejecting this command to anyone, including staff. Consenting to this command does not remove your ability to revoke consent later for any reason."

@@ -2,8 +2,9 @@
 	name = "Idol"
 	desc = "Become so resplendant that others cannot bring themselves to so much as touch you."
 	level = 4
+	vitae_cost = 3
 	cancelable = TRUE
-	cooldown_length = 15 SECONDS
+	cooldown_length = 30 SECONDS
 	duration_length = 30 SECONDS
 	var/image/the_glow
 	var/list/clients_affected = list()
@@ -26,7 +27,7 @@
 			owner,
 			victim,
 			dice_a = owner.get_charisma() + discipline.level,
-			dice_b = victim.get_composure() + victim.get_potency() + trait_bonus, 
+			dice_b = victim.get_composure() + victim.get_potency() + trait_bonus,
 			alert_atom = victim,
 			show_player_a = TRUE,
 			show_player_b = FALSE))
