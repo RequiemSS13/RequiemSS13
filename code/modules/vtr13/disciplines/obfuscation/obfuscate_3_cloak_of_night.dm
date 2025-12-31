@@ -3,6 +3,7 @@
 	desc = "Move among the crowds without ever being noticed. Achieve invisibility."
 
 	level = 3
+	vitae_cost = 2
 
 	check_flags = DISC_CHECK_CAPABLE
 	cooldown_length = 20 SECONDS

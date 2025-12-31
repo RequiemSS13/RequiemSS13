@@ -8,6 +8,7 @@
 	var/players_left_refresh_amount = 3
 	range = 3
 	level = 5
+	vitae_cost = 3
 	bothers_with_duration_timers = FALSE
 	grouped_powers = list(
 		/datum/discipline_power/vtr/obfuscate/cloak_of_night,
@@ -54,7 +55,7 @@
 /datum/discipline_power/vtr/obfuscate/cloak_the_gathering/proc/trigger_off(mob/living/culprit)
 	if(culprit.mind)
 		to_chat(culprit, span_danger("Your Obfuscate falls away as you reveal yourself!"))
-	
+
 	playsound(get_turf(culprit), 'code/modules/wod13/sounds/obfuscate_deactivate.ogg', 100, TRUE, -6)
 
 	UnregisterSignal(culprit, aggressive_signals)
