@@ -200,6 +200,7 @@
 	heat_protection = 0
 	max_heat_protection_temperature = 0
 
+	//this is broken when you adjust it in-hand wrt appearances updating and this is apparently inherent and *still* an issue in modern codebases. might have a fix in rebase (adjust_visor(mob/living/user)
 	actions_types = list(/datum/action/item_action/toggle)
 	toggle_message = "You pull the visor down on"
 	alt_toggle_message = "You push the visor up on"
