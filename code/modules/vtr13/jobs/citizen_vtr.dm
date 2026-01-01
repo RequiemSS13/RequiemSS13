@@ -37,6 +37,7 @@
 
 /datum/outfit/job/citizen_vtr
 	name = "Pedestrian"
+	id = /obj/item/card/id/generic
 	jobtype = /datum/job/vamp/vtr/citizen_vtr
 	l_pocket = /obj/item/vamp/phone
 	uniform = /obj/item/clothing/under/vampire/emo
