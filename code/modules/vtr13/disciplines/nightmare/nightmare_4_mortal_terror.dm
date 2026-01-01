@@ -3,6 +3,7 @@
 	desc = "Inflict such piquant horror into your victim that they suffer physical damage."
 
 	level = 4
+	vitae_cost = 3
 
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_SEE
 	target_type = TARGET_HUMAN | TARGET_SELF

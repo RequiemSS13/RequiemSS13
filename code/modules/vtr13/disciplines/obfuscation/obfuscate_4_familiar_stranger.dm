@@ -3,6 +3,7 @@
 	desc = "Adopt the face of some nameless passerby, becoming one of them for a time."
 
 	level = 1
+	vitae_cost = 3
 
 	check_flags = DISC_CHECK_CAPABLE
 

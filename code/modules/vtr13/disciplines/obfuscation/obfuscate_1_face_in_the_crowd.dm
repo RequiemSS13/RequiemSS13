@@ -3,13 +3,14 @@
 	desc = "Adopt the face of some nameless passerby, becoming one of them for a time."
 
 	level = 1
+	vitae_cost = 0
 
 	check_flags = DISC_CHECK_CAPABLE
-
+	cooldown_length = 1 MINUTES
 	cancelable = TRUE
 	duration_override = TRUE
 
-	
+
 
 	grouped_powers = list(
 		/datum/discipline_power/vtr/obfuscate/cloak_of_night,

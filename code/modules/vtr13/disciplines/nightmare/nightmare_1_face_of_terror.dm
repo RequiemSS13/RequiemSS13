@@ -4,13 +4,14 @@
 	desc = "Paralyze your victim with fear at a glance."
 
 	level = 1
+	vitae_cost = 0
 
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_SEE
 	target_type = TARGET_HUMAN | TARGET_SELF
 	range = 7
 
 	multi_activate = TRUE
-	cooldown_length = 10 SECONDS
+	cooldown_length = 1 MINUTES
 	duration_length = 3 SECONDS
 
 /datum/discipline_power/vtr/nightmare/face_of_terror/pre_activation_checks(mob/living/target)
@@ -24,7 +25,7 @@
 		owner,
 		target,
 		dice_a = owner.get_wits() + discipline.level,
-		dice_b = target.get_resolve() + target.get_potency() + trait_bonus, 
+		dice_b = target.get_resolve() + target.get_potency() + trait_bonus,
 		alert_atom = target)) //TODO HEX: Tie to blood_potency
 		return TRUE
 	to_chat(owner, span_warning("[target] resists the horror of what they see!"))

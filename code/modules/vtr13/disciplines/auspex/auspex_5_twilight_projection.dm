@@ -6,6 +6,7 @@
 	check_flags = DISC_CHECK_CONSCIOUS
 
 	level = 5
+	vitae_cost = 4
 
 /datum/discipline_power/vtr/auspex/twilight_projection/activate()
 	. = ..()

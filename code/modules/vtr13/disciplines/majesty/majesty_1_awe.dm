@@ -2,9 +2,11 @@
 	name = "Awe"
 	desc = "Become the center of attention."
 	level = 1
+	vitae_cost = 0
 
 	cancelable = TRUE
 	duration_length = 1 MINUTES
+	cooldown_length = 3 MINUTES
 	var/charmed_status_debuff = 3
 /datum/discipline_power/vtr/majesty/awe/activate()
 	. = ..()
@@ -14,7 +16,7 @@
 			owner,
 			target,
 			dice_a = owner.get_charisma() + discipline.level,
-			dice_b = target.get_composure() + target.get_potency() + trait_bonus, 
+			dice_b = target.get_composure() + target.get_potency() + trait_bonus,
 			alert_atom = target,
 			show_player_a = TRUE,
 			show_player_b = FALSE))

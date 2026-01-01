@@ -28,7 +28,7 @@
 	if(!do_mob(owner, owner, 1 SECONDS))
 		return
 	power_in_use = TRUE
-	current_emotion = majesty_tgui_input_text(owner, guidelines, "Choose an emotion to instill, eg: Anger, Envy, Appreciation, etc. :", "Majesty", null, 50, FALSE, FALSE, 1)
+	current_emotion = majesty_tgui_input_text(owner, guidelines, "Choose an emotion to instill, eg: Anger, Envy, Appreciation, etc. :", "Majesty", null, 50, FALSE, FALSE, 4)
 	power_in_use = FALSE
 
 	if(!current_emotion)

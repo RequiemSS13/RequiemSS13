@@ -33,6 +33,7 @@
 	apply_discipline_affliction_overlay(target, "dementation", 1)
 
 	target.Jitter(15)
+	target.drop_all_held_items()
 	ADD_TRAIT(target, TRAIT_NO_QUICK_EQUIP, NIGHTMARE_2_TRAIT)
 	owner.playsound_local(get_turf(target), 'sound/magic/ethereal_enter.ogg', 100, FALSE)
 	to_chat(target, span_userdanger("You find yourself in the final moments of a horror you cannot remember. The danger has passed, but your body trembles like a leaf from the stress."))

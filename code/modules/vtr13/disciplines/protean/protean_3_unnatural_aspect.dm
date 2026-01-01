@@ -7,8 +7,9 @@
 
 	violates_masquerade = TRUE
 
+	bothers_with_duration_timers = FALSE
+
 	toggled = TRUE
-	duration_length = 15 SECONDS
 	cooldown_length = 15 SECONDS
 
 	var/datum/adaptation/unnatural/adaptation
@@ -16,12 +17,12 @@
 /datum/discipline_power/vtr/protean/unnatural_aspect/pre_activation_check_no_spend()
 	if(adaptation)
 		return TRUE
-	
+
 	var/selection = tgui_input_list(
-		owner, 
-		"Select an unnatural adaptation - choosing will lock you into this choice for the round!", 
-		"Select an Adaptation:", 
-		SSprotean_adaptation.adaptations_unnatural, 
+		owner,
+		"Select an unnatural adaptation - choosing will lock you into this choice for the round!",
+		"Select an Adaptation:",
+		SSprotean_adaptation.adaptations_unnatural,
 		null)
 	if(selection)
 		var/adaptation_type = SSprotean_adaptation.adaptations_unnatural[selection]

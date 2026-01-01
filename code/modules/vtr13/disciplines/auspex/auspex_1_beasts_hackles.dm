@@ -6,9 +6,10 @@
 	check_flags = DISC_CHECK_CONSCIOUS|DISC_CHECK_SEE
 
 	level = 1
-
-	toggled = TRUE
-	duration_length = 2 TURNS
+	vitae_cost = 0
+	cooldown_length = 3 MINUTES
+	duration_length = 15 SECONDS
+	cancelable = TRUE
 
 /datum/discipline_power/vtr/auspex/beasts_hackles/activate()
 	. = ..()
@@ -22,7 +23,7 @@
 	var/datum/atom_hud/health_hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
 	health_hud.add_hud_to(owner)
 	owner.update_sight()
-	
+
 	owner.see_invisible = get_auspex_level()
 
 

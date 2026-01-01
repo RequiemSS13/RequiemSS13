@@ -2,13 +2,13 @@
 	name = "Mist Form"
 	desc = "Become a cloud of blood, traveling through doors and coalescing somewhere else."
 	level = 5
-	vitae_cost = 8
+	vitae_cost = 4
 	check_flags = DISC_CHECK_IMMOBILE | DISC_CHECK_CAPABLE
 	cooldown_length = 15 MINUTES
 	duration_length = 15 SECONDS
 	violates_masquerade = TRUE
 	cancelable = TRUE
-	
+
 	var/mob/living/shapeshifted_creature
 
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/protean/GA
