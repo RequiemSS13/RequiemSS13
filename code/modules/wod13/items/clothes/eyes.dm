@@ -14,12 +14,14 @@
 	desc = "Fuck it, Dude, let's go bowling."
 	icon_state = "yellow"
 	inhand_icon_state = "glasses"
+	flags_inv = HIDEEYES
 
 /obj/item/clothing/glasses/vampire/red
 	name = "red aviators"
 	desc = "Absolutely do not make you look like a vampire."
 	icon_state = "redg"
 	inhand_icon_state = "glasses"
+	flags_inv = HIDEEYES
 
 /obj/item/clothing/glasses/vampire/sun
 	name = "sunglasses"
@@ -27,7 +29,7 @@
 	icon_state = "sun"
 	inhand_icon_state = "glasses"
 	darkness_view = 1
-	flash_protect = FLASH_PROTECTION_FLASH
+	flags_inv = HIDEEYES
 
 /obj/item/clothing/glasses/vampire/perception
 	name = "perception glasses"
