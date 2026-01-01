@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>/datum/discipline_power/vtr - Long Beach</title></head><body><header><a href="index.html">Long Beach</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a> — <a href="datum/discipline_power/vtr.html#proc">Proc Details</a></header><main><h1>vtr <aside>/<a href="datum.html">datum</a>/<a href="datum/discipline_power.html">discipline_power</a>/<a href="datum/discipline_power/vtr.html">vtr</a></aside> <a href="https://github.com/RequiemSS13/RequiemSS13/blob/bae45a43a6de33d9c0214c655442a45f46828c7a/code/modules/vtr13/disciplines/animalism/animalism.dm#L27"><img src="git.png" width="16" height="16" title="code/modules/vtr13/disciplines/animalism/animalism.dm 27"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Procs</h2></td></tr><tr><th><a href="datum/discipline_power/vtr.html#proc/dominate_tgui_input_text">dominate_tgui_input_text</a></th><td>Creates a TGUI window with a text input. But with a DISCLAIMER FOR DOMINATE. Returns the user's response.</td></tr></table><h2 id="proc">Proc Details</h2><h3 id="proc/dominate_tgui_input_text"><aside class="declaration">proc </aside>dominate_tgui_input_text<aside>(/<a href="mob.html">mob</a>/user, guidelines, message, title, default, max_length, multiline, encode, word_count)  <a href="https://github.com/RequiemSS13/RequiemSS13/blob/bae45a43a6de33d9c0214c655442a45f46828c7a/code/modules/vtr13/disciplines/dominate/tgui/dominate_tgui_input_text.dm#L18"><img src="git.png" width="16" height="16" title="code/modules/vtr13/disciplines/dominate/tgui/dominate_tgui_input_text.dm 18"></a></aside></h3><p>Creates a TGUI window with a text input. But with a DISCLAIMER FOR DOMINATE. Returns the user's response.</p>
+<p>This proc should be used to create windows for text entry that the caller will wait for a response from.
+If tgui fancy chat is turned off: Will return a normal input. If max_length is specified, will return
+stripped_multiline_input.</p>
+<p>Arguments:</p>
+<ul>
+<li>user - The user to show the text input to.</li>
+<li>guidelines - The guidelines for the text input, shown in the body of the TGUI window.</li>
+<li>message - The content of the text input, shown in the body of the TGUI window.</li>
+<li>title - The title of the text input modal, shown on the top of the TGUI window.</li>
+<li>default - The default (or current) value, shown as a placeholder.</li>
+<li>max_length - Specifies a max length for input. MAX_MESSAGE_LEN is default (1024)</li>
+<li>multiline -  Bool that determines if the input box is much larger. Good for large messages, laws, etc.</li>
+<li>encode - Toggling this determines if input is filtered via html_encode. Setting this to FALSE gives raw input.</li>
+</ul></main><footer>tgstation.dme <a href="https://github.com/RequiemSS13/RequiemSS13/tree/bae45a43a6de33d9c0214c655442a45f46828c7a">bae45a4</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.9.0</a></footer></body></html>
