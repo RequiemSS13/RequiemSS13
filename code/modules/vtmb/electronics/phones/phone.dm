@@ -57,6 +57,10 @@
 	var/closed_state = "phone1"
 	var/folded_state = "phone0"
 
+	//sound loops for calling
+	var/datum/looping_sound/phone_ring/ringloop
+	var/datum/looping_sound/phone_call/callloop
+
 /obj/item/vamp/phone/Initialize()
 	. = ..()
 	RegisterSignal(src, COMSIG_MOVABLE_HEAR, PROC_REF(handle_hearing))
@@ -71,6 +75,8 @@
 			var/mob/living/carbon/human/H = loc
 			if(H.Myself)
 				H.Myself.phone_number = number
+	callloop = new(list(src), FALSE)
+	ringloop = new(list(src), FALSE)
 
 /obj/item/vamp/phone/Destroy()
 	GLOB.phone_numbers_list -= number
@@ -190,6 +196,8 @@
 				talking = TRUE
 				online.online = src
 				online.talking = TRUE
+				callloop.stop()
+				online.ringloop.stop()
 
 				var/datum/phonehistory/NEWH_caller = new()
 				var/datum/phonehistory/NEWH_being_called = new()
@@ -406,7 +414,7 @@
 						if(CNT_REMOVE)
 							removing += CNT_REMOVE.name
 					if(length(removing) >= 1)
-						result = tgui_input_list(usr, "Select a contact", "Contact Selection", sortNames(removing))
+						result = tgui_input_list(usr, "Select a contact", "Contact Selection", sortList(removing))
 						if(result)
 							for(var/datum/phonecontact/CNT_REMOVE in contacts)
 								if(CNT_REMOVE.name == result)
@@ -417,7 +425,7 @@
 						if(CNTCT)
 							personal_contacts += CNTCT.name
 					if(length(personal_contacts) >= 1)
-						result = tgui_input_list(usr, "Select a contact", "Contact Selection", sortNames(personal_contacts))
+						result = tgui_input_list(usr, "Select a contact", "Contact Selection", sortList(personal_contacts))
 						if(result)
 							for(var/datum/phonecontact/CNTCT in contacts)
 								if(CNTCT.name == result)
@@ -445,7 +453,7 @@
 						if(CNT_UNBLOCK)
 							unblocking += CNT_UNBLOCK.name
 					if(length(unblocking) >= 1)
-						result = tgui_input_list(usr, "Select a blocked number", "Blocked Selection", sortNames(unblocking))
+						result = tgui_input_list(usr, "Select a blocked number", "Blocked Selection", sortList(unblocking))
 						if(result)
 							for(var/datum/phonecontact/CNT_UNBLOCK in blocked_contacts)
 								if(CNT_UNBLOCK.name == result)
@@ -583,9 +591,9 @@
 	if(!talking && online)
 		if(online.silence == FALSE)
 			online.audible_message("<span class='notice'>Someone's phone is ringing!</span>")
-			playsound(src, 'code/modules/wod13/sounds/phone.ogg', 10, FALSE)
-			playsound(online, online.call_sound, 25, FALSE)
-		addtimer(CALLBACK(src, PROC_REF(Recall), online, usar), 20)
+			callloop.start()
+			online.ringloop.start()
+		addtimer(CALLBACK(src, PROC_REF(Recall), online, usar), 120)
 //	usar << browse(null, "window=phone")
 //	OpenMenu(usar)
 /*
