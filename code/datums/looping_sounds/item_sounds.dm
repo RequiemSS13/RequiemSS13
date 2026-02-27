@@ -59,12 +59,10 @@
 
 /datum/looping_sound/phone_ring
 	mid_sounds = list('code/modules/wod13/sounds/call.ogg' = 1)
-	volume = 20
+	volume = 80
 	mid_length = 30
-	max_loops = 4
 
 /datum/looping_sound/phone_call
 	mid_sounds = list('code/modules/wod13/sounds/phone.ogg' = 1)
-	volume = 10
+	volume = 50
 	mid_length = 20
-	max_loops = 6

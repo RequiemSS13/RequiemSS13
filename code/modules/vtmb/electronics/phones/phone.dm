@@ -44,7 +44,7 @@
 	var/talking = FALSE
 	var/choosed_number = ""
 	var/last_call = 0
-	var/call_sound = 'code/modules/wod13/sounds/call.ogg'
+//	var/call_sound = 'code/modules/wod13/sounds/call.ogg'
 	var/can_fold = 1
 	var/interface = "Telephone"
 	var/silence = FALSE
@@ -186,6 +186,8 @@
 				if(online)
 					online.talking = FALSE
 			if(online)
+				callloop.stop()
+				online.ringloop.stop()
 				if(!silence)
 					playsound(online, 'code/modules/wod13/sounds/phonestop.ogg', 25, FALSE)
 				online.online = null
@@ -196,8 +198,8 @@
 				talking = TRUE
 				online.online = src
 				online.talking = TRUE
-				callloop.stop()
-				online.ringloop.stop()
+				ringloop.stop()
+				online.callloop.stop()
 
 				var/datum/phonehistory/NEWH_caller = new()
 				var/datum/phonehistory/NEWH_being_called = new()
@@ -230,6 +232,8 @@
 			talking = FALSE
 			if(online)
 
+				ringloop.stop()
+				online.callloop.stop()
 				if(!silence)
 					playsound(online, 'code/modules/wod13/sounds/phonestop.ogg', 25, FALSE)
 				online.talking = FALSE
@@ -326,7 +330,7 @@
 							to_chat(usr, "<span class='notice'>Abonent is busy.</span>")
 			if(!online && !blocked)
 			// If the phone is not flipped or the phone user has left the city and they are not blocked.
-				if(choosed_number == "#111")
+				/*if(choosed_number == "#111")
 					call_sound = 'code/modules/wod13/sounds/call.ogg'
 					to_chat(usr, "<span class='notice'>Settings are now reset to default.</span>")
 				else if(choosed_number == "#228")
@@ -341,7 +345,8 @@
 						H.emote("moan")
 					to_chat(usr, "<span class='notice'>Code activated.</span>")
 				else
-					to_chat(usr, "<span class='notice'>Invalid number.</span>")
+					to_chat(usr, "<span class='notice'>Invalid number.</span>")*/
+				to_chat(usr, "<span class='notice'>Invalid number.</span>")
 			.= TRUE
 		if("contacts")
 			var/list/options = list("Add","Remove","Choose","Block", "Unblock", "My Number", "Publish Number", "Published Numbers", "Call History", "Delete Call History")
@@ -584,14 +589,16 @@
 	if(last_call+100 <= world.time && !talking)
 		last_call = 0
 		if(online)
+			callloop.stop()
 			if(online.silence == FALSE)
+				online.ringloop.stop()
 				playsound(src, 'code/modules/wod13/sounds/phonestop.ogg', 25, FALSE)
 			online.online = null
 			online = null
 	if(!talking && online)
+		callloop.start()
 		if(online.silence == FALSE)
 			online.audible_message("<span class='notice'>Someone's phone is ringing!</span>")
-			callloop.start()
 			online.ringloop.start()
 		addtimer(CALLBACK(src, PROC_REF(Recall), online, usar), 120)
 //	usar << browse(null, "window=phone")
