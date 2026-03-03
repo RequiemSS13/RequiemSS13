@@ -207,6 +207,20 @@
 	. = ..()
 	update_icon()
 
+/obj/structure/bookcase/full
+	icon_state = "book-5"
+
+/obj/structure/bookcase/full/Initialize(mapload)
+	. = ..()
+	update_icon()
+
+/obj/structure/bookcase/full/update_icon_state()
+	if(state == BOOKCASE_UNANCHORED || state == BOOKCASE_ANCHORED)
+		icon_state = "bookempty"
+		return ..()
+	icon_state = "book-5"
+	return
+
 #undef BOOKCASE_UNANCHORED
 #undef BOOKCASE_ANCHORED
 #undef BOOKCASE_FINISHED
